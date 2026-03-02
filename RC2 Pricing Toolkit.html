@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 Consulting — Client Pricing Toolkit</title>
+<style>
+  :root {
+    --navy: #0a1628;
+    --blue: #1a3a6e;
+    --accent: #2563eb;
+    --gold: #f59e0b;
+    --light: #f0f4ff;
+    --white: #ffffff;
+    --green: #059669;
+    --red: #dc2626;
+    --gray: #6b7280;
+    --border: #e2e8f0;
+    --tab-h: 48px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+  body { background: #f1f5f9; color: #1e293b; min-height: 100vh; }
+  header { background: linear-gradient(135deg, var(--navy), var(--blue)); color: white; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+  header h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+  header span { font-size: .8rem; opacity: .75; }
+  .tab-bar { background: var(--navy); display: flex; overflow-x: auto; gap: 2px; padding: 0 12px; }
+  .tab-bar::-webkit-scrollbar { height: 3px; } .tab-bar::-webkit-scrollbar-thumb { background: var(--accent); }
+  .tab-btn { background: transparent; border: none; color: rgba(255,255,255,.65); padding: 0 18px; height: var(--tab-h); cursor: pointer; white-space: nowrap; font-size: .78rem; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; border-bottom: 3px solid transparent; transition: all .2s; }
+  .tab-btn:hover { color: white; }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); background: rgba(255,255,255,.06); }
+  .tab-content { display: none; padding: 28px 32px; max-width: 1200px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+  h2 { color: var(--navy); font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+  h3 { color: var(--blue); font-size: 1rem; font-weight: 600; margin: 18px 0 10px; }
+  .abstract { background: linear-gradient(135deg, #eff6ff, #dbeafe); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin-bottom: 22px; font-size: .88rem; line-height: 1.6; color: #1e3a5f; }
+  .card { background: white; border-radius: 12px; padding: 22px; box-shadow: 0 2px 8px rgba(0,0,0,.07); margin-bottom: 20px; border: 1px solid var(--border); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  @media(max-width:768px){ .grid-2,.grid-3 { grid-template-columns:1fr; } }
+  label { display: block; font-size: .78rem; font-weight: 600; color: var(--gray); margin-bottom: 5px; text-transform: uppercase; letter-spacing: .4px; }
+  input, select, textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 8px; padding: 9px 12px; font-size: .9rem; color: #1e293b; transition: border .2s; background: #fafbff; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); background: white; }
+  input[readonly] { background: #f8faff; color: var(--blue); font-weight: 700; cursor: default; }
+  .btn { background: linear-gradient(135deg, var(--accent), var(--blue)); color: white; border: none; border-radius: 8px; padding: 11px 24px; font-size: .88rem; font-weight: 700; cursor: pointer; transition: opacity .2s; letter-spacing: .5px; }
+  .btn:hover { opacity: .88; }
+  .btn-gold { background: linear-gradient(135deg, var(--gold), #d97706); }
+  .btn-green { background: linear-gradient(135deg, var(--green), #065f46); }
+  .btn-sm { padding: 7px 16px; font-size: .8rem; }
+  .result-box { background: linear-gradient(135deg, var(--navy), var(--blue)); color: white; border-radius: 10px; padding: 18px 22px; text-align: center; }
+  .result-box .label { font-size: .75rem; opacity: .7; text-transform: uppercase; letter-spacing: 1px; }
+  .result-box .value { font-size: 2rem; font-weight: 800; color: var(--gold); margin: 4px 0; }
+  .result-box .sub { font-size: .78rem; opacity: .7; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+  .badge-blue { background: #dbeafe; color: #1d4ed8; }
+  .badge-gold { background: #fef3c7; color: #92400e; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th { background: var(--navy); color: white; padding: 10px 14px; text-align: left; font-size: .75rem; text-transform: uppercase; letter-spacing: .5px; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8faff; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+  .note { font-size: .78rem; color: var(--gray); line-height: 1.5; margin-top: 8px; }
+  .step { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+  .step-num { background: var(--accent); color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .8rem; flex-shrink: 0; margin-top: 2px; }
+  .step-body { flex: 1; }
+  .step-body strong { display: block; font-size: .9rem; margin-bottom: 3px; color: var(--navy); }
+  .step-body p { font-size: .83rem; color: #475569; line-height: 1.5; }
+  .highlight-row td { background: #eff6ff !important; font-weight: 600; }
+  .summary-line { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: .88rem; }
+  .summary-line .slabel { color: var(--gray); }
+  .summary-line .svalue { font-weight: 700; color: var(--navy); }
+  .total-line { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 1.1rem; font-weight: 800; color: var(--navy); border-top: 2px solid var(--navy); margin-top: 6px; }
+  .print-btn { position: fixed; bottom: 24px; right: 24px; z-index: 999; }
+  @media print { .tab-bar, .print-btn, header { display: none !important; } .tab-content { display: block !important; } }
+</style>
+</head>
+<body>
+<div id="password-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0a1628,#1a3a6e);display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;gap:20px;"><div style="text-align:center;color:white;margin-bottom:10px;"><div style="font-size:2.5rem;margin-bottom:8px;">⚡</div><h1 style="font-size:1.4rem;font-weight:800;letter-spacing:2px;margin-bottom:4px;">RC2 CONSULTING</h1><p style="font-size:.85rem;opacity:.65;letter-spacing:1px;">INTERNAL PRICING TOOLKIT — AUTHORIZED ACCESS ONLY</p></div><div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:32px 40px;width:340px;text-align:center;"><label style="display:block;font-size:.75rem;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Enter Access Password</label><input id="pwd-input" type="password" placeholder="••••••••••••" style="width:100%;padding:12px 16px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:white;font-size:1rem;text-align:center;outline:none;margin-bottom:16px;" onkeydown="if(event.key==='Enter')checkPassword()"><button onclick="checkPassword()" style="width:100%;padding:12px;background:linear-gradient(135deg,#2563eb,#1a3a6e);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;letter-spacing:1px;">UNLOCK TOOLKIT</button><p id="pwd-error" style="color:#f87171;font-size:.78rem;margin-top:12px;display:none;">❌ Incorrect password. Please try again.</p></div><p style="color:rgba(255,255,255,.3);font-size:.7rem;margin-top:10px;">rc2consulting.github.io</p></div><script>function checkPassword(){var input=document.getElementById('pwd-input').value;if(input==="RC2Secure2025"){document.getElementById('password-gate').style.display='none';}else{document.getElementById('pwd-error').style.display='block';document.getElementById('pwd-input').value='';document.getElementById('pwd-input').focus();}}<\/script>
+
+
+<header>
+  <div>
+    <h1>⚡ RC2 CONSULTING — CLIENT PRICING TOOLKIT</h1>
+    <span>Plug & Play Pricing Engine | Version 1.0 | Confidential</span>
+  </div>
+  <div style="text-align:right; font-size:.75rem; opacity:.7;">
+    Operations &amp; Compliance Specialists<br>rc2consulting.github.io
+  </div>
+</header>
+
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('guide',this)">📚 Pricing Guide</button>
+  <button class="tab-btn" onclick="showTab('hourly',this)">⏱ Hourly Calc</button>
+  <button class="tab-btn" onclick="showTab('project',this)">📋 Project Calc</button>
+  <button class="tab-btn" onclick="showTab('margin',this)">💹 Profit Margin</button>
+  <button class="tab-btn" onclick="showTab('retainer',this)">🔄 Retainer Builder</button>
+  <button class="tab-btn" onclick="showTab('wrap',this)">🏭 WRAP/PASA/CAP</button>
+  <button class="tab-btn" onclick="showTab('gov',this)">🏛 Gov/FAR/DCAA</button>
+  <button class="tab-btn" onclick="showTab('compliance',this)">✅ Compliance Review</button>
+  <button class="tab-btn" onclick="showTab('ops',this)">⚙️ Ops Optimization</button>
+  <button class="tab-btn" onclick="showTab('sales',this)">📈 Sales & Growth</button>
+  <button class="tab-btn" onclick="showTab('fractional',this)">👔 Fractional DOO</button>
+  <button class="tab-btn" onclick="showTab('audit',this)">🔍 Corporate Audit</button>
+  <button class="tab-btn" onclick="showTab('compare',this)">📊 Model Compare</button>
+</div>
+
+
+<!-- ===== GUIDE ===== -->
+<div id="tab-guide" class="tab-content active">
+  <h2>📚 RC2 Consulting — Master Pricing Guide</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> This guide explains how RC2 Consulting determines, structures, and defends pricing across three models — hourly, fixed-fee, and retainer. Pricing is grounded in your cost base, market benchmarks, expertise value, and client ROI. Use this as your master reference before quoting any client.</div>
+  <div class="card">
+    <h3>🔑 The 3 Pricing Models — When to Use Each</h3>
+    <table>
+      <tr><th>Model</th><th>Best For</th><th>Pros</th><th>Cons</th><th>RC2 Typical Range</th></tr>
+      <tr><td><strong>Hourly Rate</strong></td><td>Unclear scope, advisory calls, short tasks, government T&M</td><td>Flexible; client sees transparency</td><td>Caps earning potential; clients watch hours</td><td><strong>$175–$350/hr</strong></td></tr>
+      <tr><td><strong>Fixed Fee (Task)</strong></td><td>Defined deliverable: SOP, gap analysis, single document</td><td>Predictable for client; you earn more if efficient</td><td>Scope creep risk; define scope tightly</td><td><strong>$800–$8,500/task</strong></td></tr>
+      <tr><td><strong>Fixed Fee (Project)</strong></td><td>Full WRAP prep, government compliance package, system builds</td><td>Highest total value; premium positioning</td><td>Risk if scope expands; needs detailed SOW</td><td><strong>$5,000–$85,000+</strong></td></tr>
+      <tr><td><strong>Retainer</strong></td><td>Ongoing advisory, fractional DOO, sustained compliance</td><td>Recurring revenue; deep client relationship</td><td>Must deliver consistent monthly value</td><td><strong>$2,500–$18,000/mo</strong></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>📐 Step-by-Step: How to Calculate Your Rate</h3>
+    <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Calculate Your Cost Floor (Annual Overhead ÷ Billable Hours)</strong><p>Add: salary/draw + insurance (E&O, GL) + software + marketing + office + admin. Divide by realistic billable hours (800–1,200/yr for solo consultant). This is your MINIMUM breakeven rate. Never price below this.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Benchmark the Market</strong><p>Operations/compliance consultants 10+ yrs: $150–$350/hr. WRAP/government specialists: $200–$450/hr. Fractional COO/DOO: $8,000–$20,000/month. Sources: BLS, Consulting.com, SCORE.org, IBISWorld 2024.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Apply the Value Multiplier</strong><p>Your expertise saves clients $50K–$500K+ in audit failures, fines, and lost contracts. Price at 10–20% of the value you create. A client at risk of losing a $500K government contract should pay $25K–$50K for compliance prep — that is a 10:1 ROI minimum.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Add Your Profit Margin</strong><p>Target 35–55% gross margin on all services. Use the Profit Margin tab to auto-calculate this on every quote. Never quote without checking your margin first.</p></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Choose the Right Model for the Client</strong><p>Government/large manufacturers: Fixed project fee + milestone payments. SMBs new to compliance: Retainer or task-based to reduce sticker shock. Short discovery: Hourly or flat discovery fee ($500–$2,000).</p></div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-body"><strong>Protect Yourself: Scope Definition</strong><p>Every fixed-fee quote MUST include a written SOW with deliverables, 2-revision limit, out-of-scope items, and a change order clause at your hourly rate. Never start without a signed agreement and 30–50% deposit.</p></div></div>
+    <div class="step"><div class="step-num">7</div><div class="step-body"><strong>Communicate Value, Not Hours</strong><p>Never justify your price by hours worked. Justify by: risks avoided, certifications gained, contracts won, audits passed. Say "This protects your $2M WRAP contract" — not "This is 40 hours at $200."</p></div></div>
+  </div>
+  <div class="card">
+    <h3>📊 RC2 Market Benchmark Rates (2024–2025)</h3>
+    <table>
+      <tr><th>Service Category</th><th>Junior (5–10 yrs)</th><th>Mid (10–20 yrs)</th><th>Senior/Expert (20+ yrs)</th><th>RC2 Position</th></tr>
+      <tr><td>Operations Consulting (hourly)</td><td>$100–$150</td><td>$150–$250</td><td>$250–$400</td><td class="highlight-row"><strong>$195–$295/hr</strong></td></tr>
+      <tr><td>Compliance Consulting (hourly)</td><td>$125–$175</td><td>$175–$300</td><td>$300–$450</td><td class="highlight-row"><strong>$225–$325/hr</strong></td></tr>
+      <tr><td>WRAP Audit Prep (project)</td><td>$3,000–$6,000</td><td>$6,000–$18,000</td><td>$18,000–$45,000</td><td class="highlight-row"><strong>$8,500–$25,000</strong></td></tr>
+      <tr><td>Government Contract Compliance</td><td>$5,000–$10,000</td><td>$10,000–$35,000</td><td>$35,000–$85,000</td><td class="highlight-row"><strong>$12,500–$55,000</strong></td></tr>
+      <tr><td>Fractional Director of Operations</td><td>$4,000–$6,000/mo</td><td>$6,000–$12,000/mo</td><td>$12,000–$25,000/mo</td><td class="highlight-row"><strong>$5,500–$15,000/mo</strong></td></tr>
+      <tr><td>SOP Development (per SOP)</td><td>$500–$1,000</td><td>$1,000–$2,500</td><td>$2,500–$5,000</td><td class="highlight-row"><strong>$1,200–$3,500</strong></td></tr>
+      <tr><td>Training Program Development</td><td>$2,000–$5,000</td><td>$5,000–$15,000</td><td>$15,000–$40,000</td><td class="highlight-row"><strong>$4,500–$18,000</strong></td></tr>
+    </table>
+    <p class="note">Sources: IBISWorld Management Consulting Industry 2024 | Bureau of Labor Statistics OOH Management Analysts | Consulting.com 2024 Rate Report | APQC Benchmarking | SCORE.org Market Data 2024</p>
+  </div>
+  <div class="card">
+    <h3>🌐 Triple-Horizon Pricing Strategy</h3>
+    <div class="grid-3">
+      <div style="border-left:4px solid var(--accent);padding-left:14px;">
+        <strong style="color:var(--navy);">Horizon 1 — 0 to 12 Months</strong><br><span class="badge badge-blue">Launch Phase</span>
+        <p class="note" style="margin-top:8px;">Start at 65–75% of target rates to win first 5–8 clients and build case studies. Accept hourly for early engagements. Rate: $175–$225/hr. Goal: $10K–$20K/month. Offer a Founding Client Rate with testimonial agreement.</p>
+      </div>
+      <div style="border-left:4px solid var(--gold);padding-left:14px;">
+        <strong style="color:var(--navy);">Horizon 2 — 1 to 3 Years</strong><br><span class="badge badge-gold">Growth Phase</span>
+        <p class="note" style="margin-top:8px;">Raise to full market rates. Shift to 60% retainer/project, 40% hourly. Hire junior associate to leverage. Rate: $225–$295/hr. Target: $30K–$70K/month. Specialize in 2–3 high-margin niches: WRAP + Gov + Fractional.</p>
+      </div>
+      <div style="border-left:4px solid var(--green);padding-left:14px;">
+        <strong style="color:var(--navy);">Horizon 3 — 3 to 10 Years</strong><br><span class="badge badge-green">Scale Phase</span>
+        <p class="note" style="margin-top:8px;">Position as premium boutique firm. Rate: $300–$450/hr for principal. Productize: courses, toolkits, compliance subscriptions. Target $100K–$300K/month. Raise rates 8–12% annually once established.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>⚖️ Verifiable Sources & References</h3>
+    <table>
+      <tr><th>Source</th><th>What It Supports</th><th>URL / Access</th></tr>
+      <tr><td>Bureau of Labor Statistics — Management Consultants</td><td>Median hourly/salary benchmarks</td><td>bls.gov/ooh/business-and-financial/management-analysts.htm</td></tr>
+      <tr><td>IBISWorld — Management Consulting Industry 2024</td><td>Industry revenue, margins, rate trends</td><td>ibisworld.com</td></tr>
+      <tr><td>Consulting.com — 2024 Consultant Rate Report</td><td>Independent consultant rates by specialty</td><td>consulting.com</td></tr>
+      <tr><td>APQC Open Standards Benchmarking</td><td>Process and compliance consulting cost benchmarks</td><td>apqc.org</td></tr>
+      <tr><td>SCORE.org — Pricing Your Services</td><td>Small business consulting pricing methodology</td><td>score.org</td></tr>
+      <tr><td>FAR 31.205 — Allowable Costs</td><td>Government billing rates, overhead, G&A</td><td>acquisition.gov/far/part-31</td></tr>
+      <tr><td>DCAA Contract Audit Manual (CAM)</td><td>Government contract billing compliance</td><td>dcaa.mil/pubs/cam</td></tr>
+      <tr><td>WRAP Global Certification Program</td><td>WRAP certification value and factory impact</td><td>wrap.org</td></tr>
+    </table>
+  </div>
+</div>
+
+
+<!-- ===== HOURLY ===== -->
+<div id="tab-hourly" class="tab-content">
+  <h2>⏱ Hourly Rate Calculator</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Enter your annual costs and targets to calculate your minimum, market, and recommended hourly rate. This ensures every hour billed covers overhead, profit, and positions RC2 competitively.</div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📥 Your Annual Cost Inputs</h3>
+      <label>Annual Salary / Owner Draw Target ($)</label>
+      <input type="number" id="h_salary" value="120000" oninput="calcHourly()">
+      <label style="margin-top:12px;">E&O + General Liability Insurance ($/yr)</label>
+      <input type="number" id="h_insurance" value="4800" oninput="calcHourly()">
+      <label style="margin-top:12px;">Software & Tools ($/yr)</label>
+      <input type="number" id="h_software" value="3600" oninput="calcHourly()">
+      <label style="margin-top:12px;">Marketing & Advertising ($/yr)</label>
+      <input type="number" id="h_marketing" value="6000" oninput="calcHourly()">
+      <label style="margin-top:12px;">Office / Coworking / Travel ($/yr)</label>
+      <input type="number" id="h_office" value="4800" oninput="calcHourly()">
+      <label style="margin-top:12px;">Admin, Legal, Accounting ($/yr)</label>
+      <input type="number" id="h_admin" value="5000" oninput="calcHourly()">
+      <label style="margin-top:12px;">Other Overhead ($/yr)</label>
+      <input type="number" id="h_other" value="2400" oninput="calcHourly()">
+      <hr class="divider">
+      <label>Realistic Billable Hours per Year</label>
+      <input type="number" id="h_hours" value="1000" oninput="calcHourly()">
+      <p class="note">💡 Solo consultants average 800–1,200 billable hours/year (50–65% utilization of 2,080 work hours)</p>
+      <label style="margin-top:12px;">Target Profit Margin (%)</label>
+      <input type="number" id="h_margin" value="40" oninput="calcHourly()">
+    </div>
+    <div>
+      <div class="card">
+        <h3>📊 Calculated Results</h3>
+        <div class="summary-line"><span class="slabel">Total Annual Overhead</span><span class="svalue" id="h_overhead">—</span></div>
+        <div class="summary-line"><span class="slabel">Breakeven Rate (Cost ÷ Hours)</span><span class="svalue" id="h_breakeven">—</span></div>
+        <div class="summary-line"><span class="slabel">Rate With Profit Margin Applied</span><span class="svalue" id="h_with_margin">—</span></div>
+        <div class="summary-line"><span class="slabel">Market Low (Operations)</span><span class="svalue">$150/hr</span></div>
+        <div class="summary-line"><span class="slabel">Market Mid (Compliance)</span><span class="svalue">$225/hr</span></div>
+        <div class="summary-line"><span class="slabel">Market High (WRAP/Gov Expert)</span><span class="svalue">$350/hr</span></div>
+        <div class="total-line"><span>✅ RC2 RECOMMENDED RATE</span><span id="h_recommended" style="color:var(--accent);">—</span></div>
+        <p class="note" id="h_note"></p>
+      </div>
+      <div class="card" style="margin-top:0;">
+        <h3>📦 Rate Tiers (Auto-Calculated)</h3>
+        <table>
+          <tr><th>Tier</th><th>Rate</th><th>Use For</th></tr>
+          <tr><td>Discovery / Advisory Call</td><td id="h_t1">—</td><td>Initial consult, 1–2 hrs</td></tr>
+          <tr><td>Standard Consulting</td><td id="h_t2">—</td><td>Ongoing hourly work</td></tr>
+          <tr><td>Premium / Expert (WRAP/Gov)</td><td id="h_t3">—</td><td>High-stakes specialized work</td></tr>
+          <tr><td>Rush / After-Hours</td><td id="h_t4">—</td><td>Expedited delivery</td></tr>
+          <tr><td>Training Delivery</td><td id="h_t5">—</td><td>Live workshops</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>🧾 Hourly Engagement Quote Builder</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client Name</label><input type="text" id="h_client" placeholder="Client LLC">
+        <label style="margin-top:10px;">Service Description</label><input type="text" id="h_service" placeholder="WRAP Audit Advisory">
+      </div>
+      <div>
+        <label>Estimated Hours</label><input type="number" id="h_est_hrs" value="20" oninput="calcHourlyQuote()">
+        <label style="margin-top:10px;">Hourly Rate to Use ($)</label><input type="number" id="h_use_rate" value="225" oninput="calcHourlyQuote()">
+      </div>
+      <div>
+        <label>Deposit Required</label>
+        <select id="h_deposit" onchange="calcHourlyQuote()">
+          <option value="30">30%</option><option value="50" selected>50%</option><option value="100">100% Pre-paid</option>
+        </select>
+        <label style="margin-top:10px;">Travel / Expense Allowance ($)</label><input type="number" id="h_expense" value="0" oninput="calcHourlyQuote()">
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:16px;">
+      <div class="result-box"><div class="label">Estimated Total</div><div class="value" id="hq_total">—</div><div class="sub">Before expenses</div></div>
+      <div class="result-box"><div class="label">Deposit Due at Signing</div><div class="value" id="hq_deposit">—</div><div class="sub">Required to begin work</div></div>
+      <div class="result-box"><div class="label">Total With Expenses</div><div class="value" id="hq_grand">—</div><div class="sub">Invoice amount</div></div>
+    </div>
+    <p class="note" style="margin-top:12px;">⚠️ Hourly engagements require a signed Time & Materials Agreement. Define a not-to-exceed cap to protect the client relationship. Actual hours billed may vary. Unused pre-paid hours are non-refundable unless specified in the agreement.</p>
+  </div>
+</div>
+
+
+<!-- ===== PROJECT ===== -->
+<div id="tab-project" class="tab-content">
+  <h2>📋 Fixed-Fee Project Calculator</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Build a precise project quote by itemizing tasks, time estimates, and costs. This ensures every project covers costs, delivers your target margin, and remains competitive. Always attach a signed Scope of Work before starting.</div>
+  <div class="card">
+    <h3>📥 Project Settings</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client Name</label><input type="text" id="p_client" placeholder="ABC Manufacturing Co.">
+        <label style="margin-top:10px;">Project Title</label><input type="text" id="p_title" placeholder="WRAP Audit Full Preparation">
+      </div>
+      <div>
+        <label>Your Consulting Rate ($/hr)</label><input type="number" id="p_rate" value="225" oninput="calcProject()">
+        <label style="margin-top:10px;">Jr Associate Rate ($/hr)</label><input type="number" id="p_jr_rate" value="85" oninput="calcProject()">
+      </div>
+      <div>
+        <label>Target Profit Margin (%)</label><input type="number" id="p_margin" value="40" oninput="calcProject()">
+        <label style="margin-top:10px;">Project Duration (weeks)</label><input type="number" id="p_weeks" value="8" oninput="calcProject()">
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>📋 Task Builder</h3>
+    <table id="p_table">
+      <tr><th>Task / Deliverable</th><th>Your Hours</th><th>Jr Hours</th><th>Direct Cost ($)</th><th>Subtotal</th><th></th></tr>
+    </table>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-sm" onclick="addProjectRow()">+ Add Task Row</button>
+      <button class="btn btn-sm btn-gold" onclick="calcProject()">🔄 Recalculate</button>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>💰 Project Cost Summary</h3>
+      <div class="summary-line"><span class="slabel">Your Labor (hrs × rate)</span><span class="svalue" id="p_labor">—</span></div>
+      <div class="summary-line"><span class="slabel">Jr Associate Labor</span><span class="svalue" id="p_jr_labor">—</span></div>
+      <div class="summary-line"><span class="slabel">Direct Project Costs</span><span class="svalue" id="p_direct">—</span></div>
+      <div class="summary-line"><span class="slabel">Total Project Cost</span><span class="svalue" id="p_total_cost">—</span></div>
+      <div class="summary-line"><span class="slabel">Profit Margin Amount</span><span class="svalue" id="p_profit_amt">—</span></div>
+      <div class="total-line"><span>✅ FIXED PROJECT FEE</span><span id="p_fixed_fee" style="color:var(--accent);font-size:1.3rem;">—</span></div>
+      <div class="summary-line" style="margin-top:10px;"><span class="slabel">50% Deposit Due at Signing</span><span class="svalue" id="p_deposit">—</span></div>
+      <div class="summary-line"><span class="slabel">Balance Due at Completion</span><span class="svalue" id="p_balance">—</span></div>
+    </div>
+    <div class="card">
+      <h3>⚡ Scope Protection Rules</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Define Every Deliverable</strong><p>List exactly what is included. Ambiguity equals scope creep equals lost profit.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>State What Is NOT Included</strong><p>Explicitly exclude tasks not in scope. Example: "Travel expenses billed separately at cost."</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Limit Revisions to 2 Rounds</strong><p>Additional revisions billed at your standard hourly rate per the change order clause.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Change Order Clause Required</strong><p>Any scope change requires a written change order signed before additional work begins.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Milestone Payment Structure</strong><p>50% at signing, 25% at midpoint delivery, 25% at final delivery. Never deliver final product before final payment.</p></div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== MARGIN ===== -->
+<div id="tab-margin" class="tab-content">
+  <h2>💹 Profit Margin Calculator</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Run every quote through this margin checker before sending it. Target 35–55% gross margin. Below 30% means you are leaving money on the table or not covering true overhead. This is non-negotiable.</div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📥 Margin Checker</h3>
+      <label>Your Total Cost for This Engagement ($)</label>
+      <input type="number" id="m_cost" value="5000" oninput="calcMargin()">
+      <p class="note">Include: your time (hrs × your internal cost rate), any associates, software, travel, direct expenses</p>
+      <label style="margin-top:14px;">Price You Are Charging the Client ($)</label>
+      <input type="number" id="m_price" value="8500" oninput="calcMargin()">
+      <hr class="divider">
+      <h3>🎯 Target Price Calculator</h3>
+      <label>Your Total Cost ($)</label>
+      <input type="number" id="m_target_cost" value="5000" oninput="calcTargetPrice()">
+      <label style="margin-top:10px;">Desired Profit Margin (%)</label>
+      <input type="number" id="m_target_pct" value="45" oninput="calcTargetPrice()">
+      <label style="margin-top:10px;">Price to Charge Client (Auto-Calculated)</label>
+      <input type="text" id="m_target_price" readonly>
+    </div>
+    <div>
+      <div class="result-box" style="margin-bottom:16px;border-radius:12px;">
+        <div class="label">Gross Profit</div>
+        <div class="value" id="m_profit">—</div>
+        <div class="sub" id="m_margin_pct">—</div>
+      </div>
+      <div class="card">
+        <h3>📊 Margin Health Guide</h3>
+        <table>
+          <tr><th>Gross Margin %</th><th>Status</th><th>Action Required</th></tr>
+          <tr><td>Below 20%</td><td><span class="badge badge-red">🔴 DANGER</span></td><td>Raise price or cut costs immediately</td></tr>
+          <tr><td>20–29%</td><td><span class="badge badge-red">🟠 LOW</span></td><td>Review overhead; negotiate rate increase</td></tr>
+          <tr><td>30–39%</td><td><span class="badge badge-gold">🟡 ACCEPTABLE</span></td><td>Viable but push to improve</td></tr>
+          <tr><td>40–54%</td><td><span class="badge badge-green">🟢 TARGET ZONE</span></td><td>Ideal for RC2 — sustain this</td></tr>
+          <tr><td>55% and above</td><td><span class="badge badge-green">⭐ PREMIUM</span></td><td>Excellent — you have earned it</td></tr>
+        </table>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h3>📐 Markup vs Margin Reference</h3>
+        <table>
+          <tr><th>Markup %</th><th>= Margin %</th><th>Price on $5,000 Cost</th></tr>
+          <tr><td>25%</td><td>20%</td><td>$6,250</td></tr>
+          <tr><td>43%</td><td>30%</td><td>$7,143</td></tr>
+          <tr><td>67%</td><td>40%</td><td>$8,333</td></tr>
+          <tr><td>82%</td><td>45%</td><td>$9,091</td></tr>
+          <tr><td>100%</td><td>50%</td><td>$10,000</td></tr>
+          <tr><td>122%</td><td>55%</td><td>$11,111</td></tr>
+        </table>
+        <p class="note" style="margin-top:8px;">⚠️ Markup % does NOT equal Margin %. Margin = Profit ÷ Revenue. Markup = Profit ÷ Cost. Never confuse these when building a quote.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== RETAINER ===== -->
+<div id="tab-retainer" class="tab-content">
+  <h2>🔄 Retainer Pricing Auto-Builder</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Retainers are RC2's most powerful revenue model — predictable income, deep client relationships, and maximum leverage. This builder auto-calculates the right retainer price for any client engagement based on hours, rate, and discount structure.</div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📥 Retainer Configuration</h3>
+      <label>Client Name</label><input type="text" id="r_client" placeholder="Client Manufacturing LLC">
+      <label style="margin-top:10px;">Retainer Type</label>
+      <select id="r_type" onchange="setRetainerType()">
+        <option value="advisory">Advisory / On-Call (5–10 hrs/mo)</option>
+        <option value="operational">Operational Support (15–25 hrs/mo)</option>
+        <option value="fractional">Fractional Director (30–60 hrs/mo)</option>
+        <option value="custom">Custom Hours</option>
+      </select>
+      <label style="margin-top:10px;">Monthly Hours Committed</label>
+      <input type="number" id="r_hours" value="15" oninput="calcRetainer()">
+      <label style="margin-top:10px;">Your Standard Hourly Rate ($)</label>
+      <input type="number" id="r_rate" value="225" oninput="calcRetainer()">
+      <label style="margin-top:10px;">Retainer Loyalty Discount (%)</label>
+      <input type="number" id="r_discount" value="10" oninput="calcRetainer()">
+      <p class="note">💡 Standard retainer discount: 8–15% off hourly rate for commitment. Reward loyalty, not desperation.</p>
+      <label style="margin-top:10px;">Unused Hours Policy</label>
+      <select id="r_rollover">
+        <option value="no">Use it or lose it — no rollover (recommended)</option>
+        <option value="1mo">Rollover up to 1 month</option>
+        <option value="capped">Capped rollover — 50% max</option>
+      </select>
+      <label style="margin-top:10px;">Overage Rate — above committed hours ($/hr)</label>
+      <input type="number" id="r_overage" value="295" oninput="calcRetainer()">
+      <label style="margin-top:10px;">Contract Length</label>
+      <select id="r_length" onchange="calcRetainer()">
+        <option value="3">3 Months</option>
+        <option value="6" selected>6 Months</option>
+        <option value="12">12 Months (best value)</option>
+      </select>
+      <button class="btn btn-gold" style="margin-top:16px;width:100%;" onclick="calcRetainer()">🔄 Build My Retainer Quote</button>
+    </div>
+    <div>
+      <div class="result-box" style="margin-bottom:16px;border-radius:12px;">
+        <div class="label">Monthly Retainer Fee</div>
+        <div class="value" id="ret_monthly">—</div>
+        <div class="sub" id="ret_sub">—</div>
+      </div>
+      <div class="card">
+        <div class="summary-line"><span class="slabel">Effective Hourly Rate (with discount)</span><span class="svalue" id="ret_eff_rate">—</span></div>
+        <div class="summary-line"><span class="slabel">Client Discount vs Full Hourly</span><span class="svalue" id="ret_savings">—</span></div>
+        <div class="summary-line"><span class="slabel">Standard Value (no discount)</span><span class="svalue" id="ret_value">—</span></div>
+        <div class="summary-line"><span class="slabel">Overage Rate if Hours Exceeded</span><span class="svalue" id="ret_over">—</span></div>
+        <div class="summary-line"><span class="slabel">Total Contract Value</span><span class="svalue" id="ret_total">—</span></div>
+        <div class="total-line"><span>Annual Run Rate Value</span><span id="ret_annual" style="color:var(--accent);">—</span></div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h3>📋 Retainer Tier Benchmarks</h3>
+        <table>
+          <tr><th>Tier</th><th>Hrs/Mo</th><th>Rate</th><th>Monthly Range</th></tr>
+          <tr><td><span class="badge badge-blue">Starter</span></td><td>5–8</td><td>$195–$225</td><td>$975–$1,800</td></tr>
+          <tr><td><span class="badge badge-gold">Professional</span></td><td>15–20</td><td>$200–$250</td><td>$3,000–$5,000</td></tr>
+          <tr><td><span class="badge badge-green">Strategic</span></td><td>25–40</td><td>$215–$275</td><td>$5,375–$11,000</td></tr>
+          <tr><td><span class="badge badge-red">Fractional</span></td><td>40–60</td><td>$200–$295</td><td>$8,000–$17,700</td></tr>
+        </table>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h3>🔑 Required Retainer Contract Terms</h3>
+        <p class="note" style="line-height:2;">
+          ✅ Payment due 1st of month (or net-5 from invoice date)<br>
+          ✅ Hours are non-refundable and non-rollover unless stated<br>
+          ✅ 30-day written termination notice required from either party<br>
+          ✅ Rate reviewed annually with built-in 5–8% escalation clause<br>
+          ✅ Overage hours require written approval before incurring<br>
+          ✅ Scope of services defined in attached SOW addendum
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== WRAP ===== -->
+<div id="tab-wrap" class="tab-content">
+  <h2>🏭 WRAP / PASA / CAP Project Pricing Preset</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Pre-loaded pricing template for WRAP (Worldwide Responsible Accredited Production) audit preparation, PASA Pre-Audit Scorecard, and CAP (Corrective Action Plan) development. Quote auto-adjusts by facility size and compliance maturity level.</div>
+  <div class="card">
+    <h3>⚙️ Client & Facility Profile</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client / Facility Name</label><input type="text" id="w_client" placeholder="Factory Name">
+        <label style="margin-top:10px;">Country / Region</label><input type="text" id="w_country" placeholder="e.g. Mexico, Vietnam, USA">
+        <label style="margin-top:10px;">Facility Size</label>
+        <select id="w_size" onchange="calcWRAP()">
+          <option value="small">Small — under 100 workers</option>
+          <option value="medium" selected>Medium — 100 to 500 workers</option>
+          <option value="large">Large — 500 to 2,000 workers</option>
+          <option value="xlarge">X-Large — 2,000+ workers</option>
+        </select>
+      </div>
+      <div>
+        <label>WRAP Certification Level Target</label>
+        <select id="w_level" onchange="calcWRAP()">
+          <option value="bronze">Bronze (1 year)</option>
+          <option value="silver" selected>Silver (2 years)</option>
+          <option value="gold">Gold (3 years)</option>
+        </select>
+        <label style="margin-top:10px;">Current Compliance Maturity</label>
+        <select id="w_maturity" onchange="calcWRAP()">
+          <option value="1">Level 1 — No prior preparation (start from zero)</option>
+          <option value="2" selected>Level 2 — Some documentation exists</option>
+          <option value="3">Level 3 — Prior audit attempt / gaps identified</option>
+          <option value="4">Level 4 — Re-certification / maintenance only</option>
+        </select>
+        <label style="margin-top:10px;">Prior WRAP Audit Failure?</label>
+        <select id="w_failure" onchange="calcWRAP()">
+          <option value="no">No</option>
+          <option value="yes">Yes — adds 30% complexity modifier</option>
+        </select>
+      </div>
+      <div>
+        <label>Services to Include</label>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:5px;">
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="w_gap" checked onchange="calcWRAP()"> Gap Analysis & Readiness Assessment</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="w_pasa" checked onchange="calcWRAP()"> PASA Pre-Audit Scorecard</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="w_docs" checked onchange="calcWRAP()"> Policy & Procedure Documentation (12 Principles)</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="w_training" checked onchange="calcWRAP()"> Staff Training Program</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="w_cap" checked onchange="calcWRAP()"> CAP — Corrective Action Plan Development</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="w_mock" onchange="calcWRAP()"> Mock Audit (On-site or Virtual)</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="w_support" onchange="calcWRAP()"> Ongoing Support Through Audit Day</label>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-gold" style="margin-top:16px;" onclick="calcWRAP()">⚡ Generate WRAP Project Quote</button>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📊 WRAP Project Breakdown</h3>
+      <table id="w_breakdown"><tr><th>Service Component</th><th>Est. Hours</th><th>Amount</th></tr></table>
+    </div>
+    <div>
+      <div class="result-box" style="border-radius:12px;margin-bottom:16px;">
+        <div class="label">WRAP Project Investment</div>
+        <div class="value" id="w_total">—</div>
+        <div class="sub" id="w_sub">—</div>
+      </div>
+      <div class="card">
+        <div class="summary-line"><span class="slabel">Base Cost (labor + direct)</span><span class="svalue" id="w_base">—</span></div>
+        <div class="summary-line"><span class="slabel">Profit Margin (40%)</span><span class="svalue" id="w_profit">—</span></div>
+        <div class="summary-line"><span class="slabel">50% Deposit Required</span><span class="svalue" id="w_deposit">—</span></div>
+        <div class="summary-line"><span class="slabel">Client Risk Avoided (est.)</span><span class="svalue" id="w_roi">—</span></div>
+        <p class="note" style="margin-top:10px;">🏭 <strong>WRAP Benchmark:</strong> A WRAP-certified factory typically commands a 15–25% premium from buyers. Lost certification can cost factories $50K–$500K+ in cancelled orders. RC2's fee is a fraction of that risk exposure.<br><br>Source: WRAP Global Certification Program 2024 — wrap.org</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== GOV ===== -->
+<div id="tab-gov" class="tab-content">
+  <h2>🏛 Government Contract / FAR / DCAA Pricing Preset</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Government contracting compliance (FAR Part 31, DCAA audit readiness, DFARS, cost accounting) requires specialized knowledge commanding premium rates. This preset builds compliant, defensible pricing for federal compliance engagements.</div>
+  <div class="card">
+    <h3>⚙️ Government Engagement Configuration</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client / Contractor Name</label><input type="text" id="g_client" placeholder="Prime Contractor LLC">
+        <label style="margin-top:10px;">Contract Vehicle / Type</label>
+        <select id="g_type">
+          <option value="fft">Firm Fixed Price (FFP)</option>
+          <option value="tm">Time & Materials (T&M)</option>
+          <option value="cpff">Cost Plus Fixed Fee (CPFF)</option>
+          <option value="idiq">IDIQ / BPA</option>
+        </select>
+        <label style="margin-top:10px;">Client's Prime Contract Value ($)</label>
+        <input type="number" id="g_contract_val" value="2000000" oninput="calcGov()">
+      </div>
+      <div>
+        <label>Compliance Services Needed</label>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:5px;">
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="g_far" checked onchange="calcGov()"> FAR / DFARS Compliance Review</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="g_dcaa" checked onchange="calcGov()"> DCAA Audit Preparation</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="g_sfp" checked onchange="calcGov()"> Accounting System Setup / Review (SF-1408)</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="g_icp" onchange="calcGov()"> Incurred Cost Proposal (ICP) Preparation</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="g_pol" onchange="calcGov()"> Policy & Procedure Manual (Gov Compliant)</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="g_training" onchange="calcGov()"> Employee / PM Training on FAR Requirements</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="g_mock" onchange="calcGov()"> Mock DCAA Audit</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="g_ongoing" onchange="calcGov()"> Ongoing Compliance Monitoring (Retainer)</label>
+        </div>
+      </div>
+      <div>
+        <label>Contractor Experience Level</label>
+        <select id="g_maturity" onchange="calcGov()">
+          <option value="new">New to Government Contracting</option>
+          <option value="some" selected>Some Experience — Gaps Identified</option>
+          <option value="experienced">Experienced — Pre-Audit Prep Only</option>
+          <option value="reaudit">Re-audit / Finding Resolution</option>
+        </select>
+        <label style="margin-top:10px;">Security Clearance Requirements</label>
+        <select id="g_clearance" onchange="calcGov()">
+          <option value="none">None</option>
+          <option value="secret">Secret</option>
+          <option value="ts">Top Secret / SCI — adds 20% modifier</option>
+        </select>
+        <label style="margin-top:10px;">RC2 Billing Rate ($/hr)</label>
+        <input type="number" id="g_rate" value="295" oninput="calcGov()">
+        <p class="note">💡 Government compliance commands premium rates due to regulatory risk. Market range: $200–$450/hr.</p>
+      </div>
+    </div>
+    <button class="btn btn-gold" style="margin-top:16px;" onclick="calcGov()">⚡ Build Government Contract Quote</button>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📊 Government Project Breakdown</h3>
+      <table id="g_breakdown"><tr><th>Service</th><th>Hours</th><th>Fee</th></tr></table>
+    </div>
+    <div>
+      <div class="result-box" style="border-radius:12px;margin-bottom:16px;">
+        <div class="label">Government Compliance Investment</div>
+        <div class="value" id="g_total">—</div>
+        <div class="sub" id="g_sub">—</div>
+      </div>
+      <div class="card">
+        <div class="summary-line"><span class="slabel">Total Hours Estimated</span><span class="svalue" id="g_hours">—</span></div>
+        <div class="summary-line"><span class="slabel">Base Labor Cost</span><span class="svalue" id="g_labor">—</span></div>
+        <div class="summary-line"><span class="slabel">40% Profit Margin</span><span class="svalue" id="g_profit">—</span></div>
+        <div class="summary-line"><span class="slabel">Client's Contract At Risk</span><span class="svalue" id="g_atrisk">—</span></div>
+        <div class="summary-line"><span class="slabel">RC2 Fee as % of Their Contract</span><span class="svalue" id="g_pct">—</span></div>
+        <p class="note" style="margin-top:12px;">⚖️ <strong>DCAA Reality:</strong> Failed accounting system audits can result in contract termination, demand for full repayment, and debarment from future federal awards. The contractor's entire revenue stream is at stake.<br><br>Sources: DCAA Contract Audit Manual (CAM) 2024 — dcaa.mil | FAR Part 31.205 — acquisition.gov | DoD IG Audit Reports</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== COMPLIANCE REVIEW ===== -->
+<div id="tab-compliance" class="tab-content">
+  <h2>✅ Compliance Readiness Review Preset</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> The Compliance Readiness Review (CRR) is typically RC2's entry-point engagement — a structured assessment that reveals gaps, builds trust, and leads to larger project work. Price it to win but ensure it always pays at target margin.</div>
+  <div class="card">
+    <h3>⚙️ Compliance Review Configuration</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client Name</label><input type="text" id="cr_client" placeholder="Client Co.">
+        <label style="margin-top:10px;">Industry / Compliance Framework</label>
+        <select id="cr_industry" onchange="calcCR()">
+          <option value="manufacturing">Manufacturing / Apparel — WRAP, SA8000</option>
+          <option value="gov">Government Contracting — FAR/DFARS</option>
+          <option value="food">Food Safety — FSMA, HACCP, SQF</option>
+          <option value="general">General Business Operations</option>
+          <option value="multi">Multi-Framework — 2 or more standards</option>
+        </select>
+        <label style="margin-top:10px;">Business Size (Employees)</label>
+        <select id="cr_size" onchange="calcCR()">
+          <option value="micro">1–25 employees</option>
+          <option value="small" selected>26–100 employees</option>
+          <option value="mid">101–500 employees</option>
+          <option value="large">500+ employees</option>
+        </select>
+      </div>
+      <div>
+        <label>Scope of Review</label>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:5px;">
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="cr_doc" checked onchange="calcCR()"> Documentation Review (policies, SOPs, records)</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="cr_process" checked onchange="calcCR()"> Process & Workflow Assessment</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="cr_inter" onchange="calcCR()"> Management & Staff Interviews</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="cr_site" onchange="calcCR()"> Site / Facility Walk-through</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="cr_report" checked onchange="calcCR()"> Findings Report with Gap Matrix</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="cr_roadmap" checked onchange="calcCR()"> Remediation Roadmap & Priority Actions</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="cr_debrief" onchange="calcCR()"> Executive Debrief Presentation</label>
+        </div>
+      </div>
+      <div>
+        <label>Delivery Format</label>
+        <select id="cr_delivery" onchange="calcCR()">
+          <option value="remote">Remote / Virtual</option>
+          <option value="hybrid">Hybrid — 1 site visit</option>
+          <option value="onsite">On-site — multiple visits</option>
+        </select>
+        <label style="margin-top:10px;">Turnaround Time</label>
+        <select id="cr_turnaround" onchange="calcCR()">
+          <option value="standard">Standard — 2 to 4 weeks</option>
+          <option value="expedited">Expedited — 1 week (+25%)</option>
+          <option value="rush">Rush — 48 to 72 hours (+50%)</option>
+        </select>
+        <label style="margin-top:10px;">RC2 Hourly Rate ($)</label>
+        <input type="number" id="cr_rate" value="225" oninput="calcCR()">
+      </div>
+    </div>
+    <button class="btn btn-gold" style="margin-top:16px;" onclick="calcCR()">⚡ Generate Compliance Review Quote</button>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📊 Compliance Review Breakdown</h3>
+      <table id="cr_breakdown"><tr><th>Component</th><th>Hours</th><th>Fee</th></tr></table>
+    </div>
+    <div>
+      <div class="result-box" style="border-radius:12px;margin-bottom:16px;">
+        <div class="label">Compliance Readiness Review Fee</div>
+        <div class="value" id="cr_total">—</div>
+        <div class="sub" id="cr_sub">—</div>
+      </div>
+      <div class="card">
+        <div class="summary-line"><span class="slabel">Total Review Hours</span><span class="svalue" id="cr_hours">—</span></div>
+        <div class="summary-line"><span class="slabel">Base Labor Cost</span><span class="svalue" id="cr_base">—</span></div>
+        <div class="summary-line"><span class="slabel">Margin (40%)</span><span class="svalue" id="cr_margin">—</span></div>
+        <div class="summary-line"><span class="slabel">Turnaround Adjustment</span><span class="svalue" id="cr_rush">—</span></div>
+        <p class="note" style="margin-top:10px;">✅ <strong>Pro Tip:</strong> Position the CRR as a risk-offset investment. One failed audit, one OSHA violation, or one contract disqualification costs more than your entire review fee.<br><br><strong>Upsell Path:</strong> CRR → Full Remediation Project → Ongoing Retainer. Average CRR client converts to $15K–$45K+ in follow-on work.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== OPS ===== -->
+<div id="tab-ops" class="tab-content">
+  <h2>⚙️ Operational Systems Optimization Preset</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Operational optimization engagements redesign workflows, SOPs, org structures, and systems to improve efficiency, reduce waste, and position a business for scalable growth. These are high-ROI, premium-priced projects with measurable client outcomes.</div>
+  <div class="card">
+    <h3>⚙️ Engagement Configuration</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client Name</label><input type="text" id="o_client" placeholder="Client Operations Co.">
+        <label style="margin-top:10px;">Current Annual Revenue ($)</label>
+        <input type="number" id="o_revenue" value="5000000" oninput="calcOps()">
+        <label style="margin-top:10px;">Target Annual Revenue After Optimization ($)</label>
+        <input type="number" id="o_target" value="8000000" oninput="calcOps()">
+      </div>
+      <div>
+        <label>Optimization Focus Areas</label>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:5px;">
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="o_sop" checked onchange="calcOps()"> SOP Development & Documentation Suite</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="o_workflow" checked onchange="calcOps()"> Workflow Redesign & Process Mapping</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="o_kpi" onchange="calcOps()"> KPI Framework & Dashboard Setup</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="o_supply" onchange="calcOps()"> Supply Chain Optimization</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="o_training" checked onchange="calcOps()"> Employee Training Program Build</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="o_tech" onchange="calcOps()"> Technology / Systems Assessment & Roadmap</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="o_scale" onchange="calcOps()"> Scaling Strategy & Org Chart Design</label>
+        </div>
+      </div>
+      <div>
+        <label>Company Size</label>
+        <select id="o_size" onchange="calcOps()">
+          <option value="micro">1–25 employees</option>
+          <option value="small" selected>26–100 employees</option>
+          <option value="mid">101–500 employees</option>
+          <option value="large">500+ employees</option>
+        </select>
+        <label style="margin-top:10px;">Implementation Support</label>
+        <select id="o_impl" onchange="calcOps()">
+          <option value="no">Assessment & Recommendations Only</option>
+          <option value="partial">Partial — RC2 Guides Implementation</option>
+          <option value="full">Full — RC2 Leads Implementation</option>
+        </select>
+        <label style="margin-top:10px;">RC2 Rate ($/hr)</label>
+        <input type="number" id="o_rate" value="225" oninput="calcOps()">
+      </div>
+    </div>
+    <button class="btn btn-gold" style="margin-top:16px;" onclick="calcOps()">⚡ Build Ops Optimization Quote</button>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📊 Ops Project Breakdown</h3>
+      <table id="o_breakdown"><tr><th>Workstream</th><th>Hours</th><th>Fee</th></tr></table>
+    </div>
+    <div>
+      <div class="result-box" style="border-radius:12px;margin-bottom:16px;">
+        <div class="label">Operational Optimization Investment</div>
+        <div class="value" id="o_total">—</div>
+        <div class="sub" id="o_sub">—</div>
+      </div>
+      <div class="card">
+        <div class="summary-line"><span class="slabel">Revenue Uplift Opportunity</span><span class="svalue" id="o_uplift">—</span></div>
+        <div class="summary-line"><span class="slabel">RC2 Fee as % of Uplift</span><span class="svalue" id="o_pct">—</span></div>
+        <div class="summary-line"><span class="slabel">Estimated Client ROI</span><span class="svalue" id="o_roi">—</span></div>
+        <p class="note" style="margin-top:10px;">⚙️ McKinsey Global Institute reports that operational process improvements yield 15–25% cost reduction and 20–40% throughput improvement in manufacturing and distribution businesses.<br><br>Source: McKinsey Global Institute "Operations Excellence" 2023 | MIT Sloan Operations Research | APQC Process Benchmarks 2024</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== SALES ===== -->
+<div id="tab-sales" class="tab-content">
+  <h2>📈 Sales & Growth (Business Development) Preset</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Business development consulting helps clients build revenue systems, develop markets, and scale. RC2 delivers measurable pipeline impact. This preset prices BD engagements with optional performance bonus structure for aligned incentives.</div>
+  <div class="card">
+    <h3>⚙️ Sales & Growth Configuration</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client Name</label><input type="text" id="s_client" placeholder="Growth Co. LLC">
+        <label style="margin-top:10px;">Current Annual Revenue ($)</label>
+        <input type="number" id="s_rev" value="2000000" oninput="calcSales()">
+        <label style="margin-top:10px;">12-Month Revenue Target ($)</label>
+        <input type="number" id="s_target" value="4000000" oninput="calcSales()">
+      </div>
+      <div>
+        <label>Services Included</label>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:5px;">
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="s_audit" checked onchange="calcSales()"> Sales Process Audit & Gap Analysis</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="s_icp" checked onchange="calcSales()"> ICP / Target Market Definition</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="s_funnel" checked onchange="calcSales()"> Sales Funnel & Pipeline Design</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="s_crm" onchange="calcSales()"> CRM Setup & Workflow Automation</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="s_scripts" onchange="calcSales()"> Sales Scripts & Proposal Templates</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="s_training" onchange="calcSales()"> Sales Team Training Program</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="s_kpi" onchange="calcSales()"> KPI Dashboards & Reporting System</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="s_partner" onchange="calcSales()"> Partnership / Channel Development</label>
+        </div>
+      </div>
+      <div>
+        <label>Engagement Model</label>
+        <select id="s_model" onchange="calcSales()">
+          <option value="project">Fixed Project Fee</option>
+          <option value="retainer">Monthly Retainer</option>
+          <option value="hybrid">Hybrid — Project + Performance Bonus</option>
+        </select>
+        <label style="margin-top:10px;">RC2 Hourly Rate ($)</label>
+        <input type="number" id="s_rate" value="225" oninput="calcSales()">
+        <label style="margin-top:10px;">Performance Bonus (% of Revenue Growth Achieved)</label>
+        <input type="number" id="s_bonus_pct" value="5" oninput="calcSales()">
+        <p class="note">💡 Performance bonuses of 3–8% of revenue lift are standard in BD consulting. Always cap the amount and define the measurement period clearly in the contract.</p>
+      </div>
+    </div>
+    <button class="btn btn-gold" style="margin-top:16px;" onclick="calcSales()">⚡ Build Sales Growth Quote</button>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📊 Sales & Growth Breakdown</h3>
+      <table id="s_breakdown"><tr><th>Service</th><th>Hours</th><th>Fee</th></tr></table>
+    </div>
+    <div>
+      <div class="result-box" style="border-radius:12px;margin-bottom:16px;">
+        <div class="label">Sales & Growth Investment</div>
+        <div class="value" id="s_total">—</div>
+        <div class="sub" id="s_sub">—</div>
+      </div>
+      <div class="card">
+        <div class="summary-line"><span class="slabel">Revenue Growth Target</span><span class="svalue" id="s_growth">—</span></div>
+        <div class="summary-line"><span class="slabel">Performance Bonus if Target Achieved</span><span class="svalue" id="s_bonus">—</span></div>
+        <div class="summary-line"><span class="slabel">Client ROI at Revenue Target</span><span class="svalue" id="s_roi">—</span></div>
+        <p class="note" style="margin-top:10px;">📈 Harvard Business Review data indicates companies with defined sales processes grow revenue 18% faster than those without. Formal BD consulting generates measurable 3–12x ROI within 12 months for SMBs.<br><br>Sources: HBR Sales Management 2023 | Salesforce State of Sales Report 2024 | Forbes Business Council Growth Benchmarks</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== FRACTIONAL ===== -->
+<div id="tab-fractional" class="tab-content">
+  <h2>👔 Fractional Director of Operations Preset</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> A Fractional Director of Operations (FDOO) engagement is RC2's highest-value ongoing service — you serve as an embedded senior leader at a fraction of the full-time executive cost. This preset builds the full cost comparison and monthly retainer quote automatically.</div>
+  <div class="card">
+    <h3>⚙️ Fractional DOO Configuration</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client Name</label><input type="text" id="f_client" placeholder="Scaling Manufacturer LLC">
+        <label style="margin-top:10px;">Client Industry</label><input type="text" id="f_industry" placeholder="Apparel Manufacturing">
+        <label style="margin-top:10px;">Full-Time DOO Equivalent Salary ($/yr)</label>
+        <input type="number" id="f_fte_salary" value="180000" oninput="calcFractional()">
+        <p class="note">💡 A full-time senior DOO in manufacturing: $140K–$220K base + benefits + bonus = $200K–$280K total comp. RC2 delivers the same strategic value at 30–50% of that cost.</p>
+      </div>
+      <div>
+        <label>Scope of Fractional Role</label>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:5px;">
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="f_ops" checked onchange="calcFractional()"> Operations Oversight & Management</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="f_compliance" checked onchange="calcFractional()"> Compliance & Regulatory Management</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="f_supply" onchange="calcFractional()"> Supply Chain Management</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="f_hr" onchange="calcFractional()"> HR Operations & Team Development</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="f_vendor" onchange="calcFractional()"> Vendor & Contract Management</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="f_reporting" checked onchange="calcFractional()"> Executive Reporting & KPI Dashboards</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="f_strategic" onchange="calcFractional()"> Strategic Planning & OKR Facilitation</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="f_audit" onchange="calcFractional()"> Audit Readiness — WRAP, ISO, Gov</label>
+        </div>
+      </div>
+      <div>
+        <label>Time Commitment (Days per Month)</label>
+        <select id="f_days" onchange="calcFractional()">
+          <option value="4">4 days/month — Light</option>
+          <option value="8" selected>8 days/month — Standard</option>
+          <option value="12">12 days/month — Intensive</option>
+          <option value="16">16 days/month — Near Full-Time</option>
+        </select>
+        <label style="margin-top:10px;">Contract Length</label>
+        <select id="f_length">
+          <option value="3">3 months minimum</option>
+          <option value="6" selected>6 months</option>
+          <option value="12">12 months</option>
+        </select>
+        <label style="margin-top:10px;">RC2 Daily Rate ($)</label>
+        <input type="number" id="f_daily" value="1800" oninput="calcFractional()">
+        <p class="note">💡 Daily rate = hourly rate × 8 hours. Standard senior ops leadership: $1,600–$2,400/day.</p>
+      </div>
+    </div>
+    <button class="btn btn-gold" style="margin-top:16px;" onclick="calcFractional()">⚡ Build Fractional DOO Proposal</button>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📊 Full-Time vs RC2 Fractional Cost Comparison</h3>
+      <table>
+        <tr><th>Cost Component</th><th>Full-Time DOO</th><th>RC2 Fractional DOO</th></tr>
+        <tr><td>Base Salary / Monthly Fee</td><td id="f_fte_base">—</td><td rowspan="5" style="vertical-align:middle;text-align:center;">
+          <div class="result-box" style="padding:14px;"><div class="label">Monthly Retainer</div><div class="value" id="f_monthly" style="font-size:1.6rem;">—</div><div class="sub" id="f_days_label">—</div></div>
+        </td></tr>
+        <tr><td>Benefits Package (30%)</td><td id="f_fte_benefits">—</td></tr>
+        <tr><td>Payroll Taxes (15%)</td><td id="f_fte_taxes">—</td></tr>
+        <tr><td>Bonus / Incentive (15%)</td><td id="f_fte_bonus">—</td></tr>
+        <tr><td><strong>Total Monthly FTE Cost</strong></td><td id="f_fte_total"><strong>—</strong></td></tr>
+        <tr class="highlight-row"><td><strong>Annual Cost</strong></td><td id="f_fte_annual">—</td><td id="f_rc2_annual">—</td></tr>
+        <tr class="highlight-row"><td><strong>Client Annual Savings with RC2</strong></td><td colspan="2" id="f_savings" style="color:var(--green);font-weight:800;text-align:center;">—</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>📋 Fractional DOO Contract Essentials</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Define Days & Availability SLA</strong><p>Specify exact days per week or month and communication SLA — for example, response within 4 business hours. Put it in writing.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Non-Exclusivity Clause</strong><p>You are not exclusive to one client. However, limit competing clients in the same industry within the same market. Charge 20–30% premium for true exclusivity if requested.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Clear Authority & Reporting Line</strong><p>Define: who you report to, what decisions you make independently vs. recommend, and which team members you manage or supervise.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Termination & Knowledge Transfer</strong><p>Minimum 60-day written termination notice from either party. Include a formal knowledge transfer requirement to protect the client's operations upon your exit.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Annual Rate Escalation</strong><p>Include a 5–8% annual rate increase clause in all contracts 6 months or longer. Non-negotiable — your expertise grows more valuable over time.</p></div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== AUDIT ===== -->
+<div id="tab-audit" class="tab-content">
+  <h2>🔍 Corporate Audit (Documentation) Preset</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Corporate documentation audits review the completeness, accuracy, and compliance of a company's entire document ecosystem — policies, SOPs, contracts, records, training files, and regulatory submissions. High-demand, high-value service with strong follow-on work conversion.</div>
+  <div class="card">
+    <h3>⚙️ Audit Engagement Configuration</h3>
+    <div class="grid-3">
+      <div>
+        <label>Client Name</label><input type="text" id="a_client" placeholder="ABC Corp">
+        <label style="margin-top:10px;">Audit Purpose</label>
+        <select id="a_purpose" onchange="calcAudit()">
+          <option value="internal">Internal Compliance Audit — Preventive</option>
+          <option value="pre_external">Pre-External Audit Preparation</option>
+          <option value="due_diligence">M&A Due Diligence Documentation</option>
+          <option value="gov">Government Contract Documentation Audit</option>
+          <option value="remediation">Post-Finding Remediation Audit</option>
+        </select>
+        <label style="margin-top:10px;">Company Size</label>
+        <select id="a_size" onchange="calcAudit()">
+          <option value="small">Small — under 100 employees</option>
+          <option value="mid" selected>Mid — 100 to 500</option>
+          <option value="large">Large — 500 to 2,000</option>
+          <option value="enterprise">Enterprise — 2,000+</option>
+        </select>
+      </div>
+      <div>
+        <label>Document Categories to Audit</label>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:5px;">
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_hr" checked onchange="calcAudit()"> HR Policies & Personnel Files</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_sop" checked onchange="calcAudit()"> SOPs & Operational Procedures</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_contracts" onchange="calcAudit()"> Contracts & Vendor Agreements</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_financial" onchange="calcAudit()"> Financial Records & Cost Controls</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_safety" onchange="calcAudit()"> Safety & Environmental Records</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_training" checked onchange="calcAudit()"> Training Records & Certifications</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_regulatory" checked onchange="calcAudit()"> Regulatory Filings & Permits</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_it" onchange="calcAudit()"> IT / Data Governance Policies</label>
+        </div>
+      </div>
+      <div>
+        <label>Deliverables to Produce</label>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:5px;">
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_matrix" checked onchange="calcAudit()"> Document Inventory Matrix</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_gap_report" checked onchange="calcAudit()"> Gap & Risk Assessment Report</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_prio" checked onchange="calcAudit()"> Prioritized Remediation Plan</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_exec" onchange="calcAudit()"> Executive Summary Presentation</label>
+          <label style="text-transform:none;color:#1e293b;font-size:.85rem;"><input type="checkbox" id="a_template" onchange="calcAudit()"> Document Templates for Gaps Found</label>
+        </div>
+        <label style="margin-top:12px;">RC2 Rate ($/hr)</label>
+        <input type="number" id="a_rate" value="225" oninput="calcAudit()">
+      </div>
+    </div>
+    <button class="btn btn-gold" style="margin-top:16px;" onclick="calcAudit()">⚡ Build Corporate Audit Quote</button>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>📊 Audit Engagement Breakdown</h3>
+      <table id="a_breakdown"><tr><th>Audit Component</th><th>Hours</th><th>Fee</th></tr></table>
+    </div>
+    <div>
+      <div class="result-box" style="border-radius:12px;margin-bottom:16px;">
+        <div class="label">Corporate Documentation Audit Fee</div>
+        <div class="value" id="a_total">—</div>
+        <div class="sub" id="a_sub">—</div>
+      </div>
+      <div class="card">
+        <div class="summary-line"><span class="slabel">Total Audit Hours</span><span class="svalue" id="a_hours">—</span></div>
+        <div class="summary-line"><span class="slabel">Base Labor Cost</span><span class="svalue" id="a_base">—</span></div>
+        <div class="summary-line"><span class="slabel">Profit Margin (40%)</span><span class="svalue" id="a_margin">—</span></div>
+        <p class="note" style="margin-top:10px;">📋 <strong>Documentation Risk Context:</strong> OSHA recordkeeping violations: $15,625–$156,259 per citation. FAR documentation failures can result in contract debarment. Poor HR records create employment litigation exposure averaging $40,000–$200,000 per case. RC2's audit fee is a small insurance premium against these risks.<br><br>Sources: OSHA Penalty Schedules 2024 | DoJ False Claims Act settlements | EEOC Employment Litigation Cost Study</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== COMPARE ===== -->
+<div id="tab-compare" class="tab-content">
+  <h2>📊 Pricing Model Comparison & Decision Matrix</h2>
+  <div class="abstract"><strong>ABSTRACT:</strong> Use this comparison matrix to quickly determine the optimal pricing model for any client situation. Answer four questions to get an instant recommendation, then reference the full decision matrix below.</div>
+  <div class="card">
+    <h3>🔍 Quick Decision Tool — Which Model Should I Use?</h3>
+    <div class="grid-3">
+      <div>
+        <label>Is the project scope well-defined?</label>
+        <select id="cmp_scope" onchange="compareDecision()">
+          <option value="">-- Select --</option>
+          <option value="yes">Yes — Clear deliverables and timeline</option>
+          <option value="no">No — Evolving or exploratory</option>
+        </select>
+        <label style="margin-top:10px;">How long is the engagement?</label>
+        <select id="cmp_duration" onchange="compareDecision()">
+          <option value="">-- Select --</option>
+          <option value="short">Short — 1 to 2 weeks</option>
+          <option value="medium">Medium — 1 to 3 months</option>
+          <option value="long">Long-term or ongoing</option>
+        </select>
+      </div>
+      <div>
+        <label>What does the client prefer?</label>
+        <select id="cmp_client" onchange="compareDecision()">
+          <option value="">-- Select --</option>
+          <option value="predictable">Predictable fixed cost</option>
+          <option value="flexible">Flexible pay-as-you-go</option>
+          <option value="ongoing">Ongoing access and support</option>
+        </select>
+        <label style="margin-top:10px;">What is the primary risk?</label>
+        <select id="cmp_risk" onchange="compareDecision()">
+          <option value="">-- Select --</option>
+          <option value="scope">Scope creep — underestimated work</option>
+          <option value="billing">Client disputes hours billed</option>
+          <option value="cashflow">Inconsistent cash flow for RC2</option>
+        </select>
+      </div>
+      <div style="display:flex;align-items:center;">
+        <div class="result-box" style="border-radius:12px;width:100%;">
+          <div class="label">Recommended Model</div>
+          <div class="value" id="cmp_result" style="font-size:1.2rem;">Select all options</div>
+          <div class="sub" id="cmp_reason">Answer all four questions above</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>📊 Full Decision Matrix — All Scenarios</h3>
+    <table>
+      <tr><th>Scenario</th><th>Best Model</th><th>Typical RC2 Price</th><th>Key Benefit</th></tr>
+      <tr><td>Short advisory call — 1 to 3 hours</td><td><span class="badge badge-blue">Hourly</span></td><td>$175–$350 total</td><td>Zero risk for new client relationship</td></tr>
+      <tr><td>Discovery / readiness assessment</td><td><span class="badge badge-gold">Flat Fee</span></td><td>$1,500–$3,500</td><td>Easy to sell; converts to larger work</td></tr>
+      <tr><td>Single SOP development</td><td><span class="badge badge-gold">Flat Fee</span></td><td>$1,200–$3,500</td><td>Defined deliverable, efficient production</td></tr>
+      <tr><td>Full WRAP audit preparation</td><td><span class="badge badge-gold">Fixed Project</span></td><td>$8,500–$25,000</td><td>Highest margin on defined multi-week scope</td></tr>
+      <tr><td>Government compliance package</td><td><span class="badge badge-gold">Fixed Project</span></td><td>$12,500–$55,000</td><td>Premium justified by regulatory stakes</td></tr>
+      <tr><td>Ongoing compliance monitoring</td><td><span class="badge badge-green">Retainer</span></td><td>$2,500–$8,000/mo</td><td>Predictable income; deep relationship</td></tr>
+      <tr><td>Fractional DOO role</td><td><span class="badge badge-green">Retainer</span></td><td>$5,500–$17,700/mo</td><td>Highest monthly value; embedded leadership</td></tr>
+      <tr><td>Training program build and delivery</td><td><span class="badge badge-gold">Fixed Project</span></td><td>$4,500–$18,000</td><td>Productized — deliver repeatedly at high margin</td></tr>
+      <tr><td>Exploratory or unclear scope</td><td><span class="badge badge-blue">Hourly T&M</span></td><td>$225–$295/hr</td><td>Protects RC2 on undefined engagements</td></tr>
+      <tr><td>Long-term strategic partnership</td><td><span class="badge badge-green">Retainer + Bonus</span></td><td>$6K–$15K/mo + %</td><td>Maximum alignment; shared upside</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>💡 RC2 Pricing Rules — Engrave These</h3>
+    <div class="grid-2">
+      <div>
+        <div class="step"><div class="step-num">✅</div><div class="step-body"><strong>Always Know Your Margin Before Quoting</strong><p>Run the Margin Calculator on every engagement. Never quote from your gut. 40% minimum, 45–55% target.</p></div></div>
+        <div class="step"><div class="step-num">✅</div><div class="step-body"><strong>Get 30–50% Deposit Before Starting Work</strong><p>No exceptions. Non-negotiable for new clients. Filters serious buyers and protects your time.</p></div></div>
+        <div class="step"><div class="step-num">✅</div><div class="step-body"><strong>Price on Value, Not Hours</strong><p>Frame every quote by what it protects or creates for the client — not by how long it takes you.</p></div></div>
+        <div class="step"><div class="step-num">✅</div><div class="step-body"><strong>Annual Rate Reviews — 5–10% Every Year</strong><p>Always include escalation clauses in long-term contracts. Your expertise compounds over time.</p></div></div>
+      </div>
+      <div>
+        <div class="step"><div class="step-num">🚫</div><div class="step-body"><strong>Never Start Without a Signed Agreement</strong><p>Verbal agreements are unenforceable. Always have a written SOW or contract signed before billing a single hour.</p></div></div>
+        <div class="step"><div class="step-num">🚫</div><div class="step-body"><strong>Never Discount More Than 15% Without Compensating Value</strong><p>Discounting destroys perceived value. Offer payment plans, phased projects, or reduced scope instead of a lower rate.</p></div></div>
+        <div class="step"><div class="step-num">🚫</div><div class="step-body"><strong>Never Work Spec or Free to Show Value</strong><p>Discovery calls: 30–45 minutes free. Full assessments: always charge. Your expertise is the product.</p></div></div>
+        <div class="step"><div class="step-num">🚫</div><div class="step-body"><strong>Never Omit a Change Order Clause</strong><p>All scope changes require signed change orders at your standard rate. Document every agreement in writing.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button class="btn print-btn" onclick="window.print()" style="box-shadow:0 4px 16px rgba(0,0,0,.3);">🖨️ Print / Save PDF</button>
+
+
+<script>
+// ===== TAB SWITCHING =====
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+
+// ===== HELPERS =====
+const fmt = n => '$' + Math.round(n).toLocaleString();
+const fmtd = n => (+n).toFixed(1);
+function v(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+function sv(id, val) { const el = document.getElementById(id); if(el) el.textContent = val; }
+function vc(id) { const el = document.getElementById(id); return el ? el.checked : false; }
+
+
+// ===== HOURLY =====
+function calcHourly() {
+  const s=+v('h_salary'),ins=+v('h_insurance'),sw=+v('h_software'),mkt=+v('h_marketing'),off=+v('h_office'),adm=+v('h_admin'),oth=+v('h_other');
+  const hrs=+v('h_hours'), margin=+v('h_margin')/100;
+  const overhead=s+ins+sw+mkt+off+adm+oth;
+  const breakeven=overhead/hrs;
+  const withMargin=breakeven/(1-margin);
+  const recommended=Math.max(withMargin,195);
+  const r=Math.ceil(recommended/5)*5;
+  sv('h_overhead',fmt(overhead)); sv('h_breakeven',fmt(breakeven)+'/hr'); sv('h_with_margin',fmt(withMargin)+'/hr');
+  sv('h_recommended',fmt(r)+'/hr');
+  sv('h_note', r<175?'⚠️ Costs suggest under $175/hr but market minimum for RC2 expertise is $175. Price at $175+.' : r>350?'⭐ Your expertise justifies $350+/hr in specialized WRAP/Gov work.' : '✅ Your calculated rate is competitive for the RC2 market position.');
+  sv('h_t1',fmt(r*0.8)+'/hr'); sv('h_t2',fmt(r)+'/hr'); sv('h_t3',fmt(r*1.35)+'/hr'); sv('h_t4',fmt(r*1.5)+'/hr'); sv('h_t5',fmt(r*1.1)+'/hr');
+  calcHourlyQuote();
+}
+function calcHourlyQuote() {
+  const hrs=+v('h_est_hrs'),rate=+v('h_use_rate'),dep=+v('h_deposit')/100,exp=+v('h_expense');
+  const total=hrs*rate; sv('hq_total',fmt(total)); sv('hq_deposit',fmt(total*dep)); sv('hq_grand',fmt(total+exp));
+}
+
+
+// ===== PROJECT =====
+function addProjectRow() {
+  const table=document.getElementById('p_table');
+  const id='pr'+Date.now();
+  const row=table.insertRow();
+  row.id=id;
+  row.innerHTML=`<td><input type="text" placeholder="Describe deliverable" style="width:100%" oninput="calcProject()"></td><td><input type="number" value="8" style="width:70px" oninput="calcProject()"></td><td><input type="number" value="0" style="width:70px" oninput="calcProject()"></td><td><input type="number" value="0" style="width:80px" oninput="calcProject()"></td><td id="s${id}">—</td><td><button class="btn btn-sm" style="background:#dc2626;padding:4px 10px;" onclick="this.closest('tr').remove();calcProject()">✕</button></td>`;
+  calcProject();
+}
+function calcProject() {
+  const rate=+v('p_rate'),jrRate=+v('p_jr_rate'),margin=+v('p_margin')/100;
+  let labor=0,jr=0,direct=0;
+  document.querySelectorAll('#p_table tr[id]').forEach(row=>{
+    const inp=row.querySelectorAll('input');
+    if(inp.length<4) return;
+    const myH=+inp[1].value,jrH=+inp[2].value,dir=+inp[3].value;
+    const sub=(myH*rate)+(jrH*jrRate)+dir;
+    const cell=row.querySelector('td:nth-child(5)'); if(cell) cell.textContent=fmt(sub);
+    labor+=myH*rate; jr+=jrH*jrRate; direct+=dir;
+  });
+  const cost=labor+jr+direct, fee=cost/(1-margin), profit=fee-cost;
+  sv('p_labor',fmt(labor)); sv('p_jr_labor',fmt(jr)); sv('p_direct',fmt(direct));
+  sv('p_total_cost',fmt(cost)); sv('p_profit_amt',fmt(profit));
+  const rounded=Math.ceil(fee/100)*100;
+  sv('p_fixed_fee',fmt(rounded)); sv('p_deposit',fmt(rounded*0.5)); sv('p_balance',fmt(rounded*0.5));
+}
+
+
+// ===== MARGIN =====
+function calcMargin() {
+  const cost=+v('m_cost'),price=+v('m_price');
+  const profit=price-cost, pct=(profit/price)*100;
+  sv('m_profit',fmt(profit));
+  sv('m_margin_pct',fmtd(pct)+'% Gross Margin'+(pct<30?' 🔴 BELOW TARGET':pct>=40?' ✅ TARGET ZONE':' 🟡 ACCEPTABLE'));
+}
+function calcTargetPrice() {
+  const cost=+v('m_target_cost'),pct=+v('m_target_pct')/100;
+  const el=document.getElementById('m_target_price'); if(el) el.value=fmt(cost/(1-pct));
+}
+
+
+// ===== RETAINER =====
+function setRetainerType() {
+  const map={advisory:8,operational:20,fractional:45,custom:15};
+  const el=document.getElementById('r_hours'); if(el) el.value=map[v('r_type')]||15;
+  calcRetainer();
+}
+function calcRetainer() {
+  const hrs=+v('r_hours'),rate=+v('r_rate'),disc=+v('r_discount')/100,overage=+v('r_overage'),len=+v('r_length');
+  const eff=rate*(1-disc), monthly=hrs*eff;
+  sv('ret_monthly',fmt(monthly));
+  sv('ret_sub',hrs+' hrs/month at '+fmt(eff)+'/hr effective rate');
+  sv('ret_eff_rate',fmt(eff)+'/hr');
+  sv('ret_savings',fmt(rate*hrs-monthly)+'/month vs full hourly rate');
+  sv('ret_value',fmt(rate*hrs)+'/month at standard rate');
+  sv('ret_over',fmt(overage)+'/hr');
+  sv('ret_total',fmt(monthly*len));
+  sv('ret_annual',fmt(monthly*12));
+}
+
+
+// ===== WRAP =====
+function calcWRAP() {
+  const size=v('w_size'),maturity=+v('w_maturity'),failure=v('w_failure')==='yes'?1.3:1,rate=225;
+  const sm={small:1,medium:1.5,large:2.5,xlarge:4}[size];
+  const mFactor=Math.max(0.5,(5-maturity)/2);
+  const tasks=[];
+  const add=(name,hrs,cond)=>{if(cond){const h=Math.max(2,Math.round(hrs*sm*mFactor));tasks.push({name,h});}};
+  add('Gap Analysis & Readiness Assessment',16,vc('w_gap'));
+  add('PASA Pre-Audit Scorecard',10,vc('w_pasa'));
+  add('Policy & Procedure Documentation (12 Principles)',40,vc('w_docs'));
+  add('Staff Training Program Development & Delivery',24,vc('w_training'));
+  add('CAP — Corrective Action Plan Development',20,vc('w_cap'));
+  add('Mock Audit (On-site or Virtual)',16,vc('w_mock'));
+  add('Ongoing Support Through Audit Day',30,vc('w_support'));
+  const tbody=document.getElementById('w_breakdown');
+  tbody.innerHTML='<tr><th>Service Component</th><th>Est. Hours</th><th>Amount</th></tr>';
+  let base=0;
+  tasks.forEach(t=>{const cost=t.h*rate*failure;base+=cost;const r=tbody.insertRow();r.innerHTML=`<td>${t.name}</td><td>${t.h}</td><td>${fmt(cost)}</td>`;});
+  const fee=base/0.6;
+  sv('w_base',fmt(base)); sv('w_profit',fmt(fee-base)); sv('w_total',fmt(fee));
+  sv('w_sub','Payment: 50% deposit required at engagement start');
+  sv('w_deposit',fmt(fee*0.5)); sv('w_roi',fmt(fee*15)+'–'+fmt(fee*50)+' risk avoided (industry benchmark)');
+}
+
+
+// ===== GOV =====
+function calcGov() {
+  const rate=+v('g_rate');
+  const mm={new:1.8,some:1.3,experienced:0.8,reaudit:1.5}[v('g_maturity')];
+  const cm=v('g_clearance')==='ts'?1.2:1;
+  const tasks=[]; let totalHrs=0;
+  const add=(name,hrs,cond)=>{if(cond){const h=Math.max(2,Math.round(hrs*mm));totalHrs+=h;tasks.push({name,h});}};
+  add('FAR / DFARS Compliance Review',24,vc('g_far'));
+  add('DCAA Audit Preparation',40,vc('g_dcaa'));
+  add('Accounting System Setup / Review (SF-1408)',30,vc('g_sfp'));
+  add('Incurred Cost Proposal (ICP) Preparation',35,vc('g_icp'));
+  add('Policy & Procedure Manual — Gov Compliant',45,vc('g_pol'));
+  add('Employee / PM Training on FAR Requirements',20,vc('g_training'));
+  add('Mock DCAA Audit',24,vc('g_mock'));
+  add('Ongoing Compliance Monitoring Setup',10,vc('g_ongoing'));
+  const tbody=document.getElementById('g_breakdown');
+  tbody.innerHTML='<tr><th>Service</th><th>Hours</th><th>Fee</th></tr>';
+  let base=0;
+  tasks.forEach(t=>{const cost=t.h*rate*cm;base+=cost;const r=tbody.insertRow();r.innerHTML=`<td>${t.name}</td><td>${t.h}</td><td>${fmt(cost)}</td>`;});
+  const fee=base/0.6, cv=+v('g_contract_val');
+  sv('g_hours',totalHrs); sv('g_labor',fmt(base)); sv('g_profit',fmt(fee-base));
+  sv('g_total',fmt(fee)); sv('g_sub','T&M or Fixed Price contract options available');
+  sv('g_atrisk',fmt(cv)); sv('g_pct',fmtd((fee/cv)*100)+'% of their prime contract value');
+}
+
+
+// ===== COMPLIANCE REVIEW =====
+function calcCR() {
+  const rate=+v('cr_rate');
+  const sm={micro:0.7,small:1,mid:1.6,large:2.5}[v('cr_size')];
+  const im={manufacturing:1.2,gov:1.3,food:1,general:0.9,multi:1.4}[v('cr_industry')];
+  const dm={remote:1,hybrid:1.2,onsite:1.5}[v('cr_delivery')];
+  const rm={standard:1,expedited:1.25,rush:1.5}[v('cr_turnaround')];
+  const tasks=[]; let totalHrs=0;
+  const add=(name,hrs,cond)=>{if(cond){const h=Math.max(2,Math.round(hrs*sm*im*dm));totalHrs+=h;tasks.push({name,h});}};
+  add('Documentation Review',12,vc('cr_doc')); add('Process & Workflow Assessment',10,vc('cr_process'));
+  add('Management & Staff Interviews',8,vc('cr_inter')); add('Site / Facility Walk-through',6,vc('cr_site'));
+  add('Findings Report with Gap Matrix',10,vc('cr_report')); add('Remediation Roadmap & Priority Actions',8,vc('cr_roadmap'));
+  add('Executive Debrief Presentation',5,vc('cr_debrief'));
+  const tbody=document.getElementById('cr_breakdown');
+  tbody.innerHTML='<tr><th>Component</th><th>Hours</th><th>Fee</th></tr>';
+  let base=0;
+  tasks.forEach(t=>{const cost=t.h*rate;base+=cost;const r=tbody.insertRow();r.innerHTML=`<td>${t.name}</td><td>${t.h}</td><td>${fmt(cost)}</td>`;});
+  const withMargin=base/0.6, final=withMargin*rm;
+  sv('cr_hours',totalHrs); sv('cr_base',fmt(base)); sv('cr_margin',fmt(withMargin-base));
+  sv('cr_rush',rm>1?'+'+Math.round((rm-1)*100)+'% expedite fee applied':'Standard delivery — no adjustment');
+  sv('cr_total',fmt(final)); sv('cr_sub','Full assessment + written gap report + remediation roadmap');
+}
+
+
+// ===== OPS =====
+function calcOps() {
+  const rate=+v('o_rate');
+  const sm={micro:0.7,small:1,mid:1.8,large:3}[v('o_size')];
+  const im={no:1,partial:1.5,full:2.2}[v('o_impl')];
+  const tasks=[]; let totalHrs=0;
+  const add=(name,hrs,cond)=>{if(cond){const h=Math.max(2,Math.round(hrs*sm));totalHrs+=h;tasks.push({name,h});}};
+  add('SOP Development & Documentation Suite',40,vc('o_sop')); add('Workflow Redesign & Process Mapping',30,vc('o_workflow'));
+  add('KPI Framework & Dashboard Setup',20,vc('o_kpi')); add('Supply Chain Optimization',35,vc('o_supply'));
+  add('Employee Training Program Build',25,vc('o_training')); add('Technology / Systems Assessment & Roadmap',20,vc('o_tech'));
+  add('Scaling Strategy & Org Chart Design',16,vc('o_scale'));
+  const tbody=document.getElementById('o_breakdown');
+  tbody.innerHTML='<tr><th>Workstream</th><th>Hours</th><th>Fee</th></tr>';
+  let base=0;
+  tasks.forEach(t=>{const cost=t.h*rate;base+=cost;const r=tbody.insertRow();r.innerHTML=`<td>${t.name}</td><td>${t.h}</td><td>${fmt(cost)}</td>`;});
+  const fee=(base*im)/0.6, rev=+v('o_revenue'), target=+v('o_target'), uplift=target-rev;
+  sv('o_total',fmt(fee)); sv('o_sub','Includes implementation support modifier for selected level');
+  sv('o_uplift',fmt(uplift)+' revenue opportunity identified');
+  sv('o_pct',uplift>0?fmtd((fee/uplift)*100)+'% of revenue uplift target':'Enter revenue targets above');
+  sv('o_roi',uplift>0&&fee>0?fmtd(uplift/fee)+'x estimated client ROI':'—');
+}
+
+
+// ===== SALES =====
+function calcSales() {
+  const rate=+v('s_rate'), model=v('s_model');
+  const tasks=[]; let totalHrs=0;
+  const add=(name,hrs,cond)=>{if(cond){totalHrs+=hrs;tasks.push({name,hrs});}};
+  add('Sales Process Audit & Gap Analysis',12,vc('s_audit')); add('ICP / Target Market Definition',8,vc('s_icp'));
+  add('Sales Funnel & Pipeline Design',15,vc('s_funnel')); add('CRM Setup & Workflow Automation',20,vc('s_crm'));
+  add('Sales Scripts & Proposal Templates',16,vc('s_scripts')); add('Sales Team Training Program',24,vc('s_training'));
+  add('KPI Dashboards & Reporting System',12,vc('s_kpi')); add('Partnership / Channel Development',20,vc('s_partner'));
+  const tbody=document.getElementById('s_breakdown');
+  tbody.innerHTML='<tr><th>Service</th><th>Hours</th><th>Fee</th></tr>';
+  let base=0;
+  tasks.forEach(t=>{const cost=t.hrs*rate;base+=cost;const r=tbody.insertRow();r.innerHTML=`<td>${t.name}</td><td>${t.hrs}</td><td>${fmt(cost)}</td>`;});
+  const fee=base/0.6, rev=+v('s_rev'), target=+v('s_target'), growth=target-rev;
+  const bonusPct=+v('s_bonus_pct')/100, bonus=growth*bonusPct;
+  sv('s_total', model==='retainer'?fmt(fee/12)+'/mo':fmt(fee));
+  sv('s_sub', model==='retainer'?'Monthly retainer — 6-month minimum commitment':model==='hybrid'?'Project fee + performance bonus structure':'Fixed project fee — full scope');
+  sv('s_growth',fmt(growth)+' revenue growth target');
+  sv('s_bonus',fmt(bonus)+' potential bonus ('+v('s_bonus_pct')+'% of growth achieved)');
+  sv('s_roi',growth>0&&fee>0?fmtd(growth/fee)+'x client ROI at revenue target':'—');
+}
+
+
+// ===== FRACTIONAL =====
+function calcFractional() {
+  const days=+v('f_days'), daily=+v('f_daily'), fte=+v('f_fte_salary'), len=+v('f_length');
+  const monthly=days*daily;
+  const fteBen=fte*0.30, fteTax=fte*0.15, fteBon=fte*0.15;
+  const fteTotal=fte+fteBen+fteTax+fteBon;
+  const rc2Annual=monthly*12;
+  sv('f_monthly',fmt(monthly)); sv('f_days_label',days+' days/month committed');
+  sv('f_fte_base',fmt(fte/12)+'/mo'); sv('f_fte_benefits',fmt(fteBen/12)+'/mo');
+  sv('f_fte_taxes',fmt(fteTax/12)+'/mo'); sv('f_fte_bonus',fmt(fteBon/12)+'/mo');
+  sv('f_fte_total',fmt(fteTotal/12)+'/mo'); sv('f_fte_annual',fmt(fteTotal));
+  sv('f_rc2_annual',fmt(rc2Annual));
+  sv('f_savings','✅ Client saves '+fmt(fteTotal-rc2Annual)+'/year vs full-time hire');
+}
+
+
+// ===== AUDIT =====
+function calcAudit() {
+  const rate=+v('a_rate');
+  const sm={small:0.7,mid:1,large:1.8,enterprise:3}[v('a_size')];
+  const pm={internal:1,pre_external:1.2,due_diligence:1.4,gov:1.5,remediation:1.3}[v('a_purpose')];
+  const tasks=[]; let totalHrs=0;
+  const add=(name,hrs,cond)=>{if(cond){const h=Math.max(2,Math.round(hrs*sm*pm));totalHrs+=h;tasks.push({name,h});}};
+  add('HR Policies & Personnel Files Review',12,vc('a_hr')); add('SOPs & Operational Procedures Review',14,vc('a_sop'));
+  add('Contracts & Vendor Agreements Review',10,vc('a_contracts')); add('Financial Records & Cost Controls Review',14,vc('a_financial'));
+  add('Safety & Environmental Records Review',10,vc('a_safety')); add('Training Records & Certifications Review',8,vc('a_training'));
+  add('Regulatory Filings & Permits Review',10,vc('a_regulatory')); add('IT / Data Governance Policies Review',8,vc('a_it'));
+  add('Document Inventory Matrix',10,vc('a_matrix')); add('Gap & Risk Assessment Report',14,vc('a_gap_report'));
+  add('Prioritized Remediation Plan',8,vc('a_prio')); add('Executive Summary Presentation',6,vc('a_exec'));
+  add('Document Templates for Gaps Found',16,vc('a_template'));
+  const tbody=document.getElementById('a_breakdown');
+  tbody.innerHTML='<tr><th>Audit Component</th><th>Hours</th><th>Fee</th></tr>';
+  let base=0;
+  tasks.forEach(t=>{const cost=t.h*rate;base+=cost;const r=tbody.insertRow();r.innerHTML=`<td>${t.name}</td><td>${t.h}</td><td>${fmt(cost)}</td>`;});
+  const fee=base/0.6;
+  sv('a_hours',totalHrs); sv('a_base',fmt(base)); sv('a_margin',fmt(fee-base));
+  sv('a_total',fmt(fee)); sv('a_sub','Comprehensive documentation audit + written findings report');
+}
+
+
+// ===== COMPARE =====
+function compareDecision() {
+  const scope=v('cmp_scope'),dur=v('cmp_duration'),client=v('cmp_client'),risk=v('cmp_risk');
+  if(!scope||!dur||!client||!risk) return;
+  let model='Hourly (T&M)', reason='Flexible pay-as-you-go protects RC2 on undefined scope';
+  if(scope==='yes'&&dur==='short') { model='Flat Fee (Task)'; reason='Clear short deliverable — simple fixed quote wins the client'; }
+  else if(scope==='yes'&&dur==='medium') { model='Fixed Project Fee'; reason='Defined multi-week scope — highest margin potential for RC2'; }
+  else if(dur==='long'||client==='ongoing') { model='Monthly Retainer'; reason='Long-term access relationship = predictable recurring income'; }
+  else if(scope==='no'&&risk==='scope') { model='Hourly T&M + NTE Cap'; reason='Protects RC2 from undefined scope with hourly billing plus not-to-exceed ceiling'; }
+  else if(client==='predictable') { model='Fixed Project Fee'; reason='Client wants cost certainty — price it to your target margin'; }
+  else if(risk==='cashflow') { model='Retainer or Milestone Payments'; reason='Structured payments eliminate cash flow variability for RC2'; }
+  sv('cmp_result',model); sv('cmp_reason',reason);
+}
+
+
+// ===== INIT =====
+window.onload = () => {
+  calcHourly();
+  calcMargin();
+  calcTargetPrice();
+  calcRetainer();
+  addProjectRow(); addProjectRow(); addProjectRow();
+  setTimeout(()=>{
+    const rows=document.querySelectorAll('#p_table tr[id]');
+    if(rows[0]) rows[0].querySelectorAll('input')[0].value='Initial Assessment & Project Kickoff';
+    if(rows[1]) rows[1].querySelectorAll('input')[0].value='Documentation Development & Drafting';
+    if(rows[2]) rows[2].querySelectorAll('input')[0].value='Final Review, Delivery & Presentation';
+    calcProject();
+  },100);
+  calcWRAP(); calcGov(); calcCR(); calcOps(); calcSales(); calcFractional(); calcAudit();
+};
+</script>
+</body>
+</html>
