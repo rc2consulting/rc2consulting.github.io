@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 — Corporate Kit Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;--green:#059669;--red:#dc2626;--purple:#7c3aed;--orange:#ea580c;--gray:#6b7280;--border:#e2e8f0;--light:#f8fafc;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#f1f5f9;color:#1e293b;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+
+/* TOPBAR */
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.user-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.85);}
+.btn-gold{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:700;cursor:pointer;}
+.btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;}
+
+/* TABS */
+.tab-bar{background:white;border-bottom:1px solid var(--border);display:flex;overflow-x:auto;flex-shrink:0;padding:0 20px;}
+.tab-bar::-webkit-scrollbar{height:3px;}
+.tab-bar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px;}
+.tab-btn{padding:12px 16px;font-size:.77rem;font-weight:700;color:var(--gray);border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s;}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+
+/* CONTENT */
+.content{flex:1;overflow-y:auto;padding:22px;max-width:1100px;margin:0 auto;width:100%;}
+.content::-webkit-scrollbar{width:6px;}
+.content::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:16px;padding:26px 30px;color:white;margin-bottom:20px;}
+.hero h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;margin-bottom:6px;}
+.hero p{font-size:.85rem;opacity:.7;line-height:1.7;max-width:700px;}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.h-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:.72rem;}
+
+/* CARDS */
+.card{background:white;border-radius:14px;border:1px solid var(--border);padding:22px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+
+/* LEARN GRID */
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:20px;}
+.learn-card{background:var(--light);border-radius:12px;border:1px solid var(--border);padding:16px;}
+.lc-icon{font-size:1.5rem;margin-bottom:7px;}
+.lc-title{font-size:.88rem;font-weight:800;color:var(--navy);margin-bottom:5px;}
+.lc-text{font-size:.79rem;color:#374151;line-height:1.7;}
+
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px;}
+.form-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:4px;}
+.form-group{margin-bottom:12px;}
+.form-group label{display:block;font-size:.67rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;background:white;color:#1e293b;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.08);}
+.form-group textarea{resize:vertical;min-height:70px;}
+.section-divider{font-size:.7rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px;padding:10px 0 8px;border-bottom:2px solid var(--border);margin-bottom:12px;margin-top:8px;}
+
+/* CHECKLIST */
+.check-group{margin-bottom:18px;}
+.cg-title{font-size:.73rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.cg-pct{font-size:.72rem;font-weight:700;color:var(--accent);}
+.check-row{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;margin-bottom:5px;border:1px solid var(--border);background:white;transition:background .15s;}
+.check-row.done{background:#f0fdf4;border-color:#86efac;}
+.check-row.na-row{background:#f8fafc;border-color:#e2e8f0;opacity:.6;}
+.check-row input[type=checkbox]{width:16px;height:16px;margin-top:2px;flex-shrink:0;cursor:pointer;accent-color:var(--green);}
+.check-label{font-size:.83rem;color:#374151;flex:1;line-height:1.5;}
+.check-sub{font-size:.7rem;color:var(--gray);margin-top:1px;}
+.check-actions{display:flex;gap:5px;flex-shrink:0;margin-top:1px;}
+.tag-btn{font-size:.62rem;font-weight:700;border-radius:6px;padding:3px 8px;cursor:pointer;border:1px solid var(--border);background:white;color:var(--gray);}
+.tag-btn.active-na{background:#f1f5f9;color:#6b7280;border-color:#9ca3af;}
+.tag-btn.active-need{background:#fff7ed;color:#c2410c;border-color:#fed7aa;}
+.prog-wrap{background:#e2e8f0;border-radius:20px;height:7px;margin:4px 0 14px;}
+.prog-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width .35s;}
+
+/* DOCUMENT PREVIEW */
+.doc-preview{background:white;border:2px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.08);}
+.doc-header{background:linear-gradient(135deg,var(--navy),var(--blue));padding:22px 28px;color:white;}
+.doc-header .dh-co{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;}
+.doc-header .dh-title{font-size:.78rem;opacity:.55;margin-top:4px;text-transform:uppercase;letter-spacing:1.5px;}
+.doc-header .dh-meta{font-size:.72rem;opacity:.45;margin-top:10px;}
+.doc-body{padding:24px 32px;}
+.doc-section{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.doc-section-title{font-size:.78rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;}
+.doc-section-body{font-size:.83rem;color:#374151;line-height:1.8;}
+.doc-sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;}
+.doc-sig-block{padding-top:40px;border-top:1.5px solid var(--border);}
+.doc-sig-label{font-size:.72rem;color:var(--gray);}
+.doc-sig-name{font-size:.83rem;font-weight:700;color:var(--navy);margin-top:4px;}
+
+/* OFFICER TABLE */
+.officer-table{width:100%;border-collapse:collapse;}
+.officer-table th{background:var(--navy);color:white;padding:10px 12px;font-size:.7rem;font-weight:700;text-align:left;letter-spacing:.3px;}
+.officer-table td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:.82rem;vertical-align:middle;}
+.officer-table tr:hover td{background:var(--light);}
+.officer-table td input,.officer-table td select{border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-size:.78rem;font-family:'Source Sans 3',sans-serif;outline:none;width:100%;background:white;}
+.officer-table td input:focus,.officer-table td select:focus{border-color:var(--accent);}
+.row-del{background:#fee2e2;border:1px solid #fca5a5;color:#dc2626;border-radius:6px;padding:4px 8px;cursor:pointer;font-size:.72rem;}
+
+/* COMPLIANCE CALENDAR */
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+.cal-item{background:white;border-radius:10px;border:1px solid var(--border);padding:14px;border-left:4px solid var(--border);}
+.cal-item.due-critical{border-left-color:var(--red);}
+.cal-item.due-soon{border-left-color:var(--gold);}
+.cal-item.due-ok{border-left-color:var(--green);}
+.cal-item.done-item{border-left-color:#94a3b8;opacity:.6;}
+.ci-month{font-size:.65rem;font-weight:800;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px;}
+.ci-title{font-size:.85rem;font-weight:800;color:var(--navy);margin-bottom:3px;}
+.ci-desc{font-size:.75rem;color:#374151;line-height:1.5;margin-bottom:6px;}
+.ci-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.62rem;font-weight:700;}
+.ci-check{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:.73rem;color:var(--gray);cursor:pointer;}
+.ci-check input{cursor:pointer;}
+
+/* VAULT */
+.vault-table{width:100%;border-collapse:collapse;}
+.vault-table th{background:var(--navy);color:white;padding:10px 12px;font-size:.7rem;font-weight:700;text-align:left;}
+.vault-table td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:.8rem;vertical-align:middle;}
+.vault-table tr:hover td{background:var(--light);}
+.status-pill{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.65rem;font-weight:700;}
+.sp-done{background:#d1fae5;color:#065f46;}
+.sp-pending{background:#fef3c7;color:#92400e;}
+.sp-missing{background:#fee2e2;color:#991b1b;}
+.sp-na{background:#f1f5f9;color:#6b7280;}
+
+/* INFO / WARN BOXES */
+.info-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.82rem;color:#1e40af;line-height:1.7;}
+.warn-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.8rem;color:#92400e;line-height:1.6;}
+.success-box{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.82rem;color:#065f46;line-height:1.7;}
+
+/* BUTTONS */
+.btn-primary{background:var(--accent);color:white;border:none;border-radius:8px;padding:9px 20px;font-size:.82rem;font-weight:700;cursor:pointer;}
+.btn-success{background:var(--green);color:white;border:none;border-radius:8px;padding:9px 20px;font-size:.82rem;font-weight:700;cursor:pointer;}
+.btn-outline{background:white;color:var(--accent);border:2px solid var(--accent);border-radius:8px;padding:8px 18px;font-size:.82rem;font-weight:700;cursor:pointer;}
+.btn-sm{background:var(--light);border:1px solid var(--border);border-radius:7px;padding:6px 14px;font-size:.76rem;font-weight:700;cursor:pointer;color:var(--navy);}
+
+/* DOC SELECTOR */
+.doc-selector{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+.doc-sel-btn{padding:8px 16px;border-radius:8px;border:2px solid var(--border);background:white;font-size:.78rem;font-weight:700;color:var(--gray);cursor:pointer;transition:all .15s;}
+.doc-sel-btn.active{background:var(--navy);color:white;border-color:var(--navy);}
+.doc-sel-btn:hover:not(.active){border-color:var(--accent);color:var(--accent);}
+
+/* ENTITY TYPE BADGE */
+.entity-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.7rem;font-weight:700;}
+
+@media(max-width:650px){.form-grid,.form-grid-3{grid-template-columns:1fr;}.doc-sig-grid{grid-template-columns:1fr;}.phase-grid{grid-template-columns:1fr;}}
+@media print{body{height:auto;overflow:visible;}.topbar,.tab-bar,.btn-gold,.btn-ghost,.btn-primary,.btn-success,.doc-selector,.btn-sm,.btn-outline,.row-del,.check-actions{display:none!important;}.content{overflow:visible;max-width:100%;padding:0;}.tab-panel{display:block!important;}@page{margin:.5in;size:letter;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div style="color:white;font-size:.95rem;font-weight:700;">⚡ RC2 CONSULTING — CORPORATE KIT BUILDER</div>
+    <div style="color:rgba(255,255,255,.5);font-size:.68rem;">Entity Setup · Document Generation · Officer Registry · Compliance Calendar · Document Vault</div>
+  </div>
+  <div class="topbar-right">
+    <div class="user-pill">👤 <span id="hub-username">RC2 Staff</span></div>
+    <button class="btn-ghost" onclick="saveAll()">💾 Save Progress</button>
+    <button class="btn-gold" onclick="window.print()">🖨️ Print / PDF</button>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('overview',this)">📚 What Is a Corporate Kit</button>
+  <button class="tab-btn" onclick="showTab('setup',this)">🏢 Company Profile</button>
+  <button class="tab-btn" onclick="showTab('checklist',this)">✅ Document Checklist</button>
+  <button class="tab-btn" onclick="showTab('generator',this)">📄 Document Generator</button>
+  <button class="tab-btn" onclick="showTab('officers',this)">👔 Officers & Directors</button>
+  <button class="tab-btn" onclick="showTab('calendar',this)">📅 Compliance Calendar</button>
+  <button class="tab-btn" onclick="showTab('vault',this)">🔒 Document Vault</button>
+</div>
+
+<div class="content">
+
+<!-- ══════════════════ TAB 1: OVERVIEW ══════════════════ -->
+<div class="tab-panel active" id="tab-overview">
+  <div class="hero">
+    <h2>🗂️ What Is a Corporate Kit — and Why Does It Matter?</h2>
+    <p>A corporate kit is the complete collection of foundational legal documents and records that establish, govern, and protect a business entity. Every properly formed business — LLC, Corporation, or S-Corp — must have these documents in place. RC2 helps clients build and maintain theirs from day one.</p>
+    <div class="hero-badges">
+      <span class="h-badge">LLC · C-Corp · S-Corp · Nonprofit</span>
+      <span class="h-badge">Legally Required in Most States</span>
+      <span class="h-badge">Protects Owner's Personal Assets</span>
+      <span class="h-badge">Required for Banking, Contracts & Financing</span>
+    </div>
+  </div>
+
+  <div class="learn-grid">
+    <div class="learn-card">
+      <div class="lc-icon">⚖️</div>
+      <div class="lc-title">Why It's Non-Negotiable</div>
+      <div class="lc-text">Without proper formation documents, courts may "pierce the corporate veil" — meaning the owner is personally liable for business debts and lawsuits. A properly maintained corporate kit is the primary legal defense separating the owner's personal assets from the business.</div>
+    </div>
+    <div class="learn-card">
+      <div class="lc-icon">🏦</div>
+      <div class="lc-title">Banks & Lenders Require It</div>
+      <div class="lc-text">Any bank opening a business account, any lender providing a business loan, and any SBA program requires proof of entity formation. They will ask for Articles of Organization/Incorporation, EIN letter, and operating agreement or bylaws before processing anything.</div>
+    </div>
+    <div class="learn-card">
+      <div class="lc-icon">📋</div>
+      <div class="lc-title">What's Inside a Corporate Kit</div>
+      <div class="lc-text">Articles of Incorporation or Organization, Bylaws (Corp) or Operating Agreement (LLC), EIN confirmation letter, initial meeting minutes, officer/director resolutions, banking resolutions, membership certificates or stock certificates, and the annual compliance calendar.</div>
+    </div>
+    <div class="learn-card">
+      <div class="lc-icon">🏛️</div>
+      <div class="lc-title">LLC vs. Corporation — Key Differences</div>
+      <div class="lc-text">An LLC uses an Operating Agreement and has Members/Managers. A Corporation uses Bylaws and has Officers, Directors, and Shareholders. Both need Articles filed with the state, an EIN from the IRS, and internal governance documents. S-Corp is a tax election made on top of a Corporation or LLC.</div>
+    </div>
+    <div class="learn-card">
+      <div class="lc-icon">📅</div>
+      <div class="lc-title">Ongoing Compliance Requirements</div>
+      <div class="lc-text">Formation is not a one-time event. Most states require Annual Reports or Statements of Information filed annually with a fee. Corporations must hold annual meetings and document them. Officers and registered agents must be kept current. Failure to comply can result in dissolution by the state.</div>
+    </div>
+    <div class="learn-card">
+      <div class="lc-icon">🔑</div>
+      <div class="lc-title">Registered Agent</div>
+      <div class="lc-text">Every entity must have a registered agent — a person or service authorized to receive legal documents on behalf of the company in the state of formation. This can be the owner, an attorney, or a registered agent service (e.g., Northwest, Incfile). The agent must be available during business hours at a physical address.</div>
+    </div>
+    <div class="learn-card">
+      <div class="lc-icon">🔢</div>
+      <div class="lc-title">EIN — Employer Identification Number</div>
+      <div class="lc-text">The EIN is the business's federal tax ID, issued by the IRS (apply free at IRS.gov — takes 5 minutes online). Required for opening a bank account, hiring employees, filing taxes, applying for licenses, and most government programs. There is no excuse for not having one.</div>
+    </div>
+    <div class="learn-card">
+      <div class="lc-icon">💰</div>
+      <div class="lc-title">How RC2 Bills This Service</div>
+      <div class="lc-text">Corporate Kit assembly and review: $750–$1,500 flat fee. Includes document review, EIN assistance, operating agreement or bylaw template, initial meeting minutes, and compliance calendar setup. Ongoing compliance monitoring: add-on to retainer. This is a high-margin, low-time service.</div>
+    </div>
+    <div class="learn-card">
+      <div class="lc-icon">⚠️</div>
+      <div class="lc-title">Most Common Mistakes RC2 Finds</div>
+      <div class="lc-text">No operating agreement despite being an LLC. Bylaws never signed. EIN letter lost or never obtained. Registered agent address is wrong or outdated. Annual reports not filed — entity is in bad standing. Business account commingled with personal funds. No meeting minutes for years.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📖 Entity Type Quick Reference Guide</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:.8rem;">
+        <thead><tr>
+          <th style="background:var(--navy);color:white;padding:10px 12px;text-align:left;font-size:.7rem;">Feature</th>
+          <th style="background:#1e40af;color:white;padding:10px 12px;text-align:center;font-size:.7rem;">LLC</th>
+          <th style="background:#1e40af;color:white;padding:10px 12px;text-align:center;font-size:.7rem;">C-Corporation</th>
+          <th style="background:#1e40af;color:white;padding:10px 12px;text-align:center;font-size:.7rem;">S-Corporation</th>
+          <th style="background:#1e40af;color:white;padding:10px 12px;text-align:center;font-size:.7rem;">Nonprofit (501c3)</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);font-weight:700;">Governing Document</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Operating Agreement</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Bylaws</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Bylaws</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Bylaws</td></tr>
+          <tr style="background:var(--light);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);font-weight:700;">Ownership</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Members</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Shareholders</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Shareholders (≤100)</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">No owners</td></tr>
+          <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);font-weight:700;">Leadership</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Members/Managers</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Officers & Directors</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Officers & Directors</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Board of Directors</td></tr>
+          <tr style="background:var(--light);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);font-weight:700;">Taxation</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Pass-through (default)</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Double taxation</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Pass-through</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Tax-exempt (IRS approval)</td></tr>
+          <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);font-weight:700;">Annual Meeting Required</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">Recommended</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">✅ Required</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">✅ Required</td><td style="padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;">✅ Required</td></tr>
+          <tr style="background:var(--light);"><td style="padding:9px 12px;font-weight:700;">Best For</td><td style="padding:9px 12px;text-align:center;">Small businesses, flexibility</td><td style="padding:9px 12px;text-align:center;">VC-backed, going public</td><td style="padding:9px 12px;text-align:center;">Small corps, tax savings</td><td style="padding:9px 12px;text-align:center;">Mission-driven orgs</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TAB 2: COMPANY PROFILE ══════════════════ -->
+<div class="tab-panel" id="tab-setup">
+  <div class="card">
+    <div class="card-title">🏢 Company Profile — Core Entity Information</div>
+    <div class="info-box">This information populates all generated documents automatically. Fill it out completely and accurately. This is the single source of truth for the client's entity records.</div>
+
+    <div class="section-divider">Entity Basics</div>
+    <div class="form-grid">
+      <div class="form-group"><label>Legal Company Name (exact as filed with state)</label><input id="co-name" type="text" placeholder="ABC Manufacturing, LLC" oninput="saveAll();updatePreviewFields()"></div>
+      <div class="form-group"><label>DBA / Trade Name (if different)</label><input id="co-dba" type="text" placeholder="Leave blank if same as legal name" oninput="saveAll()"></div>
+    </div>
+    <div class="form-grid-3">
+      <div class="form-group"><label>Entity Type</label>
+        <select id="co-type" onchange="saveAll();updateEntityType()">
+          <option value="LLC">Limited Liability Company (LLC)</option>
+          <option value="C-Corp">C-Corporation</option>
+          <option value="S-Corp">S-Corporation</option>
+          <option value="Nonprofit">Nonprofit Corporation (501c3)</option>
+          <option value="Sole">Sole Proprietorship</option>
+          <option value="Partnership">General Partnership</option>
+        </select>
+      </div>
+      <div class="form-group"><label>State of Formation</label>
+        <select id="co-state" onchange="saveAll()">
+          <option value="">Select State</option>
+          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Date of Formation / Incorporation</label><input id="co-formed" type="date" oninput="saveAll()"></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group"><label>EIN (Employer Identification Number)</label><input id="co-ein" type="text" placeholder="XX-XXXXXXX" maxlength="10" oninput="saveAll()"></div>
+      <div class="form-group"><label>State Filing / Entity Number</label><input id="co-filing-num" type="text" placeholder="As shown on state filing confirmation" oninput="saveAll()"></div>
+    </div>
+
+    <div class="section-divider">Business Address & Contact</div>
+    <div class="form-group"><label>Principal Business Address</label><input id="co-address" type="text" placeholder="123 Main Street, Suite 100" oninput="saveAll()"></div>
+    <div class="form-grid-3">
+      <div class="form-group"><label>City</label><input id="co-city" type="text" placeholder="Miami" oninput="saveAll()"></div>
+      <div class="form-group"><label>State</label><input id="co-addr-state" type="text" placeholder="FL" oninput="saveAll()"></div>
+      <div class="form-group"><label>ZIP Code</label><input id="co-zip" type="text" placeholder="33101" oninput="saveAll()"></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group"><label>Business Phone</label><input id="co-phone" type="text" placeholder="(305) 555-0100" oninput="saveAll()"></div>
+      <div class="form-group"><label>Business Email</label><input id="co-email" type="email" placeholder="info@company.com" oninput="saveAll()"></div>
+    </div>
+
+    <div class="section-divider">Registered Agent</div>
+    <div class="form-grid">
+      <div class="form-group"><label>Registered Agent Name or Service</label><input id="ra-name" type="text" placeholder="John Smith or Northwest Registered Agent" oninput="saveAll()"></div>
+      <div class="form-group"><label>Registered Agent Address</label><input id="ra-address" type="text" placeholder="Street address (cannot be a P.O. Box)" oninput="saveAll()"></div>
+    </div>
+    <div class="form-grid-3">
+      <div class="form-group"><label>City</label><input id="ra-city" type="text" oninput="saveAll()"></div>
+      <div class="form-group"><label>State</label><input id="ra-state" type="text" oninput="saveAll()"></div>
+      <div class="form-group"><label>ZIP</label><input id="ra-zip" type="text" oninput="saveAll()"></div>
+    </div>
+
+    <div class="section-divider">Business Description & Purpose</div>
+    <div class="form-group"><label>Business Purpose (as stated in formation documents)</label><textarea id="co-purpose" placeholder="To engage in any lawful act or activity for which a limited liability company may be organized..." oninput="saveAll()"></textarea></div>
+    <div class="form-grid">
+      <div class="form-group"><label>Primary Industry / NAICS Code</label><input id="co-naics" type="text" placeholder="e.g. 315210 — Cut and Sew Apparel" oninput="saveAll()"></div>
+      <div class="form-group"><label>Fiscal Year End</label>
+        <select id="co-fiscal" onchange="saveAll()">
+          <option>December 31</option><option>March 31</option><option>June 30</option><option>September 30</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section-divider">Banking Information</div>
+    <div class="form-grid">
+      <div class="form-group"><label>Primary Bank Name</label><input id="bank-name" type="text" placeholder="First National Bank" oninput="saveAll()"></div>
+      <div class="form-group"><label>Business Account Number (last 4 digits only)</label><input id="bank-acct" type="text" placeholder="XXXX" maxlength="4" oninput="saveAll()"></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group"><label>Bank Branch Address</label><input id="bank-address" type="text" placeholder="Branch where account was opened" oninput="saveAll()"></div>
+      <div class="form-group"><label>Account Open Date</label><input id="bank-date" type="date" oninput="saveAll()"></div>
+    </div>
+
+    <div style="margin-top:6px;display:flex;gap:10px;">
+      <button class="btn-primary" onclick="saveAll();alert('Company profile saved!')">💾 Save Profile</button>
+      <button class="btn-outline" onclick="showTab('checklist',document.querySelectorAll('.tab-btn')[2])">Next: Document Checklist →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TAB 3: DOCUMENT CHECKLIST ══════════════════ -->
+<div class="tab-panel" id="tab-checklist">
+  <div class="card">
+    <div class="card-title">✅ Corporate Kit Document Checklist</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:.82rem;color:var(--gray);">Track the status of every required document. Check items as completed. Mark N/A for items not applicable to this entity type.</div>
+      <div style="font-size:.88rem;font-weight:800;color:var(--accent);" id="checklist-overall-pct">0% Complete</div>
+    </div>
+    <div class="prog-wrap"><div class="prog-fill" id="checklist-main-bar" style="width:0%"></div></div>
+    <div id="kit-checklist-container"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ TAB 4: DOCUMENT GENERATOR ══════════════════ -->
+<div class="tab-panel" id="tab-generator">
+  <div class="card">
+    <div class="card-title">📄 Document Generator</div>
+    <div class="info-box">Select a document below to generate a customized, print-ready version pre-filled with your company profile data. Always have documents reviewed by a licensed attorney before execution. RC2 provides templates — not legal advice.</div>
+    <div class="doc-selector" id="doc-selector">
+      <button class="doc-sel-btn active" onclick="selectDoc('articles',this)">📋 Articles of Org / Incorp.</button>
+      <button class="doc-sel-btn" onclick="selectDoc('operating',this)">📜 Operating Agreement</button>
+      <button class="doc-sel-btn" onclick="selectDoc('bylaws',this)">📖 Corporate Bylaws</button>
+      <button class="doc-sel-btn" onclick="selectDoc('minutes',this)">📝 Initial Meeting Minutes</button>
+      <button class="doc-sel-btn" onclick="selectDoc('banking',this)">🏦 Banking Resolution</button>
+      <button class="doc-sel-btn" onclick="selectDoc('officer',this)">👔 Officer Appointment Res.</button>
+      <button class="doc-sel-btn" onclick="selectDoc('certificate',this)">🏅 Membership Certificate</button>
+    </div>
+    <div id="doc-preview-container"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ TAB 5: OFFICERS & DIRECTORS ══════════════════ -->
+<div class="tab-panel" id="tab-officers">
+  <div class="card">
+    <div class="card-title">👔 Officer, Director & Member Registry</div>
+    <div style="font-size:.82rem;color:var(--gray);margin-bottom:14px;line-height:1.6;">This registry documents the authorized individuals of the entity. For Corporations: list all Officers and Directors. For LLCs: list all Members and Managers. This information is required for banking, contracts, government registrations, and audits.</div>
+    <div style="overflow-x:auto;">
+      <table class="officer-table">
+        <thead><tr><th>Full Legal Name</th><th>Title / Role</th><th>Ownership %</th><th>Email</th><th>Phone</th><th>SSN/EIN (last 4)</th><th>Effective Date</th><th></th></tr></thead>
+        <tbody id="officers-tbody"></tbody>
+      </table>
+    </div>
+    <button class="btn-primary" onclick="addOfficer()" style="margin-top:12px;">+ Add Person</button>
+  </div>
+  <div class="card">
+    <div class="card-title">📋 Authorized Signatories</div>
+    <div class="info-box">Document who is authorized to sign contracts, checks, and legal documents on behalf of the company. This should match your banking resolution and be consistent with your Operating Agreement or Bylaws.</div>
+    <div id="signatories-area">
+      <div class="form-grid">
+        <div class="form-group"><label>Primary Authorized Signer — Name & Title</label><input id="sig1-name" type="text" placeholder="Jane Smith, CEO / Managing Member" oninput="saveAll()"></div>
+        <div class="form-group"><label>Signature Authority Limit</label><select id="sig1-limit" onchange="saveAll()"><option>Unlimited</option><option>Up to $10,000</option><option>Up to $25,000</option><option>Up to $50,000</option><option>Up to $100,000</option></select></div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group"><label>Secondary Authorized Signer — Name & Title</label><input id="sig2-name" type="text" placeholder="Optional: second signer" oninput="saveAll()"></div>
+        <div class="form-group"><label>Signature Authority Limit</label><select id="sig2-limit" onchange="saveAll()"><option>Unlimited</option><option>Up to $10,000</option><option>Up to $25,000</option><option>Up to $50,000</option></select></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">💡 Officer Title Reference Guide</div>
+    <div class="learn-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+      <div class="learn-card"><div class="lc-title">CEO / President</div><div class="lc-text">Chief Executive Officer or President — runs the company day-to-day. Highest executive authority. Signs major contracts and legal documents.</div></div>
+      <div class="learn-card"><div class="lc-title">CFO / Treasurer</div><div class="lc-text">Chief Financial Officer or Treasurer — oversees all financial matters, banking, and financial reporting. Signs checks above a threshold.</div></div>
+      <div class="learn-card"><div class="lc-title">Secretary</div><div class="lc-text">Maintains corporate records, meeting minutes, and filings. Signs certain legal documents. Required role in most states for corporations.</div></div>
+      <div class="learn-card"><div class="lc-title">Managing Member (LLC)</div><div class="lc-text">For member-managed LLCs: all members have authority. For manager-managed LLCs: only designated managers can act on the company's behalf.</div></div>
+      <div class="learn-card"><div class="lc-title">Director</div><div class="lc-text">Board member responsible for governance and major strategic decisions. Directors are elected by shareholders. They do not run day-to-day operations.</div></div>
+      <div class="learn-card"><div class="lc-title">Registered Agent</div><div class="lc-text">The designated recipient for legal and government notices. Not an officer — but a required role for the entity. Must have a physical address in the state.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TAB 6: COMPLIANCE CALENDAR ══════════════════ -->
+<div class="tab-panel" id="tab-calendar">
+  <div class="card">
+    <div class="card-title">📅 Annual Compliance Calendar</div>
+    <div style="font-size:.82rem;color:var(--gray);margin-bottom:10px;line-height:1.6;">Compliance deadlines are not optional. Missing a state annual report can result in the entity being placed in bad standing, losing liability protection, or being administratively dissolved. Track every deadline below.</div>
+    <div class="warn-box">⚠️ <strong>State filing deadlines vary.</strong> Always verify due dates on your state's Secretary of State website. Florida, California, Delaware, and Nevada all have different schedules. This calendar shows common compliance events — not legal or tax advice.</div>
+    <div id="compliance-calendar"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">➕ Add Custom Compliance Item</div>
+    <div class="form-grid">
+      <div class="form-group"><label>Item / Deadline Title</label><input id="custom-cal-title" type="text" placeholder="e.g. Business License Renewal"></div>
+      <div class="form-group"><label>Due Date</label><input id="custom-cal-date" type="date"></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group"><label>Category</label>
+        <select id="custom-cal-cat">
+          <option>State Filing</option><option>Federal Tax</option><option>State Tax</option><option>License/Permit</option><option>Insurance</option><option>Internal</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Notes</label><input id="custom-cal-note" type="text" placeholder="Filing fee, link, or instructions"></div>
+    </div>
+    <button class="btn-primary" onclick="addCalItem()">+ Add to Calendar</button>
+  </div>
+</div>
+
+<!-- ══════════════════ TAB 7: DOCUMENT VAULT ══════════════════ -->
+<div class="tab-panel" id="tab-vault">
+  <div class="card">
+    <div class="card-title">🔒 Document Vault — Record Tracker</div>
+    <div style="font-size:.82rem;color:var(--gray);margin-bottom:14px;line-height:1.6;">Track the location, version, and status of every key corporate document. Update this whenever a document is executed, amended, or updated. The vault is the audit trail for the entity's legal records.</div>
+    <div style="overflow-x:auto;">
+      <table class="vault-table">
+        <thead><tr><th>Document</th><th>Status</th><th>Version / Date</th><th>Signed By</th><th>Storage Location</th><th>Notes</th><th>Update</th></tr></thead>
+        <tbody id="vault-tbody"></tbody>
+      </table>
+    </div>
+    <button class="btn-primary" onclick="addVaultItem()" style="margin-top:12px;">+ Add Document</button>
+  </div>
+  <div class="card">
+    <div class="card-title">🧭 Document Retention Schedule</div>
+    <div class="learn-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+      <div class="learn-card"><div class="lc-title">Permanent — Never Destroy</div><div class="lc-text">Articles of Incorporation/Organization, all Bylaws and Operating Agreements, EIN confirmation letter, all meeting minutes, stock/membership certificates, state filing confirmations.</div></div>
+      <div class="learn-card"><div class="lc-title">7 Years</div><div class="lc-text">All financial records and tax returns, bank statements, contracts and agreements, employee records after termination, payroll records, accounts payable/receivable records.</div></div>
+      <div class="learn-card"><div class="lc-title">3 Years</div><div class="lc-text">I-9 forms (3 years from hire OR 1 year after termination, whichever is later), routine correspondence, general business records not covered by other categories.</div></div>
+      <div class="learn-card"><div class="lc-title">Duration of Relationship + 3 Years</div><div class="lc-text">Active vendor contracts, active customer agreements, active insurance policies. Keep through the end of the relationship plus 3 additional years for potential claim or dispute purposes.</div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end content -->
+
+<script>
+// ═══════════ STATE ═══════════
+let officers = [{name:'',title:'CEO / Managing Member',pct:'100',email:'',phone:'',ssn4:'',date:''}];
+let calItems = [];
+let vaultItems = [];
+
+// ═══════════ TAB CONTROL ═══════════
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+// ═══════════ CHECKLIST DATA ═══════════
+const KIT_CHECKLIST = [
+  {group:'Formation Documents',items:[
+    {id:'ck_articles',label:'Articles of Organization / Articles of Incorporation',sub:'Filed with and confirmed by the Secretary of State. Keep the stamped/certified copy forever.'},
+    {id:'ck_ein',label:'IRS EIN Confirmation Letter (CP-575 or 147-C)',sub:'Issued by the IRS after EIN application. Required for banking, hiring, and tax filings.'},
+    {id:'ck_state_confirm',label:'State Filing Confirmation / Entity Number',sub:'The confirmation letter or certificate from the Secretary of State showing the entity is active.'},
+    {id:'ck_good_standing',label:'Certificate of Good Standing (when needed)',sub:'Requested from state to prove the entity is active and compliant. Required for bank accounts, licenses, and contracts.'}
+  ]},
+  {group:'Governing Documents',items:[
+    {id:'ck_oa',label:'Operating Agreement (LLC) OR Bylaws (Corporation)',sub:'The internal governance document defining how the company is run, who has authority, and how decisions are made.'},
+    {id:'ck_minutes_initial',label:'Initial Organizational Meeting Minutes',sub:'Documents the first official meeting, adoption of governing docs, appointment of officers, and authorization of business activities.'},
+    {id:'ck_banking_res',label:'Banking Resolution',sub:'Authorizes specific individuals to open accounts, sign checks, and transact on behalf of the entity. Required by every bank.'},
+    {id:'ck_officer_res',label:'Officer / Director Appointment Resolution',sub:'Formally appoints all officers or managers. Should be signed by all members/shareholders.'}
+  ]},
+  {group:'Tax & Government Registrations',items:[
+    {id:'ck_sam',label:'SAM.gov Registration (if pursuing government contracts)',sub:'Required for any federal contracting. Must be renewed annually at SAM.gov.'},
+    {id:'ck_state_tax',label:'State Tax ID / Sales Tax Registration (if applicable)',sub:'Most states require separate registration for state income tax and/or sales tax.'},
+    {id:'ck_biz_license',label:'Local Business License / Occupational License',sub:'Most cities and counties require a general business license renewed annually.'},
+    {id:'ck_dba',label:'DBA / Fictitious Name Registration (if operating under trade name)',sub:'If the business uses a name different from its legal name, most states require DBA filing.'}
+  ]},
+  {group:'Banking & Finance',items:[
+    {id:'ck_bank_acct',label:'Business Bank Account Opened (separate from personal)',sub:'Commingling personal and business funds is the single most common reason courts pierce the corporate veil.'},
+    {id:'ck_credit_card',label:'Business Credit Card or Line of Credit Established',sub:'Build business credit independently. Every business purchase should go through the business account.'},
+    {id:'ck_accounting',label:'Accounting Software / Chart of Accounts Set Up',sub:'QuickBooks, Wave, or equivalent configured for the business from day one.'}
+  ]},
+  {group:'Ownership Records',items:[
+    {id:'ck_cert',label:'Membership Certificates (LLC) OR Stock Certificates (Corp) Issued',sub:'Physical or digital certificates documenting each owner\'s percentage interest. Required for transfers, disputes, and financing.'},
+    {id:'ck_ledger',label:'Membership / Stock Ledger Established',sub:'Master record of all owners, their ownership percentages, and any transfers. Must be updated with every ownership change.'},
+    {id:'ck_buyout',label:'Buy-Sell Agreement / Succession Plan (if multiple owners)',sub:'Defines what happens if an owner dies, becomes disabled, wants to sell, or is forced out. Prevents catastrophic disputes.'}
+  ]},
+  {group:'Insurance',items:[
+    {id:'ck_gl',label:'General Liability Insurance Policy Obtained',sub:'Protects the business against third-party claims for bodily injury and property damage.'},
+    {id:'ck_wc',label:'Workers Compensation Insurance (if employees)',sub:'Required by law in most states once the company hires its first employee.'},
+    {id:'ck_eo',label:'Errors & Omissions (E&O) / Professional Liability (for service firms)',sub:'Protects against claims arising from professional advice or services provided.'}
+  ]}
+];
+
+function renderChecklist(){
+  const container = document.getElementById('kit-checklist-container');
+  let html='';
+  let totalItems=0, doneItems=0;
+  KIT_CHECKLIST.forEach(group=>{
+    let gDone=0;
+    const gTotal=group.items.length;
+    let itemsHtml='';
+    group.items.forEach(item=>{
+      totalItems++;
+      const state=getCheckState(item.id);
+      const isDone=state==='done';
+      const isNA=state==='na';
+      const isNeed=state==='need';
+      if(isDone) doneItems++;
+      itemsHtml+=`<div class="check-row ${isDone?'done':''} ${isNA?'na-row':''}" id="crow_${item.id}">
+        <input type="checkbox" ${isDone?'checked':''} onchange="toggleKitCheck('${item.id}',this)">
+        <div style="flex:1;">
+          <div class="check-label" style="${isNA?'text-decoration:line-through;color:var(--gray);':''}">${item.label}</div>
+          <div class="check-sub">${item.sub}</div>
+        </div>
+        <div class="check-actions">
+          <button class="tag-btn ${isNA?'active-na':''}" onclick="setKitTag('${item.id}','na',this)">N/A</button>
+          <button class="tag-btn ${isNeed?'active-need':''}" onclick="setKitTag('${item.id}','need',this)">⚠️ Needed</button>
+        </div>
+      </div>`;
+    });
+    const gPct=Math.round((group.items.filter(i=>getCheckState(i.id)==='done').length/gTotal)*100);
+    html+=`<div class="check-group">
+      <div class="cg-title">${group.group}<span class="cg-pct">${gPct}%</span></div>
+      <div class="prog-wrap"><div class="prog-fill" style="width:${gPct}%"></div></div>
+      ${itemsHtml}
+    </div>`;
+  });
+  container.innerHTML=html;
+  const pct=totalItems>0?Math.round((doneItems/totalItems)*100):0;
+  document.getElementById('checklist-main-bar').style.width=pct+'%';
+  document.getElementById('checklist-overall-pct').textContent=pct+'% Complete — '+doneItems+' of '+totalItems+' items';
+}
+
+function getCheckState(id){
+  try{return localStorage.getItem('rc2_kit_check_'+id)||'';}catch(e){return '';}
+}
+function toggleKitCheck(id,el){
+  try{localStorage.setItem('rc2_kit_check_'+id,el.checked?'done':'');}catch(e){}
+  renderChecklist();
+}
+function setKitTag(id,tag,btn){
+  const current=getCheckState(id);
+  const newVal=current===tag?'':tag;
+  try{localStorage.setItem('rc2_kit_check_'+id,newVal);}catch(e){}
+  renderChecklist();
+}
+
+// ═══════════ DOCUMENT GENERATOR ═══════════
+let currentDoc='articles';
+function selectDoc(id,btn){
+  currentDoc=id;
+  document.querySelectorAll('.doc-sel-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderDoc();
+}
+
+function g(id){const el=document.getElementById(id);return el?el.value.trim()||'['+id.replace('co-','').replace('ra-','').replace('bank-','').toUpperCase()+']':'';}
+function coName(){return g('co-name')||'[COMPANY NAME]';}
+function coType(){return document.getElementById('co-type')?.value||'LLC';}
+function coState(){return g('co-state')||'[STATE]';}
+function coDate(){const d=g('co-formed');if(!d)return '[DATE]';const dt=new Date(d+'T12:00:00');return dt.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}
+function today(){return new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}
+function primaryOfficer(){return officers[0]?.name||'[MANAGING MEMBER / OFFICER NAME]';}
+function primaryTitle(){return officers[0]?.title||'Managing Member';}
+
+function renderDoc(){
+  const container=document.getElementById('doc-preview-container');
+  const isLLC=coType()==='LLC';
+  const isCorp=coType()==='C-Corp'||coType()==='S-Corp';
+  const govDoc=isLLC?'Operating Agreement':'Bylaws';
+  const leaderTitle=isLLC?'Managing Member':'Chief Executive Officer';
+
+  const docs={
+    articles:`
+      <div class="doc-preview">
+        <div class="doc-header">
+          <div class="dh-co">${coName()}</div>
+          <div class="dh-title">Articles of ${isLLC?'Organization':'Incorporation'} — ${coState()}</div>
+          <div class="dh-meta">Prepared by RC2 Consulting · Template for attorney review · Not legal advice</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-section"><div class="doc-section-title">Article I — Name</div><div class="doc-section-body">The name of this ${isLLC?'Limited Liability Company':'Corporation'} is <strong>${coName()}</strong>.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Article II — Purpose</div><div class="doc-section-body">The purpose of this ${isLLC?'Company':'Corporation'} is to engage in any lawful act or activity for which a ${isLLC?'limited liability company':'corporation'} may be organized under the laws of the State of ${coState()}. ${g('co-purpose')?'Specifically: '+g('co-purpose'):''}
+          </div></div>
+          <div class="doc-section"><div class="doc-section-title">Article III — Registered Agent</div><div class="doc-section-body">The name and address of the registered agent for service of process in the State of ${coState()} is:<br><br><strong>${g('ra-name')||'[REGISTERED AGENT NAME]'}</strong><br>${g('ra-address')||'[ADDRESS]'}, ${g('ra-city')||'[CITY]'}, ${g('ra-state')||coState()} ${g('ra-zip')||'[ZIP]'}</div></div>
+          <div class="doc-section"><div class="doc-section-title">Article IV — ${isLLC?'Management':'Directors'}</div><div class="doc-section-body">${isLLC?'This Company shall be managed by its Managing Member(s). The initial Managing Member is <strong>'+primaryOfficer()+'</strong>.':'This Corporation shall be governed by a Board of Directors. The initial Board consists of the directors listed in the Corporate Bylaws.'}</div></div>
+          <div class="doc-section"><div class="doc-section-title">Article V — ${isLLC?'Organizer':'Incorporator'}</div><div class="doc-section-body">The ${isLLC?'organizer':'incorporator'} of this ${isLLC?'Company':'Corporation'} is <strong>${primaryOfficer()}</strong>, whose address is ${g('co-address')||'[ADDRESS]'}, ${g('co-city')||'[CITY]'}, ${g('co-addr-state')||coState()} ${g('co-zip')||'[ZIP]'}.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Article VI — Effective Date</div><div class="doc-section-body">These Articles of ${isLLC?'Organization':'Incorporation'} are effective upon filing with the ${coState()} Secretary of State.</div></div>
+          <div class="doc-sig-grid">
+            <div class="doc-sig-block"><div class="doc-sig-label">Signature of ${isLLC?'Organizer':'Incorporator'}</div><div class="doc-sig-name">${primaryOfficer()}</div><div class="doc-sig-label">Date: _____________________</div></div>
+            <div class="doc-sig-block"><div class="doc-sig-label">Printed Name &amp; Title</div><div class="doc-sig-name">${primaryOfficer()}, ${primaryTitle()}</div></div>
+          </div>
+        </div>
+      </div>`,
+
+    operating:`
+      <div class="doc-preview">
+        <div class="doc-header">
+          <div class="dh-co">${coName()}</div>
+          <div class="dh-title">Operating Agreement — Limited Liability Company</div>
+          <div class="dh-meta">State of Formation: ${coState()} · Effective: ${coDate()} · EIN: ${g('co-ein')||'[EIN]'}</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-section"><div class="doc-section-title">Section 1 — Formation</div><div class="doc-section-body">This Operating Agreement is entered into as of ${coDate()}, by and among the Members listed in Exhibit A. The Members hereby form a Limited Liability Company pursuant to the laws of the State of ${coState()} under the name <strong>${coName()}</strong>.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Section 2 — Principal Office</div><div class="doc-section-body">The principal office of the Company shall be located at ${g('co-address')||'[ADDRESS]'}, ${g('co-city')||'[CITY]'}, ${g('co-addr-state')||coState()} ${g('co-zip')||'[ZIP]'}, or such other place as the Managing Member may designate.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Section 3 — Purpose</div><div class="doc-section-body">The purpose of the Company is to engage in any lawful business activity for which a limited liability company may be organized. ${g('co-purpose')?'The Company\'s primary business activity is: '+g('co-purpose'):''}</div></div>
+          <div class="doc-section"><div class="doc-section-title">Section 4 — Management</div><div class="doc-section-body">The Company shall be <strong>managed by its Managing Member(s)</strong>. The initial Managing Member is <strong>${primaryOfficer()}</strong>. The Managing Member shall have the authority to bind the Company in all matters, execute contracts, open bank accounts, hire and terminate employees, and make all operational decisions without further consent of other Members unless otherwise specified herein.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Section 5 — Capital Contributions & Membership Interests</div><div class="doc-section-body">The initial capital contributions and membership interests of the Members are as set forth in Exhibit A attached hereto and incorporated herein. No Member shall be required to make any additional capital contribution without consent.<br><br>
+            <table style="width:100%;border-collapse:collapse;font-size:.8rem;margin-top:8px;">
+              <thead><tr><th style="background:#1e293b;color:white;padding:7px 10px;text-align:left;">Member Name</th><th style="background:#1e293b;color:white;padding:7px 10px;text-align:center;">Membership %</th><th style="background:#1e293b;color:white;padding:7px 10px;text-align:center;">Capital Contribution</th></tr></thead>
+              <tbody>${officers.map(o=>o.name?`<tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);">${o.name}</td><td style="padding:7px 10px;border-bottom:1px solid var(--border);text-align:center;">${o.pct||'—'}%</td><td style="padding:7px 10px;border-bottom:1px solid var(--border);text-align:center;">$__________</td></tr>`:'').join('')}</tbody>
+            </table>
+          </div></div>
+          <div class="doc-section"><div class="doc-section-title">Section 6 — Distributions</div><div class="doc-section-body">Distributions shall be made at such times and in such amounts as determined by the Managing Member. Distributions shall be made pro-rata in accordance with each Member's membership percentage interest.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Section 7 — Transfer Restrictions</div><div class="doc-section-body">No Member may sell, assign, transfer, pledge, or otherwise dispose of any membership interest without the prior written consent of the Managing Member. Any attempted transfer in violation of this Agreement shall be void.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Section 8 — Dissolution</div><div class="doc-section-body">The Company shall be dissolved upon: (a) the unanimous written consent of all Members; (b) the entry of a decree of judicial dissolution; or (c) any event requiring dissolution under applicable state law.</div></div>
+          <div style="margin-top:20px;font-size:.78rem;color:var(--gray);font-style:italic;">IN WITNESS WHEREOF, the Members have executed this Operating Agreement as of the date first written above.</div>
+          <div class="doc-sig-grid">
+            ${officers.filter(o=>o.name).map(o=>`<div class="doc-sig-block"><div class="doc-sig-label">Member Signature</div><div style="margin:20px 0;border-bottom:1.5px solid var(--border);"></div><div class="doc-sig-name">${o.name}</div><div class="doc-sig-label">${o.title} · ${o.pct||'—'}% Interest</div><div class="doc-sig-label" style="margin-top:6px;">Date: _____________________</div></div>`).join('')}
+          </div>
+        </div>
+      </div>`,
+
+    bylaws:`
+      <div class="doc-preview">
+        <div class="doc-header">
+          <div class="dh-co">${coName()}</div>
+          <div class="dh-title">Corporate Bylaws</div>
+          <div class="dh-meta">State of Formation: ${coState()} · Adopted: ${coDate()} · EIN: ${g('co-ein')||'[EIN]'}</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-section"><div class="doc-section-title">Article I — Corporate Offices</div><div class="doc-section-body">The principal office of the Corporation shall be located at ${g('co-address')||'[ADDRESS]'}, ${g('co-city')||'[CITY]'}, ${g('co-addr-state')||coState()} ${g('co-zip')||'[ZIP]'}. The Corporation may have such other offices as the Board of Directors may designate.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Article II — Shareholders</div><div class="doc-section-body">An annual meeting of shareholders shall be held at such time and place as determined by the Board of Directors for the purpose of electing directors and transacting other proper business. Special meetings may be called by the Board or by shareholders holding at least 20% of voting shares. All meetings require at least 10 days written notice.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Article III — Board of Directors</div><div class="doc-section-body">The business and affairs of the Corporation shall be managed by a Board of Directors. The initial Board shall consist of <strong>one (1)</strong> director(s), which number may be changed by amendment of these Bylaws. Directors shall serve for one-year terms or until their successors are elected. Regular board meetings shall be held annually. Special meetings may be called by the President or any director.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Article IV — Officers</div><div class="doc-section-body">The officers of the Corporation shall be elected by the Board of Directors and shall consist of: <strong>President/CEO, Secretary, and Treasurer/CFO</strong>. The same person may hold any two or more offices. Officers shall serve at the pleasure of the Board.<br><br>
+            <strong>President/CEO:</strong> Responsible for general management and supervision of the Corporation. Signs all contracts and instruments unless otherwise directed by the Board.<br><br>
+            <strong>Secretary:</strong> Keeps minutes of all meetings, maintains corporate records, and performs such other duties as assigned by the Board.<br><br>
+            <strong>Treasurer/CFO:</strong> Has custody of all funds, maintains financial records, and prepares financial reports as required.
+          </div></div>
+          <div class="doc-section"><div class="doc-section-title">Article V — Indemnification</div><div class="doc-section-body">The Corporation shall indemnify any Director, Officer, or employee against expenses, judgments, fines, and amounts paid in settlement actually and reasonably incurred in connection with any action arising from their service to the Corporation, to the fullest extent permitted by applicable law.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Article VI — Amendments</div><div class="doc-section-body">These Bylaws may be amended at any regular or special meeting of the Board of Directors by a majority vote, provided that notice of the proposed amendment was given in advance.</div></div>
+          <div class="doc-sig-grid">
+            <div class="doc-sig-block"><div class="doc-sig-label">Adopted by:</div><div class="doc-sig-name">${primaryOfficer()}</div><div class="doc-sig-label">President / Incorporator</div><div class="doc-sig-label" style="margin-top:8px;">Date: _____________________</div></div>
+            <div class="doc-sig-block"><div class="doc-sig-label">Attested by:</div><div class="doc-sig-name">${officers[1]?.name||'[SECRETARY NAME]'}</div><div class="doc-sig-label">Secretary</div><div class="doc-sig-label" style="margin-top:8px;">Date: _____________________</div></div>
+          </div>
+        </div>
+      </div>`,
+
+    minutes:`
+      <div class="doc-preview">
+        <div class="doc-header">
+          <div class="dh-co">${coName()}</div>
+          <div class="dh-title">Minutes of the Initial Organizational Meeting</div>
+          <div class="dh-meta">Date: ${coDate()} · Location: ${g('co-address')||'[ADDRESS]'}, ${g('co-city')||'[CITY]'}, ${g('co-addr-state')||coState()}</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-section"><div class="doc-section-title">Meeting Called to Order</div><div class="doc-section-body">The initial organizational meeting of <strong>${coName()}</strong> was called to order on ${coDate()}, at the principal office of the Company. The following persons were present: ${officers.filter(o=>o.name).map(o=>o.name+', '+o.title).join('; ')||'[LIST OF ATTENDEES]'}.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Waiver of Notice</div><div class="doc-section-body">All persons entitled to notice of the meeting waived notice thereof in writing, and such waiver was filed with the records of the meeting.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Adoption of Governing Documents</div><div class="doc-section-body">The ${govDoc} of the ${isLLC?'Company':'Corporation'} was presented, reviewed, and <strong>unanimously adopted</strong> by all present. A copy of the ${govDoc} has been affixed to and made a part of these minutes.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Appointment of ${isLLC?'Managing Member(s)':'Officers'}</div><div class="doc-section-body">The following ${isLLC?'Managing Member(s)':'Officers'} were unanimously appointed to serve until their successors are duly elected:<br><br>
+          ${officers.filter(o=>o.name).map(o=>`<strong>${o.title}:</strong> ${o.name}<br>`).join('')||'[OFFICERS/MEMBERS]'}</div></div>
+          <div class="doc-section"><div class="doc-section-title">Employer Identification Number</div><div class="doc-section-body">It was reported that the ${isLLC?'Company':'Corporation'} has obtained an Employer Identification Number from the Internal Revenue Service: <strong>EIN ${g('co-ein')||'[EIN]'}</strong>. A copy of the IRS EIN confirmation letter has been filed with the corporate records.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Authorization to Open Bank Account</div><div class="doc-section-body">The ${isLLC?'Managing Member':'Board of Directors'} was authorized to open a business bank account in the name of <strong>${coName()}</strong> at <strong>${g('bank-name')||'[BANK NAME]'}</strong> or such other financial institution as selected by the authorized signatories.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Adjournment</div><div class="doc-section-body">There being no further business to come before the meeting, the meeting was duly adjourned. These minutes are a true and accurate record of the proceedings.</div></div>
+          <div class="doc-sig-grid">
+            <div class="doc-sig-block"><div class="doc-sig-label">Presiding Officer</div><div class="doc-sig-name">${primaryOfficer()}</div><div class="doc-sig-label">${primaryTitle()}</div><div class="doc-sig-label" style="margin-top:8px;">Date: _____________________</div></div>
+            <div class="doc-sig-block"><div class="doc-sig-label">Secretary / Recorder</div><div class="doc-sig-name">${officers[1]?.name||'[SECRETARY]'}</div><div class="doc-sig-label">${officers[1]?.title||'Secretary'}</div><div class="doc-sig-label" style="margin-top:8px;">Date: _____________________</div></div>
+          </div>
+        </div>
+      </div>`,
+
+    banking:`
+      <div class="doc-preview">
+        <div class="doc-header">
+          <div class="dh-co">${coName()}</div>
+          <div class="dh-title">Banking Resolution</div>
+          <div class="dh-meta">Adopted: ${today()} · EIN: ${g('co-ein')||'[EIN]'} · Entity Type: ${coType()}</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-section"><div class="doc-section-title">Resolution of the ${isLLC?'Managing Member':'Board of Directors'}</div><div class="doc-section-body">The undersigned, being the ${isLLC?'Managing Member(s)':'duly authorized Officer(s)'} of <strong>${coName()}</strong>, a ${coType()} organized and existing under the laws of the State of ${coState()}, hereby adopt the following resolution:</div></div>
+          <div class="doc-section"><div class="doc-section-title">Authorization to Open and Maintain Bank Accounts</div><div class="doc-section-body"><strong>RESOLVED,</strong> that <strong>${coName()}</strong> is authorized to open, maintain, and operate checking, savings, and other deposit accounts with <strong>${g('bank-name')||'[BANK NAME]'}</strong> (the "Bank").<br><br>
+          <strong>FURTHER RESOLVED,</strong> that the following named individuals are hereby authorized to sign checks, drafts, or other withdrawals, execute wire transfers, and to transact any and all business on behalf of the Company with the Bank:<br><br>
+          ${[document.getElementById('sig1-name')?.value,document.getElementById('sig2-name')?.value].filter(Boolean).map((s,i)=>`<strong>Authorized Signer ${i+1}:</strong> ${s}<br>`).join('')||`<strong>Authorized Signer:</strong> ${primaryOfficer()}, ${primaryTitle()}<br>`}<br>
+          <strong>FURTHER RESOLVED,</strong> that any one (1) of the above authorized signers, acting alone, is authorized to execute any and all documents required by the Bank to open and operate said accounts.<br><br>
+          <strong>FURTHER RESOLVED,</strong> that the Bank is authorized to honor all instruments signed by any authorized signer until written notice of revocation has been received by the Bank.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Certification</div><div class="doc-section-body">I, the undersigned, hereby certify that the foregoing is a true and correct copy of a resolution duly adopted by the ${isLLC?'Managing Member(s)':'Board of Directors'} of ${coName()}, and that said resolution is in full force and effect as of the date set forth below.</div></div>
+          <div class="doc-sig-grid">
+            <div class="doc-sig-block"><div class="doc-sig-label">Authorized Signature</div><div class="doc-sig-name">${primaryOfficer()}</div><div class="doc-sig-label">${primaryTitle()}</div><div class="doc-sig-label" style="margin-top:8px;">Date: _____________________</div></div>
+            <div class="doc-sig-block"><div class="doc-sig-label">Company Seal / Notary</div><div style="height:60px;border:1.5px dashed #cbd5e1;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;"><span style="font-size:.72rem;color:var(--gray);">CORPORATE SEAL / NOTARY STAMP</span></div></div>
+          </div>
+        </div>
+      </div>`,
+
+    officer:`
+      <div class="doc-preview">
+        <div class="doc-header">
+          <div class="dh-co">${coName()}</div>
+          <div class="dh-title">Resolution — Appointment of Officers / Managing Members</div>
+          <div class="dh-meta">Adopted: ${today()} · State: ${coState()} · Entity: ${coType()}</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-section"><div class="doc-section-title">Preamble</div><div class="doc-section-body">The undersigned, constituting all of the ${isLLC?'Members of <strong>'+coName()+'</strong>':'shareholders and/or Directors of <strong>'+coName()+'</strong>'}, hereby adopt the following resolution by written consent in lieu of a formal meeting, pursuant to the Company's ${govDoc} and applicable state law.</div></div>
+          <div class="doc-section"><div class="doc-section-title">Appointment of Officers / Managers</div><div class="doc-section-body"><strong>RESOLVED,</strong> that the following individuals are hereby appointed to serve in the indicated capacities for <strong>${coName()}</strong>, effective ${today()}, until their successors are duly appointed or until their earlier resignation or removal:<br><br>
+          <table style="width:100%;border-collapse:collapse;font-size:.82rem;margin-top:8px;">
+            <thead><tr><th style="background:#1e293b;color:white;padding:8px 10px;text-align:left;">Title / Role</th><th style="background:#1e293b;color:white;padding:8px 10px;text-align:left;">Full Legal Name</th><th style="background:#1e293b;color:white;padding:8px 10px;text-align:left;">Effective Date</th></tr></thead>
+            <tbody>${officers.filter(o=>o.name).map(o=>`<tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);">${o.title}</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-weight:700;">${o.name}</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">${today()}</td></tr>`).join('')}</tbody>
+          </table></div></div>
+          <div class="doc-section"><div class="doc-section-title">Authority</div><div class="doc-section-body"><strong>FURTHER RESOLVED,</strong> that each appointed officer or managing member is hereby authorized and empowered to act on behalf of the Company within the scope of their respective duties as defined in the Company's ${govDoc}, and to execute all instruments, agreements, and documents necessary to carry out the business of the Company.</div></div>
+          <div style="margin-top:20px;font-size:.78rem;color:var(--gray);font-style:italic;">This Resolution is effective as of ${today()} and shall be filed with the permanent records of the Company.</div>
+          <div class="doc-sig-grid">
+            ${officers.filter(o=>o.name).map(o=>`<div class="doc-sig-block"><div class="doc-sig-label">Signature</div><div style="margin:18px 0;border-bottom:1.5px solid var(--border);"></div><div class="doc-sig-name">${o.name}</div><div class="doc-sig-label">${o.title}</div><div class="doc-sig-label" style="margin-top:6px;">Date: _______________</div></div>`).join('')}
+          </div>
+        </div>
+      </div>`,
+
+    certificate:`
+      <div class="doc-preview">
+        <div class="doc-header" style="text-align:center;padding:28px 32px;">
+          <div style="font-size:.72rem;opacity:.45;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">State of ${coState()}</div>
+          <div class="dh-co" style="font-size:1.8rem;">${coName()}</div>
+          <div class="dh-title" style="font-size:.85rem;margin-top:6px;">Certificate of ${isLLC?'Membership Interest':'Stock Ownership'}</div>
+          <div style="display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:6px 18px;margin-top:10px;font-size:.72rem;">Certificate No. 001</div>
+        </div>
+        <div class="doc-body" style="text-align:center;">
+          <div style="border:2px solid var(--border);border-radius:12px;padding:28px 32px;margin:0 0 20px;background:var(--light);">
+            <div style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">This Certifies That</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--navy);margin-bottom:8px;">${officers[0]?.name||'[MEMBER NAME]'}</div>
+            <div style="font-size:.82rem;color:#374151;line-height:1.8;">is the registered holder of a <strong>${officers[0]?.pct||'__'}% ${isLLC?'Membership Interest':'Share'}</strong> in<br><strong>${coName()}</strong>, a ${coType()} organized under the laws of the State of ${coState()}.</div>
+            <div style="margin:18px 0;border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);padding:10px 0;font-size:.78rem;color:var(--gray);">Transferable only upon the books of the Company in accordance with the ${govDoc}</div>
+            <div style="font-size:.75rem;color:var(--gray);">EIN: ${g('co-ein')||'[EIN]'} · Issued: ${today()}</div>
+          </div>
+          <div class="doc-sig-grid" style="text-align:left;">
+            <div class="doc-sig-block"><div class="doc-sig-label">${primaryTitle()} Signature</div><div style="margin:22px 0;border-bottom:1.5px solid var(--border);"></div><div class="doc-sig-name">${primaryOfficer()}</div><div class="doc-sig-label">${primaryTitle()}</div></div>
+            <div class="doc-sig-block"><div class="doc-sig-label">Secretary / Witness</div><div style="margin:22px 0;border-bottom:1.5px solid var(--border);"></div><div class="doc-sig-name">${officers[1]?.name||'[SECRETARY]'}</div><div class="doc-sig-label">Secretary</div></div>
+          </div>
+        </div>
+      </div>`
+  };
+  container.innerHTML = docs[currentDoc]||'<div style="padding:30px;text-align:center;color:var(--gray);">Select a document above</div>';
+}
+
+// ═══════════ OFFICERS ═══════════
+const TITLE_OPTIONS=['CEO / President','CFO / Treasurer','Secretary','Managing Member','Co-Managing Member','Director','Vice President','COO','Registered Agent'];
+function renderOfficers(){
+  const tbody=document.getElementById('officers-tbody');
+  tbody.innerHTML=officers.map((o,i)=>`<tr>
+    <td><input type="text" value="${o.name}" placeholder="Full legal name" onchange="officers[${i}].name=this.value;saveAll();renderDoc()"></td>
+    <td><select onchange="officers[${i}].title=this.value;saveAll();renderDoc()">${TITLE_OPTIONS.map(t=>`<option ${o.title===t?'selected':''}>${t}</option>`).join('')}<option ${!TITLE_OPTIONS.includes(o.title)?'selected':''} value="${o.title}">${o.title}</option></select></td>
+    <td><input type="text" value="${o.pct}" placeholder="%" style="width:60px;" onchange="officers[${i}].pct=this.value;saveAll()"></td>
+    <td><input type="email" value="${o.email}" placeholder="email@co.com" onchange="officers[${i}].email=this.value;saveAll()"></td>
+    <td><input type="text" value="${o.phone}" placeholder="(305) 555-0100" onchange="officers[${i}].phone=this.value;saveAll()"></td>
+    <td><input type="text" value="${o.ssn4}" placeholder="1234" maxlength="4" style="width:60px;" onchange="officers[${i}].ssn4=this.value;saveAll()"></td>
+    <td><input type="date" value="${o.date}" onchange="officers[${i}].date=this.value;saveAll()"></td>
+    <td><button class="row-del" onclick="officers.splice(${i},1);renderOfficers();saveAll()">✕</button></td>
+  </tr>`).join('');
+}
+function addOfficer(){officers.push({name:'',title:'Secretary',pct:'0',email:'',phone:'',ssn4:'',date:new Date().toISOString().split('T')[0]});renderOfficers();}
+
+// ═══════════ COMPLIANCE CALENDAR ═══════════
+const DEFAULT_CAL_ITEMS = [
+  {id:'cal_annual_report',title:'State Annual Report / Statement of Information',month:'Varies by state',desc:'Most states require an annual report to maintain good standing. Florida: May 1. California: April 15 (LLCs), March 31 (Corps). Delaware: March 1 (Corps), June 1 (LLCs).',cat:'State Filing',color:'due-critical'},
+  {id:'cal_fed_tax',title:'Federal Income Tax Return',month:'March 15 (Partnerships/S-Corps) · April 15 (C-Corps/LLCs)',desc:'File Form 1065 (Partnership), 1120-S (S-Corp), 1120 (C-Corp), or Schedule C (sole prop). 6-month extension available.',cat:'Federal Tax',color:'due-soon'},
+  {id:'cal_state_tax',title:'State Income Tax Return',month:'Varies — typically same as federal',desc:'File state income tax return. Dates and forms vary by state. Many states require estimated quarterly payments.',cat:'State Tax',color:'due-soon'},
+  {id:'cal_q1_est',title:'Q1 Estimated Tax Payment',month:'April 15',desc:'Federal estimated tax payment for Q1 (January–March). Required if expected to owe $1,000+ in federal taxes.',cat:'Federal Tax',color:'due-ok'},
+  {id:'cal_q2_est',title:'Q2 Estimated Tax Payment',month:'June 15',desc:'Federal estimated tax payment for Q2 (April–June).',cat:'Federal Tax',color:'due-ok'},
+  {id:'cal_q3_est',title:'Q3 Estimated Tax Payment',month:'September 15',desc:'Federal estimated tax payment for Q3 (July–September).',cat:'Federal Tax',color:'due-ok'},
+  {id:'cal_q4_est',title:'Q4 Estimated Tax Payment',month:'January 15 (following year)',desc:'Federal estimated tax payment for Q4 (October–December).',cat:'Federal Tax',color:'due-ok'},
+  {id:'cal_biz_license',title:'Business License Renewal',month:'Varies by jurisdiction',desc:'Most city/county business licenses renew annually. Check local government website for your specific renewal date and fee.',cat:'License/Permit',color:'due-soon'},
+  {id:'cal_sam_renewal',title:'SAM.gov Registration Renewal (Gov Contractors)',month:'Annual — renew before expiration',desc:'SAM.gov registration expires annually. Set a reminder 60 days before expiration. Lapsed registration disqualifies the company from receiving contract awards.',cat:'State Filing',color:'due-critical'},
+  {id:'cal_annual_meeting',title:'Annual Meeting / Member Resolution (Corps)',month:'Within 90 days of fiscal year end',desc:'Corporations are required to hold annual meetings and document them in meeting minutes. LLCs should do so as well to maintain corporate formality.',cat:'Internal',color:'due-ok'},
+  {id:'cal_insurance',title:'Business Insurance Policy Renewal Review',month:'30 days before renewal date',desc:'Review all policies annually: General Liability, Workers Comp, E&O. Compare rates, update coverage limits based on revenue growth.',cat:'Insurance',color:'due-ok'},
+  {id:'cal_w2_1099',title:'W-2 and 1099 Distribution to Recipients',month:'January 31',desc:'W-2s must be mailed/delivered to employees by January 31. 1099-NEC to independent contractors by January 31. File with IRS/SSA by February 28 (paper) or March 31 (electronic).',cat:'Federal Tax',color:'due-critical'}
+];
+
+function renderCalendar(){
+  const allItems=[...DEFAULT_CAL_ITEMS,...calItems];
+  document.getElementById('compliance-calendar').innerHTML=`<div class="cal-grid">${allItems.map(item=>{
+    const isDone=getCalDone(item.id);
+    return`<div class="cal-item ${isDone?'done-item':item.color}">
+      <div class="ci-month">${item.month}</div>
+      <div class="ci-title">${item.title}</div>
+      <div class="ci-desc">${item.desc}</div>
+      <span class="ci-tag" style="background:${getCatColor(item.cat)};color:white;">${item.cat}</span>
+      <label class="ci-check"><input type="checkbox" ${isDone?'checked':''} onchange="toggleCalDone('${item.id}',this)"> Mark Complete</label>
+    </div>`;
+  }).join('')}</div>`;
+}
+function getCatColor(cat){return{    'State Filing':'#1d4ed8','Federal Tax':'#dc2626','State Tax':'#ea580c','License/Permit':'#7c3aed','Insurance':'#059669','Internal':'#6b7280','Other':'#374151'}[cat]||'#6b7280';}
+function getCalDone(id){try{return localStorage.getItem('rc2_cal_done_'+id)==='1';}catch(e){return false;}}
+function toggleCalDone(id,el){try{localStorage.setItem('rc2_cal_done_'+id,el.checked?'1':'');}catch(e){}renderCalendar();}
+function addCalItem(){
+  const title=document.getElementById('custom-cal-title').value.trim();
+  if(!title){alert('Please enter a title.');return;}
+  calItems.push({id:'custom_'+Date.now(),title,month:document.getElementById('custom-cal-date').value||'Custom',desc:document.getElementById('custom-cal-note').value,cat:document.getElementById('custom-cal-cat').value,color:'due-ok'});
+  document.getElementById('custom-cal-title').value='';
+  document.getElementById('custom-cal-note').value='';
+  saveAll();renderCalendar();
+}
+
+// ═══════════ VAULT ═══════════
+const DEFAULT_VAULT = [
+  {id:'v_articles',doc:'Articles of Org / Incorporation',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_ein',doc:'IRS EIN Confirmation Letter (CP-575)',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_state_cert',doc:'State Formation Certificate',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_oa_bylaws',doc:'Operating Agreement / Bylaws',status:'missing',version:'v1.0',signed:'',location:'',notes:''},
+  {id:'v_minutes_init',doc:'Initial Meeting Minutes',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_banking_res',doc:'Banking Resolution',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_officer_res',doc:'Officer Appointment Resolution',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_certificate',doc:'Membership / Stock Certificates',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_ledger',doc:'Membership / Stock Ledger',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_biz_license',doc:'Business License(s)',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_insurance_gl',doc:'General Liability Insurance Policy',status:'missing',version:'',signed:'',location:'',notes:''},
+  {id:'v_good_standing',doc:'Certificate of Good Standing',status:'missing',version:'',signed:'',location:'',notes:''}
+];
+
+function renderVault(){
+  const allItems=vaultItems.length?vaultItems:[...DEFAULT_VAULT];
+  document.getElementById('vault-tbody').innerHTML=allItems.map((item,i)=>{
+    const sc={done:'sp-done',pending:'sp-pending',missing:'sp-missing',na:'sp-na'}[item.status]||'sp-missing';
+    const sl={done:'✅ On File',pending:'⏳ In Progress',missing:'❌ Missing',na:'— N/A'}[item.status]||'❌ Missing';
+    return`<tr>
+      <td style="font-weight:700;">${item.doc}</td>
+      <td><select style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:.75rem;outline:none;" onchange="allItems[${i}].status=this.value;vaultItems=allItems;saveAll();renderVault()">
+        <option value="done" ${item.status==='done'?'selected':''}>✅ On File</option>
+        <option value="pending" ${item.status==='pending'?'selected':''}>⏳ In Progress</option>
+        <option value="missing" ${item.status==='missing'?'selected':''}>❌ Missing</option>
+        <option value="na" ${item.status==='na'?'selected':''}>— N/A</option>
+      </select></td>
+      <td><input type="text" value="${item.version}" placeholder="v1.0 / date" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:.75rem;width:100%;outline:none;" onchange="allItems[${i}].version=this.value;vaultItems=allItems;saveAll()"></td>
+      <td><input type="text" value="${item.signed}" placeholder="Who signed" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:.75rem;width:100%;outline:none;" onchange="allItems[${i}].signed=this.value;vaultItems=allItems;saveAll()"></td>
+      <td><input type="text" value="${item.location}" placeholder="Google Drive / filing cabinet" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:.75rem;width:100%;outline:none;" onchange="allItems[${i}].location=this.value;vaultItems=allItems;saveAll()"></td>
+      <td><input type="text" value="${item.notes}" placeholder="Notes" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:.75rem;width:100%;outline:none;" onchange="allItems[${i}].notes=this.value;vaultItems=allItems;saveAll()"></td>
+      <td><button class="row-del" onclick="vaultItems=allItems;vaultItems.splice(${i},1);renderVault();saveAll()">✕</button></td>
+    </tr>`;
+  }).join('');
+}
+function addVaultItem(){
+  if(!vaultItems.length) vaultItems=[...DEFAULT_VAULT];
+  vaultItems.push({id:'v_'+Date.now(),doc:'New Document',status:'missing',version:'',signed:'',location:'',notes:''});
+  saveAll();renderVault();
+}
+function updatePreviewFields(){renderDoc();}
+function updateEntityType(){renderDoc();}
+
+// ═══════════ SAVE / LOAD ═══════════
+function saveAll(){
+  try{
+    const d={
+      'co-name':g('co-name'),'co-dba':g('co-dba'),'co-type':document.getElementById('co-type').value,'co-state':document.getElementById('co-state').value,'co-formed':g('co-formed'),'co-ein':g('co-ein'),'co-filing-num':g('co-filing-num'),'co-address':g('co-address'),'co-city':g('co-city'),'co-addr-state':g('co-addr-state'),'co-zip':g('co-zip'),'co-phone':g('co-phone'),'co-email':g('co-email'),'co-purpose':g('co-purpose'),'co-naics':g('co-naics'),'co-fiscal':document.getElementById('co-fiscal').value,'ra-name':g('ra-name'),'ra-address':g('ra-address'),'ra-city':g('ra-city'),'ra-state':g('ra-state'),'ra-zip':g('ra-zip'),'bank-name':g('bank-name'),'bank-acct':g('bank-acct'),'bank-address':g('bank-address'),'bank-date':g('bank-date'),'sig1-name':document.getElementById('sig1-name')?.value||'','sig2-name':document.getElementById('sig2-name')?.value||'',officers,calItems,vaultItems
+    };
+    localStorage.setItem('rc2_corp_kit',JSON.stringify(d));
+  }catch(e){}
+}
+
+function loadAll(){
+  try{
+    const d=JSON.parse(localStorage.getItem('rc2_corp_kit')||'{}');
+    const setV=(id,val)=>{const el=document.getElementById(id);if(el&&val)el.value=val;};
+    Object.keys(d).forEach(k=>{if(k!=='officers'&&k!=='calItems'&&k!=='vaultItems')setV(k,d[k]);});
+    if(d.officers&&d.officers.length) officers=d.officers;
+    if(d.calItems) calItems=d.calItems;
+    if(d.vaultItems) vaultItems=d.vaultItems;
+  }catch(e){}
+}
+
+window.onload=function(){
+  try{const u=localStorage.getItem('rc2hub_user');if(u)document.getElementById('hub-username').textContent=u;}catch(e){}
+  loadAll();
+  renderChecklist();
+  renderDoc();
+  renderOfficers();
+  renderCalendar();
+  renderVault();
+};
+</script>
+</body>
+</html>
