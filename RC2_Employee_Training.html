@@ -1009,34 +1009,9 @@ window.onload=()=>{
     buildAllModules();
     updateDashboard();
   }
-};
-if(new URLSearchParams(window.location.search).get('auth')==='rc2hub'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';userName='RC2 Employee';document.getElementById('user-name-display').textContent=userName;loadProgress();buildAllModules();updateDashboard();}</script>
+}
+<script>
+if(new URLSearchParams(window.location.search).get('auth')==='rc2hub'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';userName='RC2 Employee';document.getElementById('user-name-display').textContent=userName;loadProgress();buildAllModules();updateDashboard();}
+</script>
 </body>
 </html>
-```
-
-
----
-
-
-**To save and deploy:**
-
-
-**Step 1:** Copy all the code above from `<!DOCTYPE html>` to `</html>`
-
-
-**Step 2:** Open **Text Editor** on your Chromebook and paste it
-
-
-**Step 3:** Save as `RC2_Employee_Training.html`
-
-
-**Step 4:** Upload to GitHub the same way you did the Pricing Toolkit — **Add File → Upload Files → Commit**
-
-
-**Step 5:** Your URL will be:
-```
-
-https://rc2consulting.github.io/RC2_Employee_Training.html
-
-
