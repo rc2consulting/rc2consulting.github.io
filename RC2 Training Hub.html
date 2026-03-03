@@ -8,8 +8,6 @@
 :root{--navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;--green:#059669;--gray:#6b7280;--border:#e2e8f0;}
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif;}
 body{background:#f1f5f9;color:#1e293b;min-height:100vh;}
-
-/* GATE */
 #gate{position:fixed;inset:0;background:linear-gradient(135deg,#0a1628,#1a3a6e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;z-index:9999;}
 #gate .logo{text-align:center;color:white;}
 #gate .logo div{font-size:3rem;margin-bottom:10px;}
@@ -22,8 +20,6 @@ body{background:#f1f5f9;color:#1e293b;min-height:100vh;}
 .gate-btn{width:100%;padding:12px;background:linear-gradient(135deg,#2563eb,#1a3a6e);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;letter-spacing:1px;margin-top:18px;}
 #gate-err{color:#f87171;font-size:.78rem;margin-top:10px;display:none;}
 #gate-footer{color:rgba(255,255,255,.25);font-size:.68rem;}
-
-/* APP */
 #app{display:none;min-height:100vh;}
 header{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 12px rgba(0,0,0,.3);position:sticky;top:0;z-index:100;}
 header h1{font-size:1.1rem;font-weight:800;letter-spacing:1px;}
@@ -31,10 +27,8 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
 .hright{display:flex;align-items:center;gap:12px;}
 #user-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 14px;font-size:.75rem;color:rgba(255,255,255,.85);}
 .logout-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:rgba(255,255,255,.65);padding:5px 12px;font-size:.72rem;cursor:pointer;}
-
-/* DASHBOARD */
 .dashboard{padding:28px;max-width:1200px;margin:0 auto;}
-.welcome-bar{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-left:4px solid var(--accent);border-radius:10px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;}
+.welcome-bar{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-left:4px solid var(--accent);border-radius:10px;padding:16px 20px;margin-bottom:24px;}
 .welcome-bar .wtitle{font-weight:800;color:var(--navy);font-size:1rem;}
 .welcome-bar .wsub{font-size:.8rem;color:#475569;margin-top:3px;}
 .stats-row{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;}
@@ -56,13 +50,10 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
 .tc-footer{display:flex;align-items:center;justify-content:space-between;}
 .tc-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
 .tag-blue{background:#dbeafe;color:#1d4ed8;}
-.tag-gold{background:#fef3c7;color:#92400e;}
 .tag-green{background:#d1fae5;color:#065f46;}
 .tag-gray{background:#f1f5f9;color:#6b7280;}
 .tc-arrow{color:var(--accent);font-size:1.1rem;font-weight:700;}
 .coming-badge{background:#f1f5f9;color:#6b7280;border-radius:6px;padding:4px 10px;font-size:.72rem;font-weight:600;}
-
-/* FULLSCREEN OVERLAY */
 #tool-overlay{display:none;position:fixed;inset:0;z-index:9998;flex-direction:column;background:white;}
 #tool-overlay.open{display:flex;}
 .tool-topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
@@ -72,13 +63,11 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
 .frame-loading{position:absolute;inset:0;background:white;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;z-index:1;}
 .spinner{width:40px;height:40px;border:4px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
-
 @media(max-width:600px){.dashboard{padding:16px;}.gate-box{width:95%;padding:24px 20px;}.stats-row{gap:8px;}}
 </style>
 </head>
 <body>
 
-<!-- GATE -->
 <div id="gate">
   <div class="logo">
     <div>⚡</div>
@@ -91,12 +80,11 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
     <label>Access Password</label>
     <input type="password" id="g-pwd" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')doLogin()">
     <button class="gate-btn" onclick="doLogin()">🔓 ENTER RC2 HUB</button>
-    <p id="gate-err">❌ Incorrect password or missing name.</p>
+    <p id="gate-err" style="color:#f87171;font-size:.78rem;margin-top:10px;display:none;">❌ Incorrect name or password. Try again.</p>
   </div>
-  <p id="gate-footer">rc2consulting.github.io | Confidential — Internal Use Only</p>
+  <p id="gate-footer" style="color:rgba(255,255,255,.25);font-size:.68rem;">rc2consulting.github.io | Confidential — Internal Use Only</p>
 </div>
 
-<!-- APP -->
 <div id="app">
   <header>
     <div>
@@ -111,24 +99,21 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
 
   <div class="dashboard">
     <div class="welcome-bar">
-      <div>
-        <div class="wtitle">Welcome back, <span id="uname2">Employee</span> 👋</div>
-        <div class="wsub">Select any tool below to launch it. All resources are password-protected and for authorized RC2 personnel only.</div>
-      </div>
+      <div class="wtitle">Welcome back, <span id="uname2">Employee</span> 👋</div>
+      <div class="wsub">Select any tool below to launch it. All resources are for authorized RC2 personnel only.</div>
     </div>
 
     <div class="stats-row">
-      <div class="stat-card"><div class="snum" id="stat-live">2</div><div class="slabel">Tools Live</div></div>
-      <div class="stat-card"><div class="snum" id="stat-coming">4</div><div class="slabel">Coming Soon</div></div>
+      <div class="stat-card"><div class="snum">2</div><div class="slabel">Tools Live</div></div>
+      <div class="stat-card"><div class="snum">4</div><div class="slabel">Coming Soon</div></div>
       <div class="stat-card"><div class="snum">1</div><div class="slabel">Password to Remember</div></div>
       <div class="stat-card"><div class="snum">∞</div><div class="slabel">Expandable</div></div>
     </div>
 
-    <!-- LIVE TOOLS -->
     <div class="section-title">🟢 Live Tools</div>
-    <div class="tools-grid" id="live-tools">
+    <div class="tools-grid">
 
-      <div class="tool-card" onclick="openTool('RC2%20Pricing%20Toolkit.html','⚡ RC2 Pricing Toolkit')">
+      <div class="tool-card" onclick="openTool('RC2%20Pricing%20Toolkit.html','💰 RC2 Pricing Toolkit')">
         <div class="tc-header">
           <div class="tc-icon" style="background:#eff6ff;">💰</div>
           <div>
@@ -164,7 +149,6 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
 
     </div>
 
-    <!-- COMING SOON -->
     <div class="section-title">🔜 Coming Soon</div>
     <div class="tools-grid">
 
@@ -178,9 +162,7 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
         </div>
         <div class="tc-body">
           <div class="tc-desc">Auto-generate professional client proposals for any RC2 service. Select the service, enter client details, and produce a branded PDF-ready proposal in minutes.</div>
-          <div class="tc-footer">
-            <span class="coming-badge">🔜 In Development</span>
-          </div>
+          <div class="tc-footer"><span class="coming-badge">🔜 In Development</span></div>
         </div>
       </div>
 
@@ -194,9 +176,7 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
         </div>
         <div class="tc-body">
           <div class="tc-desc">Interactive WRAP 12-Principles audit checklist. Track compliance status by principle, document findings, auto-generate CAP items, and export a client-ready report.</div>
-          <div class="tc-footer">
-            <span class="coming-badge">🔜 In Development</span>
-          </div>
+          <div class="tc-footer"><span class="coming-badge">🔜 In Development</span></div>
         </div>
       </div>
 
@@ -210,9 +190,7 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
         </div>
         <div class="tc-body">
           <div class="tc-desc">Build and manage KPI dashboards for RC2 clients. Track operational metrics, set targets, visualize trends, and generate monthly executive summary reports automatically.</div>
-          <div class="tc-footer">
-            <span class="coming-badge">🔜 In Development</span>
-          </div>
+          <div class="tc-footer"><span class="coming-badge">🔜 In Development</span></div>
         </div>
       </div>
 
@@ -226,33 +204,28 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
         </div>
         <div class="tc-body">
           <div class="tc-desc">Ready-to-use SOP templates for the most common RC2 client needs. Browse by category, customize for the client, export as a formatted document, and track version history.</div>
-          <div class="tc-footer">
-            <span class="coming-badge">🔜 In Development</span>
-          </div>
+          <div class="tc-footer"><span class="coming-badge">🔜 In Development</span></div>
         </div>
       </div>
 
     </div>
 
-    <!-- HOW TO ADD A TOOL -->
     <div style="background:white;border-radius:12px;padding:20px 22px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.06);">
       <div style="font-size:.88rem;font-weight:800;color:var(--navy);margin-bottom:8px;">➕ How to Add a New Tool to This Hub</div>
       <div style="font-size:.8rem;color:#475569;line-height:2;">
         1. Upload the new HTML tool file to your GitHub repository at rc2consulting.github.io<br>
         2. Open <strong>RC2 Training Hub.html</strong> in Text Editor<br>
-        3. Copy any existing tool card block and paste it into the Live Tools section<br>
-        4. Update the icon, title, description, tag, and file name in the <code>onclick="openTool('FILENAME.html','TITLE')"</code><br>
-        5. Save the file and re-upload it to GitHub<br>
-        6. The new tool is instantly available to all users — no password change needed
+        3. Copy any existing tool card and paste it into the Live Tools section<br>
+        4. Update the icon, title, description, and filename in the onclick function<br>
+        5. Save and re-upload to GitHub — the new tool is instantly available to all users
       </div>
     </div>
   </div>
 </div>
 
-<!-- FULLSCREEN TOOL OVERLAY -->
 <div id="tool-overlay">
   <div class="tool-topbar">
-    <div class="tname" id="tool-title">Tool Name</div>
+    <div class="tname" id="tool-title">Tool</div>
     <button class="tback" onclick="closeTool()">← Back to RC2 Hub</button>
   </div>
   <div style="position:relative;flex:1;">
@@ -265,18 +238,18 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
 </div>
 
 <script>
+var EMPLOYEES = {
+  "Edward Castleton":"#1Panama#1",
+  "Jill Coleman":"Hailmary#2025",
+  "Employee Three":"RC2Staff2025",
+  "Employee Four":"RC2Staff2025",
+  "Employee Five":"RC2Staff2025"
+};
 
 function doLogin(){
   var name = document.getElementById('g-name').value.trim();
   var pwd = document.getElementById('g-pwd').value.trim();
-  var users = {
-    "Edward Castleton":"#1Panama#1",
-    "Jill Coleman":"Hailmary#2025",
-    "Employee Three":"RC2Staff2025",
-    "Employee Four":"RC2Staff2025",
-    "Employee Five":"RC2Staff2025"
-  };
-  if(!name || !users[name] || pwd !== users[name]){
+  if(!name || !EMPLOYEES[name] || pwd !== EMPLOYEES[name]){
     document.getElementById('gate-err').style.display='block';
     return;
   }
@@ -286,6 +259,7 @@ function doLogin(){
   document.getElementById('uname').textContent=name;
   document.getElementById('uname2').textContent=name;
 }
+
 function doLogout(){
   try{localStorage.removeItem('rc2hub_user');}catch(e){}
   document.getElementById('app').style.display='none';
@@ -296,9 +270,9 @@ function doLogout(){
 }
 
 function openTool(file,title){
-  const base='https://rc2consulting.github.io/';
+  var base='https://rc2consulting.github.io/';
   document.getElementById('tool-title').textContent=title;
-  document.getElementById('tool-frame').src=base+file;
+  document.getElementById('tool-frame').src=base+file+'?auth=rc2hub';
   document.getElementById('frame-loader').style.display='flex';
   document.getElementById('tool-overlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -314,10 +288,10 @@ function hideLoader(){
   document.getElementById('frame-loader').style.display='none';
 }
 
-window.onload=()=>{
+window.onload=function(){
   try{
-    const u=localStorage.getItem('rc2hub_user');
-    if(u){
+    var u=localStorage.getItem('rc2hub_user');
+    if(u && EMPLOYEES[u]){
       document.getElementById('gate').style.display='none';
       document.getElementById('app').style.display='block';
       document.getElementById('uname').textContent=u;
@@ -328,5 +302,3 @@ window.onload=()=>{
 </script>
 </body>
 </html>
-
-

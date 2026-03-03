@@ -1,0 +1,21 @@
+PRICING TOOLKIT FIX
+===================
+In RC2 Pricing Toolkit.html — find this line (search for: id="pwd"):
+
+Find the entire password gate section that starts with:
+  <div id="gate"
+
+And the checkPassword function in the script section.
+
+ADD this single line right before </script> at the bottom of the file:
+
+if(new URLSearchParams(window.location.search).get('auth')==='rc2hub'){var g=document.getElementById('gate');if(g)g.style.display='none';var c=document.getElementById('content');if(c)c.style.display='block';}
+
+
+EMPLOYEE TRAINING FIX
+=====================
+In RC2_Employee_Training.html — find this line (search for: function gateLogin)
+
+ADD this single line right before </script> at the bottom of the file:
+
+if(new URLSearchParams(window.location.search).get('auth')==='rc2hub'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';userName='RC2 Employee';document.getElementById('user-name-display').textContent=userName;loadProgress();buildAllModules();updateDashboard();}
