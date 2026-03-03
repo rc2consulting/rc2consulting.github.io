@@ -265,12 +265,12 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
 </div>
 
 <script>
-const PWD = "#1Panama#1";
-
+const EMPLOYEES = {"Edward Castleton":"#1Panama#1","Employee Two":"RC2Staff2025","Employee Three":"RC2Staff2025","Employee Four":"RC2Staff2025","Employee Five":"RC2Staff2025"};
+```
 function doLogin(){
   const name=document.getElementById('g-name').value.trim();
   const pwd=document.getElementById('g-pwd').value;
-  if(!name||pwd!==PWD){document.getElementById('gate-err').style.display='block';return;}
+  if(!name||!EMPLOYEES[name]||pwd!==EMPLOYEES[name]{document.getElementById('gate-err').style.display='block';return;}
   try{localStorage.setItem('rc2hub_user',name);}catch(e){}
   document.getElementById('gate').style.display='none';
   document.getElementById('app').style.display='block';
