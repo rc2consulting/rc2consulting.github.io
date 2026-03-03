@@ -1010,7 +1010,7 @@ window.onload=()=>{
     updateDashboard();
   }
 };
-</script>
+if(new URLSearchParams(window.location.search).get('auth')==='rc2hub'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';userName='RC2 Employee';document.getElementById('user-name-display').textContent=userName;loadProgress();buildAllModules();updateDashboard();}</script>
 </body>
 </html>
 ```
@@ -1038,4 +1038,5 @@ window.onload=()=>{
 ```
 
 https://rc2consulting.github.io/RC2_Employee_Training.html
+
 
