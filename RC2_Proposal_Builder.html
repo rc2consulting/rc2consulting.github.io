@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 Consulting — Client Proposal Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;
+  --green:#059669;--red:#dc2626;--gray:#6b7280;--border:#e2e8f0;
+  --light:#f8fafc;--white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#f1f5f9;color:#1e293b;height:100vh;overflow:hidden;display:flex;flex-direction:column;}
+
+/* TOP BAR */
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.topbar h1{font-size:1rem;font-weight:700;letter-spacing:.5px;}
+.topbar .sub{font-size:.7rem;opacity:.55;margin-top:1px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.user-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.85);}
+.btn-print{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:700;cursor:pointer;letter-spacing:.5px;}
+.btn-print:hover{background:#fbbf24;}
+.btn-new{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;border-radius:8px;padding:7px 14px;font-size:.78rem;font-weight:600;cursor:pointer;}
+.btn-new:hover{background:rgba(255,255,255,.18);}
+
+/* MAIN LAYOUT */
+.main{display:flex;flex:1;overflow:hidden;}
+
+/* BUILDER PANEL */
+.builder{width:400px;flex-shrink:0;background:var(--navy);overflow-y:auto;padding:0;}
+.builder::-webkit-scrollbar{width:5px;}
+.builder::-webkit-scrollbar-track{background:rgba(255,255,255,.05);}
+.builder::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:3px;}
+
+.section-header{padding:14px 20px 10px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px;}
+.section-header span{font-size:.68rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;}
+.section-header .icon{font-size:1rem;}
+
+.form-group{padding:10px 20px 4px;}
+.form-group label{display:block;font-size:.68rem;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:white;padding:8px 12px;font-size:.82rem;font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color .2s;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.25);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);}
+.form-group select option{background:var(--navy);color:white;}
+.form-group textarea{resize:vertical;min-height:70px;line-height:1.5;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+
+/* SERVICE CARDS IN BUILDER */
+.service-grid{padding:10px 20px;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.svc-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;padding:10px;cursor:pointer;transition:all .2s;}
+.svc-card:hover{border-color:var(--accent);background:rgba(37,99,235,.15);}
+.svc-card.selected{border-color:var(--gold);background:rgba(245,158,11,.1);}
+.svc-card .svc-icon{font-size:1.3rem;margin-bottom:4px;}
+.svc-card .svc-name{font-size:.72rem;font-weight:700;color:white;line-height:1.3;}
+.svc-card .svc-price{font-size:.65rem;color:rgba(255,255,255,.45);margin-top:3px;}
+
+/* PRICING IN BUILDER */
+.pricing-row{display:flex;align-items:center;gap:8px;padding:6px 20px;}
+.pricing-row label{font-size:.72rem;color:rgba(255,255,255,.55);flex-shrink:0;width:100px;}
+.pricing-row input{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:white;padding:6px 10px;font-size:.82rem;outline:none;}
+.pricing-row input:focus{border-color:var(--accent);}
+.pricing-row .curr{color:rgba(255,255,255,.4);font-size:.8rem;margin-right:2px;}
+
+/* LINE ITEMS */
+.line-items{padding:6px 20px;}
+.line-item{display:flex;gap:6px;margin-bottom:6px;align-items:center;}
+.line-item input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:white;padding:6px 10px;font-size:.78rem;outline:none;}
+.line-item input:focus{border-color:var(--accent);}
+.line-item .li-desc{flex:1;}
+.line-item .li-amt{width:90px;}
+.line-item .li-del{background:rgba(220,38,38,.2);border:1px solid rgba(220,38,38,.3);color:#f87171;border-radius:6px;padding:5px 8px;cursor:pointer;font-size:.75rem;flex-shrink:0;}
+.btn-add-line{margin:4px 20px 10px;background:rgba(37,99,235,.2);border:1px dashed rgba(37,99,235,.4);border-radius:8px;color:rgba(255,255,255,.55);padding:7px;font-size:.75rem;cursor:pointer;width:calc(100% - 40px);text-align:center;}
+.btn-add-line:hover{background:rgba(37,99,235,.3);color:white;}
+
+/* BUILDER SPACER */
+.builder-spacer{height:16px;}
+
+/* PREVIEW PANEL */
+.preview-wrap{flex:1;overflow-y:auto;background:#cbd5e1;padding:24px;}
+.preview-wrap::-webkit-scrollbar{width:6px;}
+.preview-wrap::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:3px;}
+
+/* PROPOSAL DOCUMENT */
+.proposal{background:white;max-width:780px;margin:0 auto;box-shadow:0 8px 40px rgba(0,0,0,.18);border-radius:4px;overflow:hidden;}
+
+/* PROPOSAL HEADER */
+.prop-header{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);padding:44px 48px 36px;position:relative;overflow:hidden;}
+.prop-header::before{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04);}
+.prop-header::after{content:'';position:absolute;right:40px;bottom:-80px;width:180px;height:180px;border-radius:50%;background:rgba(245,158,11,.06);}
+.prop-logo{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.prop-logo .bolt{font-size:2rem;}
+.prop-logo .co-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:white;letter-spacing:1px;}
+.prop-logo .co-tag{font-size:.72rem;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
+.prop-type{font-size:.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;}
+.prop-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:white;line-height:1.2;margin-bottom:6px;}
+.prop-subtitle{font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:24px;}
+.prop-meta-row{display:flex;gap:28px;flex-wrap:wrap;}
+.prop-meta-item .meta-label{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;}
+.prop-meta-item .meta-val{font-size:.82rem;color:white;margin-top:2px;font-weight:600;}
+
+/* PROPOSAL BODY */
+.prop-body{padding:40px 48px;}
+
+/* CLIENT BLOCK */
+.client-block{background:var(--light);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:18px 22px;margin-bottom:32px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;}
+.client-block .cb-left .cb-label{font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.client-block .cb-left .cb-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--navy);}
+.client-block .cb-left .cb-company{font-size:.85rem;color:var(--gray);margin-top:2px;}
+.client-block .cb-right{text-align:right;}
+.client-block .cb-right .cb-label{font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.client-block .cb-right .cb-val{font-size:.82rem;color:#374151;}
+
+/* SECTION TITLES IN PROPOSAL */
+.prop-section{margin-bottom:30px;}
+.prop-section-title{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--border);}
+.prop-section-title .ps-num{width:26px;height:26px;background:var(--navy);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;}
+.prop-section-title .ps-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);}
+
+/* INTRO TEXT */
+.prop-intro{font-size:.88rem;color:#374151;line-height:1.8;margin-bottom:20px;}
+
+/* SERVICE HIGHLIGHT BOX */
+.service-highlight{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:10px;padding:20px 22px;margin-bottom:20px;}
+.service-highlight .sh-title{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.service-highlight .sh-desc{font-size:.84rem;color:#1e40af;line-height:1.7;}
+
+/* SCOPE TABLE */
+.scope-list{list-style:none;}
+.scope-list li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f1f5f9;font-size:.85rem;color:#374151;line-height:1.5;}
+.scope-list li:last-child{border-bottom:none;}
+.scope-list li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;margin-top:1px;}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:flex;gap:16px;position:relative;}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:19px;top:38px;bottom:-8px;width:2px;background:var(--border);}
+.tl-dot{width:38px;height:38px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;}
+.tl-content{padding-bottom:20px;flex:1;}
+.tl-phase{font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;}
+.tl-title{font-size:.9rem;font-weight:700;color:var(--navy);margin:2px 0;}
+.tl-desc{font-size:.8rem;color:var(--gray);line-height:1.5;}
+.tl-duration{display:inline-block;background:#eff6ff;color:#1d4ed8;border-radius:20px;padding:2px 10px;font-size:.68rem;font-weight:700;margin-top:4px;}
+
+/* INVESTMENT TABLE */
+.inv-table{width:100%;border-collapse:collapse;margin-bottom:14px;}
+.inv-table th{background:var(--navy);color:white;padding:10px 14px;font-size:.72rem;font-weight:700;text-align:left;letter-spacing:.5px;text-transform:uppercase;}
+.inv-table th:last-child{text-align:right;}
+.inv-table td{padding:10px 14px;font-size:.84rem;border-bottom:1px solid var(--border);color:#374151;}
+.inv-table td:last-child{text-align:right;font-weight:600;color:var(--navy);}
+.inv-table tr:last-child td{border-bottom:none;}
+.inv-table tr:hover td{background:#f8fafc;}
+.inv-total-row{background:var(--light)!important;}
+.inv-total-row td{font-weight:800!important;font-size:.92rem!important;color:var(--navy)!important;border-top:2px solid var(--navy)!important;}
+.investment-box{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin-top:14px;}
+.investment-box .ib-label{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px;}
+.investment-box .ib-amount{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:white;}
+.investment-box .ib-model{font-size:.75rem;color:var(--gold);margin-top:2px;}
+.investment-box .ib-note{font-size:.72rem;color:rgba(255,255,255,.45);margin-top:4px;}
+
+/* TERMS */
+.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.term-card{background:var(--light);border-radius:8px;padding:14px 16px;border:1px solid var(--border);}
+.term-card .tc-label{font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.term-card .tc-val{font-size:.82rem;color:#374151;font-weight:600;}
+
+/* NEXT STEPS */
+.next-steps{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;border-radius:10px;padding:20px 22px;}
+.next-steps .ns-title{font-size:.9rem;font-weight:800;color:#065f46;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.next-step-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.next-step-item:last-child{margin-bottom:0;}
+.ns-num{width:24px;height:24px;background:#059669;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;flex-shrink:0;}
+.ns-text{font-size:.83rem;color:#065f46;line-height:1.5;}
+
+/* SIGNATURE */
+.sig-block{display:flex;justify-content:space-between;gap:24px;margin-top:28px;flex-wrap:wrap;}
+.sig-box{flex:1;min-width:220px;}
+.sig-label{font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.sig-name{font-size:.9rem;font-weight:700;color:var(--navy);}
+.sig-title{font-size:.78rem;color:var(--gray);margin-top:1px;}
+.sig-line{border-top:1.5px solid var(--border);margin-top:36px;padding-top:6px;}
+.sig-date{font-size:.72rem;color:var(--gray);}
+
+/* FOOTER */
+.prop-footer{background:var(--navy);padding:16px 48px;display:flex;justify-content:space-between;align-items:center;}
+.prop-footer .pf-left{font-size:.7rem;color:rgba(255,255,255,.4);}
+.prop-footer .pf-right{font-size:.7rem;color:rgba(255,255,255,.35);}
+.prop-footer .pf-contact{color:rgba(255,255,255,.6);font-size:.72rem;margin-top:2px;}
+
+/* PRINT STYLES */
+@media print{
+  body{overflow:visible!important;height:auto!important;}
+  .topbar,.builder{display:none!important;}
+  .main{display:block!important;}
+  .preview-wrap{overflow:visible!important;padding:0!important;background:white!important;}
+  .proposal{box-shadow:none!important;border-radius:0!important;max-width:100%!important;}
+  .prop-body{padding:28px 36px!important;}
+  .prop-header{padding:28px 36px 24px!important;}
+  @page{margin:0.4in;size:letter;}
+}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:60px 20px;color:rgba(255,255,255,.3);}
+.empty-state .es-icon{font-size:3rem;margin-bottom:12px;}
+.empty-state .es-text{font-size:.85rem;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <div>
+      <div class="topbar h1" style="font-size:1rem;font-weight:700;letter-spacing:.5px;color:white;">⚡ RC2 CONSULTING — CLIENT PROPOSAL BUILDER</div>
+      <div class="sub" style="font-size:.68rem;opacity:.5;color:white;">Generate professional proposals in minutes</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="user-pill">👤 <span id="hub-username">RC2 Staff</span></div>
+    <button class="btn-new" onclick="resetAll()">+ New Proposal</button>
+    <button class="btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- BUILDER PANEL -->
+  <div class="builder">
+
+    <!-- CLIENT INFO -->
+    <div class="section-header"><span class="icon">👤</span><span>Client Information</span></div>
+    <div class="form-group"><label>Client Contact Name</label><input id="b-contact" type="text" placeholder="John Smith" oninput="update()"></div>
+    <div class="form-group"><label>Company / Organization</label><input id="b-company" type="text" placeholder="ABC Manufacturing Co." oninput="update()"></div>
+    <div class="form-row" style="padding:4px 20px;">
+      <div class="form-group" style="padding:0;"><label>Industry</label>
+        <select id="b-industry" onchange="update()">
+          <option value="">Select Industry</option>
+          <option>Apparel & Textiles</option>
+          <option>Manufacturing</option>
+          <option>Government Contracting</option>
+          <option>Retail & Consumer Goods</option>
+          <option>Food & Beverage</option>
+          <option>Logistics & Supply Chain</option>
+          <option>Healthcare</option>
+          <option>Technology</option>
+          <option>Construction</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group" style="padding:0;"><label>Company Size</label>
+        <select id="b-size" onchange="update()">
+          <option value="">Select Size</option>
+          <option>1-10 employees</option>
+          <option>11-50 employees</option>
+          <option>51-200 employees</option>
+          <option>201-500 employees</option>
+          <option>500+ employees</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row" style="padding:4px 20px;">
+      <div class="form-group" style="padding:0;"><label>Client Email</label><input id="b-email" type="text" placeholder="john@company.com" oninput="update()"></div>
+      <div class="form-group" style="padding:0;"><label>Client Phone</label><input id="b-phone" type="text" placeholder="(305) 555-0100" oninput="update()"></div>
+    </div>
+    <div class="form-group"><label>City / State</label><input id="b-location" type="text" placeholder="Miami, FL" oninput="update()"></div>
+
+    <!-- SERVICE SELECTION -->
+    <div class="section-header" style="margin-top:8px;"><span class="icon">🎯</span><span>Select Primary Service</span></div>
+    <div class="service-grid">
+      <div class="svc-card" id="svc-wrap" onclick="selectService('wrap')">
+        <div class="svc-icon">🏭</div>
+        <div class="svc-name">WRAP/PASA/CAP Certification</div>
+        <div class="svc-price">From $5,000</div>
+      </div>
+      <div class="svc-card" id="svc-gov" onclick="selectService('gov')">
+        <div class="svc-icon">🏛️</div>
+        <div class="svc-name">Gov Contracting / FAR / DCAA</div>
+        <div class="svc-price">From $8,500</div>
+      </div>
+      <div class="svc-card" id="svc-cr" onclick="selectService('cr')">
+        <div class="svc-icon">✅</div>
+        <div class="svc-name">Compliance Readiness Review</div>
+        <div class="svc-price">From $3,500</div>
+      </div>
+      <div class="svc-card" id="svc-doo" onclick="selectService('doo')">
+        <div class="svc-icon">👔</div>
+        <div class="svc-name">Fractional Director of Ops</div>
+        <div class="svc-price">From $4,500/mo</div>
+      </div>
+      <div class="svc-card" id="svc-ops" onclick="selectService('ops')">
+        <div class="svc-icon">⚙️</div>
+        <div class="svc-name">Ops Systems Optimization</div>
+        <div class="svc-price">From $6,000</div>
+      </div>
+      <div class="svc-card" id="svc-sales" onclick="selectService('sales')">
+        <div class="svc-icon">📈</div>
+        <div class="svc-name">Sales & Growth Strategy</div>
+        <div class="svc-price">From $5,500</div>
+      </div>
+      <div class="svc-card" id="svc-audit" onclick="selectService('audit')">
+        <div class="svc-icon">🔍</div>
+        <div class="svc-name">Corporate Audit (Documentation)</div>
+        <div class="svc-price">From $4,000</div>
+      </div>
+      <div class="svc-card" id="svc-sop" onclick="selectService('sop')">
+        <div class="svc-icon">📋</div>
+        <div class="svc-name">SOP Development & Training</div>
+        <div class="svc-price">From $3,500</div>
+      </div>
+    </div>
+
+    <!-- PRICING MODEL -->
+    <div class="section-header" style="margin-top:8px;"><span class="icon">💰</span><span>Pricing & Investment</span></div>
+    <div class="form-group" style="padding:8px 20px 4px;">
+      <label>Pricing Model</label>
+      <select id="b-model" onchange="update()">
+        <option value="fixed">Fixed Fee (Project)</option>
+        <option value="hourly">Hourly Rate (T&M)</option>
+        <option value="retainer">Monthly Retainer</option>
+        <option value="milestone">Milestone-Based</option>
+        <option value="hybrid">Hybrid (Retainer + Fixed)</option>
+      </select>
+    </div>
+
+    <!-- LINE ITEMS -->
+    <div style="padding:6px 20px 4px;"><label style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.8px;">Investment Line Items</label></div>
+    <div id="line-items" class="line-items"></div>
+    <button class="btn-add-line" onclick="addLineItem()">+ Add Line Item</button>
+
+    <!-- TIMELINE -->
+    <div class="section-header" style="margin-top:4px;"><span class="icon">📅</span><span>Project Timeline</span></div>
+    <div class="form-group"><label>Total Project Duration</label>
+      <select id="b-duration" onchange="update()">
+        <option>2 weeks</option>
+        <option>30 days</option>
+        <option>45 days</option>
+        <option selected>60 days</option>
+        <option>90 days</option>
+        <option>6 months</option>
+        <option>12 months</option>
+        <option>Ongoing</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Proposed Start Date</label><input id="b-start" type="date" oninput="update()"></div>
+
+    <!-- TERMS -->
+    <div class="section-header" style="margin-top:8px;"><span class="icon">📄</span><span>Terms & Conditions</span></div>
+    <div class="form-group"><label>Payment Terms</label>
+      <select id="b-payment" onchange="update()">
+        <option>50% upfront, 50% on completion</option>
+        <option>100% upfront</option>
+        <option>33% upfront, 33% midpoint, 33% completion</option>
+        <option>Net 30</option>
+        <option>Monthly invoicing</option>
+        <option>Milestone-based payments</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Proposal Valid For</label>
+      <select id="b-validity" onchange="update()">
+        <option>15 days</option>
+        <option selected>30 days</option>
+        <option>45 days</option>
+        <option>60 days</option>
+      </select>
+    </div>
+
+    <!-- CUSTOM NOTES -->
+    <div class="section-header" style="margin-top:8px;"><span class="icon">✏️</span><span>Custom Notes</span></div>
+    <div class="form-group"><label>Executive Summary (optional override)</label><textarea id="b-summary" placeholder="Leave blank to use auto-generated summary..." oninput="update()"></textarea></div>
+    <div class="form-group"><label>Special Terms / Addendum</label><textarea id="b-terms" placeholder="Any additional terms, discounts, or special conditions..." oninput="update()"></textarea></div>
+
+    <div class="builder-spacer"></div>
+  </div>
+
+  <!-- PREVIEW PANEL -->
+  <div class="preview-wrap">
+    <div class="proposal" id="proposal">
+
+      <!-- PROPOSAL HEADER -->
+      <div class="prop-header">
+        <div class="prop-logo">
+          <div class="bolt">⚡</div>
+          <div>
+            <div class="co-name">RC2 CONSULTING</div>
+            <div class="co-tag">Operations &amp; Compliance Specialists</div>
+          </div>
+        </div>
+        <div class="prop-type">Professional Services Proposal</div>
+        <div class="prop-title" id="p-title">Select a service to generate your proposal</div>
+        <div class="prop-subtitle" id="p-subtitle">Prepared exclusively for your organization</div>
+        <div class="prop-meta-row">
+          <div class="prop-meta-item"><div class="meta-label">Prepared For</div><div class="meta-val" id="p-meta-client">—</div></div>
+          <div class="prop-meta-item"><div class="meta-label">Proposal Date</div><div class="meta-val" id="p-meta-date">—</div></div>
+          <div class="prop-meta-item"><div class="meta-label">Proposal #</div><div class="meta-val" id="p-meta-num">—</div></div>
+          <div class="prop-meta-item"><div class="meta-label">Prepared By</div><div class="meta-val" id="p-meta-by">RC2 Consulting</div></div>
+        </div>
+      </div>
+
+      <!-- PROPOSAL BODY -->
+      <div class="prop-body">
+
+        <!-- CLIENT BLOCK -->
+        <div class="client-block">
+          <div class="cb-left">
+            <div class="cb-label">Submitted To</div>
+            <div class="cb-name" id="p-client-name">Client Name</div>
+            <div class="cb-company" id="p-client-company">Company Name</div>
+            <div class="cb-company" id="p-client-location" style="font-size:.78rem;margin-top:2px;"></div>
+          </div>
+          <div class="cb-right">
+            <div class="cb-label">Contact Details</div>
+            <div class="cb-val" id="p-client-email"></div>
+            <div class="cb-val" id="p-client-phone"></div>
+            <div class="cb-val" id="p-client-industry" style="margin-top:4px;"></div>
+          </div>
+        </div>
+
+        <!-- EXECUTIVE SUMMARY -->
+        <div class="prop-section">
+          <div class="prop-section-title"><div class="ps-num">1</div><div class="ps-title">Executive Summary</div></div>
+          <p class="prop-intro" id="p-summary">Complete the form on the left to generate a personalized proposal. Select a service, enter client details, and add your pricing to build a professional, print-ready proposal in minutes.</p>
+        </div>
+
+        <!-- SERVICE OVERVIEW -->
+        <div class="prop-section" id="p-service-section" style="display:none;">
+          <div class="prop-section-title"><div class="ps-num">2</div><div class="ps-title">Scope of Services</div></div>
+          <div class="service-highlight" id="p-svc-box">
+            <div class="sh-title" id="p-svc-title">Service</div>
+            <div class="sh-desc" id="p-svc-desc">Description</div>
+          </div>
+          <ul class="scope-list" id="p-scope-list"></ul>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="prop-section" id="p-timeline-section" style="display:none;">
+          <div class="prop-section-title"><div class="ps-num">3</div><div class="ps-title">Project Timeline & Methodology</div></div>
+          <div class="timeline" id="p-timeline"></div>
+        </div>
+
+        <!-- INVESTMENT -->
+        <div class="prop-section" id="p-investment-section" style="display:none;">
+          <div class="prop-section-title"><div class="ps-num">4</div><div class="ps-title">Investment Summary</div></div>
+          <table class="inv-table">
+            <thead><tr><th>Description</th><th>Details</th><th>Amount</th></tr></thead>
+            <tbody id="p-inv-body"></tbody>
+          </table>
+          <div class="investment-box">
+            <div>
+              <div class="ib-label">Total Investment</div>
+              <div class="ib-amount" id="p-total">$0</div>
+              <div class="ib-model" id="p-model-label">Fixed Fee</div>
+              <div class="ib-note" id="p-payment-note"></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:.7rem;color:rgba(255,255,255,.4);margin-bottom:4px;">VALID UNTIL</div>
+              <div style="font-size:1rem;font-weight:700;color:white;" id="p-valid-date">—</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-top:2px;" id="p-validity-note"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERMS -->
+        <div class="prop-section" id="p-terms-section" style="display:none;">
+          <div class="prop-section-title"><div class="ps-num">5</div><div class="ps-title">Terms & Conditions</div></div>
+          <div class="terms-grid">
+            <div class="term-card"><div class="tc-label">Payment Terms</div><div class="tc-val" id="p-payment-terms">—</div></div>
+            <div class="term-card"><div class="tc-label">Project Duration</div><div class="tc-val" id="p-duration">—</div></div>
+            <div class="term-card"><div class="tc-label">Proposal Valid For</div><div class="tc-val" id="p-validity">—</div></div>
+            <div class="term-card"><div class="tc-label">Travel & Expenses</div><div class="tc-val">Billed at cost with prior approval</div></div>
+            <div class="term-card"><div class="tc-label">Out-of-Scope Work</div><div class="tc-val">Quoted separately via change order</div></div>
+            <div class="term-card"><div class="tc-label">Confidentiality</div><div class="tc-val">Full NDA available upon request</div></div>
+          </div>
+          <div id="p-custom-terms" style="margin-top:14px;display:none;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 16px;font-size:.83rem;color:#92400e;line-height:1.6;"></div>
+        </div>
+
+        <!-- NEXT STEPS -->
+        <div class="prop-section" id="p-nextsteps-section" style="display:none;">
+          <div class="prop-section-title"><div class="ps-num">6</div><div class="ps-title">Next Steps</div></div>
+          <div class="next-steps">
+            <div class="ns-title">🚀 How to Move Forward</div>
+            <div class="next-step-item"><div class="ns-num">1</div><div class="ns-text">Review this proposal and confirm alignment with your goals and budget.</div></div>
+            <div class="next-step-item"><div class="ns-num">2</div><div class="ns-text">Schedule a kickoff call with your RC2 Consulting advisor to discuss any questions or adjustments.</div></div>
+            <div class="next-step-item"><div class="ns-num">3</div><div class="ns-text">Sign and return this proposal along with the initial retainer payment to reserve your project start date.</div></div>
+            <div class="next-step-item"><div class="ns-num">4</div><div class="ns-text">RC2 will deliver a detailed project plan, kickoff agenda, and document request list within 48 hours of receipt of signed agreement.</div></div>
+          </div>
+        </div>
+
+        <!-- SIGNATURE BLOCK -->
+        <div class="prop-section" id="p-sig-section" style="display:none;">
+          <div class="prop-section-title"><div class="ps-num">7</div><div class="ps-title">Agreement & Authorization</div></div>
+          <p style="font-size:.82rem;color:#374151;line-height:1.7;margin-bottom:18px;">By signing below, both parties agree to the terms and scope outlined in this proposal. This document constitutes a binding agreement upon execution and receipt of the initial payment.</p>
+          <div class="sig-block">
+            <div class="sig-box">
+              <div class="sig-label">RC2 Consulting</div>
+              <div class="sig-name" id="p-sig-rc2">RC2 Consulting</div>
+              <div class="sig-title">Operations & Compliance Specialist</div>
+              <div class="sig-line">
+                <div class="sig-date">Signature &amp; Date: ___________________________</div>
+              </div>
+            </div>
+            <div class="sig-box">
+              <div class="sig-label">Client Authorization</div>
+              <div class="sig-name" id="p-sig-client">Client Name</div>
+              <div class="sig-title" id="p-sig-co">Company Name</div>
+              <div class="sig-line">
+                <div class="sig-date">Signature &amp; Date: ___________________________</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end prop-body -->
+
+      <!-- FOOTER -->
+      <div class="prop-footer">
+        <div>
+          <div class="pf-left">RC2 Consulting | Operations &amp; Compliance Specialists</div>
+          <div class="pf-contact" id="p-footer-contact">rc2consulting.github.io</div>
+        </div>
+        <div class="pf-right" id="p-footer-right">Confidential — For Authorized Use Only</div>
+      </div>
+
+    </div><!-- end proposal -->
+  </div><!-- end preview-wrap -->
+
+</div><!-- end main -->
+
+<script>
+// ====== SERVICE DATA ======
+const SERVICES = {
+  wrap:{
+    id:'wrap',name:'WRAP/PASA/CAP Certification Preparation',icon:'🏭',
+    shortName:'WRAP Certification',
+    color:'#1d4ed8',
+    desc:'RC2 Consulting provides end-to-end WRAP (Worldwide Responsible Accredited Production) certification preparation, including PASA pre-audit scoring, gap analysis, corrective action planning, and audit readiness coaching across all 12 WRAP Principles.',
+    scope:[
+      'Comprehensive gap analysis against all 12 WRAP Principles',
+      'PASA Pre-Audit Scorecard completion and scoring',
+      'Documentation review and compliance assessment',
+      'Corrective Action Plan (CAP) development for all non-conformities',
+      'Policy and procedure drafting for deficient areas',
+      'Staff training on WRAP compliance standards',
+      'Mock audit preparation and internal walkthrough',
+      'Liaison support with WRAP-accredited monitoring firm',
+      'Post-audit CAP closure support and verification'
+    ],
+    phases:[
+      {phase:'Phase 1',title:'Discovery & Gap Analysis',desc:'On-site or virtual assessment of current compliance posture against all 12 WRAP Principles. Deliverable: Gap Analysis Report.',dur:'Weeks 1–2'},
+      {phase:'Phase 2',title:'Documentation & CAP Development',desc:'Develop missing or deficient policies, procedures, and corrective action plans. Deliverable: Full CAP Document Package.',dur:'Weeks 3–5'},
+      {phase:'Phase 3',title:'Training & Audit Preparation',desc:'Staff training sessions, mock audit walkthrough, and final readiness verification. Deliverable: Training Completion Records.',dur:'Weeks 6–8'},
+      {phase:'Phase 4',title:'Audit Support & Close-Out',desc:'Liaison support during WRAP audit, post-audit CAP closure, and certification follow-up.',dur:'Week 9+'}
+    ],
+    defaultLines:[
+      {desc:'Gap Analysis & PASA Scorecard',amt:1500},
+      {desc:'CAP Development & Documentation',amt:2000},
+      {desc:'Policy & Procedure Drafting',amt:1200},
+      {desc:'Staff Training (per session)',amt:800},
+      {desc:'Mock Audit & Readiness Review',amt:600}
+    ]
+  },
+  gov:{
+    id:'gov',name:'Government Contracting / FAR / DCAA Compliance',icon:'🏛️',
+    shortName:'Government Contracting Compliance',
+    color:'#1d4ed8',
+    desc:'RC2 Consulting prepares businesses to successfully enter and perform on federal government contracts. Services include FAR Part 31 cost accounting setup, DCAA audit preparation, SF-1408 accounting system compliance, indirect rate structuring, and full government compliance policy development.',
+    scope:[
+      'FAR Part 31 cost accounting system review and setup',
+      'DCAA pre-award accounting system preparation (SF-1408)',
+      'Chart of accounts restructuring for government compliance',
+      'Indirect cost rate development (fringe, overhead, G&A)',
+      'Timekeeping policy and system implementation',
+      'Unallowable cost identification and segregation',
+      'Government-compliant policy manual development',
+      'Staff training on government contracting compliance',
+      'Incurred Cost Submission (ICS) preparation support'
+    ],
+    phases:[
+      {phase:'Phase 1',title:'Accounting System Assessment',desc:'Review current accounting software, COA, and cost segregation practices against DCAA requirements.',dur:'Week 1–2'},
+      {phase:'Phase 2',title:'System Restructuring',desc:'Restructure chart of accounts, set up indirect rates, implement timekeeping, and exclude unallowable costs.',dur:'Weeks 2–5'},
+      {phase:'Phase 3',title:'Policy Manual Development',desc:'Develop government-compliant policies covering timekeeping, travel, compensation, and cost allowability.',dur:'Weeks 4–7'},
+      {phase:'Phase 4',title:'DCAA Readiness & Training',desc:'Full mock DCAA review, staff training, and SF-1408 submission support.',dur:'Weeks 6–8'}
+    ],
+    defaultLines:[
+      {desc:'Accounting System Assessment & Setup',amt:3500},
+      {desc:'Indirect Rate Structure Development',amt:2000},
+      {desc:'Government Policy Manual',amt:2500},
+      {desc:'Staff Training (2 sessions)',amt:1200},
+      {desc:'DCAA Pre-Award Prep & SF-1408 Support',amt:1500}
+    ]
+  },
+  cr:{
+    id:'cr',name:'Compliance Readiness Review',icon:'✅',
+    shortName:'Compliance Readiness Review',
+    color:'#059669',
+    desc:'A comprehensive operational compliance audit designed to identify gaps, risks, and improvement opportunities across your business. RC2 delivers a detailed findings report with prioritized corrective actions, a compliance scorecard, and an implementation roadmap.',
+    scope:[
+      'Operational compliance assessment across all key business functions',
+      'HR compliance review (I-9, labor law, recordkeeping)',
+      'Safety and workplace compliance evaluation',
+      'Documentation and recordkeeping audit',
+      'Supply chain and vendor compliance review',
+      'Compliance risk scoring and prioritization matrix',
+      'Corrective action roadmap with 30/60/90-day milestones',
+      'Executive summary report with findings and recommendations',
+      'Optional: Quarterly follow-up assessment'
+    ],
+    phases:[
+      {phase:'Phase 1',title:'Data Collection & Document Review',desc:'Collection of all relevant policies, procedures, records, and compliance documentation for assessment.',dur:'Week 1'},
+      {phase:'Phase 2',title:'On-Site / Virtual Assessment',desc:'Structured interviews, facility walkthrough, and operational observation sessions.',dur:'Week 2'},
+      {phase:'Phase 3',title:'Analysis & Report Development',desc:'Risk scoring, gap identification, and development of the full Compliance Readiness Report.',dur:'Weeks 3–4'},
+      {phase:'Phase 4',title:'Report Delivery & Roadmap',desc:'Executive presentation of findings, corrective action roadmap, and implementation support.',dur:'Week 4–5'}
+    ],
+    defaultLines:[
+      {desc:'Compliance Assessment & Document Review',amt:1500},
+      {desc:'On-Site Evaluation (1 day)',amt:800},
+      {desc:'Compliance Readiness Report',amt:900},
+      {desc:'Corrective Action Roadmap',amt:600},
+      {desc:'Executive Briefing & Presentation',amt:400}
+    ]
+  },
+  doo:{
+    id:'doo',name:'Fractional Director of Operations',icon:'👔',
+    shortName:'Fractional Director of Operations (DOO)',
+    color:'#7c3aed',
+    desc:'RC2 Consulting provides an experienced Fractional Director of Operations on a part-time basis, giving your organization senior-level operational leadership without the cost of a full-time executive. Ideal for businesses scaling from $1M–$15M in revenue.',
+    scope:[
+      'Weekly operational leadership meetings and reporting',
+      'KPI development, dashboard creation, and performance tracking',
+      'Process bottleneck identification and resolution',
+      'Vendor and supply chain relationship management',
+      'Team management structure and accountability system design',
+      'Standard Operating Procedure (SOP) development and implementation',
+      'Operational playbook creation for scalable growth',
+      'Cross-functional coordination (HR, Finance, Operations, Sales)',
+      'Monthly executive summary report with operational metrics'
+    ],
+    phases:[
+      {phase:'Month 1',title:'Operational Assessment & Quick Wins',desc:'Deep-dive into current operations. Identify immediate improvement opportunities and establish baseline KPIs.',dur:'30 days'},
+      {phase:'Month 2',title:'Systems & Structure',desc:'Implement operational systems, SOP framework, and accountability structures.',dur:'30 days'},
+      {phase:'Month 3+',title:'Ongoing Optimization',desc:'Continuous improvement, team development, and monthly executive reporting.',dur:'Ongoing'}
+    ],
+    defaultLines:[
+      {desc:'Fractional DOO Services (Monthly Retainer)',amt:4500},
+      {desc:'Operational Assessment & KPI Setup (one-time)',amt:1500},
+      {desc:'SOP Development (first 5 SOPs)',amt:1200}
+    ]
+  },
+  ops:{
+    id:'ops',name:'Operational Systems Optimization',icon:'⚙️',
+    shortName:'Operational Systems Optimization',
+    color:'#d97706',
+    desc:'RC2 analyzes your end-to-end operational workflows, identifies inefficiencies, and implements optimized systems, processes, and technology solutions that reduce costs, eliminate waste, and prepare your business for scalable growth.',
+    scope:[
+      'End-to-end operational workflow mapping and analysis',
+      'Bottleneck identification using lean methodology',
+      'Technology stack evaluation and integration recommendations',
+      'Supply chain process optimization and vendor review',
+      'Inventory management system assessment and improvement',
+      'Quality control system design and implementation',
+      'Standard Operating Procedure (SOP) development',
+      'Employee training on new operational systems',
+      'ROI measurement framework and post-implementation review'
+    ],
+    phases:[
+      {phase:'Phase 1',title:'Operational Discovery',desc:'Workflow mapping, time-motion analysis, and stakeholder interviews to document current state operations.',dur:'Weeks 1–2'},
+      {phase:'Phase 2',title:'Analysis & Solution Design',desc:'Root cause analysis, opportunity prioritization, and design of optimized workflows and systems.',dur:'Weeks 2–4'},
+      {phase:'Phase 3',title:'Implementation',desc:'Rollout of new systems, SOPs, and workflows with full staff training and support.',dur:'Weeks 4–8'},
+      {phase:'Phase 4',title:'Measurement & Optimization',desc:'KPI tracking, ROI documentation, and fine-tuning of implemented solutions.',dur:'Weeks 8–10'}
+    ],
+    defaultLines:[
+      {desc:'Operational Discovery & Workflow Mapping',amt:2000},
+      {desc:'Analysis Report & Solution Design',amt:1500},
+      {desc:'SOP Development (up to 10 SOPs)',amt:2000},
+      {desc:'Implementation Support & Training',amt:1500},
+      {desc:'30-Day Post-Implementation Review',amt:600}
+    ]
+  },
+  sales:{
+    id:'sales',name:'Sales & Growth Strategy',icon:'📈',
+    shortName:'Sales & Growth Strategy',
+    color:'#059669',
+    desc:'RC2 Consulting develops data-driven sales growth strategies tailored to your business model, market position, and target customers. Services include market analysis, sales process optimization, pricing strategy, and business development systems designed to accelerate revenue growth.',
+    scope:[
+      'Revenue and sales performance diagnostic',
+      'Target market analysis and ideal customer profile development',
+      'Competitive positioning and differentiation strategy',
+      'Sales process mapping and conversion optimization',
+      'Pricing strategy review and optimization',
+      'Business development pipeline and CRM setup',
+      'Sales playbook and objection handling guide development',
+      'Go-to-market strategy for new products or markets',
+      'Sales team training and performance management framework'
+    ],
+    phases:[
+      {phase:'Phase 1',title:'Revenue Diagnostic',desc:'Analysis of current sales performance, pricing, customer mix, and growth constraints.',dur:'Week 1–2'},
+      {phase:'Phase 2',title:'Strategy Development',desc:'Go-to-market strategy, target customer profiles, and pricing optimization recommendations.',dur:'Weeks 2–4'},
+      {phase:'Phase 3',title:'Sales System Build',desc:'CRM setup, sales playbook, pipeline tracking, and team training.',dur:'Weeks 4–8'},
+      {phase:'Phase 4',title:'Launch & Monitoring',desc:'Strategy implementation, lead generation activation, and performance tracking.',dur:'Weeks 8–12'}
+    ],
+    defaultLines:[
+      {desc:'Revenue Diagnostic & Market Analysis',amt:1800},
+      {desc:'Growth Strategy Development',amt:2000},
+      {desc:'Sales Playbook & Process Design',amt:1500},
+      {desc:'CRM Setup & Pipeline Configuration',amt:800},
+      {desc:'Team Training (2 sessions)',amt:1000}
+    ]
+  },
+  audit:{
+    id:'audit',name:'Corporate Audit (Documentation)',icon:'🔍',
+    shortName:'Corporate Documentation Audit',
+    color:'#dc2626',
+    desc:'RC2 Consulting conducts a thorough internal documentation audit to ensure your business records, policies, contracts, and compliance documentation are complete, current, and legally defensible. Deliverables include a comprehensive audit report and a prioritized remediation plan.',
+    scope:[
+      'Complete review of corporate governance documents',
+      'HR documentation audit (employee files, I-9s, handbooks)',
+      'Contract and vendor agreement review',
+      'Compliance policy and procedure completeness assessment',
+      'License, certification, and permit verification',
+      'Insurance coverage adequacy review',
+      'Document retention policy development',
+      'Documentation gap analysis and risk assessment',
+      'Remediation plan with timeline and responsibility matrix'
+    ],
+    phases:[
+      {phase:'Phase 1',title:'Document Collection',desc:'Systematic collection of all corporate documentation across HR, legal, compliance, and operations.',dur:'Week 1'},
+      {phase:'Phase 2',title:'Audit & Assessment',desc:'Expert review of all documents against legal requirements and best practices.',dur:'Weeks 2–3'},
+      {phase:'Phase 3',title:'Report & Remediation Plan',desc:'Comprehensive audit report with risk ratings and prioritized remediation roadmap.',dur:'Week 4'},
+      {phase:'Phase 4',title:'Remediation Support',desc:'Assistance developing missing or deficient documents and implementing document management systems.',dur:'Weeks 4–6'}
+    ],
+    defaultLines:[
+      {desc:'Document Collection & Intake',amt:600},
+      {desc:'Comprehensive Documentation Audit',amt:2000},
+      {desc:'Audit Report & Risk Assessment',amt:900},
+      {desc:'Remediation Plan Development',amt:700},
+      {desc:'Document Drafting (up to 10 documents)',amt:1200}
+    ]
+  },
+  sop:{
+    id:'sop',name:'SOP Development & Training Programs',icon:'📋',
+    shortName:'SOP Development & Training',
+    color:'#0891b2',
+    desc:'RC2 Consulting designs and develops comprehensive Standard Operating Procedures (SOPs) and customized employee training programs tailored to your specific operations, compliance requirements, and workforce. Every SOP is written to be operationally accurate, legally defensible, and beginner-friendly.',
+    scope:[
+      'Operational process documentation and workflow mapping',
+      'SOP drafting in standardized RC2 format (purpose, scope, responsibility, procedure, records)',
+      'Visual process diagrams and decision trees',
+      'Job aids, quick reference guides, and checklists',
+      'Customized employee training curriculum development',
+      'Training delivery (in-person or virtual)',
+      'Training effectiveness assessment and quiz development',
+      'SOP review and approval workflow setup',
+      'Document management system and version control setup'
+    ],
+    phases:[
+      {phase:'Phase 1',title:'Process Discovery',desc:'Interviews, observation, and documentation of existing processes and procedures.',dur:'Week 1–2'},
+      {phase:'Phase 2',title:'SOP Drafting',desc:'Development of SOPs in standardized format with review cycles from subject matter experts.',dur:'Weeks 2–5'},
+      {phase:'Phase 3',title:'Training Development',desc:'Curriculum design, training materials, and assessment tools based on developed SOPs.',dur:'Weeks 4–6'},
+      {phase:'Phase 4',title:'Training Delivery & Handoff',desc:'Staff training sessions, train-the-trainer program, and document management handoff.',dur:'Weeks 6–8'}
+    ],
+    defaultLines:[
+      {desc:'Process Discovery & Documentation',amt:1000},
+      {desc:'SOP Development (per SOP)',amt:450},
+      {desc:'Training Curriculum Development',amt:1200},
+      {desc:'Training Delivery (per session, up to 20 staff)',amt:750},
+      {desc:'Document Management Setup',amt:500}
+    ]
+  }
+};
+
+// ====== STATE ======
+let selectedService = null;
+let lineItems = [];
+let proposalNum = 'RC2-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random()*900)+100);
+
+// ====== INIT ======
+window.onload = function(){
+  try{var u=localStorage.getItem('rc2hub_user');if(u){document.getElementById('hub-username').textContent=u;document.getElementById('p-meta-by').textContent=u;document.getElementById('p-sig-rc2').textContent=u;}}catch(e){}
+  var today = new Date();
+  document.getElementById('p-meta-date').textContent = today.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('p-meta-num').textContent = proposalNum;
+  // Set default start date to today
+  var d = today.toISOString().split('T')[0];
+  document.getElementById('b-start').value = d;
+  update();
+};
+
+// ====== SELECT SERVICE ======
+function selectService(key){
+  selectedService = key;
+  document.querySelectorAll('.svc-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('svc-'+key).classList.add('selected');
+  // Load default line items
+  lineItems = SERVICES[key].defaultLines.map((li,i)=>({id:i,desc:li.desc,amt:li.amt}));
+  renderLineItems();
+  update();
+}
+
+// ====== LINE ITEMS ======
+function renderLineItems(){
+  var container = document.getElementById('line-items');
+  container.innerHTML = '';
+  lineItems.forEach(function(li,i){
+    var div = document.createElement('div');
+    div.className = 'line-item';
+    div.innerHTML = '<input class="li-desc" type="text" placeholder="Description" value="'+escHtml(li.desc)+'" oninput="lineItems['+i+'].desc=this.value;update()">'+
+      '<input class="li-amt" type="number" placeholder="0" value="'+li.amt+'" oninput="lineItems['+i+'].amt=parseFloat(this.value)||0;update()">'+
+      '<button class="li-del" onclick="removeLine('+i+')">✕</button>';
+    container.appendChild(div);
+  });
+}
+function addLineItem(){
+  lineItems.push({id:Date.now(),desc:'',amt:0});
+  renderLineItems();
+  update();
+}
+function removeLine(i){
+  lineItems.splice(i,1);
+  renderLineItems();
+  update();
+}
+function escHtml(str){return str.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ====== TOTAL ======
+function calcTotal(){
+  return lineItems.reduce(function(s,li){return s+(parseFloat(li.amt)||0);},0);
+}
+function fmtCurrency(n){
+  return '$'+n.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+}
+
+// ====== MAIN UPDATE ======
+function update(){
+  var contact = v('b-contact');
+  var company = v('b-company');
+  var industry = v('b-industry');
+  var size = v('b-size');
+  var email = v('b-email');
+  var phone = v('b-phone');
+  var location = v('b-location');
+  var model = v('b-model');
+  var duration = v('b-duration');
+  var payment = v('b-payment');
+  var validity = v('b-validity');
+  var startDate = v('b-start');
+  var customSummary = v('b-summary');
+  var customTerms = v('b-terms');
+  var prepBy = document.getElementById('hub-username').textContent;
+
+  // Meta
+  document.getElementById('p-meta-client').textContent = contact || company || '—';
+  document.getElementById('p-meta-by').textContent = prepBy;
+  document.getElementById('p-sig-rc2').textContent = prepBy;
+
+  // Client block
+  document.getElementById('p-client-name').textContent = contact || 'Client Name';
+  document.getElementById('p-client-company').textContent = company || 'Company Name';
+  document.getElementById('p-client-location').textContent = location;
+  document.getElementById('p-client-email').textContent = email;
+  document.getElementById('p-client-phone').textContent = phone;
+  var indStr = industry ? industry : '';
+  var sizeStr = size ? ' | '+size : '';
+  document.getElementById('p-client-industry').textContent = indStr + sizeStr;
+  document.getElementById('p-sig-client').textContent = contact || 'Client Name';
+  document.getElementById('p-sig-co').textContent = company || 'Company Name';
+
+  // Validity date
+  var validDays = parseInt(validity)||30;
+  var today = new Date();
+  var validDate = new Date(today.getTime() + validDays*24*60*60*1000);
+  document.getElementById('p-valid-date').textContent = validDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  document.getElementById('p-validity-note').textContent = 'Proposal valid for '+validity;
+
+  if(!selectedService){
+    showSections(false);
+    return;
+  }
+
+  var svc = SERVICES[selectedService];
+
+  // Title
+  document.getElementById('p-title').textContent = 'Proposal for '+svc.shortName+(company?' — '+company:'');
+  document.getElementById('p-subtitle').textContent = 'A Comprehensive '+svc.shortName+' Solution'+(industry?' for the '+industry+' Industry':'');
+
+  // Summary
+  var autoSummary = 'RC2 Consulting is pleased to present this proposal for '+(company||'your organization')+(contact?' and '+contact:'')+'. ';
+  autoSummary += 'This proposal outlines our approach to delivering professional '+svc.shortName+' services';
+  autoSummary += industry?' tailored to the '+industry+' industry.':'.';
+  autoSummary += ' With over 30 years of experience in operations and compliance, RC2 Consulting brings proven methodologies, deep regulatory knowledge, and hands-on implementation expertise to every engagement. ';
+  autoSummary += 'Our goal is to deliver measurable, lasting results that strengthen your operations, ensure compliance, and position your organization for sustainable growth.';
+  document.getElementById('p-summary').textContent = customSummary || autoSummary;
+
+  // Service section
+  document.getElementById('p-svc-title').innerHTML = svc.icon+' '+svc.name;
+  document.getElementById('p-svc-desc').textContent = svc.desc;
+  var scopeHtml = '';
+  svc.scope.forEach(function(s){scopeHtml+='<li>'+s+'</li>';});
+  document.getElementById('p-scope-list').innerHTML = scopeHtml;
+
+  // Timeline
+  var tlHtml = '';
+  svc.phases.forEach(function(p,i){
+    tlHtml += '<div class="tl-item"><div class="tl-dot">'+(i+1)+'</div><div class="tl-content">';
+    tlHtml += '<div class="tl-phase">'+p.phase+'</div>';
+    tlHtml += '<div class="tl-title">'+p.title+'</div>';
+    tlHtml += '<div class="tl-desc">'+p.desc+'</div>';
+    tlHtml += '<div class="tl-duration">⏱ '+p.dur+'</div>';
+    tlHtml += '</div></div>';
+  });
+  document.getElementById('p-timeline').innerHTML = tlHtml;
+
+  // Investment
+  var total = calcTotal();
+  var invHtml = '';
+  lineItems.forEach(function(li){
+    if(li.desc||li.amt){
+      invHtml += '<tr><td>'+escHtml(li.desc||'—')+'</td><td>'+modelDetail(model,li.amt)+'</td><td>'+fmtCurrency(li.amt)+'</td></tr>';
+    }
+  });
+  invHtml += '<tr class="inv-total-row"><td colspan="2" style="font-weight:800;">TOTAL INVESTMENT</td><td>'+fmtCurrency(total)+'</td></tr>';
+  document.getElementById('p-inv-body').innerHTML = invHtml;
+  document.getElementById('p-total').textContent = fmtCurrency(total);
+
+  var modelLabels = {fixed:'Fixed Fee Project',hourly:'Time & Materials (Hourly)',retainer:'Monthly Retainer',milestone:'Milestone-Based Payments',hybrid:'Hybrid Retainer + Fixed Fee'};
+  document.getElementById('p-model-label').textContent = modelLabels[model]||model;
+  document.getElementById('p-payment-note').textContent = payment;
+
+  // Terms
+  document.getElementById('p-payment-terms').textContent = payment;
+  document.getElementById('p-duration').textContent = duration;
+  document.getElementById('p-validity').textContent = validity + ' from date of issue';
+
+  // Custom terms
+  if(customTerms){
+    document.getElementById('p-custom-terms').style.display='block';
+    document.getElementById('p-custom-terms').textContent = customTerms;
+  } else {
+    document.getElementById('p-custom-terms').style.display='none';
+  }
+
+  showSections(true);
+}
+
+function modelDetail(model, amt){
+  var m = {'fixed':'Fixed fee','hourly':'Billed hourly','retainer':'Per month','milestone':'Per milestone','hybrid':'Hybrid'};
+  return m[model]||model;
+}
+
+function showSections(show){
+  var ids = ['p-service-section','p-timeline-section','p-investment-section','p-terms-section','p-nextsteps-section','p-sig-section'];
+  ids.forEach(function(id){document.getElementById(id).style.display=show?'block':'none';});
+}
+
+function v(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+
+function resetAll(){
+  if(!confirm('Start a new proposal? Current data will be cleared.')) return;
+  document.querySelectorAll('.svc-card').forEach(c=>c.classList.remove('selected'));
+  selectedService = null;
+  lineItems = [];
+  document.getElementById('line-items').innerHTML = '';
+  ['b-contact','b-company','b-email','b-phone','b-location','b-summary','b-terms'].forEach(function(id){
+    var el=document.getElementById(id);if(el)el.value='';
+  });
+  ['b-industry','b-size'].forEach(function(id){
+    var el=document.getElementById(id);if(el)el.selectedIndex=0;
+  });
+  proposalNum = 'RC2-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random()*900)+100);
+  document.getElementById('p-meta-num').textContent = proposalNum;
+  showSections(false);
+  document.getElementById('p-title').textContent = 'Select a service to generate your proposal';
+  document.getElementById('p-summary').textContent = 'Complete the form on the left to generate a personalized proposal.';
+  update();
+}
+</script>
+</body>
+</html>
