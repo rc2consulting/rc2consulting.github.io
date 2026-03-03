@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 Consulting — SOP Template Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;--green:#059669;--red:#dc2626;--gray:#6b7280;--border:#e2e8f0;--light:#f8fafc;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#f1f5f9;color:#1e293b;height:100vh;overflow:hidden;display:flex;flex-direction:column;}
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 12px rgba(0,0,0,.3);flex-shrink:0;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.user-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.85);}
+.btn-gold{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:700;cursor:pointer;}
+.btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;}
+
+.main{display:flex;flex:1;overflow:hidden;}
+
+/* SIDEBAR */
+.sidebar{width:320px;flex-shrink:0;background:white;border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+.sidebar-search{padding:14px 16px;border-bottom:1px solid var(--border);}
+.sidebar-search input{width:100%;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;}
+.sidebar-search input:focus{border-color:var(--accent);}
+.cat-filter{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap;}
+.cf-btn{padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:white;color:var(--gray);}
+.cf-btn.active{background:var(--navy);color:white;border-color:var(--navy);}
+.sop-list{flex:1;overflow-y:auto;}
+.sop-list::-webkit-scrollbar{width:4px;}
+.sop-list::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px;}
+.sop-item{padding:12px 16px;border-bottom:1px solid #f1f5f9;cursor:pointer;transition:background .15s;}
+.sop-item:hover{background:#f8fafc;}
+.sop-item.active{background:#eff6ff;border-left:3px solid var(--accent);}
+.sop-item .si-title{font-size:.85rem;font-weight:700;color:var(--navy);}
+.sop-item .si-cat{font-size:.68rem;color:var(--gray);margin-top:2px;}
+.sop-item .si-badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:.62rem;font-weight:700;margin-top:4px;}
+
+/* EDITOR AREA */
+.editor-area{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.editor-toolbar{background:white;padding:12px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;flex-shrink:0;}
+.et-left{display:flex;gap:8px;align-items:center;}
+.et-title{font-size:.9rem;font-weight:700;color:var(--navy);}
+.et-version{font-size:.72rem;color:var(--gray);background:var(--light);border-radius:10px;padding:2px 8px;}
+.et-right{display:flex;gap:8px;}
+.btn-sm{padding:6px 14px;border-radius:7px;font-size:.76rem;font-weight:700;cursor:pointer;border:1px solid var(--border);}
+.btn-sm-blue{background:var(--accent);color:white;border-color:var(--accent);}
+.btn-sm-green{background:var(--green);color:white;border-color:var(--green);}
+.btn-sm-gray{background:white;color:var(--gray);}
+
+.sop-editor{flex:1;overflow-y:auto;padding:24px;}
+.sop-editor::-webkit-scrollbar{width:6px;}
+.sop-editor::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px;}
+
+/* SOP DOCUMENT */
+.sop-doc{background:white;border-radius:12px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+
+.sop-doc-header{background:linear-gradient(135deg,var(--navy),var(--blue));padding:24px 28px;color:white;}
+.sdh-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+.sdh-logo{display:flex;align-items:center;gap:10px;}
+.sdh-logo .bolt{font-size:1.4rem;}
+.sdh-logo .co{font-size:.9rem;font-weight:800;letter-spacing:1px;}
+.sdh-meta{text-align:right;font-size:.7rem;opacity:.55;}
+.sdh-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;margin-bottom:4px;}
+.sdh-sub{font-size:.8rem;opacity:.6;}
+.sdh-fields{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);}
+.sdh-field .sf-label{font-size:.6rem;opacity:.45;text-transform:uppercase;letter-spacing:1px;}
+.sdh-field input{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.25);color:white;font-size:.8rem;padding:2px 0;outline:none;width:140px;}
+.sdh-field input::placeholder{color:rgba(255,255,255,.3);}
+
+.sop-section{padding:18px 28px;border-bottom:1px solid var(--border);}
+.sop-section:last-child{border-bottom:none;}
+.ss-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.ss-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;}
+.ss-title{font-size:.88rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;}
+.ss-content textarea{width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;color:#374151;resize:none;outline:none;line-height:1.7;}
+.ss-content textarea:focus{border-color:var(--accent);}
+
+/* STEP BUILDER */
+.step-builder{display:flex;flex-direction:column;gap:8px;}
+.step-item{display:flex;gap:10px;align-items:flex-start;}
+.step-num{width:28px;height:28px;background:var(--accent);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;margin-top:4px;}
+.step-item textarea{flex:1;border:1px solid var(--border);border-radius:7px;padding:8px 10px;font-size:.82rem;font-family:'Source Sans 3',sans-serif;color:#374151;resize:none;min-height:50px;outline:none;}
+.step-item textarea:focus{border-color:var(--accent);}
+.step-del{background:#fee2e2;border:1px solid #fca5a5;color:#dc2626;border-radius:6px;padding:4px 8px;cursor:pointer;font-size:.72rem;flex-shrink:0;margin-top:4px;}
+.btn-add-step{background:var(--light);border:1.5px dashed var(--border);border-radius:8px;padding:8px;font-size:.78rem;color:var(--gray);cursor:pointer;width:100%;text-align:center;margin-top:4px;}
+.btn-add-step:hover{background:#eff6ff;border-color:var(--accent);color:var(--accent);}
+
+/* CHECKLIST BUILDER */
+.checklist-builder{display:flex;flex-direction:column;gap:6px;}
+.cl-item{display:flex;gap:8px;align-items:center;}
+.cl-item input[type="text"]{flex:1;border:1px solid var(--border);border-radius:7px;padding:7px 10px;font-size:.82rem;font-family:'Source Sans 3',sans-serif;outline:none;}
+.cl-item input[type="text"]:focus{border-color:var(--accent);}
+.cl-del{background:#fee2e2;border:1px solid #fca5a5;color:#dc2626;border-radius:6px;padding:4px 8px;cursor:pointer;font-size:.72rem;}
+.cl-check{width:16px;height:16px;flex-shrink:0;}
+
+/* EMPTY STATE */
+.empty-editor{display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:12px;color:var(--gray);}
+.empty-editor .ei{font-size:3rem;}
+
+/* STATUS COLORS */
+.badge-active{background:#d1fae5;color:#065f46;}
+.badge-draft{background:#fef3c7;color:#92400e;}
+.badge-review{background:#dbeafe;color:#1e40ed;}
+.badge-archived{background:#f1f5f9;color:#6b7280;}
+
+@media print{
+  .topbar,.sidebar,.editor-toolbar{display:none!important;}
+  .main{display:block!important;}
+  .editor-area{overflow:visible!important;}
+  .sop-editor{overflow:visible!important;padding:0!important;}
+  .sop-doc{box-shadow:none!important;border-radius:0!important;}
+  @page{margin:.4in;size:letter;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div style="color:white;font-size:.95rem;font-weight:700;">⚡ RC2 CONSULTING — SOP TEMPLATE LIBRARY</div>
+    <div style="color:rgba(255,255,255,.5);font-size:.68rem;">30+ Ready-to-Use SOP Templates · Customize · Print · Deploy</div>
+  </div>
+  <div class="topbar-right">
+    <div class="user-pill">👤 <span id="hub-username">RC2 Staff</span></div>
+    <button class="btn-ghost" onclick="newSOP()">+ New SOP</button>
+    <button class="btn-gold" onclick="window.print()">🖨️ Print / PDF</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-search">
+      <input id="search-input" type="text" placeholder="🔍 Search SOPs..." oninput="renderSopList()">
+    </div>
+    <div class="cat-filter" id="cat-filter"></div>
+    <div class="sop-list" id="sop-list"></div>
+  </div>
+
+  <!-- EDITOR -->
+  <div class="editor-area">
+    <div class="editor-toolbar">
+      <div class="et-left">
+        <div class="et-title" id="et-title">Select an SOP from the library</div>
+        <div class="et-version" id="et-version"></div>
+        <div id="et-status-badge"></div>
+      </div>
+      <div class="et-right" id="et-buttons" style="display:none;">
+        <button class="btn-sm btn-sm-gray" onclick="toggleStatus()">Change Status</button>
+        <button class="btn-sm btn-sm-blue" onclick="saveCurrentSOP()">💾 Save</button>
+        <button class="btn-sm btn-sm-green" onclick="window.print()">🖨️ Print</button>
+      </div>
+    </div>
+    <div class="sop-editor" id="sop-editor">
+      <div class="empty-editor">
+        <div class="ei">📋</div>
+        <div style="font-size:.9rem;font-weight:700;color:var(--navy);">SOP Template Library</div>
+        <div style="font-size:.82rem;max-width:300px;text-align:center;">Select a template from the left panel to load and customize it, or click <strong>+ New SOP</strong> to create one from scratch.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SOP_TEMPLATES = [
+  {id:'sop001',title:'Employee Onboarding Procedure',cat:'Human Resources',status:'active',ver:'v1.0',
+   purpose:'To ensure all new employees are properly onboarded with consistent information, documentation, and training.',
+   scope:'Applies to all new hires including full-time, part-time, and contract employees.',
+   responsibility:'Human Resources Manager, Direct Supervisor, IT Department',
+   definitions:'Onboarding: The process of integrating a new employee into the organization. I-9: Federal employment eligibility verification form.',
+   steps:['Prepare new hire paperwork packet (I-9, W-4, handbook acknowledgment, emergency contact form) at least 3 days before start date.','Send welcome email with start date, location, parking instructions, dress code, and first day schedule.','Set up workstation, computer access, email, and required software before employee arrives.','Conduct facility tour introducing the new employee to key personnel and departments.','Review company handbook, policies, and code of conduct. Obtain signed acknowledgment.','Complete I-9 verification — Section 1 by employee on Day 1, Section 2 by HR within 3 business days.','Assign a peer buddy for the first 30 days to answer questions and provide guidance.','Schedule 30, 60, and 90-day check-in meetings with direct supervisor.'],
+   checklist:['I-9 completed and verified','W-4 and payroll enrollment complete','Handbook acknowledgment signed','Computer and system access granted','Safety training completed','Emergency contact form on file','Photo ID badge issued','30/60/90-day meeting scheduled'],
+   records:'Completed I-9 forms, signed handbook acknowledgment, onboarding checklist. Retain for duration of employment plus 3 years.'},
+
+  {id:'sop002',title:'Corrective Action Plan (CAP) Management',cat:'Compliance',status:'active',ver:'v1.0',
+   purpose:'To establish a consistent process for documenting, tracking, and closing corrective action items identified during compliance audits.',
+   scope:'Applies to all CAP items arising from WRAP audits, internal audits, compliance reviews, and regulatory inspections.',
+   responsibility:'Compliance Manager, Department Supervisors, RC2 Consultant',
+   definitions:'CAP: Corrective Action Plan — a documented plan to address non-conformities. Non-Conformity: Any finding that fails to meet a compliance standard. Root Cause: The fundamental reason a non-conformity occurred.',
+   steps:['Document each non-conformity immediately using the CAP Item Form. Record: principle/standard, specific finding, date identified, auditor name.','Assign a severity rating: Critical (30-day close), Major (60-day close), Minor (90-day close).','Conduct root cause analysis for each item — do not implement corrections without identifying the root cause.','Assign a responsible party (name and title) and a target completion date for each CAP item.','Implement the corrective action. Ensure the fix addresses the root cause, not just the symptom.','Collect objective evidence of correction: photos, signed policies, training records, updated procedures.','Verify effectiveness: confirm the non-conformity cannot recur with the correction in place.','Close the CAP item with supervisor sign-off and file all evidence documentation.'],
+   checklist:['Non-conformity documented on CAP form','Severity rating assigned','Root cause identified','Responsible party assigned','Target date set','Corrective action implemented','Evidence collected','Supervisor sign-off obtained','CAP item closed in tracking system'],
+   records:'CAP Item Forms, evidence documentation, root cause analysis records. Retain for 3 years minimum.'},
+
+  {id:'sop003',title:'Anti-Harassment Policy & Reporting Procedure',cat:'Human Resources',status:'active',ver:'v1.0',
+   purpose:'To maintain a workplace free from harassment and discrimination and provide a clear process for reporting and investigating complaints.',
+   scope:'Applies to all employees, supervisors, managers, contractors, and visitors at all company locations.',
+   responsibility:'Human Resources, All Supervisors, Senior Management',
+   definitions:'Harassment: Unwelcome conduct based on a protected characteristic that creates a hostile work environment. Protected Characteristics: Race, gender, age, religion, national origin, disability, sexual orientation.',
+   steps:['Post anti-harassment policy in all common areas and include in employee handbook.','Train all employees annually on harassment prevention policy (document attendance).','Train all supervisors separately on their responsibilities for reporting and responding to complaints.','Employee who experiences or witnesses harassment should report to HR or any supervisor immediately — do not delay.','HR opens formal investigation within 24 hours of receiving complaint. Assign investigator who has no conflict of interest.','Conduct confidential interviews with complainant, respondent, and witnesses. Document all interviews.','Review any available evidence: emails, texts, video footage, witness statements.','Issue written findings within 10 business days. Determine if policy was violated.','Implement appropriate disciplinary action if violation is found — up to and including termination.','Follow up with complainant 30 days after resolution to ensure no retaliation has occurred.'],
+   checklist:['Policy posted and in handbook','Annual training conducted','Complaint received and documented','Investigation opened within 24 hours','All parties interviewed','Evidence reviewed','Written findings issued','Disciplinary action taken if applicable','No-retaliation follow-up completed'],
+   records:'Complaint forms, investigation notes, witness statements, findings letters, disciplinary records. Retain 5 years.'},
+
+  {id:'sop004',title:'Fire Safety & Emergency Evacuation',cat:'Health & Safety',status:'active',ver:'v1.0',
+   purpose:'To ensure all employees can safely evacuate the facility in the event of a fire or other emergency requiring evacuation.',
+   scope:'Applies to all employees, contractors, and visitors at all facility locations.',
+   responsibility:'Safety Manager, Floor Wardens, All Employees',
+   definitions:'Assembly Point: Designated safe area where employees gather after evacuation. Floor Warden: Designated employee responsible for ensuring floor evacuation is complete.',
+   steps:['Post evacuation maps at all exit doors, stairwells, and common areas showing evacuation routes and assembly points.','Designate and train at least 2 floor wardens per floor or department.',('Conduct fire evacuation drills at least twice per year. Document drill date, time, participation, and any issues noted.'),('Upon hearing fire alarm: immediately stop work, close (do not lock) doors, follow posted evacuation route to assembly point.'),('Floor wardens conduct headcount at assembly point and report to Safety Manager or emergency coordinator.'),('Do not re-enter building until authorized by fire department or Safety Manager.'),('Inspect and service fire extinguishers annually (minimum). Log inspection date on tag.'),('Test fire alarm system annually. Test emergency lighting and exit signs monthly.'),('Review and update evacuation plan annually or after any facility layout change.')],
+   checklist:['Evacuation maps posted at all exits','Floor wardens assigned and trained','Evacuation drill conducted and documented','Assembly points marked and communicated','Fire extinguishers inspected and tagged','Emergency exits unobstructed and lit','Alarm system tested','Emergency contact list current'],
+   records:'Drill records, fire extinguisher inspection logs, alarm test records. Retain 3 years.'},
+
+  {id:'sop005',title:'Timekeeping & Attendance Policy',cat:'Human Resources',status:'active',ver:'v1.0',
+   purpose:'To ensure accurate recording of all employee work hours for payroll, labor law compliance, and — where applicable — government contract cost accounting requirements.',
+   scope:'All employees. Employees on government contracts must follow enhanced timekeeping requirements in Section 5.',
+   responsibility:'All Employees, Direct Supervisors, Payroll Department',
+   definitions:'Timesheet: Official record of hours worked by employee. Unallowable Time: Hours charged to a government contract for work not related to that contract.',
+   steps:['All employees must record time worked daily — not weekly or from memory.','Record start time, end time, and lunch break accurately in the approved timekeeping system.','Employees may not record time for another employee — buddy punching is strictly prohibited.','Supervisors review and approve all timesheets by end of pay period. Corrections require both employee and supervisor initials.','For government contracts: record hours by contract number or cost code on the day the work is performed.','Never record hours to a contract for work not performed on that contract — this is a federal violation.','Overtime must be pre-approved by supervisor except in emergency situations. Document all overtime approvals.','Employees must correct any timesheet errors before supervisor approval — notify supervisor immediately of any errors.','Timekeeping records are subject to audit by management, HR, payroll, and — for government contracts — DCAA.'],
+   checklist:['Timekeeping system set up for all employees','Daily recording requirement communicated','Supervisor approval process established','Government contract cost codes assigned','Overtime approval policy communicated','Employee timekeeping training conducted','Records retention policy in place'],
+   records:'All timesheets for 3 years minimum. Government contract timesheets for 4 years minimum per FAR requirements.'},
+
+  {id:'sop006',title:'Vendor/Supplier Onboarding & Qualification',cat:'Supply Chain',status:'active',ver:'v1.0',
+   purpose:'To ensure all vendors and suppliers meet RC2 client quality, compliance, ethical, and security standards before conducting business.',
+   scope:'Applies to all new vendors, suppliers, subcontractors, and service providers.',
+   responsibility:'Procurement Manager, Compliance Team, Operations Director',
+   definitions:'Qualified Vendor: A supplier that has passed screening and meets company standards. Blacklisted Vendor: A supplier that has failed screening or been terminated for cause.',
+   steps:['Complete Vendor Qualification Request Form for all new suppliers before placing any order.','Collect required documents: business license, W-9/tax ID, insurance certificates, references (minimum 3).','Conduct compliance screening: OFAC sanctions check, debarment check (SAM.gov for government contractors).','For WRAP clients: obtain supplier social compliance certification or conduct supplier audit.','Evaluate supplier on: price competitiveness, quality standards, delivery reliability, financial stability.','Complete internal scorecard. Minimum score of 70/100 required for qualification.','Issue approval notification and assign vendor ID in purchasing system.','Review all vendors annually using updated scorecard. Remove vendors below threshold.','Maintain vendor files with all qualification documents — update upon renewal or change.'],
+   checklist:['Qualification form completed','Business license verified','Insurance certificates on file','Reference checks completed','Sanctions/debarment check done','Social compliance review completed','Scorecard completed (min 70/100)','Vendor ID assigned in system'],
+   records:'Vendor qualification files, scorecards, compliance checks. Retain for duration of relationship plus 3 years.'},
+
+  {id:'sop007',title:'Document Control & Records Management',cat:'Compliance',status:'active',ver:'v1.0',
+   purpose:'To maintain an organized, current, and legally defensible system for managing company documents, policies, and records.',
+   scope:'All company documents including policies, SOPs, contracts, employee records, financial records, and compliance documentation.',
+   responsibility:'Compliance Manager, Department Heads, All Employees',
+   definitions:'Master Document List: Central register of all controlled documents and their current versions. Controlled Document: Any official company document subject to version control.',
+   steps:['Maintain a Master Document List (MDL) in shared drive. MDL includes: document name, number, version, owner, review date.','All controlled documents must include: title, document number, version number, effective date, and approval signature.','Documents must be reviewed and re-approved at least annually or when there is a regulatory change.','Superseded documents must be archived (not deleted) and labeled OBSOLETE with the date replaced.','Employees must use only current versions of controlled documents — verify version before use.','Requests for new documents or revisions must go through the Document Change Request process.','Physical records must be stored in labeled, organized files accessible only to authorized personnel.','Electronic records must be stored in approved company drives with access controls.','Upon employee departure, all company documents must be returned — no company records leave the organization.','Document retention periods by type: HR records (7 years), contracts (7 years), financial (7 years), safety (5 years), government contracts (4+ years per FAR).'],
+   checklist:['Master Document List current','All documents version-controlled','Annual review schedule established','Obsolete documents archived','Access controls in place','Retention schedule documented','Employee departure document return process in place'],
+   records:'Master Document List, Document Change Requests, version history. Permanent retention.'},
+
+  {id:'sop008',title:'Quality Control Inspection Procedure',cat:'Operations',status:'active',ver:'v1.0',
+   purpose:'To ensure all products meet quality standards before shipment through a consistent, documented inspection process.',
+   scope:'All finished goods produced at or shipped from the facility.',
+   responsibility:'Quality Control Manager, Production Supervisors, QC Inspectors',
+   definitions:'AQL: Acceptable Quality Level — the maximum defect percentage considered acceptable. Defect: Any product that does not meet specified requirements.',
+   steps:['QC inspection is required for 100% of production runs before release for shipment.','Use current product specification sheet during all inspections — verify version before use.','Conduct visual inspection: check for defects in material, stitching, color, labeling, and packaging.','Conduct measurement inspection: verify critical dimensions against spec tolerances.','Use AQL sampling table to determine sample size for the production lot.','Document all findings on QC Inspection Form: lot number, quantity, sample size, defects found, disposition.','Lots passing inspection: stamp QC APPROVED, sign and date, release for packaging and shipment.','Lots failing inspection: place on HOLD. Complete Non-Conforming Material Report. Notify Production Supervisor.','Failed lots undergo rework or are quarantined pending disposition decision by QC Manager.','All QC forms are signed by the inspector and retained in the quality file.'],
+   checklist:['Current spec sheet used','Visual inspection completed','Measurement inspection completed','AQL sample size correct','QC form completed and signed','Approved lots released with stamp','Failed lots placed on hold','Non-conforming material report completed if applicable'],
+   records:'QC Inspection Forms, Non-Conforming Material Reports. Retain 3 years minimum.'},
+
+  {id:'sop009',title:'Cash Handling & Financial Controls',cat:'Finance',status:'active',ver:'v1.0',
+   purpose:'To establish internal controls over cash and financial transactions to prevent loss, theft, and accounting errors.',
+   scope:'All employees who handle cash, checks, credit card payments, or petty cash.',
+   responsibility:'Finance Manager, Supervisors of Cash-Handling Employees',
+   definitions:'Petty Cash Fund: Small cash fund for minor business expenses. Segregation of Duties: Ensuring no single employee controls all aspects of a financial transaction.',
+   steps:['No single employee should both authorize and process a financial transaction (segregation of duties).','Cash drawers must be counted and verified at the start and end of each shift.','Discrepancies of any amount must be reported to supervisor immediately and documented.','Petty cash fund maximum: $200. Petty cash custodian responsible for fund security and documentation.','All petty cash disbursements require a completed receipt with: date, amount, purpose, and supervisor approval.','Petty cash fund must be replenished when balance reaches $50. Submit receipts to accounting for reimbursement.','Bank deposits must be made within 24 hours of receipt. Use tamper-evident deposit bags.','All checks must be restrictively endorsed "For Deposit Only" immediately upon receipt.','Monthly bank reconciliation required. Must be reviewed by someone who does not handle cash.'],
+   checklist:['Segregation of duties in place','Opening and closing counts documented','Petty cash fund secured and documented','All disbursements have approved receipts','Daily deposits made on time','Checks restrictively endorsed','Monthly reconciliation completed and reviewed'],
+   records:'Cash count sheets, petty cash log, bank deposit records, reconciliations. Retain 7 years.'},
+
+  {id:'sop010',title:'Workplace Injury & Incident Reporting',cat:'Health & Safety',status:'active',ver:'v1.0',
+   purpose:'To ensure all workplace injuries, illnesses, near-misses, and incidents are promptly reported, properly investigated, and documented in compliance with OSHA requirements.',
+   scope:'All employees, contractors, and visitors who experience or witness a workplace injury or near-miss.',
+   responsibility:'All Employees, Supervisors, Safety Manager, HR',
+   definitions:'Recordable Incident: Work-related injury or illness meeting OSHA recording criteria. Near-Miss: An incident that could have resulted in injury but did not.',
+   steps:['Any employee who is injured or witnesses an injury must report it to their supervisor IMMEDIATELY — no exceptions.','Supervisor assesses situation: call 911 if emergency. Do not move seriously injured person unless in immediate danger.','Provide first aid as needed. Direct employee to occupational medical provider for non-emergency injuries.','Supervisor completes Incident Report Form within 24 hours: who, what, when, where, how, witnesses.','Preserve the accident scene until investigation is complete. Photograph the scene and any equipment involved.','Conduct root cause investigation within 48 hours. Identify contributing factors and root cause.','Implement corrective actions to prevent recurrence. Document on Corrective Action section of form.','Determine OSHA recordability. Record on OSHA 300 Log if recordable.','OSHA 300A Summary must be posted February 1 – April 30 each year.','Review all incidents monthly in safety meeting to identify trends.'],
+   checklist:['Immediate report to supervisor','First aid / medical care provided','911 called if emergency','Scene preserved and photographed','Incident report form completed within 24 hours','Root cause investigation completed','Corrective actions implemented','OSHA 300 Log updated if recordable','Employee returned to work plan if applicable'],
+   records:'Incident Report Forms, OSHA 300/301 Logs. Retain 5 years minimum per OSHA.'}
+];
+
+let sopLibrary=[...SOP_TEMPLATES];
+let activeSopId=null;
+let filterCat='All';
+
+function renderCatFilter(){
+  var cats=['All',...new Set(sopLibrary.map(s=>s.cat))];
+  document.getElementById('cat-filter').innerHTML=cats.map(c=>`<button class="cf-btn ${c===filterCat?'active':''}" onclick="setCat('${c}')">${c}</button>`).join('');
+}
+
+function setCat(cat){filterCat=cat;renderCatFilter();renderSopList();}
+
+function renderSopList(){
+  var query=document.getElementById('search-input').value.toLowerCase();
+  var filtered=sopLibrary.filter(s=>{
+    var matchCat=filterCat==='All'||s.cat===filterCat;
+    var matchSearch=!query||s.title.toLowerCase().includes(query)||s.cat.toLowerCase().includes(query);
+    return matchCat&&matchSearch;
+  });
+  var html=filtered.map(s=>{
+    var badgeClass={active:'badge-active',draft:'badge-draft',review:'badge-review',archived:'badge-archived'}[s.status]||'badge-draft';
+    return `<div class="sop-item ${s.id===activeSopId?'active':''}" onclick="loadSOP('${s.id}')">
+      <div class="si-title">${s.title}</div>
+      <div class="si-cat">${s.cat} · ${s.ver}</div>
+      <span class="si-badge ${badgeClass}">${s.status.toUpperCase()}</span>
+    </div>`;
+  }).join('');
+  document.getElementById('sop-list').innerHTML=html||'<div style="padding:20px;color:var(--gray);font-size:.8rem;text-align:center;">No SOPs found.</div>';
+}
+
+function loadSOP(id){
+  activeSopId=id;
+  var sop=sopLibrary.find(s=>s.id===id);
+  if(!sop) return;
+  document.getElementById('et-title').textContent=sop.title;
+  document.getElementById('et-version').textContent=sop.ver;
+  var badgeClass={active:'badge-active',draft:'badge-draft',review:'badge-review',archived:'badge-archived'}[sop.status]||'badge-draft';
+  document.getElementById('et-status-badge').innerHTML=`<span class="si-badge ${badgeClass}" style="padding:3px 10px;border-radius:10px;font-size:.68rem;font-weight:700;">${sop.status.toUpperCase()}</span>`;
+  document.getElementById('et-buttons').style.display='flex';
+  renderSOPDoc(sop);
+  renderSopList();
+}
+
+function renderSOPDoc(sop){
+  var stepsHtml=sop.steps.map((s,i)=>`<div class="step-item"><div class="step-num">${i+1}</div><textarea rows="2" onchange="updateStep('${sop.id}',${i},this.value)">${s}</textarea><button class="step-del" onclick="removeStep('${sop.id}',${i})">✕</button></div>`).join('');
+  var clHtml=sop.checklist.map((c,i)=>`<div class="cl-item"><input type="checkbox" class="cl-check"><input type="text" value="${c}" onchange="updateCheckItem('${sop.id}',${i},this.value)"><button class="cl-del" onclick="removeCheckItem('${sop.id}',${i})">✕</button></div>`).join('');
+
+  document.getElementById('sop-editor').innerHTML=`
+  <div class="sop-doc">
+    <div class="sop-doc-header">
+      <div class="sdh-top">
+        <div class="sdh-logo"><div class="bolt">⚡</div><div class="co">RC2 CONSULTING</div></div>
+        <div class="sdh-meta">SOP # ${sop.id.toUpperCase()}<br>${sop.ver} · Status: ${sop.status.toUpperCase()}</div>
+      </div>
+      <div class="sdh-title">${sop.title}</div>
+      <div class="sdh-sub">${sop.cat} | Standard Operating Procedure</div>
+      <div class="sdh-fields">
+        <div class="sdh-field"><div class="sf-label">Client / Facility</div><input type="text" placeholder="Enter client name" id="sop-client-field"></div>
+        <div class="sdh-field"><div class="sf-label">Effective Date</div><input type="date" id="sop-date-field"></div>
+        <div class="sdh-field"><div class="sf-label">Approved By</div><input type="text" placeholder="Name & Title" id="sop-approver-field"></div>
+        <div class="sdh-field"><div class="sf-label">Next Review Date</div><input type="date" id="sop-review-field"></div>
+      </div>
+    </div>
+
+    <div class="sop-section"><div class="ss-header"><div class="ss-num">1</div><div class="ss-title">Purpose</div></div>
+    <div class="ss-content"><textarea rows="3" onchange="updateField('${sop.id}','purpose',this.value)">${sop.purpose}</textarea></div></div>
+
+    <div class="sop-section"><div class="ss-header"><div class="ss-num">2</div><div class="ss-title">Scope</div></div>
+    <div class="ss-content"><textarea rows="2" onchange="updateField('${sop.id}','scope',this.value)">${sop.scope}</textarea></div></div>
+
+    <div class="sop-section"><div class="ss-header"><div class="ss-num">3</div><div class="ss-title">Responsibility</div></div>
+    <div class="ss-content"><textarea rows="2" onchange="updateField('${sop.id}','responsibility',this.value)">${sop.responsibility}</textarea></div></div>
+
+    <div class="sop-section"><div class="ss-header"><div class="ss-num">4</div><div class="ss-title">Definitions</div></div>
+    <div class="ss-content"><textarea rows="3" onchange="updateField('${sop.id}','definitions',this.value)">${sop.definitions}</textarea></div></div>
+
+    <div class="sop-section"><div class="ss-header"><div class="ss-num">5</div><div class="ss-title">Procedure Steps</div></div>
+    <div class="ss-content">
+      <div class="step-builder" id="steps-${sop.id}">${stepsHtml}</div>
+      <button class="btn-add-step" onclick="addStep('${sop.id}')">+ Add Step</button>
+    </div></div>
+
+    <div class="sop-section"><div class="ss-header"><div class="ss-num">6</div><div class="ss-title">Compliance Checklist</div></div>
+    <div class="ss-content">
+      <div class="checklist-builder" id="checklist-${sop.id}">${clHtml}</div>
+      <button class="btn-add-step" onclick="addCheckItem('${sop.id}')">+ Add Checklist Item</button>
+    </div></div>
+
+    <div class="sop-section"><div class="ss-header"><div class="ss-num">7</div><div class="ss-title">Records & Retention</div></div>
+    <div class="ss-content"><textarea rows="3" onchange="updateField('${sop.id}','records',this.value)">${sop.records}</textarea></div></div>
+
+    <div class="sop-section" style="background:var(--light);">
+      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:180px;"><div style="font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">Prepared By</div><div style="border-top:1.5px solid var(--border);padding-top:6px;font-size:.75rem;color:var(--gray);">Signature &amp; Date: ___________________________</div></div>
+        <div style="flex:1;min-width:180px;"><div style="font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">Reviewed By</div><div style="border-top:1.5px solid var(--border);padding-top:6px;font-size:.75rem;color:var(--gray);">Signature &amp; Date: ___________________________</div></div>
+        <div style="flex:1;min-width:180px;"><div style="font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">Approved By</div><div style="border-top:1.5px solid var(--border);padding-top:6px;font-size:.75rem;color:var(--gray);">Signature &amp; Date: ___________________________</div></div>
+      </div>
+    </div>
+  </div>`;
+
+  // Set default dates
+  var today=new Date().toISOString().split('T')[0];
+  document.getElementById('sop-date-field').value=today;
+  var review=new Date();review.setFullYear(review.getFullYear()+1);
+  document.getElementById('sop-review-field').value=review.toISOString().split('T')[0];
+}
+
+function updateField(id,field,val){var s=sopLibrary.find(x=>x.id===id);if(s) s[field]=val;}
+function updateStep(id,i,val){var s=sopLibrary.find(x=>x.id===id);if(s) s.steps[i]=val;}
+function removeStep(id,i){var s=sopLibrary.find(x=>x.id===id);if(s){s.steps.splice(i,1);renderSOPDoc(s);}}
+function addStep(id){var s=sopLibrary.find(x=>x.id===id);if(s){s.steps.push('New step — describe the action required.');renderSOPDoc(s);}}
+function updateCheckItem(id,i,val){var s=sopLibrary.find(x=>x.id===id);if(s) s.checklist[i]=val;}
+function removeCheckItem(id,i){var s=sopLibrary.find(x=>x.id===id);if(s){s.checklist.splice(i,1);renderSOPDoc(s);}}
+function addCheckItem(id){var s=sopLibrary.find(x=>x.id===id);if(s){s.checklist.push('New checklist item');renderSOPDoc(s);}}
+
+function saveCurrentSOP(){
+  if(!activeSopId) return;
+  try{localStorage.setItem('rc2_sop_library',JSON.stringify(sopLibrary));}catch(e){}
+  alert('SOP saved successfully.');
+}
+
+function toggleStatus(){
+  if(!activeSopId) return;
+  var s=sopLibrary.find(x=>x.id===activeSopId);
+  if(!s) return;
+  var statuses=['draft','review','active','archived'];
+  var next=statuses[(statuses.indexOf(s.status)+1)%statuses.length];
+  s.status=next;
+  loadSOP(activeSopId);
+  renderCatFilter();
+  renderSopList();
+}
+
+function newSOP(){
+  var title=prompt('Enter the title for the new SOP:');
+  if(!title) return;
+  var cat=prompt('Enter the category (e.g., HR, Operations, Compliance):','Operations');
+  var id='sop'+Date.now();
+  var newSop={id:id,title:title,cat:cat||'Operations',status:'draft',ver:'v1.0',
+    purpose:'Describe the purpose of this SOP.',
+    scope:'Describe who and what this SOP applies to.',
+    responsibility:'List the roles responsible for executing this SOP.',
+    definitions:'Define key terms used in this SOP.',
+    steps:['Step 1 — Describe the first action required.','Step 2 — Describe the second action required.','Step 3 — Describe the third action required.'],
+    checklist:['Checklist item 1','Checklist item 2','Checklist item 3'],
+    records:'Describe what records must be kept and for how long.'};
+  sopLibrary.push(newSop);
+  renderCatFilter();renderSopList();
+  loadSOP(id);
+}
+
+window.onload=function(){
+  try{var u=localStorage.getItem('rc2hub_user');if(u) document.getElementById('hub-username').textContent=u;}catch(e){}
+  try{var saved=localStorage.getItem('rc2_sop_library');if(saved) sopLibrary=JSON.parse(saved);}catch(e){}
+  renderCatFilter();
+  renderSopList();
+};
+</script>
+</body>
+</html>

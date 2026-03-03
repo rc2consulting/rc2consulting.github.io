@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 Consulting — WRAP Audit Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;--green:#059669;--red:#dc2626;--orange:#ea580c;--gray:#6b7280;--border:#e2e8f0;--light:#f8fafc;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#f1f5f9;color:#1e293b;min-height:100vh;}
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 12px rgba(0,0,0,.3);position:sticky;top:0;z-index:100;}
+.topbar h1{font-size:.95rem;font-weight:700;letter-spacing:.5px;}
+.topbar .sub{font-size:.68rem;opacity:.5;margin-top:1px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.user-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.85);}
+.btn-export{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:700;cursor:pointer;}
+.btn-reset{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;}
+
+.container{max-width:1100px;margin:0 auto;padding:24px;}
+
+/* SCORECARD */
+.scorecard{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:16px;padding:24px 28px;margin-bottom:24px;color:white;display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
+.sc-main{flex:1;min-width:200px;}
+.sc-main .sc-label{font-size:.7rem;opacity:.55;text-transform:uppercase;letter-spacing:1px;}
+.sc-main .sc-score{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:800;line-height:1;}
+.sc-main .sc-sub{font-size:.78rem;opacity:.6;margin-top:4px;}
+.sc-bar{flex:2;min-width:240px;}
+.sc-bar .bar-label{font-size:.7rem;opacity:.55;margin-bottom:8px;display:flex;justify-content:space-between;}
+.progress-bar{background:rgba(255,255,255,.15);border-radius:20px;height:14px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:20px;transition:width .4s;background:linear-gradient(90deg,#f59e0b,#10b981);}
+.sc-stats{display:flex;gap:20px;flex-wrap:wrap;}
+.sc-stat{text-align:center;}
+.sc-stat .ss-num{font-size:1.6rem;font-weight:800;}
+.sc-stat .ss-label{font-size:.65rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px;}
+.ss-green{color:#34d399;}
+.ss-red{color:#f87171;}
+.ss-orange{color:#fbbf24;}
+.ss-gray{color:rgba(255,255,255,.4);}
+
+/* STATUS LEGEND */
+.legend{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--gray);}
+.leg-dot{width:10px;height:10px;border-radius:50%;}
+
+/* PRINCIPLE CARDS */
+.principle-card{background:white;border-radius:14px;border:2px solid var(--border);margin-bottom:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:border-color .2s;}
+.principle-card.status-compliant{border-color:#86efac;}
+.principle-card.status-partial{border-color:#fcd34d;}
+.principle-card.status-noncompliant{border-color:#fca5a5;}
+.principle-card.status-na{border-color:#e2e8f0;}
+
+.pc-header{padding:14px 20px;display:flex;align-items:center;gap:14px;cursor:pointer;user-select:none;}
+.pc-num{width:36px;height:36px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0;}
+.pc-title-area{flex:1;}
+.pc-title{font-size:.95rem;font-weight:800;color:var(--navy);}
+.pc-sub{font-size:.75rem;color:var(--gray);margin-top:2px;}
+.pc-status-badge{padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;flex-shrink:0;}
+.badge-compliant{background:#d1fae5;color:#065f46;}
+.badge-partial{background:#fef3c7;color:#92400e;}
+.badge-noncompliant{background:#fee2e2;color:#991b1b;}
+.badge-pending{background:#f1f5f9;color:#6b7280;}
+.badge-na{background:#f1f5f9;color:#9ca3af;}
+.pc-toggle{color:var(--gray);font-size:1.1rem;flex-shrink:0;transition:transform .2s;}
+.pc-toggle.open{transform:rotate(180deg);}
+.pc-score-mini{font-size:.78rem;font-weight:700;color:var(--accent);margin-right:6px;}
+
+.pc-body{display:none;border-top:1px solid var(--border);}
+.pc-body.open{display:block;}
+
+/* CHECKLIST ITEMS */
+.checklist-section{padding:16px 20px;}
+.checklist-section .cs-title{font-size:.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:8px;margin-bottom:6px;border:1px solid var(--border);background:var(--light);}
+.check-item:last-child{margin-bottom:0;}
+.check-status{display:flex;gap:4px;flex-shrink:0;margin-top:1px;}
+.check-status button{width:26px;height:26px;border-radius:6px;border:1.5px solid var(--border);background:white;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.check-status button.active-c{background:#d1fae5;border-color:#059669;}
+.check-status button.active-n{background:#fee2e2;border-color:#dc2626;}
+.check-status button.active-na{background:#f1f5f9;border-color:#9ca3af;}
+.check-content{flex:1;}
+.check-text{font-size:.83rem;color:#374151;line-height:1.5;}
+.check-ref{font-size:.68rem;color:var(--gray);margin-top:2px;}
+.check-notes{width:100%;margin-top:6px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:.78rem;font-family:'Source Sans 3',sans-serif;color:#374151;resize:none;min-height:50px;display:none;}
+.check-notes.show{display:block;}
+.check-note-btn{font-size:.68rem;color:var(--accent);cursor:pointer;margin-top:4px;display:inline-block;}
+
+/* CAP SECTION */
+.cap-section{padding:0 20px 16px;}
+.cap-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 16px;}
+.cap-box .cap-title{font-size:.78rem;font-weight:700;color:#c2410c;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.cap-box textarea{width:100%;padding:8px 10px;border:1px solid #fed7aa;border-radius:6px;font-size:.8rem;font-family:'Source Sans 3',sans-serif;color:#374151;resize:none;min-height:70px;background:#fffbf7;}
+
+/* FINDINGS SUMMARY */
+.findings-section{background:white;border-radius:14px;border:1px solid var(--border);padding:24px;margin-top:20px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.findings-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.findings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;}
+.finding-item{background:var(--light);border-radius:8px;padding:12px 14px;border-left:3px solid var(--border);}
+.finding-item.fi-nc{border-left-color:var(--red);}
+.finding-item.fi-partial{border-left-color:var(--orange);}
+.finding-item .fi-principle{font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;}
+.finding-item .fi-text{font-size:.8rem;color:#374151;margin-top:3px;line-height:1.4;}
+.no-findings{text-align:center;padding:24px;color:var(--gray);font-size:.85rem;}
+
+@media print{
+  .topbar,.btn-export,.btn-reset{display:none!important;}
+  .container{padding:0!important;}
+  .principle-card{break-inside:avoid;}
+  .pc-body{display:block!important;}
+  @page{margin:.4in;size:letter;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div class="topbar h1" style="color:white;font-size:.95rem;font-weight:700;">⚡ RC2 CONSULTING — WRAP AUDIT CHECKLIST</div>
+    <div class="sub" style="color:rgba(255,255,255,.5);font-size:.68rem;">12 Principles | Interactive Compliance Assessment</div>
+  </div>
+  <div class="topbar-right">
+    <div class="user-pill">👤 <span id="hub-username">RC2 Staff</span></div>
+    <button class="btn-reset" onclick="resetAll()">↺ Reset</button>
+    <button class="btn-export" onclick="window.print()">🖨️ Print / Export PDF</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- CLIENT INFO BAR -->
+  <div style="background:white;border-radius:12px;padding:14px 20px;margin-bottom:20px;border:1px solid var(--border);display:flex;gap:16px;flex-wrap:wrap;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,.04);">
+    <div style="flex:1;min-width:160px;"><label style="font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;">Client / Facility</label><input id="cl-name" type="text" placeholder="ABC Manufacturing Co." oninput="saveState()" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;"></div>
+    <div style="flex:1;min-width:120px;"><label style="font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;">Audit Date</label><input id="cl-date" type="date" oninput="saveState()" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;"></div>
+    <div style="flex:1;min-width:120px;"><label style="font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;">Auditor</label><input id="cl-auditor" type="text" placeholder="RC2 Staff" oninput="saveState()" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;"></div>
+    <div style="flex:1;min-width:100px;"><label style="font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;">Audit Type</label>
+      <select id="cl-type" oninput="saveState()" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;background:white;">
+        <option>Pre-Audit (PASA)</option><option>Internal Mock Audit</option><option>Full WRAP Audit</option><option>CAP Follow-Up</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- SCORECARD -->
+  <div class="scorecard" id="scorecard">
+    <div class="sc-main">
+      <div class="sc-label">Overall Score</div>
+      <div class="sc-score" id="sc-pct">—</div>
+      <div class="sc-sub" id="sc-status-text">Complete checklist to see score</div>
+    </div>
+    <div class="sc-bar">
+      <div class="bar-label"><span>Compliance Progress</span><span id="sc-bar-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="sc-bar" style="width:0%"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:.65rem;color:rgba(255,255,255,.35);margin-top:5px;"><span>0%</span><span>Critical (60%)</span><span>Satisfactory (80%)</span><span>100%</span></div>
+    </div>
+    <div class="sc-stats">
+      <div class="sc-stat"><div class="sc-score ss-green" id="sc-compliant">0</div><div class="ss-label">Compliant</div></div>
+      <div class="sc-stat"><div class="sc-score ss-orange" id="sc-partial">0</div><div class="ss-label">Partial</div></div>
+      <div class="sc-stat"><div class="sc-score ss-red" id="sc-nc">0</div><div class="ss-label">Non-Conformity</div></div>
+      <div class="sc-stat"><div class="sc-score ss-gray" id="sc-pending">0</div><div class="ss-label">Pending</div></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot" style="background:#059669"></div>Compliant</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#f59e0b"></div>Partial / In Progress</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#dc2626"></div>Non-Conformity</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#cbd5e1"></div>Pending Review</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#e2e8f0"></div>N/A</div>
+    <div style="margin-left:auto;font-size:.72rem;color:var(--gray);">Click any principle to expand • Mark each item • Notes auto-save</div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div id="principles-container"></div>
+
+  <!-- FINDINGS -->
+  <div class="findings-section">
+    <div class="findings-title">📋 Auto-Generated Findings Summary</div>
+    <div id="findings-list"><div class="no-findings">Complete the checklist above — non-conformities and partial items will appear here automatically.</div></div>
+  </div>
+
+</div>
+
+<script>
+const PRINCIPLES = [
+  {num:1,title:"Legal Compliance",sub:"Laws & Workplace Regulations",ref:"WRAP Principle 1",
+   items:[
+    {t:"Facility complies with all applicable local and national laws",r:"P1.1"},
+    {t:"Business licenses and permits are current and posted",r:"P1.2"},
+    {t:"All applicable labor laws are followed including minimum wage, overtime, and working hours",r:"P1.3"},
+    {t:"Legal employment age requirements are met — no child labor",r:"P1.4"},
+    {t:"Workers are employed voluntarily — no forced or bonded labor",r:"P1.5"},
+    {t:"Management is aware of and monitors changes in applicable laws",r:"P1.6"}
+   ]},
+  {num:2,title:"Prohibition of Forced Labor",sub:"Voluntary Employment & Freedom to Leave",ref:"WRAP Principle 2",
+   items:[
+    {t:"No worker is required to lodge deposits, identity documents, or valuables",r:"P2.1"},
+    {t:"Workers are free to leave employment with reasonable notice",r:"P2.2"},
+    {t:"No physical or psychological coercion, threats, or intimidation",r:"P2.3"},
+    {t:"Recruitment does not involve fees that create debt bondage",r:"P2.4"},
+    {t:"Workers understand employment terms before starting work",r:"P2.5"}
+   ]},
+  {num:3,title:"Prohibition of Child Labor",sub:"Minimum Age & Young Worker Protections",ref:"WRAP Principle 3",
+   items:[
+    {t:"All workers meet the legal minimum age requirement (typically 15 or 16)",r:"P3.1"},
+    {t:"Age verification documents are on file for all workers",r:"P3.2"},
+    {t:"Young workers (under 18) do not perform hazardous work",r:"P3.3"},
+    {t:"Young workers' hours comply with applicable restrictions",r:"P3.4"},
+    {t:"Remediation procedures exist if underage workers are discovered",r:"P3.5"}
+   ]},
+  {num:4,title:"Prohibition of Harassment or Abuse",sub:"Respectful & Dignified Treatment",ref:"WRAP Principle 4",
+   items:[
+    {t:"Written anti-harassment and non-discrimination policy exists and is communicated",r:"P4.1"},
+    {t:"No physical, verbal, sexual, or psychological abuse is tolerated",r:"P4.2"},
+    {t:"Workers have a clear process to report harassment without retaliation",r:"P4.3"},
+    {t:"Management is trained on harassment prevention",r:"P4.4"},
+    {t:"Documented investigations and disciplinary actions for violations",r:"P4.5"},
+    {t:"Disciplinary procedures are documented and consistently applied",r:"P4.6"}
+   ]},
+  {num:5,title:"Compensation & Benefits",sub:"Wages, Hours & Leave",ref:"WRAP Principle 5",
+   items:[
+    {t:"All workers receive at least minimum wage as required by law",r:"P5.1"},
+    {t:"Overtime is compensated at the legally required premium rate",r:"P5.2"},
+    {t:"Pay stubs or wage statements are provided to workers",r:"P5.3"},
+    {t:"Legally required benefits (vacation, sick leave, etc.) are provided",r:"P5.4"},
+    {t:"Deductions from wages are lawful and workers are informed",r:"P5.5"},
+    {t:"Working hours do not regularly exceed 60 hours per week",r:"P5.6"},
+    {t:"Workers receive at least one day off in every seven",r:"P5.7"}
+   ]},
+  {num:6,title:"Hours of Work",sub:"Work Schedules & Overtime Controls",ref:"WRAP Principle 6",
+   items:[
+    {t:"Regular working hours comply with national law",r:"P6.1"},
+    {t:"Overtime is voluntary and does not exceed legal maximums",r:"P6.2"},
+    {t:"Time and attendance records are accurately maintained",r:"P6.3"},
+    {t:"Workers are not required to work more than 12 hours per day regularly",r:"P6.4"},
+    {t:"Business continuity plan exists for managing peak workload periods",r:"P6.5"}
+   ]},
+  {num:7,title:"Prohibition of Discrimination",sub:"Equal Opportunity Employment",ref:"WRAP Principle 7",
+   items:[
+    {t:"Non-discrimination policy covers hiring, pay, promotion, and termination",r:"P7.1"},
+    {t:"Policy covers race, gender, religion, age, disability, and national origin",r:"P7.2"},
+    {t:"Workers are selected and promoted based on ability, not personal characteristics",r:"P7.3"},
+    {t:"Complaint mechanism exists for discrimination complaints",r:"P7.4"},
+    {t:"Policy is communicated to all workers in understandable language",r:"P7.5"}
+   ]},
+  {num:8,title:"Health & Safety",sub:"Workplace Safety & Emergency Procedures",ref:"WRAP Principle 8",
+   items:[
+    {t:"Written health and safety policy exists and is communicated",r:"P8.1"},
+    {t:"Facility is clean, well-lit, and free of obvious hazards",r:"P8.2"},
+    {t:"Emergency exits are clearly marked, unobstructed, and functional",r:"P8.3"},
+    {t:"Fire extinguishers are present, accessible, and inspected",r:"P8.4"},
+    {t:"First aid kits are available and adequately stocked",r:"P8.5"},
+    {t:"Workers receive health and safety training (documented)",r:"P8.6"},
+    {t:"Personal protective equipment (PPE) is provided and used",r:"P8.7"},
+    {t:"Machinery guards and safety devices are in place and functional",r:"P8.8"},
+    {t:"Accident and injury records are maintained",r:"P8.9"},
+    {t:"Drinking water and sanitation facilities are adequate",r:"P8.10"},
+    {t:"Health and safety committee or representative exists",r:"P8.11"}
+   ]},
+  {num:9,title:"Freedom of Association",sub:"Workers' Rights to Organize",ref:"WRAP Principle 9",
+   items:[
+    {t:"Workers are free to join or form organizations of their choosing",r:"P9.1"},
+    {t:"Workers are not penalized, threatened, or discriminated against for union activity",r:"P9.2"},
+    {t:"Management does not interfere with workers' right to organize",r:"P9.3"},
+    {t:"Where law restricts freedom of association, alternatives exist",r:"P9.4"}
+   ]},
+  {num:10,title:"Environment",sub:"Environmental Compliance & Responsibility",ref:"WRAP Principle 10",
+   items:[
+    {t:"Facility complies with all applicable environmental laws and regulations",r:"P10.1"},
+    {t:"Environmental permits are current and displayed as required",r:"P10.2"},
+    {t:"Waste is properly managed, treated, and disposed of",r:"P10.3"},
+    {t:"Wastewater and emissions are within permitted limits",r:"P10.4"},
+    {t:"Hazardous materials are properly stored, labeled, and handled",r:"P10.5"},
+    {t:"Environmental policies and procedures are documented",r:"P10.6"}
+   ]},
+  {num:11,title:"Customs Compliance",sub:"Import/Export & Anti-Smuggling",ref:"WRAP Principle 11",
+   items:[
+    {t:"Facility has documented customs and import/export compliance procedures",r:"P11.1"},
+    {t:"Container inspection procedures exist and are followed",r:"P11.2"},
+    {t:"Access to production areas and shipments is controlled and secure",r:"P11.3"},
+    {t:"Personnel security procedures are in place (background checks, access control)",r:"P11.4"},
+    {t:"Anti-smuggling training is provided to relevant workers",r:"P11.5"},
+    {t:"Chain of custody is documented for all shipments",r:"P11.6"}
+   ]},
+  {num:12,title:"Security Practices",sub:"Facility Security & C-TPAT Alignment",ref:"WRAP Principle 12",
+   items:[
+    {t:"Perimeter security is adequate (fencing, lighting, access control)",r:"P12.1"},
+    {t:"Visitor and contractor access is logged and controlled",r:"P12.2"},
+    {t:"Employee identification and access systems are in place",r:"P12.3"},
+    {t:"Security personnel are trained and procedures are documented",r:"P12.4"},
+    {t:"Cargo seals and container security procedures are followed",r:"P12.5"},
+    {t:"Incident reporting procedures exist and are communicated",r:"P12.6"},
+    {t:"CCTV or equivalent surveillance is operational in key areas",r:"P12.7"}
+   ]}
+];
+
+// State: {principleNum: {items:{itemIdx:{status:'c'|'n'|'na'|'p',note:''}}, cap:'', open:bool}}
+let state = {};
+let clientInfo = {};
+
+function initState(){
+  PRINCIPLES.forEach(p=>{
+    if(!state[p.num]) state[p.num]={items:{},cap:'',open:false};
+    p.items.forEach((_,i)=>{
+      if(!state[p.num].items[i]) state[p.num].items[i]={status:'p',note:''};
+    });
+  });
+}
+
+function saveState(){
+  clientInfo={name:v('cl-name'),date:v('cl-date'),auditor:v('cl-auditor'),type:v('cl-type')};
+  try{localStorage.setItem('rc2_wrap_state',JSON.stringify(state));localStorage.setItem('rc2_wrap_client',JSON.stringify(clientInfo));}catch(e){}
+  updateScore();
+  updateFindings();
+}
+
+function loadState(){
+  try{
+    var s=localStorage.getItem('rc2_wrap_state');
+    var c=localStorage.getItem('rc2_wrap_client');
+    if(s) state=JSON.parse(s);
+    if(c){clientInfo=JSON.parse(c);if(clientInfo.name)document.getElementById('cl-name').value=clientInfo.name;if(clientInfo.date)document.getElementById('cl-date').value=clientInfo.date;if(clientInfo.auditor)document.getElementById('cl-auditor').value=clientInfo.auditor;if(clientInfo.type)document.getElementById('cl-type').value=clientInfo.type;}
+  }catch(e){}
+}
+
+function resetAll(){
+  if(!confirm('Reset all checklist data? This cannot be undone.')) return;
+  state={};initState();
+  try{localStorage.removeItem('rc2_wrap_state');}catch(e){}
+  renderAll();updateScore();updateFindings();
+}
+
+function v(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+
+// RENDER
+function renderAll(){
+  var container=document.getElementById('principles-container');
+  container.innerHTML='';
+  PRINCIPLES.forEach(p=>container.appendChild(renderPrinciple(p)));
+}
+
+function renderPrinciple(p){
+  var card=document.createElement('div');
+  card.className='principle-card';
+  card.id='pc-'+p.num;
+
+  var st=getPrincipleStatus(p.num);
+  card.className='principle-card status-'+st;
+
+  var score=getPrincipleScore(p.num);
+  var badgeClass={compliant:'badge-compliant',partial:'badge-partial',noncompliant:'badge-noncompliant',na:'badge-na',pending:'badge-pending'}[st]||'badge-pending';
+  var badgeText={compliant:'Compliant',partial:'Partial',noncompliant:'Non-Conformity',na:'N/A',pending:'Pending'}[st]||'Pending';
+  var isOpen=state[p.num]&&state[p.num].open;
+
+  card.innerHTML=`
+    <div class="pc-header" onclick="togglePrinciple(${p.num})">
+      <div class="pc-num">${p.num}</div>
+      <div class="pc-title-area">
+        <div class="pc-title">${p.title}</div>
+        <div class="pc-sub">${p.sub} · ${p.ref}</div>
+      </div>
+      <span class="pc-score-mini">${score.compliant}/${score.total}</span>
+      <span class="pc-status-badge ${badgeClass}">${badgeText}</span>
+      <span class="pc-toggle ${isOpen?'open':''}">▼</span>
+    </div>
+    <div class="pc-body ${isOpen?'open':''}">
+      <div class="checklist-section">
+        <div class="cs-title">Compliance Requirements</div>
+        ${p.items.map((item,i)=>renderCheckItem(p.num,i,item)).join('')}
+      </div>
+      <div class="cap-section">
+        <div class="cap-box">
+          <div class="cap-title">⚠️ Corrective Action Plan (CAP) Notes for Principle ${p.num}</div>
+          <textarea placeholder="Document corrective actions, responsible parties, and target completion dates for any non-conformities found under this principle..." onchange="state[${p.num}].cap=this.value;saveState()">${(state[p.num]&&state[p.num].cap)||''}</textarea>
+        </div>
+      </div>
+    </div>`;
+  return card;
+}
+
+function renderCheckItem(pnum,idx,item){
+  var s=(state[pnum]&&state[pnum].items[idx])||{status:'p',note:''};
+  var note=s.note||'';
+  var showNote=note.length>0;
+  return `<div class="check-item" id="ci-${pnum}-${idx}">
+    <div class="check-status">
+      <button title="Compliant" class="${s.status==='c'?'active-c':''}" onclick="setStatus(${pnum},${idx},'c')">✓</button>
+      <button title="Non-Conformity" class="${s.status==='n'?'active-n':''}" onclick="setStatus(${pnum},${idx},'n')">✗</button>
+      <button title="N/A" class="${s.status==='na'?'active-na':''}" onclick="setStatus(${pnum},${idx},'na')" style="font-size:.65rem;font-weight:700;">N/A</button>
+    </div>
+    <div class="check-content">
+      <div class="check-text">${item.t}</div>
+      <div class="check-ref">Ref: ${item.r}</div>
+      <textarea class="check-notes ${showNote?'show':''}" placeholder="Add finding notes, evidence, or observations..." onchange="state[${pnum}].items[${idx}].note=this.value;saveState()">${note}</textarea>
+      <span class="check-note-btn" onclick="toggleNote(${pnum},${idx})">📝 ${showNote?'Hide':'Add'} Notes</span>
+    </div>
+  </div>`;
+}
+
+function toggleNote(pnum,idx){
+  var ta=document.querySelector(`#ci-${pnum}-${idx} .check-notes`);
+  var btn=document.querySelector(`#ci-${pnum}-${idx} .check-note-btn`);
+  var showing=ta.classList.contains('show');
+  ta.classList.toggle('show');
+  btn.textContent='📝 '+(showing?'Add':'Hide')+' Notes';
+}
+
+function setStatus(pnum,idx,status){
+  if(!state[pnum]) state[pnum]={items:{},cap:'',open:true};
+  if(!state[pnum].items[idx]) state[pnum].items[idx]={status:'p',note:''};
+  state[pnum].items[idx].status=status;
+  saveState();
+  // Re-render just this card
+  var card=document.getElementById('pc-'+pnum);
+  var p=PRINCIPLES.find(x=>x.num===pnum);
+  var newCard=renderPrinciple(p);
+  card.parentNode.replaceChild(newCard,card);
+}
+
+function togglePrinciple(pnum){
+  if(!state[pnum]) state[pnum]={items:{},cap:'',open:false};
+  state[pnum].open=!state[pnum].open;
+  var card=document.getElementById('pc-'+pnum);
+  var p=PRINCIPLES.find(x=>x.num===pnum);
+  var newCard=renderPrinciple(p);
+  card.parentNode.replaceChild(newCard,card);
+}
+
+function getPrincipleScore(pnum){
+  var p=PRINCIPLES.find(x=>x.num===pnum);
+  var s=state[pnum]||{items:{}};
+  var compliant=0,nc=0,partial=0,na=0,pending=0;
+  p.items.forEach((_,i)=>{
+    var st=(s.items[i]||{}).status||'p';
+    if(st==='c') compliant++;
+    else if(st==='n') nc++;
+    else if(st==='na') na++;
+    else pending++;
+  });
+  return{compliant,nc,partial,na,pending,total:p.items.length};
+}
+
+function getPrincipleStatus(pnum){
+  var sc=getPrincipleScore(pnum);
+  if(sc.nc>0) return 'noncompliant';
+  if(sc.pending===sc.total) return 'pending';
+  var active=sc.total-sc.na;
+  if(active===0) return 'na';
+  if(sc.compliant===active) return 'compliant';
+  return 'partial';
+}
+
+function updateScore(){
+  var totalItems=0,compliant=0,nc=0,partial=0,pending=0,na=0;
+  PRINCIPLES.forEach(p=>{
+    p.items.forEach((_,i)=>{
+      totalItems++;
+      var st=((state[p.num]||{}).items||{})[i];
+      var status=(st||{}).status||'p';
+      if(status==='c') compliant++;
+      else if(status==='n') nc++;
+      else if(status==='na') na++;
+      else pending++;
+    });
+  });
+  var active=totalItems-na;
+  var pct=active>0?Math.round((compliant/active)*100):0;
+  document.getElementById('sc-pct').textContent=pct+'%';
+  document.getElementById('sc-bar').style.width=pct+'%';
+  document.getElementById('sc-bar-pct').textContent=pct+'%';
+  document.getElementById('sc-compliant').textContent=compliant;
+  document.getElementById('sc-nc').textContent=nc;
+  document.getElementById('sc-partial').textContent=partial;
+  document.getElementById('sc-pending').textContent=pending;
+  var statusText='';
+  if(pct>=80) statusText='✅ Satisfactory — Ready for WRAP Audit';
+  else if(pct>=60) statusText='⚠️ Marginal — CAP Development Required';
+  else if(active===0) statusText='Complete checklist to see score';
+  else statusText='🚨 Critical Deficiencies — Significant Work Required';
+  document.getElementById('sc-status-text').textContent=statusText;
+}
+
+function updateFindings(){
+  var findings=[];
+  PRINCIPLES.forEach(p=>{
+    p.items.forEach((item,i)=>{
+      var st=((state[p.num]||{}).items||{})[i];
+      var status=(st||{}).status||'p';
+      var note=(st||{}).note||'';
+      if(status==='n') findings.push({type:'nc',principle:'Principle '+p.num+': '+p.title,text:item.t,note:note,ref:item.r});
+      if(status==='p'&&note) findings.push({type:'partial',principle:'Principle '+p.num+': '+p.title,text:item.t,note:note,ref:item.r});
+    });
+  });
+  var container=document.getElementById('findings-list');
+  if(findings.length===0){container.innerHTML='<div class="no-findings">✅ No non-conformities identified yet. Mark items as non-compliant to generate findings.</div>';return;}
+  container.innerHTML='<div class="findings-grid">'+findings.map(f=>`
+    <div class="finding-item fi-${f.type==='nc'?'nc':'partial'}">
+      <div class="fi-principle">${f.type==='nc'?'🔴 Non-Conformity':'🟡 Pending'} · ${f.principle}</div>
+      <div class="fi-text">${f.text}</div>
+      ${f.note?`<div style="font-size:.73rem;color:#6b7280;margin-top:4px;font-style:italic;">"${f.note}"</div>`:''}
+    </div>`).join('')+'</div>';
+}
+
+window.onload=function(){
+  try{var u=localStorage.getItem('rc2hub_user');if(u){document.getElementById('hub-username').textContent=u;document.getElementById('cl-auditor').value=u;}}catch(e){}
+  initState();
+  loadState();
+  renderAll();
+  updateScore();
+  updateFindings();
+  document.getElementById('cl-date').value=new Date().toISOString().split('T')[0];
+};
+</script>
+</body>
+</html>

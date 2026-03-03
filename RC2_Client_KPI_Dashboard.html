@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 Consulting — Client KPI Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;--green:#059669;--red:#dc2626;--orange:#ea580c;--gray:#6b7280;--border:#e2e8f0;--light:#f8fafc;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#f1f5f9;color:#1e293b;min-height:100vh;}
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 12px rgba(0,0,0,.3);position:sticky;top:0;z-index:100;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.user-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.85);}
+.btn-gold{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:700;cursor:pointer;}
+.btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;}
+
+.container{max-width:1200px;margin:0 auto;padding:24px;}
+
+/* CLIENT SELECTOR */
+.client-bar{background:white;border-radius:12px;padding:14px 20px;margin-bottom:20px;border:1px solid var(--border);display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;box-shadow:0 2px 6px rgba(0,0,0,.04);}
+.client-bar .field{flex:1;min-width:140px;}
+.client-bar label{font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;}
+.client-bar input,.client-bar select{width:100%;border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;background:white;}
+.client-bar input:focus,.client-bar select:focus{border-color:var(--accent);}
+.client-bar .btn-add-client{background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 16px;font-size:.8rem;font-weight:700;cursor:pointer;white-space:nowrap;align-self:flex-end;}
+
+/* DASHBOARD HEADER */
+.dash-header{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:14px;padding:22px 26px;margin-bottom:20px;color:white;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.dh-left .dh-client{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;}
+.dh-left .dh-period{font-size:.78rem;opacity:.55;margin-top:3px;}
+.dh-right{display:flex;gap:16px;}
+.dh-stat{text-align:center;}
+.dh-stat .ds-num{font-size:1.8rem;font-weight:800;}
+.dh-stat .ds-label{font-size:.65rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px;}
+
+/* CATEGORY TABS */
+.cat-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.cat-tab{padding:7px 18px;border-radius:20px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:white;color:var(--gray);transition:all .15s;}
+.cat-tab.active{background:var(--navy);color:white;border-color:var(--navy);}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:24px;}
+
+.kpi-card{background:white;border-radius:12px;border:1px solid var(--border);padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.05);position:relative;overflow:hidden;}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--border);}
+.kpi-card.trend-up::before{background:var(--green);}
+.kpi-card.trend-down::before{background:var(--red);}
+.kpi-card.trend-neutral::before{background:var(--gold);}
+.kpi-card.trend-warn::before{background:var(--orange);}
+
+.kpi-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.kpi-label{font-size:.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;}
+.kpi-category-tag{font-size:.62rem;background:var(--light);color:var(--gray);border-radius:10px;padding:2px 8px;}
+.kpi-value{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px;}
+.kpi-value input{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--navy);border:none;border-bottom:2px dashed var(--border);background:transparent;outline:none;width:100%;padding:0;}
+.kpi-value input:focus{border-bottom-color:var(--accent);}
+.kpi-unit{font-size:.75rem;color:var(--gray);margin-bottom:8px;}
+.kpi-target-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.kpi-target{font-size:.72rem;color:var(--gray);}
+.kpi-trend{font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:3px;}
+.trend-up .kpi-trend{color:var(--green);}
+.trend-down .kpi-trend{color:var(--red);}
+.trend-neutral .kpi-trend{color:var(--gold);}
+.kpi-bar-wrap{background:var(--border);border-radius:20px;height:6px;overflow:hidden;}
+.kpi-bar-fill{height:100%;border-radius:20px;transition:width .3s;}
+.kpi-notes-input{width:100%;margin-top:8px;border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-size:.72rem;font-family:'Source Sans 3',sans-serif;color:var(--gray);resize:none;min-height:36px;}
+.kpi-notes-input:focus{outline:none;border-color:var(--accent);}
+
+/* ADD KPI */
+.add-kpi-card{background:white;border-radius:12px;border:2px dashed var(--border);padding:18px;display:flex;flex-direction:column;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.03);}
+.add-kpi-card label{font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:2px;}
+.add-kpi-card input,.add-kpi-card select{width:100%;border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:.8rem;font-family:'Source Sans 3',sans-serif;outline:none;}
+.add-kpi-card .add-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.btn-add-kpi{background:var(--accent);color:white;border:none;border-radius:8px;padding:9px;font-size:.8rem;font-weight:700;cursor:pointer;width:100%;}
+
+/* MONTHLY TABLE */
+.monthly-section{background:white;border-radius:14px;border:1px solid var(--border);padding:22px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.section-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.monthly-table{width:100%;border-collapse:collapse;}
+.monthly-table th{background:var(--navy);color:white;padding:9px 12px;font-size:.7rem;font-weight:700;text-align:left;letter-spacing:.3px;}
+.monthly-table td{padding:9px 12px;font-size:.8rem;border-bottom:1px solid var(--border);color:#374151;}
+.monthly-table tr:last-child td{border-bottom:none;}
+.monthly-table tr:hover td{background:var(--light);}
+.status-badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.68rem;font-weight:700;}
+.sb-green{background:#d1fae5;color:#065f46;}
+.sb-red{background:#fee2e2;color:#991b1b;}
+.sb-yellow{background:#fef3c7;color:#92400e;}
+
+/* NOTES */
+.notes-section{background:white;border-radius:14px;border:1px solid var(--border);padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.notes-section textarea{width:100%;min-height:120px;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;color:#374151;resize:vertical;outline:none;}
+.notes-section textarea:focus{border-color:var(--accent);}
+
+/* EMPTY */
+.empty-dash{text-align:center;padding:60px 20px;color:var(--gray);}
+.empty-dash .ei{font-size:3rem;margin-bottom:12px;}
+
+@media print{
+  .topbar,.client-bar,.cat-tabs,.add-kpi-card,.btn-gold,.btn-ghost{display:none!important;}
+  .container{padding:0!important;}
+  @page{margin:.4in;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div style="color:white;font-size:.95rem;font-weight:700;">⚡ RC2 CONSULTING — CLIENT KPI DASHBOARD</div>
+    <div style="color:rgba(255,255,255,.5);font-size:.68rem;">Track performance metrics · Build monthly reports · Monitor client progress</div>
+  </div>
+  <div class="topbar-right">
+    <div class="user-pill">👤 <span id="hub-username">RC2 Staff</span></div>
+    <button class="btn-ghost" onclick="exportReport()">📊 Monthly Report</button>
+    <button class="btn-gold" onclick="window.print()">🖨️ Print / PDF</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- CLIENT BAR -->
+  <div class="client-bar">
+    <div class="field"><label>Client Name</label><input id="kpi-client" type="text" placeholder="ABC Manufacturing Co." oninput="saveKPI()"></div>
+    <div class="field"><label>Service Type</label>
+      <select id="kpi-service" onchange="loadPreset();saveKPI()">
+        <option value="">Select Service</option>
+        <option value="wrap">WRAP / Compliance</option>
+        <option value="gov">Government Contracting</option>
+        <option value="ops">Operations Optimization</option>
+        <option value="sales">Sales & Growth</option>
+        <option value="doo">Fractional DOO</option>
+        <option value="sop">SOP / Training</option>
+        <option value="custom">Custom / Mixed</option>
+      </select>
+    </div>
+    <div class="field"><label>Reporting Period</label><input id="kpi-period" type="month" oninput="saveKPI()"></div>
+    <div class="field"><label>Engagement Start</label><input id="kpi-start" type="date" oninput="saveKPI()"></div>
+    <button class="btn-add-client" onclick="loadPreset()">Load KPI Preset →</button>
+  </div>
+
+  <!-- DASH HEADER -->
+  <div class="dash-header">
+    <div class="dh-left">
+      <div class="dh-client" id="dh-client-name">Select a client above</div>
+      <div class="dh-period" id="dh-period">Configure dashboard to get started</div>
+    </div>
+    <div class="dh-right">
+      <div class="dh-stat"><div class="ds-num" id="dh-on-track" style="color:#34d399;">—</div><div class="ds-label">On Track</div></div>
+      <div class="dh-stat"><div class="ds-num" id="dh-at-risk" style="color:#fbbf24;">—</div><div class="ds-label">At Risk</div></div>
+      <div class="dh-stat"><div class="ds-num" id="dh-off-track" style="color:#f87171;">—</div><div class="ds-label">Off Track</div></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY TABS -->
+  <div class="cat-tabs" id="cat-tabs">
+    <div class="cat-tab active" onclick="filterCat('all',this)">All KPIs</div>
+  </div>
+
+  <!-- KPI GRID -->
+  <div class="kpi-grid" id="kpi-grid">
+    <div class="empty-dash"><div class="ei">📊</div><div>Select a service type above and click <strong>Load KPI Preset</strong> to populate your dashboard with relevant KPIs.</div></div>
+  </div>
+
+  <!-- ADD KPI -->
+  <div class="kpi-grid" style="grid-template-columns:300px;margin-bottom:24px;">
+    <div class="add-kpi-card">
+      <div style="font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:4px;">+ Add Custom KPI</div>
+      <div><label>KPI Name</label><input id="new-kpi-name" type="text" placeholder="e.g. On-Time Delivery Rate"></div>
+      <div class="add-row">
+        <div><label>Current Value</label><input id="new-kpi-val" type="text" placeholder="0"></div>
+        <div><label>Unit</label><input id="new-kpi-unit" type="text" placeholder="% / $ / days"></div>
+      </div>
+      <div class="add-row">
+        <div><label>Target</label><input id="new-kpi-target" type="text" placeholder="Target value"></div>
+        <div><label>Category</label><input id="new-kpi-cat" type="text" placeholder="e.g. Operations"></div>
+      </div>
+      <button class="btn-add-kpi" onclick="addCustomKPI()">Add KPI to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- MONTHLY TRACKING TABLE -->
+  <div class="monthly-section">
+    <div class="section-title">📅 Monthly Progress Tracker</div>
+    <div id="monthly-table-wrap">
+      <div style="color:var(--gray);font-size:.83rem;text-align:center;padding:20px;">Load a KPI preset to enable monthly tracking.</div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes-section">
+    <div class="section-title">📝 Consultant Notes & Observations</div>
+    <textarea id="kpi-notes" placeholder="Document key observations, client wins, challenges, action items, and recommendations for this reporting period..." oninput="saveKPI()"></textarea>
+  </div>
+
+</div>
+
+<script>
+const PRESETS = {
+  wrap:{
+    cats:['Compliance','Documentation','Training','Audit Readiness'],
+    kpis:[
+      {name:'WRAP Compliance Score',val:'',unit:'%',target:'80%',cat:'Compliance',dir:'up',desc:'Overall WRAP principles compliance percentage'},
+      {name:'Principles Fully Compliant',val:'',unit:'/ 12',target:'12',cat:'Compliance',dir:'up',desc:'Number of WRAP principles with full compliance'},
+      {name:'Open Non-Conformities',val:'',unit:'items',target:'0',cat:'Compliance',dir:'down',desc:'Active CAP items requiring resolution'},
+      {name:'CAP Items Closed',val:'',unit:'items',target:'All',cat:'Compliance',dir:'up',desc:'Corrective actions completed this period'},
+      {name:'Policies Documented',val:'',unit:'%',target:'100%',cat:'Documentation',dir:'up',desc:'Percentage of required policies in place'},
+      {name:'Employee Records Complete',val:'',unit:'%',target:'100%',cat:'Documentation',dir:'up',desc:'Worker files fully documented'},
+      {name:'Staff Training Completion',val:'',unit:'%',target:'100%',cat:'Training',dir:'up',desc:'Employees who completed required WRAP training'},
+      {name:'Mock Audit Score',val:'',unit:'%',target:'85%',cat:'Audit Readiness',dir:'up',desc:'Score from most recent internal mock audit'},
+      {name:'Days to Audit Readiness',val:'',unit:'days',target:'30',cat:'Audit Readiness',dir:'down',desc:'Estimated days until ready for WRAP audit'}
+    ]
+  },
+  gov:{
+    cats:['Accounting','Compliance','Contracts','Performance'],
+    kpis:[
+      {name:'DCAA Readiness Score',val:'',unit:'%',target:'90%',cat:'Compliance',dir:'up',desc:'Overall DCAA accounting system compliance'},
+      {name:'Indirect Rate — Fringe',val:'',unit:'%',target:'Set',cat:'Accounting',dir:'neutral',desc:'Fringe benefit indirect rate'},
+      {name:'Indirect Rate — Overhead',val:'',unit:'%',target:'Set',cat:'Accounting',dir:'neutral',desc:'Overhead indirect rate'},
+      {name:'Indirect Rate — G&A',val:'',unit:'%',target:'Set',cat:'Accounting',dir:'neutral',desc:'General & Administrative rate'},
+      {name:'Timekeeping Compliance',val:'',unit:'%',target:'100%',cat:'Compliance',dir:'up',desc:'Employees completing timesheets daily'},
+      {name:'Unallowable Cost Segregation',val:'',unit:'%',target:'100%',cat:'Accounting',dir:'up',desc:'Unallowable costs properly identified'},
+      {name:'Policies Completed',val:'',unit:'/ 12',target:'12',cat:'Compliance',dir:'up',desc:'Required government compliance policies in place'},
+      {name:'Active Contract Value',val:'',unit:'$',target:'Goal',cat:'Contracts',dir:'up',desc:'Total value of active government contracts'},
+      {name:'Contract Performance Score',val:'',unit:'%',target:'95%',cat:'Performance',dir:'up',desc:'CPARS or performance assessment score'}
+    ]
+  },
+  ops:{
+    cats:['Efficiency','Quality','Delivery','Cost'],
+    kpis:[
+      {name:'On-Time Delivery Rate',val:'',unit:'%',target:'95%',cat:'Delivery',dir:'up',desc:'Orders delivered on schedule'},
+      {name:'Production Efficiency',val:'',unit:'%',target:'85%',cat:'Efficiency',dir:'up',desc:'Actual vs planned production output'},
+      {name:'Defect / Rework Rate',val:'',unit:'%',target:'<2%',cat:'Quality',dir:'down',desc:'Percentage of units requiring rework'},
+      {name:'Inventory Turnover',val:'',unit:'x/yr',target:'12',cat:'Efficiency',dir:'up',desc:'Times inventory is cycled per year'},
+      {name:'Cost per Unit',val:'',unit:'$',target:'Goal',cat:'Cost',dir:'down',desc:'Average cost to produce one unit'},
+      {name:'SOPs Implemented',val:'',unit:'/ total',target:'All',cat:'Efficiency',dir:'up',desc:'Standard operating procedures in active use'},
+      {name:'Employee Productivity',val:'',unit:'%',target:'90%',cat:'Efficiency',dir:'up',desc:'Output vs labor hours ratio'},
+      {name:'Supplier On-Time Rate',val:'',unit:'%',target:'95%',cat:'Delivery',dir:'up',desc:'Suppliers delivering per agreed schedule'},
+      {name:'Operational Cost Savings',val:'',unit:'$',target:'Goal',cat:'Cost',dir:'up',desc:'Documented cost savings from optimizations'}
+    ]
+  },
+  sales:{
+    cats:['Revenue','Pipeline','Clients','Conversion'],
+    kpis:[
+      {name:'Monthly Revenue',val:'',unit:'$',target:'Goal',cat:'Revenue',dir:'up',desc:'Total revenue for reporting period'},
+      {name:'Revenue vs Target',val:'',unit:'%',target:'100%',cat:'Revenue',dir:'up',desc:'Actual revenue as percentage of monthly target'},
+      {name:'New Clients Acquired',val:'',unit:'clients',target:'Goal',cat:'Clients',dir:'up',desc:'New client engagements started this period'},
+      {name:'Pipeline Value',val:'',unit:'$',target:'3x goal',cat:'Pipeline',dir:'up',desc:'Total value of active sales opportunities'},
+      {name:'Lead Conversion Rate',val:'',unit:'%',target:'25%',cat:'Conversion',dir:'up',desc:'Prospects converted to paying clients'},
+      {name:'Average Deal Size',val:'',unit:'$',target:'Goal',cat:'Revenue',dir:'up',desc:'Average engagement value per client'},
+      {name:'Client Retention Rate',val:'',unit:'%',target:'90%',cat:'Clients',dir:'up',desc:'Existing clients retained and renewed'},
+      {name:'Proposals Sent',val:'',unit:'proposals',target:'Goal',cat:'Pipeline',dir:'up',desc:'Number of proposals submitted this period'},
+      {name:'Proposal Win Rate',val:'',unit:'%',target:'40%',cat:'Conversion',dir:'up',desc:'Proposals that resulted in engagements'}
+    ]
+  },
+  doo:{
+    cats:['Operations','People','Finance','Growth'],
+    kpis:[
+      {name:'Overall Operational Score',val:'',unit:'%',target:'85%',cat:'Operations',dir:'up',desc:'Composite operational health score'},
+      {name:'KPIs On Track',val:'',unit:'%',target:'80%',cat:'Operations',dir:'up',desc:'Percentage of KPIs meeting targets'},
+      {name:'SOPs Active',val:'',unit:'/ total',target:'All',cat:'Operations',dir:'up',desc:'Standard procedures in regular use'},
+      {name:'Employee Satisfaction',val:'',unit:'/10',target:'8+',cat:'People',dir:'up',desc:'Internal team satisfaction score'},
+      {name:'Turnover Rate',val:'',unit:'%',target:'<10%',cat:'People',dir:'down',desc:'Annual employee turnover percentage'},
+      {name:'Revenue Growth',val:'',unit:'%',target:'15%+',cat:'Finance',dir:'up',desc:'Month-over-month revenue growth'},
+      {name:'Gross Margin',val:'',unit:'%',target:'Goal',cat:'Finance',dir:'up',desc:'Revenue minus cost of goods sold'},
+      {name:'Action Items Completed',val:'',unit:'%',target:'90%',cat:'Operations',dir:'up',desc:'Weekly action items resolved on time'},
+      {name:'New Markets / Channels',val:'',unit:'count',target:'Goal',cat:'Growth',dir:'up',desc:'New revenue streams or markets developed'}
+    ]
+  },
+  sop:{
+    cats:['Documentation','Training','Compliance','Adoption'],
+    kpis:[
+      {name:'SOPs Developed',val:'',unit:'/ total',target:'Goal',cat:'Documentation',dir:'up',desc:'SOPs drafted and approved'},
+      {name:'SOP Completion Rate',val:'',unit:'%',target:'100%',cat:'Documentation',dir:'up',desc:'SOPs fully written and reviewed'},
+      {name:'Staff Training Completion',val:'',unit:'%',target:'100%',cat:'Training',dir:'up',desc:'Employees trained on new SOPs'},
+      {name:'Training Assessment Pass Rate',val:'',unit:'%',target:'85%',cat:'Training',dir:'up',desc:'Staff passing post-training assessments'},
+      {name:'SOP Adoption Rate',val:'',unit:'%',target:'95%',cat:'Adoption',dir:'up',desc:'Employees consistently following procedures'},
+      {name:'Process Errors Reduced',val:'',unit:'%',target:'50%',cat:'Compliance',dir:'up',desc:'Reduction in process errors post-SOP implementation'},
+      {name:'Document Control Active',val:'',unit:'Y/N',target:'Yes',cat:'Documentation',dir:'up',desc:'Version control system in place'},
+      {name:'Training Hours Delivered',val:'',unit:'hrs',target:'Goal',cat:'Training',dir:'up',desc:'Total training hours conducted this period'}
+    ]
+  },
+  custom:{cats:['Performance'],kpis:[]}
+};
+
+let kpis=[];
+let activeFilter='all';
+
+function loadPreset(){
+  var svc=document.getElementById('kpi-service').value;
+  if(!svc||!PRESETS[svc]) return;
+  if(kpis.length>0&&!confirm('Load preset? Current KPIs will be replaced.')) return;
+  kpis=PRESETS[svc].kpis.map((k,i)=>({...k,id:i,val:'',note:''}));
+  var cats=['All KPIs',...new Set(kpis.map(k=>k.cat))];
+  renderCatTabs(cats);
+  renderKPIs();
+  updateHeader();
+  renderMonthlyTable();
+  saveKPI();
+}
+
+function renderCatTabs(cats){
+  var container=document.getElementById('cat-tabs');
+  container.innerHTML=cats.map((c,i)=>`<div class="cat-tab ${i===0?'active':''}" onclick="filterCat('${c==='All KPIs'?'all':c}',this)">${c}</div>`).join('');
+}
+
+function filterCat(cat,el){
+  activeFilter=cat;
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderKPIs();
+}
+
+function renderKPIs(){
+  var grid=document.getElementById('kpi-grid');
+  var filtered=activeFilter==='all'?kpis:kpis.filter(k=>k.cat===activeFilter);
+  if(filtered.length===0){grid.innerHTML='<div class="empty-dash"><div class="ei">📊</div><div>Select a service type and click Load KPI Preset</div></div>';return;}
+  grid.innerHTML=filtered.map(k=>renderKPICard(k)).join('');
+}
+
+function renderKPICard(k){
+  var pct=0;
+  var numVal=parseFloat((k.val||'').replace(/[^0-9.]/g,''))||0;
+  var numTarget=parseFloat((k.target||'').replace(/[^0-9.]/g,''))||0;
+  if(numTarget>0) pct=Math.min(100,Math.round((numVal/numTarget)*100));
+  var trendClass=k.dir==='up'?(pct>=80?'trend-up':pct>=50?'trend-neutral':'trend-down'):k.dir==='down'?(numVal<=numTarget?'trend-up':'trend-down'):'trend-neutral';
+  var trendIcon=trendClass==='trend-up'?'↑ On Track':trendClass==='trend-down'?'↓ Off Track':'→ In Progress';
+  var barColor=trendClass==='trend-up'?'#059669':trendClass==='trend-down'?'#dc2626':'#f59e0b';
+  return `<div class="kpi-card ${trendClass}" id="kc-${k.id}">
+    <div class="kpi-top">
+      <div class="kpi-label">${k.name}</div>
+      <div class="kpi-category-tag">${k.cat}</div>
+    </div>
+    <div class="kpi-value"><input type="text" value="${k.val||''}" placeholder="—" oninput="updateKPIVal(${k.id},this.value)"></div>
+    <div class="kpi-unit">${k.unit} · Target: ${k.target}</div>
+    <div class="kpi-target-row">
+      <div class="kpi-target">${k.desc}</div>
+      <div class="kpi-trend">${trendIcon}</div>
+    </div>
+    <div class="kpi-bar-wrap"><div class="kpi-bar-fill" style="width:${pct}%;background:${barColor};"></div></div>
+    <textarea class="kpi-notes-input" placeholder="Notes..." oninput="updateKPINote(${k.id},this.value)">${k.note||''}</textarea>
+  </div>`;
+}
+
+function updateKPIVal(id,val){
+  var k=kpis.find(x=>x.id===id);
+  if(k){k.val=val;updateHeader();saveKPI();}
+}
+
+function updateKPINote(id,note){
+  var k=kpis.find(x=>x.id===id);
+  if(k){k.note=note;saveKPI();}
+}
+
+function addCustomKPI(){
+  var name=document.getElementById('new-kpi-name').value.trim();
+  if(!name){alert('Please enter a KPI name.');return;}
+  kpis.push({id:Date.now(),name:name,val:'',unit:document.getElementById('new-kpi-unit').value||'',target:document.getElementById('new-kpi-target').value||'—',cat:document.getElementById('new-kpi-cat').value||'Custom',dir:'up',desc:'',note:''});
+  ['new-kpi-name','new-kpi-val','new-kpi-unit','new-kpi-target','new-kpi-cat'].forEach(id=>{document.getElementById(id).value='';});
+  renderKPIs();updateHeader();renderMonthlyTable();saveKPI();
+}
+
+function updateHeader(){
+  var client=document.getElementById('kpi-client').value||'Client Dashboard';
+  var period=document.getElementById('kpi-period').value||'';
+  document.getElementById('dh-client-name').textContent=client;
+  document.getElementById('dh-period').textContent=period?'Reporting Period: '+period:'Set reporting period above';
+  var onTrack=0,atRisk=0,offTrack=0;
+  kpis.forEach(k=>{
+    var numVal=parseFloat((k.val||'').replace(/[^0-9.]/g,''))||0;
+    var numTarget=parseFloat((k.target||'').replace(/[^0-9.]/g,''))||0;
+    if(!k.val){atRisk++;return;}
+    var pct=numTarget>0?numVal/numTarget:0;
+    if(k.dir==='up'){if(pct>=0.9)onTrack++;else if(pct>=0.6)atRisk++;else offTrack++;}
+    else if(k.dir==='down'){if(numVal<=numTarget)onTrack++;else if(numVal<=numTarget*1.3)atRisk++;else offTrack++;}
+    else atRisk++;
+  });
+  document.getElementById('dh-on-track').textContent=onTrack||'—';
+  document.getElementById('dh-at-risk').textContent=atRisk||'—';
+  document.getElementById('dh-off-track').textContent=offTrack||'—';
+}
+
+function renderMonthlyTable(){
+  if(kpis.length===0) return;
+  var html=`<table class="monthly-table"><thead><tr><th>KPI</th><th>Category</th><th>Current Value</th><th>Target</th><th>Status</th><th>Notes</th></tr></thead><tbody>`;
+  kpis.forEach(k=>{
+    var numVal=parseFloat((k.val||'').replace(/[^0-9.]/g,''))||0;
+    var numTarget=parseFloat((k.target||'').replace(/[^0-9.]/g,''))||0;
+    var status='Pending';var badgeClass='sb-yellow';
+    if(k.val){
+      var pct=numTarget>0?numVal/numTarget:0;
+      if(k.dir==='up'){if(pct>=0.9){status='On Track';badgeClass='sb-green';}else if(pct>=0.6){status='At Risk';badgeClass='sb-yellow';}else{status='Off Track';badgeClass='sb-red';}}
+      else if(k.dir==='down'){if(numVal<=numTarget){status='On Track';badgeClass='sb-green';}else{status='Off Track';badgeClass='sb-red';}}
+      else{status='Tracking';badgeClass='sb-yellow';}
+    }
+    html+=`<tr><td style="font-weight:600;">${k.name}</td><td>${k.cat}</td><td>${k.val||'—'} ${k.unit}</td><td>${k.target} ${k.unit}</td><td><span class="status-badge ${badgeClass}">${status}</span></td><td style="font-size:.75rem;color:var(--gray);max-width:200px;">${k.note||''}</td></tr>`;
+  });
+  html+='</tbody></table>';
+  document.getElementById('monthly-table-wrap').innerHTML=html;
+}
+
+function saveKPI(){
+  try{
+    localStorage.setItem('rc2_kpi_data',JSON.stringify({kpis:kpis,client:document.getElementById('kpi-client').value,service:document.getElementById('kpi-service').value,period:document.getElementById('kpi-period').value,start:document.getElementById('kpi-start').value,notes:document.getElementById('kpi-notes').value}));
+  }catch(e){}
+  updateHeader();
+  renderKPIs();
+  renderMonthlyTable();
+}
+
+function exportReport(){
+  alert('Use the Print / PDF button to export the full dashboard as a PDF report. Tip: Set your browser to "Background graphics" ON for best results.');
+}
+
+window.onload=function(){
+  try{var u=localStorage.getItem('rc2hub_user');if(u)document.getElementById('hub-username').textContent=u;}catch(e){}
+  document.getElementById('kpi-period').value=new Date().toISOString().slice(0,7);
+  try{
+    var saved=localStorage.getItem('rc2_kpi_data');
+    if(saved){
+      var d=JSON.parse(saved);
+      kpis=d.kpis||[];
+      if(d.client)document.getElementById('kpi-client').value=d.client;
+      if(d.service)document.getElementById('kpi-service').value=d.service;
+      if(d.period)document.getElementById('kpi-period').value=d.period;
+      if(d.start)document.getElementById('kpi-start').value=d.start;
+      if(d.notes)document.getElementById('kpi-notes').value=d.notes;
+      if(kpis.length>0){
+        var cats=['All KPIs',...new Set(kpis.map(k=>k.cat))];
+        renderCatTabs(cats);renderKPIs();updateHeader();renderMonthlyTable();
+      }
+    }
+  }catch(e){}
+};
+</script>
+</body>
+</html>
