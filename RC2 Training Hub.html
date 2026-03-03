@@ -270,7 +270,7 @@ const EMPLOYEES = {"Edward Castleton":"#1Panama#1","Jill Coleman":"Hailmary#2025
 function doLogin(){
   const name=document.getElementById('g-name').value.trim();
   const pwd=document.getElementById('g-pwd').value;
-  if(!name||!EMPLOYEES[name]||pwd!==EMPLOYEES[name]{document.getElementById('gate-err').style.display='block';return;}
+  if(!name||!EMPLOYEES[name]||pwd!==EMPLOYEES[name]){document.getElementById('gate-err').style.display='block';return;}
   try{localStorage.setItem('rc2hub_user',name);}catch(e){}
   document.getElementById('gate').style.display='none';
   document.getElementById('app').style.display='block';
