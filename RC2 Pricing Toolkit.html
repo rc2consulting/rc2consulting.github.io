@@ -81,8 +81,9 @@
     <h1>⚡ RC2 CONSULTING — CLIENT PRICING TOOLKIT</h1>
     <span>Plug & Play Pricing Engine | Version 1.0 | Confidential</span>
   </div>
-  <div style="text-align:right; font-size:.75rem; opacity:.7;">
-    Operations &amp; Compliance Specialists<br>rc2consulting.github.io
+  <div style="text-align:right;display:flex;align-items:center;gap:12px;">
+    <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 14px;font-size:.75rem;color:rgba(255,255,255,.85);">👤 <span id="hub-username">Employee</span></div>
+    <div style="font-size:.72rem;opacity:.55;">Operations &amp; Compliance Specialists<br>rc2consulting.github.io</div>
   </div>
 </header>
 
@@ -1327,6 +1328,7 @@ function compareDecision() {
 
 // ===== INIT =====
 window.onload = () => {
+  try{var u=localStorage.getItem('rc2hub_user');if(u){var el=document.getElementById('hub-username');if(el)el.textContent=u;}}catch(e){}
   calcHourly();
   calcMargin();
   calcTargetPrice();

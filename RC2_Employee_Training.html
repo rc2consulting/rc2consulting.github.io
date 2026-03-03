@@ -967,7 +967,7 @@ function updateDots(){
 // ==================== INIT ====================
 window.onload=()=>{
   userName="RC2 Employee";
-  try{var u=localStorage.getItem('rc2_user');if(u)userName=u;}catch(e){}
+  try{var u=localStorage.getItem('rc2hub_user');if(u)userName=u;}catch(e){}
 
   loadProgress();
   document.getElementById('user-name-display').textContent=userName;
