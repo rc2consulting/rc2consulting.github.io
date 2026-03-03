@@ -262,11 +262,7 @@ function doLogin(){
 
 function doLogout(){
   try{localStorage.removeItem('rc2hub_user');}catch(e){}
-  document.getElementById('app').style.display='none';
-  document.getElementById('gate').style.display='flex';
-  document.getElementById('g-name').value='';
-  document.getElementById('g-pwd').value='';
-  document.getElementById('gate-err').style.display='none';
+  window.location.href='https://rc2consulting.github.io';
 }
 
 function openTool(file,title){
