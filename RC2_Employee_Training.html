@@ -15,14 +15,14 @@ body{background:#f1f5f9;color:#1e293b;min-height:100vh;}
 
 
 /* PASSWORD GATE */
-#gate{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0a1628,#1a3a6e);display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;gap:20px;}
-#gate h1{color:white;font-size:1.5rem;font-weight:800;letter-spacing:2px;text-align:center;}
-#gate p{color:rgba(255,255,255,.6);font-size:.85rem;letter-spacing:1px;text-align:center;}
-.gate-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:32px 40px;width:360px;text-align:center;}
+
+
+
+
 .gate-box label{display:block;font-size:.75rem;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;margin-top:14px;}
 .gate-box input{width:100%;padding:12px 16px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:white;font-size:1rem;text-align:center;outline:none;}
-.gate-btn{width:100%;padding:12px;background:linear-gradient(135deg,#2563eb,#1a3a6e);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;letter-spacing:1px;margin-top:16px;}
-#gate-error{color:#f87171;font-size:.78rem;margin-top:10px;display:none;}
+
+
 
 
 /* MAIN APP */
@@ -157,26 +157,6 @@ tr:nth-child(even) td{background:#f8faff;}
 <body>
 
 
-<!-- PASSWORD GATE -->
-<div id="gate">
-  <div style="text-align:center;color:white;margin-bottom:6px;">
-    <div style="font-size:2.5rem;margin-bottom:8px;">⚡</div>
-    <h1>RC2 CONSULTING</h1>
-    <p>EMPLOYEE TRAINING & SOP TOOLKIT — AUTHORIZED ACCESS ONLY</p>
-  </div>
-  <div class="gate-box">
-    <label>Your Name</label>
-    <input type="text" id="gate-name" placeholder="Enter your full name" onkeydown="if(event.key==='Enter')document.getElementById('gate-pwd').focus()">
-    <label>Access Password</label>
-    <input type="password" id="gate-pwd" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')gateLogin()">
-    <button class="gate-btn" onclick="gateLogin()">🔓 ACCESS TRAINING PORTAL</button>
-    <p id="gate-error">❌ Incorrect password or missing name. Please try again.</p>
-  </div>
-  <p style="color:rgba(255,255,255,.3);font-size:.7rem;margin-top:10px;">rc2consulting.github.io</p>
-</div>
-
-
-<!-- MAIN APP -->
 <div id="app">
 <header>
   <div>
@@ -662,22 +642,7 @@ function getModProg(id){
 
 
 // ==================== LOGIN ====================
-function gateLogin(){
-  const name=document.getElementById('gate-name').value.trim();
-  const pwd=document.getElementById('gate-pwd').value;
-  if(!name||pwd!=="#1Panama#1"){
-    document.getElementById('gate-error').style.display='block';
-    return;
-  }
-  userName=name;
-  try{localStorage.setItem('rc2_train_user',name);}catch(e){}
-  document.getElementById('gate').style.display='none';
-  document.getElementById('app').style.display='block';
-  document.getElementById('user-name-display').textContent=name;
-  loadProgress();
-  buildAllModules();
-  updateDashboard();
-}
+
 
 
 // ==================== BUILD MODULES ====================
@@ -1001,17 +966,14 @@ function updateDots(){
 
 // ==================== INIT ====================
 window.onload=()=>{
+  userName="RC2 Employee";
+  try{var u=localStorage.getItem('rc2_user');if(u)userName=u;}catch(e){}
+
   loadProgress();
-  if(userName){
-    document.getElementById('gate').style.display='none';
-    document.getElementById('app').style.display='block';
-    document.getElementById('user-name-display').textContent=userName;
-    buildAllModules();
-    updateDashboard();
-  }
+  document.getElementById('user-name-display').textContent=userName;
+  buildAllModules();
+  updateDashboard();
 }
-<script>
-if(new URLSearchParams(window.location.search).get('auth')==='rc2hub'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';userName='RC2 Employee';document.getElementById('user-name-display').textContent=userName;loadProgress();buildAllModules();updateDashboard();}
-</script>
+
 </body>
 </html>
