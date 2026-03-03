@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 — SBA Navigator & NAICS Code Tool</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;--green:#059669;--red:#dc2626;--orange:#ea580c;--gray:#6b7280;--border:#e2e8f0;--light:#f8fafc;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#f1f5f9;color:#1e293b;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.user-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.85);}
+.btn-gold{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:700;cursor:pointer;}
+.btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;}
+.tab-bar{background:white;border-bottom:1px solid var(--border);display:flex;overflow-x:auto;flex-shrink:0;padding:0 20px;}
+.tab-bar::-webkit-scrollbar{height:3px;}
+.tab-bar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px;}
+.tab-btn{padding:12px 16px;font-size:.78rem;font-weight:700;color:var(--gray);border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s;}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+.content{flex:1;overflow-y:auto;padding:24px;max-width:1100px;margin:0 auto;width:100%;}
+.content::-webkit-scrollbar{width:6px;}
+.content::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:16px;padding:26px 30px;color:white;margin-bottom:20px;}
+.hero h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;margin-bottom:6px;}
+.hero p{font-size:.85rem;opacity:.7;line-height:1.7;max-width:700px;}
+
+/* CARDS */
+.card{background:white;border-radius:14px;border:1px solid var(--border);padding:22px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+
+/* SEARCH */
+.search-bar{display:flex;gap:10px;margin-bottom:16px;}
+.search-bar input{flex:1;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:.85rem;font-family:'Source Sans 3',sans-serif;outline:none;}
+.search-bar input:focus{border-color:var(--accent);}
+.search-bar select{border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:.82rem;font-family:'Source Sans 3',sans-serif;outline:none;background:white;}
+.btn-search{background:var(--accent);color:white;border:none;border-radius:8px;padding:10px 20px;font-size:.82rem;font-weight:700;cursor:pointer;}
+
+/* NAICS TABLE */
+.naics-table{width:100%;border-collapse:collapse;}
+.naics-table th{background:var(--navy);color:white;padding:10px 12px;font-size:.7rem;font-weight:700;text-align:left;letter-spacing:.3px;}
+.naics-table td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:.8rem;vertical-align:top;}
+.naics-table tr:hover td{background:#f8fafc;cursor:pointer;}
+.naics-code{font-family:monospace;font-size:.85rem;font-weight:700;color:var(--accent);}
+.size-std{font-weight:700;color:var(--navy);}
+.naics-desc{color:#374151;}
+.sector-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.62rem;font-weight:700;background:#eff6ff;color:#1d4ed8;}
+
+/* SIZE STANDARDS CALC */
+.calc-box{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:20px;}
+.calc-result{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:12px;padding:18px 22px;color:white;margin-top:14px;}
+.cr-label{font-size:.68rem;opacity:.5;text-transform:uppercase;letter-spacing:1px;}
+.cr-val{font-size:1.4rem;font-weight:800;margin-top:2px;}
+.cr-note{font-size:.75rem;opacity:.6;margin-top:4px;line-height:1.5;}
+.cr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:12px;}
+
+/* CERT CARDS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.cert-card{background:white;border-radius:12px;border:2px solid var(--border);padding:18px;transition:border-color .15s;}
+.cert-card:hover{border-color:var(--accent);}
+.cert-icon{font-size:1.8rem;margin-bottom:8px;}
+.cert-name{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.cert-agency{font-size:.7rem;color:var(--gray);margin-bottom:8px;}
+.cert-desc{font-size:.8rem;color:#374151;line-height:1.6;margin-bottom:10px;}
+.cert-benefits{font-size:.78rem;color:var(--green);margin-bottom:10px;line-height:1.6;}
+.cert-reqs-title{font-size:.7rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.cert-req-item{font-size:.75rem;color:#374151;padding:3px 0;display:flex;gap:6px;}
+.cert-req-item::before{content:'→';color:var(--accent);flex-shrink:0;}
+.cert-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.65rem;font-weight:700;margin-bottom:8px;}
+
+/* ELIGIBILITY CHECKER */
+.elig-form{background:white;border-radius:14px;border:1px solid var(--border);padding:22px;margin-bottom:16px;}
+.elig-form .form-group{margin-bottom:14px;}
+.elig-form label{display:block;font-size:.7rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.elig-form select,.elig-form input{width:100%;border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;background:white;}
+.elig-form select:focus,.elig-form input:focus{border-color:var(--accent);}
+.elig-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.elig-result-card{background:white;border-radius:12px;border:2px solid var(--border);padding:16px;margin-bottom:10px;}
+.elig-result-card.eligible{border-color:var(--green);background:#f0fdf4;}
+.elig-result-card.ineligible{border-color:#fca5a5;background:#fff5f5;}
+.elig-result-card.maybe{border-color:var(--gold);background:#fffbeb;}
+.er-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.er-icon{font-size:1.3rem;}
+.er-name{font-size:.9rem;font-weight:800;color:var(--navy);}
+.er-status{font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;}
+.st-elig{background:#d1fae5;color:#065f46;}
+.st-inelig{background:#fee2e2;color:#991b1b;}
+.st-maybe{background:#fef3c7;color:#92400e;}
+.er-notes{font-size:.78rem;color:#374151;line-height:1.6;}
+
+/* LOAN PROGRAMS */
+.loan-card{background:white;border-radius:12px;border:1px solid var(--border);padding:18px;margin-bottom:14px;box-shadow:0 2px 6px rgba(0,0,0,.04);}
+.loan-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+.loan-name{font-size:1rem;font-weight:800;color:var(--navy);}
+.loan-amount{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;color:var(--accent);}
+.loan-rate{font-size:.75rem;color:var(--gray);}
+.loan-desc{font-size:.82rem;color:#374151;line-height:1.7;margin-bottom:10px;}
+.loan-features{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.loan-feature{background:var(--light);border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:.68rem;color:var(--gray);}
+.loan-best{font-size:.75rem;color:var(--green);font-weight:600;}
+
+/* INFO BOXES */
+.info-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.82rem;color:#1e40af;line-height:1.7;}
+.warn-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:.8rem;color:#92400e;line-height:1.6;}
+
+/* LEARN GRID */
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.learn-card{background:var(--light);border-radius:12px;border:1px solid var(--border);padding:16px;}
+.lc-icon{font-size:1.4rem;margin-bottom:6px;}
+.lc-title{font-size:.88rem;font-weight:800;color:var(--navy);margin-bottom:5px;}
+.lc-text{font-size:.78rem;color:#374151;line-height:1.7;}
+
+@media print{body{height:auto;overflow:visible;}.topbar,.tab-bar,.btn-gold,.btn-ghost,.btn-search{display:none!important;}.content{overflow:visible;max-width:100%;}.tab-panel{display:block!important;}@page{margin:.4in;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div>
+    <div style="color:white;font-size:.95rem;font-weight:700;">⚡ RC2 CONSULTING — SBA NAVIGATOR & NAICS CODE TOOL</div>
+    <div style="color:rgba(255,255,255,.5);font-size:.68rem;">NAICS Codes · Size Standards · SBA Certifications · Loan Programs · Eligibility Checker</div>
+  </div>
+  <div class="topbar-right">
+    <div class="user-pill">👤 <span id="hub-username">RC2 Staff</span></div>
+    <button class="btn-gold" onclick="window.print()">🖨️ Print / PDF</button>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('overview',this)">🏠 SBA Overview</button>
+  <button class="tab-btn" onclick="showTab('naics',this)">🔍 NAICS Code Finder</button>
+  <button class="tab-btn" onclick="showTab('size',this)">📏 Size Standards</button>
+  <button class="tab-btn" onclick="showTab('certifications',this)">🏆 SBA Certifications</button>
+  <button class="tab-btn" onclick="showTab('eligibility',this)">✅ Eligibility Checker</button>
+  <button class="tab-btn" onclick="showTab('loans',this)">💰 Loan Programs</button>
+  <button class="tab-btn" onclick="showTab('setasides',this)">🎯 Set-Aside Programs</button>
+</div>
+
+<div class="content">
+
+<!-- TAB 1: OVERVIEW -->
+<div class="tab-panel active" id="tab-overview">
+  <div class="hero">
+    <h2>🏛️ U.S. Small Business Administration (SBA) — Complete Guide</h2>
+    <p>The SBA is a federal agency created to support American small businesses through financing, contracting assistance, and certifications. Understanding SBA programs is critical for RC2 clients who want to access government contracts, funding, and competitive advantages available only to small businesses.</p>
+  </div>
+  <div class="learn-grid">
+    <div class="learn-card"><div class="lc-icon">📏</div><div class="lc-title">What is a "Small Business"?</div><div class="lc-text">The SBA defines "small" by industry using NAICS codes. Size standards are based either on number of employees or average annual receipts (revenue) over the past 3 years. Most manufacturing businesses qualify at 500–1,500 employees. Most service businesses qualify at $8–$47 million in revenue.</div></div>
+    <div class="learn-card"><div class="lc-icon">🔢</div><div class="lc-title">What is a NAICS Code?</div><div class="lc-text">North American Industry Classification System (NAICS) codes are 6-digit numbers that classify businesses by the type of work they do. Every government contract has a NAICS code. Your client's NAICS code determines their SBA size standard and which set-aside programs they are eligible for.</div></div>
+    <div class="learn-card"><div class="lc-icon">🏆</div><div class="lc-title">Why SBA Certifications Matter</div><div class="lc-text">Federal agencies are required to award 23% of all prime contract dollars to small businesses. Certain certifications (8(a), WOSB, HUBZone, SDVOSB) allow companies to compete in restricted pools — dramatically reducing competition and increasing win probability.</div></div>
+    <div class="learn-card"><div class="lc-icon">💰</div><div class="lc-title">SBA Financing Programs</div><div class="lc-text">The SBA offers loan guarantee programs (7(a), 504, Microloans) that give lenders confidence to extend credit to small businesses that might not otherwise qualify. SBA does not lend directly — it guarantees a portion of the loan made by an approved lender.</div></div>
+    <div class="learn-card"><div class="lc-icon">🎯</div><div class="lc-title">Government Contract Set-Asides</div><div class="lc-text">Set-aside contracts are reserved exclusively for certain business categories. When a federal contract is "set aside" for small businesses, only certified small businesses may bid. This eliminates competition from large corporations and can be a major competitive advantage for your clients.</div></div>
+    <div class="learn-card"><div class="lc-icon">⚠️</div><div class="lc-title">Common Mistakes RC2 Sees</div><div class="lc-text">Clients register with the wrong NAICS code, miss certification opportunities because they don't know they qualify, fail to maintain their SAM.gov registration (expires annually), and don't understand that size standards apply per contract, not per company.</div></div>
+    <div class="learn-card"><div class="lc-icon">📋</div><div class="lc-title">SAM.gov — The Starting Point</div><div class="lc-text">System for Award Management (SAM.gov) is the federal registration required for all government contractors. Must be renewed annually. Without an active SAM.gov registration, a company cannot receive any federal contract award, regardless of certifications.</div></div>
+    <div class="learn-card"><div class="lc-icon">🔗</div><div class="lc-title">RC2 Role in SBA Navigation</div><div class="lc-text">RC2 helps clients identify the correct NAICS codes, assess size standard eligibility, determine which certifications they qualify for, prepare certification applications, and maintain compliance once certified. This is a high-value service for government contracting clients.</div></div>
+  </div>
+</div>
+
+<!-- TAB 2: NAICS FINDER -->
+<div class="tab-panel" id="tab-naics">
+  <div class="card">
+    <div class="card-title">🔍 NAICS Code Finder</div>
+    <div style="font-size:.82rem;color:var(--gray);margin-bottom:14px;line-height:1.6;">Search by keyword, industry, or NAICS code number. Each code includes the SBA size standard — the maximum size a company can be and still qualify as "small" for federal contracting purposes.</div>
+    <div class="search-bar">
+      <input id="naics-search" type="text" placeholder="Search by keyword (e.g. 'apparel', 'manufacturing', 'consulting')..." oninput="filterNAICS()">
+      <select id="naics-sector" onchange="filterNAICS()" style="min-width:160px;">
+        <option value="">All Sectors</option>
+        <option value="Manufacturing">Manufacturing</option>
+        <option value="Services">Professional Services</option>
+        <option value="Construction">Construction</option>
+        <option value="Retail">Retail Trade</option>
+        <option value="Wholesale">Wholesale Trade</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Technology">Technology</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Agriculture">Agriculture</option>
+      </select>
+    </div>
+    <div id="naics-results-count" style="font-size:.75rem;color:var(--gray);margin-bottom:8px;"></div>
+    <div style="overflow-x:auto;"><table class="naics-table"><thead><tr><th>NAICS Code</th><th>Description</th><th>Sector</th><th>Size Standard</th><th>Basis</th></tr></thead><tbody id="naics-table-body"></tbody></table></div>
+  </div>
+  <div class="card">
+    <div class="card-title">📌 How to Find the Right NAICS Code for Your Client</div>
+    <div class="learn-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+      <div class="learn-card"><div class="lc-title">Step 1: Identify Primary Activity</div><div class="lc-text">The NAICS code must reflect what the business primarily does — where most revenue comes from. A company that manufactures AND sells uses a manufacturing code, not retail.</div></div>
+      <div class="learn-card"><div class="lc-title">Step 2: Search Multiple Keywords</div><div class="lc-text">Try several descriptive keywords. NAICS descriptions don't always use everyday language. "Apparel contractor" and "cut and sew" both describe NAICS 315.</div></div>
+      <div class="learn-card"><div class="lc-title">Step 3: A Company Can Have Multiple Codes</div><div class="lc-text">Businesses register a primary code in SAM.gov but can list secondary codes. For contracting, the specific solicitation's NAICS code determines the applicable size standard.</div></div>
+      <div class="learn-card"><div class="lc-title">Step 4: Verify with SBA Table</div><div class="lc-text">Always verify the size standard at sba.gov/size-standards. The SBA updates size standards regularly. Never rely on outdated tables for compliance purposes.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: SIZE STANDARDS -->
+<div class="tab-panel" id="tab-size">
+  <div class="card">
+    <div class="card-title">📏 SBA Size Standards Calculator</div>
+    <div class="info-box">The SBA size standard determines whether your client qualifies as a "small business" for a specific federal contract. Size is measured differently by industry — some use annual revenue (average of last 3 years), others use number of employees (average of last 12 months, including all affiliates).</div>
+    <div class="calc-box">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+        <div><label style="font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px;">Select NAICS Code</label>
+          <select id="calc-naics" onchange="calcSizeStd()" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.82rem;font-family:'Source Sans 3',sans-serif;outline:none;background:white;">
+            <option value="">-- Select NAICS Code --</option>
+          </select>
+        </div>
+        <div><label style="font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px;">Contract Value (optional)</label>
+          <input id="calc-contract" type="text" placeholder="e.g. $500,000" oninput="calcSizeStd()" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div><label style="font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px;">Client's Avg Annual Revenue (3 yr)</label>
+          <input id="calc-revenue" type="text" placeholder="e.g. $4,500,000" oninput="calcSizeStd()" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;">
+        </div>
+        <div><label style="font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px;">Client's Total Employees (incl. affiliates)</label>
+          <input id="calc-employees" type="text" placeholder="e.g. 47" oninput="calcSizeStd()" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;">
+        </div>
+      </div>
+      <div id="calc-result" style="display:none;" class="calc-result">
+        <div id="calc-result-content"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">📋 Key Size Standard Rules Every RC2 Consultant Must Know</div>
+    <div class="learn-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));">
+      <div class="learn-card"><div class="lc-title">Affiliation Rules</div><div class="lc-text">The SBA counts affiliated businesses toward your size. Affiliation exists when one company controls another, they share common ownership, or they are economically dependent. This is the most common reason companies are found "other than small."</div></div>
+      <div class="learn-card"><div class="lc-title">Average vs. Snapshot</div><div class="lc-text">Revenue is averaged over the last 3 fiscal years. Employees are the average over the last 12 months. A company that grew rapidly may still qualify based on 3-year average revenue — and vice versa.</div></div>
+      <div class="learn-card"><div class="lc-title">Size Is Determined at Time of Offer</div><div class="lc-text">For most contracts, size is determined at the time the offer (bid) is submitted. A company that grows beyond the size standard after award can typically complete that contract without penalty.</div></div>
+      <div class="learn-card"><div class="lc-title">Manufacturing vs. Services</div><div class="lc-text">Manufacturing NAICS codes use employee counts (500–1,500 employees). Service, construction, and most other industries use revenue-based standards ($8M–$47M). Wholesale trade uses a 100-employee or 250-employee standard.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 4: CERTIFICATIONS -->
+<div class="tab-panel" id="tab-certifications">
+  <div class="hero" style="padding:20px 26px;">
+    <h2>🏆 SBA Certifications — Complete Guide</h2>
+    <p>SBA certifications unlock access to federal set-aside contracts reserved for specific business categories. Federal agencies are legally mandated to award percentage targets to certified businesses. Getting the right certifications can transform a client's revenue potential.</p>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">8️⃣</div>
+      <div class="cert-name">8(a) Business Development Program</div>
+      <div class="cert-agency">SBA — Certify.sba.gov</div>
+      <span class="cert-badge" style="background:#dbeafe;color:#1e40af;">9-Year Program</span>
+      <div class="cert-desc">The 8(a) program helps small disadvantaged businesses compete for federal contracts. Participants receive mentorship, training, and the ability to receive sole-source contracts up to $4.5M (services) or $7M (manufacturing). This is the most powerful SBA certification.</div>
+      <div class="cert-benefits">✅ Sole-source contracts up to $7M (manufacturing)<br>✅ Access to $90B+ in annual set-aside spending<br>✅ Mentor-protégé program access<br>✅ Business development training</div>
+      <div class="cert-reqs-title">Key Requirements</div>
+      <div class="cert-req-item">Socially and economically disadvantaged individual must own 51%+</div>
+      <div class="cert-req-item">Owner must be U.S. citizen and involved in daily management</div>
+      <div class="cert-req-item">Owner's personal net worth ≤ $850,000 (excluding primary home and business equity)</div>
+      <div class="cert-req-item">Owner's adjusted gross income ≤ $400,000 (3-yr average)</div>
+      <div class="cert-req-item">Business must be small per SBA size standards</div>
+      <div class="cert-req-item">Business must have been operating for 2 years (exceptions exist)</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">👩</div>
+      <div class="cert-name">Women-Owned Small Business (WOSB)</div>
+      <div class="cert-agency">SBA — Certify.sba.gov</div>
+      <span class="cert-badge" style="background:#fce7f3;color:#9d174d;">Women-Owned</span>
+      <div class="cert-desc">The WOSB program enables women-owned small businesses to compete for federal contracts in industries where women are underrepresented. EDWOSB (economically disadvantaged) allows additional advantages similar to 8(a).</div>
+      <div class="cert-benefits">✅ Access to WOSB set-aside contracts<br>✅ Sole-source contracts up to $4.5M (services) / $7M (manufacturing)<br>✅ EDWOSB designation for additional advantages</div>
+      <div class="cert-reqs-title">Key Requirements</div>
+      <div class="cert-req-item">Women own 51%+ of the business</div>
+      <div class="cert-req-item">Women must manage day-to-day operations and long-term decisions</div>
+      <div class="cert-req-item">Owner must be U.S. citizen</div>
+      <div class="cert-req-item">Business must be small per SBA size standards</div>
+      <div class="cert-req-item">For EDWOSB: personal net worth ≤ $850,000</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🗺️</div>
+      <div class="cert-name">HUBZone Program</div>
+      <div class="cert-agency">SBA — Certify.sba.gov</div>
+      <span class="cert-badge" style="background:#d1fae5;color:#065f46;">Location-Based</span>
+      <div class="cert-desc">HUBZone (Historically Underutilized Business Zone) certification is for businesses located in and primarily employing workers from designated economically distressed areas. Federal agencies must award 3% of contract dollars to HUBZone businesses.</div>
+      <div class="cert-benefits">✅ 10% price evaluation preference over non-HUBZone companies<br>✅ Set-aside and sole-source contracts<br>✅ 3% of all federal contract spending target</div>
+      <div class="cert-reqs-title">Key Requirements</div>
+      <div class="cert-req-item">Business principal office in a designated HUBZone</div>
+      <div class="cert-req-item">51%+ owned by U.S. citizens, Community Development Corporations, agricultural cooperatives, Alaska Native Corporations, or Indian tribal governments</div>
+      <div class="cert-req-item">At least 35% of employees must reside in a HUBZone</div>
+      <div class="cert-req-item">Business must be small per SBA size standards</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🎖️</div>
+      <div class="cert-name">Service-Disabled Veteran-Owned (SDVOSB)</div>
+      <div class="cert-agency">SBA — Certify.sba.gov (also VA VBOC)</div>
+      <span class="cert-badge" style="background:#ede9fe;color:#6d28d9;">Veteran-Owned</span>
+      <div class="cert-desc">The SDVOSB program helps service-disabled veterans compete for federal contracts. Veterans Affairs (VA) has its own verification program (VOSB/SDVOSB) for VA-specific contracts. Federal agencies must award 3% of contract dollars to SDVOSB firms.</div>
+      <div class="cert-benefits">✅ Set-aside and sole-source contracts<br>✅ Strong preference in VA contracting<br>✅ 3% of federal contract spending target<br>✅ Mentor-protégé program access</div>
+      <div class="cert-reqs-title">Key Requirements</div>
+      <div class="cert-req-item">51%+ owned by one or more service-disabled veterans</div>
+      <div class="cert-req-item">Veteran must have service-connected disability rating from VA</div>
+      <div class="cert-req-item">Veteran must control and manage daily operations</div>
+      <div class="cert-req-item">Business must be small per SBA size standards</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏢</div>
+      <div class="cert-name">Small Disadvantaged Business (SDB)</div>
+      <div class="cert-agency">SBA — SAM.gov self-certification</div>
+      <span class="cert-badge" style="background:#fef3c7;color:#92400e;">Self-Certified</span>
+      <div class="cert-desc">SDB status is a self-certification that a company is at least 51% owned by economically and socially disadvantaged individuals. It is different from the 8(a) program. SDB status can be used by large prime contractors to meet subcontracting goals.</div>
+      <div class="cert-benefits">✅ Counted toward large contractor SDB subcontracting goals<br>✅ May qualify for certain agency-specific preferences<br>✅ Foundation for other certifications</div>
+      <div class="cert-reqs-title">Key Requirements</div>
+      <div class="cert-req-item">51%+ owned by socially and economically disadvantaged individuals</div>
+      <div class="cert-req-item">Self-certification through SAM.gov profile</div>
+      <div class="cert-req-item">Business must be small per SBA size standards</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🌐</div>
+      <div class="cert-name">SAM.gov Registration</div>
+      <div class="cert-agency">sam.gov — Required for ALL federal contractors</div>
+      <span class="cert-badge" style="background:#fee2e2;color:#991b1b;">Mandatory</span>
+      <div class="cert-desc">SAM.gov (System for Award Management) is NOT a certification — it is a mandatory federal registration required to receive any federal contract, grant, or payment. Without an active SAM.gov registration, a business cannot be awarded a federal contract regardless of any certifications.</div>
+      <div class="cert-benefits">✅ Required for all federal contracting<br>✅ Must be renewed annually<br>✅ Lists all NAICS codes, certifications, and banking info<br>✅ Failure to renew = cannot receive federal payments</div>
+      <div class="cert-reqs-title">Key Requirements</div>
+      <div class="cert-req-item">Active registration on SAM.gov (annual renewal)</div>
+      <div class="cert-req-item">Valid DUNS/UEI number</div>
+      <div class="cert-req-item">Current and accurate business information including NAICS codes</div>
+      <div class="cert-req-item">Banking information for direct deposit of federal payments</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 5: ELIGIBILITY CHECKER -->
+<div class="tab-panel" id="tab-eligibility">
+  <div class="card">
+    <div class="card-title">✅ Certification Eligibility Checker</div>
+    <div style="font-size:.82rem;color:var(--gray);margin-bottom:14px;line-height:1.6;">Answer the questions below to quickly assess which SBA certifications your client may qualify for. This is a preliminary screening tool — always verify with current SBA guidance before advising a client.</div>
+    <div class="elig-grid">
+      <div>
+        <div class="elig-form">
+          <div class="form-group"><label>Is the business at least 51% owned by U.S. citizens?</label><select id="e-citizen" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div class="form-group"><label>Is the primary owner a woman?</label><select id="e-woman" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div class="form-group"><label>Is the primary owner a service-disabled veteran?</label><select id="e-veteran" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div class="form-group"><label>Is the owner a member of a socially disadvantaged group?</label><select id="e-disadvantaged" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes (Black, Hispanic, Native American, Asian Pacific, etc.)</option><option value="no">No</option></select></div>
+          <div class="form-group"><label>Is the owner's personal net worth under $850,000?</label><select id="e-networth" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div class="form-group"><label>Is the owner involved in day-to-day management?</label><select id="e-manages" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div class="form-group"><label>Is the business located in a HUBZone?</label><select id="e-hubzone" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes — principal office is in a HUBZone</option><option value="no">No</option><option value="unknown">Not Sure — Need to Check</option></select></div>
+          <div class="form-group"><label>Do 35%+ of employees live in a HUBZone?</label><select id="e-hub-emp" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No / Unknown</option></select></div>
+          <div class="form-group"><label>Has the business been operating for 2+ years?</label><select id="e-years" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No (under 2 years)</option></select></div>
+          <div class="form-group"><label>Does the business qualify as "small" per SBA size standards?</label><select id="e-small" onchange="checkEligibility()"><option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not Sure — Need to Check</option></select></div>
+        </div>
+      </div>
+      <div id="eligibility-results">
+        <div style="background:white;border-radius:12px;border:1px solid var(--border);padding:20px;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;">
+          <div style="color:var(--gray);"><div style="font-size:2rem;margin-bottom:10px;">✅</div><div style="font-size:.85rem;">Answer the questions on the left to see which SBA certifications your client may qualify for.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 6: LOANS -->
+<div class="tab-panel" id="tab-loans">
+  <div class="info-box"><strong>Important:</strong> The SBA does not lend money directly to businesses. The SBA <em>guarantees</em> loans made by approved lenders (banks, credit unions, CDFIs). This guarantee reduces the lender's risk, enabling them to lend to businesses that might not otherwise qualify. Always connect clients with an SBA-approved lender.</div>
+  <div class="loan-card">
+    <div class="loan-header"><div><div class="loan-name">SBA 7(a) Loan Program</div><div style="font-size:.72rem;color:var(--gray);">Most common SBA loan · General purpose</div></div><div><div class="loan-amount">Up to $5 Million</div><div class="loan-rate">Rate: Prime + 2.25–4.75% (variable or fixed)</div></div></div>
+    <div class="loan-desc">The 7(a) is the SBA's primary loan program. It can be used for working capital, equipment, real estate, refinancing existing debt, or purchasing a business. The SBA guarantees up to 85% of loans ≤$150K and 75% for loans >$150K, giving lenders confidence to approve business that lack collateral or credit history.</div>
+    <div class="loan-features"><span class="loan-feature">Working Capital</span><span class="loan-feature">Equipment Purchase</span><span class="loan-feature">Real Estate</span><span class="loan-feature">Business Acquisition</span><span class="loan-feature">Refinancing</span></div>
+    <div class="loan-best">✅ Best for: General business needs, established businesses with 2+ years of tax returns, companies seeking $150K–$5M</div>
+    <div style="margin-top:10px;font-size:.75rem;color:var(--gray);">Terms: Up to 10 years (working capital) | Up to 25 years (real estate) | SBA guaranty fee: 2–3.75% of guaranteed portion</div>
+  </div>
+  <div class="loan-card">
+    <div class="loan-header"><div><div class="loan-name">SBA 504 Loan Program</div><div style="font-size:.72rem;color:var(--gray);">Long-term fixed assets · Real estate & equipment</div></div><div><div class="loan-amount">Up to $5.5 Million</div><div class="loan-rate">Rate: Fixed · Below-market rate</div></div></div>
+    <div class="loan-desc">The 504 program provides long-term, fixed-rate financing for major fixed assets. It is structured with three parts: a bank lends 50%, a Certified Development Company (CDC) lends up to 40% (SBA-guaranteed), and the business provides 10% down. Ideal for purchasing commercial real estate or major equipment.</div>
+    <div class="loan-features"><span class="loan-feature">Commercial Real Estate</span><span class="loan-feature">Heavy Equipment</span><span class="loan-feature">Construction/Renovation</span><span class="loan-feature">Fixed Rate</span></div>
+    <div class="loan-best">✅ Best for: Businesses buying a building, manufacturing equipment, or land. 10% down is below conventional commercial loan requirements.</div>
+    <div style="margin-top:10px;font-size:.75rem;color:var(--gray);">Terms: 10, 20, or 25 years | Minimum business net worth <$20M | Business must be for-profit</div>
+  </div>
+  <div class="loan-card">
+    <div class="loan-header"><div><div class="loan-name">SBA Microloan Program</div><div style="font-size:.72rem;color:var(--gray);">Small loans for startups & small businesses</div></div><div><div class="loan-amount">Up to $50,000</div><div class="loan-rate">Rate: 8–13% (set by intermediary)</div></div></div>
+    <div class="loan-desc">Microloans are provided through nonprofit community-based intermediaries, not banks. Ideal for startups and very small businesses that need less than $50,000. Average microloan is approximately $13,000. Many intermediaries also offer technical assistance and business training.</div>
+    <div class="loan-features"><span class="loan-feature">Startup Friendly</span><span class="loan-feature">Working Capital</span><span class="loan-feature">Inventory</span><span class="loan-feature">Supplies & Equipment</span></div>
+    <div class="loan-best">✅ Best for: Startups, sole proprietors, home-based businesses, businesses that cannot qualify for bank loans</div>
+    <div style="margin-top:10px;font-size:.75rem;color:var(--gray);">Terms: Up to 6 years | Cannot be used for real estate or to pay existing debt</div>
+  </div>
+  <div class="loan-card">
+    <div class="loan-header"><div><div class="loan-name">SBA Express Loan</div><div style="font-size:.72rem;color:var(--gray);">Faster approval · Revolving credit option</div></div><div><div class="loan-amount">Up to $500,000</div><div class="loan-rate">Rate: Prime + 4.5–6.5%</div></div></div>
+    <div class="loan-desc">SBA Express offers a streamlined application process with a 36-hour response commitment from the SBA. Can be used as a revolving line of credit (up to 10 years) or a term loan. The SBA guarantees only 50%, so lenders have more flexibility but less risk reduction than standard 7(a).</div>
+    <div class="loan-features"><span class="loan-feature">Fast Approval</span><span class="loan-feature">Revolving Credit Line</span><span class="loan-feature">Working Capital</span><span class="loan-feature">Equipment</span></div>
+    <div class="loan-best">✅ Best for: Businesses that need faster access to capital and have good credit and banking relationships</div>
+    <div style="margin-top:10px;font-size:.75rem;color:var(--gray);">SBA response: 36 hours | 50% SBA guaranty | Export Express available for export transactions</div>
+  </div>
+</div>
+
+<!-- TAB 7: SET-ASIDES -->
+<div class="tab-panel" id="tab-setasides">
+  <div class="hero" style="padding:20px 26px;">
+    <h2>🎯 Federal Set-Aside Programs</h2>
+    <p>Federal set-asides reserve specific contracts for qualified small businesses, eliminating large-company competition. Understanding set-asides is essential for any RC2 client pursuing government contracts.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">📊 Federal Small Business Contracting Goals</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:8px;">
+      <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--border);"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--accent);">23%</div><div style="font-size:.72rem;color:var(--gray);margin-top:2px;">All Small Businesses</div></div>
+      <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--border);"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--purple);">5%</div><div style="font-size:.72rem;color:var(--gray);margin-top:2px;">Small Disadvantaged (8a/SDB)</div></div>
+      <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--border);"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--green);">5%</div><div style="font-size:.72rem;color:var(--gray);margin-top:2px;">Women-Owned (WOSB)</div></div>
+      <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--border);"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--gold);">3%</div><div style="font-size:.72rem;color:var(--gray);margin-top:2px;">HUBZone</div></div>
+      <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--border);"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--orange);">3%</div><div style="font-size:.72rem;color:var(--gray);margin-top:2px;">SDVOSB (Veterans)</div></div>
+    </div>
+  </div>
+  <div class="learn-grid" style="margin-top:0;">
+    <div class="learn-card"><div class="lc-icon">🎯</div><div class="lc-title">Sole Source Contracts</div><div class="lc-text">Certain certified businesses (8(a), SDVOSB, WOSB) can receive contracts without competition. This is the most powerful advantage in government contracting. Sole-source contracts are awarded without a competitive bid process when the contracting officer determines it is in the government's interest.</div></div>
+    <div class="learn-card"><div class="lc-icon">📋</div><div class="lc-title">Total Small Business Set-Asides</div><div class="lc-text">When only small businesses will be competing for a contract, the contracting officer issues a "total small business set-aside." Any small business (without specific certification) can bid. The "rule of two" applies: if two or more small businesses are likely to submit offers, the contract must be set aside.</div></div>
+    <div class="learn-card"><div class="lc-icon">🤝</div><div class="lc-title">Subcontracting Plans</div><div class="lc-text">Large prime contractors on federal contracts above $750,000 (construction: $1.5M) must have a subcontracting plan with goals for small business subcontracting. This creates a significant pipeline of opportunities for small businesses who do not want to be prime contractors.</div></div>
+    <div class="learn-card"><div class="lc-icon">🔍</div><div class="lc-title">Where to Find Set-Aside Contracts</div><div class="lc-text">SAM.gov/contracts lists all federal contract opportunities. Filter by "set-aside type" to find opportunities matching your client's certifications. Also check agency-specific forecast pages and FedBizOpps (now integrated into SAM.gov).</div></div>
+    <div class="learn-card"><div class="lc-icon">🏭</div><div class="lc-title">GSA Schedules (MAS)</div><div class="lc-text">The GSA Multiple Award Schedule (MAS) is a long-term contract vehicle that pre-approves companies to sell to federal agencies at pre-negotiated rates. Once on GSA Schedule, agencies can purchase directly without a competitive bid. There are separate tracks for small businesses and socioeconomic categories.</div></div>
+    <div class="learn-card"><div class="lc-icon">⚠️</div><div class="lc-title">Set-Aside Compliance Rules</div><div class="lc-text">Set-aside contracts come with performance requirements. For example, a small business receiving a set-aside manufacturing contract must perform at least 50% of the work itself (cannot subcontract more than 50% to a non-small business). Violations can result in contract termination and debarment.</div></div>
+  </div>
+</div>
+
+</div><!-- end content -->
+
+<script>
+const NAICS_DATA = [
+  {code:'311611',desc:'Animal (except Poultry) Slaughtering',sector:'Manufacturing',std:'1,000 Employees',basis:'Employees'},
+  {code:'313110',desc:'Fiber, Yarn, and Thread Mills',sector:'Manufacturing',std:'1,500 Employees',basis:'Employees'},
+  {code:'314110',desc:'Carpet and Rug Mills',sector:'Manufacturing',std:'1,500 Employees',basis:'Employees'},
+  {code:'314999',desc:'All Other Textile Product Mills',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'315110',desc:'Hosiery and Sock Mills',sector:'Manufacturing',std:'750 Employees',basis:'Employees'},
+  {code:'315190',desc:'Other Apparel Knitting Mills',sector:'Manufacturing',std:'750 Employees',basis:'Employees'},
+  {code:'315210',desc:'Cut and Sew Apparel Contractors',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'315220',desc:'Men\'s and Boys\' Cut and Sew Apparel Mfg',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'315240',desc:'Women\'s, Girls\', and Infants\' Cut and Sew',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'315280',desc:'Other Cut and Sew Apparel Manufacturing',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'315990',desc:'Apparel Accessories and Other Apparel',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'321113',desc:'Sawmills',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'322110',desc:'Pulp Mills',sector:'Manufacturing',std:'750 Employees',basis:'Employees'},
+  {code:'323111',desc:'Commercial Printing (except Screen)',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'324110',desc:'Petroleum Refineries',sector:'Manufacturing',std:'1,500 Employees',basis:'Employees'},
+  {code:'325411',desc:'Medicinal and Botanical Manufacturing',sector:'Manufacturing',std:'1,000 Employees',basis:'Employees'},
+  {code:'326199',desc:'All Other Plastics Product Manufacturing',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'331110',desc:'Iron and Steel Mills and Ferroalloy Mfg',sector:'Manufacturing',std:'1,500 Employees',basis:'Employees'},
+  {code:'332710',desc:'Machine Shops',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'336111',desc:'Automobile Manufacturing',sector:'Manufacturing',std:'1,500 Employees',basis:'Employees'},
+  {code:'336413',desc:'Other Aircraft Parts and Aux Equipment',sector:'Manufacturing',std:'1,250 Employees',basis:'Employees'},
+  {code:'339999',desc:'All Other Miscellaneous Manufacturing',sector:'Manufacturing',std:'500 Employees',basis:'Employees'},
+  {code:'423100',desc:'Motor Vehicle Parts and Supplies Merchant Wholesalers',sector:'Wholesale',std:'250 Employees',basis:'Employees'},
+  {code:'423840',desc:'Industrial Machinery and Equipment Merchant Wholesalers',sector:'Wholesale',std:'250 Employees',basis:'Employees'},
+  {code:'424310',desc:'Piece Goods, Notions Merchant Wholesalers',sector:'Wholesale',std:'250 Employees',basis:'Employees'},
+  {code:'424320',desc:'Men\'s and Boys\' Clothing Merchant Wholesalers',sector:'Wholesale',std:'250 Employees',basis:'Employees'},
+  {code:'424330',desc:'Women\'s, Children\'s Clothing Merchant Wholesalers',sector:'Wholesale',std:'250 Employees',basis:'Employees'},
+  {code:'484110',desc:'General Freight Trucking, Local',sector:'Transportation',std:'$34.0M',basis:'Revenue'},
+  {code:'484121',desc:'General Freight Trucking, Long-Distance',sector:'Transportation',std:'$40.0M',basis:'Revenue'},
+  {code:'488510',desc:'Freight Transportation Arrangement',sector:'Transportation',std:'$20.5M',basis:'Revenue'},
+  {code:'493110',desc:'General Warehousing and Storage',sector:'Transportation',std:'$34.0M',basis:'Revenue'},
+  {code:'511210',desc:'Software Publishers',sector:'Technology',std:'$47.0M',basis:'Revenue'},
+  {code:'518210',desc:'Data Processing, Hosting, Related Services',sector:'Technology',std:'$47.0M',basis:'Revenue'},
+  {code:'519130',desc:'Internet Publishing and Web Search Portals',sector:'Technology',std:'$47.0M',basis:'Revenue'},
+  {code:'524210',desc:'Insurance Agencies and Brokerages',sector:'Services',std:'$24.5M',basis:'Revenue'},
+  {code:'531110',desc:'Lessors of Residential Buildings',sector:'Services',std:'$34.0M',basis:'Revenue'},
+  {code:'541110',desc:'Offices of Lawyers',sector:'Services',std:'$17.5M',basis:'Revenue'},
+  {code:'541211',desc:'Offices of Certified Public Accountants',sector:'Services',std:'$22.0M',basis:'Revenue'},
+  {code:'541310',desc:'Architectural Services',sector:'Services',std:'$22.0M',basis:'Revenue'},
+  {code:'541330',desc:'Engineering Services',sector:'Services',std:'$22.0M',basis:'Revenue'},
+  {code:'541511',desc:'Custom Computer Programming Services',sector:'Technology',std:'$34.0M',basis:'Revenue'},
+  {code:'541512',desc:'Computer Systems Design Services',sector:'Technology',std:'$34.0M',basis:'Revenue'},
+  {code:'541519',desc:'Other Computer Related Services',sector:'Technology',std:'$34.0M',basis:'Revenue'},
+  {code:'541611',desc:'Administrative Management Consulting',sector:'Services',std:'$24.5M',basis:'Revenue'},
+  {code:'541612',desc:'Human Resources Consulting Services',sector:'Services',std:'$24.5M',basis:'Revenue'},
+  {code:'541613',desc:'Marketing Consulting Services',sector:'Services',std:'$24.5M',basis:'Revenue'},
+  {code:'541614',desc:'Process, Physical Distribution, Logistics Consulting',sector:'Services',std:'$24.5M',basis:'Revenue'},
+  {code:'541618',desc:'Other Management Consulting Services',sector:'Services',std:'$24.5M',basis:'Revenue'},
+  {code:'541620',desc:'Environmental Consulting Services',sector:'Services',std:'$19.0M',basis:'Revenue'},
+  {code:'541690',desc:'Other Scientific and Technical Consulting',sector:'Services',std:'$19.0M',basis:'Revenue'},
+  {code:'541720',desc:'Research and Development in Social Sciences',sector:'Services',std:'$24.5M',basis:'Revenue'},
+  {code:'541810',desc:'Advertising Agencies',sector:'Services',std:'$19.0M',basis:'Revenue'},
+  {code:'541910',desc:'Marketing Research and Public Opinion Polling',sector:'Services',std:'$19.0M',basis:'Revenue'},
+  {code:'541990',desc:'All Other Professional, Scientific, Technical Services',sector:'Services',std:'$19.0M',basis:'Revenue'},
+  {code:'561110',desc:'Office Administrative Services',sector:'Services',std:'$19.0M',basis:'Revenue'},
+  {code:'561210',desc:'Facilities Support Services',sector:'Services',std:'$47.0M',basis:'Revenue'},
+  {code:'561311',desc:'Employment Placement Agencies',sector:'Services',std:'$15.0M',basis:'Revenue'},
+  {code:'561320',desc:'Temporary Help Services',sector:'Services',std:'$34.0M',basis:'Revenue'},
+  {code:'561422',desc:'Telephone Answering Services',sector:'Services',std:'$19.0M',basis:'Revenue'},
+  {code:'561499',desc:'All Other Business Support Services',sector:'Services',std:'$15.0M',basis:'Revenue'},
+  {code:'561510',desc:'Travel Agencies',sector:'Services',std:'$22.0M',basis:'Revenue'},
+  {code:'561520',desc:'Tour Operators',sector:'Services',std:'$8.0M',basis:'Revenue'},
+  {code:'561599',desc:'All Other Travel Arrangement Services',sector:'Services',std:'$22.0M',basis:'Revenue'},
+  {code:'561710',desc:'Exterminating and Pest Control Services',sector:'Services',std:'$17.5M',basis:'Revenue'},
+  {code:'561720',desc:'Janitorial Services',sector:'Services',std:'$19.0M',basis:'Revenue'},
+  {code:'561730',desc:'Landscaping Services',sector:'Services',std:'$8.0M',basis:'Revenue'},
+  {code:'561740',desc:'Carpet and Upholstery Cleaning Services',sector:'Services',std:'$8.0M',basis:'Revenue'},
+  {code:'561910',desc:'Packaging and Labeling Services',sector:'Services',std:'$12.5M',basis:'Revenue'},
+  {code:'561990',desc:'All Other Support Services',sector:'Services',std:'$12.5M',basis:'Revenue'},
+  {code:'621111',desc:'Offices of Physicians (except Mental Health)',sector:'Healthcare',std:'$19.0M',basis:'Revenue'},
+  {code:'621210',desc:'Offices of Dentists',sector:'Healthcare',std:'$8.0M',basis:'Revenue'},
+  {code:'621330',desc:'Offices of Mental Health Practitioners',sector:'Healthcare',std:'$17.5M',basis:'Revenue'},
+  {code:'621610',desc:'Home Health Care Services',sector:'Healthcare',std:'$19.0M',basis:'Revenue'},
+  {code:'622110',desc:'General Medical and Surgical Hospitals',sector:'Healthcare',std:'$47.0M',basis:'Revenue'},
+  {code:'236115',desc:'New Single-Family Housing Construction',sector:'Construction',std:'$47.0M',basis:'Revenue'},
+  {code:'236220',desc:'Commercial and Institutional Building Construction',sector:'Construction',std:'$47.0M',basis:'Revenue'},
+  {code:'237110',desc:'Water and Sewer Line Construction',sector:'Construction',std:'$22.0M',basis:'Revenue'},
+  {code:'237310',desc:'Highway, Street, and Bridge Construction',sector:'Construction',std:'$47.0M',basis:'Revenue'},
+  {code:'238110',desc:'Poured Concrete Foundation and Structure',sector:'Construction',std:'$19.0M',basis:'Revenue'},
+  {code:'238210',desc:'Electrical Contractors',sector:'Construction',std:'$19.0M',basis:'Revenue'},
+  {code:'238220',desc:'Plumbing, Heating, and Air-Conditioning Contractors',sector:'Construction',std:'$19.0M',basis:'Revenue'},
+  {code:'238290',desc:'Other Building Equipment Contractors',sector:'Construction',std:'$19.0M',basis:'Revenue'},
+  {code:'238310',desc:'Drywall and Insulation Contractors',sector:'Construction',std:'$19.0M',basis:'Revenue'},
+  {code:'238350',desc:'Finish Carpentry Contractors',sector:'Construction',std:'$19.0M',basis:'Revenue'},
+  {code:'441110',desc:'New Car Dealers',sector:'Retail',std:'$47.0M',basis:'Revenue'},
+  {code:'445110',desc:'Supermarkets and Other Grocery (except Convenience) Stores',sector:'Retail',std:'$47.0M',basis:'Revenue'},
+  {code:'452210',desc:'Department Stores',sector:'Retail',std:'$47.0M',basis:'Revenue'},
+  {code:'453998',desc:'All Other Miscellaneous Store Retailers',sector:'Retail',std:'$8.0M',basis:'Revenue'},
+  {code:'111110',desc:'Soybean Farming',sector:'Agriculture',std:'$2.0M',basis:'Revenue'},
+  {code:'111940',desc:'Hay Farming',sector:'Agriculture',std:'$2.0M',basis:'Revenue'},
+  {code:'112111',desc:'Beef Cattle Ranching and Farming',sector:'Agriculture',std:'$2.0M',basis:'Revenue'},
+  {code:'112320',desc:'Broilers and Other Meat Type Chicken Production',sector:'Agriculture',std:'$2.0M',basis:'Revenue'}
+];
+
+let filteredNAICS = [...NAICS_DATA];
+
+function filterNAICS(){
+  const q=document.getElementById('naics-search').value.toLowerCase();
+  const sector=document.getElementById('naics-sector').value;
+  filteredNAICS=NAICS_DATA.filter(n=>{
+    const mq=!q||n.code.includes(q)||n.desc.toLowerCase().includes(q)||n.sector.toLowerCase().includes(q);
+    const ms=!sector||n.sector===sector;
+    return mq&&ms;
+  });
+  renderNAICS();
+}
+
+function renderNAICS(){
+  const tbody=document.getElementById('naics-table-body');
+  document.getElementById('naics-results-count').textContent=`Showing ${filteredNAICS.length} of ${NAICS_DATA.length} codes`;
+  tbody.innerHTML=filteredNAICS.slice(0,80).map(n=>`<tr onclick="selectNAICS('${n.code}')">
+    <td class="naics-code">${n.code}</td>
+    <td class="naics-desc">${n.desc}</td>
+    <td><span class="sector-badge">${n.sector}</span></td>
+    <td class="size-std">${n.std}</td>
+    <td style="font-size:.75rem;color:var(--gray);">${n.basis}</td>
+  </tr>`).join('');
+  // Populate calc dropdown
+  const sel=document.getElementById('calc-naics');
+  if(sel.options.length<=1){
+    NAICS_DATA.forEach(n=>{const o=document.createElement('option');o.value=n.code;o.textContent=n.code+' — '+n.desc;sel.appendChild(o);});
+  }
+}
+
+function selectNAICS(code){
+  const n=NAICS_DATA.find(x=>x.code===code);
+  if(n){alert(`NAICS ${n.code}: ${n.desc}\nSize Standard: ${n.std} (${n.basis})\nSector: ${n.sector}`);}
+}
+
+function calcSizeStd(){
+  const code=document.getElementById('calc-naics').value;
+  if(!code){document.getElementById('calc-result').style.display='none';return;}
+  const n=NAICS_DATA.find(x=>x.code===code);
+  if(!n) return;
+  const rev=parseFloat(document.getElementById('calc-revenue').value.replace(/[^0-9.]/g,''))||0;
+  const emp=parseInt(document.getElementById('calc-employees').value)||0;
+  let qualifies=null,reason='';
+  if(n.basis==='Employees'&&emp>0){
+    const max=parseInt(n.std.replace(/[^0-9]/g,''));
+    qualifies=emp<=max;
+    reason=`Your client has ${emp} employees. The size standard for NAICS ${n.code} is ${n.std}.`;
+  } else if(n.basis==='Revenue'&&rev>0){
+    const maxStr=n.std.replace('$','').replace('M','');
+    const max=parseFloat(maxStr)*1000000;
+    qualifies=rev<=max;
+    reason=`Your client's 3-year average revenue is $${rev.toLocaleString()}. The size standard for NAICS ${n.code} is ${n.std}.`;
+  }
+  const result=document.getElementById('calc-result');
+  result.style.display='block';
+  const statusHtml=qualifies===null?'Enter revenue or employee count above to calculate eligibility':qualifies?`<div style="font-size:1.1rem;font-weight:800;color:#34d399;">✅ QUALIFIES AS SMALL BUSINESS</div>`:(`<div style="font-size:1.1rem;font-weight:800;color:#f87171;">❌ DOES NOT QUALIFY AS SMALL BUSINESS</div>`);
+  document.getElementById('calc-result-content').innerHTML=`
+    <div class="cr-grid">
+      <div><div class="cr-label">NAICS Code</div><div class="cr-val">${n.code}</div></div>
+      <div><div class="cr-label">Size Standard</div><div class="cr-val">${n.std}</div></div>
+      <div><div class="cr-label">Standard Basis</div><div class="cr-val">${n.basis}</div></div>
+    </div>
+    <div style="margin-top:14px;">${statusHtml}</div>
+    ${reason?`<div class="cr-note">${reason}</div>`:''}
+    <div class="cr-note" style="margin-top:8px;">⚠️ Remember: Affiliation rules apply. All affiliates' employees/revenue must be included. Verify at sba.gov/size-standards for the most current standards.</div>`;
+}
+
+function checkEligibility(){
+  const g=(id)=>{const el=document.getElementById(id);return el?el.value:'';};
+  const citizen=g('e-citizen'),woman=g('e-woman'),veteran=g('e-veteran'),disadvantaged=g('e-disadvantaged'),networth=g('e-networth'),manages=g('e-manages'),hubzone=g('e-hubzone'),hubemp=g('e-hub-emp'),years=g('e-years'),small=g('e-small');
+  const certs=[
+    {name:'8(a) Business Development',icon:'8️⃣',check:()=>{
+      if(citizen!=='yes'||small==='no') return'ineligible';
+      if(disadvantaged==='yes'&&manages==='yes'&&networth==='yes') return years==='yes'?'eligible':'maybe';
+      if(disadvantaged==='yes'&&manages==='yes') return 'maybe';
+      return 'ineligible';
+    },notes:{'eligible':'Client appears to meet key 8(a) requirements. Proceed with full application review.','maybe':'Client may qualify. Verify years in business and all economic disadvantage criteria.','ineligible':'Client does not appear to meet 8(a) requirements based on answers provided.'}},
+    {name:'Women-Owned Small Business (WOSB)',icon:'👩',check:()=>{
+      if(woman!=='yes'||citizen!=='yes'||small==='no') return 'ineligible';
+      if(manages==='yes') return 'eligible';
+      return 'maybe';
+    },notes:{'eligible':'Client qualifies for WOSB certification. Apply at certify.sba.gov.','maybe':'Owner may need to demonstrate more direct management involvement.','ineligible':'Does not meet WOSB requirements.'}},
+    {name:'Service-Disabled Veteran (SDVOSB)',icon:'🎖️',check:()=>{
+      if(veteran!=='yes'||citizen!=='yes'||small==='no') return 'ineligible';
+      if(manages==='yes') return 'eligible';
+      return 'maybe';
+    },notes:{'eligible':'Client qualifies for SDVOSB. Apply at certify.sba.gov. Also verify VA verification for VA contracts.','maybe':'Verify service-connected disability documentation and management involvement.','ineligible':'Does not meet SDVOSB requirements.'}},
+    {name:'HUBZone Program',icon:'🗺️',check:()=>{
+      if(citizen!=='yes'||small==='no') return 'ineligible';
+      if(hubzone==='yes'&&hubemp==='yes') return 'eligible';
+      if(hubzone==='unknown') return 'maybe';
+      return 'ineligible';
+    },notes:{'eligible':'Client appears to meet HUBZone requirements. Verify location at maps.sba.gov/hubzone.','maybe':'Check if principal office address is in a HUBZone at maps.sba.gov/hubzone.','ineligible':'Business location or employee residence requirements not met.'}},
+    {name:'Small Disadvantaged Business (SDB)',icon:'🏢',check:()=>{
+      if(citizen!=='yes'||small==='no') return 'ineligible';
+      if(disadvantaged==='yes') return 'eligible';
+      return 'ineligible';
+    },notes:{'eligible':'Client can self-certify as SDB in SAM.gov profile. This helps with subcontracting opportunities.','maybe':'','ineligible':'Owner does not appear to be a member of a socially disadvantaged group per SBA definition.'}}
+  ];
+  const results=document.getElementById('eligibility-results');
+  const anyAnswered=citizen||woman||veteran||disadvantaged||networth||manages||hubzone;
+  if(!anyAnswered){results.innerHTML='<div style="background:white;border-radius:12px;border:1px solid var(--border);padding:20px;text-align:center;color:var(--gray);"><div style="font-size:2rem;margin-bottom:10px;">✅</div><div style="font-size:.85rem;">Answer the questions on the left to see results.</div></div>';return;}
+  results.innerHTML=certs.map(c=>{
+    const status=c.check();
+    const statusClass={eligible:'eligible',ineligible:'ineligible',maybe:'maybe'}[status];
+    const statusLabel={eligible:'✅ Likely Eligible',ineligible:'❌ Not Eligible',maybe:'⚠️ Possible — Verify'}[status];
+    const statusBadge={eligible:'st-elig',ineligible:'st-inelig',maybe:'st-maybe'}[status];
+    return`<div class="elig-result-card ${statusClass}">
+      <div class="er-header"><div class="er-icon">${c.icon}</div><div class="er-name">${c.name}</div><span class="er-status ${statusBadge}">${statusLabel}</span></div>
+      <div class="er-notes">${c.notes[status]||''}</div>
+    </div>`;
+  }).join('');
+}
+
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+window.onload=function(){
+  try{var u=localStorage.getItem('rc2hub_user');if(u)document.getElementById('hub-username').textContent=u;}catch(e){}
+  renderNAICS();
+};
+</script>
+</body>
+</html>

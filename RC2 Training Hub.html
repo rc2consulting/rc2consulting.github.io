@@ -103,7 +103,18 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
     </div>
   </header>
 
-  <div class="dashboar    <div class="section-title">🟢 Live Tools</div>
+  <div class="dashboard">
+    <div class="welcome-bar">
+      <div class="wtitle">Welcome back, <span id="uname-welcome">RC2 Staff</span> 👋</div>
+      <div class="wsub">RC2 Internal Resource Hub — All tools are live and ready to use.</div>
+    </div>
+    <div class="stats-row" id="stats-row-html">
+      <div class="stat-card"><div class="snum">9</div><div class="slabel">Tools Live</div></div>
+      <div class="stat-card"><div class="snum">8</div><div class="slabel">Service Areas</div></div>
+      <div class="stat-card"><div class="snum">∞</div><div class="slabel">Clients Served</div></div>
+      <div class="stat-card"><div class="snum">∞</div><div class="slabel">Expandable</div></div>
+    </div>
+    <div class="section-title">🟢 Live Tools</div>
 
     <!-- ROW 1: Employee Training Portal — full-width featured card -->
     <div class="tool-card-wide" onclick="openTool('RC2_Employee_Training.html','🎓 Employee Training Portal')">
@@ -206,6 +217,57 @@ header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
           <div class="tc-desc">Ready-to-use SOP templates for the most common RC2 client needs. Browse by category, customize for the client, export as a formatted document, and track version history.</div>
           <div class="tc-footer">
             <span class="tc-tag tag-green">10 Templates</span>
+            <span class="tc-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card" onclick="openTool('RC2_Fractional_DOO.html','👔 Fractional Director of Operations')">
+        <div class="tc-header">
+          <div class="tc-icon" style="background:#f5f3ff;">👔</div>
+          <div>
+            <div class="tc-title">Fractional DOO</div>
+            <div class="tc-cat" style="color:#7c3aed;">Leadership & Operations</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-desc">Full training and execution framework for delivering Fractional DOO services. 30/60/90-day plan, weekly rhythm, KPI builder, RACI matrix, operational playbook, and monthly report generator.</div>
+          <div class="tc-footer">
+            <span class="tc-tag tag-blue">7 Modules</span>
+            <span class="tc-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card" onclick="openTool('RC2_Operational_Gap_Analysis.html','⚙️ Operational Infrastructure Gap Analysis')">
+        <div class="tc-header">
+          <div class="tc-icon" style="background:#fff7ed;">⚙️</div>
+          <div>
+            <div class="tc-title">Operational Gap Analysis</div>
+            <div class="tc-cat" style="color:#ea580c;">Assessment Tools</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-desc">Score your client's operational infrastructure across 8 critical areas. Interactive 0–4 rating system auto-generates findings, priority action plan, and a full executive gap analysis report.</div>
+          <div class="tc-footer">
+            <span class="tc-tag tag-blue">8 Areas · 60+ Questions</span>
+            <span class="tc-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card" onclick="openTool('RC2_SBA_Navigator.html','🏛️ SBA Navigator & NAICS Code Tool')">
+        <div class="tc-header">
+          <div class="tc-icon" style="background:#f0fdf4;">🏛️</div>
+          <div>
+            <div class="tc-title">SBA Navigator & NAICS Tool</div>
+            <div class="tc-cat" style="color:var(--green);">Government Contracting</div>
+          </div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-desc">Complete SBA reference tool. Search 90+ NAICS codes, calculate size standards, check certification eligibility (8a, WOSB, HUBZone, SDVOSB), explore loan programs, and understand set-aside opportunities.</div>
+          <div class="tc-footer">
+            <span class="tc-tag tag-green">90+ NAICS Codes</span>
             <span class="tc-arrow">→</span>
           </div>
         </div>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 — Operational Infrastructure Gap Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;--green:#059669;--red:#dc2626;--orange:#ea580c;--purple:#7c3aed;--gray:#6b7280;--border:#e2e8f0;--light:#f8fafc;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#f1f5f9;color:#1e293b;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.user-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.85);}
+.btn-gold{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:700;cursor:pointer;}
+.btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;}
+.tab-bar{background:white;border-bottom:1px solid var(--border);display:flex;overflow-x:auto;flex-shrink:0;padding:0 20px;}
+.tab-bar::-webkit-scrollbar{height:3px;}
+.tab-bar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px;}
+.tab-btn{padding:11px 14px;font-size:.75rem;font-weight:700;color:var(--gray);border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s;}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+.tab-btn .tab-score{display:inline-block;width:20px;height:20px;border-radius:50%;font-size:.62rem;font-weight:800;margin-left:5px;line-height:20px;text-align:center;}
+.content{flex:1;overflow-y:auto;padding:24px;max-width:1100px;margin:0 auto;width:100%;}
+.content::-webkit-scrollbar{width:6px;}
+.content::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+
+/* SCORECARD OVERVIEW */
+.score-overview{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:16px;padding:24px 28px;color:white;margin-bottom:20px;}
+.so-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;margin-bottom:4px;}
+.so-sub{font-size:.82rem;opacity:.6;margin-bottom:20px;}
+.so-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;}
+.so-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:background .15s;}
+.so-card:hover{background:rgba(255,255,255,.14);}
+.so-pct{font-size:1.6rem;font-weight:800;}
+.so-label{font-size:.65rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+.so-bar{height:4px;border-radius:2px;margin-top:6px;background:rgba(255,255,255,.15);}
+.so-bar-fill{height:100%;border-radius:2px;}
+
+/* GAP CARDS */
+.gap-card{background:white;border-radius:12px;border:1px solid var(--border);margin-bottom:12px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.04);}
+.gap-header{padding:14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;}
+.gap-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;flex-shrink:0;}
+.gap-info{flex:1;}
+.gap-title{font-size:.88rem;font-weight:800;color:var(--navy);}
+.gap-sub{font-size:.72rem;color:var(--gray);margin-top:1px;}
+.gap-score-badge{padding:4px 14px;border-radius:20px;font-size:.72rem;font-weight:800;flex-shrink:0;}
+.score-critical{background:#fee2e2;color:#991b1b;}
+.score-developing{background:#fef3c7;color:#92400e;}
+.score-functional{background:#dbeafe;color:#1e40af;}
+.score-optimized{background:#d1fae5;color:#065f46;}
+.gap-pct{font-size:.9rem;font-weight:800;margin-right:6px;}
+.gap-body{display:none;border-top:1px solid var(--border);padding:18px;}
+.gap-body.open{display:block;}
+
+/* QUESTION ROWS */
+.q-section{margin-bottom:18px;}
+.qs-title{font-size:.7rem;font-weight:800;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;}
+.q-row{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:8px;border:1px solid var(--border);margin-bottom:6px;background:var(--light);}
+.q-text{flex:1;}
+.q-label{font-size:.83rem;color:#374151;font-weight:600;}
+.q-desc{font-size:.72rem;color:var(--gray);margin-top:2px;line-height:1.5;}
+.q-rating{display:flex;gap:4px;flex-shrink:0;}
+.q-btn{width:32px;height:32px;border-radius:6px;border:1.5px solid var(--border);background:white;font-size:.72rem;font-weight:800;cursor:pointer;transition:all .15s;}
+.q-btn:hover{border-color:var(--accent);}
+.q-btn.r0{background:#fee2e2;border-color:#dc2626;color:#991b1b;}
+.q-btn.r1{background:#fff7ed;border-color:#ea580c;color:#c2410c;}
+.q-btn.r2{background:#fef3c7;border-color:#f59e0b;color:#92400e;}
+.q-btn.r3{background:#dbeafe;border-color:#2563eb;color:#1e40af;}
+.q-btn.r4{background:#d1fae5;border-color:#059669;color:#065f46;}
+.q-note{width:100%;margin-top:6px;border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-size:.72rem;font-family:'Source Sans 3',sans-serif;color:#374151;resize:none;min-height:36px;outline:none;}
+.q-note:focus{border-color:var(--accent);}
+.rating-legend{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.rl-item{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--gray);}
+.rl-dot{width:10px;height:10px;border-radius:50%;}
+
+/* FINDINGS */
+.findings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
+.finding-card{background:white;border-radius:10px;border:1px solid var(--border);padding:16px;border-left:4px solid var(--border);}
+.finding-card.priority-critical{border-left-color:var(--red);}
+.finding-card.priority-high{border-left-color:var(--orange);}
+.finding-card.priority-medium{border-left-color:var(--gold);}
+.finding-card.priority-low{border-left-color:var(--green);}
+.fc-area{font-size:.65rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.fc-title{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.fc-score{font-size:.75rem;color:var(--gray);}
+.fc-actions{margin-top:8px;font-size:.75rem;color:#374151;line-height:1.6;}
+
+/* ACTION PLAN TABLE */
+.action-table{width:100%;border-collapse:collapse;}
+.action-table th{background:var(--navy);color:white;padding:10px 12px;font-size:.7rem;font-weight:700;text-align:left;}
+.action-table td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:.8rem;vertical-align:top;}
+.action-table tr:hover td{background:var(--light);}
+.priority-badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.65rem;font-weight:700;}
+.pb-c{background:#fee2e2;color:#991b1b;}
+.pb-h{background:#fff7ed;color:#c2410c;}
+.pb-m{background:#fef3c7;color:#92400e;}
+.pb-l{background:#d1fae5;color:#065f46;}
+
+/* REPORT */
+.report-header{background:linear-gradient(135deg,var(--navy),var(--blue));padding:24px 32px;color:white;border-radius:12px 12px 0 0;}
+.card{background:white;border-radius:14px;border:1px solid var(--border);padding:22px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,.04);}
+.card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:12px;}
+
+@media print{body{height:auto;overflow:visible;}.topbar,.tab-bar,.btn-gold,.btn-ghost,.q-rating,.gap-header{pointer-events:none;}.content{overflow:visible;max-width:100%;}.tab-panel{display:block!important;}@page{margin:.4in;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div>
+    <div style="color:white;font-size:.95rem;font-weight:700;">⚡ RC2 CONSULTING — OPERATIONAL INFRASTRUCTURE GAP ANALYSIS</div>
+    <div style="color:rgba(255,255,255,.5);font-size:.68rem;">Assess · Score · Prioritize · Build the Action Plan</div>
+  </div>
+  <div class="topbar-right">
+    <div class="user-pill">👤 <span id="hub-username">RC2 Staff</span></div>
+    <button class="btn-ghost" onclick="saveGapData()">💾 Save</button>
+    <button class="btn-gold" onclick="window.print()">🖨️ Print / PDF</button>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('dashboard',this)">🏠 Dashboard</button>
+  <button class="tab-btn" onclick="showTab('leadership',this)">👔 Leadership</button>
+  <button class="tab-btn" onclick="showTab('hr',this)">👥 HR & People</button>
+  <button class="tab-btn" onclick="showTab('finance',this)">💰 Finance</button>
+  <button class="tab-btn" onclick="showTab('operations',this)">⚙️ Operations</button>
+  <button class="tab-btn" onclick="showTab('sales',this)">📈 Sales & Growth</button>
+  <button class="tab-btn" onclick="showTab('technology',this)">💻 Technology</button>
+  <button class="tab-btn" onclick="showTab('compliance',this)">✅ Compliance</button>
+  <button class="tab-btn" onclick="showTab('supplychain',this)">🚚 Supply Chain</button>
+  <button class="tab-btn" onclick="showTab('report',this)">📄 Full Report</button>
+</div>
+
+<div class="content">
+<!-- CLIENT INFO -->
+<div style="background:white;border-radius:12px;border:1px solid var(--border);padding:12px 18px;margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+  <div style="flex:2;min-width:160px;"><label style="font-size:.63rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;">Client / Company</label><input id="gap-client" type="text" placeholder="ABC Manufacturing Co." oninput="saveGapData();updateDashboard()" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;"></div>
+  <div style="flex:1;min-width:110px;"><label style="font-size:.63rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;">Assessment Date</label><input id="gap-date" type="date" oninput="saveGapData()" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;"></div>
+  <div style="flex:1;min-width:110px;"><label style="font-size:.63rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;">Assessor</label><input id="gap-assessor" type="text" placeholder="RC2 Staff" oninput="saveGapData()" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;"></div>
+  <div style="flex:1;min-width:100px;"><label style="font-size:.63rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px;">Revenue Range</label>
+    <select id="gap-revenue" oninput="saveGapData()" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.83rem;font-family:'Source Sans 3',sans-serif;outline:none;background:white;">
+      <option>Under $500K</option><option>$500K–$1M</option><option selected>$1M–$5M</option><option>$5M–$15M</option><option>$15M+</option>
+    </select>
+  </div>
+</div>
+
+<!-- TAB: DASHBOARD -->
+<div class="tab-panel active" id="tab-dashboard">
+  <div class="score-overview">
+    <div class="so-title" id="dash-title">Operational Infrastructure Gap Analysis</div>
+    <div class="so-sub">Rate each question 0–4. Score updates automatically. Click any area below to jump to that assessment.</div>
+    <div style="display:flex;align-items:center;gap:20px;margin-bottom:20px;flex-wrap:wrap;">
+      <div><div style="font-size:.7rem;opacity:.5;text-transform:uppercase;letter-spacing:1px;">Overall Score</div><div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:800;" id="overall-score">—</div></div>
+      <div style="flex:1;min-width:200px;"><div style="display:flex;justify-content:space-between;font-size:.68rem;opacity:.5;margin-bottom:6px;"><span>0 — Critical</span><span>50 — Developing</span><span>75 — Functional</span><span>100 — Optimized</span></div><div style="background:rgba(255,255,255,.15);border-radius:20px;height:12px;overflow:hidden;"><div id="overall-bar" style="height:100%;border-radius:20px;background:linear-gradient(90deg,#ef4444,#f59e0b,#3b82f6,#10b981);width:0%;transition:width .4s;"></div></div></div>
+      <div id="overall-label" style="font-size:.88rem;font-weight:700;padding:8px 16px;border-radius:8px;background:rgba(255,255,255,.1);">—</div>
+    </div>
+    <div class="so-grid" id="area-grid"></div>
+  </div>
+  <div class="rating-legend">
+    <span style="font-size:.75rem;font-weight:700;color:var(--navy);margin-right:4px;">Rating Scale:</span>
+    <div class="rl-item"><div class="rl-dot" style="background:#dc2626;"></div>0 = Does Not Exist</div>
+    <div class="rl-item"><div class="rl-dot" style="background:#ea580c;"></div>1 = Informal / Ad-Hoc</div>
+    <div class="rl-item"><div class="rl-dot" style="background:#f59e0b;"></div>2 = Partially Developed</div>
+    <div class="rl-item"><div class="rl-dot" style="background:#2563eb;"></div>3 = Documented & Functional</div>
+    <div class="rl-item"><div class="rl-dot" style="background:#059669;"></div>4 = Optimized & Measured</div>
+  </div>
+  <div id="dashboard-findings"></div>
+</div>
+
+<!-- ASSESSMENT TABS - generated dynamically -->
+<div class="tab-panel" id="tab-leadership"><div id="content-leadership"></div></div>
+<div class="tab-panel" id="tab-hr"><div id="content-hr"></div></div>
+<div class="tab-panel" id="tab-finance"><div id="content-finance"></div></div>
+<div class="tab-panel" id="tab-operations"><div id="content-operations"></div></div>
+<div class="tab-panel" id="tab-sales"><div id="content-sales"></div></div>
+<div class="tab-panel" id="tab-technology"><div id="content-technology"></div></div>
+<div class="tab-panel" id="tab-compliance"><div id="content-compliance"></div></div>
+<div class="tab-panel" id="tab-supplychain"><div id="content-supplychain"></div></div>
+
+<!-- REPORT TAB -->
+<div class="tab-panel" id="tab-report">
+  <div style="background:white;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);">
+    <div class="report-header">
+      <div style="font-size:.7rem;opacity:.5;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Operational Infrastructure Gap Analysis Report</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;" id="rpt-client-name">Client Name</div>
+      <div style="font-size:.8rem;opacity:.55;margin-top:4px;">Prepared by RC2 Consulting | <span id="rpt-date-display"></span></div>
+      <div style="display:flex;gap:20px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);flex-wrap:wrap;">
+        <div><div style="font-size:.6rem;opacity:.4;text-transform:uppercase;letter-spacing:1px;">Overall Score</div><div style="font-size:1.4rem;font-weight:800;" id="rpt-overall">—</div></div>
+        <div><div style="font-size:.6rem;opacity:.4;text-transform:uppercase;letter-spacing:1px;">Status</div><div style="font-size:.88rem;font-weight:700;" id="rpt-status">—</div></div>
+        <div><div style="font-size:.6rem;opacity:.4;text-transform:uppercase;letter-spacing:1px;">Critical Gaps</div><div style="font-size:1.4rem;font-weight:800;color:#f87171;" id="rpt-critical">—</div></div>
+        <div><div style="font-size:.6rem;opacity:.4;text-transform:uppercase;letter-spacing:1px;">Areas Assessed</div><div style="font-size:1.4rem;font-weight:800;">8</div></div>
+      </div>
+    </div>
+    <div style="padding:24px 28px;">
+      <div class="card-title" style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:14px;">Area-by-Area Score Summary</div>
+      <div id="rpt-scores-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:24px;"></div>
+      <div class="card-title" style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:14px;">Priority Findings & Gaps</div>
+      <div id="rpt-findings"></div>
+      <div style="margin-top:20px;"><div class="card-title" style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:14px;">Recommended Action Plan</div>
+      <table class="action-table"><thead><tr><th>Priority</th><th>Area</th><th>Action Required</th><th>Timeline</th><th>Owner</th></tr></thead><tbody id="rpt-actions"></tbody></table></div>
+      <div style="margin-top:20px;background:var(--light);border-radius:10px;padding:18px 20px;">
+        <div style="font-size:.75rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">Consultant Notes & Observations</div>
+        <textarea id="rpt-notes" style="width:100%;min-height:100px;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:.82rem;font-family:'Source Sans 3',sans-serif;resize:none;outline:none;" placeholder="Add your overall assessment, key context, and recommendations for the client..." oninput="saveGapData()"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+const AREAS = [
+  {id:'leadership',label:'Leadership',icon:'👔',color:'#7c3aed',
+   sections:[
+    {title:'Strategic Direction',qs:[
+      {q:'Company has a documented vision and strategic plan',d:'Clear direction shared with the team'},
+      {q:'Leadership team meets regularly with structured agendas',d:'Consistent meeting cadence with accountability'},
+      {q:'Annual goals are documented, communicated, and tracked',d:'Goals cascade from company to departments'},
+      {q:'Owner is able to take time off without operations collapsing',d:'Systems exist without key-person dependency'}
+    ]},
+    {title:'Decision Making',qs:[
+      {q:'Decision-making authority is clearly defined at each level',d:'Decision matrix or policy manual exists'},
+      {q:'Decisions are made based on data, not gut feeling',d:'KPIs and reports drive decisions'},
+      {q:'Leadership can identify the top 3 operational priorities at any time',d:'Clear priority-setting process'}
+    ]}
+   ]},
+  {id:'hr',label:'HR & People',icon:'👥',color:'#059669',
+   sections:[
+    {title:'Compliance & Documentation',qs:[
+      {q:'All I-9 forms are current, complete, and properly retained',d:'Federal requirement — non-negotiable'},
+      {q:'Employee handbooks are current (within last 2 years) and distributed',d:'Signed acknowledgment on file for each employee'},
+      {q:'Job descriptions exist for all positions',d:'Define role expectations and performance standards'},
+      {q:'Performance review process is documented and consistently used',d:'Regular, documented employee evaluations'}
+    ]},
+    {title:'Hiring & Onboarding',qs:[
+      {q:'Structured onboarding process exists for all new hires',d:'Consistent, documented first-day through first-month experience'},
+      {q:'Anti-harassment policy is current, posted, and trained',d:'Annual training documented per employee'},
+      {q:'Compensation structure is documented and internally equitable',d:'Pay grades or bands exist and are applied consistently'}
+    ]}
+   ]},
+  {id:'finance',label:'Finance',icon:'💰',color:'#ea580c',
+   sections:[
+    {title:'Financial Controls',qs:[
+      {q:'Monthly financial statements are produced and reviewed by ownership',d:'P&L, balance sheet, and cash flow reviewed monthly'},
+      {q:'Budget exists and actual vs budget is tracked monthly',d:'Variance analysis performed and explained'},
+      {q:'Cash flow is actively managed and forecasted',d:'13-week cash flow forecast maintained'},
+      {q:'Segregation of duties exists in financial processes',d:'No single person controls all financial transactions'}
+    ]},
+    {title:'Accounting & Reporting',qs:[
+      {q:'Accounts receivable aging is reviewed weekly',d:'Collections process is active and documented'},
+      {q:'Payroll is processed accurately and on time',d:'Payroll records retained per IRS requirements'},
+      {q:'Tax compliance is current (filings, deposits, registrations)',d:'All tax obligations are met timely'}
+    ]}
+   ]},
+  {id:'operations',label:'Operations',icon:'⚙️',color:'#2563eb',
+   sections:[
+    {title:'Process Documentation',qs:[
+      {q:'Core operational processes are documented in SOPs',d:'Written step-by-step procedures for key tasks'},
+      {q:'SOPs are actively used and updated when processes change',d:'Version control and review cycle exists'},
+      {q:'Quality control checkpoints are defined in the production process',d:'QC is built into the workflow, not added at the end'},
+      {q:'On-time delivery rate is tracked and meets target',d:'Measured, reported, and acted upon'}
+    ]},
+    {title:'Efficiency & Systems',qs:[
+      {q:'Production planning and scheduling system is in place',d:'Work orders, job scheduling, or production calendar used'},
+      {q:'Inventory is managed accurately with regular cycle counts',d:'Inventory records match physical counts within tolerance'},
+      {q:'Equipment maintenance schedule is documented and followed',d:'Preventive maintenance prevents unexpected downtime'}
+    ]}
+   ]},
+  {id:'sales',label:'Sales & Growth',icon:'📈',color:'#f59e0b',
+   sections:[
+    {title:'Sales Process',qs:[
+      {q:'Documented sales process exists from lead to close',d:'Defined stages with criteria for moving forward'},
+      {q:'CRM or pipeline tracking system is actively used',d:'All opportunities tracked with notes and next actions'},
+      {q:'Target customer profile is clearly defined',d:'ICP (Ideal Customer Profile) is documented and used for prospecting'},
+      {q:'Win/loss rate is tracked and analyzed',d:'Data drives sales process improvement'}
+    ]},
+    {title:'Revenue Management',qs:[
+      {q:'Pricing strategy is documented and consistently applied',d:'Price lists, discount policies, and approval levels exist'},
+      {q:'Monthly revenue is tracked against target with corrective actions',d:'Sales pipeline is sufficient to meet monthly goals'},
+      {q:'Customer retention rate is tracked and a retention program exists',d:'Retention is treated as a strategic priority'}
+    ]}
+   ]},
+  {id:'technology',label:'Technology',icon:'💻',color:'#0891b2',
+   sections:[
+    {title:'Core Systems',qs:[
+      {q:'Accounting software is current and properly configured',d:'QuickBooks, Sage, NetSuite, or equivalent'},
+      {q:'CRM system is implemented and actively used by sales',d:'Customer data centralized and maintained'},
+      {q:'Operations uses a documented software stack for production/inventory',d:'ERP, WMS, or equivalent is in use'}
+    ]},
+    {title:'Data & Security',qs:[
+      {q:'Data is backed up regularly with a tested recovery plan',d:'Business continuity protected by backup systems'},
+      {q:'Cybersecurity policies and employee training are in place',d:'Passwords, access controls, and phishing training documented'},
+      {q:'Technology roadmap exists for next 12–24 months',d:'Planned investments in systems aligned to business growth'}
+    ]}
+   ]},
+  {id:'compliance',label:'Compliance',icon:'✅',color:'#dc2626',
+   sections:[
+    {title:'Regulatory Compliance',qs:[
+      {q:'Business licenses, permits, and registrations are current',d:'All required licenses renewed and posted as required'},
+      {q:'OSHA compliance program is active with documented training',d:'Safety policies, training records, and incident logs maintained'},
+      {q:'Environmental compliance requirements are known and met',d:'Applicable environmental permits current and filed'},
+      {q:'Company is aware of and tracking all applicable labor laws',d:'Minimum wage, overtime, leave, and recordkeeping laws followed'}
+    ]},
+    {title:'Document & Risk Management',qs:[
+      {q:'Document retention policy is documented and followed',d:'Legal hold process exists; records destroyed per schedule'},
+      {q:'Business insurance coverage is adequate and reviewed annually',d:'GL, workers comp, E&O, property reviewed with broker annually'},
+      {q:'Contracts with customers and vendors are in writing and reviewed',d:'Standard contract templates exist and are consistently used'}
+    ]}
+   ]},
+  {id:'supplychain',label:'Supply Chain',icon:'🚚',color:'#065f46',
+   sections:[
+    {title:'Vendor Management',qs:[
+      {q:'Approved vendor list exists with qualification criteria',d:'Vendors are screened and scored before use'},
+      {q:'Key suppliers have written agreements with SLAs',d:'Price, delivery terms, quality, and liability documented'},
+      {q:'Vendor performance is measured and reviewed regularly',d:'Scorecard or rating system in active use'}
+    ]},
+    {title:'Logistics & Procurement',qs:[
+      {q:'Purchase order process is documented and followed',d:'PO system with approval thresholds and three-way match'},
+      {q:'Shipping and receiving procedures are documented',d:'Documented process for inbound and outbound logistics'},
+      {q:'Supply chain risk management plan exists',d:'Backup suppliers identified for critical components'}
+    ]}
+   ]}
+];
+
+// State: {areaId: {sectionIdx: {qIdx: {rating: 0-4, note: ''}}}}
+let gapState = {};
+
+function initState(){
+  AREAS.forEach(a=>{
+    if(!gapState[a.id]) gapState[a.id]={};
+    a.sections.forEach((s,si)=>{
+      if(!gapState[a.id][si]) gapState[a.id][si]={};
+      s.qs.forEach((_,qi)=>{
+        if(!gapState[a.id][si][qi]) gapState[a.id][si][qi]={rating:-1,note:''};
+      });
+    });
+  });
+}
+
+function renderArea(area){
+  const container=document.getElementById('content-'+area.id);
+  let html=`<div style="background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:14px;padding:20px 24px;color:white;margin-bottom:20px;">
+    <div style="font-size:.7rem;opacity:.5;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">${area.label} Assessment</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;">${area.icon} ${area.label} Infrastructure</div>
+    <div style="font-size:.78rem;opacity:.6;margin-top:4px;">Rate each item 0–4. Your scores update the dashboard automatically.</div>
+  </div>
+  <div class="rating-legend" style="margin-bottom:16px;">
+    <span style="font-size:.72rem;font-weight:700;color:var(--navy);margin-right:6px;">0=None</span>
+    <span style="font-size:.72rem;color:var(--gray);margin-right:10px;">1=Informal</span>
+    <span style="font-size:.72rem;color:var(--gray);margin-right:10px;">2=Partial</span>
+    <span style="font-size:.72rem;color:var(--gray);margin-right:10px;">3=Documented</span>
+    <span style="font-size:.72rem;color:var(--gray);">4=Optimized</span>
+  </div>`;
+  area.sections.forEach((sec,si)=>{
+    html+=`<div style="background:white;border-radius:12px;border:1px solid var(--border);margin-bottom:14px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.04);">
+      <div style="padding:12px 18px;background:var(--light);border-bottom:1px solid var(--border);">
+        <div style="font-size:.75rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;">${sec.title}</div>
+      </div>
+      <div style="padding:14px 18px;">`;
+    sec.qs.forEach((q,qi)=>{
+      const st=gapState[area.id][si][qi];
+      const r=st.rating;
+      html+=`<div class="q-row" id="qr_${area.id}_${si}_${qi}">
+        <div class="q-text">
+          <div class="q-label">${q.q}</div>
+          <div class="q-desc">${q.d}</div>
+          <textarea class="q-note" rows="1" placeholder="Notes / evidence / observations..." oninput="setNote('${area.id}',${si},${qi},this.value)">${st.note||''}</textarea>
+        </div>
+        <div class="q-rating">
+          ${[0,1,2,3,4].map(v=>`<button class="q-btn ${r===v?'r'+v:''}" onclick="setRating('${area.id}',${si},${qi},${v})">${v}</button>`).join('')}
+        </div>
+      </div>`;
+    });
+    html+='</div></div>';
+  });
+  container.innerHTML=html;
+}
+
+function setRating(aid,si,qi,val){
+  gapState[aid][si][qi].rating=val;
+  const row=document.getElementById(`qr_${aid}_${si}_${qi}`);
+  if(row){
+    row.querySelectorAll('.q-btn').forEach((b,i)=>{b.className='q-btn'+(i===val?' r'+val:'');});
+  }
+  updateDashboard();
+  saveGapData();
+}
+function setNote(aid,si,qi,val){gapState[aid][si][qi].note=val;saveGapData();}
+
+function getAreaScore(area){
+  let total=0,answered=0,sum=0;
+  area.sections.forEach((s,si)=>{
+    s.qs.forEach((_,qi)=>{
+      const r=(gapState[area.id]||{})[si]?.[qi]?.rating??-1;
+      total++;
+      if(r>=0){answered++;sum+=r;}
+    });
+  });
+  const pct=answered>0?Math.round((sum/(answered*4))*100):null;
+  return{total,answered,sum,pct,max:total*4};
+}
+
+function getScoreLabel(pct){
+  if(pct===null) return{label:'Not Started',class:'score-developing',color:'#6b7280'};
+  if(pct<40) return{label:'Critical',class:'score-critical',color:'#dc2626'};
+  if(pct<65) return{label:'Developing',class:'score-developing',color:'#f59e0b'};
+  if(pct<85) return{label:'Functional',class:'score-functional',color:'#2563eb'};
+  return{label:'Optimized',class:'score-optimized',color:'#059669'};
+}
+
+function updateDashboard(){
+  const client=document.getElementById('gap-client').value||'Company';
+  document.getElementById('dash-title').textContent=client+' — Operational Infrastructure Gap Analysis';
+  document.getElementById('rpt-client-name').textContent=client;
+  document.getElementById('rpt-date-display').textContent=document.getElementById('gap-date').value||new Date().toLocaleDateString();
+
+  let totalScore=0,totalAnswered=0;
+  const areaScores=[];
+  AREAS.forEach(a=>{const sc=getAreaScore(a);areaScores.push({area:a,sc});totalScore+=sc.sum;totalAnswered+=sc.answered;});
+  const overallPct=totalAnswered>0?Math.round((totalScore/(totalAnswered*4))*100):null;
+  const ol=getScoreLabel(overallPct);
+
+  document.getElementById('overall-score').textContent=overallPct!==null?overallPct+'%':'—';
+  document.getElementById('overall-bar').style.width=(overallPct||0)+'%';
+  document.getElementById('overall-label').textContent=ol.label;
+  document.getElementById('rpt-overall').textContent=overallPct!==null?overallPct+'%':'—';
+  document.getElementById('rpt-status').textContent=ol.label;
+
+  // Area grid
+  const grid=document.getElementById('area-grid');
+  grid.innerHTML=areaScores.map(({area,sc})=>{
+    const sl=getScoreLabel(sc.pct);
+    return`<div class="so-card" onclick="jumpToArea('${area.id}')">
+      <div style="font-size:1.2rem;">${area.icon}</div>
+      <div class="so-pct" style="color:${sl.color};">${sc.pct!==null?sc.pct+'%':'—'}</div>
+      <div class="so-label">${area.label}</div>
+      <div class="so-bar"><div class="so-bar-fill" style="width:${sc.pct||0}%;background:${sl.color};"></div></div>
+    </div>`;
+  }).join('');
+
+  // Report scores
+  document.getElementById('rpt-scores-grid').innerHTML=areaScores.map(({area,sc})=>{
+    const sl=getScoreLabel(sc.pct);
+    return`<div style="background:var(--light);border-radius:8px;padding:12px;border-left:3px solid ${sl.color};">
+      <div style="font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;">${area.icon} ${area.label}</div>
+      <div style="font-size:1.4rem;font-weight:800;color:${sl.color};">${sc.pct!==null?sc.pct+'%':'—'}</div>
+      <div style="font-size:.7rem;font-weight:700;color:${sl.color};">${sl.label}</div>
+      <div style="font-size:.68rem;color:var(--gray);">${sc.answered}/${sc.total} answered</div>
+    </div>`;
+  }).join('');
+
+  // Findings
+  const findings=[];
+  let criticalCount=0;
+  AREAS.forEach(a=>{
+    a.sections.forEach((s,si)=>{
+      s.qs.forEach((q,qi)=>{
+        const r=(gapState[a.id]||{})[si]?.[qi]?.rating??-1;
+        if(r===0||r===1){
+          const priority=r===0?'critical':'high';
+          if(r===0) criticalCount++;
+          findings.push({area:`${a.icon} ${a.label}`,q:q.q,r,priority,note:(gapState[a.id][si][qi].note||'')});
+        }
+      });
+    });
+  });
+  document.getElementById('rpt-critical').textContent=criticalCount||'0';
+
+  const findHtml=findings.length?findings.map(f=>`<div class="finding-card priority-${f.priority}" style="margin-bottom:10px;">
+    <div class="fc-area">${f.priority==='critical'?'🔴 CRITICAL':'🟠 HIGH PRIORITY'} · ${f.area}</div>
+    <div class="fc-title">${f.q}</div>
+    <div class="fc-score">Current Rating: ${f.r===0?'Does Not Exist':'Informal/Ad-Hoc'}</div>
+    ${f.note?`<div class="fc-actions">Note: ${f.note}</div>`:''}
+  </div>`):'<div style="color:var(--gray);font-size:.82rem;text-align:center;padding:20px;">No critical or high-priority gaps identified yet. Complete the assessment to generate findings.</div>';
+
+  if(document.getElementById('rpt-findings')) document.getElementById('rpt-findings').innerHTML=findHtml;
+  if(document.getElementById('dashboard-findings')){
+    document.getElementById('dashboard-findings').innerHTML=findings.length?`
+      <div class="card"><div class="card-title">🔴 Immediate Action Items (Rated 0 or 1)</div>
+      <div class="findings-grid">${findings.slice(0,6).map(f=>`<div class="finding-card priority-${f.priority}">
+        <div class="fc-area">${f.priority==='critical'?'Critical':'High Priority'} · ${f.area}</div>
+        <div class="fc-title">${f.q}</div></div>`).join('')}</div>
+      ${findings.length>6?`<div style="font-size:.78rem;color:var(--gray);margin-top:10px;">+ ${findings.length-6} more findings — see Full Report tab</div>`:''}
+      </div>`:'';}
+
+  // Action table
+  const actions=findings.map(f=>`<tr>
+    <td><span class="priority-badge ${f.priority==='critical'?'pb-c':'pb-h'}">${f.priority.toUpperCase()}</span></td>
+    <td>${f.area}</td>
+    <td>${f.q}</td>
+    <td>${f.priority==='critical'?'30 days':'60 days'}</td>
+    <td><input type="text" placeholder="Assign owner" style="border:1px solid var(--border);border-radius:4px;padding:3px 8px;font-size:.75rem;width:100%;font-family:'Source Sans 3',sans-serif;outline:none;"></td>
+  </tr>`).join('');
+  if(document.getElementById('rpt-actions')) document.getElementById('rpt-actions').innerHTML=actions||'<tr><td colspan="5" style="text-align:center;color:var(--gray);font-size:.8rem;">Complete the assessment to generate action items</td></tr>';
+}
+
+function jumpToArea(id){
+  const btn=document.querySelector(`.tab-btn[onclick*="showTab('${id}'"]`);
+  if(btn) btn.click();
+}
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+function saveGapData(){
+  try{localStorage.setItem('rc2_gap_data',JSON.stringify({state:gapState,client:document.getElementById('gap-client').value,date:document.getElementById('gap-date').value,assessor:document.getElementById('gap-assessor').value,revenue:document.getElementById('gap-revenue').value,notes:document.getElementById('rpt-notes')?.value||''}));}catch(e){}
+}
+
+window.onload=function(){
+  try{var u=localStorage.getItem('rc2hub_user');if(u){document.getElementById('hub-username').textContent=u;document.getElementById('gap-assessor').value=u;}}catch(e){}
+  document.getElementById('gap-date').value=new Date().toISOString().split('T')[0];
+  try{var d=JSON.parse(localStorage.getItem('rc2_gap_data')||'{}');
+    if(d.state)gapState=d.state;
+    if(d.client)document.getElementById('gap-client').value=d.client;
+    if(d.date)document.getElementById('gap-date').value=d.date;
+    if(d.assessor)document.getElementById('gap-assessor').value=d.assessor;
+    if(d.revenue)document.getElementById('gap-revenue').value=d.revenue;
+    if(d.notes&&document.getElementById('rpt-notes'))document.getElementById('rpt-notes').value=d.notes;
+  }catch(e){}
+  initState();
+  AREAS.forEach(a=>renderArea(a));
+  updateDashboard();
+};
+</script>
+</body>
+</html>
