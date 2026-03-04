@@ -175,6 +175,15 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 .video-card-link{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;color:var(--blue);font-weight:600;text-decoration:none;background:#dbeafe;padding:5px 12px;border-radius:6px;transition:background .2s;}
 .video-card-link:hover{background:#bfdbfe;}
 .video-note{font-size:.75rem;color:var(--gray);background:var(--light);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-top:12px;}
+.video-gateway{background:linear-gradient(135deg,#0f1c38 0%,#1a3a6e 60%,#1e4a8a 100%);border-radius:0;padding:0;overflow:auto;position:relative;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;text-decoration:none;}
+.video-gateway .gw-icon{font-size:3rem;opacity:.7;}
+.video-gateway .gw-title{color:#fff;font-size:1.1rem;font-weight:700;padding:0 24px;line-height:1.4;}
+.video-gateway .gw-desc{color:rgba(255,255,255,0.7);font-size:.8rem;padding:0 32px;line-height:1.5;}
+.video-gateway .gw-btn{background:#ff0000;color:#fff;border:none;border-radius:8px;padding:12px 28px;font-size:.9rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;margin-top:4px;transition:background .2s;}
+.video-gateway .gw-btn:hover{background:#cc0000;}
+.video-gateway .gw-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 20px;margin-top:4px;}
+.video-gateway .gw-chip{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:.72rem;text-decoration:none;transition:background .2s;white-space:nowrap;}
+.video-gateway .gw-chip:hover{background:rgba(255,255,255,0.25);}
 
 /* ── MOBILE ── */
 @media(max-width:768px){
@@ -629,7 +638,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
       <div class="video-section">
         <div>
           <div class="video-player-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLnMLiHHDpkjl6C_TH3VaJz_ZhSMUxpNAg&rel=0&modestbranding=1" allowfullscreen loading="lazy" title="WRAP Compliance Videos"></iframe>
+            <a class="video-gateway" href="https://www.youtube.com/results?search_query=WRAP+compliance+certification+social+audit+12+principles+factory" target="_blank" style="display:flex;text-decoration:none;">
+              <div class="gw-icon">🏭</div>
+              <div class="gw-title">WRAP Compliance & Social Audit — Video Training</div>
+              <div class="gw-desc">Social compliance fundamentals, WRAP 12 Principles, audit preparation, and corrective action planning</div>
+              <div class="gw-btn">▶ Search WRAP Training Videos on YouTube</div>
+              <div class="gw-chips">
+                <span class="gw-chip">WRAP 12 Principles</span>
+                <span class="gw-chip">Social Compliance Audit</span>
+                <span class="gw-chip">Factory WRAP Certification</span>
+                <span class="gw-chip">Corrective Action Plan</span>
+              </div>
+            </a>
           </div>
           <div class="video-meta">
             <strong>🌐 WRAP Compliance — Official Channel</strong>
@@ -889,7 +909,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
       <div class="video-section">
         <div>
           <div class="video-player-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/QXqKiRvtMTA?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="How to Win Government Contracts"></iframe>
+            <a class="video-gateway" href="https://www.youtube.com/results?search_query=how+to+win+government+contracts+small+business+SAM+gov+SBA+tutorial+2024" target="_blank" style="display:flex;text-decoration:none;">
+              <div class="gw-icon">🏛️</div>
+              <div class="gw-title">Government Contracting for Small Business — Video Training</div>
+              <div class="gw-desc">How to register on SAM.gov, navigate federal procurement, write winning proposals, and qualify for SBA set-aside programs</div>
+              <div class="gw-btn">▶ Search Government Contracting Videos on YouTube</div>
+              <div class="gw-chips">
+                <span class="gw-chip">SAM.gov Registration</span>
+                <span class="gw-chip">SBA 8(a) Program</span>
+                <span class="gw-chip">Federal Contracting 101</span>
+                <span class="gw-chip">Capability Statement</span>
+              </div>
+            </a>
           </div>
           <div class="video-meta">
             <strong>🏛️ How to Win Government Contracts — Small Business Guide</strong>
@@ -988,7 +1019,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
       <div class="video-section">
         <div>
           <div class="video-player-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/pVzOKSqakPo?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="How to Scale a Business"></iframe>
+            <a class="video-gateway" href="https://www.youtube.com/results?search_query=how+to+scale+a+business+operations+infrastructure+growth+systems+2024" target="_blank" style="display:flex;text-decoration:none;">
+              <div class="gw-icon">📈</div>
+              <div class="gw-title">Scaling Business Operations & Growth Infrastructure — Video Training</div>
+              <div class="gw-desc">Building operational systems, org design, delegation frameworks, and scalable processes that support sustainable business growth</div>
+              <div class="gw-btn">▶ Search Business Scaling Videos on YouTube</div>
+              <div class="gw-chips">
+                <span class="gw-chip">Scaling Operations</span>
+                <span class="gw-chip">RACI Matrix</span>
+                <span class="gw-chip">Delegation Framework</span>
+                <span class="gw-chip">Organizational Design</span>
+              </div>
+            </a>
           </div>
           <div class="video-meta">
             <strong>📈 How to Scale a Business Without Breaking It</strong>
@@ -1087,7 +1129,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
       <div class="video-section">
         <div>
           <div class="video-player-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/wokHpQAMpiE?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="KPIs Explained for Beginners"></iframe>
+            <a class="video-gateway" href="https://www.youtube.com/results?search_query=KPI+key+performance+indicators+explained+business+management+2024" target="_blank" style="display:flex;text-decoration:none;">
+              <div class="gw-icon">📊</div>
+              <div class="gw-title">KPIs & Performance Management — Video Training</div>
+              <div class="gw-desc">What KPIs are, how to select the right ones, leading vs. lagging indicators, dashboards, and SMART goal-setting for operational excellence</div>
+              <div class="gw-btn">▶ Search KPI Framework Videos on YouTube</div>
+              <div class="gw-chips">
+                <span class="gw-chip">KPIs Explained</span>
+                <span class="gw-chip">Leading vs Lagging Indicators</span>
+                <span class="gw-chip">KPI Dashboard</span>
+                <span class="gw-chip">SMART Goals</span>
+              </div>
+            </a>
           </div>
           <div class="video-meta">
             <strong>📊 KPIs Explained — What They Are & How to Use Them</strong>
@@ -1315,11 +1368,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
       <div class="video-section">
         <div>
           <div class="video-player-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/uiLbBzMqMPw?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="How Tariffs Work Explained 2025"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/lD3FX_wxqUI?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="Trump Tariffs Explained: The 10% Tax on All Imports - Investopedia 2024"></iframe>
           </div>
           <div class="video-meta">
-            <strong>🌐 How Tariffs Work — 2025 Trade Policy Explained</strong>
-            <p>Clear explanation of how tariffs are imposed, collected, and their real-world economic impact on importers, manufacturers, and consumers. With Section 301 tariffs on China reaching 145% in 2025, every RC2 client needs to understand this landscape immediately.</p>
+            <strong>📊 Trump Tariffs Explained: The 10% Tax on All Imports — Investopedia (2024)</strong>
+            <p>Investopedia's clear breakdown of how the US tariff system works — what a tariff is, who actually pays, which imports are affected, and what the 10% baseline plus country-specific rates mean for US importers and manufacturers. Published October 2024 — directly relevant to the current trade environment.</p>
           </div>
         </div>
         <div class="video-note">📌 <strong>RC2 Training Note:</strong> Tariff strategy is now one of the highest-value services RC2 can deliver. A client importing $5M/year from China at 145% tariff has $7.25M in annual duty exposure. Even a 20% reduction through HTS reclassification or nearshoring saves $1.45M/year.</div>
