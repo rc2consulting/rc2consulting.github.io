@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 CAP Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2340; --navy-mid: #163354; --navy-light: #1e4a7a;
+    --gold: #c9a84c; --gold-light: #e8c96b;
+    --off-white: #f4f6f9; --gray-100: #eef1f5; --gray-200: #d8dde6;
+    --gray-400: #8a94a6; --gray-600: #4a5568; --text: #0d2340;
+    --s-open-bg:#fff0f0; --s-open-b:#e53e3e; --s-open-t:#c53030;
+    --s-prog-bg:#fffbeb; --s-prog-b:#d69e2e; --s-prog-t:#b7791f;
+    --s-clos-bg:#f0fff4; --s-clos-b:#38a169; --s-clos-t:#276749;
+    --s-hold-bg:#f0f4ff; --s-hold-b:#667eea; --s-hold-t:#4c51bf;
+    --p-crit:#e53e3e; --p-high:#dd6b20; --p-med:#d69e2e; --p-low:#38a169;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);min-height:100vh;}
+  .header{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+  .header-inner{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .logo-block{display:flex;align-items:center;gap:14px;}
+  .logo-badge{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:500;font-size:13px;color:var(--navy);}
+  .logo-title{color:#fff;font-size:16px;font-weight:600;display:block;}
+  .logo-sub{color:var(--gold);font-size:11px;letter-spacing:.8px;text-transform:uppercase;display:block;}
+  .header-meta{display:flex;align-items:center;gap:20px;}
+  .header-date{color:var(--gray-400);font-size:12px;}
+  .save-ind{display:flex;align-items:center;gap:6px;color:var(--gold);font-size:12px;font-weight:500;opacity:0;transition:opacity .3s;}
+  .save-ind.on{opacity:1;}
+  .save-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
+  .sum-sec{max-width:1200px;margin:0 auto;padding:28px 32px 0;}
+  .sum-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:28px;}
+  .sum-card{background:#fff;border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:6px;border:1px solid var(--gray-200);transition:transform .15s,box-shadow .15s;}
+  .sum-card:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.08);}
+  .c-lbl{font-size:11px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;color:var(--gray-400);}
+  .c-val{font-size:32px;font-weight:700;line-height:1;}
+  .c-sub{font-size:12px;color:var(--gray-400);}
+  .ct .c-val{color:var(--navy);} .co .c-val{color:var(--s-open-t);} .cp .c-val{color:var(--s-prog-t);} .cc .c-val{color:var(--s-clos-t);} .ch .c-val{color:var(--s-hold-t);}
+  .prog-sec{background:#fff;border-radius:12px;padding:20px 24px;border:1px solid var(--gray-200);margin-bottom:28px;}
+  .prog-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+  .prog-ttl{font-size:13px;font-weight:600;color:var(--navy);}
+  .prog-pct{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;color:var(--navy);}
+  .prog-bg{height:10px;border-radius:6px;background:var(--gray-100);overflow:hidden;}
+  .prog-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--navy-light),var(--gold));transition:width .5s cubic-bezier(.4,0,.2,1);}
+  .tbl-sec{max-width:1200px;margin:0 auto;padding:0 32px 40px;}
+  .cap-tbl{background:#fff;border-radius:14px;border:1px solid var(--gray-200);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+  .tbl-hd{display:grid;grid-template-columns:90px 1fr 100px 130px 110px 160px;background:var(--navy);padding:12px 20px;gap:12px;}
+  .th{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.6);}
+  .cap-row{display:grid;grid-template-columns:90px 1fr 100px 130px 110px 160px;padding:14px 20px;gap:12px;align-items:center;border-bottom:1px solid var(--gray-100);transition:background .25s;border-left:3px solid transparent;}
+  .cap-row:last-child{border-bottom:none;}
+  .cap-row:hover{background:var(--gray-100);}
+  .r-open{border-left-color:var(--s-open-b);}
+  .r-prog{border-left-color:var(--s-prog-b);background:#fffdf5;}
+  .r-clos{border-left-color:var(--s-clos-b);background:#f7fff9;}
+  .r-hold{border-left-color:var(--s-hold-b);background:#f5f7ff;}
+  .r-clos .r-id,.r-clos .r-desc{opacity:.55;text-decoration:line-through;text-decoration-color:#38a169;}
+  .r-id{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--navy);}
+  .r-desc{font-size:13px;color:var(--gray-600);line-height:1.4;}
+  .r-own{font-size:12px;color:var(--gray-400);}
+  .r-dl{font-size:12px;font-family:'DM Mono',monospace;color:var(--gray-400);}
+  .pbadge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
+  .pdot{width:5px;height:5px;border-radius:50%;}
+  .pc{background:#fff0f0;color:var(--p-crit);} .pc .pdot{background:var(--p-crit);}
+  .ph{background:#fff5eb;color:var(--p-high);} .ph .pdot{background:var(--p-high);}
+  .pm{background:#fffbeb;color:var(--p-med);} .pm .pdot{background:var(--p-med);}
+  .pl{background:#f0fff4;color:var(--p-low);} .pl .pdot{background:var(--p-low);}
+  .ssel{appearance:none;-webkit-appearance:none;width:100%;padding:7px 28px 7px 12px;border-radius:8px;border:1.5px solid;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;transition:all .2s;}
+  .so .ssel{background-color:var(--s-open-bg);border-color:var(--s-open-b);color:var(--s-open-t);}
+  .sp .ssel{background-color:var(--s-prog-bg);border-color:var(--s-prog-b);color:var(--s-prog-t);}
+  .sc .ssel{background-color:var(--s-clos-bg);border-color:var(--s-clos-b);color:var(--s-clos-t);}
+  .sh .ssel{background-color:var(--s-hold-bg);border-color:var(--s-hold-b);color:var(--s-hold-t);}
+  .ph-hdr{padding:10px 20px;background:var(--navy);opacity:.85;}
+  .ph-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;gap:10px;}
+  .ph-lbl::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.25);}
+  .ft{max-width:1200px;margin:0 auto;padding:0 32px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .ft-txt{font-size:11px;color:var(--gray-400);}
+  .ft-brand{font-size:11px;color:var(--navy);font-weight:600;opacity:.4;}
+  .modal-ov{display:none;position:fixed;inset:0;background:rgba(13,35,64,.6);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+  .modal-ov.open{display:flex;}
+  .modal{background:#fff;border-radius:16px;padding:32px;width:460px;box-shadow:0 20px 60px rgba(0,0,0,.25);animation:mIn .2s ease;}
+  @keyframes mIn{from{opacity:0;transform:scale(.95) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+  .m-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .m-id{font-family:'DM Mono',monospace;font-size:12px;color:var(--gray-400);margin-bottom:24px;}
+  .m-field{margin-bottom:16px;}
+  .m-lbl{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px;}
+  .m-inp{width:100%;padding:10px 14px;border:1.5px solid var(--gray-200);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .2s;}
+  .m-inp:focus{border-color:var(--navy-light);box-shadow:0 0 0 3px rgba(30,74,122,.1);}
+  .m-inp[readonly]{background:var(--gray-100);color:var(--gray-600);}
+  .m-acts{display:flex;gap:10px;margin-top:24px;justify-content:flex-end;}
+  .btn-c{padding:10px 20px;border-radius:8px;border:1.5px solid var(--gray-200);background:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--gray-600);cursor:pointer;}
+  .btn-c:hover{background:var(--gray-100);}
+  .btn-ok{padding:10px 24px;border-radius:8px;border:none;background:var(--navy);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#fff;cursor:pointer;}
+  .btn-ok:hover{background:var(--navy-mid);}
+  .vbadge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--s-clos-t);background:var(--s-clos-bg);border:1px solid var(--s-clos-b);padding:2px 8px;border-radius:10px;margin-left:8px;}
+  .nbadge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;color:#4c51bf;background:#ebf4ff;border:1px solid #667eea;padding:2px 8px;border-radius:10px;margin-left:8px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-badge">RC2</div>
+      <div>
+        <span class="logo-title">RC2 Sales Consulting, LLC</span>
+        <span class="logo-sub">Corrective Action Plan — Live Tracker v1.1</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="header-date" id="currentDate"></span>
+      <div class="save-ind" id="saveInd"><div class="save-dot"></div> Saved</div>
+    </div>
+  </div>
+</div>
+
+<div class="sum-sec">
+  <div class="sum-grid">
+    <div class="sum-card ct"><span class="c-lbl">Total Items</span><span class="c-val" id="tot">12</span><span class="c-sub">CAP-01 through CAP-12</span></div>
+    <div class="sum-card co"><span class="c-lbl">Open</span><span class="c-val" id="oc">0</span><span class="c-sub">Action required</span></div>
+    <div class="sum-card cp"><span class="c-lbl">In Progress</span><span class="c-val" id="pc">0</span><span class="c-sub">Work started</span></div>
+    <div class="sum-card cc"><span class="c-lbl">Closed</span><span class="c-val" id="cc">0</span><span class="c-sub">Verified complete</span></div>
+    <div class="sum-card ch"><span class="c-lbl">On Hold</span><span class="c-val" id="hc">0</span><span class="c-sub">Deferred</span></div>
+  </div>
+  <div class="prog-sec">
+    <div class="prog-hdr">
+      <span class="prog-ttl">CAP Completion — Target Close: 2026-06-15</span>
+      <span class="prog-pct" id="pct">0%</span>
+    </div>
+    <div class="prog-bg"><div class="prog-fill" id="pbar" style="width:0%"></div></div>
+  </div>
+</div>
+
+<div class="tbl-sec">
+  <div class="cap-tbl" id="capTbl"></div>
+</div>
+
+<div class="ft">
+  <span class="ft-txt">Review: Weekly | Owner: Eddie Castleton / Jill F. Coleman | v1.2 — Updated 2026-03-16 | 3 Closed / 1 In Progress / 8 Open</span>
+  <span class="ft-brand">RC2 Sales Consulting, LLC — CONFIDENTIAL</span>
+</div>
+
+<div class="modal-ov" id="mOv">
+  <div class="modal">
+    <div class="m-title">Close CAP Item</div>
+    <div class="m-id" id="mId"></div>
+    <div class="m-field"><div class="m-lbl">Verified By</div><input type="text" class="m-inp" id="mVer" placeholder="Full name"></div>
+    <div class="m-field"><div class="m-lbl">Date Verified</div><input type="text" class="m-inp" id="mDate" readonly></div>
+    <div class="m-field"><div class="m-lbl">Notes (optional)</div><input type="text" class="m-inp" id="mNotes" placeholder="Completion notes..."></div>
+    <div class="m-acts">
+      <button class="btn-c" onclick="closeM()">Cancel</button>
+      <button class="btn-ok" onclick="confirmM()">✓ Mark Closed</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOTAL = 12;
+const DATA = [
+  { phase:"PHASE 1 — CRITICAL | Before First Client Signs", items:[
+    {id:"CAP-01",desc:"No automated satisfaction survey trigger at project close",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01"},
+    {id:"CAP-02",desc:"No Client Offboarding SOP",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01"},
+  ]},
+  { phase:"PHASE 2 — HIGH | Before First Delivery", items:[
+    {id:"CAP-03",desc:"No Discovery Call Script SOP",p:"HIGH",own:"Eddie",dl:"2026-04-15"},
+    {id:"CAP-04",desc:"No internal Service Delivery SOPs (3 services)",p:"HIGH",own:"Eddie",dl:"2026-04-15"},
+    {id:"CAP-05",desc:"Capability Statement template missing",p:"HIGH",own:"Eddie",dl:"2026-04-15"},
+  ]},
+  { phase:"PHASE 3 — MEDIUM | Within 60–90 Days", items:[
+    {id:"CAP-06",desc:"No post-discovery call email template",p:"MEDIUM",own:"Eddie",dl:"2026-05-01"},
+    {id:"CAP-07",desc:"No QC checklist for deliverables",p:"MEDIUM",own:"Eddie",dl:"2026-05-01"},
+    {id:"CAP-08",desc:"No time tracking system",p:"MEDIUM",own:"Jill",dl:"2026-05-01"},
+    {id:"CAP-09",desc:"No 30-day post-engagement check-in system",p:"MEDIUM",own:"Eddie",dl:"2026-05-15"},
+    {id:"CAP-10",desc:"No case study template",p:"MEDIUM",own:"Eddie",dl:"2026-05-15"},
+    {id:"CAP-12",desc:"Upgrade CAP Tracker to Google Sheets sync — real-time cross-device access (laptop + Android + Jill)",p:"MEDIUM",own:"Eddie",dl:"2026-05-18",isNew:true},
+  ]},
+  { phase:"PHASE 4 — LOW | By June 15, 2026", items:[
+    {id:"CAP-11",desc:"No Google Analytics on RC2 website",p:"LOW",own:"Eddie",dl:"2026-06-15"},
+  ]},
+];
+const PC = {CRITICAL:"pc",HIGH:"ph",MEDIUM:"pm",LOW:"pl"};
+const OPTS = [{v:"open",l:"🔴 Open"},{v:"progress",l:"🟡 In Progress"},{v:"closed",l:"✅ Closed"},{v:"hold",l:"⏸️ On Hold"}];
+const RC = {open:"r-open",progress:"r-prog",closed:"r-clos",hold:"r-hold"};
+const SC = {open:"so",progress:"sp",closed:"sc",hold:"sh"};
+let S={}, pend=null;
+
+function load(){
+  try{const s=localStorage.getItem("rc2_cap_v4");if(s){S=JSON.parse(s);return;}}catch(e){}
+  // Pre-populated defaults — current verified state as of 2026-03-16
+  S = {
+  "CAP-01": {"status":"closed","verifier":"Eddie Castleton","date":"2026-03-16","notes":"Apps Script installed in RC2_Master_Client_Tracker. onEdit installable trigger live. Survey fires automatically when Project_Status = Project Closed. Execution log confirmed."},
+  "CAP-02": {"status":"closed","verifier":"Eddie Castleton","date":"2026-03-16","notes":"SOP-OB-001 built with 6 steps, master checklist, and digital sign-off boxes. Verbal approval from Jill F. Coleman on 2026-03-16."},
+  "CAP-03": {"status":"progress","verifier":"","date":"","notes":"Discovery Call Script (SOP-GC-DS-001) built and saved. Role-play session scheduled with Jill — March 25, 2026 10:00 AM."},
+  "CAP-04": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-05": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-06": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-07": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-08": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-09": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-10": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-11": {"status":"closed","verifier":"Eddie Castleton","date":"2026-03-16","notes":"GA4 deployed to all 85 HTML pages via GitHub VS Code editor replace-all. Realtime confirmed. Measurement ID: G-PC5L4ZH7KY."},
+  "CAP-12": {"status":"open","verifier":"","date":"","notes":""}
+};
+}
+function save(){
+  localStorage.setItem("rc2_cap_v4",JSON.stringify(S));
+  const el=document.getElementById("saveInd");
+  el.classList.add("on");setTimeout(()=>el.classList.remove("on"),2000);
+}
+function getDesc(id){for(const ph of DATA){const it=ph.items.find(i=>i.id===id);if(it)return it.desc;}return "";}
+
+function render(){
+  let h=`<div class="tbl-hd"><div class="th">Item</div><div class="th">Gap Description</div><div class="th">Priority</div><div class="th">Owner</div><div class="th">Deadline</div><div class="th">Status</div></div>`;
+  DATA.forEach(ph=>{
+    h+=`<div class="ph-hdr"><div class="ph-lbl">${ph.phase}</div></div>`;
+    ph.items.forEach(it=>{
+      const s=S[it.id];
+      const vb=s.status==="closed"&&s.verifier?`<span class="vbadge">✓ ${s.verifier} · ${s.date}</span>`:"";
+      const nb=it.isNew?`<span class="nbadge">NEW</span>`:"";
+      const opts=OPTS.map(o=>`<option value="${o.v}"${s.status===o.v?" selected":""}>${o.l}</option>`).join("");
+      h+=`<div class="cap-row ${RC[s.status]}">
+        <div class="r-id">${it.id}</div>
+        <div class="r-desc">${it.desc}${nb}${vb}</div>
+        <div><span class="pbadge ${PC[it.p]}"><span class="pdot"></span>${it.p}</span></div>
+        <div class="r-own">${it.own}</div>
+        <div class="r-dl">${it.dl}</div>
+        <div class="${SC[s.status]}"><select class="ssel" onchange="onChange('${it.id}',this.value)" data-id="${it.id}">${opts}</select></div>
+      </div>`;
+    });
+  });
+  document.getElementById("capTbl").innerHTML=h;
+  updateSummary();
+}
+function onChange(id,val){
+  if(val==="closed"){
+    pend=id;
+    document.getElementById("mId").textContent=id+" — "+getDesc(id);
+    document.getElementById("mVer").value=S[id].verifier||"";
+    document.getElementById("mDate").value=new Date().toISOString().split("T")[0];
+    document.getElementById("mNotes").value=S[id].notes||"";
+    document.getElementById("mOv").classList.add("open");
+  } else {
+    S[id].status=val; save(); render();
+  }
+}
+function closeM(){
+  document.getElementById("mOv").classList.remove("open");
+  if(pend){const el=document.querySelector(`[data-id="${pend}"]`);if(el)el.value=S[pend].status;pend=null;}
+}
+function confirmM(){
+  if(!pend)return;
+  const v=document.getElementById("mVer").value.trim();
+  if(!v){document.getElementById("mVer").focus();return;}
+  S[pend]={status:"closed",verifier:v,date:document.getElementById("mDate").value,notes:document.getElementById("mNotes").value.trim()};
+  document.getElementById("mOv").classList.remove("open");
+  pend=null; save(); render();
+}
+function updateSummary(){
+  let o=0,p=0,c=0,h=0;
+  Object.values(S).forEach(s=>{
+    if(s.status==="open")o++;
+    else if(s.status==="progress")p++;
+    else if(s.status==="closed")c++;
+    else if(s.status==="hold")h++;
+  });
+  document.getElementById("oc").textContent=o;
+  document.getElementById("pc").textContent=p;
+  document.getElementById("cc").textContent=c;
+  document.getElementById("hc").textContent=h;
+  document.getElementById("tot").textContent=TOTAL;
+  const pct=Math.round(c/TOTAL*100);
+  document.getElementById("pct").textContent=pct+"%";
+  document.getElementById("pbar").style.width=pct+"%";
+}
+document.getElementById("mOv").addEventListener("click",e=>{if(e.target===document.getElementById("mOv"))closeM();});
+document.getElementById("currentDate").textContent=new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+load(); render();
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 CAP Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2340; --navy-mid: #163354; --navy-light: #1e4a7a;
+    --gold: #c9a84c; --gold-light: #e8c96b;
+    --off-white: #f4f6f9; --gray-100: #eef1f5; --gray-200: #d8dde6;
+    --gray-400: #8a94a6; --gray-600: #4a5568; --text: #0d2340;
+    --s-open-bg:#fff0f0; --s-open-b:#e53e3e; --s-open-t:#c53030;
+    --s-prog-bg:#fffbeb; --s-prog-b:#d69e2e; --s-prog-t:#b7791f;
+    --s-clos-bg:#f0fff4; --s-clos-b:#38a169; --s-clos-t:#276749;
+    --s-hold-bg:#f0f4ff; --s-hold-b:#667eea; --s-hold-t:#4c51bf;
+    --p-crit:#e53e3e; --p-high:#dd6b20; --p-med:#d69e2e; --p-low:#38a169;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);min-height:100vh;}
+  .header{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+  .header-inner{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .logo-block{display:flex;align-items:center;gap:14px;}
+  .logo-badge{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:500;font-size:13px;color:var(--navy);}
+  .logo-title{color:#fff;font-size:16px;font-weight:600;display:block;}
+  .logo-sub{color:var(--gold);font-size:11px;letter-spacing:.8px;text-transform:uppercase;display:block;}
+  .header-meta{display:flex;align-items:center;gap:20px;}
+  .header-date{color:var(--gray-400);font-size:12px;}
+  .save-ind{display:flex;align-items:center;gap:6px;color:var(--gold);font-size:12px;font-weight:500;opacity:0;transition:opacity .3s;}
+  .save-ind.on{opacity:1;}
+  .save-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
+  .sum-sec{max-width:1200px;margin:0 auto;padding:28px 32px 0;}
+  .sum-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:28px;}
+  .sum-card{background:#fff;border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:6px;border:1px solid var(--gray-200);transition:transform .15s,box-shadow .15s;}
+  .sum-card:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.08);}
+  .c-lbl{font-size:11px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;color:var(--gray-400);}
+  .c-val{font-size:32px;font-weight:700;line-height:1;}
+  .c-sub{font-size:12px;color:var(--gray-400);}
+  .ct .c-val{color:var(--navy);} .co .c-val{color:var(--s-open-t);} .cp .c-val{color:var(--s-prog-t);} .cc .c-val{color:var(--s-clos-t);} .ch .c-val{color:var(--s-hold-t);}
+  .prog-sec{background:#fff;border-radius:12px;padding:20px 24px;border:1px solid var(--gray-200);margin-bottom:28px;}
+  .prog-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+  .prog-ttl{font-size:13px;font-weight:600;color:var(--navy);}
+  .prog-pct{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;color:var(--navy);}
+  .prog-bg{height:10px;border-radius:6px;background:var(--gray-100);overflow:hidden;}
+  .prog-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--navy-light),var(--gold));transition:width .5s cubic-bezier(.4,0,.2,1);}
+  .tbl-sec{max-width:1200px;margin:0 auto;padding:0 32px 40px;}
+  .cap-tbl{background:#fff;border-radius:14px;border:1px solid var(--gray-200);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+  .tbl-hd{display:grid;grid-template-columns:90px 1fr 100px 130px 110px 160px;background:var(--navy);padding:12px 20px;gap:12px;}
+  .th{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.6);}
+  .cap-row{display:grid;grid-template-columns:90px 1fr 100px 130px 110px 160px;padding:14px 20px;gap:12px;align-items:center;border-bottom:1px solid var(--gray-100);transition:background .25s;border-left:3px solid transparent;}
+  .cap-row:last-child{border-bottom:none;}
+  .cap-row:hover{background:var(--gray-100);}
+  .r-open{border-left-color:var(--s-open-b);}
+  .r-prog{border-left-color:var(--s-prog-b);background:#fffdf5;}
+  .r-clos{border-left-color:var(--s-clos-b);background:#f7fff9;}
+  .r-hold{border-left-color:var(--s-hold-b);background:#f5f7ff;}
+  .r-clos .r-id,.r-clos .r-desc{opacity:.55;text-decoration:line-through;text-decoration-color:#38a169;}
+  .r-id{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--navy);}
+  .r-desc{font-size:13px;color:var(--gray-600);line-height:1.4;}
+  .r-own{font-size:12px;color:var(--gray-400);}
+  .r-dl{font-size:12px;font-family:'DM Mono',monospace;color:var(--gray-400);}
+  .pbadge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
+  .pdot{width:5px;height:5px;border-radius:50%;}
+  .pc{background:#fff0f0;color:var(--p-crit);} .pc .pdot{background:var(--p-crit);}
+  .ph{background:#fff5eb;color:var(--p-high);} .ph .pdot{background:var(--p-high);}
+  .pm{background:#fffbeb;color:var(--p-med);} .pm .pdot{background:var(--p-med);}
+  .pl{background:#f0fff4;color:var(--p-low);} .pl .pdot{background:var(--p-low);}
+  .ssel{appearance:none;-webkit-appearance:none;width:100%;padding:7px 28px 7px 12px;border-radius:8px;border:1.5px solid;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;transition:all .2s;}
+  .so .ssel{background-color:var(--s-open-bg);border-color:var(--s-open-b);color:var(--s-open-t);}
+  .sp .ssel{background-color:var(--s-prog-bg);border-color:var(--s-prog-b);color:var(--s-prog-t);}
+  .sc .ssel{background-color:var(--s-clos-bg);border-color:var(--s-clos-b);color:var(--s-clos-t);}
+  .sh .ssel{background-color:var(--s-hold-bg);border-color:var(--s-hold-b);color:var(--s-hold-t);}
+  .ph-hdr{padding:10px 20px;background:var(--navy);opacity:.85;}
+  .ph-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;gap:10px;}
+  .ph-lbl::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.25);}
+  .ft{max-width:1200px;margin:0 auto;padding:0 32px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .ft-txt{font-size:11px;color:var(--gray-400);}
+  .ft-brand{font-size:11px;color:var(--navy);font-weight:600;opacity:.4;}
+  .modal-ov{display:none;position:fixed;inset:0;background:rgba(13,35,64,.6);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+  .modal-ov.open{display:flex;}
+  .modal{background:#fff;border-radius:16px;padding:32px;width:460px;box-shadow:0 20px 60px rgba(0,0,0,.25);animation:mIn .2s ease;}
+  @keyframes mIn{from{opacity:0;transform:scale(.95) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+  .m-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .m-id{font-family:'DM Mono',monospace;font-size:12px;color:var(--gray-400);margin-bottom:24px;}
+  .m-field{margin-bottom:16px;}
+  .m-lbl{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px;}
+  .m-inp{width:100%;padding:10px 14px;border:1.5px solid var(--gray-200);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .2s;}
+  .m-inp:focus{border-color:var(--navy-light);box-shadow:0 0 0 3px rgba(30,74,122,.1);}
+  .m-inp[readonly]{background:var(--gray-100);color:var(--gray-600);}
+  .m-acts{display:flex;gap:10px;margin-top:24px;justify-content:flex-end;}
+  .btn-c{padding:10px 20px;border-radius:8px;border:1.5px solid var(--gray-200);background:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--gray-600);cursor:pointer;}
+  .btn-c:hover{background:var(--gray-100);}
+  .btn-ok{padding:10px 24px;border-radius:8px;border:none;background:var(--navy);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#fff;cursor:pointer;}
+  .btn-ok:hover{background:var(--navy-mid);}
+  .vbadge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--s-clos-t);background:var(--s-clos-bg);border:1px solid var(--s-clos-b);padding:2px 8px;border-radius:10px;margin-left:8px;}
+  .nbadge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;color:#4c51bf;background:#ebf4ff;border:1px solid #667eea;padding:2px 8px;border-radius:10px;margin-left:8px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-badge">RC2</div>
+      <div>
+        <span class="logo-title">RC2 Sales Consulting, LLC</span>
+        <span class="logo-sub">Corrective Action Plan — Live Tracker v1.1</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="header-date" id="currentDate"></span>
+      <div class="save-ind" id="saveInd"><div class="save-dot"></div> Saved</div>
+    </div>
+  </div>
+</div>
+
+<div class="sum-sec">
+  <div class="sum-grid">
+    <div class="sum-card ct"><span class="c-lbl">Total Items</span><span class="c-val" id="tot">12</span><span class="c-sub">CAP-01 through CAP-12</span></div>
+    <div class="sum-card co"><span class="c-lbl">Open</span><span class="c-val" id="oc">0</span><span class="c-sub">Action required</span></div>
+    <div class="sum-card cp"><span class="c-lbl">In Progress</span><span class="c-val" id="pc">0</span><span class="c-sub">Work started</span></div>
+    <div class="sum-card cc"><span class="c-lbl">Closed</span><span class="c-val" id="cc">0</span><span class="c-sub">Verified complete</span></div>
+    <div class="sum-card ch"><span class="c-lbl">On Hold</span><span class="c-val" id="hc">0</span><span class="c-sub">Deferred</span></div>
+  </div>
+  <div class="prog-sec">
+    <div class="prog-hdr">
+      <span class="prog-ttl">CAP Completion — Target Close: 2026-06-15</span>
+      <span class="prog-pct" id="pct">0%</span>
+    </div>
+    <div class="prog-bg"><div class="prog-fill" id="pbar" style="width:0%"></div></div>
+  </div>
+</div>
+
+<div class="tbl-sec">
+  <div class="cap-tbl" id="capTbl"></div>
+</div>
+
+<div class="ft">
+  <span class="ft-txt">Review: Weekly | Owner: Eddie Castleton / Jill F. Coleman | v1.2 — Updated 2026-03-16 | 3 Closed / 1 In Progress / 8 Open</span>
+  <span class="ft-brand">RC2 Sales Consulting, LLC — CONFIDENTIAL</span>
+</div>
+
+<div class="modal-ov" id="mOv">
+  <div class="modal">
+    <div class="m-title">Close CAP Item</div>
+    <div class="m-id" id="mId"></div>
+    <div class="m-field"><div class="m-lbl">Verified By</div><input type="text" class="m-inp" id="mVer" placeholder="Full name"></div>
+    <div class="m-field"><div class="m-lbl">Date Verified</div><input type="text" class="m-inp" id="mDate" readonly></div>
+    <div class="m-field"><div class="m-lbl">Notes (optional)</div><input type="text" class="m-inp" id="mNotes" placeholder="Completion notes..."></div>
+    <div class="m-acts">
+      <button class="btn-c" onclick="closeM()">Cancel</button>
+      <button class="btn-ok" onclick="confirmM()">✓ Mark Closed</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOTAL = 12;
+const DATA = [
+  { phase:"PHASE 1 — CRITICAL | Before First Client Signs", items:[
+    {id:"CAP-01",desc:"No automated satisfaction survey trigger at project close",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01"},
+    {id:"CAP-02",desc:"No Client Offboarding SOP",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01"},
+  ]},
+  { phase:"PHASE 2 — HIGH | Before First Delivery", items:[
+    {id:"CAP-03",desc:"No Discovery Call Script SOP",p:"HIGH",own:"Eddie",dl:"2026-04-15"},
+    {id:"CAP-04",desc:"No internal Service Delivery SOPs (3 services)",p:"HIGH",own:"Eddie",dl:"2026-04-15"},
+    {id:"CAP-05",desc:"Capability Statement template missing",p:"HIGH",own:"Eddie",dl:"2026-04-15"},
+  ]},
+  { phase:"PHASE 3 — MEDIUM | Within 60–90 Days", items:[
+    {id:"CAP-06",desc:"No post-discovery call email template",p:"MEDIUM",own:"Eddie",dl:"2026-05-01"},
+    {id:"CAP-07",desc:"No QC checklist for deliverables",p:"MEDIUM",own:"Eddie",dl:"2026-05-01"},
+    {id:"CAP-08",desc:"No time tracking system",p:"MEDIUM",own:"Jill",dl:"2026-05-01"},
+    {id:"CAP-09",desc:"No 30-day post-engagement check-in system",p:"MEDIUM",own:"Eddie",dl:"2026-05-15"},
+    {id:"CAP-10",desc:"No case study template",p:"MEDIUM",own:"Eddie",dl:"2026-05-15"},
+    {id:"CAP-12",desc:"Upgrade CAP Tracker to Google Sheets sync — real-time cross-device access (laptop + Android + Jill)",p:"MEDIUM",own:"Eddie",dl:"2026-05-18",isNew:true},
+  ]},
+  { phase:"PHASE 4 — LOW | By June 15, 2026", items:[
+    {id:"CAP-11",desc:"No Google Analytics on RC2 website",p:"LOW",own:"Eddie",dl:"2026-06-15"},
+  ]},
+];
+const PC = {CRITICAL:"pc",HIGH:"ph",MEDIUM:"pm",LOW:"pl"};
+const OPTS = [{v:"open",l:"🔴 Open"},{v:"progress",l:"🟡 In Progress"},{v:"closed",l:"✅ Closed"},{v:"hold",l:"⏸️ On Hold"}];
+const RC = {open:"r-open",progress:"r-prog",closed:"r-clos",hold:"r-hold"};
+const SC = {open:"so",progress:"sp",closed:"sc",hold:"sh"};
+let S={}, pend=null;
+
+function load(){
+  try{const s=localStorage.getItem("rc2_cap_v4");if(s){S=JSON.parse(s);return;}}catch(e){}
+  // Pre-populated defaults — current verified state as of 2026-03-16
+  S = {
+  "CAP-01": {"status":"closed","verifier":"Eddie Castleton","date":"2026-03-16","notes":"Apps Script installed in RC2_Master_Client_Tracker. onEdit installable trigger live. Survey fires automatically when Project_Status = Project Closed. Execution log confirmed."},
+  "CAP-02": {"status":"closed","verifier":"Eddie Castleton","date":"2026-03-16","notes":"SOP-OB-001 built with 6 steps, master checklist, and digital sign-off boxes. Verbal approval from Jill F. Coleman on 2026-03-16."},
+  "CAP-03": {"status":"progress","verifier":"","date":"","notes":"Discovery Call Script (SOP-GC-DS-001) built and saved. Role-play session scheduled with Jill — March 25, 2026 10:00 AM."},
+  "CAP-04": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-05": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-06": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-07": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-08": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-09": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-10": {"status":"open","verifier":"","date":"","notes":""},
+  "CAP-11": {"status":"closed","verifier":"Eddie Castleton","date":"2026-03-16","notes":"GA4 deployed to all 85 HTML pages via GitHub VS Code editor replace-all. Realtime confirmed. Measurement ID: G-PC5L4ZH7KY."},
+  "CAP-12": {"status":"open","verifier":"","date":"","notes":""}
+};
+}
+function save(){
+  localStorage.setItem("rc2_cap_v4",JSON.stringify(S));
+  const el=document.getElementById("saveInd");
+  el.classList.add("on");setTimeout(()=>el.classList.remove("on"),2000);
+}
+function getDesc(id){for(const ph of DATA){const it=ph.items.find(i=>i.id===id);if(it)return it.desc;}return "";}
+
+function render(){
+  let h=`<div class="tbl-hd"><div class="th">Item</div><div class="th">Gap Description</div><div class="th">Priority</div><div class="th">Owner</div><div class="th">Deadline</div><div class="th">Status</div></div>`;
+  DATA.forEach(ph=>{
+    h+=`<div class="ph-hdr"><div class="ph-lbl">${ph.phase}</div></div>`;
+    ph.items.forEach(it=>{
+      const s=S[it.id];
+      const vb=s.status==="closed"&&s.verifier?`<span class="vbadge">✓ ${s.verifier} · ${s.date}</span>`:"";
+      const nb=it.isNew?`<span class="nbadge">NEW</span>`:"";
+      const opts=OPTS.map(o=>`<option value="${o.v}"${s.status===o.v?" selected":""}>${o.l}</option>`).join("");
+      h+=`<div class="cap-row ${RC[s.status]}">
+        <div class="r-id">${it.id}</div>
+        <div class="r-desc">${it.desc}${nb}${vb}</div>
+        <div><span class="pbadge ${PC[it.p]}"><span class="pdot"></span>${it.p}</span></div>
+        <div class="r-own">${it.own}</div>
+        <div class="r-dl">${it.dl}</div>
+        <div class="${SC[s.status]}"><select class="ssel" onchange="onChange('${it.id}',this.value)" data-id="${it.id}">${opts}</select></div>
+      </div>`;
+    });
+  });
+  document.getElementById("capTbl").innerHTML=h;
+  updateSummary();
+}
+function onChange(id,val){
+  if(val==="closed"){
+    pend=id;
+    document.getElementById("mId").textContent=id+" — "+getDesc(id);
+    document.getElementById("mVer").value=S[id].verifier||"";
+    document.getElementById("mDate").value=new Date().toISOString().split("T")[0];
+    document.getElementById("mNotes").value=S[id].notes||"";
+    document.getElementById("mOv").classList.add("open");
+  } else {
+    S[id].status=val; save(); render();
+  }
+}
+function closeM(){
+  document.getElementById("mOv").classList.remove("open");
+  if(pend){const el=document.querySelector(`[data-id="${pend}"]`);if(el)el.value=S[pend].status;pend=null;}
+}
+function confirmM(){
+  if(!pend)return;
+  const v=document.getElementById("mVer").value.trim();
+  if(!v){document.getElementById("mVer").focus();return;}
+  S[pend]={status:"closed",verifier:v,date:document.getElementById("mDate").value,notes:document.getElementById("mNotes").value.trim()};
+  document.getElementById("mOv").classList.remove("open");
+  pend=null; save(); render();
+}
+function updateSummary(){
+  let o=0,p=0,c=0,h=0;
+  Object.values(S).forEach(s=>{
+    if(s.status==="open")o++;
+    else if(s.status==="progress")p++;
+    else if(s.status==="closed")c++;
+    else if(s.status==="hold")h++;
+  });
+  document.getElementById("oc").textContent=o;
+  document.getElementById("pc").textContent=p;
+  document.getElementById("cc").textContent=c;
+  document.getElementById("hc").textContent=h;
+  document.getElementById("tot").textContent=TOTAL;
+  const pct=Math.round(c/TOTAL*100);
+  document.getElementById("pct").textContent=pct+"%";
+  document.getElementById("pbar").style.width=pct+"%";
+}
+document.getElementById("mOv").addEventListener("click",e=>{if(e.target===document.getElementById("mOv"))closeM();});
+document.getElementById("currentDate").textContent=new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+load(); render();
+</script>
+</body>
+</html>
