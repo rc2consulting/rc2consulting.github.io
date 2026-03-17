@@ -225,11 +225,11 @@
       <div id="formspree-setup-notice" style="background:#FEF9C3;border:1.5px solid #FBBF24;border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:0.82rem;color:#78350F;line-height:1.65;display:block;">
         <strong>⚙️ Configuración Requerida (5 minutos):</strong> Este formulario usa Formspree.
         <br>1. Ir a <a href="https://formspree.io" target="_blank" style="color:#1D4ED8;font-weight:600;">formspree.io</a> → Regístrese Gratis → ingrese <strong>info@rc2salesconsulting.com</strong>.
-        <br>2. Copie su ID y reemplace <code>REPLACE_WITH_YOUR_FORM_ID</code> abajo. Elimine este aviso una vez configurado.
+        <br>2. Copie su ID y reemplace <code>mnjgodaj</code> abajo. Elimine este aviso una vez configurado.
       </div>
       <h2>Envíenos un Mensaje</h2>
       <p class="form-sub">Describa su situación y responderemos en un día hábil con un próximo paso recomendado. Toda la información es confidencial.</p>
-      <form id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" onsubmit="handleSubmit(event)">
+      <form id="contact-form" action="https://formspree.io/f/mnjgodaj" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-grid">
           <div class="form-group"><label class="form-label">Nombre <span class="req">*</span></label><input class="form-input" type="text" name="first_name" required placeholder="Eduardo"/></div>
           <div class="form-group"><label class="form-label">Apellido <span class="req">*</span></label><input class="form-input" type="text" name="last_name" required placeholder="García"/></div>
@@ -338,7 +338,7 @@
       else { const j=await res.json(); throw new Error(j.errors?j.errors.map(x=>x.message).join(', '):'Error al enviar'); }
     } catch(err) {
       btn.textContent='Enviar Mensaje →'; btn.disabled=false;
-      if(error){error.textContent='⚠️ '+(err.message.includes('REPLACE_WITH_YOUR_FORM_ID')?'Formulario no configurado.':'No se pudo enviar — escríbanos a info@rc2salesconsulting.com');error.style.display='block';}
+      if(error){error.textContent='⚠️ '+(err.message.includes('mnjgodaj')?'Formulario no configurado.':'No se pudo enviar — escríbanos a info@rc2salesconsulting.com');error.style.display='block';}
     }
   }
   (function(){const h=window.location.hash.replace('#','');if(h==='message'||h==='book')switchPanel(h);})();

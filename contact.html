@@ -237,12 +237,12 @@
         <strong>⚙️ One-Time Setup Required (5 minutes):</strong> This form uses Formspree — a free service for static websites.
         <br>1. Go to <a href="https://formspree.io" target="_blank" style="color:#1D4ED8;font-weight:600;">formspree.io</a> → Sign Up Free → New Form → enter <strong>info@rc2salesconsulting.com</strong> as the email.
         <br>2. Copy your Form ID (looks like: <code>xabcde12</code>).
-        <br>3. In this file, replace <code>REPLACE_WITH_YOUR_FORM_ID</code> in the form action with your actual ID.
+        <br>3. In this file, replace <code>mnjgodaj</code> in the form action with your actual ID.
         <br>4. Save &amp; upload — the form will send directly to your email. Delete this notice once live.
       </div>
       <h2>Send Us a Message</h2>
       <p class="form-sub">Describe your situation and we'll respond within one business day with a recommended next step. All information is confidential.</p>
-      <form id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" onsubmit="handleSubmit(event)">
+      <form id="contact-form" action="https://formspree.io/f/mnjgodaj" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-grid">
           <div class="form-group"><label class="form-label">First Name <span class="req">*</span></label><input class="form-input" type="text" name="first_name" required placeholder="Edward"/></div>
           <div class="form-group"><label class="form-label">Last Name <span class="req">*</span></label><input class="form-input" type="text" name="last_name" required placeholder="Smith"/></div>
@@ -363,7 +363,7 @@
       btn.textContent = 'Send Message →';
       btn.disabled = false;
       if (error) {
-        error.textContent = '⚠️ ' + (err.message.includes('REPLACE_WITH_YOUR_FORM_ID') ? 'Form not yet configured. Please complete the Formspree setup above.' : 'Could not send — please email us directly at info@rc2salesconsulting.com');
+        error.textContent = '⚠️ ' + (err.message.includes('mnjgodaj') ? 'Form not yet configured. Please complete the Formspree setup above.' : 'Could not send — please email us directly at info@rc2salesconsulting.com');
         error.style.display = 'block';
       }
     }
