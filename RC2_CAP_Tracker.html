@@ -3,130 +3,156 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>RC2 CAP Tracker v2.0</title>
+<title>RC2 CAP Tracker v2.1</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-  :root{
-    --navy:#0d2340;--navy-mid:#163354;--navy-light:#1e4a7a;
-    --gold:#c9a84c;--gold-light:#e8c96d;
-    --off-white:#f4f6f9;--gray-100:#eef1f5;--gray-200:#d8dde6;--gray-400:#8a94a6;--gray-600:#4a5568;--text:#0d2340;
-    --s-open-bg:#fff0f0;--s-open-b:#e53e3e;--s-open-t:#c53030;
-    --s-prog-bg:#fffbeb;--s-prog-b:#b7791f;--s-prog-t:#b7791f;
-    --s-clos-bg:#f0fff4;--s-clos-b:#38a169;--s-clos-t:#276749;
-    --s-hold-bg:#ebf8ff;--s-hold-b:#667eea;--s-hold-t:#4c51bf;
-    --p-crit:#e53e3e;--p-high:#dd6b20;--p-med:#d69e2e;--p-low:#38a169;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);min-height:100vh;font-size:13px;}
-  .header{background:var(--navy);border-bottom:2px solid var(--gold);}
-  .header-inner{max-width:1280px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;}
-  .logo-block{display:flex;align-items:center;gap:12px;}
-  .logo-badge{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:500;font-size:12px;color:var(--navy);}
-  .logo-text h1{font-size:15px;font-weight:600;color:#fff;letter-spacing:.3px;}
-  .logo-text p{font-size:11px;color:rgba(255,255,255,.55);margin-top:1px;}
-  .header-meta{display:flex;align-items:center;gap:16px;}
-  .save-ind{display:flex;align-items:center;gap:5px;color:var(--gold);font-size:11px;font-weight:500;opacity:0;transition:opacity .3s;}
-  .save-ind.on{opacity:1;}
-  .hdate{font-size:11px;color:rgba(255,255,255,.5);}
-  .triage-banner{max-width:1280px;margin:20px auto 0;padding:0 28px;}
-  .triage-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-  .triage-card{background:#fff;border-radius:10px;border:1px solid var(--gray-200);padding:14px 16px;text-align:center;}
-  .tc-label{font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px;}
-  .tc-val{font-size:28px;font-weight:600;color:var(--text);line-height:1;}
-  .tc-sub{font-size:11px;color:var(--gray-400);margin-top:3px;}
-  .tc-bar{height:4px;background:var(--gray-100);border-radius:4px;margin-top:8px;overflow:hidden;}
-  .tc-fill{height:100%;border-radius:4px;background:var(--gold);}
-  .matrix-wrap{max-width:1280px;margin:16px auto 0;padding:0 28px;}
-  .matrix-inner{background:#fff;border-radius:12px;border:1px solid var(--gray-200);padding:16px 20px;}
-  .matrix-title{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-  .matrix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-  .mx-card{border-radius:8px;padding:12px 14px;border-left:3px solid;}
-  .mx-crit{background:#fff5f5;border-color:var(--p-crit);}
-  .mx-high{background:#fff8f0;border-color:var(--p-high);}
-  .mx-med{background:#fffbeb;border-color:var(--p-med);}
-  .mx-head{font-size:11px;font-weight:700;margin-bottom:8px;}
-  .mx-crit .mx-head{color:var(--p-crit);}
-  .mx-high .mx-head{color:var(--p-high);}
-  .mx-med .mx-head{color:var(--p-med);}
-  .mx-item{font-size:11px;color:var(--gray-600);padding:3px 0;display:flex;align-items:flex-start;gap:5px;line-height:1.4;border-bottom:1px solid rgba(0,0,0,.05);}
-  .mx-item:last-child{border-bottom:none;}
-  .mx-item::before{content:'→';flex-shrink:0;font-weight:700;}
-  .mx-time{font-size:10px;font-weight:600;color:var(--gray-400);margin-left:4px;white-space:nowrap;}
-  .prog-wrap{max-width:1280px;margin:16px auto 0;padding:0 28px;}
-  .prog-inner{background:var(--navy);border-radius:12px;padding:16px 22px;}
-  .prog-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
-  .prog-lbl{font-size:12px;font-weight:600;color:rgba(255,255,255,.8);}
-  .prog-pct{font-size:20px;font-weight:600;color:var(--gold);}
-  .prog-bar-outer{height:8px;background:rgba(255,255,255,.12);border-radius:4px;overflow:hidden;}
-  .prog-bar-inner{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;transition:width .4s ease;}
-  .tbl-wrap{max-width:1280px;margin:16px auto;padding:0 28px;}
-  .tbl-box{background:#fff;border-radius:12px;border:1px solid var(--gray-200);overflow:hidden;}
-  .tbl-hd{display:grid;grid-template-columns:90px 1fr 110px 120px 110px 160px;padding:11px 20px;gap:12px;background:var(--navy-mid);border-bottom:1px solid var(--navy-light);}
-  .th{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.6);}
-  .cap-row{display:grid;grid-template-columns:90px 1fr 110px 120px 110px 160px;padding:13px 20px;gap:12px;align-items:start;border-bottom:1px solid var(--gray-100);transition:background .2s;border-left:3px solid transparent;}
-  .cap-row:last-child{border-bottom:none;}
-  .cap-row:hover{background:var(--gray-100);}
-  .r-open{border-left-color:var(--p-crit);}
-  .r-prog{border-left-color:var(--p-high);}
-  .r-clos{border-left-color:var(--p-low);opacity:.75;}
-  .r-hold{border-left-color:#667eea;}
-  .r-id{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--navy);padding-top:2px;}
-  .r-desc{font-size:12px;color:var(--gray-600);line-height:1.5;}
-  .r-own{font-size:12px;color:var(--gray-600);padding-top:2px;}
-  .r-dl{font-size:12px;color:var(--gray-600);font-family:'DM Mono',monospace;padding-top:2px;}
-  .pbadge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;}
-  .pdot{width:6px;height:6px;border-radius:50%;background:currentColor;}
-  .pc{color:var(--p-crit);background:#fff0f0;border:1px solid rgba(229,62,62,.3);}
-  .ph{color:var(--p-high);background:#fff5eb;border:1px solid rgba(221,107,32,.3);}
-  .pm{color:var(--p-med);background:#fffbeb;border:1px solid rgba(214,158,46,.3);}
-  .pl{color:var(--p-low);background:#f0fff4;border:1px solid rgba(56,161,105,.3);}
-  .so select,.sp select,.sc select,.sh select{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;border-radius:20px;padding:4px 10px;border:1.5px solid;cursor:pointer;width:100%;outline:none;}
-  .so select{color:var(--s-open-t);background:var(--s-open-bg);border-color:var(--s-open-b);}
-  .sp select{color:var(--s-prog-t);background:var(--s-prog-bg);border-color:var(--s-prog-b);}
-  .sc select{color:var(--s-clos-t);background:var(--s-clos-bg);border-color:var(--s-clos-b);}
-  .sh select{color:var(--s-hold-t);background:var(--s-hold-bg);border-color:var(--s-hold-b);}
-  .ph-hdr{padding:9px 20px;background:var(--navy);border-bottom:1px solid var(--navy-light);}
-  .ph-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;gap:10px;}
-  .ph-lbl::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.1);}
-  .vbadge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--s-clos-t);background:var(--s-clos-bg);border:1px solid var(--s-clos-b);padding:2px 7px;border-radius:10px;margin-left:8px;}
-  .nbadge{font-size:10px;font-weight:700;color:#4c51bf;background:#ebf4ff;border:1px solid #667eea;padding:2px 7px;border-radius:10px;margin-left:6px;display:inline-flex;}
-  .esbadge{font-size:10px;font-weight:700;color:#553c9a;background:#faf5ff;border:1px solid #9f7aea;padding:2px 7px;border-radius:10px;margin-left:6px;display:inline-flex;}
-  .wbbadge{font-size:10px;font-weight:700;color:#2b6cb0;background:#ebf8ff;border:1px solid #4299e1;padding:2px 7px;border-radius:10px;margin-left:6px;display:inline-flex;}
-  .aibadge{font-size:10px;font-weight:700;color:#276749;background:#f0fff4;border:1px solid #48bb78;padding:2px 7px;border-radius:10px;margin-left:6px;display:inline-flex;}
-  .timebadge{font-size:10px;font-weight:600;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);padding:2px 7px;border-radius:10px;margin-left:6px;display:inline-flex;}
-  .file-toggle{background:none;border:none;cursor:pointer;font-size:11px;font-weight:600;color:var(--gold);padding:5px 0;margin-top:6px;display:flex;align-items:center;gap:5px;font-family:'DM Sans',sans-serif;}
-  .file-toggle:hover{color:var(--navy);}
-  .file-checklist{display:none;margin-top:8px;background:var(--gray-100);border-radius:8px;padding:12px 14px;border:1px solid var(--gray-200);}
-  .file-checklist.open{display:block;}
-  .fc-section{font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--navy);margin:10px 0 4px;padding-bottom:3px;border-bottom:1px solid var(--gray-200);}
-  .fc-section:first-child{margin-top:0;}
-  .fc-item{display:flex;align-items:flex-start;gap:8px;padding:3px 0;font-size:11px;color:var(--gray-600);cursor:pointer;line-height:1.4;}
-  .fc-item input[type=checkbox]{margin-top:2px;flex-shrink:0;accent-color:var(--navy);}
-  .fc-item.done{text-decoration:line-through;opacity:.5;}
-  .modal-ov{display:none;position:fixed;inset:0;background:rgba(13,35,64,.6);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
-  .modal-ov.open{display:flex;}
-  .modal{background:#fff;border-radius:14px;width:480px;max-width:94vw;box-shadow:0 24px 60px rgba(0,0,0,.25);overflow:hidden;}
-  .modal-hd{background:var(--navy);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;}
-  .modal-hd h3{font-size:14px;font-weight:600;color:#fff;}
-  .modal-hd button{background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;font-size:22px;line-height:1;}
-  .modal-body{padding:20px 22px;}
-  .modal-id{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-400);margin-bottom:10px;line-height:1.5;}
-  .modal-lbl{font-size:11px;font-weight:600;color:var(--gray-600);margin-bottom:5px;margin-top:12px;}
-  .modal-input{width:100%;border:1.5px solid var(--gray-200);border-radius:8px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;}
-  .modal-input:focus{border-color:var(--navy);}
-  textarea.modal-input{resize:vertical;min-height:72px;}
-  .modal-ft{padding:14px 22px;background:var(--gray-100);display:flex;justify-content:flex-end;gap:10px;}
-  .btn-cancel{padding:8px 18px;border-radius:7px;border:1.5px solid var(--gray-200);background:#fff;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;}
-  .btn-confirm{padding:8px 22px;border-radius:7px;border:none;background:var(--navy);color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;}
-  .ft{max-width:1280px;margin:0 auto;padding:0 28px 28px;display:flex;align-items:center;justify-content:space-between;}
-  .ft-left,.ft-right{font-size:11px;color:var(--gray-400);}
-  @media(max-width:900px){
-    .tbl-hd,.cap-row{grid-template-columns:70px 1fr 90px;gap:8px;}
-    .th:nth-child(4),.th:nth-child(5),.r-own,.r-dl,.cap-row>div:nth-child(4),.cap-row>div:nth-child(5){display:none;}
-    .triage-grid{grid-template-columns:repeat(3,1fr);}
-    .matrix-grid{grid-template-columns:1fr;}
-    .header-inner,.triage-banner,.matrix-wrap,.prog-wrap,.tbl-wrap,.ft{padding-left:14px;padding-right:14px;}
-  }
+:root{
+  --navy:#0d2340;--navy-mid:#163354;--navy-light:#1e4a7a;
+  --gold:#c9a84c;--gold-light:#e8c96d;
+  --off-white:#f4f6f9;--gray-100:#eef1f5;--gray-200:#d8dde6;--gray-400:#8a94a6;--gray-600:#4a5568;--text:#0d2340;
+  --s-open-bg:#fff0f0;--s-open-b:#e53e3e;--s-open-t:#c53030;
+  --s-prog-bg:#fffbeb;--s-prog-b:#b7791f;--s-prog-t:#b7791f;
+  --s-clos-bg:#f0fff4;--s-clos-b:#38a169;--s-clos-t:#276749;
+  --s-hold-bg:#ebf8ff;--s-hold-b:#667eea;--s-hold-t:#4c51bf;
+  --p-crit:#e53e3e;--p-high:#dd6b20;--p-med:#d69e2e;--p-low:#38a169;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);min-height:100vh;font-size:13px;}
+/* HEADER */
+.header{background:var(--navy);border-bottom:2px solid var(--gold);}
+.header-inner{max-width:1400px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.logo-block{display:flex;align-items:center;gap:10px;}
+.logo-badge{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:500;font-size:11px;color:var(--navy);flex-shrink:0;}
+.logo-text h1{font-size:14px;font-weight:600;color:#fff;}
+.logo-text p{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px;}
+.header-right{display:flex;align-items:center;gap:12px;}
+.save-ind{color:var(--gold);font-size:11px;font-weight:500;opacity:0;transition:opacity .3s;}
+.save-ind.on{opacity:1;}
+.hdate{font-size:11px;color:rgba(255,255,255,.45);}
+.add-btn{background:var(--gold);color:var(--navy);border:none;border-radius:7px;padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;}
+.add-btn:hover{background:var(--gold-light);}
+/* TRIAGE CARDS */
+.top-wrap{max-width:1400px;margin:18px auto 0;padding:0 24px;}
+.triage-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px;}
+.triage-card{background:#fff;border-radius:10px;border:1px solid var(--gray-200);padding:12px 14px;text-align:center;}
+.tc-label{font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--gray-400);margin-bottom:5px;}
+.tc-val{font-size:26px;font-weight:600;line-height:1;}
+.tc-sub{font-size:11px;color:var(--gray-400);margin-top:2px;}
+.tc-bar{height:4px;background:var(--gray-100);border-radius:4px;margin-top:7px;overflow:hidden;}
+.tc-fill{height:100%;border-radius:4px;background:var(--gold);}
+/* TRIAGE MATRIX */
+.matrix-inner{background:#fff;border-radius:12px;border:1px solid var(--gray-200);padding:14px 18px;margin-bottom:14px;}
+.matrix-title{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.matrix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.mx-card{border-radius:8px;padding:10px 12px;border-left:3px solid;}
+.mx-crit{background:#fff5f5;border-color:var(--p-crit);}
+.mx-high{background:#fff8f0;border-color:var(--p-high);}
+.mx-med{background:#fffbeb;border-color:var(--p-med);}
+.mx-head{font-size:11px;font-weight:700;margin-bottom:6px;}
+.mx-crit .mx-head{color:var(--p-crit);}
+.mx-high .mx-head{color:var(--p-high);}
+.mx-med .mx-head{color:var(--p-med);}
+.mx-item{font-size:11px;color:var(--gray-600);padding:2px 0;display:flex;align-items:flex-start;gap:4px;line-height:1.4;}
+.mx-item::before{content:'→';flex-shrink:0;font-weight:700;}
+.mx-time{font-size:10px;font-weight:600;color:var(--gray-400);margin-left:3px;}
+/* PROGRESS */
+.prog-inner{background:var(--navy);border-radius:12px;padding:14px 20px;margin-bottom:16px;}
+.prog-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-lbl{font-size:12px;font-weight:600;color:rgba(255,255,255,.8);}
+.prog-pct{font-size:20px;font-weight:600;color:var(--gold);}
+.prog-bar-outer{height:7px;background:rgba(255,255,255,.12);border-radius:4px;overflow:hidden;}
+.prog-bar-inner{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;transition:width .4s;}
+/* TABLE */
+.tbl-wrap{max-width:1400px;margin:0 auto;padding:0 24px 24px;}
+.tbl-box{background:#fff;border-radius:12px;border:1px solid var(--gray-200);overflow:hidden;}
+/* col widths: id | desc | priority | owner | deadline | time | status */
+.tbl-hd{display:grid;grid-template-columns:80px 1fr 110px 110px 105px 110px 150px;padding:10px 18px;gap:10px;background:var(--navy-mid);border-bottom:1px solid var(--navy-light);}
+.th{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.cap-row{display:grid;grid-template-columns:80px 1fr 110px 110px 105px 110px 150px;padding:11px 18px;gap:10px;align-items:start;border-bottom:1px solid var(--gray-100);border-left:3px solid transparent;transition:background .15s;}
+.cap-row:last-child{border-bottom:none;}
+.cap-row:hover{background:#fafbfc;}
+.r-open{border-left-color:var(--p-crit);}
+.r-prog{border-left-color:var(--p-high);}
+.r-clos{border-left-color:var(--p-low);opacity:.72;}
+.r-hold{border-left-color:#667eea;}
+/* EDITABLE CELLS */
+.editable{cursor:pointer;border-radius:5px;padding:3px 6px;transition:background .15s;line-height:1.5;min-height:22px;}
+.editable:hover{background:var(--gray-100);}
+.editable:hover::after{content:' ✏️';font-size:10px;opacity:.5;}
+.editing{background:#fff;border:1.5px solid var(--navy);border-radius:5px;padding:3px 6px;outline:none;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text);width:100%;resize:vertical;line-height:1.5;}
+.edit-select{background:#fff;border:1.5px solid var(--navy);border-radius:5px;padding:4px 6px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text);width:100%;cursor:pointer;outline:none;}
+.r-id-cell{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--navy);}
+.r-id-input{font-family:'DM Mono',monospace;}
+/* BADGES */
+.pbadge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;cursor:pointer;}
+.pbadge:hover{opacity:.8;}
+.pdot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0;}
+.pc{color:var(--p-crit);background:#fff0f0;border:1px solid rgba(229,62,62,.3);}
+.ph{color:var(--p-high);background:#fff5eb;border:1px solid rgba(221,107,32,.3);}
+.pm{color:var(--p-med);background:#fffbeb;border:1px solid rgba(214,158,46,.3);}
+.pl{color:var(--p-low);background:#f0fff4;border:1px solid rgba(56,161,105,.3);}
+/* STATUS SELECT */
+.so select,.sp select,.sc select,.sh select{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;border-radius:20px;padding:4px 9px;border:1.5px solid;cursor:pointer;width:100%;outline:none;}
+.so select{color:var(--s-open-t);background:var(--s-open-bg);border-color:var(--s-open-b);}
+.sp select{color:var(--s-prog-t);background:var(--s-prog-bg);border-color:var(--s-prog-b);}
+.sc select{color:var(--s-clos-t);background:var(--s-clos-bg);border-color:var(--s-clos-b);}
+.sh select{color:var(--s-hold-t);background:var(--s-hold-bg);border-color:var(--s-hold-b);}
+/* PHASE HEADER */
+.ph-hdr{padding:8px 18px;background:var(--navy);border-bottom:1px solid var(--navy-light);}
+.ph-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;gap:10px;}
+.ph-lbl::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.1);}
+/* MINI BADGES */
+.vbadge{font-size:10px;font-weight:600;color:var(--s-clos-t);background:var(--s-clos-bg);border:1px solid var(--s-clos-b);padding:2px 6px;border-radius:10px;margin-left:6px;display:inline-flex;}
+.nbadge{font-size:10px;font-weight:700;color:#4c51bf;background:#ebf4ff;border:1px solid #667eea;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+.esbadge{font-size:10px;font-weight:700;color:#553c9a;background:#faf5ff;border:1px solid #9f7aea;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+.wbbadge{font-size:10px;font-weight:700;color:#2b6cb0;background:#ebf8ff;border:1px solid #4299e1;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+.aibadge{font-size:10px;font-weight:700;color:#276749;background:#f0fff4;border:1px solid #48bb78;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+/* DELETE ROW */
+.del-btn{background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:14px;padding:2px 4px;border-radius:4px;float:right;line-height:1;}
+.del-btn:hover{color:var(--p-crit);background:#fff0f0;}
+/* FILING CHECKLIST */
+.file-toggle{background:none;border:none;cursor:pointer;font-size:11px;font-weight:600;color:var(--gold);padding:4px 0;margin-top:5px;display:flex;align-items:center;gap:4px;font-family:'DM Sans',sans-serif;}
+.file-toggle:hover{color:var(--navy);}
+.file-checklist{display:none;margin-top:7px;background:var(--gray-100);border-radius:8px;padding:10px 12px;border:1px solid var(--gray-200);}
+.file-checklist.open{display:block;}
+.fc-section{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--navy);margin:8px 0 3px;padding-bottom:2px;border-bottom:1px solid var(--gray-200);}
+.fc-section:first-child{margin-top:0;}
+.fc-item{display:flex;align-items:flex-start;gap:7px;padding:2px 0;font-size:11px;color:var(--gray-600);cursor:pointer;line-height:1.4;}
+.fc-item input{margin-top:2px;flex-shrink:0;accent-color:var(--navy);}
+.fc-item.done{text-decoration:line-through;opacity:.5;}
+/* MODAL */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(13,35,64,.55);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
+.modal-ov.open{display:flex;}
+.modal{background:#fff;border-radius:14px;width:500px;max-width:94vw;box-shadow:0 20px 60px rgba(0,0,0,.22);overflow:hidden;}
+.modal-hd{background:var(--navy);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;}
+.modal-hd h3{font-size:14px;font-weight:600;color:#fff;}
+.modal-hd button{background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:22px;line-height:1;}
+.modal-body{padding:18px 20px;}
+.modal-id{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-400);margin-bottom:8px;}
+.modal-lbl{font-size:11px;font-weight:600;color:var(--gray-600);margin:10px 0 4px;}
+.modal-input{width:100%;border:1.5px solid var(--gray-200);border-radius:7px;padding:8px 11px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;}
+.modal-input:focus{border-color:var(--navy);}
+textarea.modal-input{resize:vertical;min-height:68px;}
+.modal-ft{padding:12px 20px;background:var(--gray-100);display:flex;justify-content:flex-end;gap:10px;}
+.btn-cancel{padding:7px 16px;border-radius:7px;border:1.5px solid var(--gray-200);background:#fff;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;}
+.btn-confirm{padding:7px 20px;border-radius:7px;border:none;background:var(--navy);color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;}
+/* FOOTER */
+.ft{max-width:1400px;margin:0 auto;padding:0 24px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.ft-txt{font-size:11px;color:var(--gray-400);}
+/* EDIT HINT */
+.edit-hint{font-size:10px;color:var(--gray-400);text-align:center;padding:6px;background:var(--gray-100);border-top:1px solid var(--gray-200);}
+@media(max-width:1000px){
+  .tbl-hd,.cap-row{grid-template-columns:72px 1fr 90px 90px;gap:8px;}
+  .th:nth-child(4),.th:nth-child(5),.th:nth-child(6),.cap-row>div:nth-child(4),.cap-row>div:nth-child(5),.cap-row>div:nth-child(6){display:none;}
+  .triage-grid{grid-template-columns:repeat(3,1fr);}
+  .matrix-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .tbl-hd,.cap-row{grid-template-columns:65px 1fr 110px;gap:6px;}
+  .th:nth-child(3),.cap-row>div:nth-child(3){display:none;}
+  .triage-grid{grid-template-columns:repeat(2,1fr);}
+  .top-wrap,.tbl-wrap,.ft{padding-left:12px;padding-right:12px;}
+}
 </style>
 </head>
 <body>
@@ -136,68 +162,69 @@
     <div class="logo-block">
       <div class="logo-badge">RC²</div>
       <div class="logo-text">
-        <h1>RC2 Sales Consulting, LLC — Corrective Action Plan</h1>
-        <p>Live Tracker v2.0 · 22 Items · Full System Audit 2026-03-16</p>
+        <h1>RC2 Sales Consulting — Corrective Action Plan</h1>
+        <p>Live Tracker v2.1 · Fully Editable · 22 Items · Audit 2026-03-16</p>
       </div>
     </div>
-    <div class="header-meta">
+    <div class="header-right">
       <div class="save-ind" id="saveInd">✓ Saved</div>
       <div class="hdate" id="currentDate"></div>
+      <button class="add-btn" onclick="addRow()">+ Add Item</button>
     </div>
   </div>
 </div>
 
-<div class="triage-banner">
+<div class="top-wrap">
+  <!-- SUMMARY CARDS -->
   <div class="triage-grid">
-    <div class="triage-card"><div class="tc-label">Total Items</div><div class="tc-val" id="tot">22</div><div class="tc-sub">CAP-01 through CAP-22</div><div class="tc-bar"><div class="tc-fill" style="width:100%"></div></div></div>
+    <div class="triage-card"><div class="tc-label">Total Items</div><div class="tc-val" id="tot" style="color:var(--navy)">22</div><div class="tc-sub">CAP-01 to CAP-22</div><div class="tc-bar"><div class="tc-fill" style="width:100%"></div></div></div>
     <div class="triage-card"><div class="tc-label">Open</div><div class="tc-val" style="color:var(--p-crit)" id="oc">—</div><div class="tc-sub">Action required</div><div class="tc-bar"><div class="tc-fill" style="background:var(--p-crit)" id="ob"></div></div></div>
     <div class="triage-card"><div class="tc-label">In Progress</div><div class="tc-val" style="color:var(--p-high)" id="pc">—</div><div class="tc-sub">Work started</div><div class="tc-bar"><div class="tc-fill" style="background:var(--p-high)" id="pb"></div></div></div>
     <div class="triage-card"><div class="tc-label">Closed</div><div class="tc-val" style="color:var(--p-low)" id="cc">—</div><div class="tc-sub">Verified complete</div><div class="tc-bar"><div class="tc-fill" style="background:var(--p-low)" id="cb"></div></div></div>
-    <div class="triage-card"><div class="tc-label">Completion</div><div class="tc-val" style="color:var(--gold)" id="pct">—</div><div class="tc-sub">Target: 2026-06-15</div><div class="tc-bar"><div class="tc-fill" id="pbar"></div></div></div>
+    <div class="triage-card"><div class="tc-label">Completion</div><div class="tc-val" style="color:var(--gold)" id="pct">—</div><div class="tc-sub">Target 2026-06-15</div><div class="tc-bar"><div class="tc-fill" id="pbar"></div></div></div>
   </div>
-</div>
 
-<div class="matrix-wrap">
+  <!-- TRIAGE MATRIX -->
   <div class="matrix-inner">
     <div class="matrix-title">Triage Matrix — Prioritized by Impact · Urgency · Time to Execute</div>
     <div class="matrix-grid">
       <div class="mx-card mx-crit">
-        <div class="mx-head">🔴 Do Today — Under 30 min each</div>
-        <div class="mx-item">CAP-13 — Fix Formspree contact form <span class="mx-time">5 min</span></div>
-        <div class="mx-item">CAP-14 — Add intake CTA to home pages <span class="mx-time">15 min</span></div>
-        <div class="mx-item">CAP-15 — File all built documents to Drive <span class="mx-time">30 min</span></div>
+        <div class="mx-head">🔴 Do Today — Under 30 min</div>
+        <div class="mx-item">CAP-13 Fix Formspree contact form <span class="mx-time">5 min</span></div>
+        <div class="mx-item">CAP-14 Add intake CTA to home pages <span class="mx-time">15 min</span></div>
+        <div class="mx-item">CAP-15 File all built documents to Drive <span class="mx-time">30 min</span></div>
       </div>
       <div class="mx-card mx-high">
         <div class="mx-head">🟠 This Week — 1–3 hrs each</div>
-        <div class="mx-item">CAP-03 — Role-play discovery script Mar 25</div>
-        <div class="mx-item">CAP-04 — 3 Service Delivery SOPs</div>
-        <div class="mx-item">CAP-05 — Capability Statement template</div>
-        <div class="mx-item">CAP-16 — Build AI prompt library</div>
-        <div class="mx-item">CAP-17 — Populate empty Drive folders</div>
+        <div class="mx-item">CAP-03 Role-play discovery script Mar 25</div>
+        <div class="mx-item">CAP-04 3 Service Delivery SOPs</div>
+        <div class="mx-item">CAP-05 Capability Statement template</div>
+        <div class="mx-item">CAP-16 Build AI prompt library</div>
+        <div class="mx-item">CAP-17 Populate empty Drive folders</div>
       </div>
       <div class="mx-card mx-med">
-        <div class="mx-head">🟡 This Month — 20 min to 4 hrs each</div>
-        <div class="mx-item">CAP-06 — Post-discovery email templates</div>
-        <div class="mx-item">CAP-07 — QC Checklist for deliverables</div>
-        <div class="mx-item">CAP-08 — Time tracking sheet</div>
-        <div class="mx-item">CAP-18 — Spanish intake form <span class="mx-time">30 min</span></div>
-        <div class="mx-item">CAP-19 — Spanish satisfaction survey <span class="mx-time">20 min</span></div>
-        <div class="mx-item">CAP-21 — Custom domain + info@ email</div>
+        <div class="mx-head">🟡 This Month — 20 min to 4 hrs</div>
+        <div class="mx-item">CAP-06 Post-discovery email templates</div>
+        <div class="mx-item">CAP-07 QC Checklist for deliverables</div>
+        <div class="mx-item">CAP-08 Time tracking sheet</div>
+        <div class="mx-item">CAP-18 Spanish intake form <span class="mx-time">30 min</span></div>
+        <div class="mx-item">CAP-19 Spanish satisfaction survey <span class="mx-time">20 min</span></div>
+        <div class="mx-item">CAP-21 Custom domain + info@ email</div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="prog-wrap">
+  <!-- PROGRESS -->
   <div class="prog-inner">
     <div class="prog-hdr">
-      <div class="prog-lbl">CAP Completion — Target Close: 2026-06-15 · 22 Total Items</div>
+      <div class="prog-lbl">CAP Completion — Target Close: 2026-06-15</div>
       <div class="prog-pct" id="pct2">—</div>
     </div>
     <div class="prog-bar-outer"><div class="prog-bar-inner" id="pbar2" style="width:0%"></div></div>
   </div>
 </div>
 
+<!-- TABLE -->
 <div class="tbl-wrap">
   <div class="tbl-box">
     <div class="tbl-hd">
@@ -206,20 +233,23 @@
       <div class="th">Priority</div>
       <div class="th">Owner</div>
       <div class="th">Deadline</div>
+      <div class="th">Time Required</div>
       <div class="th">Status</div>
     </div>
     <div id="capTbl"></div>
+    <div class="edit-hint">💡 Click any cell to edit · All fields are fully editable · Changes save automatically</div>
   </div>
 </div>
 
 <div class="ft">
-  <div class="ft-left">RC2 Sales Consulting, LLC &nbsp;·&nbsp; CAP Tracker v2.0 &nbsp;·&nbsp; 22 Items &nbsp;·&nbsp; Full System Audit 2026-03-16</div>
-  <div class="ft-right">Auto-saves locally &nbsp;·&nbsp; CAP-12 = Google Sheets sync upgrade</div>
+  <div class="ft-txt">RC2 Sales Consulting, LLC &nbsp;·&nbsp; CAP Tracker v2.1 &nbsp;·&nbsp; Fully Editable &nbsp;·&nbsp; Auto-saves locally</div>
+  <div class="ft-txt">CAP-12 = Google Sheets sync upgrade &nbsp;·&nbsp; All fields editable on mobile too</div>
 </div>
 
+<!-- CLOSE MODAL -->
 <div class="modal-ov" id="mOv">
   <div class="modal">
-    <div class="modal-hd"><h3>Mark CAP Item Closed</h3><button onclick="closeM()">×</button></div>
+    <div class="modal-hd"><h3>Mark Item Closed</h3><button onclick="closeM()">×</button></div>
     <div class="modal-body">
       <div class="modal-id" id="mId"></div>
       <div class="modal-lbl">Verified By *</div>
@@ -227,7 +257,7 @@
       <div class="modal-lbl">Date Verified</div>
       <input class="modal-input" id="mDate" type="date"/>
       <div class="modal-lbl">Verification Notes</div>
-      <textarea class="modal-input" id="mNotes" placeholder="What was done, where saved, any key details..."></textarea>
+      <textarea class="modal-input" id="mNotes" placeholder="What was done, where saved, key details..."></textarea>
     </div>
     <div class="modal-ft">
       <button class="btn-cancel" onclick="closeM()">Cancel</button>
@@ -237,155 +267,271 @@
 </div>
 
 <script>
-const TOTAL=22;
-const DATA=[
-  {phase:"PHASE 1 — CRITICAL | Do Today — High Impact, Fast to Execute",items:[
-    {id:"CAP-01",desc:"No automated satisfaction survey trigger at project close",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01",tag:"ops"},
-    {id:"CAP-02",desc:"No Client Offboarding SOP",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01",tag:"ops"},
-    {id:"CAP-13",desc:"Contact form broken — Formspree Form ID placeholder not replaced in contact.html and contact-es.html. Visitors cannot send messages.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",isNew:true,tag:"web",time:"5 min"},
-    {id:"CAP-14",desc:"Intake form CTA missing from home page hero — index.html and index-es.html. Highest-traffic pages on the site get no intake button.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",isNew:true,tag:"web",time:"15 min"},
-    {id:"CAP-15",desc:"All documents built on 2026-03-16 are not yet filed in Google Drive. See filing checklist — expand below.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",isNew:true,tag:"ai",time:"30 min",hasChecklist:true},
+// ── DEFAULT DATA ──────────────────────────────────────────────────────────────
+const DEFAULT_PHASES = [
+  {phase:"PHASE 1 — CRITICAL | Do Today — High Impact, Fast to Execute", items:[
+    {id:"CAP-01",desc:"No automated satisfaction survey trigger at project close",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01",time:"N/A",tag:"ops"},
+    {id:"CAP-02",desc:"No Client Offboarding SOP",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01",time:"N/A",tag:"ops"},
+    {id:"CAP-13",desc:"Contact form broken — Formspree Form ID placeholder not replaced in contact.html and contact-es.html. Visitors cannot send messages.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",time:"5 min",tag:"web",isNew:true},
+    {id:"CAP-14",desc:"Intake form CTA missing from home page hero — index.html and index-es.html. Highest-traffic pages get no intake button.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",time:"15 min",tag:"web",isNew:true},
+    {id:"CAP-15",desc:"All documents built 2026-03-16 not yet filed in Google Drive. Expand filing checklist below.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",time:"30 min",tag:"ai",isNew:true,hasChecklist:true},
   ]},
-  {phase:"PHASE 2 — HIGH | This Week — Before First Client Signs or Delivers",items:[
-    {id:"CAP-03",desc:"No Discovery Call Script SOP — script built 2026-03-16, role-play with Jill scheduled March 25",p:"HIGH",own:"Eddie",dl:"2026-04-15",tag:"ops"},
-    {id:"CAP-04",desc:"No internal Service Delivery SOPs — 3 needed: WRAP, Gov Contracting, Operations",p:"HIGH",own:"Eddie",dl:"2026-04-15",tag:"ops"},
-    {id:"CAP-05",desc:"Capability Statement template missing — needed for government contracting clients",p:"HIGH",own:"Eddie",dl:"2026-04-15",tag:"ops"},
-    {id:"CAP-16",desc:"AI prompt library empty — all 5 subfolders in 08_AI_Automations have zero prompt docs. Core of Layer 3.",p:"HIGH",own:"Eddie",dl:"2026-04-15",isNew:true,tag:"ai",time:"2–3 hrs"},
-    {id:"CAP-17",desc:"5 Drive folders empty — 01_Strategy, 05_Knowledge_Base, 06_Templates, 10_Legal_Contracts (SOW templates), 11_Finance_Billing (time tracking)",p:"HIGH",own:"Eddie",dl:"2026-04-15",isNew:true,tag:"ai",time:"1–2 hrs"},
+  {phase:"PHASE 2 — HIGH | This Week — Before First Client Signs or Delivers", items:[
+    {id:"CAP-03",desc:"No Discovery Call Script SOP — script built, role-play with Jill scheduled March 25, 2026",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"1.5 hrs",tag:"ops"},
+    {id:"CAP-04",desc:"No internal Service Delivery SOPs — 3 needed: WRAP, Gov Contracting, Operations",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"3 hrs",tag:"ops"},
+    {id:"CAP-05",desc:"Capability Statement template missing — needed for government contracting clients",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"2 hrs",tag:"ops"},
+    {id:"CAP-16",desc:"AI prompt library empty — all 5 subfolders in 08_AI_Automations have zero prompt docs. Core of Layer 3.",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"2–3 hrs",tag:"ai",isNew:true},
+    {id:"CAP-17",desc:"5 Drive folders empty — 01_Strategy, 05_Knowledge_Base, 06_Templates, 10_Legal_Contracts, 11_Finance_Billing",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"1–2 hrs",tag:"ai",isNew:true},
   ]},
-  {phase:"PHASE 3 — MEDIUM | This Month — Within 30–60 Days",items:[
-    {id:"CAP-06",desc:"No post-discovery call email template — 3 needed: WRAP, Gov Contracting, Multi-service",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",tag:"ops"},
-    {id:"CAP-07",desc:"No QC checklist for deliverables",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",tag:"ops"},
-    {id:"CAP-08",desc:"No time tracking system — RC2_Time_Tracking Google Sheet needed in 11_Finance_Billing",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",tag:"ai"},
-    {id:"CAP-09",desc:"No 30-day post-engagement check-in system — formula in tracker, email template still needed",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",tag:"ops"},
-    {id:"CAP-10",desc:"No case study template — template and Apex Apparel sample exist, need formal CAP closure",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",tag:"ops"},
-    {id:"CAP-12",desc:"CAP Tracker uses localStorage — doesn't sync across devices. Upgrade to Google Sheets.",p:"MEDIUM",own:"Eddie",dl:"2026-05-18",tag:"ai"},
-    {id:"CAP-18",desc:"Spanish intake form missing — English form live but Spanish-speaking clients convert better with a dedicated ES form",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",isNew:true,tag:"es",time:"30 min"},
-    {id:"CAP-19",desc:"Spanish satisfaction survey missing — current survey is English only. Create ES version, update Apps Script.",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",isNew:true,tag:"es",time:"20 min"},
-    {id:"CAP-20",desc:"ES translations missing for 4+ pages — SBA Certification, SAM Registration, SPESA articles + WRAP Checklist tool + other tools",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",isNew:true,tag:"es",time:"4 hrs"},
-    {id:"CAP-21",desc:"Custom domain rc2salesconsulting.com not live + info@rc2salesconsulting.com email not created",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",isNew:true,tag:"web",time:"1 hr"},
+  {phase:"PHASE 3 — MEDIUM | This Month — Within 30–60 Days", items:[
+    {id:"CAP-06",desc:"No post-discovery call email template — 3 needed: WRAP, Gov Contracting, Multi-service",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"1 hr",tag:"ops"},
+    {id:"CAP-07",desc:"No QC checklist for deliverables",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"1 hr",tag:"ops"},
+    {id:"CAP-08",desc:"No time tracking system — RC2_Time_Tracking Google Sheet in 11_Finance_Billing",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"30 min",tag:"ai"},
+    {id:"CAP-09",desc:"No 30-day post-engagement check-in — formula built in tracker, email template still needed",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",time:"30 min",tag:"ops"},
+    {id:"CAP-10",desc:"No case study template — template + Apex Apparel sample exist, need formal CAP closure",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",time:"30 min",tag:"ops"},
+    {id:"CAP-12",desc:"CAP Tracker uses localStorage — doesn't sync across devices. Upgrade to Google Sheets.",p:"MEDIUM",own:"Eddie",dl:"2026-05-18",time:"2 hrs",tag:"ai"},
+    {id:"CAP-18",desc:"Spanish intake form missing — English form live but Spanish-speaking clients need dedicated ES form",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"30 min",tag:"es",isNew:true},
+    {id:"CAP-19",desc:"Spanish satisfaction survey missing — current survey English only. Create ES version, update Apps Script.",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"20 min",tag:"es",isNew:true},
+    {id:"CAP-20",desc:"ES translations missing — SBA Certification, SAM Registration, SPESA articles + WRAP Checklist + tools",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",time:"4 hrs",tag:"es",isNew:true},
+    {id:"CAP-21",desc:"Custom domain rc2salesconsulting.com not live + info@rc2salesconsulting.com email not created",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",time:"1 hr",tag:"web",isNew:true},
   ]},
-  {phase:"PHASE 4 — LOW | 60–90 Days — Growth and Scale",items:[
-    {id:"CAP-11",desc:"No Google Analytics on RC2 website — CLOSED: GA4 deployed to all 85 pages",p:"LOW",own:"Eddie",dl:"2026-06-15",tag:"web"},
-    {id:"CAP-22",desc:"Blog / Insights section not built — needed for SEO and thought leadership. Build after LinkedIn is live.",p:"LOW",own:"Eddie",dl:"2026-06-15",isNew:true,tag:"web",time:"Ongoing"},
+  {phase:"PHASE 4 — LOW | 60–90 Days — Growth and Scale", items:[
+    {id:"CAP-11",desc:"No Google Analytics on RC2 website — CLOSED: GA4 deployed to all 85 pages",p:"LOW",own:"Eddie",dl:"2026-06-15",time:"N/A",tag:"web"},
+    {id:"CAP-22",desc:"Blog / Insights section not built — needed for SEO and thought leadership. Build after LinkedIn is live.",p:"LOW",own:"Eddie",dl:"2026-06-15",time:"Ongoing",tag:"web",isNew:true},
   ]},
 ];
 
-const FILING=[
+const DEFAULT_STATUS = {
+  "CAP-01":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"Apps Script installed in RC2_Master_Client_Tracker. onEdit installable trigger live. Survey fires on Project_Status = Project Closed. Survey: https://forms.gle/nsnqH1Yb1xPYvmxC6"},
+  "CAP-02":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"SOP-OB-001 built — 6 steps, master checklist, digital sign-off boxes. Verbal approval Jill F. Coleman 2026-03-16."},
+  "CAP-03":{status:"progress",verifier:"",date:"",notes:"Script built 2026-03-16. Role-play with Jill: March 25, 2026 10:00 AM."},
+  "CAP-04":{status:"open",verifier:"",date:"",notes:"3 SOPs: WRAP, GovCon, Operations. Due week of March 30, 2026."},
+  "CAP-05":{status:"open",verifier:"",date:"",notes:"Capability Statement template — due April 15, 2026."},
+  "CAP-06":{status:"open",verifier:"",date:"",notes:"3 email templates: WRAP, GovCon, Multi-service. File to 03_Sales/04_Client_Scripts."},
+  "CAP-07":{status:"open",verifier:"",date:"",notes:"QC Checklist with Universal + service addenda."},
+  "CAP-08":{status:"open",verifier:"",date:"",notes:"RC2_Time_Tracking Google Sheet. File to 11_Finance_Billing."},
+  "CAP-09":{status:"progress",verifier:"Eddie Castleton",date:"2026-03-16",notes:"Next_Contact_Date formula built in Master Client Tracker. Check-in email template still needed."},
+  "CAP-10":{status:"open",verifier:"",date:"",notes:"Case study template and Apex Apparel sample exist. Formal closure pending."},
+  "CAP-11":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"GA4 deployed to all 85 HTML pages. Measurement ID: G-PC5L4ZH7KY."},
+  "CAP-12":{status:"open",verifier:"",date:"",notes:"Upgrade to Google Sheets sync. Calendar reminder: May 18, 2026."},
+  "CAP-13":{status:"open",verifier:"",date:"",notes:"formspree.io → free account → New Form → info@rc2salesconsulting.com → copy Form ID → replace REPLACE_WITH_YOUR_FORM_ID in both contact pages → commit."},
+  "CAP-14":{status:"open",verifier:"",date:"",notes:"Add navy/gold intake form banner to index.html and index-es.html hero. Form: https://forms.gle/nsnqH1Yb1xPYvmxC6"},
+  "CAP-15":{status:"open",verifier:"",date:"",notes:"Use filing checklist in this row. Check off each item as filed in Google Drive."},
+  "CAP-16":{status:"open",verifier:"",date:"",notes:"Write 3–5 prompt docs per subfolder in 08_AI_Automations."},
+  "CAP-17":{status:"open",verifier:"",date:"",notes:"File SOW templates in 10_Legal_Contracts. Create time tracking in 11_Finance_Billing. Seed 05_Knowledge_Base, 06_Templates, 01_Strategy."},
+  "CAP-18":{status:"open",verifier:"",date:"",notes:"Create Google Form in Spanish. Link to contact-es.html. Add to RC2_Form_Links doc."},
+  "CAP-19":{status:"open",verifier:"",date:"",notes:"Create Spanish satisfaction survey. Update Apps Script CONFIG to send ES version to Spanish-speaking clients."},
+  "CAP-20":{status:"open",verifier:"",date:"",notes:"Priority: 1) SBA Certification, 2) SAM Registration, 3) SPESA, 4) WRAP Checklist tool."},
+  "CAP-21":{status:"open",verifier:"",date:"",notes:"1) Buy domain. 2) Configure DNS for GitHub Pages. 3) Create info@ email. 4) Update HTML files. 5) Update Gmail signature."},
+  "CAP-22":{status:"open",verifier:"",date:"",notes:"Build after LinkedIn is live. EN first then ES. SEO-optimized using SB7 messaging."},
+};
+
+const FILING = [
   {sec:"07_Admin / 02_Internal_SOP_Templates",items:["RC2_SOP_OB001_Client_Offboarding.docx","RC2_Discovery_Call_Script.docx","RC2_SOP_WRAP_Service_Delivery.docx (after CAP-04)","RC2_SOP_GovContracting_Service_Delivery.docx (after CAP-04)","RC2_SOP_Operations_Service_Delivery.docx (after CAP-04)"]},
-  {sec:"07_Admin (root)",items:["RC2_Master_Client_Tracker.xlsx — upload and open in Google Sheets","RC2_Form_Links doc — already exists ✅"]},
+  {sec:"07_Admin (root)",items:["RC2_Master_Client_Tracker.xlsx — upload and open in Google Sheets"]},
   {sec:"02_Marketing / 01_Brand_Assets",items:["RC2_SB7_StoryBrand_Framework.docx","RC2_Capability_Statement.docx (after CAP-05)"]},
-  {sec:"03_Sales / 02_Discovery_Call_Scripts",items:["RC2_Discovery_Call_Script.docx (copy here too)"]},
-  {sec:"03_Sales / 04_Client_Scripts",items:["RC2_Post_Discovery_Email_WRAP.docx (after CAP-06)","RC2_Post_Discovery_Email_GovCon.docx (after CAP-06)","RC2_Post_Discovery_Email_MultiService.docx (after CAP-06)"]},
-  {sec:"03_Sales / 05_Proposals",items:["RC2_Master_Proposal_Template.docx — from project files","RC2_Client_Proposal_Template.docx — from project files"]},
-  {sec:"04_Service_Delivery / 01_WRAP_Compliance",items:["All WRAP CAP templates from project files","PASA Assessment Report templates","CAP Implementation templates","WRAP policy document templates"]},
-  {sec:"05_Knowledge_Base",items:["Copy reference docs from Claude project knowledge base","WRAP Facility Handbook 2025 reference","Government Contracting guides and NAICS references","SBA Certification guide"]},
-  {sec:"06_Templates",items:["RC2 branded document templates — Navy Banner, Sidebar, Gold Edge, Executive Classic","RC2_Capability_Statement_Template.docx","RC2_WORKER_INTERVIEW_NOTES_TEMPLATE.docx","RC2_MANAGEMENT_INTERVIEW_NOTES_TEMPLATE.docx","RC2_SITE_WALKTHROUGH_NOTES_TEMPLATE.docx"]},
+  {sec:"03_Sales / 04_Client_Scripts",items:["RC2_Post_Discovery_Email_WRAP.docx (after CAP-06)","RC2_Post_Discovery_Email_GovCon.docx","RC2_Post_Discovery_Email_MultiService.docx"]},
+  {sec:"03_Sales / 05_Proposals",items:["RC2_Master_Proposal_Template.docx","RC2_Client_Proposal_Template.docx"]},
+  {sec:"04_Service_Delivery / 01_WRAP_Compliance",items:["All WRAP CAP templates from project files","PASA Assessment Report templates","CAP Implementation templates"]},
+  {sec:"05_Knowledge_Base",items:["Reference docs from Claude project knowledge base","WRAP Facility Handbook 2025","Government Contracting + SBA guides"]},
+  {sec:"06_Templates",items:["RC2 branded templates — Navy Banner, Sidebar, Gold Edge, Executive Classic","RC2_WORKER_INTERVIEW_NOTES_TEMPLATE.docx","RC2_MANAGEMENT_INTERVIEW_NOTES_TEMPLATE.docx","RC2_SITE_WALKTHROUGH_NOTES_TEMPLATE.docx"]},
   {sec:"10_Legal_Contracts",items:["RC2_MASTER_SOW_TEMPLATE.docx","PASA_ONLY_SOW_TEMPLATE.docx","WRAP_SOW_TEMPLATE.docx","FRACTIONAL_COMPLIANCE_SOW_TEMPLATE.docx"]},
-  {sec:"01_Strategy",items:["RC2_SB7_StoryBrand_Framework.docx (copy here too)","RC2 Annual Goals / Business Plan document","RC2 Pricing Strategy document","RC2 Competitive Analysis (future)"]},
+  {sec:"01_Strategy",items:["RC2_SB7_StoryBrand_Framework.docx (copy here too)","RC2 Annual Goals / Business Plan doc","RC2 Pricing Strategy doc"]},
 ];
 
-const PC={CRITICAL:"pc",HIGH:"ph",MEDIUM:"pm",LOW:"pl"};
-const OPTS=[{v:"open",l:"🔴 Open"},{v:"progress",l:"🟡 In Progress"},{v:"closed",l:"✅ Closed"},{v:"hold",l:"⏸️ On Hold"}];
-const RC2={open:"r-open",progress:"r-prog",closed:"r-clos",hold:"r-hold"};
-const SC={open:"so",progress:"sp",closed:"sc",hold:"sh"};
-let S={},CK={},pend=null;
+// ── STATE ────────────────────────────────────────────────────────────────────
+let PHASES, S, CK, pend;
 
 function load(){
   try{
-    const raw=localStorage.getItem("rc2_cap_v5");
-    if(raw){const d=JSON.parse(raw);S=d.S||{};CK=d.CK||{};return;}
+    const raw = localStorage.getItem("rc2_cap_v6");
+    if(raw){
+      const d = JSON.parse(raw);
+      PHASES = d.PHASES;
+      S = d.S;
+      CK = d.CK || {};
+      return;
+    }
   }catch(e){}
-  S={
-    "CAP-01":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"Apps Script installed in RC2_Master_Client_Tracker. onEdit installable trigger live. Survey fires on Project_Status = Project Closed. Execution log confirmed. Survey: https://forms.gle/nsnqH1Yb1xPYvmxC6"},
-    "CAP-02":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"SOP-OB-001 built — 6 steps, master checklist, digital sign-off. Verbal approval Jill F. Coleman 2026-03-16. File to 07_Admin/02_Internal_SOP_Templates."},
-    "CAP-03":{status:"progress",verifier:"",date:"",notes:"Script built 2026-03-16. Role-play with Jill: March 25, 2026 10:00 AM. Calendar event: ia8knotgh9ju4t79v37jof3198."},
-    "CAP-04":{status:"open",verifier:"",date:"",notes:"3 SOPs needed: WRAP, GovCon, Operations. Due week of March 30, 2026. Say 'build CAP-04' to generate all three."},
-    "CAP-05":{status:"open",verifier:"",date:"",notes:"Capability Statement template — due April 15, 2026."},
-    "CAP-06":{status:"open",verifier:"",date:"",notes:"3 email templates: WRAP, GovCon, Multi-service. File to 03_Sales/04_Client_Scripts."},
-    "CAP-07":{status:"open",verifier:"",date:"",notes:"QC Checklist with Universal + service-specific addenda. File to 07_Admin/02_Internal_SOP_Templates."},
-    "CAP-08":{status:"open",verifier:"",date:"",notes:"RC2_Time_Tracking Google Sheet. Columns: Date, Client, Service, Task, Hours, Billable, Notes. File to 11_Finance_Billing."},
-    "CAP-09":{status:"progress",verifier:"Eddie Castleton",date:"2026-03-16",notes:"Next_Contact_Date formula built in Master Client Tracker (Close_Date + 30). Check-in email template still needed."},
-    "CAP-10":{status:"open",verifier:"",date:"",notes:"Case study template and Apex Apparel sample both exist. Formal CAP closure pending review by Eddie."},
-    "CAP-11":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"GA4 deployed to all 85 HTML pages via GitHub replace-all. Realtime confirmed. Measurement ID: G-PC5L4ZH7KY. Saved to 07_Admin/03_Licenses_Registrations."},
-    "CAP-12":{status:"open",verifier:"",date:"",notes:"Upgrade tracker localStorage to Google Sheets sync. Calendar reminder: May 18, 2026."},
-    "CAP-13":{status:"open",verifier:"",date:"",notes:"1. Go to formspree.io — free account. 2. New Form — enter info@rc2salesconsulting.com. 3. Copy Form ID. 4. Replace REPLACE_WITH_YOUR_FORM_ID in contact.html and contact-es.html on GitHub. 5. Commit."},
-    "CAP-14":{status:"open",verifier:"",date:"",notes:"Add the navy/gold intake form banner to index.html and index-es.html hero sections. Use same banner code added to contact pages 2026-03-16. Form link: https://forms.gle/nsnqH1Yb1xPYvmxC6"},
-    "CAP-15":{status:"open",verifier:"",date:"",notes:"Expand the filing checklist below and check off each item as you file it in Google Drive. Close this CAP when all critical files are filed."},
-    "CAP-16":{status:"open",verifier:"",date:"",notes:"Write 3-5 prompt docs per subfolder: 01_Sales_AI, 02_Client_Onboarding_AI, 03_Audit_Preparation_AI, 04_CAP_Remediation_AI, 05_Knowledge_AI. Each prompt doc = AI-ready instruction for that service."},
-    "CAP-17":{status:"open",verifier:"",date:"",notes:"File SOW templates in 10_Legal_Contracts. Create RC2_Time_Tracking in 11_Finance_Billing. Seed 05_Knowledge_Base and 06_Templates. Add SB7 + goals doc to 01_Strategy."},
-    "CAP-18":{status:"open",verifier:"",date:"",notes:"Create Google Form: RC2_Formulario_Consulta_Nuevos_Clientes. Translate all field labels to Spanish. Link to contact-es.html. Add to RC2_Form_Links doc."},
-    "CAP-19":{status:"open",verifier:"",date:"",notes:"Create Spanish satisfaction survey in Google Forms. Update Apps Script CONFIG to send ES survey to Spanish-speaking clients. Add Language preference to Lead Intake."},
-    "CAP-20":{status:"open",verifier:"",date:"",notes:"Priority order: 1) SBA Certification article, 2) SAM Registration article, 3) SPESA article, 4) WRAP Checklist tool. Create -es.html version for each. Translate and commit to GitHub."},
-    "CAP-21":{status:"open",verifier:"",date:"",notes:"1) Purchase domain rc2salesconsulting.com. 2) Configure DNS for GitHub Pages (CNAME file). 3) Create Google Workspace email: info@rc2salesconsulting.com. 4) Update HTML files. 5) Update Gmail signature."},
-    "CAP-22":{status:"open",verifier:"",date:"",notes:"Build after LinkedIn is live. Structure around 5 content pillars. EN first, then ES versions. SEO-optimized from the start using SB7 messaging."},
-  };
-  CK={};
+  PHASES = JSON.parse(JSON.stringify(DEFAULT_PHASES));
+  S = JSON.parse(JSON.stringify(DEFAULT_STATUS));
+  CK = {};
 }
 
 function save(){
-  localStorage.setItem("rc2_cap_v5",JSON.stringify({S,CK}));
-  const el=document.getElementById("saveInd");
-  el.classList.add("on");setTimeout(()=>el.classList.remove("on"),2000);
+  localStorage.setItem("rc2_cap_v6", JSON.stringify({PHASES,S,CK}));
+  const el = document.getElementById("saveInd");
+  el.classList.add("on"); setTimeout(()=>el.classList.remove("on"),1800);
 }
 
-function getDesc(id){
-  for(const ph of DATA){const it=ph.items.find(i=>i.id===id);if(it)return it.desc;}
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+const OPTS = [{v:"open",l:"🔴 Open"},{v:"progress",l:"🟡 In Progress"},{v:"closed",l:"✅ Closed"},{v:"hold",l:"⏸️ On Hold"}];
+const PRIORS = ["CRITICAL","HIGH","MEDIUM","LOW"];
+const PC_MAP = {CRITICAL:"pc",HIGH:"ph",MEDIUM:"pm",LOW:"pl"};
+const RC_MAP = {open:"r-open",progress:"r-prog",closed:"r-clos",hold:"r-hold"};
+const SC_MAP = {open:"so",progress:"sp",closed:"sc",hold:"sh"};
+
+function tagBadge(tag){
+  if(tag==="web") return `<span class="wbbadge">🌐 Web</span>`;
+  if(tag==="ai")  return `<span class="aibadge">📁 AI OS</span>`;
+  if(tag==="es")  return `<span class="esbadge">🇪🇸 ES</span>`;
   return "";
 }
 
-function tagBadge(tag){
-  const map={web:'<span class="wbbadge">🌐 Website</span>',ai:'<span class="aibadge">📁 AI OS</span>',es:'<span class="esbadge">🇪🇸 ES</span>'};
-  return map[tag]||"";
+function ensureStatus(id){
+  if(!S[id]) S[id]={status:"open",verifier:"",date:"",notes:""};
 }
 
+function getItem(id){
+  for(const ph of PHASES){
+    const it = ph.items.find(i=>i.id===id);
+    if(it) return it;
+  }
+  return null;
+}
+
+// ── ADD ROW ───────────────────────────────────────────────────────────────────
+function addRow(){
+  const id = "CAP-" + (Date.now() % 100000);
+  const newItem = {id,desc:"New action item — click to edit",p:"MEDIUM",own:"Eddie",dl:"2026-06-15",time:"TBD",tag:"ops",isNew:true};
+  // Add to last phase
+  PHASES[PHASES.length-1].items.push(newItem);
+  S[id] = {status:"open",verifier:"",date:"",notes:""};
+  save(); render();
+}
+
+// ── DELETE ROW ────────────────────────────────────────────────────────────────
+function deleteRow(id){
+  if(!confirm("Delete " + id + "? This cannot be undone.")) return;
+  for(const ph of PHASES){
+    const idx = ph.items.findIndex(i=>i.id===id);
+    if(idx>-1){ ph.items.splice(idx,1); break; }
+  }
+  delete S[id];
+  save(); render();
+}
+
+// ── INLINE EDITING ────────────────────────────────────────────────────────────
+function editField(el, id, field){
+  if(el.querySelector('input,textarea,select')) return;
+  const it = getItem(id);
+  if(!it && field!=="notes") return;
+  const currentVal = field==="notes" ? (S[id]||{}).notes||"" : it[field]||"";
+
+  if(field==="p"){
+    const sel = document.createElement("select");
+    sel.className="edit-select";
+    PRIORS.forEach(p=>{
+      const o=document.createElement("option");
+      o.value=p; o.textContent=p;
+      if(p===currentVal) o.selected=true;
+      sel.appendChild(o);
+    });
+    sel.onchange=()=>{ it.p=sel.value; save(); render(); };
+    sel.onblur=()=>render();
+    el.innerHTML=""; el.appendChild(sel); sel.focus();
+    return;
+  }
+
+  const isMultiline = field==="desc"||field==="notes";
+  const input = document.createElement(isMultiline?"textarea":"input");
+  input.className = "editing " + (field==="id"?"r-id-input":"");
+  input.value = currentVal;
+  if(isMultiline){ input.rows=3; input.style.minHeight="60px"; }
+  input.type = (field==="dl")?"date":"text";
+
+  input.onblur = ()=>{
+    const v = input.value.trim();
+    if(field==="notes"){ ensureStatus(id); S[id].notes=v; }
+    else if(it){ it[field]=v; }
+    save(); render();
+  };
+  input.onkeydown=(e)=>{
+    if(e.key==="Enter"&&!isMultiline){ input.blur(); }
+    if(e.key==="Escape"){ render(); }
+    e.stopPropagation();
+  };
+
+  el.innerHTML=""; el.appendChild(input);
+  input.focus();
+  if(input.select) input.select();
+}
+
+// ── FILING CHECKLIST ──────────────────────────────────────────────────────────
 function renderChecklist(){
-  let h=`<div><button class="file-toggle" onclick="toggleCL()" id="clBtn">📋 Expand Filing Checklist ▼</button>`;
+  let h=`<button class="file-toggle" onclick="toggleCL(event)" id="clBtn">📋 Expand Filing Checklist ▼</button>`;
   h+=`<div class="file-checklist" id="fileCL">`;
   FILING.forEach((sec,si)=>{
     h+=`<div class="fc-section">${sec.sec}</div>`;
     sec.items.forEach((item,ii)=>{
-      const key=`${si}-${ii}`;const done=CK[key]||false;
-      h+=`<label class="fc-item${done?" done":""}" id="fci-${key}"><input type="checkbox"${done?" checked":""} onchange="toggleCheck('${key}',this)" onclick="event.stopPropagation()"/>${item}</label>`;
+      const key=`${si}-${ii}`, done=CK[key]||false;
+      h+=`<label class="fc-item${done?" done":""}" id="fci-${key}"><input type="checkbox"${done?" checked":""} onchange="toggleCK('${key}',this)" onclick="event.stopPropagation()"/>${item}</label>`;
     });
   });
-  h+=`</div></div>`;
+  h+=`</div>`;
   return h;
 }
+function toggleCL(e){ e.stopPropagation(); const el=document.getElementById("fileCL"); const b=document.getElementById("clBtn"); const o=el.classList.toggle("open"); b.textContent=o?"📋 Collapse Checklist ▲":"📋 Expand Filing Checklist ▼"; }
+function toggleCK(key,cb){ CK[key]=cb.checked; const l=document.getElementById("fci-"+key); if(l)l.classList.toggle("done",cb.checked); save(); }
 
-function toggleCL(){
-  const el=document.getElementById("fileCL");
-  const btn=document.getElementById("clBtn");
-  const o=el.classList.toggle("open");
-  btn.textContent=o?"📋 Collapse Filing Checklist ▲":"📋 Expand Filing Checklist ▼";
+// ── STATUS CHANGE ─────────────────────────────────────────────────────────────
+function onChange(id,val){
+  ensureStatus(id);
+  if(val==="closed"){
+    pend=id;
+    const it=getItem(id);
+    document.getElementById("mId").textContent=id+(it?" — "+it.desc.substring(0,70)+"...":"");
+    document.getElementById("mVer").value=S[id].verifier||"";
+    document.getElementById("mDate").value=new Date().toISOString().split("T")[0];
+    document.getElementById("mNotes").value=S[id].notes||"";
+    document.getElementById("mOv").classList.add("open");
+  }else{
+    S[id].status=val; save(); render();
+  }
+}
+function closeM(){
+  document.getElementById("mOv").classList.remove("open");
+  if(pend){ const el=document.querySelector(`[data-id="${pend}"]`); if(el)el.value=S[pend]?S[pend].status:"open"; pend=null; }
+}
+function confirmM(){
+  if(!pend)return;
+  const v=document.getElementById("mVer").value.trim();
+  if(!v){ document.getElementById("mVer").focus(); return; }
+  S[pend]={status:"closed",verifier:v,date:document.getElementById("mDate").value,notes:document.getElementById("mNotes").value.trim()};
+  document.getElementById("mOv").classList.remove("open");
+  pend=null; save(); render();
 }
 
-function toggleCheck(key,cb){
-  CK[key]=cb.checked;
-  const lbl=document.getElementById("fci-"+key);
-  if(lbl)lbl.classList.toggle("done",cb.checked);
-  save();
-}
-
+// ── RENDER ────────────────────────────────────────────────────────────────────
 function render(){
   let h="";
-  DATA.forEach(ph=>{
-    h+=`<div class="ph-hdr"><div class="ph-lbl">${ph.phase}</div></div>`;
+  PHASES.forEach((ph,pi)=>{
+    h+=`<div class="ph-hdr"><div class="ph-lbl">${ph.phase} <button style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.4);font-size:11px;padding:0 4px;" onclick="editPhase(${pi})" title="Edit phase name">✏️</button></div></div>`;
     ph.items.forEach(it=>{
-      const s=S[it.id]||{status:"open",verifier:"",date:"",notes:""};
+      ensureStatus(it.id);
+      const s=S[it.id];
       const vb=s.status==="closed"&&s.verifier?`<span class="vbadge">✓ ${s.verifier} · ${s.date}</span>`:"";
       const nb=it.isNew?`<span class="nbadge">NEW</span>`:"";
       const tb=tagBadge(it.tag||"ops");
-      const tmb=it.time?`<span class="timebadge">⏱ ${it.time}</span>`:"";
       const opts=OPTS.map(o=>`<option value="${o.v}"${s.status===o.v?" selected":""}>${o.l}</option>`).join("");
-      const cl=it.hasChecklist?renderChecklist():"";
-      h+=`<div class="cap-row ${RC2[s.status]}">
-        <div class="r-id">${it.id}</div>
-        <div class="r-desc">${it.desc}${nb}${tb}${tmb}${vb}${cl}</div>
-        <div><span class="pbadge ${PC[it.p]}"><span class="pdot"></span>${it.p}</span></div>
-        <div class="r-own">${it.own}</div>
-        <div class="r-dl">${it.dl}</div>
-        <div class="${SC[s.status]}"><select class="ssel" onchange="onChange('${it.id}',this.value)" data-id="${it.id}">${opts}</select></div>
+      const cl=it.hasChecklist?`<div>${renderChecklist()}</div>`:"";
+      const notesHtml = s.notes ? `<div style="font-size:11px;color:var(--gray-400);margin-top:4px;line-height:1.4;cursor:pointer;border-top:1px dashed var(--gray-200);padding-top:4px;" onclick="editField(this,'${it.id}','notes')" title="Click to edit notes">${s.notes}</div>` : `<div style="font-size:10px;color:var(--gray-400);margin-top:4px;cursor:pointer;font-style:italic;" onclick="editField(this,'${it.id}','notes')" title="Click to add notes">+ Add notes</div>`;
+
+      h+=`<div class="cap-row ${RC_MAP[s.status]}">
+        <div class="r-id-cell editable" onclick="editField(this,'${it.id}','id')" title="Click to edit ID">${it.id}</div>
+        <div>
+          <div class="editable" onclick="editField(this,'${it.id}','desc')" title="Click to edit description" style="font-size:12px;color:var(--gray-600);line-height:1.5;">${it.desc}${nb}${tb}${vb}</div>
+          ${notesHtml}
+          ${cl}
+        </div>
+        <div class="editable" onclick="editField(this,'${it.id}','p')" title="Click to change priority"><span class="pbadge ${PC_MAP[it.p]}"><span class="pdot"></span>${it.p}</span></div>
+        <div class="editable" onclick="editField(this,'${it.id}','own')" title="Click to edit owner" style="font-size:12px;color:var(--gray-600);">${it.own}</div>
+        <div class="editable" onclick="editField(this,'${it.id}','dl')" title="Click to edit deadline" style="font-size:12px;color:var(--gray-600);font-family:'DM Mono',monospace;">${it.dl}</div>
+        <div class="editable" onclick="editField(this,'${it.id}','time')" title="Click to edit time estimate" style="font-size:12px;color:var(--gold);font-weight:600;">⏱ ${it.time||'TBD'}</div>
+        <div>
+          <div class="${SC_MAP[s.status]}"><select class="ssel" onchange="onChange('${it.id}',this.value)" data-id="${it.id}">${opts}</select></div>
+          <div style="text-align:right;margin-top:5px;"><button class="del-btn" onclick="deleteRow('${it.id}')" title="Delete this item">🗑</button></div>
+        </div>
       </div>`;
     });
   });
@@ -393,57 +539,36 @@ function render(){
   updateSummary();
 }
 
-function onChange(id,val){
-  if(val==="closed"){
-    pend=id;
-    document.getElementById("mId").textContent=id+" — "+getDesc(id).substring(0,90)+(getDesc(id).length>90?"...":"");
-    document.getElementById("mVer").value=S[id]&&S[id].verifier||"";
-    document.getElementById("mDate").value=new Date().toISOString().split("T")[0];
-    document.getElementById("mNotes").value=S[id]&&S[id].notes||"";
-    document.getElementById("mOv").classList.add("open");
-  }else{
-    if(!S[id])S[id]={status:"open",verifier:"",date:"",notes:""};
-    S[id].status=val;save();render();
-  }
+function editPhase(pi){
+  const newName = prompt("Edit phase name:", PHASES[pi].phase);
+  if(newName && newName.trim()){ PHASES[pi].phase=newName.trim(); save(); render(); }
 }
 
-function closeM(){
-  document.getElementById("mOv").classList.remove("open");
-  if(pend){const el=document.querySelector(`[data-id="${pend}"]`);if(el)el.value=S[pend]?S[pend].status:"open";pend=null;}
-}
-
-function confirmM(){
-  if(!pend)return;
-  const v=document.getElementById("mVer").value.trim();
-  if(!v){document.getElementById("mVer").focus();return;}
-  S[pend]={status:"closed",verifier:v,date:document.getElementById("mDate").value,notes:document.getElementById("mNotes").value.trim()};
-  document.getElementById("mOv").classList.remove("open");
-  pend=null;save();render();
-}
-
+// ── SUMMARY ───────────────────────────────────────────────────────────────────
 function updateSummary(){
-  let o=0,p=0,c=0,h=0;
-  Object.values(S).forEach(s=>{
-    if(s.status==="open")o++;
-    else if(s.status==="progress")p++;
-    else if(s.status==="closed")c++;
-    else if(s.status==="hold")h++;
-  });
+  let o=0,p=0,c=0,h=0,total=0;
+  PHASES.forEach(ph=>ph.items.forEach(it=>{
+    total++;
+    ensureStatus(it.id);
+    const st=S[it.id].status;
+    if(st==="open")o++; else if(st==="progress")p++; else if(st==="closed")c++; else if(st==="hold")h++;
+  }));
   document.getElementById("oc").textContent=o;
   document.getElementById("pc").textContent=p;
   document.getElementById("cc").textContent=c;
-  document.getElementById("tot").textContent=TOTAL;
-  const pct=Math.round(c/TOTAL*100);
+  document.getElementById("tot").textContent=total;
+  const pct=total?Math.round(c/total*100):0;
   ["pct","pct2"].forEach(id=>document.getElementById(id).textContent=pct+"%");
   ["pbar","pbar2"].forEach(id=>document.getElementById(id).style.width=pct+"%");
-  document.getElementById("ob").style.width=Math.round(o/TOTAL*100)+"%";
-  document.getElementById("pb").style.width=Math.round(p/TOTAL*100)+"%";
-  document.getElementById("cb").style.width=Math.round(c/TOTAL*100)+"%";
+  document.getElementById("ob").style.width=total?Math.round(o/total*100)+"%":"0%";
+  document.getElementById("pb").style.width=total?Math.round(p/total*100)+"%":"0%";
+  document.getElementById("cb").style.width=total?Math.round(c/total*100)+"%":"0%";
 }
 
+// ── INIT ──────────────────────────────────────────────────────────────────────
 document.getElementById("mOv").addEventListener("click",e=>{if(e.target===document.getElementById("mOv"))closeM();});
 document.getElementById("currentDate").textContent=new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
-load();render();
+load(); render();
 </script>
 </body>
 </html>
