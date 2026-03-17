@@ -25,8 +25,6 @@
       --dg:#9B1C1C;--dbg:#FEF2F2;
     }
     body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-
-    /* ── NAV ─────────────────────────────────────────────────── */
     .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
     .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
     .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
@@ -36,28 +34,17 @@
     .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s;white-space:nowrap}
     .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
     .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-
-    /* ── HERO ────────────────────────────────────────────────── */
-    .hero{
-      background:linear-gradient(160deg, rgba(11,37,69,0.82) 0%, rgba(11,37,69,0.68) 100%),
-        url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;
-      padding:60px 40px 0;
-      position:relative;
-      overflow:hidden;
-    }
+    .hero{background:linear-gradient(160deg, rgba(11,37,69,0.82) 0%, rgba(11,37,69,0.68) 100%),url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;padding:60px 40px 0;position:relative;overflow:hidden;}
     .hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;position:relative;z-index:1}
     .hero-left{padding-bottom:52px}
     .atag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px}
     .atag span{width:6px;height:6px;background:#4ADE80;border-radius:50%;animation:pulse 2s ease-in-out infinite}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
     .hero h1{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.25;margin-bottom:14px}
-    .hero h1 em{font-style:normal;color:white}
     .hero-sub{font-size:.95rem;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:28px;max-width:480px}
     .trust-row{display:flex;gap:20px;flex-wrap:wrap}
     .trust-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:rgba(255,255,255,.6)}
     .trust-item::before{content:'✓';color:#4ADE80;font-weight:700;font-size:.9rem}
-
-    /* HERO RIGHT — path selector tabs */
     .path-tabs{display:grid;grid-template-columns:1fr 1fr;gap:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px 14px 0 0;overflow:hidden}
     .path-tab{padding:20px 18px;cursor:pointer;transition:all .25s;border-bottom:3px solid transparent;text-align:center}
     .path-tab:first-child{border-right:1px solid rgba(255,255,255,.1)}
@@ -66,18 +53,10 @@
     .tab-icon{font-size:1.5rem;margin-bottom:6px;display:block}
     .tab-title{font-size:.84rem;font-weight:700;color:#fff;margin-bottom:2px}
     .tab-sub{font-size:.7rem;color:rgba(255,255,255,.55);line-height:1.4}
-
-    /* ── MAIN CONTENT ────────────────────────────────────────── */
     .main{max-width:1080px;margin:0 auto;padding:0 40px 60px}
-
-    /* ── PANEL CONTAINER ─────────────────────────────────────── */
     .panel-wrap{background:var(--w);border-radius:0 0 14px 14px;border:1px solid var(--bdr);border-top:none;box-shadow:0 8px 32px rgba(11,37,69,.10);margin-bottom:40px;overflow:hidden}
-
-    /* ── PANEL: BOOK A CALL ─────────────────────────────────── */
     .panel{display:none;padding:0}
     .panel.active{display:block}
-
-    /* Calendar Embed Panel */
     .cal-panel{padding:0}
     .cal-intro{padding:28px 32px 20px;border-bottom:1px solid var(--bdr);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px}
     .cal-intro-left h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy);margin-bottom:6px}
@@ -87,97 +66,36 @@
     .badge-green{background:var(--sbg);color:var(--sg);border:1px solid #BBF7D0}
     .badge-blue{background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE}
     .badge-gold{background:#FFFBEB;color:#92400E;border:1px solid #FDE68A}
-
-    /* CALENDAR EMBED AREA */
     .cal-embed-area{padding:24px 32px 32px}
-    .cal-embed-container{
-      border-radius:12px;overflow:hidden;border:1px solid var(--bdr);
-      background:var(--bg);
-      min-height:600px;
-      position:relative;
-    }
-    .cal-embed-container iframe{
-      width:100%;min-height:600px;border:none;display:block;
-    }
-
-    /* PLACEHOLDER — shown when iframe src is not yet configured */
-    .cal-placeholder{
-      min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,#EFF6FF,#F4F6FA);
-      border-radius:12px;border:2px dashed #BFDBFE;padding:40px 32px;text-align:center;
-    }
-    .cal-placeholder-icon{font-size:3rem;margin-bottom:16px}
-    .cal-placeholder h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:10px}
-    .cal-placeholder p{font-size:.86rem;color:var(--mu);line-height:1.7;max-width:480px;margin-bottom:20px}
-    .cal-placeholder .setup-step{background:var(--w);border:1px solid var(--bdr);border-radius:8px;padding:14px 18px;text-align:left;width:100%;max-width:520px;margin-bottom:10px}
-    .cal-placeholder .setup-step strong{color:var(--navy);font-size:.84rem}
-    .cal-placeholder .setup-step p{font-size:.8rem;color:var(--mu);margin:3px 0 0;line-height:1.5}
-    .cal-placeholder code{background:#EFF6FF;color:#1D4ED8;padding:2px 7px;border-radius:4px;font-size:.78rem;font-family:monospace}
-
-    /* Direct booking button (used when iframe not embedded) */
-    .book-direct-btn{
-      display:inline-flex;align-items:center;gap:10px;
-      background:var(--navy);color:#fff;
-      font-weight:700;font-size:.92rem;
-      padding:14px 28px;border-radius:8px;
-      text-decoration:none;transition:all .2s;
-      border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;
-    }
+    .cal-embed-container{border-radius:12px;overflow:hidden;border:1px solid var(--bdr);background:var(--bg);min-height:600px;position:relative;}
+    .cal-embed-container iframe{width:100%;min-height:600px;border:none;display:block;}
+    .book-direct-btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-weight:700;font-size:.92rem;padding:14px 28px;border-radius:8px;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
     .book-direct-btn:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 6px 20px rgba(11,37,69,.25)}
-
-    /* ── PANEL: SEND A MESSAGE ──────────────────────────────── */
     .form-panel{padding:28px 32px 36px}
     .form-panel h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy);margin-bottom:6px}
     .form-panel .form-sub{font-size:.86rem;color:var(--mu);margin-bottom:24px;line-height:1.65}
-
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
     .form-group{display:flex;flex-direction:column;gap:5px}
     .form-group.full{grid-column:1/-1}
     .form-label{font-size:.72rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
     .form-label .req{color:var(--lb)}
-    .form-input,.form-select,.form-textarea{
-      border:1.5px solid var(--bdr);border-radius:7px;
-      padding:10px 13px;font-size:.9rem;color:var(--navy);
-      font-family:'Source Sans 3',sans-serif;
-      outline:none;background:var(--bg);
-      transition:border-color .2s,box-shadow .2s;width:100%;
-    }
-    .form-input:focus,.form-select:focus,.form-textarea:focus{
-      border-color:var(--lb);background:#fff;
-      box-shadow:0 0 0 3px rgba(37,99,235,.1);
-    }
+    .form-input,.form-select,.form-textarea{border:1.5px solid var(--bdr);border-radius:7px;padding:10px 13px;font-size:.9rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s,box-shadow .2s;width:100%;}
+    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--lb);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.1);}
     .form-textarea{resize:vertical;min-height:110px;line-height:1.6}
     .form-select{cursor:pointer}
-
-    /* Urgency selector */
     .urgency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
     .urg-btn{padding:8px 10px;border-radius:7px;border:1.5px solid var(--bdr);background:var(--bg);font-size:.76rem;font-weight:700;color:var(--mu);cursor:pointer;text-align:center;transition:all .2s;font-family:'Source Sans 3',sans-serif}
     .urg-btn:hover{border-color:var(--lb);color:var(--lb);background:#EFF6FF}
     .urg-btn.selected{background:var(--navy);border-color:var(--navy);color:#fff}
-
-    /* Char counter */
     .char-note{font-size:.7rem;color:var(--mu);text-align:right;margin-top:2px}
-
-    /* Submit button */
     .form-submit-row{display:flex;align-items:center;gap:16px;margin-top:8px;flex-wrap:wrap}
-    .form-submit-btn{
-      display:inline-flex;align-items:center;gap:10px;
-      background:var(--navy);color:#fff;
-      font-weight:700;font-size:.9rem;
-      padding:13px 28px;border-radius:7px;
-      border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;
-      transition:all .2s;
-    }
+    .form-submit-btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-weight:700;font-size:.9rem;padding:13px 28px;border-radius:7px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;}
     .form-submit-btn:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 6px 20px rgba(11,37,69,.2)}
     .form-privacy{font-size:.74rem;color:var(--mu);line-height:1.55}
-
-    /* Success state */
     .form-success{display:none;text-align:center;padding:40px 32px;background:var(--sbg);border-radius:10px;border:1px solid #BBF7D0}
     .form-success.visible{display:block}
     .form-success h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--sg);margin-bottom:10px}
     .form-success p{font-size:.88rem;color:var(--mu);line-height:1.7}
-
-    /* ── WHAT HAPPENS NEXT ───────────────────────────────────── */
     .next-section{background:var(--w);border-radius:12px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);padding:28px 32px;margin-bottom:28px}
     .next-section h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:18px}
     .next-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -185,208 +103,38 @@
     .step-circle{width:40px;height:40px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;flex-shrink:0}
     .step-title{font-size:.88rem;font-weight:700;color:var(--navy)}
     .step-desc{font-size:.78rem;color:var(--mu);line-height:1.55}
-
-    /* ── CONTACT INFO STRIP ──────────────────────────────────── */
     .info-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
     .info-chip{background:var(--w);border-radius:10px;border:1px solid var(--bdr);padding:18px 20px;display:flex;align-items:flex-start;gap:14px;box-shadow:0 1px 4px rgba(11,37,69,.05)}
     .info-chip-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
     .info-chip-title{font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px}
     .info-chip-val{font-size:.86rem;font-weight:600;color:var(--navy)}
     .info-chip-sub{font-size:.74rem;color:var(--mu);margin-top:2px;line-height:1.4}
-
-    /* ── FOOTER ─────────────────────────────────────────────── */
     .site-footer{background:var(--blue);color:#fff;text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.1)}
     .footer-tagline{font-size:.92rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:12px}
     .footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
     .footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
     .footer-copy{font-size:.78rem;color:rgba(255,255,255,.55)}
-
-    @media(max-width:760px){
-      .hero-inner{grid-template-columns:1fr}
-      .path-tabs{border-radius:12px 12px 0 0}
-      .hero-left{padding-bottom:0}
-      .form-grid{grid-template-columns:1fr}
-      .next-steps{grid-template-columns:1fr}
-      .info-strip{grid-template-columns:1fr}
-      .urgency-grid{grid-template-columns:1fr}
-      .topnav{padding:0 14px}
-      .nav-links a{padding:5px 7px;font-size:.76rem}
-      .hero{padding:40px 20px 0}
-      .main{padding:0 20px 40px}
-      .cal-intro,.cal-embed-area,.form-panel{padding:20px}
-    }
+    @media(max-width:760px){.hero-inner{grid-template-columns:1fr}.path-tabs{border-radius:12px 12px 0 0}.hero-left{padding-bottom:0}.form-grid{grid-template-columns:1fr}.next-steps{grid-template-columns:1fr}.info-strip{grid-template-columns:1fr}.urgency-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}.hero{padding:40px 20px 0}.main{padding:0 20px 40px}.cal-intro,.cal-embed-area,.form-panel{padding:20px}}
     @media print{.topnav,.site-footer{display:none}}
-      .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
     .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
     .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
     .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
     .lang-btn.active{background:#C8922A;color:#0B2545}
-  
-    /* ════════════════════════════════════════
-       RC2 GLOBAL MOBILE OPTIMIZATION
-       Applied 2026-02-28 — all core pages
-    ════════════════════════════════════════ */
-
-    /* Prevent ANY horizontal overflow site-wide */
     html, body { overflow-x: hidden; max-width: 100%; }
     *, *::before, *::after { box-sizing: border-box; }
-
-    /* ── Hamburger button (hidden on desktop) ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
+    .hamburger {display: none;background: none; border: none; cursor: pointer;flex-direction: column; gap: 5px; padding: 6px;margin-left: auto; z-index: 300;}
+    .hamburger span {display: block; width: 24px; height: 2px;background: rgba(255,255,255,0.9); border-radius: 2px;transition: all .28s ease;}
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ── Tablet breakpoint: 900px ── */
-    @media (max-width: 900px) {
-      /* Sections lose the heavy side padding */
-      section, .hero, .services-strip, .cta-strip, .clients-gain,
-      .page-hero, .article-section, .section-pad,
-      .resources-section, .rc-section, .wrap {
-        padding-left: 24px !important;
-        padding-right: 24px !important;
-      }
-    }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      /* NAV — collapse to hamburger */
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-
-      /* Prevent overflow on ALL containers */
-      .hero-inner, .strip-inner, .cta-inner, .page-inner,
-      .article-wrap, .services-grid, .rc-grid, .team-grid,
-      .wrap-inner, .resources-grid {
-        max-width: 100% !important;
-        width: 100% !important;
-        overflow-x: hidden !important;
-      }
-
-      /* Typography scaling */
-      h1, .hero-left h1, .page-hero h1 {
-        font-size: clamp(1.5rem, 6vw, 2rem) !important;
-        line-height: 1.25 !important;
-      }
-      h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }
-      h3 { font-size: clamp(0.95rem, 4vw, 1.1rem) !important; }
-
-      /* Section padding */
-      section, .hero, .services-strip, .cta-strip,
-      .clients-gain, .page-hero, .wrap {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
-      }
-
-      /* Hero adjustments */
-      .hero-inner {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-      }
-      .hero-card { display: none !important; }
-      .hero-left p { font-size: 0.93rem !important; }
-
-      /* Grids → single column */
-      .services-grid, .gains-grid, .cta-inner,
-      .team-grid, .rc-grid, .resources-grid,
-      .agreement-grid, .action-grid, .stat-grid,
-      .horizon-row, .ca-grid, .ca-statgrid,
-      .aapn-box {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-      }
-
-      /* Service cols stack, lose side border */
-      .service-col {
-        border-right: none !important;
-        border-bottom: 1px solid var(--border) !important;
-      }
-      .service-col:last-child { border-bottom: none !important; }
-
-      /* Buttons full-width on mobile */
-      .btn-cta-large, .btn-primary, .cta-btn {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding: 14px 20px !important;
-      }
-
-      /* Tables — allow horizontal scroll within container only */
-      table, .tariff-table, .table-wrap {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        max-width: 100%;
-      }
-
-      /* Articles */
-      .abstract-box, .callout, .horizon-box,
-      .map-section, .chart-section, .agreement-card,
-      .country-accordion, .aapn-box {
-        padding: 18px 16px !important;
-      }
-      .map-grid { grid-template-columns: 1fr !important; }
-      .bar-label { width: 110px !important; font-size: 0.7rem !important; }
-      .bar-val { font-size: 0.65rem !important; }
-
-      /* Footer */
-      .footer-links { gap: 12px !important; }
-      .footer-links a { font-size: 0.78rem; }
-    }
-
-    /* ── Very small phones: 380px ── */
-    @media (max-width: 380px) {
-      .topnav { padding: 0 12px !important; }
-      h1, .hero-left h1 { font-size: 1.45rem !important; }
-      section, .hero, .services-strip, .cta-strip {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-      }
-      .nav-logo-mark { font-size: 1rem !important; }
-      .nav-brand-name { font-size: 0.68rem !important; }
-    }
-</style>
+    @media (max-width: 900px) {section, .hero, .services-strip, .cta-strip, .clients-gain,.page-hero, .article-section, .section-pad,.resources-section, .rc-section, .wrap {padding-left: 24px !important;padding-right: 24px !important;}}
+    @media (max-width: 640px) {.topnav { padding: 0 16px !important; position: relative; }.hamburger { display: flex !important; }.nav-links {display: none;position: absolute;top: 52px; left: 0; right: 0;background: #0B2545;flex-direction: column !important;padding: 8px 0 16px;border-top: 1px solid rgba(255,255,255,0.15);box-shadow: 0 8px 24px rgba(0,0,0,0.35);z-index: 200;gap: 0 !important;}.nav-links.mobile-open { display: flex !important; }.nav-links li { width: 100%; }.nav-links a {display: block; width: 100%;padding: 12px 20px !important;font-size: 0.92rem !important;border-bottom: 1px solid rgba(255,255,255,0.07);border-radius: 0 !important;height: auto !important;}.nav-links a:last-child { border-bottom: none; }.lang-toggle { padding: 10px 20px 4px; }.hero-inner {grid-template-columns: 1fr !important;gap: 24px !important;}.hero-card { display: none !important; }.hero-left p { font-size: 0.93rem !important; }h1, .hero-left h1, .page-hero h1 {font-size: clamp(1.5rem, 6vw, 2rem) !important;line-height: 1.25 !important;}h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }h3 { font-size: clamp(0.95rem, 4vw, 1.1rem) !important; }}
+    @media (max-width: 380px) {.topnav { padding: 0 12px !important; }h1, .hero-left h1 { font-size: 1.45rem !important; }.nav-logo-mark { font-size: 1rem !important; }.nav-brand-name { font-size: 0.68rem !important; }}
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="topnav">
   <a href="https://rc2consulting.github.io/" class="nav-brand">
     <div class="nav-logo-mark">RC<sup>2</sup></div>
@@ -411,7 +159,6 @@
   </button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
@@ -441,13 +188,28 @@
   </div>
 </section>
 
-<!-- MAIN -->
 <div class="main">
 
-  <!-- PANEL CONTAINER -->
+  <!-- ══════════════════════════════════════════════════════════
+       RC2 CLIENT INTAKE FORM BANNER — Added 2026-03-16
+  ══════════════════════════════════════════════════════════ -->
+  <div style="background:linear-gradient(135deg,#0B2545 0%,#1A4A8A 100%);border-radius:12px;padding:28px 32px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;box-shadow:0 4px 20px rgba(11,37,69,.18);">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#C8922A;margin-bottom:6px;">New Client Inquiry</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#ffffff;margin-bottom:8px;">Not Sure Where to Start?</div>
+      <div style="font-size:.84rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:500px;margin-bottom:12px;">Complete our 3-minute intake form and we will review your situation before your discovery call &#8212; so every minute counts.</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> Takes 3 minutes</span>
+        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> Response within 1 business day</span>
+        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> No obligation</span>
+      </div>
+    </div>
+    <a href="https://forms.gle/nsnqH1Yb1xPYvmxC6" target="_blank" rel="noopener" style="background:#C8922A;color:#0B2545;font-weight:700;font-size:.92rem;padding:15px 30px;border-radius:8px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;flex-shrink:0;font-family:'Source Sans 3',sans-serif;">Start Your Inquiry &#8594;</a>
+  </div>
+  <!-- END INTAKE BANNER -->
+
   <div class="panel-wrap">
 
-    <!-- PANEL 1: BOOK A CALL -->
     <div class="panel active cal-panel" id="panel-book">
       <div class="cal-intro">
         <div class="cal-intro-left">
@@ -462,24 +224,14 @@
       </div>
       <div class="cal-embed-area">
         <div class="cal-embed-container">
-          <iframe
-            src="https://calendar.app.google/feucyaax9eB5CDm79?embed=true"
-            frameborder="0"
-            scrolling="no"
-            style="width:100%;min-height:600px;border:none;display:block;"
-            allow="camera; microphone; fullscreen"
-            title="Schedule a discovery call with RC2 Consulting">
-          </iframe>
+          <iframe src="https://calendar.app.google/feucyaax9eB5CDm79?embed=true" frameborder="0" scrolling="no" style="width:100%;min-height:600px;border:none;display:block;" allow="camera; microphone; fullscreen" title="Schedule a discovery call with RC2 Consulting"></iframe>
         </div>
         <div style="text-align:center;margin-top:14px">
-          <a href="https://calendar.app.google/feucyaax9eB5CDm79" target="_blank" style="font-size:.78rem;color:var(--mu);text-decoration:none">
-            📅 Prefer to open in a new tab? <span style="color:var(--lb);font-weight:600">Click here →</span>
-          </a>
+          <a href="https://calendar.app.google/feucyaax9eB5CDm79" target="_blank" style="font-size:.78rem;color:var(--mu);text-decoration:none">📅 Prefer to open in a new tab? <span style="color:var(--lb);font-weight:600">Click here →</span></a>
         </div>
       </div>
-      </div><!-- end panel-book -->
+    </div>
 
-    <!-- PANEL 2: SEND A MESSAGE -->
     <div class="panel form-panel" id="panel-message">
       <div id="formspree-setup-notice" style="background:#FEF9C3;border:1.5px solid #FBBF24;border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:0.82rem;color:#78350F;line-height:1.65;display:block;">
         <strong>⚙️ One-Time Setup Required (5 minutes):</strong> This form uses Formspree — a free service for static websites.
@@ -490,40 +242,23 @@
       </div>
       <h2>Send Us a Message</h2>
       <p class="form-sub">Describe your situation and we'll respond within one business day with a recommended next step. All information is confidential.</p>
-
       <form id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-grid">
-          <div class="form-group">
-            <label class="form-label">First Name <span class="req">*</span></label>
-            <input class="form-input" type="text" name="first_name" required placeholder="Edward"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Last Name <span class="req">*</span></label>
-            <input class="form-input" type="text" name="last_name" required placeholder="Smith"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address <span class="req">*</span></label>
-            <input class="form-input" type="email" name="email" required placeholder="you@company.com"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Phone Number</label>
-            <input class="form-input" type="tel" name="phone" placeholder="(555) 000-0000"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Company / Organization</label>
-            <input class="form-input" type="text" name="company" placeholder="Your company name"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Primary Service Interest</label>
+          <div class="form-group"><label class="form-label">First Name <span class="req">*</span></label><input class="form-input" type="text" name="first_name" required placeholder="Edward"/></div>
+          <div class="form-group"><label class="form-label">Last Name <span class="req">*</span></label><input class="form-input" type="text" name="last_name" required placeholder="Smith"/></div>
+          <div class="form-group"><label class="form-label">Email Address <span class="req">*</span></label><input class="form-input" type="email" name="email" required placeholder="you@company.com"/></div>
+          <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" name="phone" placeholder="(555) 000-0000"/></div>
+          <div class="form-group"><label class="form-label">Company / Organization</label><input class="form-input" type="text" name="company" placeholder="Your company name"/></div>
+          <div class="form-group"><label class="form-label">Primary Service Interest</label>
             <select class="form-select" name="service">
               <option value="">— Select one —</option>
-              <option>WRAP Compliance & Audit Preparation</option>
+              <option>WRAP Compliance &amp; Audit Preparation</option>
               <option>Government Contracting / SBA Certification</option>
-              <option>Supply Chain & Nearshoring Strategy</option>
-              <option>Operations SOPs & Process Development</option>
-              <option>Scaling & Growth Infrastructure</option>
-              <option>Tariffs, Duties & Trade Compliance</option>
-              <option>Internal Audit & Documentation</option>
+              <option>Supply Chain &amp; Nearshoring Strategy</option>
+              <option>Operations SOPs &amp; Process Development</option>
+              <option>Scaling &amp; Growth Infrastructure</option>
+              <option>Tariffs, Duties &amp; Trade Compliance</option>
+              <option>Internal Audit &amp; Documentation</option>
               <option>Training Program Development</option>
               <option>Other / Not Sure Yet</option>
             </select>
@@ -539,77 +274,40 @@
           </div>
           <div class="form-group full">
             <label class="form-label">Tell Us About Your Situation</label>
-            <textarea class="form-textarea" name="message" id="message-field" maxlength="1000" oninput="updateChar()" placeholder="Brief description: industry, current challenge, what you need help with, any relevant context (facility size, contract type, certification timeline, etc.)"></textarea>
+            <textarea class="form-textarea" name="message" id="message-field" maxlength="1000" oninput="updateChar()" placeholder="Brief description: industry, current challenge, what you need help with, any relevant context"></textarea>
             <div class="char-note"><span id="char-count">0</span> / 1,000 characters</div>
           </div>
         </div>
-
         <div class="form-submit-row">
           <button type="submit" class="form-submit-btn">Send Message →</button>
           <div class="form-privacy">🔒 Your information is confidential and never shared with third parties.</div>
         </div>
         <div id="form-error" style="display:none;background:#FEE2E2;border:1px solid #FCA5A5;border-radius:6px;padding:12px 16px;margin-top:12px;font-size:0.83rem;color:#991B1B;font-weight:600;"></div>
       </form>
-
       <div class="form-success" id="form-success">
         <h3>✅ Message Sent — Thank You</h3>
         <p>We received your message and will respond within one business day.<br>In the meantime, <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" style="color:var(--lb);font-weight:600">explore our free compliance tools and resources →</a></p>
       </div>
-    </div><!-- end panel-message -->
+    </div>
 
-  </div><!-- end panel-wrap -->
+  </div>
 
-  <!-- WHAT HAPPENS NEXT -->
   <div class="next-section">
     <h3>What Happens After You Reach Out</h3>
     <div class="next-steps">
-      <div class="next-step">
-        <div class="step-circle">1</div>
-        <div class="step-title">We Review Your Situation</div>
-        <div class="step-desc">Within one business day we review your intake and research your industry, audit type, or contracting environment so the discovery call is immediately productive.</div>
-      </div>
-      <div class="next-step">
-        <div class="step-circle">2</div>
-        <div class="step-title">30-Minute Discovery Call</div>
-        <div class="step-desc">A focused conversation — no slides, no pitch. We ask targeted questions, identify your highest-priority gap, and map what a realistic engagement looks like for your organization.</div>
-      </div>
-      <div class="next-step">
-        <div class="step-circle">3</div>
-        <div class="step-title">Scope & Engagement Plan</div>
-        <div class="step-desc">If there's a fit, we deliver a written scope with deliverables, timeline, and investment — clear and specific. No retainers required to get started.</div>
-      </div>
+      <div class="next-step"><div class="step-circle">1</div><div class="step-title">We Review Your Situation</div><div class="step-desc">Within one business day we review your intake and research your industry, audit type, or contracting environment so the discovery call is immediately productive.</div></div>
+      <div class="next-step"><div class="step-circle">2</div><div class="step-title">30-Minute Discovery Call</div><div class="step-desc">A focused conversation — no slides, no pitch. We ask targeted questions, identify your highest-priority gap, and map what a realistic engagement looks like for your organization.</div></div>
+      <div class="next-step"><div class="step-circle">3</div><div class="step-title">Scope &amp; Engagement Plan</div><div class="step-desc">If there's a fit, we deliver a written scope with deliverables, timeline, and investment — clear and specific. No retainers required to get started.</div></div>
     </div>
   </div>
 
-  <!-- CONTACT INFO STRIP -->
   <div class="info-strip">
-    <div class="info-chip">
-      <div class="info-chip-icon">📧</div>
-      <div>
-        <div class="info-chip-title">Email</div>
-        <div class="info-chip-val"><a href="/cdn-cgi/l/email-protection#ef86818980af9d8cdd9c8e838a9c8c80819c9a839b868188c18c8082" style="color:var(--lb);text-decoration:none"><span class="__cf_email__" data-cfemail="3e575058517e4c5d0c4d5f525b4d5d51504d4b524a575059105d5153">[email&#160;protected]</span></a></div>
-        <div class="info-chip-sub">Monitored daily — response within 24 hours</div>
-      </div>
-    </div>
-    <div class="info-chip">
-      <div class="info-chip-icon">📅</div>
-      <div>
-        <div class="info-chip-title">Discovery Calls</div>
-        <div class="info-chip-val">30 Minutes — Free</div>
-        <div class="info-chip-sub">Mon – Fri · Google Meet · Instant confirmation</div>
-      </div>
-    </div>
-    <div class="info-chip">
-      <div class="info-chip-icon">🔧</div>
-      <div>
-        <div class="info-chip-title">Free Resources</div>
-        <div class="info-chip-val"><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" style="color:var(--lb);text-decoration:none">Browse Tools & Articles →</a></div>
-        <div class="info-chip-sub">WRAP, SBA, Supply Chain, FAR/DCAA tools — all free</div>
-      </div>
-    </div>
+    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Email</div><div class="info-chip-val"><a href="mailto:eddie@rc2salesconsulting.com" style="color:var(--lb);text-decoration:none">eddie@rc2salesconsulting.com</a></div><div class="info-chip-sub">Monitored daily — response within 24 hours</div></div></div>
+    <div class="info-chip"><div class="info-chip-icon">📅</div><div><div class="info-chip-title">Discovery Calls</div><div class="info-chip-val">30 Minutes — Free</div><div class="info-chip-sub">Mon – Fri · Google Meet · Instant confirmation</div></div></div>
+    <div class="info-chip"><div class="info-chip-icon">🔧</div><div><div class="info-chip-title">Free Resources</div><div class="info-chip-val"><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" style="color:var(--lb);text-decoration:none">Browse Tools &amp; Articles →</a></div><div class="info-chip-sub">WRAP, SBA, Supply Chain, FAR/DCAA tools — all free</div></div></div>
   </div>
 
-</div><!-- end main -->
+</div>
 
 <footer class="site-footer">
   <div class="footer-tagline">Operational Clarity. Compliance Confidence. Systems That Scale.</div>
@@ -625,51 +323,36 @@
 </footer>
 
 <script>
-  // ── TAB SWITCHING ──────────────────────────────────────────
   function switchPanel(which) {
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.path-tab').forEach(t => t.classList.remove('active'));
     document.getElementById('panel-' + which).classList.add('active');
     document.getElementById('tab-' + which).classList.add('active');
   }
-
-  // ── URGENCY BUTTONS ────────────────────────────────────────
   function selectUrgency(btn, val) {
     document.querySelectorAll('.urg-btn').forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
     document.getElementById('urgency-val').value = val;
   }
-
-  // ── CHAR COUNTER ───────────────────────────────────────────
   function updateChar() {
     const len = document.getElementById('message-field').value.length;
     document.getElementById('char-count').textContent = len;
   }
-
-  // ── FORM SUBMIT via Formspree ─────────────────────────────
   async function handleSubmit(e) {
     e.preventDefault();
-    const form    = document.getElementById('contact-form');
-    const btn     = form.querySelector('.form-submit-btn');
+    const form = document.getElementById('contact-form');
+    const btn = form.querySelector('.form-submit-btn');
     const success = document.getElementById('form-success');
-    const error   = document.getElementById('form-error');
-
+    const error = document.getElementById('form-error');
     btn.textContent = 'Sending…';
     btn.disabled = true;
     if (error) error.style.display = 'none';
-
     try {
       const data = new FormData(form);
-      const res  = await fetch(form.action, {
-        method:  'POST',
-        body:    data,
-        headers: { 'Accept': 'application/json' }
-      });
-
+      const res = await fetch(form.action, {method:'POST',body:data,headers:{'Accept':'application/json'}});
       if (res.ok) {
-        form.style.display  = 'none';
+        form.style.display = 'none';
         success.classList.add('visible');
-        // Hide setup notice on success
         const notice = document.getElementById('formspree-setup-notice');
         if (notice) notice.style.display = 'none';
       } else {
@@ -680,23 +363,15 @@
       btn.textContent = 'Send Message →';
       btn.disabled = false;
       if (error) {
-        error.textContent = '⚠️ ' + (err.message.includes('REPLACE_WITH_YOUR_FORM_ID')
-          ? 'Form not yet configured. Please complete the Formspree setup above.'
-          : 'Could not send — please email us directly at info@rc2salesconsulting.com');
+        error.textContent = '⚠️ ' + (err.message.includes('REPLACE_WITH_YOUR_FORM_ID') ? 'Form not yet configured. Please complete the Formspree setup above.' : 'Could not send — please email us directly at info@rc2salesconsulting.com');
         error.style.display = 'block';
       }
     }
   }
-
-  // ── AUTO-OPEN TAB FROM URL HASH ────────────────────────────
   (function () {
     const hash = window.location.hash.replace('#', '');
-    if (hash === 'message' || hash === 'book') {
-      switchPanel(hash);
-    }
+    if (hash === 'message' || hash === 'book') switchPanel(hash);
   })();
-
-  // ── HAMBURGER NAV ─────────────────────────────────────────
   (function () {
     const btn = document.getElementById('hamburger');
     const nav = document.querySelector('.nav-links');
@@ -722,4 +397,5 @@
     });
   })();
 </script>
->
+</body>
+</html>
