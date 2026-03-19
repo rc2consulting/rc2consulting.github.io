@@ -238,12 +238,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 <nav class="sidebar">
   <div class="sidebar-section">Training Modules</div>
   <div id="mod-nav"></div>
-  <div class="sidebar-section" style="margin-top:12px;border-top:1px solid var(--border);padding-top:12px;">Internal Tools</div>
+  <div class="sidebar-section" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);">Internal Tools</div>
   <div class="mod-item" id="nav-cap" onclick="showCAPPanel()" style="cursor:pointer;">
-    <div class="mod-num" style="background:#ca8a04;color:white;font-size:.65rem;font-weight:800;">CAP</div>
+    <div class="mod-num" style="background:#ca8a04;color:white;font-size:.65rem;font-weight:800;flex-shrink:0;">CAP</div>
     <div class="mod-info">
       <div class="mod-name">RC2 CAP Tracker</div>
-      <div class="mod-meta">Operations · 25 Items</div>
+      <div class="mod-meta">Operations &middot; 25 Items</div>
     </div>
   </div>
 </nav>
@@ -1437,16 +1437,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 </div>
 
 
-<!-- ════════════════════════════════════════════════════════ -->
-<!-- INTERNAL TOOL: RC2 CAP TRACKER -->
-<!-- ════════════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════ -->
+<!-- INTERNAL TOOL: RC2 CAP TRACKER              -->
+<!-- ════════════════════════════════════════════ -->
 <div class="module-panel" id="mod-cap">
   <div class="mod-hero" style="background:linear-gradient(135deg,#0f2044 0%,#1e3a5f 100%);">
-    <div class="mod-hero-tag" style="background:rgba(202,138,4,.2);color:#fbbf24;border-color:rgba(202,138,4,.3);">INTERNAL TOOL &middot; OPERATIONS</div>
+    <div class="mod-hero-tag" style="background:rgba(202,138,4,.2);color:#fbbf24;border-color:rgba(202,138,4,.3);">INTERNAL TOOL &middot; OPERATIONS &amp; COMPLIANCE</div>
     <h2>RC2 Corrective Action Plan Tracker</h2>
     <p>Live dashboard tracking all RC2 internal CAP items and future client CAPs. Monitor open items, closures, Drive audit gaps, and completion progress in real time.</p>
     <div class="mod-hero-meta">
-      <span>&#128203; 25 Total Items</span><span>&#9989; 7 Closed</span><span>&#127919; Target: June 15, 2026</span>
+      <span>&#128203; 25 Total Items</span>
+      <span>&#9989; 7 Closed</span>
+      <span>&#127919; Target: June 15, 2026</span>
     </div>
   </div>
 
@@ -1454,24 +1456,20 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
     <div class="card-title"><div class="icon" style="background:#fffbeb;">&#128202;</div>CAP Dashboard Status</div>
     <div class="concept-grid">
       <div class="concept-card" style="border-left-color:#16a34a;">
-        <h4>Closed</h4>
-        <p style="font-size:1.4rem;font-weight:800;color:#16a34a;">7</p>
+        <h4 style="color:#16a34a;">&#9989; Closed — 7</h4>
         <p>CAP-01, 02, 03, 09, 11, 13, 14</p>
       </div>
       <div class="concept-card" style="border-left-color:#dc2626;">
-        <h4>Open</h4>
-        <p style="font-size:1.4rem;font-weight:800;color:#dc2626;">18</p>
-        <p>Action required</p>
+        <h4 style="color:#dc2626;">&#128308; Open — 18</h4>
+        <p>Action required across 4 phases</p>
       </div>
       <div class="concept-card" style="border-left-color:#ca8a04;">
-        <h4>Target Close</h4>
-        <p style="font-size:1.1rem;font-weight:800;color:#ca8a04;">June 15, 2026</p>
-        <p>28% complete</p>
+        <h4 style="color:#ca8a04;">&#128197; Target Close</h4>
+        <p>June 15, 2026 &mdash; 28% complete</p>
       </div>
-      <div class="concept-card" style="border-left-color:#1a56db;">
-        <h4>Overdue</h4>
-        <p style="font-size:1.4rem;font-weight:800;color:#dc2626;">2</p>
-        <p>CAP-15 &middot; CAP-17</p>
+      <div class="concept-card" style="border-left-color:#dc2626;">
+        <h4 style="color:#dc2626;">&#9203; Overdue — 2</h4>
+        <p>RC2-CAP-15 &middot; RC2-CAP-17</p>
       </div>
     </div>
   </div>
@@ -1483,38 +1481,38 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
         <div class="resource-icon">&#128193;</div>
         <div class="resource-info">
           <div class="resource-title">RC2-CAP-15 &mdash; File All Documents to Drive</div>
-          <div class="resource-desc">OVERDUE &middot; 30 min &middot; Drive audit confirmed 07_Admin/02_Internal_SOP_Templates is empty</div>
+          <div class="resource-desc">OVERDUE &middot; 30 min &middot; 07_Admin/02_Internal_SOP_Templates confirmed empty</div>
         </div>
       </div>
       <div class="resource-item" style="border-left:3px solid #dc2626;">
         <div class="resource-icon">&#129302;</div>
         <div class="resource-info">
           <div class="resource-title">RC2-CAP-16 &mdash; Build AI Prompt Library</div>
-          <div class="resource-desc">HIGH &middot; 2&ndash;3 hrs &middot; All 5 subfolders in 08_AI_Automations confirmed empty</div>
+          <div class="resource-desc">HIGH &middot; 2&ndash;3 hrs &middot; All 5 AI subfolders confirmed empty</div>
         </div>
       </div>
       <div class="resource-item" style="border-left:3px solid #dc2626;">
         <div class="resource-icon">&#128194;</div>
         <div class="resource-info">
           <div class="resource-title">RC2-CAP-17 &mdash; Populate Empty Drive Folders</div>
-          <div class="resource-desc">OVERDUE &middot; 1&ndash;2 hrs &middot; 01_Strategy, 05_Knowledge_Base, 10_Legal_Contracts empty</div>
+          <div class="resource-desc">OVERDUE &middot; 1&ndash;2 hrs &middot; Strategy, Knowledge_Base, Legal_Contracts empty</div>
         </div>
       </div>
       <div class="resource-item" style="border-left:3px solid #ea580c;">
         <div class="resource-icon">&#128203;</div>
         <div class="resource-info">
           <div class="resource-title">RC2-CAP-04 &mdash; 3 Service Delivery SOPs</div>
-          <div class="resource-desc">HIGH &middot; 3 hrs &middot; WRAP, GovCon, Operations SOPs &mdash; due April 15, 2026</div>
+          <div class="resource-desc">HIGH &middot; 3 hrs &middot; WRAP, GovCon, Operations &mdash; due April 15, 2026</div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title"><div class="icon" style="background:#f0fdf4;">&#128640;</div>Open Full CAP Tracker</div>
-    <p style="font-size:.85rem;color:var(--gray);margin-bottom:16px;">Access the live interactive dashboard with all 25 CAP items, status dropdowns, verification notes, and client CAP tabs.</p>
-    <a href="RC2_CAP_Tracker.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:.88rem;font-weight:700;">
-      Open RC2 CAP Tracker Dashboard &rarr;
+    <div class="card-title"><div class="icon" style="background:#f0fdf4;">&#128640;</div>Open Full Interactive CAP Tracker</div>
+    <p style="font-size:.85rem;color:var(--gray);margin-bottom:16px;">Access the live dashboard with all 25 items, status controls, verification notes, and client CAP tabs.</p>
+    <a href="RC2_CAP_Tracker.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#0f2044;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:.88rem;font-weight:700;">
+      &#128203; Open RC2 CAP Tracker &rarr;
     </a>
   </div>
 </div>
@@ -1648,14 +1646,6 @@ function markComplete(id){
   }
 }
 
-function showCAPPanel(){
-  document.querySelectorAll('.module-panel').forEach(function(p){p.classList.remove('active');});
-  document.querySelectorAll('.mod-item').forEach(function(n){n.classList.remove('active');});
-  document.getElementById('mod-cap').classList.add('active');
-  document.getElementById('nav-cap').classList.add('active');
-  window.scrollTo(0,0);
-}
-
 function updateProgress(){
   var count = Object.keys(completed).length;
   var pct = Math.round((count/8)*100);
@@ -1667,6 +1657,14 @@ function updateProgress(){
     var avg = Math.round(scoreVals.reduce(function(a,b){return a+b;},0)/scoreVals.length);
     document.getElementById('stat-score').textContent=avg+'%';
   }
+}
+
+function showCAPPanel(){
+  document.querySelectorAll('.module-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.mod-item').forEach(function(n){n.classList.remove('active');});
+  document.getElementById('mod-cap').classList.add('active');
+  document.getElementById('nav-cap').classList.add('active');
+  window.scrollTo(0,0);
 }
 </script>
 </body>

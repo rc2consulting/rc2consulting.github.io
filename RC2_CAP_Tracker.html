@@ -180,7 +180,7 @@ textarea.modal-input{resize:vertical;min-height:68px;}
     <div class="header-right">
       <div class="save-ind" id="saveInd">✓ Saved</div>
       <div class="hdate" id="currentDate"></div>
-      <button class="add-btn" onclick="addRow()">+ Add Item</button>
+      <button class="add-btn" onclick="openAddModal()">+ Add Item</button>
     </div>
   </div>
 </div>
@@ -243,6 +243,71 @@ textarea.modal-input{resize:vertical;min-height:68px;}
 <div class="ft">
   <div class="ft-txt">RC2 Sales Consulting, LLC · CAP Tracker v3.0 · Calendar Auto-Sync Active</div>
   <div class="ft-txt">Naming: RC2-CAP-## (internal) · [CLIENT]-CAP-## (client) · Add ✅ when done</div>
+</div>
+
+<!-- ADD ITEM MODAL -->
+<div class="modal-ov" id="addMOv">
+  <div class="modal" style="width:540px;max-width:96vw;">
+    <div class="modal-hd"><h3>+ Add New CAP Item</h3><button onclick="closeAddM()">&#215;</button></div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div>
+          <div class="modal-lbl">CAP ID (auto)</div>
+          <input class="modal-input" id="addId" style="font-family:monospace;background:#f4f6f9;color:#0d2340;font-weight:700;" readonly/>
+        </div>
+        <div>
+          <div class="modal-lbl">Priority *</div>
+          <select class="modal-input" id="addPriority">
+            <option value="CRITICAL">🔴 CRITICAL</option>
+            <option value="HIGH">🟠 HIGH</option>
+            <option value="MEDIUM" selected>🟡 MEDIUM</option>
+            <option value="LOW">🟢 LOW</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-lbl">Description *</div>
+      <textarea class="modal-input" id="addDesc" placeholder="Describe the gap or action item clearly..." rows="3"></textarea>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div>
+          <div class="modal-lbl">Owner</div>
+          <input class="modal-input" id="addOwner" value="Eddie"/>
+        </div>
+        <div>
+          <div class="modal-lbl">Deadline</div>
+          <input class="modal-input" id="addDeadline" type="date"/>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div>
+          <div class="modal-lbl">Time Required</div>
+          <input class="modal-input" id="addTime" placeholder="e.g. 30 min, 2 hrs"/>
+        </div>
+        <div>
+          <div class="modal-lbl">Category</div>
+          <select class="modal-input" id="addTag">
+            <option value="ops">Operations</option>
+            <option value="web">Web</option>
+            <option value="ai">AI OS</option>
+            <option value="es">Spanish</option>
+            <option value="client">Client</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-lbl">Add to Phase</div>
+      <select class="modal-input" id="addPhase">
+        <option value="0">Phase 1 — Critical</option>
+        <option value="1">Phase 2 — High</option>
+        <option value="2">Phase 3 — Medium</option>
+        <option value="3" selected>Phase 4 — Low / Growth</option>
+      </select>
+      <div class="modal-lbl">Notes (optional)</div>
+      <textarea class="modal-input" id="addNotes" placeholder="Add context, links, or next steps..." rows="2"></textarea>
+    </div>
+    <div class="modal-ft">
+      <button class="btn-cancel" onclick="closeAddM()">Cancel</button>
+      <button class="btn-confirm" onclick="confirmAddM()">Add CAP Item &#10003;</button>
+    </div>
+  </div>
 </div>
 
 <!-- CLOSE MODAL -->
@@ -446,6 +511,69 @@ function switchClient(code){
   activeClient = code;
   save();
   renderTabs();
+  render();
+}
+
+
+// ── ADD ITEM MODAL ─────────────────────────────────────────────────────────
+function openAddModal(){
+  const c = getClient();
+  const prefix = activeClient === "RC2" ? "RC2" : activeClient;
+  let maxNum = 0;
+  c.phases.forEach(ph=>ph.items.forEach(it=>{
+    const m = it.id.match(/CAP-(\d+)$/);
+    if(m) maxNum = Math.max(maxNum, parseInt(m[1]));
+  }));
+  const newId = `${prefix}-CAP-${String(maxNum+1).padStart(2,'0')}`;
+  document.getElementById('addId').value = newId;
+  const dl = new Date();
+  dl.setDate(dl.getDate()+60);
+  document.getElementById('addDeadline').value = dl.toISOString().split('T')[0];
+  document.getElementById('addDesc').value = '';
+  document.getElementById('addNotes').value = '';
+  document.getElementById('addOwner').value = 'Eddie';
+  document.getElementById('addTime').value = '';
+  document.getElementById('addPriority').value = 'MEDIUM';
+  document.getElementById('addTag').value = 'ops';
+  document.getElementById('addPhase').value = '3';
+  document.getElementById('addMOv').classList.add('open');
+  setTimeout(()=>document.getElementById('addDesc').focus(), 150);
+}
+
+function closeAddM(){
+  document.getElementById('addMOv').classList.remove('open');
+}
+
+function confirmAddM(){
+  const desc = document.getElementById('addDesc').value.trim();
+  if(!desc){
+    document.getElementById('addDesc').style.borderColor='#e53e3e';
+    document.getElementById('addDesc').focus();
+    return;
+  }
+  document.getElementById('addDesc').style.borderColor='';
+  const c = getClient();
+  const id = document.getElementById('addId').value;
+  const phaseIdx = parseInt(document.getElementById('addPhase').value);
+  const newItem = {
+    id,
+    desc,
+    p: document.getElementById('addPriority').value,
+    own: document.getElementById('addOwner').value || 'Eddie',
+    dl: document.getElementById('addDeadline').value || '2026-06-15',
+    time: document.getElementById('addTime').value || 'TBD',
+    tag: document.getElementById('addTag').value,
+    isNew: true
+  };
+  c.phases[phaseIdx].items.push(newItem);
+  c.status[id] = {
+    status: 'open',
+    verifier: '',
+    date: '',
+    notes: document.getElementById('addNotes').value.trim()
+  };
+  closeAddM();
+  save();
   render();
 }
 
@@ -731,6 +859,7 @@ function updateSummary(){
 // ── INIT ──────────────────────────────────────────────────────────────────────
 document.getElementById("mOv").addEventListener("click",e=>{if(e.target===document.getElementById("mOv"))closeM();});
 document.getElementById("clientMOv").addEventListener("click",e=>{if(e.target===document.getElementById("clientMOv"))closeClientM();});
+document.getElementById("addMOv").addEventListener("click",e=>{if(e.target===document.getElementById("addMOv"))closeAddM();});
 document.getElementById("currentDate").textContent=new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
 load(); render();
 </script>
