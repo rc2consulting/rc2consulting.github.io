@@ -1,424 +1,862 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RC2 Consulting — Training Hub</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>RC2 CAP Tracker v3.0</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{--navy:#0a1628;--blue:#1a3a6e;--accent:#2563eb;--gold:#f59e0b;--green:#059669;--gray:#6b7280;--border:#e2e8f0;}
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif;}
-body{background:#f1f5f9;color:#1e293b;min-height:100vh;}
-#gate{position:fixed;inset:0;background:linear-gradient(135deg,#0a1628,#1a3a6e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;z-index:9999;}
-#gate .logo{text-align:center;color:white;}
-#gate .logo div{font-size:3rem;margin-bottom:10px;}
-#gate .logo h1{font-size:1.6rem;font-weight:800;letter-spacing:2px;}
-#gate .logo p{font-size:.8rem;opacity:.55;letter-spacing:1px;margin-top:4px;}
-.gate-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:32px 40px;width:360px;text-align:center;}
-.gate-box label{display:block;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;margin-top:14px;text-align:left;}
-.gate-box input{width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:white;font-size:.9rem;outline:none;}
-.gate-box input::placeholder{color:rgba(255,255,255,.3);}
-.gate-btn{width:100%;padding:12px;background:linear-gradient(135deg,#2563eb,#1a3a6e);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;letter-spacing:1px;margin-top:18px;}
-#gate-err{color:#f87171;font-size:.78rem;margin-top:10px;display:none;}
-#gate-footer{color:rgba(255,255,255,.25);font-size:.68rem;}
-#app{display:none;min-height:100vh;}
-header{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 12px rgba(0,0,0,.3);position:sticky;top:0;z-index:100;}
-header h1{font-size:1.1rem;font-weight:800;letter-spacing:1px;}
-header .sub{font-size:.7rem;opacity:.55;margin-top:2px;}
-.hright{display:flex;align-items:center;gap:12px;}
-#user-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 14px;font-size:.75rem;color:rgba(255,255,255,.85);}
-.logout-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:rgba(255,255,255,.65);padding:5px 12px;font-size:.72rem;cursor:pointer;}
-.dashboard{padding:28px;max-width:1200px;margin:0 auto;}
-.welcome-bar{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-left:4px solid var(--accent);border-radius:10px;padding:16px 20px;margin-bottom:24px;}
-.welcome-bar .wtitle{font-weight:800;color:var(--navy);font-size:1rem;}
-.welcome-bar .wsub{font-size:.8rem;color:#475569;margin-top:3px;}
-.stats-row{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;}
-.stat-card{background:white;border-radius:10px;padding:14px 18px;border:1px solid var(--border);flex:1;min-width:140px;box-shadow:0 2px 6px rgba(0,0,0,.05);}
-.stat-card .snum{font-size:1.8rem;font-weight:800;color:var(--accent);}
-.stat-card .slabel{font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
-.section-title{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:20px;}
-.tool-card{background:white;border-radius:14px;border:2px solid var(--border);overflow:hidden;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;flex-direction:column;min-height:200px;}
-.tc-body{padding:0 20px 18px;flex:1;display:flex;flex-direction:column;}
-.tc-desc{font-size:.8rem;color:#475569;line-height:1.6;margin-bottom:12px;flex:1;}
-.tool-card-wide{background:white;border-radius:14px;border:2px solid var(--border);overflow:hidden;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;flex-direction:row;align-items:stretch;margin-bottom:20px;}
-.tool-card-wide:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,.15);}
-.tool-card-wide .tc-header{padding:24px 28px;border-right:1px solid var(--border);display:flex;align-items:center;gap:16px;flex-shrink:0;min-width:260px;}
-.tool-card-wide .tc-body{padding:20px 28px;flex-direction:row;align-items:center;gap:24px;}
-.tool-card-wide .tc-desc{margin-bottom:0;font-size:.85rem;}
-.tool-card-wide .tc-footer{flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;}
-.tool-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,.15);}
-.tool-card.coming-soon{opacity:.6;cursor:default;}
-.tool-card.coming-soon:hover{transform:none;border-color:var(--border);box-shadow:0 2px 8px rgba(0,0,0,.06);}
-.tc-header{padding:20px;display:flex;align-items:center;gap:14px;}
-.tc-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
-.tc-title{font-size:.95rem;font-weight:800;color:var(--navy);}
-.tc-cat{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
-.tc-footer{display:flex;align-items:center;justify-content:space-between;}
-.tc-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
-.tag-blue{background:#dbeafe;color:#1d4ed8;}
-.tag-green{background:#d1fae5;color:#065f46;}
-.tag-gray{background:#f1f5f9;color:#6b7280;}
-.tc-arrow{color:var(--accent);font-size:1.1rem;font-weight:700;}
-.coming-badge{background:#f1f5f9;color:#6b7280;border-radius:6px;padding:4px 10px;font-size:.72rem;font-weight:600;}
-#tool-overlay{display:none;position:fixed;inset:0;z-index:9998;flex-direction:column;background:white;}
-#tool-overlay.open{display:flex;}
-.tool-topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.tool-topbar .tname{font-size:.88rem;font-weight:700;letter-spacing:.5px;}
-.tool-topbar .tback{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:white;padding:6px 14px;font-size:.78rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;}
-#tool-frame{flex:1;border:none;width:100%;height:100%;}
-.frame-loading{position:absolute;inset:0;background:white;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;z-index:1;}
-.spinner{width:40px;height:40px;border:4px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-@media(max-width:600px){.dashboard{padding:16px;}.gate-box{width:95%;padding:24px 20px;}.stats-row{gap:8px;}}
+:root{
+  --navy:#0d2340;--navy-mid:#163354;--navy-light:#1e4a7a;
+  --gold:#c9a84c;--gold-light:#e8c96d;
+  --off-white:#f4f6f9;--gray-100:#eef1f5;--gray-200:#d8dde6;--gray-400:#8a94a6;--gray-600:#4a5568;--text:#0d2340;
+  --s-open-bg:#fff0f0;--s-open-b:#e53e3e;--s-open-t:#c53030;
+  --s-prog-bg:#fffbeb;--s-prog-b:#b7791f;--s-prog-t:#b7791f;
+  --s-clos-bg:#f0fff4;--s-clos-b:#38a169;--s-clos-t:#276749;
+  --s-hold-bg:#ebf8ff;--s-hold-b:#667eea;--s-hold-t:#4c51bf;
+  --p-crit:#e53e3e;--p-high:#dd6b20;--p-med:#d69e2e;--p-low:#38a169;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);min-height:100vh;font-size:13px;}
+.header{background:var(--navy);border-bottom:2px solid var(--gold);}
+.header-inner{max-width:1400px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.logo-block{display:flex;align-items:center;gap:10px;}
+.logo-badge{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:500;font-size:11px;color:var(--navy);flex-shrink:0;}
+.logo-text h1{font-size:14px;font-weight:600;color:#fff;}
+.logo-text p{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px;}
+.header-right{display:flex;align-items:center;gap:12px;}
+.save-ind{color:var(--gold);font-size:11px;font-weight:500;opacity:0;transition:opacity .3s;}
+.save-ind.on{opacity:1;}
+.hdate{font-size:11px;color:rgba(255,255,255,.45);}
+.add-btn{background:var(--gold);color:var(--navy);border:none;border-radius:7px;padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;}
+.add-btn:hover{background:var(--gold-light);}
+
+/* CONVENTION BANNER */
+.conv-banner{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border-bottom:1px solid var(--gold);padding:10px 24px;}
+.conv-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.conv-label{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);flex-shrink:0;}
+.conv-items{display:flex;gap:12px;flex-wrap:wrap;}
+.conv-chip{background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:3px 10px;font-size:11px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.8);}
+.conv-rule{font-size:11px;color:rgba(255,255,255,.5);margin-left:auto;}
+
+/* CLIENT TABS */
+.tab-bar{max-width:1400px;margin:16px auto 0;padding:0 24px;display:flex;gap:6px;flex-wrap:wrap;}
+.tab{padding:7px 16px;border-radius:8px 8px 0 0;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--gray-200);border-bottom:none;background:#fff;color:var(--gray-400);transition:all .15s;}
+.tab.active{background:var(--navy);color:var(--gold);border-color:var(--navy);}
+.tab:hover:not(.active){background:var(--gray-100);color:var(--navy);}
+.tab-add{padding:7px 12px;border-radius:8px 8px 0 0;font-size:12px;cursor:pointer;border:1px dashed var(--gray-200);border-bottom:none;background:transparent;color:var(--gray-400);}
+.tab-add:hover{color:var(--gold);border-color:var(--gold);}
+
+.top-wrap{max-width:1400px;margin:0 auto;padding:0 24px;}
+.triage-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px;}
+.triage-card{background:#fff;border-radius:10px;border:1px solid var(--gray-200);padding:12px 14px;text-align:center;}
+.tc-label{font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--gray-400);margin-bottom:5px;}
+.tc-val{font-size:26px;font-weight:600;line-height:1;}
+.tc-sub{font-size:11px;color:var(--gray-400);margin-top:2px;}
+.tc-bar{height:4px;background:var(--gray-100);border-radius:4px;margin-top:7px;overflow:hidden;}
+.tc-fill{height:100%;border-radius:4px;background:var(--gold);}
+.matrix-inner{background:#fff;border-radius:12px;border:1px solid var(--gray-200);padding:14px 18px;margin-bottom:14px;}
+.matrix-title{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.matrix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.mx-card{border-radius:8px;padding:10px 12px;border-left:3px solid;}
+.mx-crit{background:#fff5f5;border-color:var(--p-crit);}
+.mx-high{background:#fff8f0;border-color:var(--p-high);}
+.mx-med{background:#fffbeb;border-color:var(--p-med);}
+.mx-head{font-size:11px;font-weight:700;margin-bottom:6px;}
+.mx-crit .mx-head{color:var(--p-crit);}
+.mx-high .mx-head{color:var(--p-high);}
+.mx-med .mx-head{color:var(--p-med);}
+.mx-item{font-size:11px;color:var(--gray-600);padding:2px 0;display:flex;align-items:flex-start;gap:4px;line-height:1.4;}
+.mx-item::before{content:'→';flex-shrink:0;font-weight:700;}
+.mx-time{font-size:10px;font-weight:600;color:var(--gray-400);margin-left:3px;}
+.prog-inner{background:var(--navy);border-radius:12px;padding:14px 20px;margin-bottom:16px;}
+.prog-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-lbl{font-size:12px;font-weight:600;color:rgba(255,255,255,.8);}
+.prog-pct{font-size:20px;font-weight:600;color:var(--gold);}
+.prog-bar-outer{height:7px;background:rgba(255,255,255,.12);border-radius:4px;overflow:hidden;}
+.prog-bar-inner{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;transition:width .4s;}
+.tbl-wrap{max-width:1400px;margin:0 auto;padding:0 24px 24px;}
+.tbl-box{background:#fff;border-radius:12px;border:1px solid var(--gray-200);overflow:hidden;}
+.tbl-hd{display:grid;grid-template-columns:100px 1fr 110px 110px 105px 110px 150px;padding:10px 18px;gap:10px;background:var(--navy-mid);border-bottom:1px solid var(--navy-light);}
+.th{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.cap-row{display:grid;grid-template-columns:100px 1fr 110px 110px 105px 110px 150px;padding:11px 18px;gap:10px;align-items:start;border-bottom:1px solid var(--gray-100);border-left:3px solid transparent;transition:background .15s;}
+.cap-row:last-child{border-bottom:none;}
+.cap-row:hover{background:#fafbfc;}
+.r-open{border-left-color:var(--p-crit);}
+.r-prog{border-left-color:var(--p-high);}
+.r-clos{border-left-color:var(--p-low);opacity:.72;}
+.r-hold{border-left-color:#667eea;}
+.editable{cursor:pointer;border-radius:5px;padding:3px 6px;transition:background .15s;line-height:1.5;min-height:22px;}
+.editable:hover{background:var(--gray-100);}
+.editable:hover::after{content:' ✏️';font-size:10px;opacity:.5;}
+.editing{background:#fff;border:1.5px solid var(--navy);border-radius:5px;padding:3px 6px;outline:none;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text);width:100%;resize:vertical;line-height:1.5;}
+.edit-select{background:#fff;border:1.5px solid var(--navy);border-radius:5px;padding:4px 6px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text);width:100%;cursor:pointer;outline:none;}
+.r-id-cell{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--navy);}
+.r-id-input{font-family:'DM Mono',monospace;}
+.pbadge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;cursor:pointer;}
+.pbadge:hover{opacity:.8;}
+.pdot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0;}
+.pc{color:var(--p-crit);background:#fff0f0;border:1px solid rgba(229,62,62,.3);}
+.ph{color:var(--p-high);background:#fff5eb;border:1px solid rgba(221,107,32,.3);}
+.pm{color:var(--p-med);background:#fffbeb;border:1px solid rgba(214,158,46,.3);}
+.pl{color:var(--p-low);background:#f0fff4;border:1px solid rgba(56,161,105,.3);}
+.so select,.sp select,.sc select,.sh select{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;border-radius:20px;padding:4px 9px;border:1.5px solid;cursor:pointer;width:100%;outline:none;}
+.so select{color:var(--s-open-t);background:var(--s-open-bg);border-color:var(--s-open-b);}
+.sp select{color:var(--s-prog-t);background:var(--s-prog-bg);border-color:var(--s-prog-b);}
+.sc select{color:var(--s-clos-t);background:var(--s-clos-bg);border-color:var(--s-clos-b);}
+.sh select{color:var(--s-hold-t);background:var(--s-hold-bg);border-color:var(--s-hold-b);}
+.ph-hdr{padding:8px 18px;background:var(--navy);border-bottom:1px solid var(--navy-light);}
+.ph-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;gap:10px;}
+.ph-lbl::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.1);}
+.vbadge{font-size:10px;font-weight:600;color:var(--s-clos-t);background:var(--s-clos-bg);border:1px solid var(--s-clos-b);padding:2px 6px;border-radius:10px;margin-left:6px;display:inline-flex;}
+.nbadge{font-size:10px;font-weight:700;color:#4c51bf;background:#ebf4ff;border:1px solid #667eea;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+.esbadge{font-size:10px;font-weight:700;color:#553c9a;background:#faf5ff;border:1px solid #9f7aea;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+.wbbadge{font-size:10px;font-weight:700;color:#2b6cb0;background:#ebf8ff;border:1px solid #4299e1;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+.aibadge{font-size:10px;font-weight:700;color:#276749;background:#f0fff4;border:1px solid #48bb78;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+.clientbadge{font-size:10px;font-weight:700;color:#744210;background:#fffaf0;border:1px solid #ed8936;padding:2px 6px;border-radius:10px;margin-left:5px;display:inline-flex;}
+.del-btn{background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:14px;padding:2px 4px;border-radius:4px;float:right;line-height:1;}
+.del-btn:hover{color:var(--p-crit);background:#fff0f0;}
+.file-toggle{background:none;border:none;cursor:pointer;font-size:11px;font-weight:600;color:var(--gold);padding:4px 0;margin-top:5px;display:flex;align-items:center;gap:4px;font-family:'DM Sans',sans-serif;}
+.file-toggle:hover{color:var(--navy);}
+.file-checklist{display:none;margin-top:7px;background:var(--gray-100);border-radius:8px;padding:10px 12px;border:1px solid var(--gray-200);}
+.file-checklist.open{display:block;}
+.fc-section{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--navy);margin:8px 0 3px;padding-bottom:2px;border-bottom:1px solid var(--gray-200);}
+.fc-section:first-child{margin-top:0;}
+.fc-item{display:flex;align-items:flex-start;gap:7px;padding:2px 0;font-size:11px;color:var(--gray-600);cursor:pointer;line-height:1.4;}
+.fc-item input{margin-top:2px;flex-shrink:0;accent-color:var(--navy);}
+.fc-item.done{text-decoration:line-through;opacity:.5;}
+
+/* CAL SYNC HINT */
+.cal-hint{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--gray-400);background:var(--gray-100);border:1px solid var(--gray-200);border-radius:20px;padding:2px 8px;margin-top:4px;}
+.cal-hint-icon{font-size:10px;}
+
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(13,35,64,.55);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
+.modal-ov.open{display:flex;}
+.modal{background:#fff;border-radius:14px;width:500px;max-width:94vw;box-shadow:0 20px 60px rgba(0,0,0,.22);overflow:hidden;}
+.modal-hd{background:var(--navy);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;}
+.modal-hd h3{font-size:14px;font-weight:600;color:#fff;}
+.modal-hd button{background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:22px;line-height:1;}
+.modal-body{padding:18px 20px;}
+.modal-id{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-400);margin-bottom:8px;}
+.modal-lbl{font-size:11px;font-weight:600;color:var(--gray-600);margin:10px 0 4px;}
+.modal-input{width:100%;border:1.5px solid var(--gray-200);border-radius:7px;padding:8px 11px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;}
+.modal-input:focus{border-color:var(--navy);}
+textarea.modal-input{resize:vertical;min-height:68px;}
+.modal-ft{padding:12px 20px;background:var(--gray-100);display:flex;justify-content:flex-end;gap:10px;}
+.btn-cancel{padding:7px 16px;border-radius:7px;border:1.5px solid var(--gray-200);background:#fff;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;}
+.btn-confirm{padding:7px 20px;border-radius:7px;border:none;background:var(--navy);color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;}
+
+/* NEW CLIENT MODAL */
+.client-modal{background:#fff;border-radius:14px;width:420px;max-width:94vw;box-shadow:0 20px 60px rgba(0,0,0,.22);overflow:hidden;}
+
+.ft{max-width:1400px;margin:0 auto;padding:0 24px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.ft-txt{font-size:11px;color:var(--gray-400);}
+.edit-hint{font-size:10px;color:var(--gray-400);text-align:center;padding:6px;background:var(--gray-100);border-top:1px solid var(--gray-200);}
+@media(max-width:1000px){
+  .tbl-hd,.cap-row{grid-template-columns:90px 1fr 90px 90px;gap:8px;}
+  .th:nth-child(4),.th:nth-child(5),.th:nth-child(6),.cap-row>div:nth-child(4),.cap-row>div:nth-child(5),.cap-row>div:nth-child(6){display:none;}
+  .triage-grid{grid-template-columns:repeat(3,1fr);}
+  .matrix-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .tbl-hd,.cap-row{grid-template-columns:80px 1fr 110px;gap:6px;}
+  .th:nth-child(3),.cap-row>div:nth-child(3){display:none;}
+  .triage-grid{grid-template-columns:repeat(2,1fr);}
+  .top-wrap,.tbl-wrap,.ft{padding-left:12px;padding-right:12px;}
+}
 </style>
 </head>
 <body>
 
-<div id="gate">
-  <div class="logo">
-    <div>⚡</div>
-    <h1>RC2 CONSULTING</h1>
-    <p>INTERNAL RESOURCE HUB — AUTHORIZED ACCESS ONLY</p>
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-badge">RC²</div>
+      <div class="logo-text">
+        <h1>RC2 Sales Consulting — Corrective Action Plan</h1>
+        <p id="trackerSubtitle">Live Tracker v3.0 · Fully Editable · Auto-Calendar Sync · Audit 2026-03-16</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="save-ind" id="saveInd">✓ Saved</div>
+      <div class="hdate" id="currentDate"></div>
+      <button class="add-btn" onclick="openAddModal()">+ Add Item</button>
+    </div>
   </div>
-  <div class="gate-box">
-    <label>Your Full Name</label>
-    <input type="text" id="g-name" placeholder="Enter your full name" onkeydown="if(event.key==='Enter')document.getElementById('g-pwd').focus()">
-    <label>Access Password</label>
-    <input type="password" id="g-pwd" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="gate-btn" onclick="doLogin()">🔓 ENTER RC2 HUB</button>
-    <p id="gate-err" style="color:#f87171;font-size:.78rem;margin-top:10px;display:none;">❌ Incorrect name or password. Try again.</p>
-  </div>
-  <p id="gate-footer" style="color:rgba(255,255,255,.25);font-size:.68rem;">rc2consulting.github.io | Confidential — Internal Use Only</p>
 </div>
 
-<div id="app">
-  <header>
-    <div>
-      <h1>⚡ RC2 CONSULTING — INTERNAL RESOURCE HUB</h1>
-      <div class="sub">Operations & Compliance Specialists | All Tools in One Place</div>
+<!-- NAMING CONVENTION BANNER -->
+<div class="conv-banner">
+  <div class="conv-inner">
+    <div class="conv-label">📅 Calendar Convention</div>
+    <div class="conv-items">
+      <span class="conv-chip">RC2-CAP-## — Description</span>
+      <span class="conv-chip">[CLIENT]-CAP-## — Description</span>
+      <span class="conv-chip">✅ RC2-CAP-## — Done (add ✅ when complete)</span>
     </div>
-    <div class="hright">
-      <div id="user-badge">👤 <span id="uname">Employee</span></div>
-      <button class="logout-btn" onclick="doLogout()">Sign Out</button>
-    </div>
-  </header>
+    <div class="conv-rule">One ✅ prefix = auto-swept at 11 PM nightly</div>
+  </div>
+</div>
 
-  <div class="dashboard">
-    <div class="welcome-bar">
-      <div class="wtitle">Welcome back, <span id="uname-welcome">RC2 Staff</span> 👋</div>
-      <div class="wsub">RC2 Internal Resource Hub — All tools are live and ready to use.</div>
-    </div>
-    <div class="stats-row" id="stats-row-html">
-      <div class="stat-card"><div class="snum">10</div><div class="slabel">Tools Live</div></div>
-      <div class="stat-card"><div class="snum">8</div><div class="slabel">Service Areas</div></div>
-      <div class="stat-card"><div class="snum">∞</div><div class="slabel">Clients Served</div></div>
-      <div class="stat-card"><div class="snum">∞</div><div class="slabel">Expandable</div></div>
-    </div>
-    <div class="section-title">🟢 Live Tools</div>
+<!-- CLIENT TABS -->
+<div class="tab-bar" id="tabBar"></div>
 
-    <!-- ROW 1: Employee Training Portal — full-width featured card -->
-    <div class="tool-card-wide" onclick="openTool('RC2_Employee_Training.html','🎓 Employee Training Portal')">
-      <div class="tc-header">
-        <div class="tc-icon" style="background:#f0fdf4;width:60px;height:60px;font-size:1.9rem;">🎓</div>
+<div class="top-wrap">
+  <div class="triage-grid">
+    <div class="triage-card"><div class="tc-label">Total Items</div><div class="tc-val" id="tot" style="color:var(--navy)">—</div><div class="tc-sub" id="capRange">Loading...</div><div class="tc-bar"><div class="tc-fill" style="width:100%"></div></div></div>
+    <div class="triage-card"><div class="tc-label">Open</div><div class="tc-val" style="color:var(--p-crit)" id="oc">—</div><div class="tc-sub">Action required</div><div class="tc-bar"><div class="tc-fill" style="background:var(--p-crit)" id="ob"></div></div></div>
+    <div class="triage-card"><div class="tc-label">In Progress</div><div class="tc-val" style="color:var(--p-high)" id="pc">—</div><div class="tc-sub">Work started</div><div class="tc-bar"><div class="tc-fill" style="background:var(--p-high)" id="pb"></div></div></div>
+    <div class="triage-card"><div class="tc-label">Closed</div><div class="tc-val" style="color:var(--p-low)" id="cc">—</div><div class="tc-sub">Verified complete</div><div class="tc-bar"><div class="tc-fill" style="background:var(--p-low)" id="cb"></div></div></div>
+    <div class="triage-card"><div class="tc-label">Completion</div><div class="tc-val" style="color:var(--gold)" id="pct">—</div><div class="tc-sub">Target 2026-06-15</div><div class="tc-bar"><div class="tc-fill" id="pbar"></div></div></div>
+  </div>
+
+  <div class="matrix-inner" id="matrixBlock">
+    <div class="matrix-title">Triage Matrix — Prioritized by Impact · Urgency · Time to Execute</div>
+    <div class="matrix-grid" id="matrixGrid"></div>
+  </div>
+
+  <div class="prog-inner">
+    <div class="prog-hdr">
+      <div class="prog-lbl" id="progLabel">CAP Completion — Target Close: 2026-06-15</div>
+      <div class="prog-pct" id="pct2">—</div>
+    </div>
+    <div class="prog-bar-outer"><div class="prog-bar-inner" id="pbar2" style="width:0%"></div></div>
+  </div>
+</div>
+
+<div class="tbl-wrap">
+  <div class="tbl-box">
+    <div class="tbl-hd">
+      <div class="th">CAP ID</div>
+      <div class="th">Gap / Action Description</div>
+      <div class="th">Priority</div>
+      <div class="th">Owner</div>
+      <div class="th">Deadline</div>
+      <div class="th">Time Required</div>
+      <div class="th">Status</div>
+    </div>
+    <div id="capTbl"></div>
+    <div class="edit-hint">💡 Click any cell to edit · ✅ prefix on calendar = auto-archived at 11 PM · Changes save automatically</div>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-txt">RC2 Sales Consulting, LLC · CAP Tracker v3.0 · Calendar Auto-Sync Active</div>
+  <div class="ft-txt">Naming: RC2-CAP-## (internal) · [CLIENT]-CAP-## (client) · Add ✅ when done</div>
+</div>
+
+<!-- CLOSE MODAL -->
+<div class="modal-ov" id="mOv">
+  <div class="modal">
+    <div class="modal-hd"><h3>Mark Item Closed</h3><button onclick="closeM()">×</button></div>
+    <div class="modal-body">
+      <div class="modal-id" id="mId"></div>
+      <div class="modal-lbl">Verified By *</div>
+      <input class="modal-input" id="mVer" placeholder="Your full name"/>
+      <div class="modal-lbl">Date Verified</div>
+      <input class="modal-input" id="mDate" type="date"/>
+      <div class="modal-lbl">Verification Notes</div>
+      <textarea class="modal-input" id="mNotes" placeholder="What was done, where saved, key details..."></textarea>
+      <div style="margin-top:10px;padding:8px 10px;background:#f0fff4;border-radius:7px;border:1px solid #38a169;">
+        <div style="font-size:11px;color:#276749;font-weight:600;">📅 Calendar Action Required</div>
+        <div style="font-size:11px;color:#4a5568;margin-top:3px;">Add <strong>✅</strong> to the front of this item's title in Google Calendar. The 11 PM script will auto-archive it tonight.</div>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn-cancel" onclick="closeM()">Cancel</button>
+      <button class="btn-confirm" onclick="confirmM()">Mark Closed ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- NEW CLIENT MODAL -->
+<div class="modal-ov" id="clientMOv">
+  <div class="client-modal">
+    <div class="modal-hd"><h3>Add New Client CAP</h3><button onclick="closeClientM()">×</button></div>
+    <div class="modal-body">
+      <div class="modal-lbl">Client Name *</div>
+      <input class="modal-input" id="clientName" placeholder="e.g. Apex Apparel"/>
+      <div class="modal-lbl">Client Code (3 letters) *</div>
+      <input class="modal-input" id="clientCode" placeholder="e.g. APX" maxlength="5" style="font-family:'DM Mono',monospace;text-transform:uppercase;"/>
+      <div style="margin-top:10px;padding:8px 10px;background:#fffbeb;border-radius:7px;border:1px solid var(--gold);">
+        <div style="font-size:11px;color:#b7791f;font-weight:600;">📅 Calendar Naming Convention</div>
+        <div style="font-size:11px;color:#4a5568;margin-top:3px;" id="conventionPreview">Calendar format: <strong>[CODE]-CAP-## — Description</strong></div>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn-cancel" onclick="closeClientM()">Cancel</button>
+      <button class="btn-confirm" onclick="confirmClientM()">Create Client CAP ✓</button>
+    </div>
+  </div>
+
+<!-- ADD ITEM MODAL -->
+<div class="modal-ov" id="addMOv">
+  <div class="modal" style="width:540px;">
+    <div class="modal-hd"><h3>+ Add New CAP Item</h3><button onclick="closeAddM()">×</button></div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
         <div>
-          <div class="tc-title" style="font-size:1.05rem;">Employee Training Portal</div>
-          <div class="tc-cat" style="color:var(--green);">Training & SOPs</div>
+          <div class="modal-lbl">CAP ID (auto-generated)</div>
+          <input class="modal-input" id="addId" style="font-family:monospace;background:#f4f6f9;" readonly/>
+        </div>
+        <div>
+          <div class="modal-lbl">Priority *</div>
+          <select class="modal-input" id="addPriority">
+            <option value="CRITICAL">🔴 CRITICAL</option>
+            <option value="HIGH">🟠 HIGH</option>
+            <option value="MEDIUM" selected>🟡 MEDIUM</option>
+            <option value="LOW">🟢 LOW</option>
+          </select>
         </div>
       </div>
-      <div class="tc-body">
-        <div class="tc-desc">8 complete training modules covering every RC2 service. Key concepts, interactive SOP checklists, real client scenarios, video resources, and scored quizzes with progress tracking per employee.</div>
-        <div class="tc-footer">
-          <span class="tc-tag tag-green">8 Modules</span>
-          <span class="tc-arrow" style="font-size:1.3rem;">→</span>
+      <div class="modal-lbl">Description / Gap *</div>
+      <textarea class="modal-input" id="addDesc" placeholder="Describe the gap or action item clearly..." rows="3"></textarea>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <div class="modal-lbl">Owner</div>
+          <input class="modal-input" id="addOwner" value="Eddie" placeholder="Eddie"/>
+        </div>
+        <div>
+          <div class="modal-lbl">Deadline</div>
+          <input class="modal-input" id="addDeadline" type="date"/>
         </div>
       </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <div class="modal-lbl">Time Required</div>
+          <input class="modal-input" id="addTime" placeholder="e.g. 30 min, 2 hrs"/>
+        </div>
+        <div>
+          <div class="modal-lbl">Category</div>
+          <select class="modal-input" id="addTag">
+            <option value="ops">⚙️ Operations</option>
+            <option value="web">🌐 Web</option>
+            <option value="ai">📁 AI OS</option>
+            <option value="es">🇪🇸 Spanish</option>
+            <option value="client">🏢 Client</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-lbl">Phase</div>
+      <select class="modal-input" id="addPhase">
+        <option value="0">Phase 1 — Critical</option>
+        <option value="1">Phase 2 — High</option>
+        <option value="2">Phase 3 — Medium</option>
+        <option value="3" selected>Phase 4 — Low / Growth</option>
+      </select>
+      <div class="modal-lbl">Notes</div>
+      <textarea class="modal-input" id="addNotes" placeholder="Optional — add context, links, or next steps..." rows="2"></textarea>
     </div>
-
-    <!-- ROWS 2–3: Remaining 5 tools — 3 per row, uniform size -->
-    <div class="tools-grid">
-
-      <div class="tool-card" onclick="openTool('RC2%20Pricing%20Toolkit.html','💰 RC2 Pricing Toolkit')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#eff6ff;">💰</div>
-          <div>
-            <div class="tc-title">RC2 Pricing Toolkit</div>
-            <div class="tc-cat" style="color:var(--accent);">Operations & Finance</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">13-tab plug-and-play pricing engine. Hourly calculator, project builder, profit margin checker, retainer builder, and 8 service-specific pricing presets including WRAP, Gov/FAR, Fractional DOO, and more.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-blue">13 Calculators</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_Proposal_Builder.html','📄 Client Proposal Builder')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#fef9f0;">📄</div>
-          <div>
-            <div class="tc-title">Client Proposal Builder</div>
-            <div class="tc-cat" style="color:var(--gold);">Sales & Business Development</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Auto-generate professional client proposals for any RC2 service. Select the service, enter client details, and produce a branded PDF-ready proposal in minutes.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-blue">8 Services</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_WRAP_Audit_Checklist.html','📋 WRAP Audit Checklist')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#f5f3ff;">📋</div>
-          <div>
-            <div class="tc-title">WRAP Audit Checklist</div>
-            <div class="tc-cat" style="color:#7c3aed;">Compliance Tools</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Interactive WRAP 12-Principles audit checklist. Track compliance status by principle, document findings, auto-generate CAP items, and export a client-ready audit report.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-blue">12 Principles</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_Client_KPI_Dashboard.html','📊 Client KPI Dashboard')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#fff7ed;">📊</div>
-          <div>
-            <div class="tc-title">Client KPI Dashboard</div>
-            <div class="tc-cat" style="color:#ea580c;">Operations</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Build and manage KPI dashboards for RC2 clients. Track operational metrics, set targets, visualize trends, and generate monthly executive summary reports automatically.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-blue">6 Presets</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_SOP_Template_Library.html','📁 SOP Template Library')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#f0fdf4;">📁</div>
-          <div>
-            <div class="tc-title">SOP Template Library</div>
-            <div class="tc-cat" style="color:var(--green);">Documentation</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Ready-to-use SOP templates for the most common RC2 client needs. Browse by category, customize for the client, export as a formatted document, and track version history.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-green">10 Templates</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_Fractional_DOO.html','👔 Fractional Director of Operations')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#f5f3ff;">👔</div>
-          <div>
-            <div class="tc-title">Fractional DOO</div>
-            <div class="tc-cat" style="color:#7c3aed;">Leadership & Operations</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Full training and execution framework for delivering Fractional DOO services. 30/60/90-day plan, weekly rhythm, KPI builder, RACI matrix, operational playbook, and monthly report generator.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-blue">7 Modules</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_Operational_Gap_Analysis.html','⚙️ Operational Infrastructure Gap Analysis')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#fff7ed;">⚙️</div>
-          <div>
-            <div class="tc-title">Operational Gap Analysis</div>
-            <div class="tc-cat" style="color:#ea580c;">Assessment Tools</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Score your client's operational infrastructure across 8 critical areas. Interactive 0–4 rating system auto-generates findings, priority action plan, and a full executive gap analysis report.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-blue">8 Areas · 60+ Questions</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_SBA_Navigator.html','🏛️ SBA Navigator & NAICS Code Tool')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#f0fdf4;">🏛️</div>
-          <div>
-            <div class="tc-title">SBA Navigator & NAICS Tool</div>
-            <div class="tc-cat" style="color:var(--green);">Government Contracting</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Complete SBA reference tool. Search 90+ NAICS codes, calculate size standards, check certification eligibility (8a, WOSB, HUBZone, SDVOSB), explore loan programs, and understand set-aside opportunities.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-green">90+ NAICS Codes</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_Corporate_Kit_Builder.html','🗂️ Corporate Kit Builder')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#fefce8;">🗂️</div>
-          <div>
-            <div class="tc-title">Corporate Kit Builder</div>
-            <div class="tc-cat" style="color:#ca8a04;">Entity Formation & Compliance</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Build a complete corporate kit for any client entity — LLC, Corp, S-Corp, or Nonprofit. Document checklist, 7 live document generators, officer registry, RACI signatories, annual compliance calendar, and document vault tracker.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-blue">7 Document Types</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card" onclick="openTool('RC2_CAP_Tracker.html','📋 RC2 CAP Tracker')">
-        <div class="tc-header">
-          <div class="tc-icon" style="background:#fffbeb;">📋</div>
-          <div>
-            <div class="tc-title">RC2 CAP Tracker</div>
-            <div class="tc-cat" style="color:#ca8a04;">Operations &amp; Compliance</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Live corrective action plan dashboard. Track all RC2 internal CAP items, client CAPs, Drive audit gaps, open items, and closures in real time. Built from 2026-03-18 Drive audit.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-gold" style="background:#fef9c3;color:#854d0e;border:1px solid #fde047;">25 Items · 7 Closed</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="tc-icon" style="background:#f0fdf4;">📁</div>
-          <div>
-            <div class="tc-title">SOP Template Library</div>
-            <div class="tc-cat" style="color:var(--green);">Documentation</div>
-          </div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-desc">Ready-to-use SOP templates for the most common RC2 client needs. Browse by category, customize for the client, export as a formatted document, and track version history.</div>
-          <div class="tc-footer">
-            <span class="tc-tag tag-green">10 Templates</span>
-            <span class="tc-arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="background:white;border-radius:12px;padding:20px 22px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.06);">
-      <div style="font-size:.88rem;font-weight:800;color:var(--navy);margin-bottom:8px;">➕ How to Add a New Tool to This Hub</div>
-      <div style="font-size:.8rem;color:#475569;line-height:2;">
-        1. Upload the new HTML tool file to your GitHub repository at rc2consulting.github.io<br>
-        2. Open <strong>RC2 Training Hub.html</strong> in Text Editor<br>
-        3. Copy any existing tool card and paste it into the Live Tools section<br>
-        4. Update the icon, title, description, and filename in the onclick function<br>
-        5. Save and re-upload to GitHub — the new tool is instantly available to all users
-      </div>
+    <div class="modal-ft">
+      <button class="btn-cancel" onclick="closeAddM()">Cancel</button>
+      <button class="btn-confirm" onclick="confirmAddM()">Add CAP Item ✓</button>
     </div>
   </div>
 </div>
 
-<div id="tool-overlay">
-  <div class="tool-topbar">
-    <div class="tname" id="tool-title">Tool</div>
-    <button class="tback" onclick="closeTool()">← Back to RC2 Hub</button>
-  </div>
-  <div style="position:relative;flex:1;">
-    <div class="frame-loading" id="frame-loader">
-      <div class="spinner"></div>
-      <div style="font-size:.85rem;color:var(--gray);">Loading tool...</div>
-    </div>
-    <iframe id="tool-frame" onload="hideLoader()"></iframe>
-  </div>
 </div>
 
 <script>
-var EMPLOYEES = {
-  "Edward Castleton":"#1Panama#1",
-  "Jill Coleman":"Hailmary#2025",
-  "Employee Three":"RC2Staff2025",
-  "Employee Four":"RC2Staff2025",
-  "Employee Five":"RC2Staff2025"
+// ── CLIENTS DATA STRUCTURE ───────────────────────────────────────────────────
+// Each client has: id (code), name, phases, status, checklist keys
+const DEFAULT_CLIENTS = {
+  "RC2": {
+    name: "RC2 Internal",
+    color: "#0d2340",
+    target: "2026-06-15",
+    phases: [
+      {phase:"PHASE 1 — CRITICAL | Do Today — High Impact, Fast to Execute", items:[
+        {id:"RC2-CAP-01",desc:"No automated satisfaction survey trigger at project close",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01",time:"N/A",tag:"ops"},
+        {id:"RC2-CAP-02",desc:"No Client Offboarding SOP",p:"CRITICAL",own:"Eddie / Jill",dl:"2026-04-01",time:"N/A",tag:"ops"},
+        {id:"RC2-CAP-13",desc:"Contact form broken — Formspree Form ID placeholder not replaced in contact.html and contact-es.html. Visitors cannot send messages.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",time:"5 min",tag:"web",isNew:true},
+        {id:"RC2-CAP-14",desc:"Intake form CTA missing from home page hero — index.html and index-es.html. Highest-traffic pages get no intake button.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",time:"15 min",tag:"web",isNew:true},
+        {id:"RC2-CAP-15",desc:"All documents built 2026-03-16 not yet filed in Google Drive.",p:"CRITICAL",own:"Eddie",dl:"2026-03-17",time:"30 min",tag:"ai",isNew:true,hasChecklist:true},
+      ]},
+      {phase:"PHASE 2 — HIGH | This Week — Before First Client Signs or Delivers", items:[
+        {id:"RC2-CAP-03",desc:"No Discovery Call Script SOP — script built, role-play with Jill scheduled March 25, 2026",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"1.5 hrs",tag:"ops"},
+        {id:"RC2-CAP-04",desc:"No internal Service Delivery SOPs — 3 needed: WRAP, Gov Contracting, Operations",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"3 hrs",tag:"ops"},
+        {id:"RC2-CAP-05",desc:"Capability Statement template missing — needed for government contracting clients",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"2 hrs",tag:"ops"},
+        {id:"RC2-CAP-16",desc:"AI prompt library empty — all 5 subfolders in 08_AI_Automations have zero prompt docs.",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"2–3 hrs",tag:"ai",isNew:true},
+        {id:"RC2-CAP-17",desc:"5 Drive folders empty — 01_Strategy, 05_Knowledge_Base, 06_Templates, 10_Legal_Contracts, 11_Finance_Billing",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"1–2 hrs",tag:"ai",isNew:true},
+      ]},
+      {phase:"PHASE 3 — MEDIUM | This Month — Within 30–60 Days", items:[
+        {id:"RC2-CAP-06",desc:"No post-discovery call email template — 3 needed: WRAP, Gov Contracting, Multi-service",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"1 hr",tag:"ops"},
+        {id:"RC2-CAP-07",desc:"No QC checklist for deliverables",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"1 hr",tag:"ops"},
+        {id:"RC2-CAP-08",desc:"No time tracking system — RC2_Time_Tracking Google Sheet in 11_Finance_Billing",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"30 min",tag:"ai"},
+        {id:"RC2-CAP-09",desc:"No 30-day post-engagement check-in — formula built in tracker, email template still needed",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",time:"30 min",tag:"ops"},
+        {id:"RC2-CAP-10",desc:"No case study template — template + Apex Apparel sample exist, need formal CAP closure",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",time:"30 min",tag:"ops"},
+        {id:"RC2-CAP-12",desc:"CAP Tracker uses localStorage — doesn't sync across devices. Upgrade to Google Sheets.",p:"MEDIUM",own:"Eddie",dl:"2026-05-18",time:"2 hrs",tag:"ai"},
+        {id:"RC2-CAP-18",desc:"Spanish intake form missing — English form live but Spanish-speaking clients need dedicated ES form",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"30 min",tag:"es",isNew:true},
+        {id:"RC2-CAP-19",desc:"Spanish satisfaction survey missing — current survey English only.",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"20 min",tag:"es",isNew:true},
+        {id:"RC2-CAP-20",desc:"ES translations missing — SBA Certification, SAM Registration, SPESA articles + WRAP Checklist + tools",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",time:"4 hrs",tag:"es",isNew:true},
+        {id:"RC2-CAP-21",desc:"Custom domain rc2salesconsulting.com not live + info@rc2salesconsulting.com email not created",p:"MEDIUM",own:"Eddie",dl:"2026-05-15",time:"1 hr",tag:"web",isNew:true},
+      ]},
+      {phase:"PHASE 4 — LOW | 60–90 Days — Growth and Scale", items:[
+        {id:"RC2-CAP-11",desc:"No Google Analytics on RC2 website — CLOSED: GA4 deployed to all 85 pages",p:"LOW",own:"Eddie",dl:"2026-06-15",time:"N/A",tag:"web"},
+        {id:"RC2-CAP-22",desc:"Blog / Insights section not built — needed for SEO and thought leadership.",p:"LOW",own:"Eddie",dl:"2026-06-15",time:"Ongoing",tag:"web",isNew:true},
+        {id:"RC2-CAP-23",desc:"Drive folder cleanup — Drive audit (2026-03-18) identified 3 orphan/duplicate items: AUDIT_RC2_AI_Operating_System folder, duplicate 00_Guide_RC2_AI_Operating_System doc, and old 'AI Operations' folder (Feb 2026). Delete or archive these to keep Drive clean.",p:"LOW",own:"Eddie",dl:"2026-04-15",time:"15 min",tag:"ai",isNew:true},
+        {id:"RC2-CAP-24",desc:"08_AI_Automations prompt library empty — Drive audit confirmed all 5 subfolders (01_Sales_AI, 02_Client_Onboarding_AI, 03_Audit_Preparation_AI, 04_CAP_Remediation_AI, 05_Knowledge_AI) have zero prompt documents. Write 3–5 prompt docs per subfolder.",p:"HIGH",own:"Eddie",dl:"2026-04-15",time:"2–3 hrs",tag:"ai",isNew:true},
+        {id:"RC2-CAP-25",desc:"11_Finance_Billing empty — Drive audit confirmed no time tracking sheet exists. Create RC2_Time_Tracking Google Sheet with columns: Date | Client | Service | Task | Hours | Billable Y/N | Notes. One tab per active client.",p:"MEDIUM",own:"Eddie",dl:"2026-05-01",time:"30 min",tag:"ai",isNew:true},
+      ]},
+    ],
+    status: {
+      "RC2-CAP-01":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"Apps Script installed. Survey fires on Project_Status = Project Closed."},
+      "RC2-CAP-02":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"SOP-OB-001 built — 6 steps, master checklist, digital sign-off boxes."},
+      "RC2-CAP-03":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-18",notes:"Discovery Call Script built. Role-play completed with Jill F. Coleman 2026-03-18. Ongoing practice agreed as needed."},
+      "RC2-CAP-04":{status:"open",verifier:"",date:"",notes:"3 SOPs: WRAP, GovCon, Operations. Due week of March 30, 2026."},
+      "RC2-CAP-05":{status:"open",verifier:"",date:"",notes:"Capability Statement template — due April 15, 2026."},
+      "RC2-CAP-06":{status:"open",verifier:"",date:"",notes:"3 email templates: WRAP, GovCon, Multi-service."},
+      "RC2-CAP-07":{status:"open",verifier:"",date:"",notes:"QC Checklist with Universal + service addenda."},
+      "RC2-CAP-08":{status:"open",verifier:"",date:"",notes:"RC2_Time_Tracking Google Sheet. File to 11_Finance_Billing."},
+      "RC2-CAP-09":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"Next_Contact_Date formula built in Master Client Tracker. 30-day check-in email templates created and saved to 03_Sales/04_Client_Scripts."},
+      "RC2-CAP-10":{status:"open",verifier:"",date:"",notes:"Case study template and Apex Apparel sample exist."},
+      "RC2-CAP-11":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-16",notes:"GA4 deployed to all 85 HTML pages. Measurement ID: G-PC5L4ZH7KY."},
+      "RC2-CAP-12":{status:"open",verifier:"",date:"",notes:"Upgrade to Google Sheets sync. Calendar reminder: May 18, 2026."},
+      "RC2-CAP-13":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-18",notes:"Formspree ID mnjgodaj connected to contact.html and contact-es.html. EN pages now link to correct English intake form. Verified working in incognito browser."},
+      "RC2-CAP-14":{status:"closed",verifier:"Eddie Castleton",date:"2026-03-18",notes:"Homepage already has 3 active CTAs — Get Started, Hablamos Español, and Complete the Intake Form. Additional banner deemed unnecessary. Gap closed by existing design."},
+      "RC2-CAP-15":{status:"open",verifier:"",date:"",notes:"Use filing checklist in this row. Drive audit 2026-03-18 confirmed 07_Admin/02_Internal_SOP_Templates is empty."},
+      "RC2-CAP-16":{status:"open",verifier:"",date:"",notes:"Drive audit 2026-03-18 confirmed all 5 AI prompt subfolders are empty. Write 3–5 prompt docs per subfolder in 08_AI_Automations."},
+      "RC2-CAP-17":{status:"open",verifier:"",date:"",notes:"File SOW templates in 10_Legal_Contracts. Seed Knowledge_Base and Templates. Drive audit 2026-03-18 confirmed these folders are empty."},
+      "RC2-CAP-18":{status:"open",verifier:"",date:"",notes:"Create Google Form in Spanish. Link to contact-es.html."},
+      "RC2-CAP-19":{status:"open",verifier:"",date:"",notes:"Create Spanish satisfaction survey. Update Apps Script CONFIG."},
+      "RC2-CAP-20":{status:"open",verifier:"",date:"",notes:"Priority: 1) SBA Certification, 2) SAM Registration, 3) SPESA, 4) WRAP Checklist."},
+      "RC2-CAP-21":{status:"open",verifier:"",date:"",notes:"1) Buy domain. 2) Configure DNS. 3) Create info@ email. 4) Update HTML files."},
+      "RC2-CAP-22":{status:"open",verifier:"",date:"",notes:"Build after LinkedIn is live. EN first then ES."},
+      "RC2-CAP-23":{status:"open",verifier:"",date:"",notes:"Drive audit 2026-03-18 identified: AUDIT_RC2_AI_Operating_System folder, duplicate 00_Guide doc, old AI Operations folder (Feb 2026). Delete or archive all three."},
+      "RC2-CAP-24":{status:"open",verifier:"",date:"",notes:"Drive audit 2026-03-18 confirmed all 5 subfolders empty. Priority order: 01_Sales_AI → 02_Client_Onboarding_AI → 03_Audit_Preparation_AI → 04_CAP_Remediation_AI → 05_Knowledge_AI."},
+      "RC2-CAP-25":{status:"open",verifier:"",date:"",notes:"Drive audit 2026-03-18 confirmed 11_Finance_Billing has no time tracking sheet. Create RC2_Time_Tracking Google Sheet. One tab per active client."},
+    }
+  }
 };
 
-function doLogin(){
-  var name = document.getElementById('g-name').value.trim();
-  var pwd = document.getElementById('g-pwd').value.trim();
-  if(!name || !EMPLOYEES[name] || pwd !== EMPLOYEES[name]){
-    document.getElementById('gate-err').style.display='block';
-    return;
-  }
-  try{localStorage.setItem('rc2hub_user',name);}catch(e){}
-  document.getElementById('gate').style.display='none';
-  document.getElementById('app').style.display='block';
-  document.getElementById('uname').textContent=name;
-  document.getElementById('uname2').textContent=name;
-}
+const FILING = [
+  {sec:"07_Admin / 02_Internal_SOP_Templates",items:["RC2_SOP_OB001_Client_Offboarding.docx","RC2_Discovery_Call_Script.docx","RC2_SOP_WRAP_Service_Delivery.docx","RC2_SOP_GovContracting_Service_Delivery.docx","RC2_SOP_Operations_Service_Delivery.docx"]},
+  {sec:"07_Admin (root)",items:["RC2_Master_Client_Tracker.xlsx — upload and open in Google Sheets"]},
+  {sec:"02_Marketing / 01_Brand_Assets",items:["RC2_SB7_StoryBrand_Framework.docx","RC2_Capability_Statement.docx"]},
+  {sec:"03_Sales / 04_Client_Scripts",items:["RC2_Post_Discovery_Email_WRAP.docx","RC2_Post_Discovery_Email_GovCon.docx","RC2_Post_Discovery_Email_MultiService.docx"]},
+  {sec:"03_Sales / 05_Proposals",items:["RC2_Master_Proposal_Template.docx","RC2_Client_Proposal_Template.docx"]},
+  {sec:"04_Service_Delivery / 01_WRAP_Compliance",items:["All WRAP CAP templates","PASA Assessment Report templates","CAP Implementation templates"]},
+  {sec:"06_Templates",items:["RC2 branded templates — all 4 designs","Worker/Management/Site interview templates"]},
+  {sec:"10_Legal_Contracts",items:["RC2_MASTER_SOW_TEMPLATE.docx","PASA_ONLY_SOW_TEMPLATE.docx","WRAP_SOW_TEMPLATE.docx","FRACTIONAL_COMPLIANCE_SOW_TEMPLATE.docx"]},
+];
 
-function doLogout(){
-  try{localStorage.removeItem('rc2hub_user');}catch(e){}
-  window.location.href='https://rc2consulting.github.io';
-}
+// ── STATE ────────────────────────────────────────────────────────────────────
+let CLIENTS, CK, activeClient, pend;
 
-function openTool(file,title){
-  var base='https://rc2consulting.github.io/';
-  document.getElementById('tool-title').textContent=title;
-  document.getElementById('tool-frame').src=base+file+'?auth=rc2hub';
-  document.getElementById('frame-loader').style.display='flex';
-  document.getElementById('tool-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-
-function closeTool(){
-  document.getElementById('tool-overlay').classList.remove('open');
-  document.getElementById('tool-frame').src='';
-  document.body.style.overflow='';
-}
-
-function hideLoader(){
-  document.getElementById('frame-loader').style.display='none';
-}
-
-window.onload=function(){
+function load(){
   try{
-    var u=localStorage.getItem('rc2hub_user');
-    if(u && EMPLOYEES[u]){
-      document.getElementById('gate').style.display='none';
-      document.getElementById('app').style.display='block';
-      document.getElementById('uname').textContent=u;
-      document.getElementById('uname2').textContent=u;
+    const raw = localStorage.getItem("rc2_cap_v7");
+    if(raw){
+      const d = JSON.parse(raw);
+      CLIENTS = d.CLIENTS;
+      CK = d.CK || {};
+      activeClient = d.activeClient || "RC2";
+      return;
     }
   }catch(e){}
-};
+  CLIENTS = JSON.parse(JSON.stringify(DEFAULT_CLIENTS));
+  CK = {};
+  activeClient = "RC2";
+}
+
+function save(){
+  localStorage.setItem("rc2_cap_v7", JSON.stringify({CLIENTS, CK, activeClient}));
+  const el = document.getElementById("saveInd");
+  el.classList.add("on"); setTimeout(()=>el.classList.remove("on"),1800);
+}
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+const OPTS = [{v:"open",l:"🔴 Open"},{v:"progress",l:"🟡 In Progress"},{v:"closed",l:"✅ Closed"},{v:"hold",l:"⏸️ On Hold"}];
+const PRIORS = ["CRITICAL","HIGH","MEDIUM","LOW"];
+const PC_MAP = {CRITICAL:"pc",HIGH:"ph",MEDIUM:"pm",LOW:"pl"};
+const RC_MAP = {open:"r-open",progress:"r-prog",closed:"r-clos",hold:"r-hold"};
+const SC_MAP = {open:"so",progress:"sp",closed:"sc",hold:"sh"};
+
+function tagBadge(tag){
+  if(tag==="web") return `<span class="wbbadge">🌐 Web</span>`;
+  if(tag==="ai")  return `<span class="aibadge">📁 AI OS</span>`;
+  if(tag==="es")  return `<span class="esbadge">🇪🇸 ES</span>`;
+  if(tag==="client") return `<span class="clientbadge">🏢 Client</span>`;
+  return "";
+}
+
+function getClient(){ return CLIENTS[activeClient]; }
+
+function ensureStatus(id){
+  const c = getClient();
+  if(!c.status[id]) c.status[id]={status:"open",verifier:"",date:"",notes:""};
+}
+
+function getItem(id){
+  const c = getClient();
+  for(const ph of c.phases){
+    const it = ph.items.find(i=>i.id===id);
+    if(it) return it;
+  }
+  return null;
+}
+
+// ── TABS ─────────────────────────────────────────────────────────────────────
+function renderTabs(){
+  const bar = document.getElementById("tabBar");
+  let h = "";
+  Object.keys(CLIENTS).forEach(code=>{
+    const cl = CLIENTS[code];
+    h += `<div class="tab${activeClient===code?' active':''}" onclick="switchClient('${code}')">${code==='RC2'?'🏠':''} ${cl.name}</div>`;
+  });
+  h += `<button class="tab-add" onclick="openClientM()">+ New Client CAP</button>`;
+  bar.innerHTML = h;
+}
+
+function switchClient(code){
+  activeClient = code;
+  save();
+  renderTabs();
+  render();
+}
+
+// ── ADD ROW ───────────────────────────────────────────────────────────────────
+
+// ── ADD ITEM MODAL ────────────────────────────────────────────────────────────
+function openAddModal(){
+  const c = getClient();
+  const prefix = activeClient === "RC2" ? "RC2" : activeClient;
+  let maxNum = 0;
+  c.phases.forEach(ph=>ph.items.forEach(it=>{
+    const m = it.id.match(/CAP-(\d+)$/);
+    if(m) maxNum = Math.max(maxNum, parseInt(m[1]));
+  }));
+  const newId = `${prefix}-CAP-${String(maxNum+1).padStart(2,'0')}`;
+  document.getElementById('addId').value = newId;
+  // Default deadline to 60 days from now
+  const dl = new Date(); dl.setDate(dl.getDate()+60);
+  document.getElementById('addDeadline').value = dl.toISOString().split('T')[0];
+  document.getElementById('addDesc').value = '';
+  document.getElementById('addNotes').value = '';
+  document.getElementById('addOwner').value = 'Eddie';
+  document.getElementById('addTime').value = '';
+  document.getElementById('addPriority').value = 'MEDIUM';
+  document.getElementById('addTag').value = 'ops';
+  document.getElementById('addPhase').value = '3';
+  document.getElementById('addMOv').classList.add('open');
+  setTimeout(()=>document.getElementById('addDesc').focus(), 100);
+}
+
+function closeAddM(){
+  document.getElementById('addMOv').classList.remove('open');
+}
+
+function confirmAddM(){
+  const desc = document.getElementById('addDesc').value.trim();
+  if(!desc){ document.getElementById('addDesc').focus(); return; }
+  const c = getClient();
+  const id = document.getElementById('addId').value;
+  const phaseIdx = parseInt(document.getElementById('addPhase').value);
+  const newItem = {
+    id,
+    desc,
+    p: document.getElementById('addPriority').value,
+    own: document.getElementById('addOwner').value || 'Eddie',
+    dl: document.getElementById('addDeadline').value || '2026-06-15',
+    time: document.getElementById('addTime').value || 'TBD',
+    tag: document.getElementById('addTag').value,
+    isNew: true
+  };
+  c.phases[phaseIdx].items.push(newItem);
+  c.status[id] = {
+    status: 'open',
+    verifier: '',
+    date: '',
+    notes: document.getElementById('addNotes').value.trim()
+  };
+  closeAddM();
+  save();
+  render();
+}
+
+function addRow(){
+  const c = getClient();
+  const prefix = activeClient === "RC2" ? "RC2" : activeClient;
+  // Find next CAP number
+  let maxNum = 0;
+  c.phases.forEach(ph=>ph.items.forEach(it=>{
+    const m = it.id.match(/CAP-(\d+)$/);
+    if(m) maxNum = Math.max(maxNum, parseInt(m[1]));
+  }));
+  const id = `${prefix}-CAP-${String(maxNum+1).padStart(2,'0')}`;
+  const newItem = {id,desc:"New action item — click to edit",p:"MEDIUM",own:"Eddie",dl:"2026-06-15",time:"TBD",tag:"ops",isNew:true};
+  c.phases[c.phases.length-1].items.push(newItem);
+  c.status[id] = {status:"open",verifier:"",date:"",notes:""};
+  save(); render();
+}
+
+// ── DELETE ROW ────────────────────────────────────────────────────────────────
+function deleteRow(id){
+  if(!confirm("Delete "+id+"? This cannot be undone.")) return;
+  const c = getClient();
+  for(const ph of c.phases){
+    const idx = ph.items.findIndex(i=>i.id===id);
+    if(idx>-1){ ph.items.splice(idx,1); break; }
+  }
+  delete c.status[id];
+  save(); render();
+}
+
+// ── INLINE EDITING ────────────────────────────────────────────────────────────
+function editField(el, id, field){
+  if(el.querySelector('input,textarea,select')) return;
+  const it = getItem(id);
+  const c = getClient();
+  if(!it && field!=="notes") return;
+  const currentVal = field==="notes" ? (c.status[id]||{}).notes||"" : it[field]||"";
+
+  if(field==="p"){
+    const sel = document.createElement("select");
+    sel.className="edit-select";
+    PRIORS.forEach(p=>{
+      const o=document.createElement("option");
+      o.value=p; o.textContent=p;
+      if(p===currentVal) o.selected=true;
+      sel.appendChild(o);
+    });
+    sel.onchange=()=>{ it.p=sel.value; save(); render(); };
+    sel.onblur=()=>render();
+    el.innerHTML=""; el.appendChild(sel); sel.focus();
+    return;
+  }
+
+  const isMultiline = field==="desc"||field==="notes";
+  const input = document.createElement(isMultiline?"textarea":"input");
+  input.className = "editing " + (field==="id"?"r-id-input":"");
+  input.value = currentVal;
+  if(isMultiline){ input.rows=3; input.style.minHeight="60px"; }
+  input.type = (field==="dl")?"date":"text";
+
+  input.onblur = ()=>{
+    const v = input.value.trim();
+    if(field==="notes"){ ensureStatus(id); c.status[id].notes=v; }
+    else if(it){ it[field]=v; }
+    save(); render();
+  };
+  input.onkeydown=(e)=>{
+    if(e.key==="Enter"&&!isMultiline){ input.blur(); }
+    if(e.key==="Escape"){ render(); }
+    e.stopPropagation();
+  };
+
+  el.innerHTML=""; el.appendChild(input);
+  input.focus();
+  if(input.select) input.select();
+}
+
+// ── FILING CHECKLIST ──────────────────────────────────────────────────────────
+function renderChecklist(){
+  let h=`<button class="file-toggle" onclick="toggleCL(event)" id="clBtn">📋 Expand Filing Checklist ▼</button>`;
+  h+=`<div class="file-checklist" id="fileCL">`;
+  FILING.forEach((sec,si)=>{
+    h+=`<div class="fc-section">${sec.sec}</div>`;
+    sec.items.forEach((item,ii)=>{
+      const key=`${si}-${ii}`, done=CK[key]||false;
+      h+=`<label class="fc-item${done?" done":""}" id="fci-${key}"><input type="checkbox"${done?" checked":""} onchange="toggleCK('${key}',this)" onclick="event.stopPropagation()"/>${item}</label>`;
+    });
+  });
+  h+=`</div>`;
+  return h;
+}
+function toggleCL(e){ e.stopPropagation(); const el=document.getElementById("fileCL"); const b=document.getElementById("clBtn"); const o=el.classList.toggle("open"); b.textContent=o?"📋 Collapse Checklist ▲":"📋 Expand Filing Checklist ▼"; }
+function toggleCK(key,cb){ CK[key]=cb.checked; const l=document.getElementById("fci-"+key); if(l)l.classList.toggle("done",cb.checked); save(); }
+
+// ── STATUS CHANGE ─────────────────────────────────────────────────────────────
+function onChange(id,val){
+  const c = getClient();
+  ensureStatus(id);
+  if(val==="closed"){
+    pend=id;
+    const it=getItem(id);
+    document.getElementById("mId").textContent=id+(it?" — "+it.desc.substring(0,60)+"...":"");
+    document.getElementById("mVer").value=c.status[id].verifier||"";
+    document.getElementById("mDate").value=new Date().toISOString().split("T")[0];
+    document.getElementById("mNotes").value=c.status[id].notes||"";
+    document.getElementById("mOv").classList.add("open");
+  }else{
+    c.status[id].status=val; save(); render();
+  }
+}
+function closeM(){
+  document.getElementById("mOv").classList.remove("open");
+  if(pend){ const el=document.querySelector(`[data-id="${pend}"]`); if(el)el.value=getClient().status[pend]?getClient().status[pend].status:"open"; pend=null; }
+}
+function confirmM(){
+  if(!pend)return;
+  const v=document.getElementById("mVer").value.trim();
+  if(!v){ document.getElementById("mVer").focus(); return; }
+  const c=getClient();
+  c.status[pend]={status:"closed",verifier:v,date:document.getElementById("mDate").value,notes:document.getElementById("mNotes").value.trim()};
+  document.getElementById("mOv").classList.remove("open");
+  pend=null; save(); render();
+}
+
+// ── NEW CLIENT MODAL ──────────────────────────────────────────────────────────
+function openClientM(){
+  document.getElementById("clientMOv").classList.add("open");
+  document.getElementById("clientName").value="";
+  document.getElementById("clientCode").value="";
+}
+function closeClientM(){ document.getElementById("clientMOv").classList.remove("open"); }
+function confirmClientM(){
+  const name = document.getElementById("clientName").value.trim();
+  const code = document.getElementById("clientCode").value.trim().toUpperCase();
+  if(!name||!code){ alert("Please fill in both fields."); return; }
+  if(CLIENTS[code]){ alert("Client code "+code+" already exists."); return; }
+  CLIENTS[code] = {
+    name: name,
+    color: "#744210",
+    target: "2026-12-31",
+    phases: [
+      {phase:"PHASE 1 — CRITICAL | Immediate Actions", items:[
+        {id:`${code}-CAP-01`,desc:"Initial CAP item — click to edit",p:"CRITICAL",own:"Eddie",dl:"2026-06-15",time:"TBD",tag:"client",isNew:true}
+      ]},
+      {phase:"PHASE 2 — HIGH | Short-Term Actions", items:[]},
+      {phase:"PHASE 3 — MEDIUM | Medium-Term Actions", items:[]},
+    ],
+    status: {
+      [`${code}-CAP-01`]:{status:"open",verifier:"",date:"",notes:""}
+    }
+  };
+  closeClientM();
+  switchClient(code);
+}
+
+// ── LIVE PREVIEW IN CLIENT MODAL ──────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded",()=>{
+  const codeInput = document.getElementById("clientCode");
+  if(codeInput){
+    codeInput.addEventListener("input",()=>{
+      const v = codeInput.value.toUpperCase();
+      document.getElementById("conventionPreview").innerHTML = `Calendar format: <strong>${v||'[CODE]'}-CAP-## — Description</strong>`;
+    });
+  }
+});
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render(){
+  const c = getClient();
+  let h="";
+  c.phases.forEach((ph,pi)=>{
+    // Skip empty phases (except RC2)
+    if(ph.items.length===0 && activeClient!=="RC2") return;
+    h+=`<div class="ph-hdr"><div class="ph-lbl">${ph.phase} <button style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.4);font-size:11px;padding:0 4px;" onclick="editPhase(${pi})" title="Edit phase name">✏️</button></div></div>`;
+    ph.items.forEach(it=>{
+      ensureStatus(it.id);
+      const s=c.status[it.id];
+      const vb=s.status==="closed"&&s.verifier?`<span class="vbadge">✓ ${s.verifier} · ${s.date}</span>`:"";
+      const nb=it.isNew?`<span class="nbadge">NEW</span>`:"";
+      const tb=tagBadge(it.tag||"ops");
+      const opts=OPTS.map(o=>`<option value="${o.v}"${s.status===o.v?" selected":""}>${o.l}</option>`).join("");
+      const cl=it.hasChecklist?`<div>${renderChecklist()}</div>`:"";
+      // Calendar sync hint
+      const calHint = s.status!=="closed" ? `<div class="cal-hint"><span class="cal-hint-icon">📅</span>Add ✅ to calendar title when done</div>` : `<div class="cal-hint"><span class="cal-hint-icon">✅</span>Auto-archived tonight at 11 PM</div>`;
+      const notesHtml = s.notes ? `<div style="font-size:11px;color:var(--gray-400);margin-top:4px;line-height:1.4;cursor:pointer;border-top:1px dashed var(--gray-200);padding-top:4px;" onclick="editField(this,'${it.id}','notes')" title="Click to edit notes">${s.notes}</div>` : `<div style="font-size:10px;color:var(--gray-400);margin-top:4px;cursor:pointer;font-style:italic;" onclick="editField(this,'${it.id}','notes')" title="Click to add notes">+ Add notes</div>`;
+
+      h+=`<div class="cap-row ${RC_MAP[s.status]}">
+        <div>
+          <div class="r-id-cell editable" onclick="editField(this,'${it.id}','id')" title="Click to edit ID">${it.id}</div>
+          ${calHint}
+        </div>
+        <div>
+          <div class="editable" onclick="editField(this,'${it.id}','desc')" title="Click to edit description" style="font-size:12px;color:var(--gray-600);line-height:1.5;">${it.desc}${nb}${tb}${vb}</div>
+          ${notesHtml}
+          ${cl}
+        </div>
+        <div class="editable" onclick="editField(this,'${it.id}','p')" title="Click to change priority"><span class="pbadge ${PC_MAP[it.p]}"><span class="pdot"></span>${it.p}</span></div>
+        <div class="editable" onclick="editField(this,'${it.id}','own')" title="Click to edit owner" style="font-size:12px;color:var(--gray-600);">${it.own}</div>
+        <div class="editable" onclick="editField(this,'${it.id}','dl')" title="Click to edit deadline" style="font-size:12px;color:var(--gray-600);font-family:'DM Mono',monospace;">${it.dl}</div>
+        <div class="editable" onclick="editField(this,'${it.id}','time')" title="Click to edit time estimate" style="font-size:12px;color:var(--gold);font-weight:600;">⏱ ${it.time||'TBD'}</div>
+        <div>
+          <div class="${SC_MAP[s.status]}"><select class="ssel" onchange="onChange('${it.id}',this.value)" data-id="${it.id}">${opts}</select></div>
+          <div style="text-align:right;margin-top:5px;"><button class="del-btn" onclick="deleteRow('${it.id}')" title="Delete this item">🗑</button></div>
+        </div>
+      </div>`;
+    });
+  });
+  document.getElementById("capTbl").innerHTML=h;
+  updateSummary();
+  renderTabs();
+  updateMatrix();
+}
+
+function editPhase(pi){
+  const c = getClient();
+  const newName = prompt("Edit phase name:", c.phases[pi].phase);
+  if(newName && newName.trim()){ c.phases[pi].phase=newName.trim(); save(); render(); }
+}
+
+// ── TRIAGE MATRIX ─────────────────────────────────────────────────────────────
+function updateMatrix(){
+  const c = getClient();
+  const crit=[], high=[], med=[];
+  c.phases.forEach(ph=>ph.items.forEach(it=>{
+    const s = c.status[it.id];
+    if(s && s.status==="closed") return;
+    const short = it.desc.substring(0,45)+(it.desc.length>45?"...":"");
+    const entry = `<div class="mx-item">${it.id} — ${short} <span class="mx-time">${it.time||""}</span></div>`;
+    if(it.p==="CRITICAL") crit.push(entry);
+    else if(it.p==="HIGH") high.push(entry);
+    else if(it.p==="MEDIUM") med.push(entry);
+  }));
+
+  document.getElementById("matrixGrid").innerHTML = `
+    <div class="mx-card mx-crit">
+      <div class="mx-head">🔴 Critical — Do First</div>
+      ${crit.slice(0,4).join("")||'<div class="mx-item" style="color:var(--p-low)">✅ All critical items closed!</div>'}
+    </div>
+    <div class="mx-card mx-high">
+      <div class="mx-head">🟠 High — This Week</div>
+      ${high.slice(0,5).join("")||'<div class="mx-item" style="color:var(--p-low)">✅ All high items closed!</div>'}
+    </div>
+    <div class="mx-card mx-med">
+      <div class="mx-head">🟡 Medium — This Month</div>
+      ${med.slice(0,5).join("")||'<div class="mx-item" style="color:var(--p-low)">✅ All medium items closed!</div>'}
+    </div>`;
+}
+
+// ── SUMMARY ───────────────────────────────────────────────────────────────────
+function updateSummary(){
+  const c = getClient();
+  let o=0,p=0,cl=0,h=0,total=0;
+  let ids=[];
+  c.phases.forEach(ph=>ph.items.forEach(it=>{
+    total++;
+    ids.push(it.id);
+    ensureStatus(it.id);
+    const st=c.status[it.id].status;
+    if(st==="open")o++; else if(st==="progress")p++; else if(st==="closed")cl++; else if(st==="hold")h++;
+  }));
+  document.getElementById("oc").textContent=o;
+  document.getElementById("pc").textContent=p;
+  document.getElementById("cc").textContent=cl;
+  document.getElementById("tot").textContent=total;
+
+  // Update CAP range label
+  const prefix = activeClient==="RC2"?"RC2-CAP":"[CLIENT]-CAP";
+  document.getElementById("capRange").textContent = `${prefix}-01 to ${activeClient}-CAP-${String(total).padStart(2,'0')}`;
+
+  const pct=total?Math.round(cl/total*100):0;
+  ["pct","pct2"].forEach(id=>document.getElementById(id).textContent=pct+"%");
+  ["pbar","pbar2"].forEach(id=>document.getElementById(id).style.width=pct+"%");
+  document.getElementById("ob").style.width=total?Math.round(o/total*100)+"%":"0%";
+  document.getElementById("pb").style.width=total?Math.round(p/total*100)+"%":"0%";
+  document.getElementById("cb").style.width=total?Math.round(cl/total*100)+"%":"0%";
+
+  document.getElementById("progLabel").textContent = `${c.name} CAP Completion — Target: ${c.target}`;
+  document.getElementById("trackerSubtitle").textContent = `Live Tracker v3.0 · ${total} Items · ${activeClient} CAP · Calendar Auto-Sync`;
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.getElementById("mOv").addEventListener("click",e=>{if(e.target===document.getElementById("mOv"))closeM();});
+document.getElementById("clientMOv").addEventListener("click",e=>{if(e.target===document.getElementById("clientMOv"))closeClientM();});
+document.getElementById("currentDate").textContent=new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+load(); render();
 </script>
 </body>
 </html>
