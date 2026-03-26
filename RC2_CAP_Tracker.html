@@ -695,7 +695,7 @@ function confirmM(){
   const v=document.getElementById("mVer").value.trim();
   if(!v){ document.getElementById("mVer").focus(); return; }
   const c=getClient();
-  c.status[pend]={status:"closed",verifier:v,date:document.getElementById("mDate").value,notes:document.getElementById("mNotes").value.trim()};
+  const closedItem=getItem(pend);const closedDate=document.getElementById("mDate").value;const closedNotes=document.getElementById("mNotes").value.trim();c.status[pend]={status:"closed",verifier:v,date:closedDate,notes:closedNotes};fetch("https://script.google.com/macros/s/AKfycbzL5R2OvhZRbBcRbfW2tLqsoJ75qvegRKLJAUlXxPmRyTqLxAX9V4IQzTjMI5WzkfaTSw/exec",{method:"POST",mode:"no-cors",body:JSON.stringify({capId:pend,clientCode:activeClient,description:closedItem?closedItem.desc:"",deadline:closedItem?closedItem.dl:"",dateClosed:closedDate,verifier:v,notes:closedNotes})});
   document.getElementById("mOv").classList.remove("open");
   pend=null; save(); render();
 }
