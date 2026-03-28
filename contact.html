@@ -183,6 +183,11 @@
           <div class="tab-title">Send a Message</div>
           <div class="tab-sub">Describe your situation — we'll follow up within 24 hours</div>
         </div>
+        <div class="path-tab" onclick="switchPanel('inquiry')" id="tab-inquiry">
+          <span class="tab-icon">📋</span>
+          <div class="tab-title">Start Your Inquiry</div>
+          <div class="tab-sub">Complete our 3-minute intake — we'll review before connecting</div>
+        </div>
       </div>
     </div>
   </div>
@@ -191,22 +196,9 @@
 <div class="main">
 
   <!-- ══════════════════════════════════════════════════════════
-       RC2 CLIENT INTAKE FORM BANNER — Added 2026-03-16
+       RC2 CLIENT INTAKE FORM BANNER — REMOVED 2026-03-28
+       Replaced with third tab card "Start Your Inquiry"
   ══════════════════════════════════════════════════════════ -->
-  <div style="background:linear-gradient(135deg,#0B2545 0%,#1A4A8A 100%);border-radius:12px;padding:28px 32px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;box-shadow:0 4px 20px rgba(11,37,69,.18);">
-    <div style="flex:1;min-width:260px;">
-      <div style="font-size:.7rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#C8922A;margin-bottom:6px;">New Client Inquiry</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#ffffff;margin-bottom:8px;">Not Sure Where to Start?</div>
-      <div style="font-size:.84rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:500px;margin-bottom:12px;">Complete our 3-minute intake form and we will review your situation before your discovery call &#8212; so every minute counts.</div>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;">
-        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> Takes 3 minutes</span>
-        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> Response within 1 business day</span>
-        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> No obligation</span>
-      </div>
-    </div>
-    <a href="#message" onclick="switchPanel('message'); return false;" style="background:#C8922A;color:#0B2545;font-weight:700;font-size:.92rem;padding:15px 30px;border-radius:8px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;flex-shrink:0;font-family:'Source Sans 3',sans-serif;">Start Your Inquiry &#8594;</a>
-  </div>
-  <!-- END INTAKE BANNER -->
 
   <div class="panel-wrap">
 
@@ -290,6 +282,14 @@
       </div>
     </div>
 
+    <div class="panel form-panel" id="panel-inquiry">
+      <h2>RC2 Client Intake Form</h2>
+      <p class="form-sub">Complete our 3-minute intake and we'll review your situation before your discovery call — so every minute counts.</p>
+      <div style="margin-top:24px">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScn9PHl-bIjXb7bfVkI8CBSRWB_XJVvQNe7KahPUhtfxZ3CzQ/viewform?embedded=true" width="100%" height="1600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+    </div>
+
   </div>
 
   <div class="next-section">
@@ -303,7 +303,7 @@
 
   <div class="info-strip">
     <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Email</div><div class="info-chip-val"><a href="/cdn-cgi/l/email-protection#4124252528240133227332202d2432222e2f32342d35282f266f222e2c" style="color:var(--lb);text-decoration:none"><span class="__cf_email__" data-cfemail="91f4f5f5f8f4d1e3f2a3e2f0fdf4e2f2feffe2e4fde5f8fff6bff2fefc">[email&#160;protected]</span></a></div><div class="info-chip-sub">Monitored daily — response within 24 hours</div></div></div>
-    <div class="info-chip"><div class="info-chip-icon">📅</div><div><div class="info-chip-title">Discovery Calls</div><div class="info-chip-val">30 Minutes — Free</div><div class="info-chip-sub">Mon – Fri · Google Meet · Instant confirmation</div></div></div>
+    <div class="info-chip"><div class="info-chip-icon">📅</div><div><div class="info-chip-title">Discovery Calls</div><div class="info-chip-val"><a href="#book" onclick="switchPanel('book'); return false;" style="color:var(--lb);text-decoration:none;font-weight:600">Schedule Now →</a></div><div class="info-chip-sub">Mon – Fri · Google Meet · Instant confirmation</div></div></div>
     <div class="info-chip"><div class="info-chip-icon">🔧</div><div><div class="info-chip-title">Free Resources</div><div class="info-chip-val"><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" style="color:var(--lb);text-decoration:none">Browse Tools &amp; Articles →</a></div><div class="info-chip-sub">WRAP, SBA, Supply Chain, FAR/DCAA tools — all free</div></div></div>
   </div>
 
