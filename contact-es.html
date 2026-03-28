@@ -16,7 +16,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--gold:#C8922A;--gold-lt:#F0B429;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--dg:#9B1C1C;--dbg:#FEF2F2;}
+    :root{
+      --navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;
+      --gold:#C8922A;--gold-lt:#F0B429;
+      --bg:#F4F6FA;--w:#FFFFFF;
+      --txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;
+      --sg:#1A7A4E;--sbg:#EBF7F2;
+      --dg:#9B1C1C;--dbg:#FEF2F2;
+    }
     body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
     .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
     .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
@@ -62,6 +69,8 @@
     .cal-embed-area{padding:24px 32px 32px}
     .cal-embed-container{border-radius:12px;overflow:hidden;border:1px solid var(--bdr);background:var(--bg);min-height:600px;position:relative;}
     .cal-embed-container iframe{width:100%;min-height:600px;border:none;display:block;}
+    .book-direct-btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-weight:700;font-size:.92rem;padding:14px 28px;border-radius:8px;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+    .book-direct-btn:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 6px 20px rgba(11,37,69,.25)}
     .form-panel{padding:28px 32px 36px}
     .form-panel h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy);margin-bottom:6px}
     .form-panel .form-sub{font-size:.86rem;color:var(--mu);margin-bottom:24px;line-height:1.65}
@@ -113,33 +122,35 @@
     .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
     .lang-btn.active{background:#C8922A;color:#0B2545}
     html, body { overflow-x: hidden; max-width: 100%; }
+    *, *::before, *::after { box-sizing: border-box; }
     .hamburger {display: none;background: none; border: none; cursor: pointer;flex-direction: column; gap: 5px; padding: 6px;margin-left: auto; z-index: 300;}
     .hamburger span {display: block; width: 24px; height: 2px;background: rgba(255,255,255,0.9); border-radius: 2px;transition: all .28s ease;}
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    @media (max-width: 640px) {.topnav { padding: 0 16px !important; position: relative; }.hamburger { display: flex !important; }.nav-links {display: none;position: absolute;top: 52px; left: 0; right: 0;background: #0B2545;flex-direction: column !important;padding: 8px 0 16px;border-top: 1px solid rgba(255,255,255,0.15);box-shadow: 0 8px 24px rgba(0,0,0,0.35);z-index: 200;gap: 0 !important;}.nav-links.mobile-open { display: flex !important; }.nav-links li { width: 100%; }.nav-links a {display: block; width: 100%;padding: 12px 20px !important;font-size: 0.92rem !important;border-bottom: 1px solid rgba(255,255,255,0.07);border-radius: 0 !important;height: auto !important;}.nav-links a:last-child { border-bottom: none; }.hero-inner {grid-template-columns: 1fr !important;gap: 24px !important;}}
-    @media (max-width: 380px) {.topnav { padding: 0 12px !important; }h1, .hero-left h1 { font-size: 1.45rem !important; }}
+    @media (max-width: 900px) {section, .hero, .services-strip, .cta-strip, .clients-gain,.page-hero, .article-section, .section-pad,.resources-section, .rc-section, .wrap {padding-left: 24px !important;padding-right: 24px !important;}}
+    @media (max-width: 640px) {.topnav { padding: 0 16px !important; position: relative; }.hamburger { display: flex !important; }.nav-links {display: none;position: absolute;top: 52px; left: 0; right: 0;background: #0B2545;flex-direction: column !important;padding: 8px 0 16px;border-top: 1px solid rgba(255,255,255,0.15);box-shadow: 0 8px 24px rgba(0,0,0,0.35);z-index: 200;gap: 0 !important;}.nav-links.mobile-open { display: flex !important; }.nav-links li { width: 100%; }.nav-links a {display: block; width: 100%;padding: 12px 20px !important;font-size: 0.92rem !important;border-bottom: 1px solid rgba(255,255,255,0.07);border-radius: 0 !important;height: auto !important;}.nav-links a:last-child { border-bottom: none; }.lang-toggle { padding: 10px 20px 4px; }.hero-inner {grid-template-columns: 1fr !important;gap: 24px !important;}.hero-card { display: none !important; }.hero-left p { font-size: 0.93rem !important; }h1, .hero-left h1, .page-hero h1 {font-size: clamp(1.5rem, 6vw, 2rem) !important;line-height: 1.25 !important;}h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }h3 { font-size: clamp(0.95rem, 4vw, 1.1rem) !important; }}
+    @media (max-width: 380px) {.topnav { padding: 0 12px !important; }h1, .hero-left h1 { font-size: 1.45rem !important; }.nav-logo-mark { font-size: 1rem !important; }.nav-brand-name { font-size: 0.68rem !important; }}
   </style>
 </head>
 <body>
 
 <nav class="topnav">
-  <a href="https://rc2consulting.github.io/index-es.html" class="nav-brand">
+  <a href="https://rc2consulting.github.io/" class="nav-brand">
     <div class="nav-logo-mark">RC<sup>2</sup></div>
     <span class="nav-brand-name">Consulting</span>
   </a>
   <ul class="nav-links">
-    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
-    <li><a href="https://rc2consulting.github.io/services-es.html">Servicios</a></li>
-    <li><a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a></li>
-    <li><a href="https://rc2consulting.github.io/about-es.html">Nosotros</a></li>
-    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a></li>
-    <li><a href="https://rc2consulting.github.io/contact-es.html" class="active">Contacto</a></li>
+    <li><a href="https://rc2consulting.github.io/">Home</a></li>
+    <li><a href="https://rc2consulting.github.io/services.html">Services</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
+    <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a></li>
+    <li><a href="https://rc2consulting.github.io/contact.html" class="active">Contact</a></li>
     <li>
       <div class="lang-toggle">
-        <a href="https://rc2consulting.github.io/contact.html" class="lang-btn inactive">EN</a>
-        <a href="#" class="lang-btn active">ES</a>
+        <a href="https://rc2consulting.github.io/contact.html" class="lang-btn active">EN</a>
+        <a href="https://rc2consulting.github.io/contact-es.html" class="lang-btn inactive">ES</a>
       </div>
     </li>
   </ul>
@@ -162,7 +173,7 @@
     </div>
     <div>
       <div class="path-tabs" id="path-tabs">
-        <div class="path-tab active" onclick="switchPanel('book')" id="tab-book">
+        <div class="path-tab" onclick="switchPanel('book')" id="tab-book">
           <span class="tab-icon">📅</span>
           <div class="tab-title">Agendar una Llamada</div>
           <div class="tab-sub">Elija un horario directamente en el calendario — confirmación instantánea</div>
@@ -180,26 +191,26 @@
 <div class="main">
 
   <!-- ══════════════════════════════════════════════════════════
-       RC2 FORMULARIO INTAKE ES — Agregado 2026-03-16
+       RC2 CLIENT INTAKE FORM BANNER — Added 2026-03-16
   ══════════════════════════════════════════════════════════ -->
   <div style="background:linear-gradient(135deg,#0B2545 0%,#1A4A8A 100%);border-radius:12px;padding:28px 32px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;box-shadow:0 4px 20px rgba(11,37,69,.18);">
     <div style="flex:1;min-width:260px;">
       <div style="font-size:.7rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#C8922A;margin-bottom:6px;">Consulta de Nuevos Clientes</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#ffffff;margin-bottom:8px;">&#191;No sabe por d&#243;nde empezar?</div>
-      <div style="font-size:.84rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:500px;margin-bottom:12px;">Complete nuestro formulario de 3 minutos y revisaremos su situaci&#243;n antes de su llamada &#8212; para que cada minuto cuente.</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#ffffff;margin-bottom:8px;">¿No sabe por dónde empezar?</div>
+      <div style="font-size:.84rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:500px;margin-bottom:12px;">Complete nuestro formulario de 3 minutos y revisaremos su situación antes de su llamada — para que cada minuto cuente.</div>
       <div style="display:flex;gap:16px;flex-wrap:wrap;">
-        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> Solo 3 minutos</span>
-        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> Respuesta en 1 d&#237;a h&#225;bil</span>
-        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">&#10003;</span> Sin compromiso</span>
+        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">✓</span> Solo 3 minutos</span>
+        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">✓</span> Respuesta en 1 día hábil</span>
+        <span style="font-size:.74rem;color:rgba(255,255,255,.65);"><span style="color:#4ADE80;font-weight:700;">✓</span> Sin compromiso</span>
       </div>
     </div>
-    <a href="https://forms.gle/ZpnAtwx8PvES6BT79" target="_blank" rel="noopener" style="background:#C8922A;color:#0B2545;font-weight:700;font-size:.92rem;padding:15px 30px;border-radius:8px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;flex-shrink:0;font-family:'Source Sans 3',sans-serif;">Iniciar Consulta &#8594;</a>
+    <a href="https://forms.gle/F3h7G4CYUrAtHF4K7" target="_blank" rel="noopener" style="background:#C8922A;color:#0B2545;font-weight:700;font-size:.92rem;padding:15px 30px;border-radius:8px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;flex-shrink:0;font-family:'Source Sans 3',sans-serif;">Iniciar Consulta →</a>
   </div>
-  <!-- FIN FORMULARIO INTAKE -->
+  <!-- END INTAKE BANNER -->
 
   <div class="panel-wrap">
 
-    <div class="panel active cal-panel" id="panel-book">
+    <div class="panel cal-panel" id="panel-book">
       <div class="cal-intro">
         <div class="cal-intro-left">
           <h2>Agendar una Llamada de Descubrimiento Gratuita</h2>
@@ -213,7 +224,7 @@
       </div>
       <div class="cal-embed-area">
         <div class="cal-embed-container">
-          <iframe src="https://calendar.app.google/feucyaax9eB5CDm79?embed=true" frameborder="0" scrolling="no" style="width:100%;min-height:600px;border:none;display:block;" allow="camera; microphone; fullscreen" title="Agendar una llamada de descubrimiento con RC2 Consulting"></iframe>
+          <iframe src="https://calendar.app.google/feucyaax9eB5CDm79?embed=true" frameborder="0" scrolling="no" style="width:100%;min-height:600px;border:none;display:block;" allow="camera; microphone; fullscreen" title="Schedule a discovery call with RC2 Consulting"></iframe>
         </div>
         <div style="text-align:center;margin-top:14px">
           <a href="https://calendar.app.google/feucyaax9eB5CDm79" target="_blank" style="font-size:.78rem;color:var(--mu);text-decoration:none">📅 ¿Prefiere abrir en una nueva pestaña? <span style="color:var(--lb);font-weight:600">Haga clic aquí →</span></a>
@@ -222,18 +233,10 @@
     </div>
 
     <div class="panel form-panel" id="panel-message">
-      <h2>Formulario de Admisión de Clientes</h2>
-      <p class="form-sub">Complete este formulario para que RC2 Consulting pueda evaluar sus necesidades y proponer los próximos pasos apropiados.</p>
-      <div style="margin-top: 20px;">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLScn9POPUYRtSfuz3QSQuP9h2Z4VCu1TAZRlZxmuAtwNpWAHSg/viewform?embedded=true" 
-          width="100%" 
-          height="1023" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0">
-          Cargando…
-        </iframe>
+      <h2>Formulario de Admisión de Clientes de RC2</h2>
+      <p class="form-sub">Complete nuestro formulario de 3 minutos — revisaremos su situación antes de conectar.</p>
+      <div style="margin-top:24px">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScn9POPUYRtSfuz3QSQuP9h2Z4VCu1TAZRlZxmuAtwNpWAHSg/viewform?embedded=true" width="100%" height="1600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
       </div>
     </div>
 
@@ -242,28 +245,28 @@
   <div class="next-section">
     <h3>Qué Sucede Después de Contactarnos</h3>
     <div class="next-steps">
-      <div class="next-step"><div class="step-circle">1</div><div class="step-title">Revisamos Su Situación</div><div class="step-desc">En un día hábil revisamos su formulario e investigamos su industria, tipo de auditoría o entorno de contratación para que la llamada sea inmediatamente productiva.</div></div>
-      <div class="next-step"><div class="step-circle">2</div><div class="step-title">Llamada de Descubrimiento de 30 Minutos</div><div class="step-desc">Una conversación enfocada — sin diapositivas, sin discurso de ventas. Hacemos preguntas específicas e identificamos su brecha de mayor prioridad.</div></div>
+      <div class="next-step"><div class="step-circle">1</div><div class="step-title">Revisamos Su Situación</div><div class="step-desc">En un día hábil revisamos su formulario e investigamos su industria, tipo de auditoría o entorno de contratación para que la llamada de descubrimiento sea inmediatamente productiva.</div></div>
+      <div class="next-step"><div class="step-circle">2</div><div class="step-title">Llamada de Descubrimiento de 30 Minutos</div><div class="step-desc">Una conversación enfocada — sin diapositivas, sin discurso de ventas. Hacemos preguntas específicas, identificamos su brecha de mayor prioridad y mapeamos cómo se ve el camino a seguir.</div></div>
       <div class="next-step"><div class="step-circle">3</div><div class="step-title">Alcance y Plan de Trabajo</div><div class="step-desc">Si hay compatibilidad, entregamos un alcance escrito con entregables, cronograma e inversión — claro y específico. No se requieren retenciones para comenzar.</div></div>
     </div>
   </div>
 
   <div class="info-strip">
-    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Correo Electrónico</div><div class="info-chip-val"><a href="/cdn-cgi/l/email-protection#91f4f5f5f8f4d1e3f2a3e2f0fdf4e2f2feffe2e4fde5f8fff6bff2fefc" style="color:var(--lb);text-decoration:none"><span class="__cf_email__" data-cfemail="ceabaaaaa7ab8ebcadfcbdafa2abbdada1a0bdbba2baa7a0a9e0ada1a3">[email&#160;protected]</span></a></div><div class="info-chip-sub">Monitoreado diariamente — respuesta en 24 horas</div></div></div>
+    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Correo Electrónico</div><div class="info-chip-val"><a href="mailto:eddie@rc2salesconsulting.com" style="color:var(--lb);text-decoration:none">eddie@rc2salesconsulting.com</a></div><div class="info-chip-sub">Monitoreado diariamente — respuesta en 24 horas</div></div></div>
     <div class="info-chip"><div class="info-chip-icon">📅</div><div><div class="info-chip-title">Llamadas de Descubrimiento</div><div class="info-chip-val">30 Minutos — Gratis</div><div class="info-chip-sub">Lun – Vie · Google Meet · Confirmación instantánea</div></div></div>
-    <div class="info-chip"><div class="info-chip-icon">🔧</div><div><div class="info-chip-title">Recursos Gratuitos</div><div class="info-chip-val"><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" style="color:var(--lb);text-decoration:none">Ver Herramientas y Artículos →</a></div><div class="info-chip-sub">Herramientas WRAP, SBA, Cadena de Suministro — todas gratuitas</div></div></div>
+    <div class="info-chip"><div class="info-chip-icon">🔧</div><div><div class="info-chip-title">Recursos Gratuitos</div><div class="info-chip-val"><a href="https://rc2consulting.github.io/recursos.html" style="color:var(--lb);text-decoration:none">Ver Herramientas y Artículos →</a></div><div class="info-chip-sub">Herramientas WRAP, SBA, Cadena de Suministro, FAR/DCAA — todas gratuitas</div></div></div>
   </div>
 
 </div>
 
 <footer class="site-footer">
-  <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-tagline">Claridad Operacional. Confianza en Cumplimiento. Sistemas que Escalan.</div>
   <div class="footer-links">
-    <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
-    <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
-    <a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a>
-    <a href="https://rc2consulting.github.io/about-es.html">Nosotros</a>
-    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a>
+    <a href="https://rc2consulting.github.io/inicio.html">Inicio</a>
+    <a href="https://rc2consulting.github.io/servicios.html">Servicios</a>
+    <a href="https://rc2consulting.github.io/aquien-ayudamos.html">A Quién Ayudamos</a>
+    <a href="https://rc2consulting.github.io/nosotros.html">Nosotros</a>
+    <a href="https://rc2consulting.github.io/recursos.html">Recursos</a>
     <a href="https://rc2consulting.github.io/contact-es.html">Contacto</a>
   </div>
   <div class="footer-copy">© 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Política de Privacidad &nbsp;|&nbsp; Términos de Servicio</div>
@@ -282,7 +285,8 @@
     document.getElementById('urgency-val').value = val;
   }
   function updateChar() {
-    document.getElementById('char-count').textContent = document.getElementById('message-field').value.length;
+    const len = document.getElementById('message-field').value.length;
+    document.getElementById('char-count').textContent = len;
   }
   async function handleSubmit(e) {
     e.preventDefault();
@@ -290,16 +294,44 @@
     const btn = form.querySelector('.form-submit-btn');
     const success = document.getElementById('form-success');
     const error = document.getElementById('form-error');
-    btn.textContent = 'Enviando…'; btn.disabled = true;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
     if (error) error.style.display = 'none';
     try {
-      const res = await fetch(form.action, {method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
-      if (res.ok) { form.style.display='none'; success.classList.add('visible'); const n=document.getElementById('formspree-setup-notice'); if(n) n.style.display='none'; }
-      else { const j=await res.json(); throw new Error(j.errors?j.errors.map(x=>x.message).join(', '):'Error al enviar'); }
-    } catch(err) {
-      btn.textContent='Enviar Mensaje →'; btn.disabled=false;
-      if(error){error.textContent='⚠️ '+(err.message.includes('mnjgodaj')?'Formulario no configurado.':'No se pudo enviar — escríbanos a info@rc2salesconsulting.com');error.style.display='block';}
+      const data = new FormData(form);
+      const res = await fetch(form.action, {method:'POST',body:data,headers:{'Accept':'application/json'}});
+      if (res.ok) {
+        form.style.display = 'none';
+        success.classList.add('visible');
+        const notice = document.getElementById('formspree-setup-notice');
+        if (notice) notice.style.display = 'none';
+      } else {
+        const json = await res.json();
+        throw new Error(json.errors ? json.errors.map(x => x.message).join(', ') : 'Submission failed');
+      }
+    } catch (err) {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      if (error) {
+        error.textContent = '⚠️ ' + (err.message.includes('mnjgodaj') ? 'Form not yet configured. Please complete the Formspree setup above.' : 'Could not send — please email us directly at info@rc2salesconsulting.com');
+        error.style.display = 'block';
+      }
     }
   }
-  (function(){const h=window.location.hash.replace('#','');if(h==='message'||h==='book')switchPanel(h);})();
-  (function(){const btn=document.getElementById('hamburger');const nav=document.querySelector('.nav-links');if(!btn||!nav)return;btn.addEventListener('click',function(){const o=nav.classList.toggle('mobile-open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));});nav.querySelectorAll('a').forEach(function(a){a.
+  (function () {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'message' || hash === 'book') switchPanel(hash);
+  })();
+  (function () {
+    const btn = document.getElementById('hamburger');
+    const nav = document.querySelector('.nav-links');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      const isOpen = nav.classList.toggle('mobile-open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('mobile-open');
+        btn.classLis

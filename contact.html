@@ -173,7 +173,7 @@
     </div>
     <div>
       <div class="path-tabs" id="path-tabs">
-        <div class="path-tab active" onclick="switchPanel('book')" id="tab-book">
+        <div class="path-tab" onclick="switchPanel('book')" id="tab-book">
           <span class="tab-icon">📅</span>
           <div class="tab-title">Book a Call</div>
           <div class="tab-sub">Pick a time directly on the calendar — instant confirmation</div>
@@ -210,7 +210,7 @@
 
   <div class="panel-wrap">
 
-    <div class="panel active cal-panel" id="panel-book">
+    <div class="panel cal-panel" id="panel-book">
       <div class="cal-intro">
         <div class="cal-intro-left">
           <h2>Schedule a Free Discovery Call</h2>
@@ -235,7 +235,7 @@
     <div class="panel form-panel" id="panel-message">
       <div id="formspree-setup-notice" style="background:#FEF9C3;border:1.5px solid #FBBF24;border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:0.82rem;color:#78350F;line-height:1.65;display:block;">
         <strong>⚙️ One-Time Setup Required (5 minutes):</strong> This form uses Formspree — a free service for static websites.
-        <br>1. Go to <a href="https://formspree.io" target="_blank" style="color:#1D4ED8;font-weight:600;">formspree.io</a> → Sign Up Free → New Form → enter <strong>info@rc2salesconsulting.com</strong> as the email.
+        <br>1. Go to <a href="https://formspree.io" target="_blank" style="color:#1D4ED8;font-weight:600;">formspree.io</a> → Sign Up Free → New Form → enter <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9df4f3fbf2ddeffeafeefcf1f8eefef2f3eee8f1e9f4f3fab3fef2f0">[email&#160;protected]</a></strong> as the email.
         <br>2. Copy your Form ID (looks like: <code>xabcde12</code>).
         <br>3. In this file, replace <code>mnjgodaj</code> in the form action with your actual ID.
         <br>4. Save &amp; upload — the form will send directly to your email. Delete this notice once live.
@@ -302,7 +302,7 @@
   </div>
 
   <div class="info-strip">
-    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Email</div><div class="info-chip-val"><a href="mailto:eddie@rc2salesconsulting.com" style="color:var(--lb);text-decoration:none">eddie@rc2salesconsulting.com</a></div><div class="info-chip-sub">Monitored daily — response within 24 hours</div></div></div>
+    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Email</div><div class="info-chip-val"><a href="/cdn-cgi/l/email-protection#630607070a062311005110020f0610000c0d10160f170a0d044d000c0e" style="color:var(--lb);text-decoration:none"><span class="__cf_email__" data-cfemail="9cf9f8f8f5f9dceeffaeeffdf0f9effff3f2efe9f0e8f5f2fbb2fff3f1">[email&#160;protected]</span></a></div><div class="info-chip-sub">Monitored daily — response within 24 hours</div></div></div>
     <div class="info-chip"><div class="info-chip-icon">📅</div><div><div class="info-chip-title">Discovery Calls</div><div class="info-chip-val">30 Minutes — Free</div><div class="info-chip-sub">Mon – Fri · Google Meet · Instant confirmation</div></div></div>
     <div class="info-chip"><div class="info-chip-icon">🔧</div><div><div class="info-chip-title">Free Resources</div><div class="info-chip-val"><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" style="color:var(--lb);text-decoration:none">Browse Tools &amp; Articles →</a></div><div class="info-chip-sub">WRAP, SBA, Supply Chain, FAR/DCAA tools — all free</div></div></div>
   </div>
@@ -322,7 +322,7 @@
   <div class="footer-copy">© 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Terms of Service</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function switchPanel(which) {
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.path-tab').forEach(t => t.classList.remove('active'));
@@ -384,18 +384,4 @@
     nav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         nav.classList.remove('mobile-open');
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-    document.addEventListener('click', function (e) {
-      if (!btn.contains(e.target) && !nav.contains(e.target)) {
-        nav.classList.remove('mobile-open');
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  })();
-</script>
-</body>
-</html>
+        btn.classLis
