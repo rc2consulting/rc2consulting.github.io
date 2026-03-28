@@ -222,58 +222,18 @@
     </div>
 
     <div class="panel form-panel" id="panel-message">
-      <div id="formspree-setup-notice" style="background:#FEF9C3;border:1.5px solid #FBBF24;border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:0.82rem;color:#78350F;line-height:1.65;display:block;">
-        <strong>⚙️ Configuración Requerida (5 minutos):</strong> Este formulario usa Formspree.
-        <br>1. Ir a <a href="https://formspree.io" target="_blank" style="color:#1D4ED8;font-weight:600;">formspree.io</a> → Regístrese Gratis → ingrese <strong>info@rc2salesconsulting.com</strong>.
-        <br>2. Copie su ID y reemplace <code>mnjgodaj</code> abajo. Elimine este aviso una vez configurado.
-      </div>
-      <h2>Envíenos un Mensaje</h2>
-      <p class="form-sub">Describa su situación y responderemos en un día hábil con un próximo paso recomendado. Toda la información es confidencial.</p>
-      <form id="contact-form" action="https://formspree.io/f/mnjgodaj" method="POST">
-        <div class="form-grid">
-          <div class="form-group"><label class="form-label">Nombre <span class="req">*</span></label><input class="form-input" type="text" name="first_name" required placeholder="Eduardo"/></div>
-          <div class="form-group"><label class="form-label">Apellido <span class="req">*</span></label><input class="form-input" type="text" name="last_name" required placeholder="García"/></div>
-          <div class="form-group"><label class="form-label">Correo Electrónico <span class="req">*</span></label><input class="form-input" type="email" name="email" required placeholder="usted@empresa.com"/></div>
-          <div class="form-group"><label class="form-label">Número de Teléfono</label><input class="form-input" type="tel" name="phone" placeholder="(555) 000-0000"/></div>
-          <div class="form-group"><label class="form-label">Empresa / Organización</label><input class="form-input" type="text" name="company" placeholder="Nombre de su empresa"/></div>
-          <div class="form-group"><label class="form-label">Interés Principal en Servicios</label>
-            <select class="form-select" name="service">
-              <option value="">— Seleccione uno —</option>
-              <option>Cumplimiento WRAP y Preparación para Auditorías</option>
-              <option>Contratos Gubernamentales / Certificación SBA</option>
-              <option>Estrategia de Cadena de Suministro y Nearshoring</option>
-              <option>SOPs de Operaciones y Desarrollo de Procesos</option>
-              <option>Infraestructura de Escalabilidad y Crecimiento</option>
-              <option>Aranceles, Derechos y Cumplimiento Comercial</option>
-              <option>Auditoría Interna y Documentación</option>
-              <option>Desarrollo de Programas de Capacitación</option>
-              <option>Otro / Aún No Estoy Seguro</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label class="form-label">¿Qué Tan Urgente es Su Situación?</label>
-            <div class="urgency-grid">
-              <button type="button" class="urg-btn" onclick="selectUrgency(this,'Exploratorio — Sin plazo inmediato')">🔵 Exploratorio</button>
-              <button type="button" class="urg-btn" onclick="selectUrgency(this,'Moderado — En 1–3 meses')">🟡 Moderado (1–3 meses)</button>
-              <button type="button" class="urg-btn" onclick="selectUrgency(this,'Urgente — Inmediato o auditoría pendiente')">🔴 Urgente / Auditoría Pendiente</button>
-            </div>
-            <input type="hidden" name="urgency" id="urgency-val"/>
-          </div>
-          <div class="form-group full">
-            <label class="form-label">Cuéntenos Su Situación</label>
-            <textarea class="form-textarea" name="message" id="message-field" maxlength="1000" oninput="updateChar()" placeholder="Descripción breve: industria, desafío actual, en qué necesita ayuda"></textarea>
-            <div class="char-note"><span id="char-count">0</span> / 1,000</div>
-          </div>
-        </div>
-        <div class="form-submit-row">
-          <button type="submit" class="form-submit-btn">Enviar Mensaje →</button>
-          <div class="form-privacy">🔒 Su información es confidencial y nunca se comparte con terceros.</div>
-        </div>
-        <div id="form-error" style="display:none;background:#FEE2E2;border:1px solid #FCA5A5;border-radius:6px;padding:12px 16px;margin-top:12px;font-size:0.83rem;color:#991B1B;font-weight:600;"></div>
-      </form>
-      <div class="form-success" id="form-success">
-        <h3>✅ Mensaje Enviado — Gracias</h3>
-        <p>Recibimos su mensaje y responderemos en un día hábil.<br><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" style="color:var(--lb);font-weight:600">Explore nuestras herramientas y recursos gratuitos →</a></p>
+      <h2>Formulario de Admisión de Clientes</h2>
+      <p class="form-sub">Complete este formulario para que RC2 Consulting pueda evaluar sus necesidades y proponer los próximos pasos apropiados.</p>
+      <div style="margin-top: 20px;">
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLScn9POPUYRtSfuz3QSQuP9h2Z4VCu1TAZRlZxmuAtwNpWAHSg/viewform?embedded=true" 
+          width="100%" 
+          height="1023" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0">
+          Cargando…
+        </iframe>
       </div>
     </div>
 
@@ -289,7 +249,7 @@
   </div>
 
   <div class="info-strip">
-    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Correo Electrónico</div><div class="info-chip-val"><a href="mailto:eddie@rc2salesconsulting.com" style="color:var(--lb);text-decoration:none">eddie@rc2salesconsulting.com</a></div><div class="info-chip-sub">Monitoreado diariamente — respuesta en 24 horas</div></div></div>
+    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Correo Electrónico</div><div class="info-chip-val"><a href="/cdn-cgi/l/email-protection#91f4f5f5f8f4d1e3f2a3e2f0fdf4e2f2feffe2e4fde5f8fff6bff2fefc" style="color:var(--lb);text-decoration:none"><span class="__cf_email__" data-cfemail="ceabaaaaa7ab8ebcadfcbdafa2abbdada1a0bdbba2baa7a0a9e0ada1a3">[email&#160;protected]</span></a></div><div class="info-chip-sub">Monitoreado diariamente — respuesta en 24 horas</div></div></div>
     <div class="info-chip"><div class="info-chip-icon">📅</div><div><div class="info-chip-title">Llamadas de Descubrimiento</div><div class="info-chip-val">30 Minutos — Gratis</div><div class="info-chip-sub">Lun – Vie · Google Meet · Confirmación instantánea</div></div></div>
     <div class="info-chip"><div class="info-chip-icon">🔧</div><div><div class="info-chip-title">Recursos Gratuitos</div><div class="info-chip-val"><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" style="color:var(--lb);text-decoration:none">Ver Herramientas y Artículos →</a></div><div class="info-chip-sub">Herramientas WRAP, SBA, Cadena de Suministro — todas gratuitas</div></div></div>
   </div>
@@ -309,7 +269,7 @@
   <div class="footer-copy">© 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Política de Privacidad &nbsp;|&nbsp; Términos de Servicio</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function switchPanel(which) {
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.path-tab').forEach(t => t.classList.remove('active'));
@@ -342,7 +302,4 @@
     }
   }
   (function(){const h=window.location.hash.replace('#','');if(h==='message'||h==='book')switchPanel(h);})();
-  (function(){const btn=document.getElementById('hamburger');const nav=document.querySelector('.nav-links');if(!btn||!nav)return;btn.addEventListener('click',function(){const o=nav.classList.toggle('mobile-open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});})();
-</script>
-</body>
-</html>
+  (function(){const btn=document.getElementById('hamburger');const nav=document.querySelector('.nav-links');if(!btn||!nav)return;btn.addEventListener('click',function(){const o=nav.classList.toggle('mobile-open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));});nav.querySelectorAll('a').forEach(function(a){a.
