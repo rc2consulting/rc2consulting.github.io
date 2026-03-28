@@ -34,8 +34,8 @@
     .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s;white-space:nowrap}
     .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
     .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(160deg, rgba(11,37,69,0.82) 0%, rgba(11,37,69,0.68) 100%),url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;padding:60px 40px 0;position:relative;overflow:hidden;}
-    .hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;position:relative;z-index:1}
+    .hero{background:linear-gradient(160deg, rgba(11,37,69,0.82) 0%, rgba(11,37,69,0.68) 100%),url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;padding:60px 40px 40px;position:relative;overflow:hidden;}
+    .hero-inner{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:36px;position:relative;z-index:1}
     .hero-left{padding-bottom:52px}
     .atag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px}
     .atag span{width:6px;height:6px;background:#4ADE80;border-radius:50%;animation:pulse 2s ease-in-out infinite}
@@ -45,7 +45,7 @@
     .trust-row{display:flex;gap:20px;flex-wrap:wrap}
     .trust-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:rgba(255,255,255,.6)}
     .trust-item::before{content:'✓';color:#4ADE80;font-weight:700;font-size:.9rem}
-    .path-tabs{display:grid;grid-template-columns:1fr 1fr;gap:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px 14px 0 0;overflow:hidden}
+    .path-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px 14px 0 0;overflow:hidden}
     .path-tab{padding:20px 18px;cursor:pointer;transition:all .25s;border-bottom:3px solid transparent;text-align:center}
     .path-tab:first-child{border-right:1px solid rgba(255,255,255,.1)}
     .path-tab.active{background:rgba(255,255,255,.1);border-bottom-color:var(--gold-lt)}
@@ -171,23 +171,21 @@
         <div class="trust-item">Free resource access before we connect</div>
       </div>
     </div>
-    <div>
-      <div class="path-tabs" id="path-tabs">
-        <div class="path-tab" onclick="switchPanel('book')" id="tab-book">
-          <span class="tab-icon">📅</span>
-          <div class="tab-title">Book a Call</div>
-          <div class="tab-sub">Pick a time directly on the calendar — instant confirmation</div>
-        </div>
-        <div class="path-tab" onclick="switchPanel('message')" id="tab-message">
-          <span class="tab-icon">✉️</span>
-          <div class="tab-title">Send a Message</div>
-          <div class="tab-sub">Describe your situation — we'll follow up within 24 hours</div>
-        </div>
-        <div class="path-tab" onclick="switchPanel('inquiry')" id="tab-inquiry">
-          <span class="tab-icon">📋</span>
-          <div class="tab-title">Start Your Inquiry</div>
-          <div class="tab-sub">Complete our 3-minute intake — we'll review before connecting</div>
-        </div>
+    <div class="path-tabs" id="path-tabs">
+      <div class="path-tab" onclick="switchPanel('book')" id="tab-book">
+        <span class="tab-icon">📅</span>
+        <div class="tab-title">Book a Call</div>
+        <div class="tab-sub">Pick a time directly on the calendar — instant confirmation</div>
+      </div>
+      <div class="path-tab" onclick="switchPanel('message')" id="tab-message">
+        <span class="tab-icon">✉️</span>
+        <div class="tab-title">Send a Message</div>
+        <div class="tab-sub">Describe your situation — we'll follow up within 24 hours</div>
+      </div>
+      <div class="path-tab" onclick="switchPanel('inquiry')" id="tab-inquiry">
+        <span class="tab-icon">📋</span>
+        <div class="tab-title">Start Your Inquiry</div>
+        <div class="tab-sub">Complete our 3-minute intake — we'll review before connecting</div>
       </div>
     </div>
   </div>
@@ -285,8 +283,15 @@
     <div class="panel form-panel" id="panel-inquiry">
       <h2>RC2 Client Intake Form</h2>
       <p class="form-sub">Complete our 3-minute intake and we'll review your situation before your discovery call — so every minute counts.</p>
+      <div style="background:#FEF9C3;border:1.5px solid #FBBF24;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:0.82rem;color:#78350F;line-height:1.65;">
+        <strong>⚠️ FORM URL NEEDS UPDATE:</strong> To get the correct embed URL:<br>
+        1. Open the English intake form: <a href="https://forms.gle/nsnqH1Yb1xPYvmxC6" target="_blank" style="color:#1D4ED8;font-weight:600;">forms.gle/nsnqH1Yb1xPYvmxC6</a><br>
+        2. Click "Send" → Click embed icon (&lt;&gt;) → Copy the iframe src URL<br>
+        3. Replace the URL in the iframe below with that embed URL<br>
+        4. Delete this yellow notice.
+      </div>
       <div style="margin-top:24px">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScn9PHl-bIjXb7bfVkI8CBSRWB_XJVvQNe7KahPUhtfxZ3CzQ/viewform?embedded=true" width="100%" height="1600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <iframe src="https://forms.gle/nsnqH1Yb1xPYvmxC6" width="100%" height="1600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
       </div>
     </div>
 
