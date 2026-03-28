@@ -224,7 +224,7 @@
       </div>
       <div class="cal-embed-area">
         <div class="cal-embed-container">
-          <iframe src="https://calendar.app.google/feucyaax9eB5CDm79?embed=true" frameborder="0" scrolling="no" style="width:100%;min-height:600px;border:none;display:block;" allow="camera; microphone; fullscreen" title="Schedule a discovery call with RC2 Consulting"></iframe>
+          <iframe src="https://calendar.app.google/feucyaax9eB5CDm79?embed=true" frameborder="0" scrolling="no" style="width:100%;min-height:600px;border:none;display:block;" allow="camera; microphone; fullscreen" title="Agendar una llamada de descubrimiento con RC2 Consulting"></iframe>
         </div>
         <div style="text-align:center;margin-top:14px">
           <a href="https://calendar.app.google/feucyaax9eB5CDm79" target="_blank" style="font-size:.78rem;color:var(--mu);text-decoration:none">📅 ¿Prefiere abrir en una nueva pestaña? <span style="color:var(--lb);font-weight:600">Haga clic aquí →</span></a>
@@ -334,4 +334,12 @@
     nav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         nav.classList.remove('mobile-open');
-        btn.classLis
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
