@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Códigos NAICS en la Contratación Gubernamental: Cómo Seleccionar, Usar y Proteger Su Clasificación | RC2 Consulting</title>
+  <meta name="description" content="Su código NAICS determina su estándar de tamaño SBA, su elegibilidad para contratación reservada y cómo los oficiales de contratos encuentran su negocio."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#0B1E3D;--gold:#C9A84C;--gold-light:#E8C96A;--white:#fff;--off-white:#F7F6F2;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb}
+    body{font-family:'Source Sans 3',sans-serif;color:var(--text);background:var(--off-white);font-size:16px;line-height:1.7}
+    nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);text-decoration:none}
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:.2rem;list-style:none;align-items:center}
+    .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.04em;padding:.35rem .65rem;border-radius:4px;transition:color .2s,background .2s;text-transform:uppercase}
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+    .nav-lang{display:flex;gap:.2rem;margin-left:1rem;padding-left:1rem;border-left:1px solid rgba(255,255,255,.15)}
+    .nav-lang a{color:rgba(255,255,255,.5);font-size:.75rem;text-decoration:none;font-weight:600;letter-spacing:.05em;padding:.3rem .45rem;border-radius:3px;transition:color .2s}
+    .nav-lang a:hover,.nav-lang a.active{color:var(--gold)}
+    .article-hero{background:linear-gradient(135deg,var(--navy) 0%,#0D2347 60%,#071529 100%);padding:3rem 2rem 2.5rem;position:relative;overflow:hidden}
+    .article-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(201,168,76,.04) 79px,rgba(201,168,76,.04) 80px),repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(201,168,76,.04) 79px,rgba(201,168,76,.04) 80px)}
+    .hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.55);font-size:.82rem;text-decoration:none;letter-spacing:.04em;margin-bottom:1.25rem;transition:color .2s}
+    .back-link:hover{color:var(--gold)}
+    .article-category{display:inline-block;background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .7rem;border-radius:100px;margin-bottom:1rem}
+    .article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.6rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:1rem}
+    .article-meta{color:rgba(255,255,255,.55);font-size:.85rem;letter-spacing:.02em}
+    .article-meta span{margin-right:1.25rem}
+    .article-body{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem}
+    .article-body .abstract{background:var(--white);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2.5rem;font-size:.95rem;color:var(--muted);line-height:1.7}
+    .article-body .abstract strong{color:var(--text);display:block;margin-bottom:.5rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin:2.5rem 0 .75rem;padding-top:.5rem;border-top:1px solid var(--border)}
+    .article-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin:1.75rem 0 .5rem}
+    .article-body h4{font-size:1rem;font-weight:600;color:var(--navy);margin:1.25rem 0 .4rem}
+    .article-body p{margin-bottom:1.1rem;color:#2d2d4e}
+    .article-body ul,.article-body ol{margin:0 0 1.1rem 1.5rem}
+    .article-body li{margin-bottom:.4rem;color:#2d2d4e}
+    .article-body table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}
+    .article-body th{background:var(--navy);color:var(--white);padding:.6rem .8rem;text-align:left;font-weight:600}
+    .article-body td{padding:.55rem .8rem;border-bottom:1px solid var(--border)}
+    .article-body tr:nth-child(even) td{background:#f9f9fb}
+    .callout{background:#EBF3FF;border-left:3px solid #0D2347;border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:.9rem}
+    .horizon-box{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1rem 0}
+    .horizon-box h4{color:var(--gold);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+    .cta-box{background:var(--navy);border-radius:10px;padding:2rem;text-align:center;margin-top:3rem}
+    .cta-box h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:.5rem}
+    .cta-box p{color:rgba(255,255,255,.7);font-size:.9rem;margin-bottom:1.25rem}
+    .cta-btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.75rem;border-radius:6px;transition:background .2s}
+    .cta-btn:hover{background:var(--gold-light)}
+    .sources{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-top:2rem;font-size:.82rem;color:var(--muted)}
+    .sources h4{color:var(--navy);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+    .sources ul{margin-left:1rem}
+    .sources li{margin-bottom:.35rem}
+    footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2.5rem 2rem;text-align:center}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.75rem}
+    .footer-logo span{color:var(--gold)}
+    .footer-tagline{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
+    .footer-links{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;list-style:none;margin-bottom:1.25rem}
+    .footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;transition:color .2s}
+    .footer-links a:hover{color:var(--gold)}
+    .footer-copy{font-size:.75rem;color:rgba(255,255,255,.25)}
+    @media(max-width:768px){.nav-links{display:none}.article-body{padding:2rem 1rem 3rem}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="https://rc2consulting.github.io/index-es.html" class="nav-logo">RC2<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
+    <li><a href="https://rc2consulting.github.io/services.html">Servicios</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help.html">A Quiénes Ayudamos</a></li>
+    <li><a href="https://rc2consulting.github.io/about.html">Nosotros</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a></li>
+    <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
+    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
+  </ul>
+  <div class="nav-lang">
+    <a href="https://rc2consulting.github.io/RC2_Article_NAICS_Codes.html">EN</a>
+    <a href="#" class="active">ES</a>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="back-link">← Volver a Recursos</a>
+    <span class="article-category">Contratación Gubernamental</span>
+    <h1>Códigos NAICS en la Contratación Gubernamental: Cómo Seleccionar, Usar y Proteger Su Clasificación</h1>
+    <div class="article-meta">
+      <span>RC2 Consulting</span>
+      <span>📖 11 min de lectura</span>
+      <span>Febrero 2026</span>
+    </div>
+  </div>
+</section>
+
+<main class="article-body">
+
+  <div class="abstract"><strong>Resumen Ejecutivo</strong>
+  El Sistema de Clasificación Industrial de América del Norte (NAICS) es el estándar utilizado por las agencias estadísticas federales de EE.UU. para clasificar establecimientos comerciales. En la contratación gubernamental, los códigos NAICS tienen un papel fundamentalmente diferente y más consecuente: determinan el estándar de tamaño SBA de una empresa, definen los grupos de contratación reservada en los que puede competir, y sirven como el filtro de búsqueda principal que los oficiales de contratos usan para identificar proveedores.</div>
+
+  <h2>Qué Son los Códigos NAICS y Por Qué Importan Más en la Contratación Federal</h2>
+  <p>El Sistema de Clasificación Industrial de América del Norte fue desarrollado conjuntamente por EE.UU., Canadá y México y reemplazó al antiguo sistema SIC en 1997. Los códigos NAICS son identificadores numéricos de seis dígitos organizados jerárquicamente.</p>
+  <p>En la contratación gubernamental federal, bajo el <strong>FAR 19.102</strong>, el oficial de contratos está obligado a asignar un código NAICS principal a cada adquisición — el código que describe más precisamente el propósito principal del contrato. Ese único código NAICS determina el estándar de tamaño SBA contra el cual se medirán todos los proveedores competidores.</p>
+
+  <div class="callout">El código NAICS que el oficial de contratos asigna a una licitación — no su lista de códigos NAICS en SAM.gov — determina el estándar de tamaño que debe cumplir para competir como pequeña empresa para esa adjudicación específica.</div>
+
+  <h2>Cómo Funcionan los Estándares de Tamaño</h2>
+  <p>La SBA publica una <strong>Tabla de Estándares de Tamaño para Pequeñas Empresas</strong> (13 CFR Parte 121, Apéndice A) que asigna un umbral de tamaño a cada código NAICS. Los estándares de tamaño se expresan de dos maneras:</p>
+  <ul>
+    <li><strong>Estándares basados en ingresos:</strong> Utilizados para la mayoría de las industrias de servicios. El umbral puede variar de <strong>$8 millones a $47 millones</strong> en ingresos anuales promedio.</li>
+    <li><strong>Estándares basados en empleados:</strong> Utilizados para fabricación y minería. Los estándares de tamaño de fabricación típicamente van de <strong>500 a 1,500 empleados</strong>.</li>
+  </ul>
+
+  <h2>Códigos NAICS Clave para Contratistas Gubernamentales — Tabla de Referencia</h2>
+  <table>
+    <tr><th>Código NAICS</th><th>Descripción de la Industria</th><th>Estándar de Tamaño</th><th>Base</th></tr>
+    <tr><td>315210</td><td>Contratistas de Confección de Ropa</td><td>500 empleados</td><td>Empleados</td></tr>
+    <tr><td>315990</td><td>Accesorios de Ropa y Otra Fabricación de Ropa</td><td>500 empleados</td><td>Empleados</td></tr>
+    <tr><td>541611</td><td>Consultoría de Gestión Administrativa y General</td><td>$24.5M ingresos</td><td>Ingresos</td></tr>
+    <tr><td>541618</td><td>Otros Servicios de Consultoría de Gestión</td><td>$24.5M ingresos</td><td>Ingresos</td></tr>
+    <tr><td>561210</td><td>Servicios de Soporte de Instalaciones</td><td>$47M ingresos</td><td>Ingresos</td></tr>
+    <tr><td>488510</td><td>Arreglo de Transporte de Carga</td><td>$20M ingresos</td><td>Ingresos</td></tr>
+  </table>
+
+  <h2>Cómo Seleccionar Sus Códigos NAICS Estratégicamente</h2>
+  <h3>Paso 1 — Identifique Su Actividad Comercial Principal</h3>
+  <p>Determine la actividad única que genera el mayor porcentaje de sus ingresos. Esto impulsa su código NAICS primario. Cuando tenga dudas, busque en la base de datos de códigos NAICS en census.gov/naics.</p>
+
+  <h3>Paso 2 — Revise el Estándar de Tamaño para Su Código Principal</h3>
+  <p>Una vez que identifique su código primario, busque el estándar de tamaño en sba.gov/size-standards. Confirme si es pequeño bajo ese estándar basándose en sus ingresos promedio reales de 3 años o su recuento de empleados promedio de 12 meses.</p>
+
+  <h3>Paso 3 — Investigue Bajo Qué Códigos las Agencias Federales Realmente Compran</h3>
+  <p>Use <strong>USASpending.gov</strong> para buscar adjudicaciones de contratos federales por código NAICS. Esto revela qué agencias están comprando activamente bajo cada código, a qué montos y con qué frecuencia.</p>
+
+  <h3>Paso 4 — Registre Todos los Códigos Secundarios Legítimos en SAM.gov</h3>
+  <p>Agregue todos los códigos NAICS secundarios que reflejen con precisión sus capacidades comerciales a su perfil de entidad SAM.gov. Agregar códigos NAICS especulativamente constituye una tergiversación y lo expone a responsabilidad bajo la Ley de Reclamaciones Falsas.</p>
+
+  <h2>Análisis Triple Horizonte</h2>
+  <div class="horizon-box"><h4>Horizonte 1 — Ahora (2025–2026)</h4>
+  <p>La SBA actualizó los estándares de tamaño para más de 100 códigos NAICS en 2024, aumentando los umbrales de ingresos en un promedio del 15-22% para reflejar la inflación. Las empresas que no han revisado sus estándares de tamaño desde 2022 pueden estar dejando pasar oportunidades de certificación como pequeña empresa.</p></div>
+  <div class="horizon-box"><h4>Horizonte 2 — Emergente (2026–2028)</h4>
+  <p>Mayor integración de datos NAICS entre SAM.gov, SBA y sistemas de oportunidades de contratos. Los contratistas con perfiles NAICS bien mantenidos serán encontrados automáticamente por herramientas de coincidencia de proveedores impulsadas por IA que las agencias federales están adoptando.</p></div>
+  <div class="horizon-box"><h4>Horizonte 3 — Futuro (2028+)</h4>
+  <p>Se anticipa una revisión completa del sistema NAICS para 2027 (actualización decenal). Los negocios deben monitorear el proceso de comentarios públicos para asegurar que sus industrias estén correctamente representadas en el nuevo marco de clasificación.</p></div>
+
+  <div class="sources"><h4>Fuentes Verificables</h4>
+  <ul>
+    <li>Census.gov — Base de Datos de Códigos NAICS: census.gov/naics</li>
+    <li>SBA — Tabla de Estándares de Tamaño (13 CFR Parte 121): sba.gov/size-standards</li>
+    <li>FAR 19.102 — Determinaciones de Tamaño de Pequeña Empresa</li>
+    <li>USASpending.gov — Datos de Adjudicaciones Federales</li>
+  </ul></div>
+
+
+  <div class="cta-box">
+    <h3>¿Necesita apoyo con cumplimiento o contratación gubernamental?</h3>
+    <p>RC2 Consulting trabaja con organizaciones en todos los sectores para construir sistemas operacionales sólidos y estrategias de cumplimiento que resistan cualquier auditoría.</p>
+    <a href="https://rc2consulting.github.io/contact-es.html" class="cta-btn">Iniciar la Conversación →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">RC2<span>.</span></div>
+  <p class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</p>
+  <ul class="footer-links">
+    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
+    <li><a href="https://rc2consulting.github.io/services.html">Servicios</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a></li>
+    <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
+    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 RC2 Consulting, LLC | Política de Privacidad | Términos de Servicio</p>
+</footer>
+</body>
+</html>

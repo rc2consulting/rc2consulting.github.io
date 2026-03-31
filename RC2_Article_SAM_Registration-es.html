@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro en SAM.gov: La Guía Completa para Contratistas Gubernamentales | RC2 Consulting</title>
+  <meta name="description" content="SAM.gov es el requisito legal previo para cualquier contrato federal. Esta guía cubre cada paso, cada error común y lo que su perfil debe comunicar."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#0B1E3D;--gold:#C9A84C;--gold-light:#E8C96A;--white:#fff;--off-white:#F7F6F2;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb}
+    body{font-family:'Source Sans 3',sans-serif;color:var(--text);background:var(--off-white);font-size:16px;line-height:1.7}
+    nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);text-decoration:none}
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:.2rem;list-style:none;align-items:center}
+    .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.04em;padding:.35rem .65rem;border-radius:4px;transition:color .2s,background .2s;text-transform:uppercase}
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+    .nav-lang{display:flex;gap:.2rem;margin-left:1rem;padding-left:1rem;border-left:1px solid rgba(255,255,255,.15)}
+    .nav-lang a{color:rgba(255,255,255,.5);font-size:.75rem;text-decoration:none;font-weight:600;letter-spacing:.05em;padding:.3rem .45rem;border-radius:3px;transition:color .2s}
+    .nav-lang a:hover,.nav-lang a.active{color:var(--gold)}
+    .article-hero{background:linear-gradient(135deg,var(--navy) 0%,#0D2347 60%,#071529 100%);padding:3rem 2rem 2.5rem;position:relative;overflow:hidden}
+    .article-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(201,168,76,.04) 79px,rgba(201,168,76,.04) 80px),repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(201,168,76,.04) 79px,rgba(201,168,76,.04) 80px)}
+    .hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.55);font-size:.82rem;text-decoration:none;letter-spacing:.04em;margin-bottom:1.25rem;transition:color .2s}
+    .back-link:hover{color:var(--gold)}
+    .article-category{display:inline-block;background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .7rem;border-radius:100px;margin-bottom:1rem}
+    .article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.6rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:1rem}
+    .article-meta{color:rgba(255,255,255,.55);font-size:.85rem;letter-spacing:.02em}
+    .article-meta span{margin-right:1.25rem}
+    .article-body{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem}
+    .article-body .abstract{background:var(--white);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2.5rem;font-size:.95rem;color:var(--muted);line-height:1.7}
+    .article-body .abstract strong{color:var(--text);display:block;margin-bottom:.5rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin:2.5rem 0 .75rem;padding-top:.5rem;border-top:1px solid var(--border)}
+    .article-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin:1.75rem 0 .5rem}
+    .article-body h4{font-size:1rem;font-weight:600;color:var(--navy);margin:1.25rem 0 .4rem}
+    .article-body p{margin-bottom:1.1rem;color:#2d2d4e}
+    .article-body ul,.article-body ol{margin:0 0 1.1rem 1.5rem}
+    .article-body li{margin-bottom:.4rem;color:#2d2d4e}
+    .article-body table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}
+    .article-body th{background:var(--navy);color:var(--white);padding:.6rem .8rem;text-align:left;font-weight:600}
+    .article-body td{padding:.55rem .8rem;border-bottom:1px solid var(--border)}
+    .article-body tr:nth-child(even) td{background:#f9f9fb}
+    .callout{background:#EBF3FF;border-left:3px solid #0D2347;border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:.9rem}
+    .horizon-box{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1rem 0}
+    .horizon-box h4{color:var(--gold);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+    .cta-box{background:var(--navy);border-radius:10px;padding:2rem;text-align:center;margin-top:3rem}
+    .cta-box h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:.5rem}
+    .cta-box p{color:rgba(255,255,255,.7);font-size:.9rem;margin-bottom:1.25rem}
+    .cta-btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.75rem;border-radius:6px;transition:background .2s}
+    .cta-btn:hover{background:var(--gold-light)}
+    .sources{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-top:2rem;font-size:.82rem;color:var(--muted)}
+    .sources h4{color:var(--navy);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+    .sources ul{margin-left:1rem}
+    .sources li{margin-bottom:.35rem}
+    footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2.5rem 2rem;text-align:center}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.75rem}
+    .footer-logo span{color:var(--gold)}
+    .footer-tagline{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
+    .footer-links{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;list-style:none;margin-bottom:1.25rem}
+    .footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;transition:color .2s}
+    .footer-links a:hover{color:var(--gold)}
+    .footer-copy{font-size:.75rem;color:rgba(255,255,255,.25)}
+    @media(max-width:768px){.nav-links{display:none}.article-body{padding:2rem 1rem 3rem}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="https://rc2consulting.github.io/index-es.html" class="nav-logo">RC2<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
+    <li><a href="https://rc2consulting.github.io/services.html">Servicios</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help.html">A Quiénes Ayudamos</a></li>
+    <li><a href="https://rc2consulting.github.io/about.html">Nosotros</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a></li>
+    <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
+    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
+  </ul>
+  <div class="nav-lang">
+    <a href="https://rc2consulting.github.io/RC2_Article_SAM_Registration.html">EN</a>
+    <a href="#" class="active">ES</a>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="back-link">← Volver a Recursos</a>
+    <span class="article-category">Contratación Gubernamental</span>
+    <h1>Registro en SAM.gov: La Guía Completa para Contratistas Gubernamentales</h1>
+    <div class="article-meta">
+      <span>RC2 Consulting</span>
+      <span>📖 10 min de lectura</span>
+      <span>Febrero 2026</span>
+    </div>
+  </div>
+</section>
+
+<main class="article-body">
+
+  <div class="abstract"><strong>Resumen Ejecutivo</strong>
+  SAM.gov no es opcional — es el requisito legal previo para recibir cualquier adjudicación de contrato federal, acceder a los programas de certificación SBA, presentar solicitudes de subvenciones federales y aparecer en búsquedas de adquisiciones federales. El registro es gratuito, pero no es ni simple ni rápido. Este artículo cubre cada paso, cada documento requerido, cada error común y lo que su perfil de registro debe comunicar.</div>
+
+  <h2>Por Qué Existe SAM.gov y Qué Controla</h2>
+  <p>El Sistema de Gestión de Adjudicaciones (SAM.gov) fue lanzado en 2012 como una consolidación de ocho bases de datos de contratistas federales previamente separadas. Hoy, SAM.gov sirve como la única fuente autorizada para cada elemento de datos que un oficial de contratos federal necesita para adjudicar, administrar y pagar un contrato.</p>
+  <p>Su registro de entidad en SAM.gov controla simultáneamente cuatro funciones críticas: su elegibilidad legal para recibir adjudicaciones de contratos, su estado de certificación (pequeña empresa, 8(a), WOSB, HUBZone, SDVOSB), su aparición en búsquedas de adquisiciones federales, y su información de enrutamiento de pagos para el procesamiento de facturas.</p>
+
+  <div class="callout">⚠️ Los oficiales de contratos tienen prohibido legalmente adjudicar un contrato a un proveedor cuyo registro SAM.gov no esté activo al momento de la adjudicación. Ganar la licitación con un registro vencido significa perder el contrato.</div>
+
+  <h2>Antes de Registrarse — Lo Que Necesita Reunir</h2>
+  <p>Intentar registrarse sin tener toda la información requerida reunida de antemano es la causa principal de registros incompletos y tiempos de procesamiento extendidos. Reúna todo lo siguiente antes de abrir SAM.gov:</p>
+  <ul>
+    <li>Nombre legal de la empresa exactamente como aparece en los archivos del IRS</li>
+    <li>EIN (Número de Identificación del Empleador) del IRS — debe coincidir exactamente con los registros del IRS</li>
+    <li>Dirección física del negocio — una casilla postal sola no es suficiente</li>
+    <li>Fecha de inicio del negocio y estado/país de incorporación</li>
+    <li>Códigos NAICS — código primario más todos los códigos secundarios aplicables</li>
+    <li>Información bancaria para Transferencia Electrónica de Fondos (EFT)</li>
+    <li>Puntos de contacto — POC de Negocios Gubernamentales y POC de Negocios Electrónicos</li>
+    <li>Cuenta Login.gov — requerida antes de que pueda comenzar el registro en SAM.gov</li>
+  </ul>
+
+  <h2>El Proceso de Registro — Paso a Paso</h2>
+  <h3>Paso 1 — Crear una Cuenta Login.gov</h3>
+  <p>SAM.gov usa Login.gov para autenticación de identidad. Vaya a login.gov, cree una cuenta y complete la verificación de identidad. Este paso es separado de SAM.gov y debe completarse primero. Permita 15-30 minutos.</p>
+
+  <h3>Paso 2 — Obtener su Identificador de Entidad Único (UEI)</h3>
+  <p>El UEI reemplazó al número DUNS como identificador de contratista federal en abril de 2022. Inicie sesión en SAM.gov y navegue a "Get Started" → "Get a Unique Entity ID." SAM.gov asigna el UEI instantáneamente para la mayoría de las entidades.</p>
+
+  <h3>Paso 3 — Completar la Sección de Datos Principales</h3>
+  <p>Esta sección captura su información de entidad legal. El proceso de coincidencia de TIN del IRS se ejecuta en segundo plano — su EIN y nombre comercial deben coincidir exactamente con los registros del IRS o el registro fallará la validación.</p>
+
+  <h3>Paso 4 — Completar la Sección de Afirmaciones — Tamaño y Clasificación</h3>
+  <p>Esta sección determina su estado de pequeña empresa y establece su estructura de código NAICS. Cada respuesta en esta sección tiene peso legal — las certificaciones falsas son violaciones de la Ley de Reclamaciones Falsas.</p>
+
+  <h3>Paso 5 — Completar Representaciones y Certificaciones (Reps & Certs)</h3>
+  <p>La sección Reps & Certs contiene las declaraciones juradas del contratista federal sobre docenas de temas de cumplimiento requeridos por FAR y DFARS. Para la mayoría de las pequeñas empresas, esta sección involucra aproximadamente 50-70 preguntas con respuestas Sí/No/No Aplicable.</p>
+
+  <h3>Paso 6 — Ingresar Información de EFT y Puntos de Contacto</h3>
+  <p>Designe su Punto de Contacto de Negocios Gubernamentales e ingrese sus números de enrutamiento y cuenta bancaria para Transferencia Electrónica de Fondos — así es como le pagan en contratos federales.</p>
+
+  <h3>Paso 7 — Enviar y Monitorear la Activación</h3>
+  <p>Después del envío, SAM.gov ejecuta validación contra registros del IRS, bases de datos comerciales y la lista de exclusiones. Para la mayoría de los registros nuevos, la activación toma <strong>2-5 días hábiles</strong>.</p>
+
+  <h2>Los 7 Errores Más Comunes de Registro en SAM.gov</h2>
+  <ul>
+    <li>El nombre comercial no coincide exactamente con los registros del EIN del IRS</li>
+    <li>Usar una casilla postal como dirección física principal</li>
+    <li>No renovar anualmente — los registros vencen exactamente 365 días después de la activación</li>
+    <li>Selección incorrecta de código NAICS</li>
+    <li>No actualizar el registro después de cambios materiales en el negocio</li>
+    <li>Ignorar la verificación de exclusiones antes de enviar</li>
+    <li>Usar un servicio de terceros y perder el control de las credenciales de la cuenta</li>
+  </ul>
+
+  <h2>Renovación Anual — El Requisito Más Ignorado</h2>
+  <p>Los registros SAM.gov vencen exactamente <strong>365 días después de la fecha de activación</strong>. No hay período de gracia — un registro vencido lo hace inelegible para adjudicaciones de contratos el día del vencimiento. Establezca recordatorios de calendario independientes e inicie la renovación 30 días antes del vencimiento.</p>
+
+  <h2>Análisis Triple Horizonte — SAM.gov e Infraestructura de Contratistas Federales</h2>
+  <div class="horizon-box"><h4>Horizonte 1 — Ahora (2025–2026)</h4>
+  <p>GSA está expandiendo los requisitos de verificación de identidad de Login.gov, aumentando los controles de seguridad para el acceso a SAM.gov y agregando nuevas preguntas de representación relacionadas con la ciberseguridad (CMMC) y el cumplimiento de la cadena de suministro.</p></div>
+  <div class="horizon-box"><h4>Horizonte 2 — Emergente (2026–2028)</h4>
+  <p>Integración de datos de SAM.gov con sistemas de monitoreo de cumplimiento del contratista: verificación automatizada de certificaciones activas, monitoreo en tiempo real del estado de exclusiones y actualizaciones de estado de certificación SBA impulsadas por API.</p></div>
+  <div class="horizon-box"><h4>Horizonte 3 — Futuro (2028+)</h4>
+  <p>Plataformas federales de contratación impulsadas por IA que extraen directamente de SAM.gov para precalificar automáticamente proveedores para solicitudes de oferta basadas en perfiles de código NAICS, historial de rendimiento pasado e idoneidad de certificación.</p></div>
+
+  <div class="sources"><h4>Fuentes Verificables</h4>
+  <ul>
+    <li>GSA — SAM.gov: sam.gov</li>
+    <li>SBA — Tabla de Estándares de Tamaño: sba.gov/size-standards</li>
+    <li>FAR 19.102 — Determinaciones de Tamaño de Pequeña Empresa</li>
+    <li>Login.gov — Verificación de Identidad: login.gov</li>
+  </ul></div>
+
+
+  <div class="cta-box">
+    <h3>¿Necesita apoyo con cumplimiento o contratación gubernamental?</h3>
+    <p>RC2 Consulting trabaja con organizaciones en todos los sectores para construir sistemas operacionales sólidos y estrategias de cumplimiento que resistan cualquier auditoría.</p>
+    <a href="https://rc2consulting.github.io/contact-es.html" class="cta-btn">Iniciar la Conversación →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">RC2<span>.</span></div>
+  <p class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</p>
+  <ul class="footer-links">
+    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
+    <li><a href="https://rc2consulting.github.io/services.html">Servicios</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a></li>
+    <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
+    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 RC2 Consulting, LLC | Política de Privacidad | Términos de Servicio</p>
+</footer>
+</body>
+</html>
