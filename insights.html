@@ -40,66 +40,32 @@
     }
 
     /* ── NAV ── */
-    nav {
-      background: var(--navy);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-    .nav-logo span {
-      color: var(--gold);
-    }
-    .nav-links {
-      display: flex;
-      gap: 0.25rem;
-      list-style: none;
-      align-items: center;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.82);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 0.4rem 0.75rem;
-      border-radius: 4px;
-      transition: color 0.2s, background 0.2s;
-      text-transform: uppercase;
-    }
-    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
-    .nav-links a.active { color: var(--gold); }
-    .nav-lang {
-      display: flex;
-      gap: 0.25rem;
-      margin-left: 1rem;
-      padding-left: 1rem;
-      border-left: 1px solid rgba(255,255,255,0.15);
-    }
-    .nav-lang a {
-      color: rgba(255,255,255,0.55);
-      font-size: 0.75rem;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      padding: 0.3rem 0.5rem;
-      border-radius: 3px;
-      transition: color 0.2s;
-    }
-    .nav-lang a:hover, .nav-lang a.active { color: var(--gold); }
+    .topnav { background:var(--navy); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
+    .nav-logo-mark sup { font-size:0.5rem; vertical-align:super; }
+    .nav-brand-name { font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.9); }
+    .nav-links { display:flex; gap:4px; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.83rem; font-weight:600; padding:6px 12px; border-radius:4px; transition:all 0.2s; white-space:nowrap; }
+    .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
+    .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
+    .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
+    .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+    .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+    .lang-btn.active{background:#C8922A;color:#0B2545}
+    .hamburger { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:6px; margin-left:auto; z-index:300; }
+    .hamburger span { display:block; width:24px; height:2px; background:rgba(255,255,255,0.9); border-radius:2px; transition:all .28s ease; }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .site-footer { background:#1A4A8A; color:white; text-align:center; padding:40px 24px; border-top:1px solid rgba(255,255,255,0.1); }
+    .site-footer .footer-tagline { font-size:0.92rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:12px; }
+    .site-footer .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; list-style:none; }
+    .site-footer .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; }
+    .site-footer .footer-links a:hover { color:white; }
+    .site-footer .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+
 
     /* ── HERO ── */
     .hero {
@@ -450,33 +416,67 @@
     }
     .employee-portal:hover { color: rgba(255,255,255,0.4); }
 
+    @media (max-width: 900px) {
+      .topnav { padding:0 16px; }
+      .nav-links a { padding:5px 8px; font-size:0.78rem; }
+    }
     @media (max-width: 768px) {
       .featured-article { grid-template-columns: 1fr; }
       .featured-visual { display: none; }
       .articles-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .topnav { padding: 0 16px !important; position: relative; }
+      .hamburger { display: flex !important; }
+      .nav-links {
+        display: none; position: absolute; top: 52px; left: 0; right: 0;
+        background: #0B2545; flex-direction: column !important;
+        padding: 8px 0 16px; border-top: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35); z-index: 200; gap: 0 !important;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block; width: 100%; padding: 12px 20px !important;
+        font-size: 0.92rem !important; border-bottom: 1px solid rgba(255,255,255,0.07);
+        border-radius: 0 !important; height: auto !important;
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .lang-toggle { padding: 10px 20px 4px; }
+    }
+    @media (max-width: 380px) {
+      .topnav { padding: 0 12px !important; }
+      .nav-logo-mark { font-size: 1rem !important; }
+      .nav-brand-name { font-size: 0.68rem !important; }
     }
   </style>
 </head>
 <body>
 
 <!-- ── NAVIGATION ── -->
-<nav>
-  <a href="https://rc2consulting.github.io/" class="nav-logo">RC2<span>.</span></a>
+<nav class="topnav">
+  <a href="https://rc2consulting.github.io/" class="nav-brand">
+    <div class="nav-logo-mark">RC<sup>2</sup></div>
+    <span class="nav-brand-name">Consulting</span>
+  </a>
   <ul class="nav-links">
     <li><a href="https://rc2consulting.github.io/">Home</a></li>
     <li><a href="https://rc2consulting.github.io/services.html">Services</a></li>
     <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
     <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a></li>
-        <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html" class="active">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
+    <li>
+      <div class="lang-toggle">
+        <a href="https://rc2consulting.github.io/insights.html" class="lang-btn active">EN</a>
+        <a href="https://rc2consulting.github.io/insights-es.html" class="lang-btn inactive">ES</a>
+      </div>
+    </li>
   </ul>
-  <div class="nav-lang">
-    <a href="https://rc2consulting.github.io/insights.html" class="active">EN</a>
-    <a href="https://rc2consulting.github.io/insights-es.html">ES</a>
-  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ── HERO ── -->
@@ -670,22 +670,46 @@
 </main>
 
 <!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-logo">RC2<span>.</span></div>
-  <p class="footer-tagline">Operational Clarity. Compliance Confidence. Systems That Scale.</p>
-  <ul class="footer-links">
-    <li><a href="https://rc2consulting.github.io/">Home</a></li>
-    <li><a href="https://rc2consulting.github.io/services.html">Services</a></li>
-    <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
-    <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
-    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a></li>
-        <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
-    <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
-    <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-  </ul>
-  <p class="footer-copy">© 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Terms of Service</p>
-  <a href="https://rc2consulting.github.io/RC2%20Training%20Hub.html" class="employee-portal">⚡ EMPLOYEE PORTAL</a>
+<footer class="site-footer">
+  <div class="footer-tagline">Operational Clarity. Compliance Confidence. Systems That Scale.</div>
+  <div class="footer-links">
+    <a href="https://rc2consulting.github.io/">Home</a>
+    <a href="https://rc2consulting.github.io/services.html">Services</a>
+    <a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a>
+    <a href="https://rc2consulting.github.io/about.html">About</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a>
+    <a href="https://rc2consulting.github.io/insights.html">Insights</a>
+    <a href="https://rc2consulting.github.io/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Terms of Service</div>
 </footer>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.querySelector('.nav-links');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
 
 <script>
   function filterCards(category, btn) {
