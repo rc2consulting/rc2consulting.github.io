@@ -142,7 +142,59 @@
     .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
     @media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.check-grid{grid-template-columns:1fr}.prog-btns{flex-direction:column}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
     @media print{.topnav,.btn-back,.dashboard,.acta,.site-footer{display:none}.phase-block{box-shadow:none;break-inside:avoid}}
-  </style>
+  
+    /* ── Hamburger Button ── */
+    .hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 6px;
+      margin-left: auto; z-index: 300;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: rgba(255,255,255,0.9); border-radius: 2px;
+      transition: all .28s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .lang-toggle { display:flex; gap:4px; align-items:center; }
+    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
+    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
+    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
+    .lang-btn.active { background:#C8922A; color:#0B2545; }
+
+    /* ── Mobile breakpoint: 640px ── */
+    @media (max-width: 640px) {
+      .topnav { padding: 0 16px !important; position: relative; }
+      .hamburger { display: flex !important; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 52px; left: 0; right: 0;
+        background: #0B2545;
+        flex-direction: column !important;
+        padding: 8px 0 16px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        z-index: 200;
+        gap: 0 !important;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block; width: 100%;
+        padding: 12px 20px !important;
+        font-size: 0.92rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        border-radius: 0 !important;
+        height: auto !important;
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .lang-toggle { padding: 10px 20px 4px; }
+    }
+
+    </style>
 </head>
 <body>
 <nav class="topnav">
@@ -156,8 +208,18 @@
     <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
     <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
+    <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
+      <li>
+      <div class="lang-toggle">
+        <a href="https://rc2consulting.github.io/RC2_SBA_Application_Tool.html" class="lang-btn active">EN</a>
+        <a href="https://rc2consulting.github.io/RC2_SBA_Application_Tool-es.html" class="lang-btn inactive">ES</a>
+      </div>
+    </li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <section class="hero">
@@ -393,9 +455,17 @@
 </div>
 
 <footer class="site-footer">
-  <div class="ft">Operational Clarity. Compliance Confidence. Systems That Scale.</div>
-  <div class="fl"><a href="https://rc2consulting.github.io/">Home</a><a href="https://rc2consulting.github.io/services.html">Services</a><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a><a href="https://rc2consulting.github.io/about.html">About</a><a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a><a href="https://rc2consulting.github.io/contact.html">Contact</a></div>
-  <div class="fc">© 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Terms of Service</div>
+  <div class="footer-tagline">Operational Clarity. Compliance Confidence. Systems That Scale.</div>
+  <div class="footer-links">
+    <a href="https://rc2consulting.github.io/">Home</a>
+    <a href="https://rc2consulting.github.io/services.html">Services</a>
+    <a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a>
+    <a href="https://rc2consulting.github.io/about.html">About</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a>
+    <a href="https://rc2consulting.github.io/insights.html">Insights</a>
+    <a href="https://rc2consulting.github.io/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Terms of Service</div>
 </footer>
 
 <script>
@@ -450,6 +520,33 @@ function calcAll(){
   sbar.className=cls;
   sbar.innerHTML='<div><div class="status-text">'+txt+'</div><div class="status-sub">'+sub+'</div></div><div class="overall-pct" id="ovpct">'+overall+'%</div>';
 }
+</script>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.querySelector('.nav-links');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
 </script>
 </body>
 </html>
