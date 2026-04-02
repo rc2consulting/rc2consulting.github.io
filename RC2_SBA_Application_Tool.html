@@ -138,7 +138,8 @@
     .site-footer{background:var(--blue);color:#fff;text-align:center;padding:36px 24px}
     .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
     .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
+    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem transition:color 0.2s; cursor:pointer; }
+    .fl a:hover { color:white; }
     .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
     @media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.check-grid{grid-template-columns:1fr}.prog-btns{flex-direction:column}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
     @media print{.topnav,.btn-back,.dashboard,.acta,.site-footer{display:none}.phase-block{box-shadow:none;break-inside:avoid}}
