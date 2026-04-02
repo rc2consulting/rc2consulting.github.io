@@ -688,7 +688,52 @@
     .lang-btn { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.78rem; font-weight:700; padding:4px 8px; border-radius:4px; border:1px solid transparent; transition:all 0.2s; }
     .lang-btn:hover { color:white; border-color:rgba(255,255,255,0.3); }
     .lang-btn.active { color:white; background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
-  </style>
+  
+    /* ── Hamburger Button ── */
+    .hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 6px;
+      margin-left: auto; z-index: 300;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: rgba(255,255,255,0.9); border-radius: 2px;
+      transition: all .28s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .lang-toggle { display:flex; gap:4px; align-items:center; }
+    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
+    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
+    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
+    .lang-btn.active { background:#C8922A; color:#0B2545; }
+    @media (max-width: 640px) {
+      .topnav { padding: 0 16px !important; position: relative; }
+      .hamburger { display: flex !important; }
+      .nav-links {
+        display: none; position: absolute;
+        top: 52px; left: 0; right: 0;
+        background: #0B2545; flex-direction: column !important;
+        padding: 8px 0 16px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        z-index: 200; gap: 0 !important;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block; width: 100%;
+        padding: 12px 20px !important; font-size: 0.92rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        border-radius: 0 !important; height: auto !important;
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .lang-toggle { padding: 10px 20px 4px; }
+    }
+
+    </style>
 </head>
 <body>
 <nav class="topnav">
@@ -701,15 +746,19 @@
     <li><a href="https://rc2consulting.github.io/services-es.html">Servicios</a></li>
     <li><a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a></li>
     <li><a href="https://rc2consulting.github.io/about-es.html">Nosotros</a></li>
-    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a></li>
-        <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
-        <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="active">Recursos</a></li>
+    <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
     <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
+      <li>
+      <div class="lang-toggle">
+        <a href="https://rc2consulting.github.io/RC2_Gap_Analysis.html" class="lang-btn inactive">EN</a>
+        <a href="https://rc2consulting.github.io/RC2_Gap_Analysis-es.html" class="lang-btn active">ES</a>
+      </div>
+    </li>
   </ul>
-  <div class="nav-lang">
-    <a href="https://rc2consulting.github.io/RC2_Gap_Analysis.html" class="lang-btn">EN</a>
-    <a href="#" class="lang-btn active">ES</a>
-  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ─── HERO ─── -->
@@ -1192,3 +1241,45 @@
     <a href="https://rc2consulting.github.io/about-es.html">Nosotros</a>
     <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a>
     <a href="https://
+
+<footer class="site-footer">
+  <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-links">
+    <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
+    <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
+    <a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a>
+    <a href="https://rc2consulting.github.io/about-es.html">Nosotros</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a>
+    <a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a>
+    <a href="https://rc2consulting.github.io/contact-es.html">Contacto</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Política de Privacidad &nbsp;|&nbsp; Términos de Servicio</div>
+</footer>
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.querySelector('.nav-links');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -175,7 +175,61 @@
       .lang-toggle{padding:10px 20px 4px}
     }
     @media(max-width:380px){.topnav{padding:0 12px !important}.nav-logo-mark{font-size:1rem !important}.nav-brand-name{font-size:0.68rem !important}}
-  </style>
+  
+    /* ── Hamburger Button ── */
+    .hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 6px;
+      margin-left: auto; z-index: 300;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: rgba(255,255,255,0.9); border-radius: 2px;
+      transition: all .28s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .lang-toggle { display:flex; gap:4px; align-items:center; }
+    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
+    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
+    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
+    .lang-btn.active { background:#C8922A; color:#0B2545; }
+    @media (max-width: 640px) {
+      .topnav { padding: 0 16px !important; position: relative; }
+      .hamburger { display: flex !important; }
+      .nav-links {
+        display: none; position: absolute;
+        top: 52px; left: 0; right: 0;
+        background: #0B2545; flex-direction: column !important;
+        padding: 8px 0 16px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        z-index: 200; gap: 0 !important;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block; width: 100%;
+        padding: 12px 20px !important; font-size: 0.92rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        border-radius: 0 !important; height: auto !important;
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .lang-toggle { padding: 10px 20px 4px; }
+    }
+
+    
+    /* ── Site Footer ── */
+    .site-footer { background: #1A4A8A; color: white; text-align: center; padding: 40px 24px; }
+    .footer-tagline { font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px; }
+    .footer-links { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
+    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; cursor:pointer; }
+    .footer-links a:hover { color:white; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+
+    </style>
 </head>
 <body>
 
@@ -192,7 +246,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="active">Recursos</a></li>
     <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
     <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
-    <li>
+      <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_KPI_Tool.html" class="lang-btn inactive">EN</a>
         <a href="https://rc2consulting.github.io/RC2_KPI_Tool-es.html" class="lang-btn active">ES</a>
