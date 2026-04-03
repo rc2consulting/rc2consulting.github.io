@@ -16,10 +16,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #0B2545; --blue: #1A4A8A; --light-blue: #2563EB;
-      --accent: #C8922A; --light-bg: #F4F6FA; --white: #FFFFFF;
-      --text: #1C2B3A; --text-muted: #4A5568; --border: #E2E8F0;
-      --red: #DC2626; --green: #16A34A; --amber: #D97706;
+      --navy:#0B2545; --navy-mid:#163566; --blue:#1A4A8A; --light-blue:#2563EB;
+      --teal:#0D7680; --accent:#C8922A; --accent-lt:#F0B429;
+      --light-bg:#F4F6FA; --border:#E2E8F0; --text:#1C2B3A; --muted:#4A5568; --white:#FFFFFF;
+      --fta:#16A34A; --fta-lt:#DCFCE7; --art:#7C3AED; --art-lt:#EDE9FE;
+      --tifa:#0891B2; --tifa-lt:#CFFAFE; --bit:#D97706; --bit-lt:#FEF3C7;
+      --pref:#DB2777; --pref-lt:#FCE7F3; --other:#64748B; --other-lt:#F1F5F9;
     }
     html,body{overflow-x:hidden;font-family:'Source Sans 3',sans-serif;color:var(--text);background:var(--light-bg)}
     nav.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:300}
@@ -34,7 +36,7 @@
 
     .hero{background:linear-gradient(to bottom, rgba(11,37,69,0.85) 0%, rgba(11,37,69,0.70) 100%), url('https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1400&q=80') center/cover no-repeat;padding: 64px 40px 56px;position:relative;overflow:hidden}
     /* hero ::before removed */
-    .hero-inner{max-width:1100px;margin:0 auto;position:relative}
+    .hero-inner{max-width:1140px;margin:0 auto;position:relative}
     .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,146,42,0.2);border:1px solid rgba(200,146,42,0.5);color:var(--accent-lt);font-size:0.76rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:18px}
     .hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:800;color:white;line-height:1.2;margin-bottom:14px;max-width:740px}
     .hero-sub{color:rgba(255,255,255,0.82);font-size:1rem;line-height:1.7;max-width:680px;margin-bottom:28px}
