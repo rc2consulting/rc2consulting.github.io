@@ -12,7 +12,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Constructor de Marco KPI | RC2 Consulting</title>
-  <meta name="description" content="Construya y evalúe su marco KPI organizacional con el Constructor de Marco KPI de RC2 — herramienta interactiva gratuita."/>
+  <meta name="description" content="Construya y evalúe el marco de KPIs de su organización con el Constructor de Marco KPI de RC2 — herramienta interactiva gratuita."/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -35,16 +35,17 @@
     .nav-links{display:flex;gap:4px;list-style:none}
     .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s}
     .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+    .nav-lang{display:flex;gap:4px}
     .lang-btn{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.2);transition:all .2s}
     .lang-btn:hover{color:white;border-color:rgba(255,255,255,.5)}
     .lang-btn.active{color:white;background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4)}
 
     /* HERO */
-    .hero{background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D2A5A 100%);padding:56px 40px 44px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 40%,rgba(200,146,42,.07) 0%,transparent 60%);pointer-events:none}
+    .hero{background:linear-gradient(to bottom, rgba(11,37,69,0.85) 0%, rgba(11,37,69,0.70) 100%), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80') center/cover no-repeat;padding:64px 40px 56px;position:relative;overflow:hidden}
+    /* hero ::before removed */
     .hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
     .atag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
     .hero-sub{font-size:.9rem;color:rgba(255,255,255,.7);max-width:680px;line-height:1.7}
 
     /* DASHBOARD */
@@ -140,19 +141,10 @@
     .site-footer{background:var(--blue);color:#fff;text-align:center;padding:36px 24px}
     .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
     .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
+    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem transition:color 0.2s; cursor:pointer; }
+    .fl a:hover { color:white; }
     .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
 
-    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
-    .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
-    .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
-    .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
-    .lang-btn.active{background:#C8922A;color:#0B2545}
-    .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
-    .hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
-    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
     @media(max-width:800px){
       .tool-grid{grid-template-columns:1fr}
       .hero,.main{padding-left:20px;padding-right:20px}
@@ -164,17 +156,6 @@
       .nav-links a{font-size:.74rem;padding:5px 7px}
     }
     @media print{.topnav,.site-footer,.add-kpi-btn,.action-row,.instr{display:none}.hero{padding:20px}.main{padding:20px}}
-      @media(max-width:640px){
-      .topnav{padding:0 16px !important;position:relative}
-      .hamburger{display:flex !important}
-      .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0 !important}
-      .nav-links.mobile-open{display:flex !important}
-      .nav-links li{width:100%}
-      .nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:0.92rem !important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0 !important;height:auto !important}
-      .nav-links a:last-child{border-bottom:none}
-      .lang-toggle{padding:10px 20px 4px}
-    }
-    @media(max-width:380px){.topnav{padding:0 12px !important}.nav-logo-mark{font-size:1rem !important}.nav-brand-name{font-size:0.68rem !important}}
   
     /* ── Hamburger Button ── */
     .hamburger {
@@ -196,38 +177,36 @@
     .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
     .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
     .lang-btn.active { background:#C8922A; color:#0B2545; }
+
+    /* ── Mobile breakpoint: 640px ── */
     @media (max-width: 640px) {
       .topnav { padding: 0 16px !important; position: relative; }
       .hamburger { display: flex !important; }
       .nav-links {
-        display: none; position: absolute;
+        display: none;
+        position: absolute;
         top: 52px; left: 0; right: 0;
-        background: #0B2545; flex-direction: column !important;
+        background: #0B2545;
+        flex-direction: column !important;
         padding: 8px 0 16px;
         border-top: 1px solid rgba(255,255,255,0.15);
         box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200; gap: 0 !important;
+        z-index: 200;
+        gap: 0 !important;
       }
       .nav-links.mobile-open { display: flex !important; }
       .nav-links li { width: 100%; }
       .nav-links a {
         display: block; width: 100%;
-        padding: 12px 20px !important; font-size: 0.92rem !important;
+        padding: 12px 20px !important;
+        font-size: 0.92rem !important;
         border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important; height: auto !important;
+        border-radius: 0 !important;
+        height: auto !important;
       }
       .nav-links a:last-child { border-bottom: none; }
       .lang-toggle { padding: 10px 20px 4px; }
     }
-
-    
-    /* ── Site Footer ── */
-    .site-footer { background: #1A4A8A; color: white; text-align: center; padding: 40px 24px; }
-    .footer-tagline { font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px; }
-    .footer-links { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
-    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; cursor:pointer; }
-    .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
 
     </style>
 </head>
@@ -288,7 +267,7 @@
       <div class="dash-lbl">Dominios Evaluados</div>
     </div>
     <div>
-      <div class="verdict-badge verdict-navy" id="d-verdict">⬜ Iniciar Evaluación</div>
+      <div class="verdict-badge verdict-navy" id="d-verdict">⬜ Begin Assessment</div>
     </div>
   </div>
 </div>
@@ -302,28 +281,28 @@
         <div class="instr-num">1</div>
         <div class="instr-text">
           <strong>Nombre sus KPIs</strong>
-          <p>Escriba los nombres reales de métricas que usa su organización (o deje los predeterminados). Agregue KPIs personalizados con el botón +.</p>
+          <p>Escriba los nombres reales de las métricas que usa su organización (o deje los predeterminados). Agregue KPIs personalizados con el botón +.</p>
         </div>
       </div>
       <div class="instr-step">
         <div class="instr-num">2</div>
         <div class="instr-text">
           <strong>Califique el Estado Actual</strong>
-          <p>Para cada KPI, califique la Madurez Actual (1=No Medido → 5=Completamente Optimizado) e Importancia Estratégica (1–5).</p>
+          <p>Para cada KPI, califique la Madurez Actual (1=No Medido → 5=Totalmente Optimizado) y la Importancia Estratégica (1–5).</p>
         </div>
       </div>
       <div class="instr-step">
         <div class="instr-num">3</div>
         <div class="instr-text">
-          <strong>Revisar Resultados</strong>
-          <p>Su puntuación compuesta, puntuaciones por dominio y lista de acciones prioritarias se actualizan en tiempo real.</p>
+          <strong>Revise los Resultados</strong>
+          <p>Su puntuación compuesta, puntuaciones por dominio y lista de acciones prioritarias se actualizan en tiempo real mientras completa la evaluación.</p>
         </div>
       </div>
       <div class="instr-step">
         <div class="instr-num">4</div>
         <div class="instr-text">
           <strong>Exportar Resumen</strong>
-          <p>Haga clic en "Exportar Resumen" para abrir una versión imprimible de su marco KPI para su equipo o asesor.</p>
+          <p>Haga clic en "Exportar Resumen" para abrir una versión imprimible del marco KPI para su equipo o asesor.</p>
         </div>
       </div>
     </div>
@@ -342,10 +321,10 @@
       </div>
       <div class="sc-body" id="body-financial">
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Crecimiento de Ingresos <span>% de aumento interanual de ingresos</span></div>
+          <div class="kpi-label">Tasa de Crecimiento de Ingresos <span>% de aumento interanual en ingresos</span></div>
           <div class="kpi-inputs">
             <input class="kpi-name-input" type="text" value="Tasa de Crecimiento de Ingresos" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()" title="Current Madurez (1=No Medido, 5=Completamente Optimizado)">
+            <select class="score-select" onchange="styleSelect(this);calc()" title="Madurez Actual (1=No Medido, 5=Totalmente Optimizado)">
               <option value="0">Madurez</option>
               <option value="1">1 – No Medido</option>
               <option value="2">2 – Ad Hoc</option>
@@ -353,7 +332,7 @@
               <option value="4">4 – Gestionado</option>
               <option value="5">5 – Optimizado</option>
             </select>
-            <select class="score-select" onchange="styleSelect(this);calc()" title="Estratégico Importancia (1=Baja, 5=Crítica)">
+            <select class="score-select" onchange="styleSelect(this);calc()" title="Importancia Estratégica (1=Baja, 5=Crítica)">
               <option value="0">Importancia</option>
               <option value="1">1 – Baja</option>
               <option value="2">2 – Moderada</option>
@@ -365,9 +344,9 @@
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Margen Bruto / Operativo <span>% de beneficio después de costos directos</span></div>
+          <div class="kpi-label">Margen Bruto / Operativo <span>% de ganancia después de costos directos</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Gross Margin %" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Margen Bruto %" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
@@ -385,7 +364,7 @@
         <div class="kpi-row">
           <div class="kpi-label">Días de Cuentas por Cobrar <span>Días promedio para cobrar pagos</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="AR Days Outstanding" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Días de CxC Pendientes" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
@@ -400,7 +379,7 @@
         <div class="sc-head-left">
           <span class="sc-icon">🤝</span>
           <div>
-            <div class="sc-title">Desempeño con Clientes</div>
+            <div class="sc-title">Desempeño del Cliente</div>
             <div class="sc-subtitle">Satisfacción · Retención · Adquisición</div>
           </div>
         </div>
@@ -408,7 +387,7 @@
       </div>
       <div class="sc-body" id="body-customer">
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Retención de Clientes <span>% de clientes retenidos período a período</span></div>
+          <div class="kpi-label">Tasa de Retención de Clientes <span>% clientes retenidos período a período</span></div>
           <div class="kpi-inputs">
             <input class="kpi-name-input" type="text" value="Tasa de Retención de Clientes" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
@@ -417,7 +396,7 @@
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Puntuación Neta del Promotor (NPS) <span>Lealtad del cliente y probabilidad de referidos</span></div>
+          <div class="kpi-label">Net Promoter Score (NPS) <span>Lealtad del cliente y probabilidad de referencia</span></div>
           <div class="kpi-inputs">
             <input class="kpi-name-input" type="text" value="Net Promoter Score" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
@@ -435,7 +414,7 @@
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Resolución de Quejas <span>% de quejas resueltas dentro del SLA</span></div>
+          <div class="kpi-label">Tasa de Resolución de Quejas <span>% quejas resueltas dentro del SLA</span></div>
           <div class="kpi-inputs">
             <input class="kpi-name-input" type="text" value="Tasa de Resolución de Quejas" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
@@ -443,7 +422,7 @@
           </div>
         </div>
       </div>
-      <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-customer','customer')">+ Agregar KPI de Clientes</button></div>
+      <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-customer','customer')">+ Agregar KPI de Cliente</button></div>
     </div>
 
     <!-- DOMAIN 3: OPERATIONS -->
@@ -460,7 +439,7 @@
       </div>
       <div class="sc-body" id="body-operations">
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Entrega a Tiempo <span>% de pedidos entregados en la fecha comprometida</span></div>
+          <div class="kpi-label">Tasa de Entrega a Tiempo <span>% pedidos entregados en fecha comprometida</span></div>
           <div class="kpi-inputs">
             <input class="kpi-name-input" type="text" value="Tasa de Entrega a Tiempo" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
@@ -469,9 +448,9 @@
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Rendimiento de Primera Pasada / Tasa de Calidad <span>% de producción que cumple especificaciones a la primera</span></div>
+          <div class="kpi-label">Rendimiento de Primera Pasada <span>% producción que cumple calidad a la primera</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="First-Pass Yield" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Rendimiento de Primera Pasada" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
@@ -487,9 +466,9 @@
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tiempo de Ciclo / Tiempo de Espera <span>Tiempo desde recepción del pedido hasta entrega</span></div>
+          <div class="kpi-label">Tiempo de Ciclo / Lead Time <span>Tiempo desde recepción de pedido hasta entrega</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Order-to-Delivery Cycle Time" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Tiempo de Ciclo Pedido-Entrega" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
@@ -512,25 +491,25 @@
       </div>
       <div class="sc-body" id="body-compliance">
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Cierre de Hallazgos de Auditoría <span>% de hallazgos cerrados dentro de 30 días</span></div>
+          <div class="kpi-label">Tasa de Cierre de Hallazgos <span>% hallazgos cerrados en 30 días</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Cierre de Hallazgos de Auditoría" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Tasa de Cierre de Hallazgos" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Completación de Capacitaciones <span>% del personal que completa la capacitación requerida a tiempo</span></div>
+          <div class="kpi-label">Tasa de Completación de Capacitación <span>% personal que completa capacitación requerida a tiempo</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Completación de Capacitaciones" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Tasa de Capacitación Completada" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Cumplimiento de Políticas <span>% de procesos que siguen la política documentada</span></div>
+          <div class="kpi-label">Tasa de Cumplimiento de Políticas <span>% procesos que siguen la política documentada</span></div>
           <div class="kpi-inputs">
             <input class="kpi-name-input" type="text" value="Tasa de Cumplimiento de Políticas" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
@@ -539,9 +518,9 @@
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Reporte de Incidentes / Casi Accidentes <span>Documentación de eventos de seguridad y riesgo</span></div>
+          <div class="kpi-label">Tasa de Reporte de Incidentes <span>Documentación de eventos de seguridad y riesgo</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Incident Reporting Rate" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Tasa de Reporte de Incidentes" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
@@ -564,34 +543,34 @@
       </div>
       <div class="sc-body" id="body-people">
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Rotación de Personal <span>% de la fuerza laboral que se va anualmente</span></div>
+          <div class="kpi-label">Tasa de Rotación de Personal <span>% fuerza laboral que sale anualmente</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Annual Turnover Rate" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Tasa de Rotación Anual" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Puntuación de Compromiso del Empleado <span>Índice de compromiso / satisfacción basado en encuestas</span></div>
+          <div class="kpi-label">Puntuación de Compromiso <span>Índice de compromiso/satisfacción basado en encuestas</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Puntuación de Compromiso del Empleado" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Puntuación de Compromiso" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tiempo para Cubrir Vacantes <span>Días desde publicación hasta oferta aceptada</span></div>
+          <div class="kpi-label">Tiempo para Cubrir Posiciones <span>Días desde publicación hasta oferta aceptada</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Time to Fill" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Tiempo para Cubrir" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Ausentismo <span>% de días laborales programados perdidos</span></div>
+          <div class="kpi-label">Tasa de Ausentismo <span>% días laborales programados no trabajados</span></div>
           <div class="kpi-inputs">
             <input class="kpi-name-input" type="text" value="Tasa de Ausentismo" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
@@ -609,32 +588,32 @@
           <span class="sc-icon">🎯</span>
           <div>
             <div class="sc-title">Estrategia y Crecimiento</div>
-            <div class="sc-subtitle">Innovación · Mercado · Cartera</div>
+            <div class="sc-subtitle">Innovación · Mercado · Pipeline</div>
           </div>
         </div>
         <span class="sc-score-chip chip-gray" id="chip-strategic">–</span>
       </div>
       <div class="sc-body" id="body-strategic">
         <div class="kpi-row">
-          <div class="kpi-label">Ratio de Cobertura del Pipeline de Ventas <span>Valor del pipeline ÷ cuota (indicador adelantado)</span></div>
+          <div class="kpi-label">Ratio de Cobertura del Pipeline <span>Valor del pipeline ÷ cuota (indicador anticipado)</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Pipeline Coverage Ratio" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Ratio de Cobertura del Pipeline" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">% de Ingresos por Nuevo Mercado / Canal <span>% de ingresos de nuevos mercados o canales</span></div>
+          <div class="kpi-label">% Ingresos de Nuevos Mercados <span>% ingresos de nuevos mercados o canales</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="New Market Revenue %" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="% Ingresos Nuevos Mercados" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Completación de Iniciativas Estratégicas <span>% de proyectos estratégicos a tiempo y dentro del presupuesto</span></div>
+          <div class="kpi-label">Tasa de Completación de Iniciativas <span>% proyectos estratégicos a tiempo y presupuesto</span></div>
           <div class="kpi-inputs">
             <input class="kpi-name-input" type="text" value="Completación de Iniciativas Estratégicas" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
@@ -643,9 +622,9 @@
         </div>
         <div class="divider"></div>
         <div class="kpi-row">
-          <div class="kpi-label">Tasa de Conversión de Propuestas <span>% de propuestas convertidas en contratos</span></div>
+          <div class="kpi-label">Tasa de Conversión de Propuestas <span>% propuestas convertidas en contratos</span></div>
           <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Proposal Win Rate" oninput="calc()"/>
+            <input class="kpi-name-input" type="text" value="Tasa de Conversión de Propuestas" oninput="calc()"/>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
             <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
           </div>
@@ -656,22 +635,22 @@
 
     <!-- RESULTS PANEL -->
     <div class="results-panel" id="results-panel">
-      <h2>📊 Resultados de Evaluación del Marco</h2>
+      <h2>📊 Resultados de la Evaluación del Marco</h2>
       <div class="results-grid" id="results-grid">
         <div class="r-card"><div class="r-val" id="r-financial">–</div><div class="r-lbl">Financiero</div><div class="r-bar"><div class="r-fill" id="rf-financial" style="width:0%"></div></div></div>
-        <div class="r-card"><div class="r-val" id="r-customer">–</div><div class="r-lbl">Clientes</div><div class="r-bar"><div class="r-fill" id="rf-customer" style="width:0%"></div></div></div>
+        <div class="r-card"><div class="r-val" id="r-customer">–</div><div class="r-lbl">Cliente</div><div class="r-bar"><div class="r-fill" id="rf-customer" style="width:0%"></div></div></div>
         <div class="r-card"><div class="r-val" id="r-operations">–</div><div class="r-lbl">Operaciones</div><div class="r-bar"><div class="r-fill" id="rf-operations" style="width:0%"></div></div></div>
         <div class="r-card"><div class="r-val" id="r-compliance">–</div><div class="r-lbl">Cumplimiento</div><div class="r-bar"><div class="r-fill" id="rf-compliance" style="width:0%"></div></div></div>
         <div class="r-card"><div class="r-val" id="r-people">–</div><div class="r-lbl">Personas</div><div class="r-bar"><div class="r-fill" id="rf-people" style="width:0%"></div></div></div>
-        <div class="r-card"><div class="r-val" id="r-strategic">–</div><div class="r-lbl">Estratégico</div><div class="r-bar"><div class="r-fill" id="rf-strategic" style="width:0%"></div></div></div>
-        <div class="r-card" style="grid-column:span 2"><div class="r-val" id="r-total" style="font-size:2.2rem">–</div><div class="r-lbl">Puntuación Compuesta General</div><div class="r-bar"><div class="r-fill" id="rf-total" style="width:0%"></div></div></div>
-        <div class="r-card" style="grid-column:span 2"><div class="r-val" id="r-kpis" style="font-size:2.2rem">–</div><div class="r-lbl">KPIs Assessed</div></div>
+        <div class="r-card"><div class="r-val" id="r-strategic">–</div><div class="r-lbl">Estrategia</div><div class="r-bar"><div class="r-fill" id="rf-strategic" style="width:0%"></div></div></div>
+        <div class="r-card" style="grid-column:span 2"><div class="r-val" id="r-total" style="font-size:2.2rem">–</div><div class="r-lbl">Compuesto General</div><div class="r-bar"><div class="r-fill" id="rf-total" style="width:0%"></div></div></div>
+        <div class="r-card" style="grid-column:span 2"><div class="r-val" id="r-kpis" style="font-size:2.2rem">–</div><div class="r-lbl">KPIs Evaluados</div></div>
       </div>
 
       <div style="margin-top:4px">
         <div style="font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px">🔴 Acciones Prioritarias — Alta Importancia, Baja Madurez</div>
         <table class="priority-table" id="priority-table">
-          <thead><tr><th>Nombre del KPI</th><th>Dominio</th><th>Madurez</th><th>Importancia</th><th>Prioridad</th></tr></thead>
+          <thead><tr><th>Nombre del KPI</th><th>Dominio</th><th>Maturity</th><th>Importance</th><th>Prioridad</th></tr></thead>
           <tbody id="priority-body"><tr><td colspan="5" style="color:rgba(255,255,255,.4);font-style:italic">Complete la evaluación para ver las acciones prioritarias</td></tr></tbody>
         </table>
       </div>
@@ -701,7 +680,7 @@
 
 <script>
 const DOMAINS = ['financial','customer','operations','compliance','people','strategic'];
-const DOMAIN_LABELS = {financial:'Financiero',customer:'Clientes',operations:'Operaciones',compliance:'Cumplimiento',people:'Personas',strategic:'Estrategia'};
+const DOMAIN_LABELS = {financial:'Financiero',customer:'Cliente',operations:'Operaciones',compliance:'Cumplimiento',people:'Personas',strategic:'Estrategia'};
 
 function styleSelect(sel){
   const v = parseInt(sel.value);
@@ -785,7 +764,7 @@ function calc(){
 
   const pb = document.getElementById('priority-body');
   if(priorities.length===0){
-    pb.innerHTML = '<tr><td colspan="5" style="color:rgba(255,255,255,.4);font-style:italic">'+(totalKPIs>0 ? 'No se identificaron brechas de alta prioridad — buena cobertura del marco' : 'Complete la evaluación anterior para ver las acciones prioritarias')+'</td></tr>';
+    pb.innerHTML = '<tr><td colspan="5" style="color:rgba(255,255,255,.4);font-style:italic">'+(totalKPIs>0 ? 'No se identificaron brechas de alta prioridad — buena cobertura del marco' : 'Complete la evaluación para ver las acciones prioritarias')+'</td></tr>';
   } else {
     pb.innerHTML = priorities.slice(0,10).map(i=>{
       const gap = i.importance - i.maturity;
@@ -804,9 +783,9 @@ function addKpi(bodyId, domain){
   row.className = 'kpi-row';
   row.innerHTML = `
     <div class="divider"></div>
-    <div class="kpi-label">KPI Personalizado</div>
+    <div class="kpi-label">Custom KPI</div>
     <div class="kpi-inputs">
-      <input class="kpi-name-input" type="text" placeholder="Ingrese nombre del KPI..." oninput="calc()"/>
+      <input class="kpi-name-input" type="text" placeholder="Enter KPI name..." oninput="calc()"/>
       <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
       <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
     </div>`;
@@ -818,7 +797,7 @@ function addKpi(bodyId, domain){
 }
 
 function resetAll(){
-  if(!confirm('¿Reiniciar todas las puntuaciones y nombres de KPI a los valores predeterminados?')) return;
+  if(!confirm('¿Reiniciar todas las puntuaciones y nombres de KPI a los predeterminados?')) return;
   document.querySelectorAll('.score-select').forEach(s=>{s.value='0';s.className='score-select';});
   document.querySelectorAll('.kpi-name-input').forEach(i=>{ if(!i.placeholder) return; /* keep default values */ });
   // Remove custom rows
