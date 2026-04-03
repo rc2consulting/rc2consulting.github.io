@@ -12,7 +12,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Americas Trade Landscape 2026: Executive Summary | RC2 Consulting</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Executive analysis of the Americas trade landscape in 2026 — USMCA, CAFTA-DR, nearshoring, regional agreements and the strategic impact on operations and supply chains." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -30,191 +31,115 @@
     .nav-links { display:flex; gap:0; list-style:none; }
     .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.78rem; font-weight:600; padding:0 14px; height:52px; display:flex; align-items:center; letter-spacing:0.5px; text-transform:uppercase; transition:color .2s; }
     .nav-links a:hover { color:white; }
-    .nav-lang { display:flex; gap:4px; }
-    .lang-btn { color:rgba(255,255,255,.7); text-decoration:none; font-size:.78rem; font-weight:700; padding:4px 10px; border-radius:4px; border:1px solid rgba(255,255,255,.2); transition:all .2s; }
-    .lang-btn:hover { color:white; border-color:rgba(255,255,255,.5); }
-    .lang-btn.active { color:white; background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.4); }
-    .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.85) 0%, rgba(11,37,69,0.70) 100%), url('https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1400&q=80') center/cover no-repeat; padding: 64px 40px 56px; color: white; position: relative; overflow: hidden; }
-    /* hero ::before removed */
-    .hero-inner { max-width: 820px; margin: 0 auto; position:relative; z-index:2; }
-    
+    .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.85) 0%, rgba(11,37,69,0.70) 100%), url('https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1400&q=80') center/cover no-repeat; padding: 64px 40px 56px; color: white; }
+    .hero-inner { max-width: 820px; margin: 0 auto; }
     .article-tag { display:inline-block; background:rgba(37,99,235,0.85); color:white; font-size:0.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:16px; }
-    
-    
-    
-    .hero h1 { font-family:'Playfair Display',serif; font-size:2.3rem; font-weight:700; color:white; line-height:1.2; margin-bottom:14px }
-    .hero-sub { font-size:0.97rem; color:rgba(255,255,255,0.82); line-height:1.68; max-width:700px; margin-bottom:18px; }
-    .hero-meta { display:flex; align-items:center; gap:8px; font-size:0.82rem; color:rgba(255,255,255,0.65); flex-wrap:wrap; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:2.3rem; font-weight:700; color:white; line-height:1.2; margin-bottom:14px; }
+    .hero-meta { display:flex; align-items:center; gap:8px; font-size:0.82rem; color:rgba(255,255,255,0.75); flex-wrap:wrap; }
     .hero-meta .divider { opacity:0.4; }
-    .urgency-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(220,38,38,0.85); color:white; font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-top:18px; }
-    .region-legend { background:var(--navy); padding:16px 40px; border-bottom:3px solid var(var(--light-blue)); }
-    .legend-inner { max-width:860px; margin:0 auto; display:flex; flex-wrap:wrap; gap:16px; align-items:center; }
-    .legend-label { font-size:0.7rem; font-weight:700; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:1px; }
-    .legend-item { display:flex; align-items:center; gap:5px; font-size:0.76rem; color:rgba(255,255,255,0.82); font-weight:600; }
-    .ldot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
     .article-wrap { max-width: 820px; margin: 0 auto; padding: 40px 24px 60px; }
     .btn-back { display:inline-flex; align-items:center; gap:6px; color:var(--light-blue); font-size:0.82rem; font-weight:600; text-decoration:none; margin-bottom:28px; }
-    .abstract-box { background:var(--navy); color:white; border-radius:12px; padding:28px 32px; margin-bottom:40px; border-left:5px solid var(var(--light-blue)); }
-    .abstract-box h3 { font-size:0.85rem; font-weight:700; margin-bottom:10px; color:var(var(--light-blue)); text-transform:uppercase; letter-spacing:2px; }
-    .abstract-box p { font-size:0.95rem; line-height:1.78; color:rgba(255,255,255,0.9); }
+    .btn-back:hover { color:var(--navy); }
+    .abstract-box { background:var(--navy); color:white; border-radius:10px; padding:28px 32px; margin-bottom:36px; }
+    .abstract-box h3 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin-bottom:10px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1.5px; }
+    .abstract-box p { font-size:0.95rem; line-height:1.75; color:rgba(255,255,255,0.9); }
     .article-body h2 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--navy); margin:40px 0 14px; padding-top:10px; border-top:2px solid var(--border); }
     .article-body h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:24px 0 8px; }
     .article-body p { font-size:0.93rem; color:var(--text-muted); margin-bottom:16px; line-height:1.78; }
     .article-body strong { color:var(--text); }
     .article-body em { color:var(--text-muted); font-size:0.82rem; }
-    /* MAP STATUS BOARD */
-    .map-section { background:linear-gradient(135deg,#0B2545,#0f3460); border-radius:14px; padding:28px; margin:28px 0; }
-    .map-section > h3 { font-family:'Playfair Display',serif; font-size:1.1rem; color:white; margin-bottom:6px; }
-    .map-section > p { font-size:0.78rem; color:rgba(255,255,255,0.55); margin-bottom:20px; }
-    .map-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; }
-    .map-col { display:flex; flex-direction:column; gap:2px; }
-    .map-subhead { font-size:0.62rem; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.45); padding:8px 12px 4px; background:#0d2944; border-radius:4px 4px 0 0; }
-    .map-country { display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:#0f2d4a; }
-    .mc-left { display:flex; align-items:center; gap:7px; }
-    .mc-flag { font-size:1rem; line-height:1; }
-    .mc-name { font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.9); }
-    .mc-rate { font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:8px; white-space:nowrap; }
-    .rate-free { background:rgba(34,197,94,0.2); color:#4ADE80; }
-    .rate-fta { background:rgba(96,165,250,0.2); color:#93C5FD; }
-    .rate-special { background:rgba(167,139,250,0.2); color:#C4B5FD; }
-    .rate-amber { background:rgba(251,191,36,0.2); color:#FCD34D; }
-    .rate-red { background:rgba(248,113,113,0.2); color:#FCA5A5; }
-    .rate-teal { background:rgba(20,184,166,0.2); color:#5EEAD4; }
-    /* CHART */
-    .chart-section { background:var(--light-bg); border:1px solid var(--border); border-radius:12px; padding:28px; margin:28px 0; }
-    .chart-title { font-size:0.75rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:20px; }
-    .bar-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-    .bar-label { font-size:0.75rem; font-weight:600; color:var(--text-muted); width:170px; flex-shrink:0; text-align:right; line-height:1.3; }
-    .bar-track { flex:1; background:#E2E8F0; border-radius:4px; height:20px; overflow:hidden; position:relative; }
-    .bar-fill { height:100%; border-radius:4px; display:flex; align-items:center; justify-content:flex-end; padding-right:7px; min-width:36px; }
-    .bar-val { font-size:0.68rem; font-weight:800; color:white; }
-    .bg-green { background:linear-gradient(90deg,#16A34A,#22C55E); }
-    .bg-purple { background:linear-gradient(90deg,#7C3AED,#7C3AED); }
-    .bg-teal { background:linear-gradient(90deg,var(--light-blue),var(--light-blue)); }
-    .bg-blue { background:linear-gradient(90deg,#1D4ED8,#3B82F6); }
-    .bg-amber { background:linear-gradient(90deg,#B45309,#D97706); }
-    .bg-red { background:linear-gradient(90deg,#B91C1C,#DC2626); }
-    /* AGREEMENT CARDS */
-    .agreement-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:24px 0; }
-    .agreement-card { border-radius:12px; padding:22px; border:1px solid var(--border); position:relative; overflow:hidden; }
-    .agreement-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
-    .ac-usmca::before { background:linear-gradient(90deg,#16A34A,#22C55E); }
-    .ac-cafta::before { background:linear-gradient(90deg,#1D4ED8,#3B82F6); }
-    .ac-haiti::before { background:linear-gradient(90deg,#7C3AED,#7C3AED); }
-    .ac-fta::before { background:linear-gradient(90deg,var(--light-blue),var(--light-blue)); }
-    .ac-open::before { background:linear-gradient(90deg,#B45309,#D97706); }
-    .agmt-icon { font-size:1.8rem; margin-bottom:10px; }
-    .agmt-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:800; color:var(--navy); margin-bottom:5px; }
-    .agmt-countries { font-size:0.72rem; font-weight:600; color:var(--light-blue); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px; }
-    .agmt-desc { font-size:0.82rem; color:var(--text-muted); line-height:1.62; }
-    .agmt-status { display:inline-flex; align-items:center; gap:4px; font-size:0.67rem; font-weight:700; padding:3px 10px; border-radius:10px; margin-top:12px; text-transform:uppercase; letter-spacing:0.5px; }
-    .s-active { background:#D1FAE5; color:#065F46; }
-    .s-expiring { background:#FEF3C7; color:#92400E; }
-    .s-watch { background:#FEE2E2; color:#991B1B; }
-    .s-restored { background:#EDE9FE; color:#4C1D95; }
-    /* COUNTRY ACCORDION */
-    .country-accordion { margin:8px 0; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
-    .ca-header { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; background:var(--light-bg); cursor:pointer; user-select:none; transition:background .2s; }
-    .ca-header:hover { background:#E8EFF8; }
-    .ca-left { display:flex; align-items:center; gap:12px; }
-    .ca-flag { font-size:1.4rem; }
-    .ca-info h4 { font-size:0.9rem; font-weight:700; color:var(--navy); margin-bottom:2px; }
-    .ca-info span { font-size:0.74rem; color:var(--text-muted); }
-    .ca-badge-row { display:flex; align-items:center; gap:8px; }
-    .ca-rb { font-size:0.72rem; font-weight:800; padding:3px 10px; border-radius:10px; }
-    .ca-chevron { font-size:1rem; color:var(--text-muted); transition:transform .3s; }
-    .ca-chevron.open { transform:rotate(180deg); }
-    .ca-body { display:none; padding:18px 20px; border-top:1px solid var(--border); background:white; }
-    .ca-body.open { display:block; }
-    .ca-statgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:14px; }
-    .ca-stat { background:var(--light-bg); border-radius:8px; padding:11px; }
-    .ca-sv { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:800; color:var(--navy); line-height:1; margin-bottom:3px; }
-    .ca-sl { font-size:0.68rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.5px; line-height:1.3; }
-    .ca-bullets { list-style:none; padding:0; margin-top:10px; }
-    .ca-bullets li { font-size:0.83rem; color:var(--text-muted); padding:5px 0; border-bottom:1px solid var(--border); display:flex; gap:8px; line-height:1.5; }
-    .ca-bullets li::before { content:'-->'; color:var(var(--light-blue)); flex-shrink:0; font-size:0.7rem; margin-top:3px; }
-    .ca-bullets li:last-child { border-bottom:none; }
-    .ca-alert { border-radius:0 6px 6px 0; padding:10px 14px; margin-top:14px; font-size:0.8rem; font-weight:600; line-height:1.55; }
-    .ca-amber { background:#FEF3C7; border-left:3px solid var(--amber); color:#92400E; }
-    .ca-green { background:#D1FAE5; border-left:3px solid var(--green); color:#065F46; }
-    .ca-red { background:#FEE2E2; border-left:3px solid var(--red); color:#991B1B; }
-    .ca-purple { background:#EDE9FE; border-left:3px solid var(--purple); color:#4C1D95; }
-    /* CALLOUT */
+    .stat-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:16px; margin:24px 0 32px; }
+    .stat-card { background:var(--light-bg); border:1px solid var(--border); border-radius:10px; padding:20px 16px; text-align:center; }
+    .stat-card.red { border-top:3px solid var(--red); }
+    .stat-card.amber { border-top:3px solid var(--amber); }
+    .stat-card.green { border-top:3px solid var(--green); }
+    .stat-card.blue { border-top:3px solid var(--light-blue); }
+    .stat-val { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:800; color:var(--navy); line-height:1; margin-bottom:6px; }
+    .stat-card.red .stat-val { color:var(--red); }
+    .stat-card.amber .stat-val { color:var(--amber); }
+    .stat-card.green .stat-val { color:var(--green); }
+    .stat-lbl { font-size:0.72rem; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; line-height:1.4; }
     .callout { border-left:4px solid var(--light-blue); background:var(--light-bg); padding:16px 20px; border-radius:0 8px 8px 0; margin:24px 0; }
     .callout p { margin:0; font-size:0.92rem; color:var(--navy); font-weight:600; line-height:1.65; }
-    .c-amber { border-left-color:var(--amber); }
-    .c-amber p { color:#92400e; }
-    .c-teal { border-left-color:var(var(--light-blue)); }
-    .c-teal p { color:#134e4a; }
-    .c-red { border-left-color:var(--red); }
-    .c-red p { color:#991b1b; }
-    /* STATS */
-    .stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:14px; margin:24px 0 28px; }
-    .stat-card { background:var(--light-bg); border:1px solid var(--border); border-radius:10px; padding:18px 14px; text-align:center; }
-    .sc-teal { border-top:3px solid var(var(--light-blue)); }
-    .sc-blue { border-top:3px solid var(--light-blue); }
-    .sc-amber { border-top:3px solid var(--amber); }
-    .sc-red { border-top:3px solid var(--red); }
-    .sc-green { border-top:3px solid var(--green); }
-    .stat-val { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:800; color:var(--navy); line-height:1; margin-bottom:5px; }
-    .sc-teal .stat-val { color:var(var(--light-blue)); }
-    .sc-amber .stat-val { color:var(--amber); }
-    .sc-red .stat-val { color:var(--red); }
-    .sc-green .stat-val { color:var(--green); }
-    .stat-lbl { font-size:0.69rem; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; line-height:1.4; }
-    /* REGION SPOTLIGHT BOX */
-    .region-box { background:linear-gradient(135deg,#0B2545,#1A4A8A); border-radius:12px; padding:28px 32px; margin:28px 0; color:white; display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:start; }
-    .region-logo-text { font-family:'Playfair Display',serif; font-size:2.8rem; font-weight:900; color:var(var(--light-blue)); line-height:1; letter-spacing:-2px; }
-    .region-body h3 { font-family:'Playfair Display',serif; font-size:1.12rem; color:white; margin-bottom:8px; }
-    .region-body p { font-size:0.86rem; color:rgba(255,255,255,0.8); line-height:1.7; margin-bottom:8px; }
-    /* HORIZON */
-    .horizon-box { background:var(--navy); border-radius:12px; padding:28px; margin:32px 0; }
-    .horizon-box > h3 { font-size:0.76rem; font-weight:700; color:var(var(--light-blue)); text-transform:uppercase; letter-spacing:2px; margin-bottom:20px; }
-    .horizon-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .horizon-col { background:rgba(255,255,255,0.05); border-radius:8px; padding:16px; }
-    .horizon-col h4 { font-size:0.8rem; font-weight:700; color:white; margin-bottom:10px; padding-bottom:8px; border-bottom:2px solid rgba(255,255,255,0.1); }
-    .horizon-col ul { list-style:none; padding:0; }
-    .horizon-col ul li { font-size:0.77rem; color:rgba(255,255,255,0.72); padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.06); line-height:1.5; }
-    .horizon-col ul li::before { content:'• '; color:var(var(--light-blue)); }
-    .horizon-col ul li:last-child { border-bottom:none; }
-    /* ACTION */
-    .action-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:14px; margin:24px 0; }
-    .action-card { border:1px solid var(--border); border-radius:10px; padding:18px; }
-    .action-card h4 { font-size:0.87rem; font-weight:700; color:var(--navy); margin-bottom:8px; }
+    .callout.green { border-left-color:var(--green); }
+    .callout.green p { color:#065F46; }
+    .callout.amber { border-left-color:var(--amber); }
+    .callout.amber p { color:#92400e; }
+    .sector-table { width:100%; border-collapse:collapse; font-size:0.83rem; margin:20px 0 30px; }
+    .sector-table th { background:var(--navy); color:white; padding:10px 14px; text-align:left; font-weight:700; font-size:0.75rem; letter-spacing:0.5px; }
+    .sector-table td { padding:10px 14px; border-bottom:1px solid var(--border); color:var(--text-muted); vertical-align:top; line-height:1.5; }
+    .sector-table tr:last-child td { border-bottom:none; }
+    .sector-table tr:nth-child(even) td { background:var(--light-bg); }
+    .impact-badge { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:0.5px; padding:2px 8px; border-radius:10px; text-transform:uppercase; }
+    .impact-badge.high { background:#D1FAE5; color:#065F46; }
+    .impact-badge.med { background:#FEF3C7; color:#92400E; }
+    .impact-badge.low { background:#FEE2E2; color:#991B1B; }
+    .action-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:24px 0; }
+    .action-card { border:1px solid var(--border); border-radius:10px; padding:20px; }
+    .action-card h4 { font-size:0.88rem; font-weight:700; color:var(--navy); margin-bottom:8px; display:flex; align-items:center; gap:8px; }
     .action-card ul { list-style:none; padding:0; }
-    .action-card ul li { font-size:0.8rem; color:var(--text-muted); padding:5px 0; border-bottom:1px solid var(--border); line-height:1.5; display:flex; gap:7px; }
-    .action-card ul li::before { content:'→'; color:var(var(--light-blue)); flex-shrink:0; }
+    .action-card ul li { font-size:0.82rem; color:var(--text-muted); padding:5px 0; border-bottom:1px solid var(--border); line-height:1.5; display:flex; gap:8px; }
+    .action-card ul li::before { content:'→'; color:var(--light-blue); flex-shrink:0; }
     .action-card ul li:last-child { border-bottom:none; }
-    /* CTA */
+    .horizon-box { background:var(--light-bg); border:1px solid var(--border); border-radius:10px; padding:24px 28px; margin:28px 0; }
+    .horizon-box h3 { font-size:0.82rem; font-weight:700; color:var(--light-blue); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:14px; }
+    .horizon-row { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .horizon-col h4 { font-size:0.8rem; font-weight:700; color:var(--navy); margin-bottom:8px; padding-bottom:6px; border-bottom:2px solid var(--border); }
+    .horizon-col ul { list-style:none; padding:0; }
+    .horizon-col ul li { font-size:0.8rem; color:var(--text-muted); padding:4px 0; line-height:1.5; }
+    .horizon-col ul li::before { content:'• '; color:var(--light-blue); }
     .cta-box { background:var(--navy); border-radius:12px; padding:32px; text-align:center; margin:40px 0 0; }
     .cta-box h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:white; margin-bottom:10px; }
     .cta-box p { color:rgba(255,255,255,0.78); font-size:0.9rem; margin-bottom:20px; }
-    .cta-btn { display:inline-block; background:var(var(--light-blue)); color:white; padding:12px 28px; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.88rem; }
+    .cta-btn { display:inline-block; background:var(--light-blue); color:white; padding:12px 28px; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.88rem; transition:background .2s; }
+    .cta-btn:hover { background:#1d4ed8; }
     .sources { margin-top:36px; padding-top:20px; border-top:1px solid var(--border); font-size:0.75rem; color:var(--text-muted); }
-    .sources h4 { font-size:0.74rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--navy); margin-bottom:10px; }
+    .sources h4 { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--navy); margin-bottom:10px; }
     .sources p { margin-bottom:4px; line-height:1.6; }
     .site-footer { background:var(--navy); color:rgba(255,255,255,0.6); text-align:center; padding:28px 24px; font-size:0.78rem; }
     .footer-tagline { font-family:'Playfair Display',serif; color:rgba(255,255,255,0.85); font-size:0.95rem; margin-bottom:12px; }
     .footer-links { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:12px; }
-    .footer-links a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.75rem;  transition:color 0.2s; cursor:pointer; }
+    .footer-links a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.75rem; }
     .footer-links a:hover { color:white; }
-    @media(max-width:640px) { .hero h1{font-size:2.3rem;} .horizon-row{grid-template-columns:1fr;} .nav-links{display:none;} .map-grid{grid-template-columns:1fr;} .region-box{grid-template-columns:1fr;} }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
+    .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
+    .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+    .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+    .lang-btn.active{background:#C8922A;color:#0B2545}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+    .hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    @media(max-width:640px) { .hero h1 { font-size:1.7rem; } .horizon-row { grid-template-columns:1fr; } .stat-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:640px){
+      .topnav{padding:0 16px !important;position:relative}
+      .hamburger{display:flex !important}
+      .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0 !important}
+      .nav-links.mobile-open{display:flex !important}
+      .nav-links li{width:100%}
+      .nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:0.92rem !important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0 !important;height:auto !important}
+      .nav-links a:last-child{border-bottom:none}
+      .lang-toggle{padding:10px 20px 4px}
+    }
+    @media(max-width:380px){.topnav{padding:0 12px !important}.nav-logo-mark{font-size:1rem !important}.nav-brand-name{font-size:0.68rem !important}}
   
     /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; margin-left: auto; z-index: 300; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: rgba(255,255,255,0.9); border-radius: 2px; transition: all .28s ease; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .topnav { background:var(--navy,#0B2545); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:#fff; font-family:'Playfair Display',serif; font-size:0.85rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
+    .nav-logo-mark sup { font-size:0.45rem; vertical-align:super; }
+    .nav-brand-name { font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.9); }
+    .nav-links { display:flex; gap:4px; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,0.72); text-decoration:none; font-size:0.82rem; font-weight:500; padding:6px 10px; border-radius:4px; transition:color 0.2s, background 0.2s; }
+    .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
+    .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
     .lang-toggle { display:flex; gap:4px; align-items:center; }
     .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
     .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
@@ -223,23 +148,10 @@
     @media (max-width: 640px) {
       .topnav { padding: 0 16px !important; position: relative; }
       .hamburger { display: flex !important; }
-      .nav-links {
-        display: none; position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545; flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200; gap: 0 !important;
-      }
+      .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #0B2545; flex-direction: column !important; padding: 8px 0 16px; border-top: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.35); z-index: 200; gap: 0 !important; }
       .nav-links.mobile-open { display: flex !important; }
       .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important; font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important; height: auto !important;
-      }
+      .nav-links a { display: block; width: 100%; padding: 12px 20px !important; font-size: 0.92rem !important; border-bottom: 1px solid rgba(255,255,255,0.07); border-radius: 0 !important; height: auto !important; }
       .nav-links a:last-child { border-bottom: none; }
       .lang-toggle { padding: 10px 20px 4px; }
     }
@@ -275,496 +187,229 @@
 
 <section class="hero">
   <div class="hero-inner">
-    
-      <div class="article-tag">Trade Intelligence</div>
-    </div>
-    <h1>The Americas Trade Landscape 2026<br/>Western Hemisphere Executive Summary</h1>
-    <p class="hero-sub">Country-by-country tariff status, active trade agreements, supply chain impact, and the operational playbook for manufacturers, brands, and compliance teams operating across the Western Hemisphere.</p>
+    <div class="article-tag">Trade Intelligence</div>
+    <h1>The Americas Trade Landscape 2026: Executive Summary</h1>
     <div class="hero-meta">
-      <span>RC2 Consulting</span><span class="divider">|</span>
-      <span>February 2026</span><span class="divider">|</span>
-      <span>15 min read</span>
+      <span>RC2 Consulting — Executive Insights</span>
+      <span class="divider">|</span>
+      <span>Updated: March 2026</span>
+      <span class="divider">|</span>
+      <span>12 min read</span>
     </div>
-    <div class="urgency-badge">&#9889; Current Intelligence — Updated February 27, 2026</div>
   </div>
 </section>
 
-<div class="region-legend">
-  <div class="legend-inner">
-    <span class="legend-label">Status Legend:</span>
-    <div class="legend-item"><div class="ldot" style="background:#22C55E;"></div> USMCA Duty-Free</div>
-    <div class="legend-item"><div class="ldot" style="background:#93C5FD;"></div> FTA + 10% Overlay</div>
-    <div class="legend-item"><div class="ldot" style="background:#C4B5FD;"></div> Special Program (HOPE/HELP)</div>
-    <div class="legend-item"><div class="ldot" style="background:#5EEAD4;"></div> Duty-Free Framework (Pending)</div>
-    <div class="legend-item"><div class="ldot" style="background:#FCD34D;"></div> Section 122 Only (10-15%)</div>
-    <div class="legend-item"><div class="ldot" style="background:#FCA5A5;"></div> Elevated / Political Risk</div>
-  </div>
-</div>
-
 <div class="article-wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&#8592; Back to Resources</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Back to Resources</a>
 
   <div class="abstract-box">
-<!-- Trade Navigator Banner -->
-<div style="background:linear-gradient(135deg,#0B2545,#0D7680);border-radius:10px;padding:18px 24px;margin:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-  <div>
-    <div style="color:#F0B429;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:4px;">🗺️ Interactive Tool</div>
-    <div style="color:white;font-size:1rem;font-weight:700;line-height:1.3;">Americas &amp; Caribbean Trade Navigator</div>
-    <div style="color:rgba(255,255,255,0.75);font-size:0.82rem;margin-top:3px;">Find every trade agreement, BIT, and preference program for every country — instantly</div>
-  </div>
-  <a href="https://rc2consulting.github.io/RC2_Americas_Trade_Navigator.html" style="background:#C8922A;color:#0B2545;font-weight:700;font-size:0.84rem;padding:10px 20px;border-radius:7px;text-decoration:none;white-space:nowrap;">Launch Navigator ›</a>
-</div>
-
     <h3>Executive Summary</h3>
-    <p>The Americas represent the most strategically important supply chain theater for U.S. apparel, textile, and manufacturing industries in 2026 — and the most legally complex. Following the Supreme Court's February 2026 invalidation of IEEPA tariffs, the tariff stack across the Western Hemisphere has been reshuffled: USMCA remains the gold standard of duty-free access; CAFTA-DR countries now face a 10% overlay despite FTA compliance; Haiti's HOPE/HELP programs were retroactively restored through December 2026; and South American FTA partners face a narrowed but real tariff burden. Brazil faces unique political and economic exposure. The Americas region — spanning the U.S., Mexico, Caribbean, Central America, and South America — is simultaneously the most affected and best-positioned region to capture competitive advantage as global sourcing realigns away from Asia. This briefing maps the current tariff landscape country by country, analyzes each active trade agreement, and delivers a clear operational playbook for businesses navigating this terrain.</p>
+    <p>The Americas trade landscape is undergoing an unprecedented structural transformation. The convergence of protectionist tariff policies in the U.S., the acceleration of nearshoring from Asia toward Mexico and Central America, the mandatory USMCA review scheduled for 2026, and the strengthening of regional blocs like CAFTA-DR and the Pacific Alliance are redefining hemispheric supply chain routes. For companies operating or sourcing in the Americas, understanding these dynamics is no longer optional but an immediate operational necessity. This article provides a comprehensive analysis of the current state of regional trade, emerging opportunities, and the risks every organization must anticipate.</p>
   </div>
 
   <div class="article-body">
 
-    <div class="region-box">
-      <div class="region-logo-text">🌎</div>
-      <div class="region-body">
-        <h3>Why the Western Hemisphere Defines the 2026 Sourcing Conversation</h3>
-        <p>The Americas Apparel Producers' Network (AAPN), organized in 1981 and headquartered in Mount Pleasant, SC, is the premier private-sector, non-profit business network for the Western Hemisphere textile and apparel supply chain. With 600+ company owners and senior executives from nearly 200 organizations, AAPN connects all 30 links of the supply chain — from fiber and yarn to retail — across the U.S., Mexico, Caribbean, Central America, and South America.</p>
-        <p>The Western Hemisphere precisely maps to the most strategically advantaged sourcing region in the world right now. As Asian import tariffs remain elevated (10–50%+ depending on country), the Americas — protected by USMCA, CAFTA-DR, the Caribbean Basin preference programs, and bilateral FTAs — offers a unique combination of geographic proximity, trade agreement protection, and compliance infrastructure that no other sourcing theater can match in 2026.</p>
-      </div>
-    </div>
+    <h2>The Numbers: Hemispheric Trade in Context</h2>
+    <p>The Americas represent one of the most dynamic and complex trade regions in the world. Intraregional trade volume, driven fundamentally by the U.S.–Mexico–Canada corridor, has intensified as supply chains reorient from Asia.</p>
 
-    <h2>The Numbers: Americas Trade at a Glance</h2>
     <div class="stat-grid">
-      <div class="stat-card sc-teal"><div class="stat-val">$38.7B</div><div class="stat-lbl">U.S. exports to CAFTA-DR (2021 baseline; Congress.gov)</div></div>
-      <div class="stat-card sc-green"><div class="stat-val">85%+</div><div class="stat-lbl">Canada-U.S. trade still tariff-free under USMCA</div></div>
-      <div class="stat-card sc-blue"><div class="stat-val">$11B</div><div class="stat-lbl">CAFTA-DR apparel &amp; textile trade volume (2024)</div></div>
-      <div class="stat-card sc-amber"><div class="stat-val">-8%</div><div class="stat-lbl">CAFTA-DR import decline in 2025 from tariff uncertainty</div></div>
-      <div class="stat-card sc-red"><div class="stat-val">$844M</div><div class="stat-lbl">Haiti apparel exports to U.S. (2023) — HOPE/HELP critical</div></div>
-      <div class="stat-card sc-teal"><div class="stat-val">10%</div><div class="stat-lbl">Section 122 overlay on most Americas imports (Feb–Jul 2026)</div></div>
-    </div>
-    <p><em>Sources: Congress.gov CRS IF10394; CBP.gov; Haitian Times February 2026; Worker Rights Consortium; Tax Foundation</em></p>
-
-    <h2>Country-by-Country Tariff Status Board</h2>
-    <div class="map-section">
-      <h3>&#127758; Western Hemisphere Tariff Status — February 2026</h3>
-      <p>Post-IEEPA ruling. Section 122 (10%) effective Feb. 24, 2026. USMCA exempt. Rates shown = blended effective rates for typical textile/apparel imports.</p>
-      <div class="map-grid">
-        <div class="map-col">
-          <div class="map-subhead">&#127482;&#127480; North America</div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127464;&#127462;</span><span class="mc-name">Canada</span></div><span class="mc-rate rate-free">0% — USMCA</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127474;&#127485;</span><span class="mc-name">Mexico</span></div><span class="mc-rate rate-free">0% — USMCA</span></div>
-          <div class="map-subhead">&#127965; Caribbean</div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127469;&#127481;</span><span class="mc-name">Haiti</span></div><span class="mc-rate rate-special">0% — HOPE/HELP thru Dec '26</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127465;&#127476;</span><span class="mc-name">Dominican Republic</span></div><span class="mc-rate rate-fta">~10–26% CAFTA-DR + Overlay</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127477;&#127479;</span><span class="mc-name">Puerto Rico</span></div><span class="mc-rate rate-free">Domestic — U.S. Territory</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127464;&#127482;</span><span class="mc-name">Cuba</span></div><span class="mc-rate rate-red">Embargo — No Trade</span></div>
-        </div>
-        <div class="map-col">
-          <div class="map-subhead">&#127807; Central America — CAFTA-DR</div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127468;&#127481;</span><span class="mc-name">Guatemala</span></div><span class="mc-rate rate-teal">&#8594; 0% Framework (Pending)*</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127480;&#127483;</span><span class="mc-name">El Salvador</span></div><span class="mc-rate rate-teal">&#8594; 0% Framework (Pending)*</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127469;&#127475;</span><span class="mc-name">Honduras</span></div><span class="mc-rate rate-fta">~26% — CAFTA + Sec. 122</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127475;&#127470;</span><span class="mc-name">Nicaragua</span></div><span class="mc-rate rate-fta">~26% — CAFTA + Sec. 122</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127464;&#127479;</span><span class="mc-name">Costa Rica</span></div><span class="mc-rate rate-fta">~26% — CAFTA + Sec. 122</span></div>
-          <div class="map-subhead">&#127758; Andes — U.S. FTA Partners</div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127464;&#127476;</span><span class="mc-name">Colombia</span></div><span class="mc-rate rate-fta">~10–26% — FTA + Sec. 122</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127477;&#127466;</span><span class="mc-name">Peru</span></div><span class="mc-rate rate-fta">~10–26% — FTA + Sec. 122</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127477;&#127462;</span><span class="mc-name">Panama</span></div><span class="mc-rate rate-fta">~10–26% — FTA + Sec. 122</span></div>
-        </div>
-        <div class="map-col">
-          <div class="map-subhead">&#127758; South America — U.S. FTA</div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127464;&#127473;</span><span class="mc-name">Chile</span></div><span class="mc-rate rate-fta">~10–26% — FTA + Sec. 122</span></div>
-          <div class="map-subhead">&#9888; South America — No FTA</div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127463;&#127479;</span><span class="mc-name">Brazil</span></div><span class="mc-rate rate-red">10–15% + Political Risk</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127462;&#127479;</span><span class="mc-name">Argentina</span></div><span class="mc-rate rate-amber">~10–15% + Framework</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127466;&#127464;</span><span class="mc-name">Ecuador</span></div><span class="mc-rate rate-amber">~10–15% + Some 0%</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127482;&#127486;</span><span class="mc-name">Uruguay</span></div><span class="mc-rate rate-amber">~10–15% Sec. 122</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127463;&#127476;</span><span class="mc-name">Bolivia</span></div><span class="mc-rate rate-amber">~10–15% Sec. 122</span></div>
-          <div class="map-country"><div class="mc-left"><span class="mc-flag">&#127483;&#127466;</span><span class="mc-name">Venezuela</span></div><span class="mc-rate rate-red">U.S. Sanctions — No Normal Trade</span></div>
-        </div>
+      <div class="stat-card blue">
+        <div class="stat-val">$1.5T</div>
+        <div class="stat-lbl">Trilateral<br/>annual USMCA trade</div>
       </div>
-      <p style="font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:12px;">* Guatemala and El Salvador: U.S. announced duty-free framework agreements for qualifying CAFTA-DR apparel (Nov. 2025) — full implementation and tariff line details pending as of Feb. 2026. Sources: CBP.gov; Sobel Network Shipping Nov. 2025; Worker Rights Consortium; Reed Smith Trade Compliance Resource Hub.</p>
-    </div>
-
-    <!-- TARIFF BAR CHART -->
-    <div class="chart-section">
-      <div class="chart-title">&#128202; Effective Tariff Rate Comparison — Americas Apparel Imports to U.S. (February 2026)</div>
-      <div class="bar-row"><div class="bar-label">&#127482;&#127480; U.S. Domestic</div><div class="bar-track"><div class="bar-fill bg-green" style="width:3%"><span class="bar-val">0%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127464;&#127462; Canada (USMCA)</div><div class="bar-track"><div class="bar-fill bg-green" style="width:3%"><span class="bar-val">0%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127474;&#127485; Mexico (USMCA)</div><div class="bar-track"><div class="bar-fill bg-green" style="width:3%"><span class="bar-val">0%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127469;&#127481; Haiti (HOPE/HELP)</div><div class="bar-track"><div class="bar-fill bg-purple" style="width:3%"><span class="bar-val">0%*</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127468;&#127481; Guatemala (Framework)</div><div class="bar-track"><div class="bar-fill bg-teal" style="width:5%"><span class="bar-val">0%&#8594;</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127480;&#127483; El Salvador (Framework)</div><div class="bar-track"><div class="bar-fill bg-teal" style="width:5%"><span class="bar-val">0%&#8594;</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127465;&#127476; Dominican Republic</div><div class="bar-track"><div class="bar-fill bg-blue" style="width:26%"><span class="bar-val">~26%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127469;&#127475; Honduras</div><div class="bar-track"><div class="bar-fill bg-blue" style="width:26%"><span class="bar-val">~26%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127464;&#127479; Costa Rica</div><div class="bar-track"><div class="bar-fill bg-blue" style="width:26%"><span class="bar-val">~26%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127475;&#127470; Nicaragua</div><div class="bar-track"><div class="bar-fill bg-blue" style="width:26%"><span class="bar-val">~26%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127464;&#127476; Colombia (FTA)</div><div class="bar-track"><div class="bar-fill bg-blue" style="width:26%"><span class="bar-val">~26%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127477;&#127466; Peru (FTA)</div><div class="bar-track"><div class="bar-fill bg-blue" style="width:26%"><span class="bar-val">~26%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127464;&#127473; Chile (FTA)</div><div class="bar-track"><div class="bar-fill bg-blue" style="width:26%"><span class="bar-val">~26%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127462;&#127479; Argentina</div><div class="bar-track"><div class="bar-fill bg-amber" style="width:26%"><span class="bar-val">~26%</span></div></div></div>
-      <div class="bar-row"><div class="bar-label">&#127463;&#127479; Brazil (elevated)</div><div class="bar-track"><div class="bar-fill bg-red" style="width:40%"><span class="bar-val">26–40%+ Risk</span></div></div></div>
-      <p style="font-size:0.72rem;color:var(--text-muted);margin-top:14px;line-height:1.6;">Apparel base MFN rate example: cotton t-shirt (HTS 6109.10.00) = 16.5%. Section 122 adds 10% on all non-USMCA rates. FTA partners have reduced base rates but Sec. 122 still applies. Effective rate varies by HTS code. Framework agreements for Guatemala/El Salvador pending full implementation. All rates approximate — verify with HTS classification and customs broker. <em>Sources: Worker Rights Consortium Jul. 2025; Reed Smith Trade Compliance Resource Hub Feb. 2026; CBP.gov</em></p>
-    </div>
-
-    <h2>Active Trade Agreements: The Full Americas Picture</h2>
-    <div class="agreement-grid">
-      <div class="agreement-card ac-usmca">
-        <div class="agmt-icon">&#129309;</div>
-        <div class="agmt-title">USMCA</div>
-        <div class="agmt-countries">United States &#183; Canada &#183; Mexico</div>
-        <div class="agmt-desc">The gold standard of Western Hemisphere trade. USMCA-compliant goods move duty-free between all three countries. Mexico is the <strong>only garment-producing country</strong> whose goods can reach the U.S. fully duty-free under current policy. USMCA is explicitly exempt from the Section 122 10% overlay. Over 85% of Canada–U.S. and 84% of Mexico–U.S. trade remains tariff-free. 2026 review is the most consequential near-term event in North American trade.</div>
-        <span class="agmt-status s-active">&#9989; Active — Section 122 Exempt</span>
+      <div class="stat-card green">
+        <div class="stat-val">+18%</div>
+        <div class="stat-lbl">FDI growth<br/>in Mexico 2024–2025</div>
       </div>
-      <div class="agreement-card ac-cafta">
-        <div class="agmt-icon">&#127807;</div>
-        <div class="agmt-title">CAFTA-DR</div>
-        <div class="agmt-countries">Costa Rica &#183; Dominican Republic &#183; El Salvador &#183; Guatemala &#183; Honduras &#183; Nicaragua</div>
-        <div class="agmt-desc">The region's second most important agreement. Under CAFTA-DR, most apparel (using yarn-forward rules) entered duty-free before 2025. The 10% Section 122 overlay now applies despite FTA compliance. Guatemala and El Salvador have announced duty-free framework agreements (Nov. 2025, pending full implementation). Honduras, Dominican Republic, and Costa Rica are negotiating similar frameworks. CAFTA-DR trade reached $11B in 2024 before the 8% import decline in 2025.</div>
-        <span class="agmt-status s-expiring">&#9888; FTA Active + 10% Sec. 122 Overlay</span>
+      <div class="stat-card amber">
+        <div class="stat-val">$78B</div>
+        <div class="stat-lbl">Hemispheric textile<br/>exports 2025</div>
       </div>
-      <div class="agreement-card ac-haiti">
-        <div class="agmt-icon">&#127469;&#127481;</div>
-        <div class="agmt-title">Haiti HOPE / HELP</div>
-        <div class="agmt-countries">Haiti</div>
-        <div class="agmt-desc">Critical preference program for Haiti's apparel industry — over 90% of export earnings. Programs lapsed Sept. 30, 2025; retroactively restored by President Trump (signed Feb. 3, 2026) through Dec. 31, 2026. Retroactive refunds available for duties paid Oct. 1, 2025 – Feb. 3, 2026 (deadline: Aug. 2, 2026). Proposed extensions to 2028 (H.R.6504) or 2035 (H.R.1625/S.742) pending in Congress. Haiti's apparel exports = $844M (2023).</div>
-        <span class="agmt-status s-restored">&#128260; Restored thru Dec. 2026 — Refunds Available</span>
+      <div class="stat-card blue">
+        <div class="stat-val">14%</div>
+        <div class="stat-lbl">LAC intraregional<br/>trade of total</div>
       </div>
-      <div class="agreement-card ac-fta">
-        <div class="agmt-icon">&#128203;</div>
-        <div class="agmt-title">U.S.–Colombia FTA (2012)</div>
-        <div class="agmt-countries">Colombia</div>
-        <div class="agmt-desc">In force since 2012. Eliminated most bilateral tariffs. Colombia trades more with the U.S. than with China — a critical strategic distinction. Section 122 10% overlay applies despite FTA. Colombia is accelerating China trade ties in response to U.S. tariff uncertainty. Major exports: textiles, apparel, coffee, pharmaceutical inputs, cut flowers.</div>
-        <span class="agmt-status s-active">&#9989; FTA Active + 10% Overlay</span>
+      <div class="stat-card green">
+        <div class="stat-val">32</div>
+        <div class="stat-lbl">Member countries in<br/>active hemispheric agreements</div>
       </div>
-      <div class="agreement-card ac-fta">
-        <div class="agmt-icon">&#128203;</div>
-        <div class="agmt-title">U.S.–Peru FTA (2009)</div>
-        <div class="agmt-countries">Peru</div>
-        <div class="agmt-desc">In force since 2009. Peru is a major copper exporter — Section 232 copper tariffs (25%+) create significant additional exposure for Peruvian industrial exports beyond apparel. FTA eliminated most tariffs; Section 122 adds 10% back. Peru is part of the Andean lithium/copper belt increasingly courted by China.</div>
-        <span class="agmt-status s-active">&#9989; FTA Active + 10% / 232 on Copper</span>
-      </div>
-      <div class="agreement-card ac-fta">
-        <div class="agmt-icon">&#128203;</div>
-        <div class="agmt-title">U.S.–Chile FTA (2004)</div>
-        <div class="agmt-countries">Chile</div>
-        <div class="agmt-desc">In force since 2004 — one of the U.S.'s oldest bilateral FTAs. Chile is a world copper leader; Section 232 copper tariffs (25%+) impact Chilean industrial exports significantly. Section 122 adds 10% on other goods. Chile is central to the lithium triangle strategy. Argentina's beef and other agricultural exports received targeted duty-free treatment in a bilateral framework announced alongside the IEEPA order.</div>
-        <span class="agmt-status s-active">&#9989; FTA Active + 10% / 232 on Copper</span>
-      </div>
-      <div class="agreement-card ac-fta">
-        <div class="agmt-icon">&#128203;</div>
-        <div class="agmt-title">U.S.–Panama FTA (2012)</div>
-        <div class="agmt-countries">Panama</div>
-        <div class="agmt-desc">In force since 2012. Panama's strategic importance extends far beyond tariff treatment to the Panama Canal — critical infrastructure for all U.S. imports from Asia. Trump administration pressure on canal management (citing Chinese influence) creates a geopolitical overlay on all Americas supply chains. Canal access affects transit costs and routing decisions for every business in the Americas importing from Asia.</div>
-        <span class="agmt-status s-active">&#9989; FTA Active + Canal Geopolitics Watch</span>
-      </div>
-      <div class="agreement-card ac-open">
-        <div class="agmt-icon">&#9888;</div>
-        <div class="agmt-title">Brazil — No FTA</div>
-        <div class="agmt-countries">Brazil (MERCOSUR — No U.S. FTA)</div>
-        <div class="agmt-desc">No bilateral FTA with the U.S. despite being its 7th-largest trading partner. Trump initially targeted Brazil with one of the highest IEEPA rates (50%) despite a U.S. $7B trade surplus with Brazil. Post-IEEPA ruling: Section 122 at 10–15%, with exemptions for critical minerals, energy, agricultural products. Bolsonaro judicial case is a live political tariff lever. Brazil is actively deepening China trade ties in response.</div>
-        <span class="agmt-status s-watch">&#128308; No FTA — Political Risk — China Pivot</span>
+      <div class="stat-card amber">
+        <div class="stat-val">2026</div>
+        <div class="stat-lbl">Mandatory USMCA<br/>review year</div>
       </div>
     </div>
 
-    <h2>Country Intelligence: Deep Dive</h2>
-    <p>Click each country or region to expand full trade intelligence — current tariff exposure, strategic context, compliance priorities, and action items.</p>
+    <h2>Trade Blocs: Regional Architecture</h2>
+    <p>The Americas operate under a complex web of multilateral and bilateral agreements that define market access conditions, rules of origin, and investment flows. The five main blocs are:</p>
 
-    <!-- MEXICO ACCORDION -->
-    <div class="country-accordion">
-      <div class="ca-header" onclick="toggleCA(this)">
-        <div class="ca-left"><span class="ca-flag">&#127474;&#127485;</span>
-          <div class="ca-info"><h4>Mexico — The USMCA Nearshoring Hub</h4><span>0% duty-free — only garment-producing country with full U.S. duty-free access</span></div>
-        </div>
-        <div class="ca-badge-row"><span class="ca-rb" style="background:#D1FAE5;color:#065F46;">0% USMCA</span><span class="ca-chevron">&#9660;</span></div>
-      </div>
-      <div class="ca-body">
-        <div class="ca-statgrid">
-          <div class="ca-stat"><div class="ca-sv">0%</div><div class="ca-sl">Effective tariff — USMCA compliant goods</div></div>
-          <div class="ca-stat"><div class="ca-sv">84%</div><div class="ca-sl">Mexico–U.S. trade still tariff-free</div></div>
-          <div class="ca-stat"><div class="ca-sv">+0.5%</div><div class="ca-sl">Apparel import growth Jul. 2025 — slow vs. expected surge</div></div>
-          <div class="ca-stat"><div class="ca-sv">2026</div><div class="ca-sl">USMCA scheduled review — most significant upcoming policy event</div></div>
-        </div>
-        <ul class="ca-bullets">
-          <li>Mexico is the <strong>only country</strong> whose garments enter the U.S. fully duty-free under current policy — an extraordinary competitive moat</li>
-          <li>USMCA is explicitly exempt from the Section 122 10% overlay — not affected by the Supreme Court IEEPA ruling whatsoever</li>
-          <li>Despite the massive tariff advantage, U.S. apparel imports from Mexico grew only 0.5% in July 2025 — supply chain inertia, capacity constraints, and unit price inflation (+4.7%) are slowing the anticipated nearshoring surge</li>
-          <li>Yarn-forward rule of origin for textiles and apparel: goods must use regional fiber/yarn to qualify — misclassification loses the benefit entirely</li>
-          <li>USMCA 2026 review will address rules of origin, labor enforcement, digital trade, and agricultural schedules — renegotiation outcome defines North American manufacturing architecture for the next decade</li>
-          <li>USMCA's rapid response labor mechanism (RRM) has been invoked multiple times — labor compliance documentation is not optional for Mexican exporters</li>
-        </ul>
-        <div class="ca-alert ca-green">&#9989; Strategic Priority: Mexico is the single highest-value sourcing opportunity in the Americas. Invest now in USMCA compliance infrastructure, origin documentation, and supplier qualification programs. Monitor 2026 USMCA review closely — any rule of origin changes will have immediate cost implications.</div>
-      </div>
+    <h3>USMCA — U.S., Mexico, Canada</h3>
+    <p>The treaty that replaced NAFTA in 2020 faces its first mandatory review in July 2026. This process will determine adjustments to automotive rules of origin, labor standards, digital intellectual property provisions, and dispute resolution mechanisms. For companies relying on integrated supply chains across the three countries, the regulatory uncertainty of the review period represents both an interruption risk and an early positioning opportunity.</p>
+
+    <h3>CAFTA-DR — Central America and the Dominican Republic</h3>
+    <p>The agreement linking Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, and the Dominican Republic to the U.S. remains the primary vehicle for the region's textile and apparel exports. With U.S. tariffs on Asian products at historic levels, manufacturers meeting CAFTA-DR rules of origin gain a significant cost advantage over Asian suppliers.</p>
+
+    <h3>Pacific Alliance — Mexico, Colombia, Peru, Chile</h3>
+    <p>This Asia-Pacific-oriented free trade bloc facilitates 38% of Latin America's GDP and maintains preferential agreements with the EU, Japan, Australia, and New Zealand. Ecuador's pending accession and progressive integration with Mercosur expand its strategic relevance for companies with transpacific operations.</p>
+
+    <h3>CARICOM — Caribbean Community</h3>
+    <p>CARICOM's 15 member states operate under the Caribbean Single Market and Economy (CSME), facilitating the free movement of goods, services, and capital within the region. Its strategic relevance lies in the advantages of the Caribbean Basin Initiative (CBI) and free trade zones that facilitate preferential access to the U.S. market.</p>
+
+    <h3>Mercosur — Brazil, Argentina, Uruguay, Paraguay</h3>
+    <p>The Southern Cone bloc, which finalized a historic agreement with the EU in 2024, represents South America's largest market. Opportunities in manufacturing, agribusiness, and renewable energy attract growing investment, though non-tariff barriers and regulatory complexity remain challenges for foreign companies.</p>
+
+    <div class="callout green">
+      <p>Companies diversifying suppliers toward the Americas leveraging multiple trade agreements can reduce tariff exposure by 15% to 40% compared to exclusively Asian supply chains.</p>
     </div>
 
-    <!-- CAFTA-DR ACCORDION -->
-    <div class="country-accordion">
-      <div class="ca-header" onclick="toggleCA(this)">
-        <div class="ca-left"><span class="ca-flag">&#127807;</span>
-          <div class="ca-info"><h4>CAFTA-DR — Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Dominican Republic</h4><span>Free Trade Agreement — 10% Section 122 Overlay Currently Applies to Most Countries</span></div>
-        </div>
-        <div class="ca-badge-row"><span class="ca-rb" style="background:#DBEAFE;color:#1E40AF;">FTA + 10%</span><span class="ca-chevron">&#9660;</span></div>
-      </div>
-      <div class="ca-body">
-        <div class="ca-statgrid">
-          <div class="ca-stat"><div class="ca-sv">$11B</div><div class="ca-sl">CAFTA-DR apparel and textile trade (2024)</div></div>
-          <div class="ca-stat"><div class="ca-sv">-8%</div><div class="ca-sl">Import decline 2025 — tariff uncertainty impact</div></div>
-          <div class="ca-stat"><div class="ca-sv">70%</div><div class="ca-sl">Guatemala's CAFTA-DR utilization rate</div></div>
-          <div class="ca-stat"><div class="ca-sv">Jan 2025</div><div class="ca-sl">CAFTA-DR full implementation achieved — virtually all goods duty-free at base</div></div>
-        </div>
-        <ul class="ca-bullets">
-          <li><strong>Yarn-forward rule of origin:</strong> Apparel must use yarn formed in the CAFTA-DR/U.S. region — a high bar that incentivizes vertically integrated Western Hemisphere supply chains</li>
-          <li>The 10% Section 122 overlay applies to CAFTA-DR goods <strong>despite FTA compliance</strong> — one of the most legally contested situations in the current tariff environment</li>
-          <li>Guatemala and El Salvador: U.S. announced duty-free framework agreements for qualifying CAFTA-DR apparel (Nov. 2025) — pending full implementation and tariff line details. NCTO welcomed the decision and is pushing for similar treatment for Honduras, Dominican Republic, and Costa Rica</li>
-          <li>Guatemala's apparel sector grew only 1–2% in 2025 vs. historical 3–5% — the Expectations Index fell to its lowest level in 12 years (Central Bank of Guatemala)</li>
-          <li>Mexico Cumulation: CAFTA-DR apparel assembled using Mexican fabrics can qualify for reduced duties under Chapter 98 HTSUS provisions — an underutilized tool</li>
-          <li>CAFTA-DR thread rule: thread made in the CAFTA-DR region must be used in assembly of qualifying apparel; pocketing fabric must also be sourced regionally</li>
-          <li>Dominican Republic lost Cumulation eligibility in 2012 — DR exporters cannot take advantage of Mexico fabric sourcing under cumulation provisions</li>
-          <li>Trade with CAFTA-DR countries reached $11B in 2024 before declining 8% in 2025 as Asian suppliers gained market share during the uncertainty window</li>
-        </ul>
-        <div class="ca-alert ca-amber">&#9888; Compliance Priority: CAFTA-DR exporters must document full rules of origin compliance even under the current 10% overlay — framework agreements to duty-free status require verified qualifying origin. Engage customs counsel before claiming preferential treatment on framework agreement goods. Track Guatemala and El Salvador tariff line announcements weekly.</div>
-      </div>
-    </div>
+    <h2>The Nearshoring Effect: Supply Chain Migration</h2>
+    <p>The most transformative trend in the Americas trade landscape is the acceleration of nearshoring: the relocation of productive capacity from Asia to Mexico, Central America, and the Caribbean. Three factors drive this migration:</p>
 
-    <!-- HAITI ACCORDION -->
-    <div class="country-accordion">
-      <div class="ca-header" onclick="toggleCA(this)">
-        <div class="ca-left"><span class="ca-flag">&#127469;&#127481;</span>
-          <div class="ca-info"><h4>Haiti — HOPE / HELP Programs</h4><span>Retroactively Restored through December 31, 2026 — Refund Deadline August 2, 2026</span></div>
-        </div>
-        <div class="ca-badge-row"><span class="ca-rb" style="background:#EDE9FE;color:#4C1D95;">0% (HOPE/HELP)</span><span class="ca-chevron">&#9660;</span></div>
-      </div>
-      <div class="ca-body">
-        <div class="ca-statgrid">
-          <div class="ca-stat"><div class="ca-sv">$844M</div><div class="ca-sl">Haiti apparel exports to U.S. (2023)</div></div>
-          <div class="ca-stat"><div class="ca-sv">90%+</div><div class="ca-sl">Share of Haiti export earnings from apparel</div></div>
-          <div class="ca-stat"><div class="ca-sv">Dec 2026</div><div class="ca-sl">Current HOPE/HELP expiration date</div></div>
-          <div class="ca-stat"><div class="ca-sv">Aug 2026</div><div class="ca-sl">Retroactive duty refund REQUEST DEADLINE</div></div>
-        </div>
-        <ul class="ca-bullets">
-          <li>HOPE/HELP programs lapsed Sept. 30, 2025; retroactively restored when President Trump signed H.R.7148 (Feb. 3, 2026) — part of a broader $1.2 trillion appropriations bill</li>
-          <li>Duties paid Oct. 1, 2025 – Feb. 3, 2026 on qualifying Haitian apparel are eligible for refund — importers must file Post Summary Correction (PSC) or protest by <strong>August 2, 2026</strong>. Reference CSMS #67647279. Late filings will be denied</li>
-          <li>Quota claims resumed February 9, 2026 using SPI "D" designation and HTSUS Chapter 98 Subchapter XX codes</li>
-          <li>Value-Added TRQ: 267,063,493 SME available Feb. 3 – Dec. 19, 2026 (prorated for lapse). Knit and Woven Apparel TPLs: 70M SME each; automatically increases to 200M if 52M exceeded</li>
-          <li>Value-Added qualification: as of Dec. 20, 2017, apparel must have 60%+ of export value from Haiti, U.S., FTA partners, or preference beneficiary countries</li>
-          <li>AGOA (Africa) was extended simultaneously — duties paid during the lapse (Oct. 1, 2025 – Feb. 5, 2026) also refundable</li>
-          <li>Proposed longer extensions: H.R.6504 through Dec. 2028; H.R.1625/S.742 through FY2035 — neither enacted as of Feb. 27, 2026. Advocacy from AAFA essential</li>
-          <li>Section 232, antidumping/countervailing duties, and merchandise processing fees (MPF) are excluded from retroactive refunds</li>
-          <li>Haiti's political instability (ongoing gang crisis, interim government) limits factory-level investment despite the preferential program — stability is the binding constraint on long-term growth</li>
-        </ul>
-        <div class="ca-alert ca-purple">&#128260; URGENT Action Item: If you are an importer of qualifying Haitian apparel goods entered Oct. 1, 2025 – Feb. 3, 2026 — file for retroactive duty refund BEFORE August 2, 2026. File PSC or protest via ACE. Reference CSMS #67647279. Email questions to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f29d86979c86808b81879f9f93808bb2919082dc969a81dc959d84">[email&#160;protected]</a>. Textile inquiries: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8de2f9f9e8f5f9e4e1e8d2fde2e1e4eef4d2e8e3ebcdeeeffda3e9e5fea3eae2fb">[email&#160;protected]</a>. HOPE/HELP eligibility: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b1f7e5f0f1d2d3c19fd5d9c29fd6dec7">[email&#160;protected]</a>.</div>
-      </div>
-    </div>
+    <p><strong>1. Tariff pressure on China and Asia:</strong> With effective U.S. tariffs on Chinese imports exceeding 100% in certain categories, and Section 301 tariffs affecting most manufactured goods, the cost arbitrage that historically favored Asia has significantly eroded.</p>
 
-    <!-- SOUTH AMERICA FTAs ACCORDION -->
-    <div class="country-accordion">
-      <div class="ca-header" onclick="toggleCA(this)">
-        <div class="ca-left"><span class="ca-flag">&#127758;</span>
-          <div class="ca-info"><h4>South America — FTA Partners (Colombia, Peru, Chile, Panama)</h4><span>Active FTAs — 10% Section 122 Overlay Applies — Copper / Critical Minerals Watch</span></div>
-        </div>
-        <div class="ca-badge-row"><span class="ca-rb" style="background:#DBEAFE;color:#1E40AF;">FTA + 10%</span><span class="ca-chevron">&#9660;</span></div>
-      </div>
-      <div class="ca-body">
-        <div class="ca-statgrid">
-          <div class="ca-stat"><div class="ca-sv">4</div><div class="ca-sl">Active U.S. FTAs in South/Central America (Colombia, Peru, Chile, Panama)</div></div>
-          <div class="ca-stat"><div class="ca-sv">25%+</div><div class="ca-sl">Section 232 copper tariff — impacts Chile and Peru significantly</div></div>
-          <div class="ca-stat"><div class="ca-sv">China</div><div class="ca-sl">Most surveyed South American nations now view China as more reliable trade partner (Economist 2025 poll)</div></div>
-        </div>
-        <ul class="ca-bullets">
-          <li><strong>Colombia</strong>: One of only a handful of Latin American countries still trading more with the U.S. than China. FTA (2012) provides significant baseline advantage; Section 122 10% overlay applies. Growing pharmaceutical, textile, and cut flower exports. Increasing China engagement due to U.S. uncertainty</li>
-          <li><strong>Peru</strong>: FTA (2009). Major copper exporter — Section 232 copper tariffs (25%+) create exposure beyond apparel. U.S. critical minerals demand could provide leverage in FTA extension or supplemental negotiations</li>
-          <li><strong>Chile</strong>: FTA (2004) — one of the U.S.'s oldest. World's largest copper producer — Section 232 copper tariffs significantly impact Chile. Central to lithium triangle strategy with Argentina and Bolivia. Critical minerals from Chile are increasingly an FTA negotiating currency</li>
-          <li><strong>Panama</strong>: FTA (2012). Canal geopolitics are the dominant trade issue — Trump administration pressure on Chinese investment in canal ports creates supply chain routing risk for all Americas-based businesses that source from Asia via Panama</li>
-          <li><strong>Ecuador</strong>: No FTA but received targeted duty-free treatment on bananas and cocoa as part of the 2025 bilateral framework agreements — signals willingness to negotiate sector-specific deals</li>
-          <li><strong>Argentina</strong>: Received targeted tariff reductions on beef as part of framework agreements in 2025 — Argentina's economic reform program under President Milei created diplomatic openness. 10–15% Section 122 on most goods</li>
-          <li>The broader thesis from Americas Quarterly: Latin America supplies commodities and mid-tier manufactures the U.S. needs; proximity advantages are structural, not temporary</li>
-        </ul>
-        <div class="ca-alert ca-amber">&#9888; Strategic Watch: For all four FTA partners — update landed cost models to reflect the 10% Section 122 addition. For Peru and Chile specifically, run Section 232 copper tariff calculations separately from Section 122. Monitor Colombia's China engagement carefully — supplier diversification and relationship depth are critical hedges.</div>
-      </div>
-    </div>
+    <p><strong>2. Geographic proximity and delivery times:</strong> Ocean shipping from Asia to U.S. East Coast ports takes 28–35 days. From Mexico or Guatemala, ground transportation arrives in 2–5 days. This 85% reduction in transit times enables more agile inventory models.</p>
 
-    <!-- BRAZIL ACCORDION -->
-    <div class="country-accordion">
-      <div class="ca-header" onclick="toggleCA(this)">
-        <div class="ca-left"><span class="ca-flag">&#127463;&#127479;</span>
-          <div class="ca-info"><h4>Brazil — Largest South American Economy, Highest Political Risk</h4><span>No FTA — Political Leverage — China Pivot — Section 122 + Steel Exposure</span></div>
-        </div>
-        <div class="ca-badge-row"><span class="ca-rb" style="background:#FEE2E2;color:#991B1B;">10–15%+ Risk</span><span class="ca-chevron">&#9660;</span></div>
-      </div>
-      <div class="ca-body">
-        <div class="ca-statgrid">
-          <div class="ca-stat"><div class="ca-sv">50%</div><div class="ca-sl">Initial IEEPA threat on Brazil (struck down Feb. 2026)</div></div>
-          <div class="ca-stat"><div class="ca-sv">$7B</div><div class="ca-sl">U.S. trade SURPLUS with Brazil in 2024 — tariff rationale disputed</div></div>
-          <div class="ca-stat"><div class="ca-sv">10–15%</div><div class="ca-sl">Current effective Sec. 122 rate on most Brazilian goods</div></div>
-          <div class="ca-stat"><div class="ca-sv">China &gt; U.S.?</div><div class="ca-sl">Economist 2025 poll: most South Americans now trust China more for trade</div></div>
-        </div>
-        <ul class="ca-bullets">
-          <li>Brazil was initially targeted with a 50% IEEPA tariff — one of the highest in the hemisphere — despite the U.S. running a $7B goods trade surplus with Brazil in 2024. Visual Capitalist noted this as a prime example of tariffs driven by politics, not trade economics</li>
-          <li>Post-IEEPA ruling: Section 122 at 10% (potentially 15%), with exemptions for critical minerals, energy products, agricultural items (beef, oranges), pharmaceuticals, aerospace — many of Brazil's key exports are partially exempt</li>
-          <li>The Bolsonaro judicial case is a live geopolitical tariff lever — Trump has explicitly cited it in tariff threat communications. Resolution or escalation of this case directly affects U.S.–Brazil trade relations</li>
-          <li>Brazil holds the world's third-largest rare earth reserves — a resource the U.S. needs for its China-decoupling strategy, creating a paradox: punishing Brazil while needing its minerals</li>
-          <li>Brazil is a major steel exporter to the U.S. — Section 232 steel tariffs (50%) create significant additional exposure for Brazilian industrial exporters beyond the Section 122 rate</li>
-          <li>In response to U.S. tariff uncertainty, Brazil is accelerating trade ties with China. Brazilian commodity exports (soy, iron ore, beef, critical minerals) increasingly flow to China rather than the U.S.</li>
-          <li>A July 2025 Americas Quarterly analysis found that only Colombia, Ecuador, Mexico, and Central American countries still trade more with the U.S. than with China — Brazil is not on that list</li>
-        </ul>
-        <div class="ca-alert ca-red">&#128308; High Risk Alert: Brazil is the highest-uncertainty trade partner in the Western Hemisphere. Maintain diversified supplier options for any Brazilian-origin inputs. If IEEPA tariffs were paid on Brazilian goods in 2025 — assess refund eligibility immediately (file by approx. Aug. 2026). Monitor Bolsonaro case resolution. Section 232 steel tariffs apply separately from Section 122 — calculate the full tariff stack for steel-intensive Brazilian imports.</div>
-      </div>
-    </div>
+    <p><strong>3. Rules of origin compliance:</strong> Products manufactured in countries with U.S. free trade agreements (USMCA, CAFTA-DR, CBI) can enter with preferential or zero tariffs, provided they comply with product-specific rules of origin.</p>
 
-    <h2>The Critical Issue CAFTA-DR Clients Must Understand</h2>
+    <h2>Impact by Industrial Sector</h2>
 
-    <p>The single most important nuance for importers and sourcing professionals that many practitioners are missing: <strong>CAFTA-DR compliance does not exempt goods from the Section 122 10% tariff.</strong> This is a significant operational and cost reality with no modern precedent.</p>
+    <table class="sector-table">
+      <tr><th>Sector</th><th>Americas Trend</th><th>Opportunity</th></tr>
+      <tr>
+        <td><strong>Textile & Apparel</strong></td>
+        <td>Accelerated production migration from Asia to Honduras, Guatemala, El Salvador, and the Dominican Republic. Mexico consolidates capacity in denim and technical fabrics.</td>
+        <td><span class="impact-badge high">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>Automotive</strong></td>
+        <td>USMCA rules of origin require 75% regional content. The 2026 review could tighten requirements, impacting Tier 2 and Tier 3 suppliers.</td>
+        <td><span class="impact-badge med">Medium</span></td>
+      </tr>
+      <tr>
+        <td><strong>Electronics & Technology</strong></td>
+        <td>Selective nearshoring of sub-assemblies to Mexico (Guadalajara, Monterrey). Semiconductors remain dependent on Asia.</td>
+        <td><span class="impact-badge med">Medium</span></td>
+      </tr>
+      <tr>
+        <td><strong>Agribusiness</strong></td>
+        <td>Brazil and Argentina dominate soy, meat, and grain exports. CAFTA-DR facilitates fruits and tropical products to the U.S.</td>
+        <td><span class="impact-badge high">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>Renewable Energy</strong></td>
+        <td>Chile leads in lithium and solar. Colombia and Brazil attract wind investment. Mexico debates opening the energy sector.</td>
+        <td><span class="impact-badge high">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pharmaceuticals</strong></td>
+        <td>Nearshoring of generic manufacturing to Mexico and the Dominican Republic. FDA regulation remains the biggest challenge.</td>
+        <td><span class="impact-badge med">Medium</span></td>
+      </tr>
+    </table>
 
-    <div class="callout c-amber">
-      <p>A cotton t-shirt (HTS 6109.10.00) with a standard MFN rate of 16.5% — previously entering duty-free under CAFTA-DR compliance — now enters at approximately 26.5% effective rate: 16.5% MFN base + 10% Section 122 overlay. This applies to Honduras, Nicaragua, Costa Rica, and the Dominican Republic today. Only Guatemala and El Salvador have announced (but not yet implemented) duty-free framework agreements. (Source: Worker Rights Consortium, July 2025; Reed Smith, February 2026)</p>
-    </div>
+    <h2>Operational Playbook: How to Position</h2>
 
-    <p>This creates a pricing and competitiveness gap that demands immediate recalculation. Brands and retailers sourcing from the CAFTA-DR region must rebuild every landed cost model, renegotiate supplier contracts to address the new tariff pass-through reality, and reassess the CAFTA-DR region's competitive position against Mexico (0%) and other sourcing options. The National Council of Textile Organizations is actively lobbying for full restoration of CAFTA-DR duty-free status. The path forward — either a Section 122 exemption for CAFTA-DR or individual framework agreements for each country — is the most consequential near-term trade policy question for the Americas region.</p>
-
-    <h2>Panama Canal: The Supply Chain Wildcard</h2>
-
-    <p>No Americas trade briefing is complete without the Panama Canal. Approximately 5% of all world trade passes through the canal. Trump administration pressure on Panama's canal management — citing Chinese investment in ports on both ends and sovereignty concerns — has introduced a geopolitical overlay on what is fundamentally a logistics infrastructure question.</p>
-
-    <div class="callout c-teal">
-      <p>The Panama Canal is not a tariff issue — it is a logistics infrastructure and geopolitical security issue. For any Americas-based business that sources from Asia and routes through Panama, monitoring canal access, transit fees, and U.S.–Panama political relations is as critical as monitoring tariff policy itself.</p>
-    </div>
-
-    <h2>The Americas' Strategic Moment</h2>
-
-    <p>Despite its disruptions, the tariff environment of 2025–2026 represents the most significant strategic opportunity for Western Hemisphere manufacturing in a generation. Asian manufacturing faces tariff headwinds of 10–50%+ depending on country and product. USMCA-compliant Mexican production faces zero. CAFTA-DR + HOPE/HELP production faces 0–26% depending on framework agreement status. The proximity advantage — faster lead times, lower logistics costs, smaller minimum orders, stronger social compliance visibility — now has a tariff advantage to match it.</p>
-
-    <div class="callout c-teal">
-      <p>"Latin America supplies commodities and mid-tier manufactures that the U.S. needs. Proximity will always count. The U.S. at full employment cannot credibly substitute for these imports. The Western Hemisphere's structural advantages are not temporary — they are being amplified by trade policy that cannot realistically be sustained at Asian tariff levels." — Americas Quarterly, February 2026</p>
-    </div>
-
-    <h2>The Americas Operational Playbook</h2>
     <div class="action-grid">
       <div class="action-card">
-        <h4>&#127474;&#127485; USMCA Optimization</h4>
+        <h4>🔍 Supply Chain Assessment</h4>
         <ul>
-          <li>Audit Mexico-origin goods for USMCA rule of origin compliance — non-qualifying goods lose duty-free status entirely</li>
-          <li>Document yarn-forward or fiber-forward origin for all textiles and apparel</li>
-          <li>Monitor USMCA 2026 review — prepare for potential rules of origin revision</li>
-          <li>Evaluate nearshoring investment in Mexico for high-tariff import categories</li>
-          <li>Maintain labor compliance documentation — USMCA rapid response mechanism is active</li>
+          <li>Map current tariff exposure for each supplier and product</li>
+          <li>Identify products eligible for preferential rules of origin under USMCA, CAFTA-DR, or CBI</li>
+          <li>Calculate total cost of ownership (TCO) comparing Asia vs. Americas</li>
         </ul>
       </div>
       <div class="action-card">
-        <h4>&#127807; CAFTA-DR Strategy</h4>
+        <h4>📋 Compliance & Documentation</h4>
         <ul>
-          <li>Recalculate every landed cost for CAFTA-DR-origin goods under 10% Sec. 122 overlay</li>
-          <li>Prioritize Guatemala and El Salvador sourcing expansion as framework agreements finalize</li>
-          <li>Maintain full CAFTA-DR origin documentation — framework agreements require verified qualifying origin</li>
-          <li>Monitor Honduras, D.R., and Costa Rica framework agreement announcements weekly</li>
-          <li>Review Mexico Cumulation provisions under Chapter 98 — underutilized tool for apparel</li>
+          <li>Audit certificates of origin and HTS classifications for all imported products</li>
+          <li>Implement rules of origin verification procedures for regional suppliers</li>
+          <li>Establish document retention system meeting CBP and local customs requirements</li>
         </ul>
       </div>
       <div class="action-card">
-        <h4>&#127469;&#127481; Haiti HOPE/HELP</h4>
+        <h4>🌐 Strategic Diversification</h4>
         <ul>
-          <li>File retroactive refund (PSC or protest) by August 2, 2026 for duties paid Oct. 1, 2025 – Feb. 3, 2026</li>
-          <li>Use SPI "D" designation for all qualifying Haiti entries from Feb. 9, 2026 forward</li>
-          <li>Track weekly TPL quota fill rates at CBP.gov — quotas can fill mid-year</li>
-          <li>Engage AAFA and NCTO on long-term HOPE/HELP extension advocacy</li>
-          <li>Build contingency sourcing plan for December 2026 program expiration</li>
+          <li>Develop secondary suppliers in at least two Americas countries</li>
+          <li>Evaluate free trade zones and maquiladora regimes in Mexico, Honduras, and the Dominican Republic</li>
+          <li>Negotiate supply agreements including flexibility clauses for tariff changes</li>
         </ul>
       </div>
       <div class="action-card">
-        <h4>&#127758; South America FTA Partners</h4>
+        <h4>⚖️ USMCA Review Preparation</h4>
         <ul>
-          <li>Update landed cost models for Colombia, Peru, Chile, and Panama to reflect 10% Section 122 addition</li>
-          <li>For Peru and Chile copper sourcing — calculate Section 232 (25%+) separately from Section 122</li>
-          <li>Track Section 122 expiration (~July 2026) — the key policy inflection for FTA partners</li>
-          <li>Deepen supplier relationships in Colombia to hedge against China pivot risk</li>
-          <li>Assess Ecuador and Argentina framework agreement products for duty savings</li>
-        </ul>
-      </div>
-      <div class="action-card">
-        <h4>&#127463;&#127479; Brazil Risk Management</h4>
-        <ul>
-          <li>Avoid single-source dependency on Brazilian manufacturing inputs</li>
-          <li>If IEEPA tariffs were paid on Brazilian goods in 2025 — assess refund eligibility immediately</li>
-          <li>Monitor Bolsonaro case resolution — U.S.–Brazil political relations are volatile</li>
-          <li>Agricultural imports from Brazil (beef, citrus) — check Section 122 exemption status</li>
-          <li>Steel imports from Brazil — calculate Section 232 (50%) exposure separately</li>
-        </ul>
-      </div>
-      <div class="action-card">
-        <h4>&#128203; Compliance Infrastructure</h4>
-        <ul>
-          <li>Build a Western Hemisphere trade agreement matrix — every supplier mapped to agreement status and current effective rate</li>
-          <li>Ensure customs broker uses post-IEEPA HTS schedule — many brokers have not updated</li>
-          <li>Create 90-day monitoring calendar: CAFTA-DR frameworks, Section 122 expiration, USMCA review, Haiti HOPE/HELP extension status</li>
-          <li>Train procurement teams on rules of origin — the most commonly mismanaged compliance area across all Americas sourcing programs</li>
-          <li>Document all tariff payment periods — IEEPA refund windows are time-limited and non-extendable</li>
+          <li>Monitor USMCA review negotiations scheduled for July 2026</li>
+          <li>Evaluate scenarios for changes in automotive, textile, and agricultural rules of origin</li>
+          <li>Prepare contingency plans for potential disruptions in preferential access</li>
         </ul>
       </div>
     </div>
 
-    <h2>Triple-Horizon Analysis: Americas Trade</h2>
+    <h2>Triple-Horizon Analysis</h2>
+
     <div class="horizon-box">
-      <h3>RC2 Triple-Horizon Analysis — The Americas &amp; Western Hemisphere</h3>
+      <h3>Triple-Horizon Analysis RC2 — Comercio de las Américas</h3>
       <div class="horizon-row">
         <div class="horizon-col">
-          <h4>&#128309; Horizon 1: Now (0–6 Months)</h4>
+          <h4>Horizon 1: Retro (2020–2024)</h4>
           <ul>
-            <li>Section 122 (10%) on all non-USMCA Americas imports through approx. July 2026</li>
-            <li>Haiti HOPE/HELP restored — retroactive refund deadline Aug. 2, 2026</li>
-            <li>Guatemala and El Salvador: duty-free framework implementation in progress</li>
-            <li>Brazil: political risk elevated — Bolsonaro case live</li>
-            <li>CAFTA-DR: 10% overlay despite compliance — brands repricing landed costs</li>
-            <li>Panama Canal geopolitics: monitoring required for Asia-sourcing routing</li>
-            <li>USMCA 2026 review consultations beginning; stakeholder comment periods opening</li>
+            <li>USMCA implementation replacing NAFTA (July 2020)</li>
+            <li>Pandemic accelerated awareness of Asian supply chain vulnerabilities</li>
+            <li>Section 301 tariffs on China established nearshoring incentives</li>
+            <li>Mexico surpassed China as top U.S. trade partner (2023)</li>
+            <li>Record FDI in Mexico reached $36B in 2023</li>
+            <li>Mercosur-EU agreement finalized after 20 years of negotiation</li>
           </ul>
         </div>
         <div class="horizon-col">
-          <h4>&#128256; Horizon 2: Near-Term (6–18 Months)</h4>
+          <h4>Horizon 2: Current (2025–2026)</h4>
           <ul>
-            <li>Section 122 expiration (~July 2026) — Congress acts or administration finds new authority; CAFTA-DR could regain full duty-free status</li>
-            <li>USMCA formal review — rules of origin, labor, and digital trade renegotiation</li>
-            <li>Haiti HOPE/HELP expires Dec. 2026 — extension legislation critical</li>
-            <li>Honduras, D.R., Costa Rica framework agreements anticipated following Guatemala/El Salvador model</li>
-            <li>Nearshoring investment begins materializing in Mexico and Central America at scale</li>
-            <li>Brazil–China trade deepening; FTA discussions with U.S. stalled</li>
+            <li>U.S. effective tariffs at historic highs (13.7%+ average)</li>
+            <li>Mandatory USMCA review begins July 2026</li>
+            <li>Textile nearshoring toward CAFTA-DR accelerating 22% YoY</li>
+            <li>Supreme Court IEEPA ruling redefines presidential tariff authority</li>
+            <li>Free trade zones in Honduras and Dominican Republic report 90%+ occupancy</li>
+            <li>Pacific Alliance negotiates Ecuador accession</li>
           </ul>
         </div>
         <div class="horizon-col">
-          <h4>&#128994; Horizon 3: Long-Term (18+ Months)</h4>
+          <h4>Horizon 3: Future (2027–2030)</h4>
           <ul>
-            <li>Mexico and CAFTA-DR emerge as dominant apparel and textile sourcing alternatives to China</li>
-            <li>Compliance infrastructure becomes a supplier selection criterion for global brands</li>
-            <li>USMCA's updated terms define North American manufacturing architecture for the next decade</li>
-            <li>Lithium triangle (Argentina, Bolivia, Chile) and rare earth competition with China intensifies</li>
-            <li>Americas-region companies with early compliance and nearshoring investment capture sustained competitive advantage</li>
-            <li>Haiti remains structurally fragile — political stability is the binding constraint on sustained growth</li>
-            <li>Panama Canal: U.S.–Panama geopolitical alignment (or tension) reshapes Asia-origin routing costs</li>
+            <li>USMCA renewed or renegotiated with potential rules of origin changes</li>
+            <li>Consolidation of north-south logistics corridors in the Americas</li>
+            <li>Competition among Mexico, Vietnam, and India for manufacturing displaced from China</li>
+            <li>Customs digitalization and electronic origin certification</li>
+            <li>Regional energy integration with emphasis on lithium and renewables</li>
+            <li>Potential CAFTA-DR expansion to include sustainability criteria</li>
           </ul>
         </div>
       </div>
+    </div>
+
+    <h2>The Compliance Dimension</h2>
+    <p>Preferential trade in the Americas depends on strict compliance with rules of origin. An incorrect tariff classification, an incomplete certificate of origin, or a deficient documentary chain of custody can result in loss of tariff benefits, CBP penalties, and even customs fraud investigations. Companies leveraging Americas trade agreements without adequate compliance infrastructure expose themselves to significant financial and legal risks.</p>
+
+    <div class="callout amber">
+      <p>CBP penalties for rules of origin violations can reach up to four times the value of evaded duties. Proactive documentation is not optional.</p>
     </div>
 
     <div class="cta-box">
-      <h3>Navigate the Americas Trade Landscape with Precision</h3>
-      <p>RC2 Consulting builds compliance infrastructure, trade agreement matrices, rules of origin documentation, and supply chain risk assessments for businesses operating across the Western Hemisphere. Whether you are capturing the USMCA advantage, recovering IEEPA refunds, or repositioning your sourcing strategy for what comes after Section 122 — we build the systems that protect your margin.</p>
-      <a href="https://rc2consulting.github.io/contact.html" class="cta-btn">Schedule a Consultation &#8594;</a>
+      <h3>Navigate Americas Trade with Confidence</h3>
+      <p>RC2 Consulting helps organizations assess their supply chain, optimize their tariff position, and build compliance infrastructure that maximizes the benefits of hemispheric trade agreements.</p>
+      <a href="https://rc2consulting.github.io/contact.html" class="cta-btn">Schedule a Consultation →</a>
     </div>
 
     <div class="sources">
-      <h4>Sources &amp; References</h4>
-      <p>&#8226; U.S. Customs and Border Protection (CBP) — CAFTA-DR Overview; Quota Bulletins QB-26-105 (CAFTA Cumulation), QB-26-409 (Haiti HOPE): cbp.gov</p>
-      <p>&#8226; U.S. Dept. of Commerce / Trade.gov — Summary of CAFTA-DR FTA Textiles; Haiti Trade Preference FAQ; OTEXA: trade.gov</p>
-      <p>&#8226; Congress.gov — CRS Report IF10394 (CAFTA-DR); H.R.7148 signed Feb. 3, 2026 (AGOA/HOPE/HELP extension); R48549 (Presidential 2025 Tariff Actions)</p>
-      <p>&#8226; Federal Register — Doc. 2026-02832: Haiti HOPE Value-Added Quota Limitation (Feb. 12, 2026): federalregister.gov</p>
-      <p>&#8226; Sobel Network Shipping — "U.S. to Grant Duty-Free Access for Qualified CAFTA Apparel from Guatemala and El Salvador" (Nov. 2025): sobelnet.com</p>
-      <p>&#8226; Worker Rights Consortium — Tariff Update / CAFTA-DR Tariff Rate Analysis (July 2025): workersrights.org</p>
-      <p>&#8226; FASH455 / Sheng Lu Fashion — CAFTA-DR 2025 Analysis; Guatemala industry executive interview: shenglufashion.com</p>
-      <p>&#8226; Americas Quarterly — "How U.S. Tariffs Are Rewiring Latin American Trade" (July 2025); "Reaction: How Trump's 15% Tariff Move Impacts Latin America" (Feb. 2026): americasquarterly.org</p>
-      <p>&#8226; Haitian Times — "US Extends Haiti HOPE and HELP Trade Programs Through 2026" (Feb. 2026): haitiantimes.com</p>
-      <p>&#8226; GHY International — "U.S. Reauthorizes AGOA, Haiti HOPE, and HELP Trade Programs" (Feb. 9, 2026): ghy.com</p>
-      <p>&#8226; AAFA — Press Release on AGOA/Haiti HOPE/HELP House Passage (Jan. 13, 2026): aafaglobal.org</p>
-      <p>&#8226; Tax Foundation — Trump Tariffs Trade War Tracker (Feb. 2026): taxfoundation.org</p>
-      <p>&#8226; Reed Smith LLP — Trump 2.0 Tariff Tracker / Trade Compliance Resource Hub (Feb. 2026): tradecomplianceresourcehub.com</p>
-      <p>&#8226; Visual Capitalist — Mapped: U.S. Tariff Rates by Country: visualcapitalist.com</p>
-      <p>&#8226; Americas Apparel Producers' Network (AAPN): aapnetwork.net; LinkedIn (organization description, 600+ member companies)</p>
-      <p>&#8226; Textile World — AAPN Certificate in Foundations of Textile Manufacturing announcement (Jan. 23, 2026): textileworld.com</p>
-      <p><em>All rates, legal citations, and program statuses current as of February 27, 2026. Trade policy changes rapidly. Consult qualified customs and trade counsel before making sourcing or compliance decisions.</em></p>
+      <h4>Sources and References</h4>
+      <p>• U.S. Trade Representative (USTR) — USMCA Text and 2026 Review Timeline: ustr.gov</p>
+      <p>• Inter-American Development Bank (IDB) — LAC Intraregional Trade Report 2025: iadb.org</p>
+      <p>• IMF — Direction of Trade Statistics (DOTS): data.imf.org</p>
+      <p>• Mexico's Secretariat of Economy — FDI and Nearshoring Reports 2024–2025: gob.mx/se</p>
+      <p>• ECLAC — Latin America and Caribbean International Integration Outlook 2025: cepal.org</p>
+      <p>• U.S. International Trade Commission (USITC) — Tariff Database y HTS Schedule: usitc.gov</p>
+      <p>• U.S. CBP — Rules of Origin and Preferential Certification Guide: cbp.gov</p>
+      <p>• Pacific Alliance — Official Trade Integration Portal: alianzapacifico.net</p>
+      <p>• CARICOM — Caribbean Single Market and Economy: caricom.org</p>
+      <p>• Congressional Research Service — USMCA Review 2026: Outlook and Issues (Report R48712)</p>
+      <p><em>All trade figures, rates, and regulatory references are current as of March 2026. The trade landscape is subject to rapid changes. Consult qualified trade advisors before making sourcing or compliance decisions.</em></p>
     </div>
 
   </div>
@@ -783,8 +428,6 @@
   </div>
   <div class="footer-copy">&copy; 2026 RC2 Consulting, LLC &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Terms of Service</div>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-stat
 
 <script>
 (function() {
