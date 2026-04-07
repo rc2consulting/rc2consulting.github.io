@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PC5L4ZH7KY');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad | RC2 Consulting</title>
+  <meta name="description" content="Política de Privacidad de RC2 Consulting — cómo recopilamos, usamos y protegemos su información personal." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0B2545; --blue:#1A4A8A; --light-blue:#2563EB;
+      --light-bg:#F4F6FA; --white:#FFFFFF;
+      --text:#1C2B3A; --text-muted:#4A5568; --border:#E2E8F0;
+    }
+    body { font-family:'Source Sans 3',sans-serif; background:var(--white); color:var(--text); margin:0; line-height:1.6; }
+
+    /* NAV */
+    .topnav { background:var(--navy); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
+    .nav-logo-mark sup { font-size:0.5rem; vertical-align:super; }
+    .nav-brand-name { font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.9); }
+    .nav-links { display:flex; gap:4px; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.83rem; font-weight:600; padding:6px 12px; border-radius:4px; transition:all 0.2s; }
+    .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
+    .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
+
+    /* HERO */
+    .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.75) 0%, rgba(11,37,69,0.55) 50%, rgba(11,37,69,0.75) 100%), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat; padding:72px 40px; text-align:center; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700; color:white; margin-bottom:14px; }
+    .hero p { font-size:1rem; color:rgba(255,255,255,0.82); max-width:560px; margin:0 auto; line-height:1.7; }
+
+    /* ABOUT CONTENT */
+    .page { max-width:900px; margin:0 auto; padding:0 28px; }
+    .section { padding:56px 0; }
+
+    .about-block { margin-bottom:36px; }
+    .about-block h3 { font-size:1rem; font-weight:700; color:var(--light-blue); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+    .about-block p { font-size:0.92rem; color:var(--text-muted); line-height:1.75; }
+
+    /* TEAM */
+    .team-section { background:var(--light-bg); padding:56px 28px; }
+    .team-inner { max-width:900px; margin:0 auto; }
+    .team-inner h2 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--navy); margin-bottom:28px; text-align:center; }
+    .team-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+    .team-card {
+      background:var(--white); border-radius:10px; border:1px solid var(--border);
+      box-shadow:0 2px 8px rgba(11,37,69,0.07); padding:28px;
+      display:flex; flex-direction:column; align-items:center;
+    }
+    .team-photo-wrap { display:flex; justify-content:center; margin-bottom:16px; width:100%; }
+    .team-photo {
+      width:90px; height:90px; border-radius:50%; overflow:hidden;
+      border:3px solid var(--border);
+      background:var(--border); display:flex; align-items:center; justify-content:center;
+    }
+    .team-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .team-info { width:100%; }
+    .team-photo-placeholder { font-size:1.8rem; }
+    .team-bio { font-size:0.8rem; color:var(--mu); line-height:1.65; margin-top:12px; }
+    .team-name { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:3px; }
+    .team-role { font-size:0.78rem; color:var(--light-blue); font-style:italic; margin-bottom:12px; }
+    .team-list { list-style:none; }
+    .team-list li { font-size:0.8rem; color:var(--text-muted); padding:4px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:6px; }
+    .team-list li:last-child { border-bottom:none; }
+    .team-list li::before { content:'›'; color:var(--blue); font-size:1rem; flex-shrink:0; }
+
+    /* WHO WE SERVE */
+    .serve-section { padding:56px 28px; }
+    .serve-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+    .serve-left h3 { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--navy); margin-bottom:16px; }
+    .serve-list { list-style:none; }
+    .serve-list li { font-size:0.88rem; color:var(--text-muted); padding:7px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
+    .serve-list li:last-child { border-bottom:none; }
+    .serve-list li::before { content:'•'; color:var(--blue); font-weight:700; flex-shrink:0; }
+    .serve-right { background:var(--navy); border-radius:10px; padding:28px; }
+    .serve-right h3 { font-family:'Playfair Display',serif; font-size:1.1rem; color:white; margin-bottom:14px; }
+    .serve-right p { font-size:0.88rem; color:rgba(255,255,255,0.78); line-height:1.6; margin-bottom:20px; }
+    .btn-start { display:block; background:var(--light-blue); color:white; font-weight:700; font-size:0.88rem; padding:12px 24px; border-radius:6px; text-decoration:none; text-align:center; transition:all 0.2s; }
+    .btn-start:hover { background:#1d4ed8; }
+
+    /* FOOTER */
+    .site-footer { background:var(--blue); color:white; text-align:center; padding:40px 24px; }
+    .footer-tagline { font-size:0.92rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:12px; }
+    .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; }
+    .footer-links a:hover { color:white; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+
+    @media (max-width:700px) {
+      .team-grid { grid-template-columns:1fr; }
+      .team-card { grid-template-columns:1fr; }
+      .serve-inner { grid-template-columns:1fr; }
+      .hero h1 { font-size:2rem; }
+      .topnav { padding:0 16px; }
+      .nav-links a { padding:5px 8px; font-size:0.78rem; }
+    }
+  
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
+    .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
+    .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+    .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+    .lang-btn.active{background:#C8922A;color:#0B2545}
+  
+    /* ════════════════════════════════════════
+       RC2 GLOBAL MOBILE OPTIMIZATION
+       Applied 2026-02-28 — all core pages
+    ════════════════════════════════════════ */
+
+    /* Prevent ANY horizontal overflow site-wide */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    /* ── Hamburger button (hidden on desktop) ── */
+    .hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 6px;
+      margin-left: auto; z-index: 300;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: rgba(255,255,255,0.9); border-radius: 2px;
+      transition: all .28s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Tablet breakpoint: 900px ── */
+    @media (max-width: 900px) {
+      /* Sections lose the heavy side padding */
+      section, .hero, .services-strip, .cta-strip, .clients-gain,
+      .page-hero, .article-section, .section-pad,
+      .resources-section, .rc-section, .wrap {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+    }
+
+    /* ── Mobile breakpoint: 640px ── */
+    @media (max-width: 640px) {
+      /* NAV — collapse to hamburger */
+      .topnav { padding: 0 16px !important; position: relative; }
+      .hamburger { display: flex !important; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 52px; left: 0; right: 0;
+        background: #0B2545;
+        flex-direction: column !important;
+        padding: 8px 0 16px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        z-index: 200;
+        gap: 0 !important;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block; width: 100%;
+        padding: 12px 20px !important;
+        font-size: 0.92rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        border-radius: 0 !important;
+        height: auto !important;
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .lang-toggle { padding: 10px 20px 4px; }
+
+      /* Prevent overflow on ALL containers */
+      .hero-inner, .strip-inner, .cta-inner, .page-inner,
+      .article-wrap, .services-grid, .rc-grid, .team-grid,
+      .wrap-inner, .resources-grid {
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+      }
+
+      /* Typography scaling */
+      h1, .hero-left h1, .page-hero h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem) !important;
+        line-height: 1.25 !important;
+      }
+      h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }
+      h3 { font-size: clamp(0.95rem, 4vw, 1.1rem) !important; }
+
+      /* Section padding */
+      section, .hero, .services-strip, .cta-strip,
+      .clients-gain, .page-hero, .wrap {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+      }
+
+      /* Hero adjustments */
+      .hero-inner {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .hero-card { display: none !important; }
+      .hero-left p { font-size: 0.93rem !important; }
+
+      /* Grids → single column */
+      .services-grid, .gains-grid, .cta-inner,
+      .team-grid, .rc-grid, .resources-grid,
+      .agreement-grid, .action-grid, .stat-grid,
+      .horizon-row, .ca-grid, .ca-statgrid,
+      .aapn-box {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      /* Service cols stack, lose side border */
+      .service-col {
+        border-right: none !important;
+        border-bottom: 1px solid var(--border) !important;
+      }
+      .service-col:last-child { border-bottom: none !important; }
+
+      /* Buttons full-width on mobile */
+      .btn-cta-large, .btn-primary, .cta-btn {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 14px 20px !important;
+      }
+
+      /* Tables — allow horizontal scroll within container only */
+      table, .tariff-table, .table-wrap {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+      }
+
+      /* Articles */
+      .abstract-box, .callout, .horizon-box,
+      .map-section, .chart-section, .agreement-card,
+      .country-accordion, .aapn-box {
+        padding: 18px 16px !important;
+      }
+      .map-grid { grid-template-columns: 1fr !important; }
+      .bar-label { width: 110px !important; font-size: 0.7rem !important; }
+      .bar-val { font-size: 0.65rem !important; }
+
+      /* Footer */
+      .footer-links { gap: 12px !important; }
+      .footer-links a { font-size: 0.78rem; }
+    }
+
+    /* ── Very small phones: 380px ── */
+    @media (max-width: 380px) {
+      .topnav { padding: 0 12px !important; }
+      h1, .hero-left h1 { font-size: 1.45rem !important; }
+      section, .hero, .services-strip, .cta-strip {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
+      .nav-logo-mark { font-size: 1rem !important; }
+      .nav-brand-name { font-size: 0.68rem !important; }
+    }
+</style>
+
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="https://rc2consulting.github.io/" class="nav-brand">
+    <div class="nav-logo-mark">RC<sup>2</sup></div>
+    <span class="nav-brand-name">Consulting</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
+    <li><a href="https://rc2consulting.github.io/services-es.html">Servicios</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a></li>
+    <li><a href="https://rc2consulting.github.io/about-es.html">Nosotros</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a></li>
+    <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
+    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
+    <li>
+      <div class="lang-toggle">
+        <a href="https://rc2consulting.github.io/privacy.html" class="lang-btn inactive">EN</a>
+        <a href="https://rc2consulting.github.io/privacy-es.html" class="lang-btn active">ES</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero">
+  <h1>Política de Privacidad</h1>
+  <p>Cómo RC2 Consulting recopila, usa y protege su información.</p>
+</section>
+
+<div class="page"><div class="section">
+  <div class="about-block">
+    <h3>Política de Privacidad</h3>
+    <p><strong>Fecha de Vigencia:</strong> 7 de abril de 2026<br />
+    <strong>Última Actualización:</strong> 7 de abril de 2026</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Introducción</h3>
+    <p>RC2 Consulting, LLC (&ldquo;RC2,&rdquo; &ldquo;nosotros&rdquo; o &ldquo;nuestro&rdquo;) respeta su privacidad y se compromete a proteger su información personal. Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos la información cuando visita nuestro sitio web en rc2consulting.github.io (&ldquo;Sitio&rdquo;) o utiliza nuestros servicios.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Información que Recopilamos</h3>
+    <p><strong>Información que usted proporciona:</strong> Cuando completa nuestro formulario de contacto, formulario de admisión o programa una consulta, podemos recopilar su nombre, dirección de correo electrónico, número de teléfono, nombre de la empresa y detalles sobre su consulta.</p>
+    <p><strong>Información recopilada automáticamente:</strong> Utilizamos Google Analytics 4 (GA4) para recopilar datos de uso anónimos, incluyendo páginas visitadas, tiempo en las páginas, fuentes de referencia, tipo de dispositivo y ubicación geográfica general. Estos datos no lo identifican personalmente.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Cómo Usamos Su Información</h3>
+    <p>Utilizamos la información recopilada para responder a sus consultas y programar asesorías, mejorar nuestro sitio web y servicios basándonos en patrones de uso, comunicar actualizaciones relevantes sobre nuestros servicios (solo si usted lo autoriza) y cumplir con las obligaciones legales aplicables.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Compartir Información</h3>
+    <p>No vendemos, alquilamos ni intercambiamos su información personal con terceros. Podemos compartir información con proveedores de servicios de confianza que nos asisten en la operación de nuestro sitio web y la prestación de servicios (como Google Analytics y Formspree), pero solo en la medida necesaria para realizar esas funciones. También podemos divulgar información cuando lo exija la ley o para proteger nuestros derechos legales.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Cookies y Tecnologías de Seguimiento</h3>
+    <p>Nuestro Sitio utiliza cookies y tecnologías similares a través de Google Analytics para recopilar datos de uso anónimos. Puede ajustar la configuración de su navegador para rechazar cookies, aunque esto puede afectar su experiencia en el Sitio.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Seguridad de Datos</h3>
+    <p>Implementamos salvaguardas administrativas, técnicas y físicas razonables para proteger su información personal. Sin embargo, ningún método de transmisión electrónica o almacenamiento es completamente seguro, y no podemos garantizar seguridad absoluta.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Enlaces a Terceros</h3>
+    <p>Nuestro Sitio puede contener enlaces a sitios web de terceros, incluyendo Google Forms, Google Calendar y recursos externos. No somos responsables de las prácticas de privacidad de esos sitios de terceros. Le recomendamos revisar sus políticas de privacidad.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Privacidad de Menores</h3>
+    <p>Nuestro Sitio y servicios no están dirigidos a personas menores de 13 años. No recopilamos intencionalmente información personal de menores.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Sus Derechos</h3>
+    <p>Dependiendo de su jurisdicción, puede tener derecho a acceder, corregir o eliminar su información personal. Para ejercer estos derechos, contáctenos en <a href="mailto:eddie@rc2consulting.com" style="color:var(--light-blue);">eddie@rc2consulting.com</a>.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Cambios a Esta Política</h3>
+    <p>Podemos actualizar esta Política de Privacidad periódicamente. Los cambios se publicarán en esta página con una fecha de &ldquo;Última Actualización&rdquo; revisada. Su uso continuado del Sitio después de los cambios constituye la aceptación de la política revisada.</p>
+  </div>
+
+  <div class="about-block">
+    <h3>Contáctenos</h3>
+    <p>Si tiene preguntas sobre esta Política de Privacidad, contáctenos:<br /><br />
+    <strong>RC2 Consulting, LLC</strong><br />
+    Eddie Castleton, Operations &amp; Compliance Officer | Principal Consultant<br />
+    Email: <a href="mailto:eddie@rc2consulting.com" style="color:var(--light-blue);">eddie@rc2consulting.com</a><br />
+    Sitio web: <a href="https://rc2consulting.github.io" style="color:var(--light-blue);">rc2consulting.github.io</a></p>
+  </div>
+</div></div>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.querySelector('.nav-links');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+<footer class="site-footer">
+  <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-links">
+    <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
+    <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
+    <a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a>
+    <a href="https://rc2consulting.github.io/about-es.html">Nosotros</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a>
+    <a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a>
+    <a href="https://rc2consulting.github.io/contact-es.html">Contacto</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting, LLC &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Términos de Servicio</a></div>
+</footer>
+</body>
+</html>
