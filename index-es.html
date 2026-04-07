@@ -19,7 +19,7 @@
     :root {
       --navy:        #0B2545;
       --blue:        #1A4A8A;
-      --light-blue:  #2563EB;
+      --light-blue:  #1A4A8A;
       --accent:      #C8922A;
       --accent-light:#F0B429;
       --light-bg:    #F4F6FA;
@@ -86,9 +86,15 @@
       border-radius: 6px; text-decoration: none; text-align: center;
       transition: all 0.2s;
     }
-    .btn-get-started:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-get-started:hover { background: #153D6F; transform: translateY(-1px); }
 
     /* ── SERVICES STRIP ── */
+    .trust-strip { background: var(--navy); padding: 28px 40px; }
+    .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .trust-item { text-align: center; flex: 1; min-width: 140px; }
+    .trust-badge { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 4px; }
+    .trust-label { font-size: 0.68rem; color: rgba(255,255,255,0.55); line-height: 1.4; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .trust-sub { font-weight: 400; font-style: italic; text-transform: none; letter-spacing: 0; font-size: 0.64rem; color: rgba(255,255,255,0.4); }
     .services-strip { background: var(--white); padding: 56px 40px; }
     .strip-inner { max-width: 1100px; margin: 0 auto; }
     .services-grid {
@@ -113,9 +119,7 @@
 
     /* ── WHAT CLIENTS GAIN ── */
     .clients-gain {
-      background:
-        linear-gradient(to bottom, rgba(11,37,69,0.78) 0%, rgba(11,37,69,0.65) 100%),
-        url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;
+      background: var(--navy);
       padding: 72px 40px; text-align: center;
     }
     .clients-gain h2 {
@@ -149,10 +153,10 @@
       font-weight: 700; font-size: 1rem; padding: 16px 36px;
       border-radius: 7px; text-decoration: none; transition: all 0.2s;
     }
-    .btn-cta-large:hover { background: #1d4ed8; transform: translateY(-2px); }
+    .btn-cta-large:hover { background: #153D6F; transform: translateY(-2px); }
 
     /* ── FOOTER ── */
-    .site-footer { background: var(--blue); color: white; text-align: center; padding: 40px 24px; }
+    .site-footer { background: var(--navy); color: white; text-align: center; padding: 40px 24px; }
     .footer-tagline { font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px; }
     .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
     .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; }
@@ -242,7 +246,7 @@
     /* ── Tablet breakpoint: 900px ── */
     @media (max-width: 900px) {
       /* Sections lose the heavy side padding */
-      section, .hero, .services-strip, .cta-strip, .clients-gain,
+      section, .hero, .trust-strip, .services-strip, .cta-strip, .clients-gain,
       .page-hero, .article-section, .section-pad,
       .resources-section, .rc-section, .wrap {
         padding-left: 24px !important;
@@ -421,6 +425,32 @@
   </div>
 </section>
 
+<!-- SEÑALES DE CONFIANZA -->
+<section class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-badge">60+</div>
+      <div class="trust-label">Años de Experiencia<br>Combinada</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-badge">AAPN</div>
+      <div class="trust-label">Presidenta Ejecutiva<br><span class="trust-sub">2025–2027</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-badge">SPESA</div>
+      <div class="trust-label">Miembro de la Junta<br><span class="trust-sub">2023–Presente</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-badge">EN | ES</div>
+      <div class="trust-label">Servicio<br>Bilingüe</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-badge">WRAP</div>
+      <div class="trust-label">Experticia en<br>Auditoría 2026</div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES STRIP -->
 <section class="services-strip">
   <div class="strip-inner">
@@ -582,19 +612,5 @@ function toggleDesc(btn) {
 })();
 </script>
 
-<<!-- CAP-14: Intake Form CTA Banner ES -->
-<section style="background:#0d2340;padding:48px 24px;text-align:center;">
-  <p style="color:#c9a84c;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">DA EL PRIMER PASO</p>
-  <h2 style="color:#ffffff;font-size:28px;font-weight:700;margin-bottom:12px;">¿Listo para Comenzar?</h2>
-  <p style="color:#d0d8e4;font-size:16px;max-width:560px;margin:0 auto 28px;">
-    Complete nuestro breve formulario y determinaremos el camino correcto para su organización — sin compromiso.
-  </p>
-  <a href="https://forms.gle/ZpnAtwx8PvES6BT79"
-     target="_blank"
-     style="display:inline-block;background:#c9a84c;color:#0d2340;font-weight:700;font-size:15px;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:0.5px;">
-    Completar el Formulario →
-  </a>
-  <p style="color:#8a94a6;font-size:13px;margin-top:16px;">Menos de 3 minutos. Sin spam. Sin compromiso.</p>
-</section>
 </body>
 </html>
