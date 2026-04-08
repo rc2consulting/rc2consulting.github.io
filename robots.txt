@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /RC2%20Training%20Hub.html
+Disallow: /RC2_CAP_Tracker.html
+
+Sitemap: https://rc2consulting.github.io/sitemap.xml
