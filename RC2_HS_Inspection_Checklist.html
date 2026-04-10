@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -9,9 +9,21 @@
   gtag('js', new Date());
   gtag('config', 'G-PC5L4ZH7KY');
 </script>
-  <meta charset="UTF-8"/>
+    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>H&S Inspection Checklist | RC2 Consulting</title>
+  <meta property="og:title" content="H&S Inspection Checklist | RC2 Consulting">
+  <meta property="og:description" content="H&S Inspection Checklist. Free interactive tool from RC2 Consulting.">
+  <meta property="og:url" content="https://rc2consulting.github.io/RC2_HS_Inspection_Checklist.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+  <meta property="og:site_name" content="RC2 Consulting">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="H&S Inspection Checklist | RC2 Consulting">
+  <meta name="twitter:description" content="H&S Inspection Checklist. Free interactive tool from RC2 Consulting.">
+  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
   <meta name="description" content="Health & Safety Inspection Checklist — A structured facility inspection tool aligned to WRAP Principle 8 and OSHA general industry standards."/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
@@ -43,11 +55,11 @@
     .lang-btn.active { color:white; background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.4); }
 
     /* HERO */
-    .hero { background:linear-gradient(160deg, var(--navy) 0%, #1A3A6B 55%, #0D2A5A 100%); padding:56px 40px 44px; position:relative; overflow:hidden; }
-    .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 80% 40%, rgba(200,146,42,0.07) 0%, transparent 60%); pointer-events:none; }
-    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.85) 0%, rgba(11,37,69,0.70) 100%), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80') center/cover no-repeat; padding: 64px 40px 56px; position:relative; overflow:hidden; }
+    /* hero ::before removed */
+    .hero-inner { max-width:1140px; margin:0 auto; position:relative; z-index:1; }
     .atag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.75); font-size:0.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:14px; }
-    .hero h1 { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:white; line-height:1.25; margin-bottom:10px; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:2.3rem; font-weight:700; color:white; line-height:1.25; margin-bottom:10px; }
     .hero-sub { font-size:0.9rem; color:rgba(255,255,255,0.72); max-width:680px; line-height:1.7; margin-bottom:14px; }
     .hero-meta { font-size:0.75rem; color:rgba(255,255,255,0.45); letter-spacing:0.3px; }
     .hero-meta span { margin:0 10px; }
@@ -194,7 +206,8 @@
     .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.78rem; }
     .footer-links a:hover { color:white; }
     .footer-copy { font-size:0.72rem; color:rgba(255,255,255,0.3); }
-    .footer-copy a { color:rgba(255,255,255,0.4); text-decoration:none; }
+    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
+    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
 
     @media print {
       .topnav, .back-link, .cta-box, .print-btn, .site-footer { display:none; }
@@ -209,7 +222,59 @@
       .page-wrap { padding:20px 16px 40px; }
       .hero { padding:36px 16px 28px; }
     }
-  </style>
+  
+    /* ── Hamburger Button ── */
+    .hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 6px;
+      margin-left: auto; z-index: 300;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: rgba(255,255,255,0.9); border-radius: 2px;
+      transition: all .28s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .lang-toggle { display:flex; gap:4px; align-items:center; }
+    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
+    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
+    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
+    .lang-btn.active { background:#C8922A; color:#0B2545; }
+
+    /* ── Mobile breakpoint: 640px ── */
+    @media (max-width: 640px) {
+      .topnav { padding: 0 16px !important; position: relative; }
+      .hamburger { display: flex !important; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 52px; left: 0; right: 0;
+        background: #0B2545;
+        flex-direction: column !important;
+        padding: 8px 0 16px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        z-index: 200;
+        gap: 0 !important;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block; width: 100%;
+        padding: 12px 20px !important;
+        font-size: 0.92rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        border-radius: 0 !important;
+        height: auto !important;
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .lang-toggle { padding: 10px 20px 4px; }
+    }
+
+    </style>
 </head>
 <body>
 
@@ -224,12 +289,18 @@
     <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
     <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
+    <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
+      <li>
+      <div class="lang-toggle">
+        <a href="https://rc2consulting.github.io/RC2_HS_Inspection_Checklist.html" class="lang-btn active">EN</a>
+        <a href="https://rc2consulting.github.io/RC2_HS_Inspection_Checklist-es.html" class="lang-btn inactive">ES</a>
+      </div>
+    </li>
   </ul>
-  <div class="nav-lang">
-    <a href="#" class="lang-btn active">EN</a>
-    <a href="https://rc2consulting.github.io/RC2_HS_Inspection_Checklist-es.html" class="lang-btn">ES</a>
-  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <section class="hero">
@@ -535,9 +606,10 @@
     <a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a>
     <a href="https://rc2consulting.github.io/about.html">About</a>
     <a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a>
+    <a href="https://rc2consulting.github.io/insights.html">Insights</a>
     <a href="https://rc2consulting.github.io/contact.html">Contact</a>
   </div>
-  <div class="footer-copy">© 2026 RC2 Consulting &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting, LLC &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms.html">Terms of Service</a></div>
 </footer>
 
 <script>
@@ -618,6 +690,33 @@ function calc() {
     }
   }
 }
+</script>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.querySelector('.nav-links');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
 </script>
 </body>
 </html>
