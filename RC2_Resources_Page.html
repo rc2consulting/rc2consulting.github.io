@@ -981,7 +981,9 @@
     <a href="https://rc2consulting.github.io/contact.html">Contact</a>
   </div>
   <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms.html">Terms of Service</a></div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+</footer>
+
+<script>
 (function() {
   var btn = document.getElementById('hamburger');
   var nav = document.querySelector('.nav-links');
@@ -989,16 +991,24 @@
   btn.addEventListener('click', function() {
     var isOpen = nav.classList.toggle('mobile-open');
     btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.setAttribute('aria-expanded', isOpen);
   });
   nav.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() {
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded', false);
     });
   });
   document.addEventListener('click', function(e) {
-    if (!btn.contains(
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
