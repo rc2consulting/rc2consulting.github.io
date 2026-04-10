@@ -103,9 +103,75 @@
     .horizon-table { font-size: 0.82rem; }
     .horizon-table th, .horizon-table td { padding: 0.5rem 0.6rem; }
   }
+  /* ── NAV ── */
+  .topnav { background:#0B1E3D; padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
+  .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+  .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
+  .nav-logo-mark sup { font-size:0.5rem; vertical-align:super; }
+  .nav-brand-name { font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.9); }
+  .nav-links { display:flex; gap:4px; list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.83rem; font-weight:600; padding:6px 12px; border-radius:4px; transition:all 0.2s; white-space:nowrap; }
+  .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
+  .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
+  .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
+  .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
+  .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+  .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+  .lang-btn.active{background:#C8922A;color:#0B2545}
+  .hamburger { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:6px; margin-left:auto; z-index:300; }
+  .hamburger span { display:block; width:24px; height:2px; background:rgba(255,255,255,0.9); border-radius:2px; transition:all .28s ease; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .site-footer { background:#1A4A8A; color:white; text-align:center; padding:40px 24px; border-top:1px solid rgba(255,255,255,0.1); }
+  .site-footer .footer-tagline { font-size:0.92rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:12px; }
+  .site-footer .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; list-style:none; }
+  .site-footer .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; }
+  .site-footer .footer-links a:hover { color:white; }
+  .site-footer .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+  .site-footer .footer-copy a, .site-footer .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; }
+  .site-footer .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+  @media (max-width: 900px) { .topnav { padding:0 16px; } .nav-links a { padding:5px 8px; font-size:0.78rem; } }
+  @media (max-width: 640px) {
+    .topnav { padding: 0 16px !important; position: relative; }
+    .hamburger { display: flex !important; }
+    .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #0B2545; flex-direction: column !important; padding: 8px 0 16px; border-top: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.35); z-index: 200; gap: 0 !important; }
+    .nav-links.mobile-open { display: flex !important; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; width: 100%; padding: 12px 20px !important; font-size: 0.92rem !important; border-bottom: 1px solid rgba(255,255,255,0.07); border-radius: 0 !important; }
+    .nav-links a:last-child { border-bottom: none; }
+    .lang-toggle { padding: 10px 20px 4px; }
+  }
+  @media (max-width: 380px) { .topnav { padding: 0 12px !important; } .nav-logo-mark { font-size: 1rem !important; } .nav-brand-name { font-size: 0.68rem !important; } }
 </style>
 </head>
 <body>
+
+<!-- ── NAVEGACIÓN ── -->
+<nav class="topnav">
+  <a href="https://rc2consulting.github.io/index-es.html" class="nav-brand">
+    <div class="nav-logo-mark">RC<sup>2</sup></div>
+    <span class="nav-brand-name">Consulting</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
+    <li><a href="https://rc2consulting.github.io/services-es.html">Servicios</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a></li>
+    <li><a href="https://rc2consulting.github.io/about-es.html">Nosotros</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a></li>
+    <li><a href="https://rc2consulting.github.io/insights-es.html" class="active">Perspectivas</a></li>
+    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
+    <li>
+      <div class="lang-toggle">
+        <a href="https://rc2consulting.github.io/2026-04-08_Trade_Tariffs_Nearshoring_Iran_Impact.html" class="lang-btn inactive">EN</a>
+        <a href="https://rc2consulting.github.io/2026-04-08_Trade_Tariffs_Nearshoring_Iran_Impact-es.html" class="lang-btn active">ES</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Alternar navegación" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
 <header class="header-banner">
   <div class="header-inner">
@@ -363,11 +429,46 @@
 
 </article>
 
-<footer class="article-footer">
-  <strong>RC2 Sales Consulting, LLC</strong> · 11711 NW 12th St, Pembroke Pines, FL 33026 · eddie@rc2salesconsulting.com<br>
-  EIN: 99-0448814 · © 2026 RC2 Sales Consulting, LLC. Todos los derechos reservados.<br>
-  <em>Este artículo es solo para fines informativos y no constituye asesoramiento legal, financiero o de cumplimiento comercial.</em>
+<footer class="site-footer">
+  <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-links">
+    <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
+    <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
+    <a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a>
+    <a href="https://rc2consulting.github.io/about-es.html">Nosotros</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a>
+    <a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a>
+    <a href="https://rc2consulting.github.io/contact-es.html">Contacto</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting, LLC &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html">Términos de Servicio</a></div>
 </footer>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.querySelector('.nav-links');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
