@@ -270,7 +270,32 @@
       .nav-logo-mark { font-size: 1rem !important; }
       .nav-brand-name { font-size: 0.68rem !important; }
     }
-</style>
+
+    /* CTA STRIP - matches homepage Gold Standard */
+    .cta-strip { background: var(--light-bg); padding: 56px 40px; }
+    .cta-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    }
+    .cta-left h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 10px; }
+    .cta-left p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .cta-right { text-align: center; }
+    .btn-cta-large {
+      display: inline-block; background: var(--light-blue); color: white;
+      font-weight: 700; font-size: 1rem; padding: 16px 36px;
+      border-radius: 7px; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-cta-large:hover { background: #153D6F; transform: translateY(-2px); }
+    @media (max-width: 900px) {
+      .cta-inner { grid-template-columns: 1fr; text-align: center; }
+    }
+    @media (max-width: 640px) {
+      .btn-cta-large { display: block !important; width: 100% !important; text-align: center !important; padding: 14px 20px !important; }
+      .cta-strip { padding: 40px 16px !important; }
+      .cta-inner { grid-template-columns: 1fr !important; gap: 16px !important; }
+    }
+
+  </style>
 </head>
 <body>
 
@@ -453,10 +478,17 @@
 
 </div></div>
 
-<section class="bottom-cta">
-  <h3>Construya la Infraestructura que el Crecimiento Requiere</h3>
-  <p>Si su empresa se está preparando para certificar, escalar o fortalecer el cumplimiento, podemos ayudarle a construir los sistemas operativos que apoyan el éxito a largo plazo.</p>
-  <a href="https://rc2consulting.github.io/contact-es.html" class="btn-cta" style="background:#ffffff;color:#1A4A8A;border:2px solid #1A4A8A;">Iniciar la Conversación →</a>
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <h2>¿Listo para Construir con Estructura?</h2>
+      <p>Si su organización se está preparando para certificarse, escalar o fortalecer el cumplimiento, podemos ayudarle a construir los sistemas operativos que respaldan el éxito a largo plazo.</p>
+    </div>
+    <div class="cta-right">
+      <a href="https://rc2consulting.github.io/contact-es.html" class="btn-cta-large">Iniciar la Conversación →</a>
+    </div>
+  </div>
 </section>
 
 <footer class="site-footer">
