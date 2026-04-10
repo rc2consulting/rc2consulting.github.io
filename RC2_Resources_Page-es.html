@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -9,21 +9,9 @@
   gtag('js', new Date());
   gtag('config', 'G-PC5L4ZH7KY');
 </script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recursos | RC2 Consulting</title>
-  <meta property="og:title" content="Recursos | RC2 Consulting">
-  <meta property="og:description" content="Herramientas de cumplimiento gratuitas, listas de verificación de auditoría, plantillas de análisis de brechas y recursos de contratación gubernamental de RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_Resources_Page-es.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Recursos | RC2 Consulting">
-  <meta name="twitter:description" content="Herramientas de cumplimiento gratuitas, listas de verificación de auditoría, plantillas de análisis de brechas y recursos de contratación gubernamental de RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
   <meta name="description" content="RC2 Consulting Resource Center — Executive insights, compliance tools, and strategic resources for operations leaders." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -420,8 +408,6 @@
       font-size: 0.75rem;
       color: rgba(255,255,255,0.5);
     }
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
 
     /* ══════════════════════════════
        RESPONSIVE
@@ -661,7 +647,7 @@
         .p-tariffs    { background-image: linear-gradient(rgba(11,37,69,0.50),rgba(11,37,69,0.42)), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&q=70'); }
     .p-americas   { background-image: linear-gradient(rgba(11,37,69,0.45),rgba(11,37,69,0.38)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400&q=70'); }
         .p-spesa { background-image: linear-gradient(rgba(11,37,69,0.50),rgba(11,37,69,0.42)), url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=70'); }
-</style>
+    </style>
 </head>
 <body>
 
@@ -818,7 +804,7 @@
 
   </div>
   <div class="center-wrap">
-    <a href="/cdn-cgi/l/email-protection#b7d2d3d3ded2f7c5d485c4d6dbd2c4d4d8d9c4c2dbc3ded9d099d4d8da88c4c2d5ddd2d4c38ae4d8dbded4dec3c2d3928587d3d2928587f6d4d4d2c4d8928587d6db928587fad6c5d4d8" class="btn-outline-blue">Solicitar Acceso al Marco ›</a>
+    <a href="mailto:eddie@rc2salesconsulting.com?subject=Solicitud%20de%20Acceso%20al%20Marco" class="btn-outline-blue">Solicitar Acceso al Marco ›</a>
   </div>
 </div></div>
 </div>
@@ -960,11 +946,6 @@
 </div></div>
 </div>
 
-<!-- ACCESO INTERNO DEL EQUIPO -->
-<div style="background:var(--navy);padding:20px 40px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);">
-  <a href="https://rc2consulting.github.io/RC2%20Training%20Hub.html" style="font-size:0.7rem;letter-spacing:0.1em;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.2s;">Acceso Interno del Equipo — Portal de Empleados RC2 →</a>
-</div>
-
 <!-- ══ SHARED FOOTER — BLUE ══ -->
 <footer class="site-footer">
   <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
@@ -977,8 +958,8 @@
     <a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a>
     <a href="https://rc2consulting.github.io/contact-es.html">Contacto</a>
   </div>
-  <div class="footer-copy">&copy; 2026 RC2 Consulting, LLC &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html">Términos de Servicio</a></div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <div class="footer-copy">© 2026 RC2 Consulting &nb
+<script>
 (function() {
   var btn = document.getElementById('hamburger');
   var nav = document.querySelector('.nav-links');
@@ -996,6 +977,11 @@
     });
   });
   document.addEventListener('click', function(e) {
-    if (!btn.c
-</body>
-</html>
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
