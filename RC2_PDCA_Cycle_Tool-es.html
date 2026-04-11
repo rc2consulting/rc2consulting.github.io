@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PC5L4ZH7KY');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC2 — Herramienta del Ciclo de Mejora Continua PDCA</title>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B2545;--blue:#1A4A8A;--gold:#C8922A;--gold-light:#e8c882;--gray:#6b7280;--border:#e2e8f0;--light:#f8fafc;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;background:#f1f5f9;color:#1e293b;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+.topbar-left{display:flex;flex-direction:column;gap:2px;}
+.back-link{font-size:.72rem;color:rgba(255,255,255,.55);text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:color .2s;}
+.back-link:hover{color:rgba(255,255,255,.9);}
+.back-link svg{width:14px;height:14px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.btn-gold{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+.btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+.btn-ghost svg,.btn-gold svg{width:14px;height:14px;}
+.tab-bar{background:white;border-bottom:1px solid var(--border);display:flex;overflow-x:auto;flex-shrink:0;padding:0 20px;}
+.tab-bar::-webkit-scrollbar{height:3px;}.tab-bar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px;}
+.tab-btn{padding:11px 14px;font-size:.75rem;font-weight:700;color:var(--gray);border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s;display:inline-flex;align-items:center;gap:6px;}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);}
+.tab-btn:hover{color:var(--navy);}
+.tab-btn svg{width:16px;height:16px;stroke:currentColor;flex-shrink:0;}
+.content{flex:1;overflow-y:auto;padding:24px;max-width:1100px;margin:0 auto;width:100%;}
+.content::-webkit-scrollbar{width:6px;}.content::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px;}
+.tab-panel{display:none;}.tab-panel.active{display:block;}
+.score-overview{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:16px;padding:24px 28px;color:white;margin-bottom:20px;}
+.so-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;margin-bottom:4px;}
+.so-sub{font-size:.82rem;opacity:.6;margin-bottom:20px;}
+.so-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.so-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:background .15s;}
+.so-card:hover{background:rgba(255,255,255,.14);}
+.so-pct{font-size:1.8rem;font-weight:800;color:var(--gold-light);}
+.so-label{font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+.so-bar{height:4px;border-radius:2px;margin-top:8px;background:rgba(255,255,255,.15);}
+.so-bar-fill{height:100%;border-radius:2px;background:var(--gold);}
+.overall-score{text-align:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15);}
+.overall-pct{font-size:2.4rem;font-weight:800;color:var(--gold-light);}
+.overall-label{font-size:.78rem;opacity:.6;}
+.card{background:white;border-radius:14px;border:1px solid var(--border);padding:22px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,.04);}
+.card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:12px;}
+.card p{font-size:.88rem;color:var(--gray);line-height:1.7;margin-bottom:10px;}
+.pdca-visual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.phase-card{border-radius:12px;padding:20px;color:white;background:linear-gradient(135deg,var(--navy),var(--blue));}
+.phase-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.phase-card h3 .phase-num{background:var(--gold);color:var(--navy);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;flex-shrink:0;}
+.phase-card p{font-size:.82rem;opacity:.9;line-height:1.6;}
+.phase-card ul{padding-left:18px;margin-top:8px;}
+.phase-card li{font-size:.8rem;opacity:.85;line-height:1.6;margin-bottom:4px;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.info-box{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:16px;}
+.info-box h4{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.info-box p{font-size:.82rem;color:var(--gray);line-height:1.6;}
+.q-row{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:8px;border:1px solid var(--border);margin-bottom:6px;background:white;}
+.q-text{flex:1;}.q-label{font-size:.85rem;color:#374151;font-weight:600;}.q-desc{font-size:.72rem;color:var(--gray);margin-top:2px;line-height:1.5;}
+.q-rating{display:flex;gap:4px;flex-shrink:0;}
+.q-btn{width:32px;height:32px;border-radius:6px;border:1.5px solid var(--border);background:white;font-size:.72rem;font-weight:800;cursor:pointer;transition:all .15s;color:var(--gray);}
+.q-btn:hover{border-color:var(--blue);}
+.q-btn.sel{transform:scale(1.1);}
+.q-btn.r0{background:#f1f5f9;border-color:#94a3b8;color:#64748b;}
+.q-btn.r1{background:#e2e8f0;border-color:#64748b;color:#475569;}
+.q-btn.r2{background:#dbeafe;border-color:var(--blue);color:var(--blue);}
+.q-btn.r3{background:#c7d8ed;border-color:var(--navy);color:var(--navy);}
+.q-btn.r4{background:var(--navy);border-color:var(--navy);color:white;}
+.rating-legend{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.rl-item{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--gray);}
+.rl-dot{width:10px;height:10px;border-radius:50%;}
+.ws-field{margin-bottom:14px;}
+.ws-field label{display:block;font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;}
+.ws-field textarea,.ws-field input[type="text"],.ws-field input[type="date"]{width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:.85rem;font-family:'Source Sans 3',sans-serif;color:#374151;outline:none;resize:vertical;}
+.ws-field textarea{min-height:60px;}
+.ws-field textarea:focus,.ws-field input:focus{border-color:var(--blue);}
+.result-card{padding:16px;margin-bottom:12px;background:white;border-radius:0 10px 10px 0;border:1px solid var(--border);border-left:4px solid var(--navy);}
+.rc-title{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.rc-score{font-size:.78rem;font-weight:700;margin-bottom:6px;}
+.rc-text{font-size:.82rem;color:var(--gray);line-height:1.6;}
+.maturity-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;}
+.mat-critical{background:#f1f5f9;color:#64748b;border:1px solid #cbd5e1;}
+.mat-developing{background:#dbeafe;color:var(--blue);border:1px solid var(--blue);}
+.mat-functional{background:#e8dcc8;color:#8a6d2a;border:1px solid var(--gold);}
+.mat-optimized{background:var(--navy);color:white;}
+.cta-card{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:14px;padding:28px;text-align:center;color:white;margin-top:20px;}
+.cta-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:8px;}
+.cta-card p{font-size:.85rem;opacity:.75;margin-bottom:16px;}
+.cta-card a{display:inline-block;background:var(--gold);color:var(--navy);padding:10px 24px;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;}
+@media(max-width:768px){.so-grid{grid-template-columns:repeat(2,1fr);}.pdca-visual,.info-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){.topbar{padding:8px 14px;flex-wrap:wrap;gap:8px;}.q-row{flex-direction:column;}.q-rating{align-self:flex-end;}}
+@media print{body{height:auto;overflow:visible;}.topbar,.tab-bar,.btn-gold,.btn-ghost,.q-rating{pointer-events:none;}.content{overflow:visible;max-width:100%;}.tab-panel{display:block!important;}@page{margin:.4in;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg> Volver a Recursos</a>
+    <div style="color:white;font-size:.95rem;font-weight:700;display:flex;align-items:center;gap:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> RC2 CONSULTING — CICLO DE MEJORA CONTINUA PDCA</div>
+    <div style="color:rgba(255,255,255,.5);font-size:.68rem;">Aprenda · Evalúe · Planifique Su Ciclo · Mejore</div>
+  </div>
+  <div class="topbar-right">
+    <button class="btn-ghost" onclick="resetAll()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Reiniciar</button>
+    <button class="btn-gold" onclick="window.print()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Imprimir / PDF</button>
+  </div>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('learn',this)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Aprenda PDCA</button>
+  <button class="tab-btn" onclick="showTab('plan',this)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> Planificar</button>
+  <button class="tab-btn" onclick="showTab('do',this)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg> Hacer</button>
+  <button class="tab-btn" onclick="showTab('check',this)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Verificar</button>
+  <button class="tab-btn" onclick="showTab('act',this)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Actuar</button>
+  <button class="tab-btn" onclick="showTab('worksheet',this)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Mi Ciclo PDCA</button>
+  <button class="tab-btn" onclick="showTab('results',this)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Resultados</button>
+</div>
+<div class="content">
+<div class="tab-panel active" id="tab-learn">
+  <div class="card"><div class="card-title">¿Qué Es el Ciclo PDCA?</div><p>El ciclo <strong>Planificar-Hacer-Verificar-Actuar (PDCA)</strong> — también conocido como el Ciclo de Deming o Ciclo de Shewhart — es la metodología fundamental de mejora continua utilizada por organizaciones de clase mundial en manufactura, servicios, contratación gubernamental e industrias reguladas por cumplimiento.</p><p>Originado por Walter Shewhart en la década de 1930 y popularizado por W. Edwards Deming en la década de 1950, PDCA está integrado en <strong>ISO 9001:2015</strong>, estándares de <strong>cumplimiento WRAP</strong> y marcos de <strong>Lean/Six Sigma</strong>. No es un proyecto único — es un ritmo operativo permanente para organizaciones comprometidas con la mejora medible y sostenida.</p></div>
+  <div class="pdca-visual">
+    <div class="phase-card"><h3><span class="phase-num">P</span> PLANIFICAR</h3><p>Identifique el problema, analice las causas raíz, establezca objetivos medibles y diseñe el enfoque de mejora.</p><ul><li>Defina el problema con datos</li><li>Analice las causas raíz (5-Por Qué, Espina de Pescado)</li><li>Establezca objetivos y metas SMART</li><li>Diseñe el plan de acción con responsables y plazos</li></ul></div>
+    <div class="phase-card"><h3><span class="phase-num">D</span> HACER</h3><p>Ejecute el plan a pequeña escala primero. Implemente los cambios, recolecte datos y documente lo que sucede.</p><ul><li>Pilotee la mejora (alcance controlado)</li><li>Capacite al personal afectado</li><li>Ejecute el plan de acción paso a paso</li><li>Recolecte datos durante la implementación</li></ul></div>
+    <div class="phase-card"><h3><span class="phase-num">C</span> VERIFICAR</h3><p>Mida los resultados contra sus objetivos. ¿El cambio produjo la mejora esperada? ¿Qué se desvió?</p><ul><li>Compare resultados con objetivos</li><li>Analice la varianza — qué funcionó, qué no</li><li>Identifique consecuencias no deseadas</li><li>Valide la integridad de los datos</li></ul></div>
+    <div class="phase-card"><h3><span class="phase-num">A</span> ACTUAR</h3><p>Si la mejora funcionó, estandarícela. Si no, ajuste y repita el ciclo. Documente las lecciones aprendidas.</p><ul><li>Estandarice los cambios exitosos en SOPs</li><li>Capacite a la organización en general</li><li>Identifique el próximo objetivo de mejora</li><li>Inicie el próximo ciclo PDCA</li></ul></div>
+  </div>
+  <div class="card"><div class="card-title">Por Qué PDCA Es Importante para Su Organización</div>
+    <div class="info-grid">
+      <div class="info-box"><h4>Cumplimiento y Preparación para Auditorías</h4><p>PDCA es la metodología de mejora requerida por ISO 9001:2015 (Sección 10.3) e integrada en los estándares de auditoría WRAP. Demostrar un ciclo PDCA funcional es evidencia de auditoría de un sistema de gestión de calidad maduro.</p></div>
+      <div class="info-box"><h4>Contratación Gubernamental</h4><p>Las agencias federales evalúan a los contratistas en su capacidad de mejora continua. Un proceso PDCA documentado demuestra la madurez operacional que diferencia las propuestas ganadoras.</p></div>
+      <div class="info-box"><h4>Excelencia Operacional</h4><p>Organizations using structured PDCA cycles resolve operational problems 3.2x faster than those using ad hoc approaches. Source: Deloitte, "Performance Management Reinvented," 2024.</p></div>
+      <div class="info-box"><h4>¿Es PDCA Propietario?</h4><p><strong>No.</strong> PDCA es una metodología de dominio público. No está patentada, registrada ni es propietaria. Cualquier organización puede adoptar, enseñar e implementar PDCA libremente sin tarifas ni restricciones.</p></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Fuentes y Estándares Clave</div><p style="font-size:.8rem;color:var(--gray);line-height:1.8;">Deming, W.E. — <em>Out of the Crisis</em> — MIT Press, 1982<br>Shewhart, W.A. — <em>Statistical Method from the Viewpoint of Quality Control</em> — 1939<br>ISO 9001:2015 — Section 10.3: Continual Improvement<br>WRAP — Worldwide Responsible Accredited Production — Facility Handbook 2025<br>ASQ — PDCA Cycle Guide — <a href="https://asq.org" target="_blank" style="color:var(--blue);">asq.org</a><br>Balanced Scorecard Institute — KPI & PDCA Integration Guide, 2023</p></div>
+</div>
+<div class="tab-panel" id="tab-plan"><div class="card"><div class="card-title">Planificar — Planificación Estratégica y Definición de Problemas</div><p>Califique la madurez actual de su organización. <strong>0</strong> = No se hace en absoluto, <strong>4</strong> = Completamente optimizado y documentado.</p></div><div class="rating-legend"><div class="rl-item"><div class="rl-dot" style="background:#f1f5f9;border:1px solid #94a3b8;"></div> 0 — Ninguno</div><div class="rl-item"><div class="rl-dot" style="background:#e2e8f0;"></div> 1 — Ad Hoc</div><div class="rl-item"><div class="rl-dot" style="background:#dbeafe;"></div> 2 — En Desarrollo</div><div class="rl-item"><div class="rl-dot" style="background:#c7d8ed;"></div> 3 — Funcional</div><div class="rl-item"><div class="rl-dot" style="background:var(--navy);"></div> 4 — Optimizado</div></div><div id="plan-questions"></div></div>
+<div class="tab-panel" id="tab-do"><div class="card"><div class="card-title">Hacer — Ejecución e Implementación</div><p>Califique la madurez de su organización en la ejecución de planes de mejora.</p></div><div class="rating-legend"><div class="rl-item"><div class="rl-dot" style="background:#f1f5f9;border:1px solid #94a3b8;"></div> 0 — Ninguno</div><div class="rl-item"><div class="rl-dot" style="background:#e2e8f0;"></div> 1 — Ad Hoc</div><div class="rl-item"><div class="rl-dot" style="background:#dbeafe;"></div> 2 — En Desarrollo</div><div class="rl-item"><div class="rl-dot" style="background:#c7d8ed;"></div> 3 — Funcional</div><div class="rl-item"><div class="rl-dot" style="background:var(--navy);"></div> 4 — Optimizado</div></div><div id="do-questions"></div></div>
+<div class="tab-panel" id="tab-check"><div class="card"><div class="card-title">Verificar — Medición y Revisión</div><p>Califique la madurez de su organización en la medición de resultados y revisión del rendimiento.</p></div><div class="rating-legend"><div class="rl-item"><div class="rl-dot" style="background:#f1f5f9;border:1px solid #94a3b8;"></div> 0 — Ninguno</div><div class="rl-item"><div class="rl-dot" style="background:#e2e8f0;"></div> 1 — Ad Hoc</div><div class="rl-item"><div class="rl-dot" style="background:#dbeafe;"></div> 2 — En Desarrollo</div><div class="rl-item"><div class="rl-dot" style="background:#c7d8ed;"></div> 3 — Funcional</div><div class="rl-item"><div class="rl-dot" style="background:var(--navy);"></div> 4 — Optimizado</div></div><div id="check-questions"></div></div>
+<div class="tab-panel" id="tab-act"><div class="card"><div class="card-title">Actuar — Estandarización y Mejora</div><p>Califique la madurez de su organización en la estandarización de mejoras y lanzamiento de nuevos ciclos.</p></div><div class="rating-legend"><div class="rl-item"><div class="rl-dot" style="background:#f1f5f9;border:1px solid #94a3b8;"></div> 0 — Ninguno</div><div class="rl-item"><div class="rl-dot" style="background:#e2e8f0;"></div> 1 — Ad Hoc</div><div class="rl-item"><div class="rl-dot" style="background:#dbeafe;"></div> 2 — En Desarrollo</div><div class="rl-item"><div class="rl-dot" style="background:#c7d8ed;"></div> 3 — Funcional</div><div class="rl-item"><div class="rl-dot" style="background:var(--navy);"></div> 4 — Optimizado</div></div><div id="act-questions"></div></div>
+<div class="tab-panel" id="tab-worksheet">
+  <div class="card"><div class="card-title">Planifique Su Propio Ciclo PDCA</div><p>Use esta hoja de trabajo para diseñar un ciclo de mejora PDCA real. Complete cada fase — esto se convierte en su plan de acción ejecutable.</p></div>
+  <div class="card" style="border-left:4px solid var(--navy);"><div class="card-title">Fase 1 — PLANIFICAR</div><div class="ws-field"><label>Nombre del Proyecto / Iniciativa</label><input type="text" id="ws-name" placeholder="ej., Reducir el tiempo del ciclo de cumplimiento de pedidos en un 20%"></div><div class="ws-field"><label>Declaración del Problema</label><textarea id="ws-problem" placeholder="Describa la brecha entre el estado actual y el estado deseado..."></textarea></div><div class="ws-field"><label>Análisis de Causa Raíz</label><textarea id="ws-rootcause" placeholder="Use el análisis 5-Por Qué o Espina de Pescado para identificar causas raíz..."></textarea></div><div class="ws-field"><label>Objetivo SMART</label><textarea id="ws-objective" placeholder="ej., Reducir el tiempo promedio de cumplimiento de 5.2 días a 4.0 días para el 30 de junio de 2026"></textarea></div><div class="ws-field"><label>Plan de Acción (Pasos, responsables, plazos)</label><textarea id="ws-actions" placeholder="Paso 1: ... Responsable: ... Plazo: ..."></textarea></div></div>
+  <div class="card" style="border-left:4px solid var(--blue);"><div class="card-title">Fase 2 — HACER</div><div class="ws-field"><label>Alcance del Piloto</label><textarea id="ws-pilot" placeholder="ej., Piloto con el Equipo A durante 30 días antes del despliegue completo..."></textarea></div><div class="ws-field"><label>Capacitación Requerida</label><textarea id="ws-training" placeholder="¿Quién necesita capacitación? ¿En qué? ¿Para cuándo?"></textarea></div><div class="ws-field"><label>Plan de Recolección de Datos</label><textarea id="ws-datacollection" placeholder="Métrica 1: ... Frecuencia: ... Fuente: ..."></textarea></div><div class="ws-field"><label>Fecha de Inicio</label><input type="date" id="ws-startdate"></div></div>
+  <div class="card" style="border-left:4px solid var(--gold);"><div class="card-title">Fase 3 — VERIFICAR</div><div class="ws-field"><label>Fecha de Revisión</label><input type="date" id="ws-reviewdate"></div><div class="ws-field"><label>Resultados vs. Objetivo</label><textarea id="ws-results" placeholder="El objetivo era X. El resultado real fue Y. Varianza: ..."></textarea></div><div class="ws-field"><label>¿Qué Funcionó Bien?</label><textarea id="ws-worked" placeholder="Liste lo que salió según lo planeado o mejor de lo esperado..."></textarea></div><div class="ws-field"><label>¿Qué No Funcionó? ¿Por Qué?</label><textarea id="ws-didntwork" placeholder="Liste lo que no alcanzó las expectativas y por qué..."></textarea></div></div>
+  <div class="card" style="border-left:4px solid var(--navy);"><div class="card-title">Fase 4 — ACTUAR</div><div class="ws-field"><label>Decisión: ¿Estandarizar, Ajustar o Abandonar?</label><textarea id="ws-decision" placeholder="Basándose en los resultados de VERIFICAR, ¿estandarizará, ajustará o abandonará?"></textarea></div><div class="ws-field"><label>Pasos de Estandarización</label><textarea id="ws-standardize" placeholder="Actualizar SOP #... Capacitar equipos para... Documentar en..."></textarea></div><div class="ws-field"><label>Próximo Objetivo del Ciclo PDCA</label><textarea id="ws-nextcycle" placeholder="¿Cuál es la próxima mejora que abordará?"></textarea></div></div>
+</div>
+<div class="tab-panel" id="tab-results">
+  <div class="score-overview"><div class="so-title">Su Evaluación de Madurez PDCA</div><div class="so-sub">Basado en sus calificaciones en las cuatro fases</div><div class="so-grid"><div class="so-card" onclick="showTab('plan',document.querySelectorAll('.tab-btn')[1])"><div class="so-pct" id="res-plan-pct">0%</div><div class="so-label">Planificar</div><div class="so-bar"><div class="so-bar-fill" id="res-plan-bar" style="width:0%;"></div></div></div><div class="so-card" onclick="showTab('do',document.querySelectorAll('.tab-btn')[2])"><div class="so-pct" id="res-do-pct">0%</div><div class="so-label">Hacer</div><div class="so-bar"><div class="so-bar-fill" id="res-do-bar" style="width:0%;"></div></div></div><div class="so-card" onclick="showTab('check',document.querySelectorAll('.tab-btn')[3])"><div class="so-pct" id="res-check-pct">0%</div><div class="so-label">Verificar</div><div class="so-bar"><div class="so-bar-fill" id="res-check-bar" style="width:0%;"></div></div></div><div class="so-card" onclick="showTab('act',document.querySelectorAll('.tab-btn')[4])"><div class="so-pct" id="res-act-pct">0%</div><div class="so-label">Actuar</div><div class="so-bar"><div class="so-bar-fill" id="res-act-bar" style="width:0%;"></div></div></div></div><div class="overall-score"><div class="overall-pct" id="res-overall-pct">0%</div><div class="overall-label">Madurez PDCA General</div><div id="res-overall-badge" style="margin-top:8px;"></div></div></div>
+  <div id="results-detail"></div>
+  <div class="cta-card"><h3>¿Listo para Implementar PDCA en Su Organización?</h3><p>RC2 Consulting diseña y despliega sistemas de mejora continua — desde la evaluación inicial hasta el desarrollo de SOPs, diseño de marcos de KPI y gestión continua de ciclos PDCA.</p><a href="https://rc2consulting.github.io/contact.html">Programar una Sesión de Estrategia →</a></div>
+</div>
+</div>
+<script>
+var DATA={plan:[{q:"Los problemas se definen usando datos, no suposiciones",d:"Las causas raíz se identifican mediante análisis estructurado antes de proponer soluciones."},{q:"Los objetivos de mejora son SMART — Específicos, Medibles, Alcanzables, Relevantes, Con plazo definido",d:"Cada iniciativa de mejora tiene un objetivo claro y cuantificado con un plazo."},{q:"Los planes de acción incluyen pasos específicos, responsables y plazos",d:"Los planes son lo suficientemente detallados para que cualquier miembro del equipo entienda qué hacer, para cuándo y quién es responsable."},{q:"Se recolectan datos de línea de base antes de comenzar la mejora",d:"La organización documenta los niveles de rendimiento actuales antes de hacer cambios."},{q:"Las partes interesadas se identifican y consultan durante la planificación",d:"Las personas afectadas participan en el diseño del enfoque de mejora."},{q:"Los requisitos de recursos se estiman antes de comenzar",d:"Los planes incluyen estimaciones realistas para que la implementación no se retrase."},{q:"Se realiza evaluación de riesgos para los cambios propuestos",d:"Las posibles consecuencias negativas se identifican antes de la implementación."}],do:[{q:"Los cambios se pilotean a pequeña escala antes del despliegue completo",d:"La organización prueba las mejoras en un entorno controlado antes de escalar."},{q:"Se capacita al personal afectado antes de la implementación",d:"Los empleados entienden el qué, por qué y cómo antes del despliegue."},{q:"Los datos se recolectan activamente durante la implementación",d:"Los datos de rendimiento se capturan durante el proceso de cambio."},{q:"La implementación sigue el plan de acción documentado",d:"La ejecución se mantiene en línea con los pasos, responsables y plazos planificados."},{q:"Se mantiene la comunicación con las partes interesadas",d:"Se proporcionan actualizaciones de estado regularmente al liderazgo y equipos afectados."},{q:"Los problemas encontrados durante la implementación se documentan",d:"Los problemas y hallazgos inesperados se registran en tiempo real para la fase VERIFICAR."}],check:[{q:"Los resultados se comparan con los objetivos SMART originales",d:"La organización mide si se logró el objetivo específico."},{q:"Se realiza análisis de causa raíz sobre las varianzas",d:"Cuando los resultados difieren de los objetivos, la organización investiga por qué."},{q:"Las consecuencias no deseadas se identifican activamente",d:"La organización verifica si la mejora creó nuevos problemas en otra parte."},{q:"La calidad de los datos se valida antes de sacar conclusiones",d:"La consistencia y precisión de la recolección de datos se verifican antes de aceptar resultados."},{q:"Las reuniones de revisión están estructuradas con agendas documentadas",d:"Las revisiones de rendimiento siguen un formato consistente con decisiones documentadas."},{q:"Las lecciones aprendidas se documentan formalmente",d:"Qué funcionó, qué no y por qué se captura para futuros equipos de mejora."}],act:[{q:"Las mejoras exitosas se estandarizan en SOPs o instrucciones de trabajo",d:"Los cambios que lograron objetivos se documentan como nuevos procedimientos estándar."},{q:"Los SOPs actualizados se capacitan a todo el personal afectado",d:"La organización asegura que todos sigan el nuevo estándar — no solo el equipo piloto."},{q:"Las mejoras no exitosas se analizan y ajustan, no se abandonan",d:"Las mejoras fallidas se rediseñan basándose en los hallazgos de VERIFICAR."},{q:"Los resultados de mejora se comunican a la organización",d:"Los éxitos y lecciones se comparten más allá del equipo inmediato."},{q:"El próximo ciclo de mejora se identifica y planifica",d:"Completar un ciclo PDCA desencadena el inicio del siguiente."},{q:"La gerencia revisa la efectividad del ciclo regularmente",d:"El liderazgo evalúa si el proceso PDCA en sí está funcionando."},{q:"El historial de mejoras se mantiene en un registro central",d:"Todos los ciclos, resultados y lecciones se registran para auditoría y referencia."}]};
+var scores={plan:{},do_:{},check:{},act:{}};var phaseKeys=['plan','do_','check','act'];var dataKeys=['plan','do','check','act'];
+function buildQuestions(){dataKeys.forEach(function(dk,pi){var sk=phaseKeys[pi];var c=document.getElementById(dk+'-questions');var h='';DATA[dk].forEach(function(item,qi){h+='<div class="q-row"><div class="q-text"><div class="q-label">'+item.q+'</div><div class="q-desc">'+item.d+'</div></div><div class="q-rating">';for(var r=0;r<=4;r++)h+='<button class="q-btn" onclick="rate(\''+sk+'\','+qi+','+r+',this)">'+r+'</button>';h+='</div></div>';});c.innerHTML=h;});}
+function rate(p,qi,val,btn){scores[p][qi]=val;btn.parentElement.querySelectorAll('.q-btn').forEach(function(b){b.className='q-btn';});btn.classList.add('sel','r'+val);updateResults();}
+function gps(p){var dk=p==='do_'?'do':p;var t=DATA[dk].length*4;var s=0;for(var k in scores[p])s+=scores[p][k];return{pct:t>0?Math.round((s/t)*100):0,sum:s,total:t};}
+function gm(pct){if(pct<25)return{label:'Crítico',cls:'mat-critical',advice:'Existen brechas significativas. Las prácticas PDCA están ausentes o son completamente informales. Se requiere atención inmediata.'};if(pct<50)return{label:'En Desarrollo',cls:'mat-developing',advice:'Algunas prácticas existen pero son inconsistentes. Formalice procesos y construya documentación para avanzar.'};if(pct<75)return{label:'Funcional',cls:'mat-functional',advice:'Las prácticas fundamentales están implementadas. Enfóquese en la consistencia, documentación y cerrar las brechas restantes.'};return{label:'Optimizado',cls:'mat-optimized',advice:'Fuertes prácticas PDCA. Enfóquese en sostener el rendimiento y capacitar a otros en la metodología.'};}
+function updateResults(){var ps=[{k:'plan',l:'Plan',p:'res-plan-pct',b:'res-plan-bar'},{k:'do_',l:'Do',p:'res-do-pct',b:'res-do-bar'},{k:'check',l:'Check',p:'res-check-pct',b:'res-check-bar'},{k:'act',l:'Act',p:'res-act-pct',b:'res-act-bar'}];var tS=0,tM=0,dH='';ps.forEach(function(x){var s=gps(x.k);tS+=s.sum;tM+=s.total;document.getElementById(x.p).textContent=s.pct+'%';document.getElementById(x.b).style.width=s.pct+'%';var m=gm(s.pct);dH+='<div class="result-card"><div class="rc-title">'+x.l+' Phase</div><div class="rc-score">Score: '+s.sum+'/'+s.total+' ('+s.pct+'%) — <span class="maturity-badge '+m.cls+'">'+m.label+'</span></div><div class="rc-text">'+m.advice+'</div></div>';});var oP=tM>0?Math.round((tS/tM)*100):0;document.getElementById('res-overall-pct').textContent=oP+'%';var om=gm(oP);document.getElementById('res-overall-badge').innerHTML='<span class="maturity-badge '+om.cls+'">'+om.label+'</span>';document.getElementById('results-detail').innerHTML=dH;}
+function showTab(id,btn){document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('tab-'+id).classList.add('active');if(btn)btn.classList.add('active');if(id==='results')updateResults();document.querySelector('.content').scrollTop=0;}
+function resetAll(){if(!confirm('¿Reiniciar todas las calificaciones y entradas?'))return;scores={plan:{},do_:{},check:{},act:{}};document.querySelectorAll('.q-btn').forEach(function(b){b.className='q-btn';});document.querySelectorAll('textarea,input[type="text"],input[type="date"]').forEach(function(el){el.value='';});updateResults();}
+buildQuestions();updateResults();
+</script>
+</body>
+</html>
