@@ -189,6 +189,8 @@
     .nav-links a:last-child{border-bottom:none}
     .lang-toggle{padding:10px 20px 4px}
   }
+  .scroll-mirror-bar{overflow-x:auto;overflow-y:hidden;height:16px;margin-bottom:1px;background:var(--light-bg);border-bottom:1px solid var(--border)}
+  .scroll-mirror-content{height:1px}
 </style>
 </head>
 <body>
@@ -284,7 +286,8 @@
       <div class="legend-item"><div class="legend-dot dot-na"></div>N/A — Not applicable</div>
     </div>
     <div class="sub-header">Labor Practices — Principles 2, 3, 4, 7, 9</div>
-    <div class="cap-table-wrap">
+    <div class="scroll-mirror-bar" id="smBar"><div class="scroll-mirror-content" id="smContent"></div></div>
+    <div class="cap-table-wrap" id="smWrap">
       <table class="cap-table">
         <thead>
           <tr>
@@ -667,6 +670,19 @@
   nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
   document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
 })();
+
+  // ── Top scroll mirror for Labor Practices section ──
+  (function(){
+    var bar=document.getElementById('smBar');
+    var wrap=document.getElementById('smWrap');
+    var content=document.getElementById('smContent');
+    if(!bar||!wrap||!content)return;
+    function sync(){content.style.width=wrap.scrollWidth+'px';}
+    sync();
+    window.addEventListener('resize',sync);
+    bar.addEventListener('scroll',function(){wrap.scrollLeft=bar.scrollLeft;});
+    wrap.addEventListener('scroll',function(){bar.scrollLeft=wrap.scrollLeft;});
+  })();
 </script>
 </body>
 </html>
