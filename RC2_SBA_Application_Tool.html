@@ -430,7 +430,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt
 
 
   <!-- RESULTS PANEL -->
-  <div class="results-panel" id="results-panel" style="display:none">
+  <div class="results-panel" id="results-panel">
     <div class="rp-hdr">
       <div class="rp-title">Application Readiness Summary</div>
       <span class="rp-tier tier-notstarted" id="rp-tier">Not Started</span>
@@ -555,7 +555,17 @@ function calcAll(){
 
   // Update results panel
   const rp=document.getElementById('results-panel');
-  if(grand===0){rp.style.display='none';return;}
+  if(grand===0){
+    rp.style.display='block';
+    document.getElementById('rp-tier').className='rp-tier tier-notstarted';
+    document.getElementById('rp-tier').textContent='Not Started';
+    [1,2,3,4].forEach(p=>{
+      document.getElementById('rp-p'+p).textContent='0%';
+      document.getElementById('rp-f'+p).style.width='0%';
+    });
+    document.getElementById('rp-crit-list').innerHTML='<div style="font-size:.8rem;color:rgba(255,255,255,.5);text-align:center;padding:8px 0">Check off items above to track your progress here</div>';
+    return;
+  }
   rp.style.display='block';
   // Phase percentages in results panel
   [1,2,3,4].forEach(p=>{
