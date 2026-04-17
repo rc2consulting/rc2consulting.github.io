@@ -1,215 +1,156 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>SBA Application Process Interactive Tool | RC2 Consulting</title>
-  <meta name="description" content="Free interactive SBA application process tool. Step-by-step guidance for 8(a), WOSB, HUBZone, SDVOSB, and other SBA certification programs." />
-  <meta property="og:title" content="SBA Application Process Interactive Tool | RC2 Consulting">
-  <meta property="og:description" content="SBA Application Process Interactive Tool. Free interactive tool from RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_SBA_Application_Tool.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SBA Application Process Interactive Tool | RC2 Consulting">
-  <meta name="twitter:description" content="SBA Application Process Interactive Tool. Free interactive tool from RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(to bottom,rgba(11,37,69,.88),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1541872705-1f73c6400ec9?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
-    .hero-inner{max-width:960px;margin:0 auto}
-    .atag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:680px;line-height:1.6}
-    .hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
-    .hmeta .dv{color:rgba(255,255,255,.3)}
-    .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-    .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
-
-    /* DASHBOARD */
-    .dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px}
-    .dash-top{display:grid;grid-template-columns:repeat(4,1fr) 160px;gap:12px;margin-bottom:12px}
-    .dash-cell{text-align:center;padding:13px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
-    .dash-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;line-height:1;margin-bottom:3px;transition:all .3s}
-    .dash-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
-    .dash-cell.overall{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
-    .dash-cell.overall .dash-val{font-size:1.7rem;color:#93C5FD}
-    .prog-row{height:5px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:5px}
-    .prog-fill{height:5px;border-radius:3px;transition:width .4s}
-    .master-bar{height:10px;background:rgba(255,255,255,.12);border-radius:5px;margin:10px 0 4px;overflow:hidden}
-    .master-fill{height:10px;border-radius:5px;background:linear-gradient(90deg,#3B82F6,#10B981);transition:width .5s}
-    .bar-labels{display:flex;justify-content:space-between;font-size:.66rem;color:rgba(255,255,255,.4)}
-    .status-bar{border-radius:8px;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:all .4s;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .status-bar.early{background:rgba(133,77,14,.15);border-color:rgba(133,77,14,.4)}
-    .status-bar.progressing{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4)}
-    .status-bar.ready{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
-    .status-text{font-size:.88rem;font-weight:700;color:#fff}
-    .status-sub{font-size:.74rem;color:rgba(255,255,255,.65)}
-    .overall-pct{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#93C5FD}
-
-    /* PROGRAM SELECTOR */
-    .prog-selector{background:var(--w);border-radius:10px;border:1px solid var(--bdr);padding:22px 24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(11,37,69,.06)}
-    .prog-selector h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:14px}
-    .prog-btns{display:flex;gap:10px;flex-wrap:wrap}
-    .prog-btn{padding:8px 18px;border-radius:20px;border:2px solid var(--bdr);background:var(--bg);font-size:.8rem;font-weight:700;color:var(--mu);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s}
-    .prog-btn:hover{border-color:var(--lb);color:var(--lb)}
-    .prog-btn.sel{background:var(--navy);border-color:var(--navy);color:#fff}
-    .prog-info{margin-top:14px;padding:14px 18px;background:var(--bg);border-radius:8px;border:1px solid var(--bdr);font-size:.84rem;color:var(--mu);line-height:1.65;display:none}
-    .prog-info.visible{display:block}
-    .prog-info strong{color:var(--navy)}
-
-    /* PHASE BLOCKS */
-    .phase-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
-    .phase-hdr{padding:14px 22px;display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--bdr)}
-    .ph1-bg{background:linear-gradient(to right,#EFF6FF,#F4F6FA)}
-    .ph2-bg{background:linear-gradient(to right,#F0FDF4,#F4F6FA)}
-    .ph3-bg{background:linear-gradient(to right,#FFF7ED,#F4F6FA)}
-    .ph4-bg{background:linear-gradient(to right,#FDF4FF,#F4F6FA)}
-    .phase-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;line-height:1;min-width:36px}
-    .ph1 .phase-num{color:#1D4ED8}
-    .ph2 .phase-num{color:#15803D}
-    .ph3 .phase-num{color:#C2410C}
-    .ph4 .phase-num{color:#7E22CE}
-    .phase-title-wrap{flex:1}
-    .phase-title-wrap h3{font-size:1rem;font-weight:700;color:var(--navy)}
-    .phase-title-wrap p{font-size:.76rem;color:var(--mu);margin-top:2px}
-    .phase-badge{text-align:right;min-width:100px}
-    .phase-pct{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1}
-    .phase-sub{font-size:.66rem;color:var(--mu)}
-    .phase-progbar{height:4px;background:var(--bdr);border-radius:2px;margin-top:4px}
-    .phase-fill{height:4px;border-radius:2px;transition:width .3s}
-    .ph1 .phase-fill{background:#3B82F6}
-    .ph2 .phase-fill{background:#10B981}
-    .ph3 .phase-fill{background:#F59E0B}
-    .ph4 .phase-fill{background:#8B5CF6}
-    .phase-body{padding:18px 22px}
-    .group-title{font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--bdr)}
-    .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
-    .check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border-radius:6px;border:1.5px solid var(--bdr);cursor:pointer;transition:all .2s;user-select:none}
-    .check-item:hover{border-color:var(--lb);background:#EFF6FF}
-    .check-item.checked{background:var(--sbg);border-color:var(--sg)}
-    .check-item.checked .cbox{background:var(--sg);border-color:var(--sg)}
-    .check-item.checked .cbox::after{content:'✓';color:#fff;font-size:.7rem;font-weight:700;line-height:16px}
-    .cbox{width:18px;height:18px;border:2px solid var(--bdr);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-    .ctext{font-size:.8rem;color:var(--txt);line-height:1.45}
-    .check-item.checked .ctext{color:var(--sg)}
-    .crit-item{border-color:#FECACA !important;background:var(--dbg) !important}
-    .crit-item .ctext::after{content:' ★ CRITICAL';font-size:.62rem;font-weight:700;color:var(--dg);margin-left:4px}
-    .crit-item.checked{background:var(--sbg) !important;border-color:var(--sg) !important}
-    .crit-item.checked .ctext::after{color:var(--sg) !important}
-
-    /* TIP BOX */
-    .tip-box{background:var(--bg);border-radius:8px;padding:14px 18px;border:1px solid var(--bdr);margin-top:4px}
-    .tip-box p{font-size:.82rem;color:var(--navy);font-weight:600;line-height:1.65;margin:0;font-style:italic;border-left:3px solid var(--lb);padding-left:12px}
-
-    /* DOC TABLE */
-    .doc-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0}
-    .doc-table th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px}
-    .doc-table td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu);vertical-align:top}
-    .doc-table td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
-    .doc-table tr:nth-child(even) td{background:var(--bg)}
-    .doc-table tr:last-child td{border-bottom:none}
-    .doc-req{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px}
-    .dr-req{background:#FEE2E2;color:var(--dg)}
-    .dr-cond{background:#FEF3C7;color:var(--wg)}
-
-    .sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
-    .sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
-    .sources ul{list-style:none}
-    .sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
-    .sources li:last-child{border-bottom:none}
-    .sources a{color:var(--lb);text-decoration:none}
-    .acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
-    .acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
-    .acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
-    .btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem transition:color 0.2s; cursor:pointer; }
-    .fl a:hover { color:white; }
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-    @media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.check-grid{grid-template-columns:1fr}.prog-btns{flex-direction:column}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
-    @media print{.topnav,.btn-back,.dashboard,.acta,.site-footer{display:none}.phase-block{box-shadow:none;break-inside:avoid}}
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SBA Application Process Interactive Tool | RC2 Consulting</title>
+<meta name="description" content="Free interactive SBA application process tool. Step-by-step guidance for 8(a), WOSB, HUBZone, SDVOSB, and other SBA certification programs." />
+<meta property="og:title" content="SBA Application Process Interactive Tool | RC2 Consulting">
+<meta property="og:description" content="SBA Application Process Interactive Tool. Free interactive tool from RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_SBA_Application_Tool.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SBA Application Process Interactive Tool | RC2 Consulting">
+<meta name="twitter:description" content="SBA Application Process Interactive Tool. Free interactive tool from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#D1D9E6;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.88),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1541872705-1f73c6400ec9?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:680px;line-height:1.6}
+.hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.hmeta .dv{color:rgba(255,255,255,.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px}
+.dash-top{display:grid;grid-template-columns:repeat(4,1fr) 160px;gap:12px;margin-bottom:12px}
+.dash-cell{text-align:center;padding:13px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+.dash-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;line-height:1;margin-bottom:3px;transition:all .3s}
+.dash-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
+.dash-cell.overall{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
+.dash-cell.overall .dash-val{font-size:1.7rem;color:#93C5FD}
+.prog-row{height:5px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:5px}
+.prog-fill{height:5px;border-radius:3px;transition:width .4s}
+.master-bar{height:10px;background:rgba(255,255,255,.12);border-radius:5px;margin:10px 0 4px;overflow:hidden}
+.master-fill{height:10px;border-radius:5px;background:linear-gradient(90deg,#3B82F6,#10B981);transition:width .5s}
+.bar-labels{display:flex;justify-content:space-between;font-size:.66rem;color:rgba(255,255,255,.4)}
+.status-bar{border-radius:8px;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:all .4s;flex-wrap:wrap;gap:8px;margin-top:10px}
+.status-bar.early{background:rgba(133,77,14,.15);border-color:rgba(133,77,14,.4)}
+.status-bar.progressing{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4)}
+.status-bar.ready{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
+.status-text{font-size:.88rem;font-weight:700;color:#fff}
+.status-sub{font-size:.74rem;color:rgba(255,255,255,.65)}
+.overall-pct{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#93C5FD}
+.prog-selector{background:var(--w);border-radius:10px;border:1px solid var(--bdr);padding:22px 24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(11,37,69,.06)}
+.prog-selector h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:14px}
+.prog-btns{display:flex;gap:10px;flex-wrap:wrap}
+.prog-btn{padding:8px 18px;border-radius:20px;border:2px solid var(--bdr);background:var(--bg);font-size:.8rem;font-weight:700;color:var(--mu);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s}
+.prog-btn:hover{border-color:var(--lb);color:var(--lb)}
+.prog-btn.sel{background:var(--navy);border-color:var(--navy);color:#fff}
+.prog-info{margin-top:14px;padding:14px 18px;background:var(--bg);border-radius:8px;border:1px solid var(--bdr);font-size:.84rem;color:var(--mu);line-height:1.65;display:none}
+.prog-info.visible{display:block}
+.prog-info strong{color:var(--navy)}
+.phase-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
+.phase-hdr{padding:14px 22px;display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--bdr)}
+.ph1-bg{background:linear-gradient(to right,#EFF6FF,#F4F6FA)}
+.ph2-bg{background:linear-gradient(to right,#F0FDF4,#F4F6FA)}
+.ph3-bg{background:linear-gradient(to right,#FFF7ED,#F4F6FA)}
+.ph4-bg{background:linear-gradient(to right,#FDF4FF,#F4F6FA)}
+.phase-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;line-height:1;min-width:36px}
+.ph1 .phase-num{color:#1D4ED8}
+.ph2 .phase-num{color:#15803D}
+.ph3 .phase-num{color:#C2410C}
+.ph4 .phase-num{color:#7E22CE}
+.phase-title-wrap{flex:1}
+.phase-title-wrap h3{font-size:1rem;font-weight:700;color:var(--navy)}
+.phase-title-wrap p{font-size:.76rem;color:var(--mu);margin-top:2px}
+.phase-badge{text-align:right;min-width:100px}
+.phase-pct{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1}
+.phase-sub{font-size:.66rem;color:var(--mu)}
+.phase-progbar{height:4px;background:var(--bdr);border-radius:2px;margin-top:4px}
+.phase-fill{height:4px;border-radius:2px;transition:width .3s}
+.ph1 .phase-fill{background:#3B82F6}
+.ph2 .phase-fill{background:#10B981}
+.ph3 .phase-fill{background:#F59E0B}
+.ph4 .phase-fill{background:#8B5CF6}
+.phase-body{padding:18px 22px}
+.group-title{font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--bdr)}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border-radius:6px;border:1.5px solid var(--bdr);cursor:pointer;transition:all .2s;user-select:none}
+.check-item:hover{border-color:var(--lb);background:#EFF6FF}
+.check-item.checked{background:var(--sbg);border-color:var(--sg)}
+.check-item.checked .cbox{background:var(--sg);border-color:var(--sg)}
+.check-item.checked .cbox::after{content:'\2713';color:#fff;font-size:.7rem;font-weight:700;line-height:16px}
+.cbox{width:18px;height:18px;border:2px solid var(--bdr);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.ctext{font-size:.8rem;color:var(--txt);line-height:1.45}
+.check-item.checked .ctext{color:var(--sg)}
+.crit-item{border-color:#FECACA !important;background:var(--dbg) !important}
+.crit-item .ctext::after{content:' \2605 CRITICAL';font-size:.62rem;font-weight:700;color:var(--dg);margin-left:4px}
+.crit-item.checked{background:var(--sbg) !important;border-color:var(--sg) !important}
+.crit-item.checked .ctext::after{color:var(--sg) !important}
+.tip-box{background:var(--bg);border-radius:8px;padding:14px 18px;border:1px solid var(--bdr);margin-top:4px}
+.tip-box p{font-size:.82rem;color:var(--navy);font-weight:600;line-height:1.65;margin:0;font-style:italic;border-left:3px solid var(--lb);padding-left:12px}
+.doc-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0}
+.doc-table th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px}
+.doc-table td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu);vertical-align:top}
+.doc-table td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
+.doc-table tr:nth-child(even) td{background:var(--bg)}
+.doc-table tr:last-child td{border-bottom:none}
+.doc-req{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px}
+.dr-req{background:#FEE2E2;color:var(--dg)}
+.dr-cond{background:#FEF3C7;color:var(--wg)}
+.sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
+.sources li:last-child{border-bottom:none}
+.sources a{color:var(--lb);text-decoration:none}
+.acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
+.acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+@media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.check-grid{grid-template-columns:1fr}.prog-btns{flex-direction:column}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
+@media print{.topnav,.btn-back,.dashboard,.acta,.site-footer{display:none}.phase-block{box-shadow:none;break-inside:avoid}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
@@ -226,7 +167,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_SBA_Application_Tool.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/RC2_SBA_Application_Tool-es.html" class="lang-btn inactive">ES</a>
@@ -240,21 +181,20 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Government Contracting Tool</span>
+    <span class="article-tag">Government Contracting Tool</span>
     <h1>SBA Application Process Interactive Tool</h1>
-    <p class="hero-sub">Select your target certification program, then work through the four phases — pre-application, application, SBA review, and post-certification. Your readiness tracks in real time.</p>
+    <p class="hero-sub">Select your target certification program, then work through the four phases &mdash; pre-application, application, SBA review, and post-certification. Your readiness tracks in real time.</p>
     <div class="hmeta">
       <span>RC2 Consulting</span><span class="dv">|</span>
       <span>2026</span><span class="dv">|</span>
-      <span>Interactive — Real-Time Progress Tracking</span>
+      <span>Interactive &mdash; Real-Time Progress Tracking</span>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Back to Resources</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&larr; Back to Resources</a>
 
-  <!-- DASHBOARD -->
   <div class="dashboard">
     <div class="dash-top">
       <div class="dash-cell"><div class="dash-val" id="dv1">0%</div><div class="dash-label">Phase 1</div><div class="prog-row"><div class="prog-fill" id="dp1" style="background:#3B82F6;width:0%"></div></div></div>
@@ -271,9 +211,8 @@
     </div>
   </div>
 
-  <!-- PROGRAM SELECTOR -->
   <div class="prog-selector">
-    <h3>Step 1 — Select Your Target SBA Certification Program</h3>
+    <h3>Step 1 &mdash; Select Your Target SBA Certification Program</h3>
     <div class="prog-btns">
       <button class="prog-btn" onclick="selectProg(this,'8a')">8(a) Business Development</button>
       <button class="prog-btn" onclick="selectProg(this,'wosb')">WOSB / EDWOSB</button>
@@ -290,7 +229,7 @@
       <span class="phase-num ph1">01</span>
       <div class="phase-title-wrap">
         <h3>Pre-Application Preparation</h3>
-        <p>Complete all items before opening MySBA portal — incomplete submissions are the #1 cause of delay</p>
+        <p>Complete all items before opening MySBA portal &mdash; incomplete submissions are the #1 cause of delay</p>
       </div>
       <div class="phase-badge">
         <div class="phase-pct" id="pp1">0%</div>
@@ -299,32 +238,30 @@
       </div>
     </div>
     <div class="phase-body">
-      <div class="group-title">Business Entity & Legal Standing</div>
+      <div class="group-title">Business Entity &amp; Legal Standing</div>
       <div class="check-grid" data-phase="1">
-        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Business is legally formed — Articles of Incorporation / Organization obtained</span></div>
-        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">EIN (Employer Identification Number) issued by IRS — have documentation</span></div>
+        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Business is legally formed &mdash; Articles of Incorporation / Organization obtained</span></div>
+        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">EIN (Employer Identification Number) issued by IRS &mdash; have documentation</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Business has been operating for minimum required period (12+ months for 8(a); varies by program)</span></div>
-        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Ownership verified at 51%+ by qualifying individual(s) — shareholder certificates / operating agreement in hand</span></div>
+        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Ownership verified at 51%+ by qualifying individual(s) &mdash; shareholder certificates / operating agreement in hand</span></div>
       </div>
       <div class="group-title">Financial Documentation</div>
       <div class="check-grid" data-phase="1">
-        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">3 years of business tax returns (or all years if &lt; 3 years old) — signed copies</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Most recent business financial statements (balance sheet + P&L) — current within 90 days</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Personal financial statement completed for all 20%+ owners — SBA Form 413 or equivalent</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Personal tax returns (3 years) for all 20%+ owners — signed copies</span></div>
+        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">3 years of business tax returns (or all years if &lt; 3 years old) &mdash; signed copies</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Most recent business financial statements (balance sheet + P&amp;L) &mdash; current within 90 days</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Personal financial statement completed for all 20%+ owners &mdash; SBA Form 413 or equivalent</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Personal tax returns (3 years) for all 20%+ owners &mdash; signed copies</span></div>
       </div>
-      <div class="group-title">SAM.gov & Digital Accounts</div>
+      <div class="group-title">SAM.gov &amp; Digital Accounts</div>
       <div class="check-grid" data-phase="1">
-        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">SAM.gov entity registration active, current, and accurate — NAICS codes and representations verified</span></div>
+        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">SAM.gov entity registration active, current, and accurate &mdash; NAICS codes and representations verified</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">CAGE code obtained and linked to SAM.gov registration</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">MySBA.sba.gov account created — login credentials established and tested</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">MySBA.sba.gov account created &mdash; login credentials established and tested</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All required narrative statements drafted (8(a): social disadvantage narrative, business history, personal narrative)</span></div>
       </div>
-
-      <div class="tip-box"><p>SBA reviewers evaluate the quality and completeness of narrative statements as heavily as financial documentation in 8(a) applications. Budget 3–4 weeks for the narrative drafting phase alone. Vague, generic narratives are the leading cause of 8(a) denial. Source: SBA OHA Appeals Decisions, 2023–2025.</p></div>
-
+      <div class="tip-box"><p>SBA reviewers evaluate the quality and completeness of narrative statements as heavily as financial documentation in 8(a) applications. Budget 3&ndash;4 weeks for the narrative drafting phase alone. Vague, generic narratives are the leading cause of 8(a) denial. Source: SBA OHA Appeals Decisions, 2023&ndash;2025.</p></div>
       <div style="background:var(--bg);border-radius:8px;padding:14px 16px;border:1px solid var(--bdr);margin-top:12px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">📄 Document Checklist by Program</div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">Document Checklist by Program</div>
         <table class="doc-table">
           <thead><tr><th>Document</th><th>8(a)</th><th>WOSB/EDWOSB</th><th>HUBZone</th><th>SDVOSB/VOSB</th></tr></thead>
           <tbody>
@@ -347,8 +284,8 @@
     <div class="phase-hdr ph2-bg">
       <span class="phase-num ph2">02</span>
       <div class="phase-title-wrap">
-        <h3>Application Submission — MySBA Portal</h3>
-        <p>certify.sba.gov — complete fully before submitting; partial saves do not pause SBA clock</p>
+        <h3>Application Submission &mdash; MySBA Portal</h3>
+        <p>certify.sba.gov &mdash; complete fully before submitting; partial saves do not pause SBA clock</p>
       </div>
       <div class="phase-badge">
         <div class="phase-pct" id="pp2">0%</div>
@@ -359,23 +296,23 @@
     <div class="phase-body">
       <div class="group-title">Portal Submission Steps</div>
       <div class="check-grid" data-phase="2">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">MySBA portal application started — correct program selected (8(a) / WOSB / HUBZone / SDVOSB / VOSB)</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Business profile section complete — legal name, EIN, DUNS/UEI, CAGE, NAICS, SAM.gov linked</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All owner information entered — names, citizenship status, ownership %, roles, disability status if applicable</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All required documents uploaded in accepted format (PDF preferred) — naming convention applied for clarity</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Narrative sections complete — reviewed for specificity, supporting evidence cited, no vague language</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Certifications and representations signed — all owners have e-signed within portal</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">MySBA portal application started &mdash; correct program selected (8(a) / WOSB / HUBZone / SDVOSB / VOSB)</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Business profile section complete &mdash; legal name, EIN, DUNS/UEI, CAGE, NAICS, SAM.gov linked</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All owner information entered &mdash; names, citizenship status, ownership %, roles, disability status if applicable</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All required documents uploaded in accepted format (PDF preferred) &mdash; naming convention applied for clarity</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Narrative sections complete &mdash; reviewed for specificity, supporting evidence cited, no vague language</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Certifications and representations signed &mdash; all owners have e-signed within portal</span></div>
       </div>
       <div class="group-title">Pre-Submission Quality Check</div>
       <div class="check-grid" data-phase="2">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All financials are internally consistent — tax returns, financials, and personal statements reconcile</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All financials are internally consistent &mdash; tax returns, financials, and personal statements reconcile</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">No unresolved discrepancies between SAM.gov data and application (size, ownership, NAICS)</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Secondary reviewer (advisor, attorney, or consultant) has reviewed full package before submission</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Application submitted — confirmation email received and application number documented</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Response timeline noted — 90-day SBA target for 8(a); 30–60 days for other programs</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Application submitted &mdash; confirmation email received and application number documented</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Response timeline noted &mdash; 90-day SBA target for 8(a); 30&ndash;60 days for other programs</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Primary contact email monitored daily for SBA analyst communications</span></div>
       </div>
-      <div class="tip-box"><p>Do not submit until every document section is 100% complete. Incomplete submissions trigger a deficiency letter that resets your processing timeline. Analyst follow-up requests for additional documents can add 30–60 days to the review clock if not answered within the SBA's stated response window. Source: SBA Certification Program Processing Guide, 2025.</p></div>
+      <div class="tip-box"><p>Do not submit until every document section is 100% complete. Incomplete submissions trigger a deficiency letter that resets your processing timeline. Analyst follow-up requests for additional documents can add 30&ndash;60 days to the review clock if not answered within the SBA&rsquo;s stated response window. Source: SBA Certification Program Processing Guide, 2025.</p></div>
     </div>
   </div>
 
@@ -384,8 +321,8 @@
     <div class="phase-hdr ph3-bg">
       <span class="phase-num ph3">03</span>
       <div class="phase-title-wrap">
-        <h3>SBA Review & Analyst Communication</h3>
-        <p>Active review period — respond to all SBA requests within stated deadlines or risk denial</p>
+        <h3>SBA Review &amp; Analyst Communication</h3>
+        <p>Active review period &mdash; respond to all SBA requests within stated deadlines or risk denial</p>
       </div>
       <div class="phase-badge">
         <div class="phase-pct" id="pp3">0%</div>
@@ -396,21 +333,21 @@
     <div class="phase-body">
       <div class="group-title">During SBA Review</div>
       <div class="check-grid" data-phase="3">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Application number and submission date logged — use for all SBA communications</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Email monitoring system in place — no SBA communication missed</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Deficiency letter / analyst request received and reviewed — response strategy planned within 24 hours of receipt</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All requested additional documentation gathered and submitted within SBA's stated deadline (typically 10–15 business days)</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Application number and submission date logged &mdash; use for all SBA communications</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Email monitoring system in place &mdash; no SBA communication missed</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Deficiency letter / analyst request received and reviewed &mdash; response strategy planned within 24 hours of receipt</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All requested additional documentation gathered and submitted within SBA&rsquo;s stated deadline (typically 10&ndash;15 business days)</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Responses to analyst questions are clear, concise, and directly address each numbered item in the deficiency letter</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All responses submitted through MySBA portal — do not email documents outside the system unless specifically instructed</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All responses submitted through MySBA portal &mdash; do not email documents outside the system unless specifically instructed</span></div>
       </div>
-      <div class="group-title">Decision & Next Steps</div>
+      <div class="group-title">Decision &amp; Next Steps</div>
       <div class="check-grid" data-phase="3">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Certification approval letter received — effective date noted</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Certification status confirmed in SAM.gov profile — appears in search results for contracting officers</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">If denied: appeal rights reviewed — SBA OHA (Office of Hearings and Appeals) 45-day appeal window noted</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">If denied: specific denial reasons documented — reconsideration or re-application strategy developed</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Annual recertification date calendared — never miss annual renewal</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">For 8(a): SBA District Office contact identified — annual review requirements understood</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Certification approval letter received &mdash; effective date noted</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Certification status confirmed in SAM.gov profile &mdash; appears in search results for contracting officers</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">If denied: appeal rights reviewed &mdash; SBA OHA (Office of Hearings and Appeals) 45-day appeal window noted</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">If denied: specific denial reasons documented &mdash; reconsideration or re-application strategy developed</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Annual recertification date calendared &mdash; never miss annual renewal</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">For 8(a): SBA District Office contact identified &mdash; annual review requirements understood</span></div>
       </div>
     </div>
   </div>
@@ -420,8 +357,8 @@
     <div class="phase-hdr ph4-bg">
       <span class="phase-num ph4">04</span>
       <div class="phase-title-wrap">
-        <h3>Post-Certification — Market Entry & Compliance</h3>
-        <p>Certification is the beginning, not the finish line — now build your contracting infrastructure</p>
+        <h3>Post-Certification &mdash; Market Entry &amp; Compliance</h3>
+        <p>Certification is the beginning, not the finish line &mdash; now build your contracting infrastructure</p>
       </div>
       <div class="phase-badge">
         <div class="phase-pct" id="pp4">0%</div>
@@ -432,41 +369,42 @@
     <div class="phase-body">
       <div class="group-title">Operational Readiness for Contract Performance</div>
       <div class="check-grid" data-phase="4">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">SAM.gov profile updated to reflect certification — NAICS codes, size certifications, and socioeconomic flags verified</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Accounting system verified as adequate for government contracting — costs tracked by contract, project, and indirect category</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Time-and-attendance recording system implemented for all employees — daily or weekly entries</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">SOPs for core business operations documented — purchasing, contracting, invoicing, HR, and record retention</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">GSA Schedule application strategy evaluated — MAS contract provides broad federal market access</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Target agency list developed — USASpending.gov research completed for NAICS codes and set-aside awards</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">SAM.gov profile updated to reflect certification &mdash; NAICS codes, size certifications, and socioeconomic flags verified</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Accounting system verified as adequate for government contracting &mdash; costs tracked by contract, project, and indirect category</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Time-and-attendance recording system implemented for all employees &mdash; daily or weekly entries</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">SOPs for core business operations documented &mdash; purchasing, contracting, invoicing, HR, and record retention</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">GSA Schedule application strategy evaluated &mdash; MAS contract provides broad federal market access</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Target agency list developed &mdash; USASpending.gov research completed for NAICS codes and set-aside awards</span></div>
       </div>
       <div class="group-title">Ongoing Certification Compliance</div>
       <div class="check-grid" data-phase="4">
-        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Annual SAM.gov renewal completed before expiration — lapsed SAM.gov = lost contract eligibility</span></div>
-        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Annual SBA recertification submitted before expiration date — program-specific requirements met</span></div>
+        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Annual SAM.gov renewal completed before expiration &mdash; lapsed SAM.gov = lost contract eligibility</span></div>
+        <div class="check-item crit-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Annual SBA recertification submitted before expiration date &mdash; program-specific requirements met</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Any ownership changes, revenue growth approaching size standard, or management changes reported to SBA immediately</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">For HUBZone: employee residence compliance monitored continuously — 35% threshold maintained at all times</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Subcontracting relationships with prime contractors developed — fastest path to first past performance record</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">For HUBZone: employee residence compliance monitored continuously &mdash; 35% threshold maintained at all times</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Subcontracting relationships with prime contractors developed &mdash; fastest path to first past performance record</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">For 8(a): Business Development Plan submitted and SBA annual review meeting completed</span></div>
       </div>
     </div>
   </div>
 
   <div class="sources">
-    <h4>Sources & Regulatory References</h4>
+    <h4>Sources &amp; Regulatory References</h4>
     <ul>
-      <li>SBA — MySBA Certifications Portal — <a href="https://certify.sba.gov" target="_blank">certify.sba.gov</a></li>
-      <li>SBA — 8(a) Program Regulations, 13 CFR Part 124 — <a href="https://www.ecfr.gov" target="_blank">ecfr.gov</a></li>
-      <li>SBA — WOSB/EDWOSB Certification Requirements, 13 CFR Part 127 — <a href="https://www.sba.gov" target="_blank">sba.gov</a></li>
-      <li>SBA — HUBZone Program Regulations, 13 CFR Part 126 — <a href="https://www.sba.gov" target="_blank">sba.gov</a></li>
-      <li>SAM.gov — Entity Registration & Certification — <a href="https://sam.gov" target="_blank">sam.gov</a></li>
-      <li>SBA OHA — Office of Hearings and Appeals Decisions — <a href="https://www.sba.gov/oha" target="_blank">sba.gov/oha</a></li>
+      <li>SBA &mdash; MySBA Certifications Portal &mdash; <a href="https://certify.sba.gov" target="_blank">certify.sba.gov</a></li>
+      <li>SBA &mdash; 8(a) Program Regulations, 13 CFR Part 124 &mdash; <a href="https://www.ecfr.gov" target="_blank">ecfr.gov</a></li>
+      <li>SBA &mdash; WOSB/EDWOSB Certification Requirements, 13 CFR Part 127 &mdash; <a href="https://www.sba.gov" target="_blank">sba.gov</a></li>
+      <li>SBA &mdash; HUBZone Program Regulations, 13 CFR Part 126 &mdash; <a href="https://www.sba.gov" target="_blank">sba.gov</a></li>
+      <li>SAM.gov &mdash; Entity Registration &amp; Certification &mdash; <a href="https://sam.gov" target="_blank">sam.gov</a></li>
+      <li>SBA OHA &mdash; Office of Hearings and Appeals Decisions &mdash; <a href="https://www.sba.gov/oha" target="_blank">sba.gov/oha</a></li>
     </ul>
   </div>
+
   <div class="acta">
     <h3>Need Guidance Through the SBA Certification Process?</h3>
-    <p>RC2 Consulting builds the operational and compliance infrastructure that makes certification meaningful — accounting systems, SOPs, documentation frameworks, and contract readiness preparation.</p>
-    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a Certification Readiness Review →</a>
-    <button class="btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+    <p>RC2 Consulting builds the operational and compliance infrastructure that makes certification meaningful &mdash; accounting systems, SOPs, documentation frameworks, and contract readiness preparation.</p>
+    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a Certification Readiness Review &rarr;</a>
+    <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
   </div>
 </div>
 
@@ -486,11 +424,11 @@
 
 <script>
 const PROG_INFO={
-  '8a':'<strong>8(a) Business Development Program</strong> — 9-year developmental program. Requires social disadvantage narrative, economic disadvantage (net worth &lt; $850K), 51%+ ownership by qualifying individual, and minimum 2 years in business. Provides sole-source awards up to $4.5M (services) / $7M (manufacturing) and competitive set-asides. Annual reporting and SBA District Office review required throughout program term. <strong>Most complex application — budget 60–90 days for preparation.</strong>',
-  'wosb':'<strong>WOSB / EDWOSB (Women-Owned Small Business)</strong> — Requires 51%+ unconditional ownership and day-to-day management by women who are U.S. citizens. EDWOSB adds economic disadvantage test (net worth &lt; $850K). Self-certification eliminated in 2020 — SBA certification required. Provides set-aside and sole-source access in industries where women-owned businesses are underrepresented. <strong>Moderate complexity — budget 30–45 days for preparation.</strong>',
-  'hubzone':'<strong>HUBZone (Historically Underutilized Business Zone)</strong> — Principal office must be in a designated HUBZone. 35% of employees must reside in a HUBZone at all times. Annual recertification required — HUBZone maps update periodically. Provides 10% price evaluation preference and set-aside access. Employee turnover and relocation can trigger decertification. <strong>Moderate complexity — 35% employee tracking is an ongoing compliance obligation, not a one-time check.</strong>',
-  'sdvosb':'<strong>SDVOSB (Service-Disabled Veteran-Owned Small Business)</strong> — Service-disabled veteran (VA or DoD verified) must own 51%+ and control daily operations. NDAA 2021 transferred certification from VA CVE to SBA — all legacy CVE verifications expired. Required for SDVOSB set-asides across all federal agencies. VA also uses SDVOSB for VA-specific Veterans First contracting. <strong>Lower complexity for clean applications — budget 3–4 weeks for documentation.</strong>',
-  'vosb':'<strong>VOSB (Veteran-Owned Small Business)</strong> — Honorable discharge and 51%+ ownership and daily control by veteran required. No service-connected disability required (unlike SDVOSB). Certification through SBA MySBA portal. Provides access to VA set-aside contracts under the Veterans First Contracting Program. VOSB set-asides are VA contracts only — not federal-wide. <strong>Similar process to SDVOSB — budget 3–4 weeks for documentation.</strong>'
+  '8a':'<strong>8(a) Business Development Program</strong> \u2014 9-year developmental program. Requires social disadvantage narrative, economic disadvantage (net worth &lt; $850K), 51%+ ownership by qualifying individual, and minimum 2 years in business. Provides sole-source awards up to $4.5M (services) / $7M (manufacturing) and competitive set-asides. Annual reporting and SBA District Office review required throughout program term. <strong>Most complex application \u2014 budget 60\u201390 days for preparation.</strong>',
+  'wosb':'<strong>WOSB / EDWOSB (Women-Owned Small Business)</strong> \u2014 Requires 51%+ unconditional ownership and day-to-day management by women who are U.S. citizens. EDWOSB adds economic disadvantage test (net worth &lt; $850K). Self-certification eliminated in 2020 \u2014 SBA certification required. Provides set-aside and sole-source access in industries where women-owned businesses are underrepresented. <strong>Moderate complexity \u2014 budget 30\u201345 days for preparation.</strong>',
+  'hubzone':'<strong>HUBZone (Historically Underutilized Business Zone)</strong> \u2014 Principal office must be in a designated HUBZone. 35% of employees must reside in a HUBZone at all times. Annual recertification required \u2014 HUBZone maps update periodically. Provides 10% price evaluation preference and set-aside access. Employee turnover and relocation can trigger decertification. <strong>Moderate complexity \u2014 35% employee tracking is an ongoing compliance obligation, not a one-time check.</strong>',
+  'sdvosb':'<strong>SDVOSB (Service-Disabled Veteran-Owned Small Business)</strong> \u2014 Service-disabled veteran (VA or DoD verified) must own 51%+ and control daily operations. NDAA 2021 transferred certification from VA CVE to SBA \u2014 all legacy CVE verifications expired. Required for SDVOSB set-asides across all federal agencies. VA also uses SDVOSB for VA-specific Veterans First contracting. <strong>Lower complexity for clean applications \u2014 budget 3\u20134 weeks for documentation.</strong>',
+  'vosb':'<strong>VOSB (Veteran-Owned Small Business)</strong> \u2014 Honorable discharge and 51%+ ownership and daily control by veteran required. No service-connected disability required (unlike SDVOSB). Certification through SBA MySBA portal. Provides access to VA set-aside contracts under the Veterans First Contracting Program. VOSB set-asides are VA contracts only \u2014 not federal-wide. <strong>Similar process to SDVOSB \u2014 budget 3\u20134 weeks for documentation.</strong>'
 };
 
 const PHASE_ITEMS={1:12,2:12,3:12,4:12};
@@ -529,37 +467,37 @@ function calcAll(){
   const sbar=document.getElementById('status-bar');
   let cls='status-bar',txt='',sub=grand+' of '+total+' items completed across all four phases';
   if(overall===0){txt='Select your certification program above, then check off completed items';}
-  else if(overall<33){txt='🟡 Early Stage — Focus on completing Phase 1 documentation before opening the portal';cls+=' early';}
-  else if(overall<66){txt='🔵 In Progress — Application preparation underway. Keep working through Phases 2 and 3.';cls+=' progressing';}
-  else if(overall<90){txt='🟢 Advanced — Strong readiness. Complete Phase 4 post-certification infrastructure items.';cls+=' ready';}
-  else{txt='✅ High Readiness — '+overall+'% complete. Your SBA certification and contracting infrastructure are solid.';cls+=' ready';}
+  else if(overall<33){txt='Early Stage \u2014 Focus on completing Phase 1 documentation before opening the portal';cls+=' early';}
+  else if(overall<66){txt='In Progress \u2014 Application preparation underway. Keep working through Phases 2 and 3.';cls+=' progressing';}
+  else if(overall<90){txt='Advanced \u2014 Strong readiness. Complete Phase 4 post-certification infrastructure items.';cls+=' ready';}
+  else{txt='\u2713 High Readiness \u2014 '+overall+'% complete. Your SBA certification and contracting infrastructure are solid.';cls+=' ready';}
   sbar.className=cls;
   sbar.innerHTML='<div><div class="status-text">'+txt+'</div><div class="status-sub">'+sub+'</div></div><div class="overall-pct" id="ovpct">'+overall+'%</div>';
 }
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();
