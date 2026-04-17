@@ -1,190 +1,127 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>SBA Size Standard Tool | RC2 Consulting</title>
-  <meta name="description" content="Free SBA size standard lookup tool. Determine if your business qualifies as a small business under SBA revenue and employee thresholds by NAICS code." />
-  <meta property="og:title" content="SBA Size Standard Tool | RC2 Consulting">
-  <meta property="og:description" content="SBA Size Standard Tool. Free interactive tool from RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_SBA_Size_Standard_Tool.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SBA Size Standard Tool | RC2 Consulting">
-  <meta name="twitter:description" content="SBA Size Standard Tool. Free interactive tool from RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(to bottom,rgba(11,37,69,.88),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
-    .hero-inner{max-width:960px;margin:0 auto}
-    .atag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:680px;line-height:1.6}
-    .hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
-    .hmeta .dv{color:rgba(255,255,255,.3)}
-    .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-    .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
-
-    /* CALCULATOR BLOCK */
-    .calc-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin:28px 0 20px;overflow:hidden}
-    .cb-hdr{background:var(--navy);padding:16px 24px}
-    .cb-hdr h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px}
-    .cb-hdr p{font-size:.78rem;color:rgba(255,255,255,.65)}
-    .cb-body{padding:28px 28px 24px}
-
-    /* SECTOR GRID */
-    .sector-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
-    .sec-btn{padding:12px 10px;border-radius:8px;border:2px solid var(--bdr);background:var(--bg);font-size:.78rem;font-weight:700;color:var(--mu);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;text-align:center;line-height:1.3}
-    .sec-btn:hover{border-color:var(--lb);color:var(--lb);background:#EFF6FF}
-    .sec-btn.sel{background:var(--navy);border-color:var(--navy);color:#fff}
-
-    /* NAICS SELECTOR */
-    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
-    .field-group{display:flex;flex-direction:column;gap:6px}
-    .field-label{font-size:.72rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
-    .field-sel{border:1.5px solid var(--bdr);border-radius:6px;padding:10px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);cursor:pointer;transition:border-color .2s}
-    .field-sel:focus{border-color:var(--lb);background:#fff}
-    .field-input{border:1.5px solid var(--bdr);border-radius:6px;padding:10px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s;width:100%}
-    .field-input:focus{border-color:var(--lb);background:#fff}
-    .field-sub{font-size:.72rem;color:var(--mu);margin-top:3px}
-
-    /* RESULT CARD */
-    .result-card{border-radius:10px;padding:24px 28px;border:2px solid var(--bdr);transition:all .4s;margin-top:4px;min-height:120px}
-    .result-card.r-small{background:var(--sbg);border-color:#6EE7B7}
-    .result-card.r-large{background:var(--dbg);border-color:#FECACA}
-    .result-card.r-margin{background:var(--wbg);border-color:#FDE68A}
-    .result-card.r-default{background:var(--bg);border-color:var(--bdr)}
-    .result-status{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:6px;line-height:1}
-    .r-small .result-status{color:var(--sg)}
-    .r-large .result-status{color:var(--dg)}
-    .r-margin .result-status{color:var(--wg)}
-    .r-default .result-status{color:var(--mu)}
-    .result-detail{font-size:.86rem;color:var(--mu);line-height:1.65;margin-bottom:10px}
-    .result-badges{display:flex;gap:8px;flex-wrap:wrap}
-    .rbadge{display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:10px}
-    .rb-green{background:var(--sbg);color:var(--sg);border:1px solid #6EE7B7}
-    .rb-red{background:var(--dbg);color:var(--dg);border:1px solid #FECACA}
-    .rb-yellow{background:var(--wbg);color:var(--wg);border:1px solid #FDE68A}
-    .rb-blue{background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE}
-
-    /* STANDARDS TABLE */
-    .std-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
-    .std-hdr{background:var(--navy);padding:12px 22px}
-    .std-hdr h3{font-size:.86rem;font-weight:700;color:#fff}
-    .std-table{width:100%;border-collapse:collapse;font-size:.82rem}
-    .std-table th{background:var(--bg);padding:10px 14px;text-align:left;font-size:.72rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr);letter-spacing:.4px}
-    .std-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--mu);vertical-align:top}
-    .std-table td:first-child{font-weight:600;color:var(--navy)}
-    .std-table tr:nth-child(even) td{background:var(--bg)}
-    .std-table tr:last-child td{border-bottom:none}
-    .std-table tr:hover td{background:#FAFBFD}
-    .std-highlight{background:#EFF6FF !important;border-left:3px solid var(--lb)}
-    .std-highlight td{color:var(--navy) !important;font-weight:600 !important}
-    .size-type{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px}
-    .st-rev{background:#EFF6FF;color:#1D4ED8}
-    .st-emp{background:#F0FDF4;color:#15803D}
-
-    /* DISCLAIMER */
-    .disclaimer{background:var(--wbg);border:1px solid #FDE68A;border-radius:8px;padding:14px 18px;margin:20px 0}
-    .disclaimer p{font-size:.8rem;color:var(--wg);line-height:1.65;margin:0}
-    .disclaimer strong{color:var(--navy)}
-
-    .sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
-    .sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
-    .sources ul{list-style:none}
-    .sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
-    .sources li:last-child{border-bottom:none}
-    .sources a{color:var(--lb);text-decoration:none}
-    .acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
-    .acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
-    .acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem transition:color 0.2s; cursor:pointer; }
-    .fl a:hover { color:white; }
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-    @media(max-width:720px){.sector-grid{grid-template-columns:repeat(2,1fr)}.field-row{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SBA Size Standard Tool | RC2 Consulting</title>
+<meta name="description" content="Free SBA size standard lookup tool. Determine if your business qualifies as a small business under SBA revenue and employee thresholds by NAICS code." />
+<meta property="og:title" content="SBA Size Standard Tool | RC2 Consulting">
+<meta property="og:description" content="SBA Size Standard Tool. Free interactive tool from RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_SBA_Size_Standard_Tool.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SBA Size Standard Tool | RC2 Consulting">
+<meta name="twitter:description" content="SBA Size Standard Tool. Free interactive tool from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#D1D9E6;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.88),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:680px;line-height:1.6}
+.hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.hmeta .dv{color:rgba(255,255,255,.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.calc-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin:28px 0 20px;overflow:hidden}
+.cb-hdr{background:var(--navy);padding:16px 24px}
+.cb-hdr h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px}
+.cb-hdr p{font-size:.78rem;color:rgba(255,255,255,.65)}
+.cb-body{padding:28px 28px 24px}
+.sector-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.sec-btn{padding:12px 10px;border-radius:8px;border:2px solid var(--bdr);background:var(--bg);font-size:.78rem;font-weight:700;color:var(--mu);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;text-align:center;line-height:1.3}
+.sec-btn:hover{border-color:var(--lb);color:var(--lb);background:#EFF6FF}
+.sec-btn.sel{background:var(--navy);border-color:var(--navy);color:#fff}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.field-group{display:flex;flex-direction:column;gap:6px}
+.field-label{font-size:.72rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
+.field-sel{border:1.5px solid var(--bdr);border-radius:6px;padding:10px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);cursor:pointer;transition:border-color .2s}
+.field-sel:focus{border-color:var(--lb);background:#fff}
+.field-input{border:1.5px solid var(--bdr);border-radius:6px;padding:10px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s;width:100%}
+.field-input:focus{border-color:var(--lb);background:#fff}
+.field-sub{font-size:.72rem;color:var(--mu);margin-top:3px}
+.result-card{border-radius:10px;padding:24px 28px;border:2px solid var(--bdr);transition:all .4s;margin-top:4px;min-height:120px}
+.result-card.r-small{background:var(--sbg);border-color:#6EE7B7}
+.result-card.r-large{background:var(--dbg);border-color:#FECACA}
+.result-card.r-margin{background:var(--wbg);border-color:#FDE68A}
+.result-card.r-default{background:var(--bg);border-color:var(--bdr)}
+.result-status{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:6px;line-height:1}
+.r-small .result-status{color:var(--sg)}
+.r-large .result-status{color:var(--dg)}
+.r-margin .result-status{color:var(--wg)}
+.r-default .result-status{color:var(--mu)}
+.result-detail{font-size:.86rem;color:var(--mu);line-height:1.65;margin-bottom:10px}
+.result-badges{display:flex;gap:8px;flex-wrap:wrap}
+.rbadge{display:inline-block;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:10px}
+.rb-green{background:var(--sbg);color:var(--sg);border:1px solid #6EE7B7}
+.rb-red{background:var(--dbg);color:var(--dg);border:1px solid #FECACA}
+.rb-yellow{background:var(--wbg);color:var(--wg);border:1px solid #FDE68A}
+.rb-blue{background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE}
+.std-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
+.std-hdr{background:var(--navy);padding:12px 22px}
+.std-hdr h3{font-size:.86rem;font-weight:700;color:#fff}
+.std-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.std-table th{background:var(--bg);padding:10px 14px;text-align:left;font-size:.72rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr);letter-spacing:.4px}
+.std-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--mu);vertical-align:top}
+.std-table td:first-child{font-weight:600;color:var(--navy)}
+.std-table tr:nth-child(even) td{background:var(--bg)}
+.std-table tr:last-child td{border-bottom:none}
+.std-table tr:hover td{background:#FAFBFD}
+.size-type{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px}
+.st-rev{background:#EFF6FF;color:#1D4ED8}
+.st-emp{background:#F0FDF4;color:#15803D}
+.disclaimer{background:var(--wbg);border:1px solid #FDE68A;border-radius:8px;padding:14px 18px;margin:20px 0}
+.disclaimer p{font-size:.8rem;color:var(--wg);line-height:1.65;margin:0}
+.disclaimer strong{color:var(--navy)}
+.sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
+.sources li:last-child{border-bottom:none}
+.sources a{color:var(--lb);text-decoration:none}
+.acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
+.acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+@media(max-width:720px){.sector-grid{grid-template-columns:repeat(2,1fr)}.field-row{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
@@ -201,7 +138,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_SBA_Size_Standard_Tool.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/RC2_SBA_Size_Standard_Tool-es.html" class="lang-btn inactive">ES</a>
@@ -215,9 +152,9 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Government Contracting Tool</span>
+    <span class="article-tag">Government Contracting Tool</span>
     <h1>SBA Size Standard Tool</h1>
-    <p class="hero-sub">Select your industry sector and NAICS code, then enter your annual revenue and employee count. Your SBA small business determination calculates in real time — including which certification set-asides you qualify for.</p>
+    <p class="hero-sub">Select your industry sector and NAICS code, then enter your annual revenue and employee count. Your SBA small business determination calculates in real time &mdash; including which certification set-asides you qualify for.</p>
     <div class="hmeta">
       <span>RC2 Consulting</span><span class="dv">|</span>
       <span>2026</span><span class="dv">|</span>
@@ -227,56 +164,52 @@
 </section>
 
 <div class="wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Back to Resources</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&larr; Back to Resources</a>
 
-  <!-- CALCULATOR -->
   <div class="calc-block">
     <div class="cb-hdr">
       <h2>Size Standard Calculator</h2>
-      <p>Enter your primary NAICS code, 3-year average annual receipts, and employee count — your size determination appears instantly</p>
+      <p>Enter your primary NAICS code, 3-year average annual receipts, and employee count &mdash; your size determination appears instantly</p>
     </div>
     <div class="cb-body">
-      <!-- SECTOR BUTTONS -->
-      <div style="font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px">Step 1 — Select Your Industry Sector</div>
+      <div style="font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px">Step 1 &mdash; Select Your Industry Sector</div>
       <div class="sector-grid" id="sector-grid">
-        <button class="sec-btn" onclick="setSector(this,'mfg')">🏭 Manufacturing<br><span style="font-weight:400;font-size:.72rem">NAICS 31–33</span></button>
-        <button class="sec-btn" onclick="setSector(this,'const')">🏗️ Construction<br><span style="font-weight:400;font-size:.72rem">NAICS 23</span></button>
-        <button class="sec-btn" onclick="setSector(this,'retail')">🛒 Retail Trade<br><span style="font-weight:400;font-size:.72rem">NAICS 44–45</span></button>
-        <button class="sec-btn" onclick="setSector(this,'wholesale')">📦 Wholesale Trade<br><span style="font-weight:400;font-size:.72rem">NAICS 42</span></button>
-        <button class="sec-btn" onclick="setSector(this,'services')">💼 Professional Services<br><span style="font-weight:400;font-size:.72rem">NAICS 54</span></button>
-        <button class="sec-btn" onclick="setSector(this,'it')">💻 IT / Tech Services<br><span style="font-weight:400;font-size:.72rem">NAICS 51, 54151x</span></button>
-        <button class="sec-btn" onclick="setSector(this,'health')">🏥 Healthcare<br><span style="font-weight:400;font-size:.72rem">NAICS 62</span></button>
-        <button class="sec-btn" onclick="setSector(this,'other')">📋 Other / Admin<br><span style="font-weight:400;font-size:.72rem">NAICS 56, 61, 71, 81</span></button>
+        <button class="sec-btn" onclick="setSector(this,'mfg')">Manufacturing<br><span style="font-weight:400;font-size:.72rem">NAICS 31&ndash;33</span></button>
+        <button class="sec-btn" onclick="setSector(this,'const')">Construction<br><span style="font-weight:400;font-size:.72rem">NAICS 23</span></button>
+        <button class="sec-btn" onclick="setSector(this,'retail')">Retail Trade<br><span style="font-weight:400;font-size:.72rem">NAICS 44&ndash;45</span></button>
+        <button class="sec-btn" onclick="setSector(this,'wholesale')">Wholesale Trade<br><span style="font-weight:400;font-size:.72rem">NAICS 42</span></button>
+        <button class="sec-btn" onclick="setSector(this,'services')">Professional Services<br><span style="font-weight:400;font-size:.72rem">NAICS 54</span></button>
+        <button class="sec-btn" onclick="setSector(this,'it')">IT / Tech Services<br><span style="font-weight:400;font-size:.72rem">NAICS 51, 54151x</span></button>
+        <button class="sec-btn" onclick="setSector(this,'health')">Healthcare<br><span style="font-weight:400;font-size:.72rem">NAICS 62</span></button>
+        <button class="sec-btn" onclick="setSector(this,'other')">Other / Admin<br><span style="font-weight:400;font-size:.72rem">NAICS 56, 61, 71, 81</span></button>
       </div>
 
-      <!-- NAICS + INPUTS -->
-      <div style="font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px">Step 2 — Enter Business Details</div>
+      <div style="font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px">Step 2 &mdash; Enter Business Details</div>
       <div class="field-row">
         <div class="field-group">
           <label class="field-label">Industry / NAICS Code</label>
           <select class="field-sel" id="naics-sel" onchange="calcSize()">
-            <option value="">— Select sector above first —</option>
+            <option value="">&#8212; Select sector above first &#8212;</option>
           </select>
           <span class="field-sub" id="naics-std-label">Size standard will appear here</span>
         </div>
         <div class="field-group">
           <label class="field-label">Primary NAICS Code (manual entry)</label>
           <input class="field-input" type="text" id="manual-naics" placeholder="e.g. 315990" maxlength="6" oninput="calcSize()"/>
-          <span class="field-sub">Optional — overrides dropdown selection</span>
+          <span class="field-sub">Optional &mdash; overrides dropdown selection</span>
         </div>
         <div class="field-group">
           <label class="field-label">3-Year Average Annual Receipts ($)</label>
           <input class="field-input" type="number" id="revenue" placeholder="e.g. 4500000" oninput="calcSize()"/>
-          <span class="field-sub">Include all affiliate revenues per SBA affiliation rules (13 CFR § 121.103)</span>
+          <span class="field-sub">Include all affiliate revenues per SBA affiliation rules (13 CFR &sect; 121.103)</span>
         </div>
         <div class="field-group">
           <label class="field-label">Total Employees (average, 12 months)</label>
           <input class="field-input" type="number" id="employees" placeholder="e.g. 85" oninput="calcSize()"/>
-          <span class="field-sub">Include all employees of affiliates — full-time, part-time, and temporary</span>
+          <span class="field-sub">Include all employees of affiliates &mdash; full-time, part-time, and temporary</span>
         </div>
       </div>
 
-      <!-- RESULT -->
       <div class="result-card r-default" id="result-card">
         <div class="result-status" id="result-status">Enter your industry and business details above</div>
         <div class="result-detail" id="result-detail">Your SBA small business determination and applicable set-aside eligibility will appear here in real time as you complete the fields above.</div>
@@ -285,9 +218,8 @@
     </div>
   </div>
 
-  <!-- SIZE STANDARDS REFERENCE TABLE -->
   <div class="std-block">
-    <div class="std-hdr"><h3>SBA Size Standards Reference — Key Industries (Effective March 2023)</h3></div>
+    <div class="std-hdr"><h3>SBA Size Standards Reference &mdash; Key Industries (Effective March 2023)</h3></div>
     <table class="std-table">
       <thead>
         <tr>
@@ -298,42 +230,41 @@
           <th>Set-Aside Eligible?</th>
         </tr>
       </thead>
-      <tbody id="std-table-body">
-        <tr><td>311</td><td>Food Manufacturing</td><td>$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>315</td><td>Apparel Manufacturing</td><td>500 employees</td><td><span class="size-type st-emp">Employees</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>316</td><td>Leather / Allied Products</td><td>500 employees</td><td><span class="size-type st-emp">Employees</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>236</td><td>Building Construction</td><td>$45M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>238</td><td>Specialty Trade Contractors</td><td>$22M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>423–424</td><td>Wholesale Trade (Merchant)</td><td>250–500 employees</td><td><span class="size-type st-emp">Employees</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>481</td><td>Air Transportation</td><td>1,500 employees</td><td><span class="size-type st-emp">Employees</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>484</td><td>Trucking</td><td>$34M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>511–519</td><td>Information / Media</td><td>$47M–$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>5415</td><td>Computer Systems Design &amp; Related Services</td><td>$34M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>5416</td><td>Management Consulting / Scientific</td><td>$19M–$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>5417</td><td>Scientific R&amp;D Services</td><td>$34M–$47M or 1,000 employees</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>5418</td><td>Advertising / Public Relations</td><td>$19M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>561</td><td>Administrative &amp; Support Services</td><td>$19M–$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>562</td><td>Waste Management / Remediation</td><td>$19M–$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>611</td><td>Educational Services</td><td>$12M–$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>621</td><td>Ambulatory Health Care</td><td>$19M–$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
-        <tr><td>811</td><td>Repair &amp; Maintenance</td><td>$9M–$19M</td><td><span class="size-type st-rev">Revenue</span></td><td>✅ Yes, if under standard</td></tr>
+      <tbody>
+        <tr><td>311</td><td>Food Manufacturing</td><td>$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>315</td><td>Apparel Manufacturing</td><td>500 employees</td><td><span class="size-type st-emp">Employees</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>316</td><td>Leather / Allied Products</td><td>500 employees</td><td><span class="size-type st-emp">Employees</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>236</td><td>Building Construction</td><td>$45M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>238</td><td>Specialty Trade Contractors</td><td>$22M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>423&ndash;424</td><td>Wholesale Trade (Merchant)</td><td>250&ndash;500 employees</td><td><span class="size-type st-emp">Employees</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>481</td><td>Air Transportation</td><td>1,500 employees</td><td><span class="size-type st-emp">Employees</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>484</td><td>Trucking</td><td>$34M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>511&ndash;519</td><td>Information / Media</td><td>$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>5415</td><td>Computer Systems Design &amp; Related Services</td><td>$34M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>5416</td><td>Management Consulting / Scientific</td><td>$19M&ndash;$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>5417</td><td>Scientific R&amp;D Services</td><td>$34M&ndash;$47M or 1,000 employees</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>5418</td><td>Advertising / Public Relations</td><td>$19M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>561</td><td>Administrative &amp; Support Services</td><td>$19M&ndash;$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>562</td><td>Waste Management / Remediation</td><td>$19M&ndash;$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>611</td><td>Educational Services</td><td>$12M&ndash;$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>621</td><td>Ambulatory Health Care</td><td>$19M&ndash;$47M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
+        <tr><td>811</td><td>Repair &amp; Maintenance</td><td>$9M&ndash;$19M</td><td><span class="size-type st-rev">Revenue</span></td><td>&#10003; Yes, if under standard</td></tr>
       </tbody>
     </table>
     <div style="padding:12px 16px;background:var(--bg);border-top:1px solid var(--bdr)">
-      <p style="font-size:.75rem;color:var(--mu)"><strong>Important:</strong> This table reflects commonly referenced size standards. Always verify your specific NAICS 6-digit code at the official SBA Size Standards Tool at <a href="https://www.sba.gov/document/support--table-size-standards" style="color:var(--lb)">sba.gov</a>. Affiliates' revenues and employees must be combined under SBA affiliation rules — consult counsel for complex ownership structures.</p>
+      <p style="font-size:.75rem;color:var(--mu)"><strong>Important:</strong> This table reflects commonly referenced size standards. Always verify your specific NAICS 6-digit code at the official SBA Size Standards Tool at <a href="https://www.sba.gov/document/support--table-size-standards" style="color:var(--lb)">sba.gov</a>. Affiliates&rsquo; revenues and employees must be combined under SBA affiliation rules &mdash; consult counsel for complex ownership structures.</p>
     </div>
   </div>
 
-  <!-- AFFILIATION RULES -->
   <div style="background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden">
-    <div style="background:var(--navy);padding:12px 22px"><h3 style="font-size:.86rem;font-weight:700;color:#fff">SBA Affiliation Rules — What Most Businesses Underestimate</h3></div>
+    <div style="background:var(--navy);padding:12px 22px"><h3 style="font-size:.86rem;font-weight:700;color:#fff">SBA Affiliation Rules &mdash; What Most Businesses Underestimate</h3></div>
     <div style="padding:20px 24px">
-      <p style="font-size:.86rem;color:var(--mu);line-height:1.75;margin-bottom:12px">The SBA's affiliation rules (13 CFR § 121.103) require that the revenues <em>and</em> employees of all affiliated businesses be combined when determining whether a company qualifies as small. Affiliation exists when one entity has the power to control another — through ownership, management, contractual relationships, or economic dependence. The following relationships commonly trigger affiliation:</p>
+      <p style="font-size:.86rem;color:var(--mu);line-height:1.75;margin-bottom:12px">The SBA&rsquo;s affiliation rules (13 CFR &sect; 121.103) require that the revenues <em>and</em> employees of all affiliated businesses be combined when determining whether a company qualifies as small. Affiliation exists when one entity has the power to control another &mdash; through ownership, management, contractual relationships, or economic dependence. The following relationships commonly trigger affiliation:</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
-        <div style="background:var(--dbg);border-radius:6px;padding:12px 14px;border:1px solid #FECACA"><div style="font-size:.72rem;font-weight:700;color:var(--dg);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px">⚠ Triggers Affiliation</div><div style="font-size:.8rem;color:var(--mu);line-height:1.55">50%+ ownership by same individual / entity in multiple businesses · Shared management or key personnel across companies · Economic dependence (&gt;70% revenue from one customer) · Common investments, facilities, or equipment</div></div>
-        <div style="background:var(--sbg);border-radius:6px;padding:12px 14px;border:1px solid #6EE7B7"><div style="font-size:.72rem;font-weight:700;color:var(--sg);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px">✓ Generally Safe</div><div style="font-size:.8rem;color:var(--mu);line-height:1.55">Minority ownership with no control rights · Arms-length customer relationships · Teaming agreements with no shared management · Franchise relationships (franchisee measures independently)</div></div>
+        <div style="background:var(--dbg);border-radius:6px;padding:12px 14px;border:1px solid #FECACA"><div style="font-size:.72rem;font-weight:700;color:var(--dg);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px">&#9888; Triggers Affiliation</div><div style="font-size:.8rem;color:var(--mu);line-height:1.55">50%+ ownership by same individual / entity in multiple businesses &middot; Shared management or key personnel across companies &middot; Economic dependence (&gt;70% revenue from one customer) &middot; Common investments, facilities, or equipment</div></div>
+        <div style="background:var(--sbg);border-radius:6px;padding:12px 14px;border:1px solid #6EE7B7"><div style="font-size:.72rem;font-weight:700;color:var(--sg);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px">&#10003; Generally Safe</div><div style="font-size:.8rem;color:var(--mu);line-height:1.55">Minority ownership with no control rights &middot; Arms-length customer relationships &middot; Teaming agreements with no shared management &middot; Franchise relationships (franchisee measures independently)</div></div>
       </div>
-      <p style="font-size:.8rem;color:var(--mu);line-height:1.65">Affiliation determinations are fact-specific and context-dependent. If your business has any shared ownership, management, or contractual relationships with other entities, consult an SBA-qualified attorney before certifying your size status. False size certification triggers False Claims Act liability. Source: 13 CFR § 121.103; SBA OHA Size Protest Decisions.</p>
+      <p style="font-size:.8rem;color:var(--mu);line-height:1.65">Affiliation determinations are fact-specific and context-dependent. If your business has any shared ownership, management, or contractual relationships with other entities, consult an SBA-qualified attorney before certifying your size status. False size certification triggers False Claims Act liability. Source: 13 CFR &sect; 121.103; SBA OHA Size Protest Decisions.</p>
     </div>
   </div>
 
@@ -342,19 +273,20 @@
   </div>
 
   <div class="sources">
-    <h4>Sources & Regulatory References</h4>
+    <h4>Sources &amp; Regulatory References</h4>
     <ul>
-      <li>SBA — Table of Small Business Size Standards, Effective March 2023 — <a href="https://www.sba.gov/document/support--table-size-standards" target="_blank">sba.gov</a></li>
-      <li>SBA — Size Standards Methodology White Paper (2019, updated 2023) — <a href="https://www.sba.gov" target="_blank">sba.gov</a></li>
-      <li>13 CFR Part 121 — SBA Size Standards Regulations — <a href="https://www.ecfr.gov" target="_blank">ecfr.gov</a></li>
-      <li>13 CFR § 121.103 — SBA Affiliation Rules — <a href="https://www.ecfr.gov" target="_blank">ecfr.gov</a></li>
-      <li>FAR 19.301 — Representation by the Offeror on Small Business Size — <a href="https://www.acquisition.gov" target="_blank">acquisition.gov</a></li>
+      <li>SBA &mdash; Table of Small Business Size Standards, Effective March 2023 &mdash; <a href="https://www.sba.gov/document/support--table-size-standards" target="_blank">sba.gov</a></li>
+      <li>SBA &mdash; Size Standards Methodology White Paper (2019, updated 2023) &mdash; <a href="https://www.sba.gov" target="_blank">sba.gov</a></li>
+      <li>13 CFR Part 121 &mdash; SBA Size Standards Regulations &mdash; <a href="https://www.ecfr.gov" target="_blank">ecfr.gov</a></li>
+      <li>13 CFR &sect; 121.103 &mdash; SBA Affiliation Rules &mdash; <a href="https://www.ecfr.gov" target="_blank">ecfr.gov</a></li>
+      <li>FAR 19.301 &mdash; Representation by the Offeror on Small Business Size &mdash; <a href="https://www.acquisition.gov" target="_blank">acquisition.gov</a></li>
     </ul>
   </div>
+
   <div class="acta">
     <h3>Questions About Your Size Determination?</h3>
     <p>RC2 Consulting helps businesses understand their size classification, affiliation risk, and certification eligibility before submitting to federal agencies.</p>
-    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a Size & Certification Review →</a>
+    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a Size &amp; Certification Review &rarr;</a>
   </div>
 </div>
 
@@ -373,8 +305,7 @@
 </footer>
 
 <script>
-// Size standards data: {naicsCode, label, stdRev (M), stdEmp, basis ('rev'|'emp'|'both')}
-const SECTORS = {
+const SECTORS={
   mfg:[
     {v:'311xxx',l:'Food Manufacturing (311)',rev:47,emp:null,basis:'rev'},
     {v:'3133',l:'Textile Mills (313)',rev:null,emp:1000,basis:'emp'},
@@ -450,47 +381,47 @@ const SECTORS = {
   ]
 };
 
-let currentStd = null;
+let currentStd=null;
 
-function setSector(btn, sector) {
+function setSector(btn,sector){
   document.querySelectorAll('.sec-btn').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
-  const sel = document.getElementById('naics-sel');
-  sel.innerHTML = '<option value="">— Select NAICS code —</option>';
+  const sel=document.getElementById('naics-sel');
+  sel.innerHTML='<option value="">\u2014 Select NAICS code \u2014</option>';
   (SECTORS[sector]||[]).forEach(item=>{
-    const opt = document.createElement('option');
-    opt.value = item.v;
-    opt.textContent = item.l;
-    opt.dataset.rev = item.rev||'';
-    opt.dataset.emp = item.emp||'';
-    opt.dataset.basis = item.basis;
+    const opt=document.createElement('option');
+    opt.value=item.v;
+    opt.textContent=item.l;
+    opt.dataset.rev=item.rev||'';
+    opt.dataset.emp=item.emp||'';
+    opt.dataset.basis=item.basis;
     sel.appendChild(opt);
   });
-  currentStd = null;
+  currentStd=null;
   calcSize();
 }
 
-function calcSize() {
-  const sel = document.getElementById('naics-sel');
-  const opt = sel.options[sel.selectedIndex];
-  const rev = parseFloat(document.getElementById('revenue').value)||0;
-  const emp = parseInt(document.getElementById('employees').value)||0;
-  const card = document.getElementById('result-card');
-  const statusEl = document.getElementById('result-status');
-  const detailEl = document.getElementById('result-detail');
-  const badgesEl = document.getElementById('result-badges');
-  const stdLabel = document.getElementById('naics-std-label');
+function calcSize(){
+  const sel=document.getElementById('naics-sel');
+  const opt=sel.options[sel.selectedIndex];
+  const rev=parseFloat(document.getElementById('revenue').value)||0;
+  const emp=parseInt(document.getElementById('employees').value)||0;
+  const card=document.getElementById('result-card');
+  const statusEl=document.getElementById('result-status');
+  const detailEl=document.getElementById('result-detail');
+  const badgesEl=document.getElementById('result-badges');
+  const stdLabel=document.getElementById('naics-std-label');
 
-  let stdRev=null, stdEmp=null, basis='rev';
-  if(opt && opt.value && opt.dataset.basis) {
-    stdRev = opt.dataset.rev ? parseFloat(opt.dataset.rev) : null;
-    stdEmp = opt.dataset.emp ? parseInt(opt.dataset.emp) : null;
-    basis = opt.dataset.basis;
+  let stdRev=null,stdEmp=null,basis='rev';
+  if(opt&&opt.value&&opt.dataset.basis){
+    stdRev=opt.dataset.rev?parseFloat(opt.dataset.rev):null;
+    stdEmp=opt.dataset.emp?parseInt(opt.dataset.emp):null;
+    basis=opt.dataset.basis;
   }
 
-  if(!opt || !opt.value) {
+  if(!opt||!opt.value){
     stdLabel.textContent='Select a NAICS code from the dropdown';
-    if(rev===0 && emp===0){
+    if(rev===0&&emp===0){
       card.className='result-card r-default';
       statusEl.textContent='Enter your industry and business details above';
       detailEl.textContent='Your SBA small business determination and applicable set-aside eligibility will appear here in real time.';
@@ -499,10 +430,10 @@ function calcSize() {
     }
   }
 
-  if(stdRev) stdLabel.textContent=`Size standard: $${stdRev}M average annual receipts (3-year average)`;
-  else if(stdEmp) stdLabel.textContent=`Size standard: ${stdEmp.toLocaleString()} employees (including affiliates)`;
+  if(stdRev) stdLabel.textContent='Size standard: $'+stdRev+'M average annual receipts (3-year average)';
+  else if(stdEmp) stdLabel.textContent='Size standard: '+stdEmp.toLocaleString()+' employees (including affiliates)';
 
-  if((rev===0 && basis==='rev')||(emp===0 && basis==='emp')) {
+  if((rev===0&&basis==='rev')||(emp===0&&basis==='emp')){
     card.className='result-card r-default';
     statusEl.textContent='Enter your business data to see your determination';
     detailEl.textContent='Fill in revenue and/or employee count above.';
@@ -510,70 +441,68 @@ function calcSize() {
     return;
   }
 
-  // Determine size
-  let isSmall = false, isMargin = false;
-  let metric='', threshold='', userVal='';
+  let isSmall=false,isMargin=false;
+  let metric='',threshold='',userVal='';
 
-  if(stdRev && basis==='rev'){
-    isSmall = rev <= stdRev*1e6;
-    isMargin = rev > stdRev*0.8*1e6 && rev <= stdRev*1e6;
-    metric='revenue'; threshold=`$${stdRev}M`;
+  if(stdRev&&basis==='rev'){
+    isSmall=rev<=stdRev*1e6;
+    isMargin=rev>stdRev*0.8*1e6&&rev<=stdRev*1e6;
+    metric='revenue';threshold='$'+stdRev+'M';
     userVal='$'+(rev/1e6).toFixed(2)+'M';
-  } else if(stdEmp && basis==='emp'){
-    isSmall = emp <= stdEmp;
-    isMargin = emp > stdEmp*0.85 && emp <= stdEmp;
-    metric='employees'; threshold=stdEmp.toLocaleString();
+  } else if(stdEmp&&basis==='emp'){
+    isSmall=emp<=stdEmp;
+    isMargin=emp>stdEmp*0.85&&emp<=stdEmp;
+    metric='employees';threshold=stdEmp.toLocaleString();
     userVal=emp.toLocaleString();
-  } else if(!stdRev && !stdEmp) {
-    // Fallback general
+  } else if(!stdRev&&!stdEmp){
     card.className='result-card r-default';
     statusEl.textContent='Verify your size at sba.gov';
-    detailEl.textContent='Your specific NAICS code has nuanced size standards — verify at the official SBA Size Standards Table.';
-    badgesEl.innerHTML='<span class="rbadge rb-blue"><a href="https://www.sba.gov/document/support--table-size-standards" target="_blank" style="color:inherit;text-decoration:none">→ SBA Size Standards Table</a></span>';
+    detailEl.textContent='Your specific NAICS code has nuanced size standards \u2014 verify at the official SBA Size Standards Table.';
+    badgesEl.innerHTML='<span class="rbadge rb-blue"><a href="https://www.sba.gov/document/support--table-size-standards" target="_blank" style="color:inherit;text-decoration:none">\u2192 SBA Size Standards Table</a></span>';
     return;
   }
 
-  if(isSmall && isMargin){
+  if(isSmall&&isMargin){
     card.className='result-card r-margin';
-    statusEl.textContent='⚠ Small — But Near the Threshold';
-    detailEl.textContent=`Your ${metric} (${userVal}) is under the ${threshold} size standard — you currently qualify as a small business. However, you are within 15–20% of the threshold. Monitor revenue growth and affiliate changes carefully. Exceeding the standard at time of contract award or recertification triggers loss of small business status and potentially the contract itself.`;
-    badgesEl.innerHTML='<span class="rbadge rb-yellow">Small Business — Monitor Closely</span><span class="rbadge rb-yellow">Near Size Threshold</span><span class="rbadge rb-blue">Verify Affiliates</span>';
+    statusEl.textContent='\u26A0 Small \u2014 But Near the Threshold';
+    detailEl.textContent='Your '+metric+' ('+userVal+') is under the '+threshold+' size standard \u2014 you currently qualify as a small business. However, you are within 15\u201320% of the threshold. Monitor revenue growth and affiliate changes carefully. Exceeding the standard at time of contract award or recertification triggers loss of small business status and potentially the contract itself.';
+    badgesEl.innerHTML='<span class="rbadge rb-yellow">Small Business \u2014 Monitor Closely</span><span class="rbadge rb-yellow">Near Size Threshold</span><span class="rbadge rb-blue">Verify Affiliates</span>';
   } else if(isSmall){
     card.className='result-card r-small';
-    statusEl.textContent='✅ Qualifies as Small Business';
-    detailEl.textContent=`Your ${metric} (${userVal}) is under the ${threshold} size standard for this NAICS code. You qualify as a small business under SBA regulations, subject to proper affiliate calculation and size certification in SAM.gov. This makes you eligible for small business set-aside contracts, and potentially for 8(a), WOSB, HUBZone, SDVOSB, or VOSB set-asides if you meet additional program eligibility requirements.`;
-    badgesEl.innerHTML='<span class="rbadge rb-green">✓ Small Business Eligible</span><span class="rbadge rb-blue">May Qualify: 8(a)</span><span class="rbadge rb-blue">May Qualify: WOSB</span><span class="rbadge rb-blue">May Qualify: HUBZone</span><span class="rbadge rb-blue">May Qualify: SDVOSB/VOSB</span>';
+    statusEl.textContent='\u2713 Qualifies as Small Business';
+    detailEl.textContent='Your '+metric+' ('+userVal+') is under the '+threshold+' size standard for this NAICS code. You qualify as a small business under SBA regulations, subject to proper affiliate calculation and size certification in SAM.gov. This makes you eligible for small business set-aside contracts, and potentially for 8(a), WOSB, HUBZone, SDVOSB, or VOSB set-asides if you meet additional program eligibility requirements.';
+    badgesEl.innerHTML='<span class="rbadge rb-green">\u2713 Small Business Eligible</span><span class="rbadge rb-blue">May Qualify: 8(a)</span><span class="rbadge rb-blue">May Qualify: WOSB</span><span class="rbadge rb-blue">May Qualify: HUBZone</span><span class="rbadge rb-blue">May Qualify: SDVOSB/VOSB</span>';
   } else {
     card.className='result-card r-large';
-    statusEl.textContent='✗ Does NOT Qualify as Small Business';
-    detailEl.textContent=`Your ${metric} (${userVal}) exceeds the ${threshold} size standard for this NAICS code. You do not qualify as a small business under SBA regulations and are not eligible for small business set-aside contracts under this NAICS code. You may still compete for full-and-open competition federal contracts. Consider whether a different NAICS code better reflects your primary business activity — size standards vary significantly by code.`;
-    badgesEl.innerHTML='<span class="rbadge rb-red">✗ Exceeds Size Standard</span><span class="rbadge rb-yellow">Review NAICS Classification</span><span class="rbadge rb-yellow">Full-and-Open Competition Eligible</span>';
+    statusEl.textContent='\u2717 Does NOT Qualify as Small Business';
+    detailEl.textContent='Your '+metric+' ('+userVal+') exceeds the '+threshold+' size standard for this NAICS code. You do not qualify as a small business under SBA regulations and are not eligible for small business set-aside contracts under this NAICS code. You may still compete for full-and-open competition federal contracts. Consider whether a different NAICS code better reflects your primary business activity \u2014 size standards vary significantly by code.';
+    badgesEl.innerHTML='<span class="rbadge rb-red">\u2717 Exceeds Size Standard</span><span class="rbadge rb-yellow">Review NAICS Classification</span><span class="rbadge rb-yellow">Full-and-Open Competition Eligible</span>';
   }
 }
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();
