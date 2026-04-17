@@ -1,162 +1,110 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>SBA–NAICS Codes Tool | RC2 Consulting</title>
-  <meta name="description" content="Free SBA-NAICS code lookup tool. Find the right NAICS codes for government contracting and verify SBA small business size standards." />
-  <meta property="og:title" content="SBA–NAICS Codes Tool | RC2 Consulting">
-  <meta property="og:description" content="SBA–NAICS Codes Tool. Free interactive tool from RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SBA–NAICS Codes Tool | RC2 Consulting">
-  <meta name="twitter:description" content="SBA–NAICS Codes Tool. Free interactive tool from RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(to bottom,rgba(11,37,69,.88),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
-    .hero-inner{max-width:960px;margin:0 auto}
-    .atag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:680px;line-height:1.6}
-    .hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
-    .hmeta .dv{color:rgba(255,255,255,.3)}
-    .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-    .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
-
-    /* SEARCH + FILTER BAR */
-    .search-bar{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);padding:20px 24px;margin:28px 0 16px;display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap}
-    .sb-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:180px}
-    .sb-label{font-size:.7rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
-    .sb-input{border:1.5px solid var(--bdr);border-radius:6px;padding:9px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s;width:100%}
-    .sb-input:focus{border-color:var(--lb);background:#fff}
-    .sb-sel{border:1.5px solid var(--bdr);border-radius:6px;padding:9px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);cursor:pointer;width:100%;transition:border-color .2s}
-    .sb-sel:focus{border-color:var(--lb);background:#fff}
-    .sb-count{font-size:.78rem;font-weight:700;color:var(--lb);padding:9px 0;white-space:nowrap}
-    .btn-reset{padding:9px 18px;border-radius:6px;border:1.5px solid var(--bdr);background:var(--bg);font-size:.8rem;font-weight:700;color:var(--mu);cursor:pointer;font-family:'Source Sans 3',sans-serif}
-    .btn-reset:hover{border-color:var(--dg);color:var(--dg)}
-
-    /* NAICS TABLE */
-    .naics-wrap{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);overflow:hidden;margin-bottom:24px}
-    .naics-table{width:100%;border-collapse:collapse;font-size:.82rem}
-    .naics-table thead{position:sticky;top:52px;z-index:10}
-    .naics-table th{background:var(--navy);color:#fff;padding:11px 14px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px;cursor:pointer;user-select:none;white-space:nowrap}
-    .naics-table th:hover{background:var(--navy)}
-    .naics-table th .sort-arrow{margin-left:4px;opacity:.5}
-    .naics-table th.sorted .sort-arrow{opacity:1}
-    .naics-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);vertical-align:top;color:var(--mu)}
-    .naics-table td.code{font-family:monospace;font-weight:700;color:var(--lb);font-size:.88rem;white-space:nowrap}
-    .naics-table td.title{font-weight:600;color:var(--navy);line-height:1.4}
-    .naics-table tr:nth-child(even) td{background:#FAFBFD}
-    .naics-table tr:hover td{background:#EFF6FF}
-    .naics-table tr.hidden{display:none}
-    .std-chip{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap}
-    .sc-rev{background:#EFF6FF;color:#1D4ED8}
-    .sc-emp{background:#F0FDF4;color:#15803D}
-    .gc-chip{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
-    .gc-high{background:var(--sbg);color:var(--sg)}
-    .gc-med{background:var(--wbg);color:var(--wg)}
-    .gc-low{background:var(--bg);color:var(--mu);border:1px solid var(--bdr)}
-    .no-results{text-align:center;padding:40px;color:var(--mu);font-size:.9rem;font-style:italic}
-    .callout{background:var(--bg);border-radius:8px;padding:14px 18px;border:1px solid var(--bdr);margin-bottom:20px}
-    .callout p{font-size:.84rem;color:var(--navy);font-weight:600;line-height:1.65;margin:0;border-left:3px solid var(--lb);padding-left:12px}
-    .sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
-    .sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
-    .sources ul{list-style:none}
-    .sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
-    .sources li:last-child{border-bottom:none}
-    .sources a{color:var(--lb);text-decoration:none}
-    .acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
-    .acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
-    .acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem transition:color 0.2s; cursor:pointer; }
-    .fl a:hover { color:white; }
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-    @media(max-width:720px){.search-bar{flex-direction:column}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}.naics-table{font-size:.76rem}}
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SBA&ndash;NAICS Codes Tool | RC2 Consulting</title>
+<meta name="description" content="Free SBA-NAICS code lookup tool. Find the right NAICS codes for government contracting and verify SBA small business size standards." />
+<meta property="og:title" content="SBA&ndash;NAICS Codes Tool | RC2 Consulting">
+<meta property="og:description" content="SBA&ndash;NAICS Codes Tool. Free interactive tool from RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SBA&ndash;NAICS Codes Tool | RC2 Consulting">
+<meta name="twitter:description" content="SBA&ndash;NAICS Codes Tool. Free interactive tool from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#D1D9E6;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.88),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:680px;line-height:1.6}
+.hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.hmeta .dv{color:rgba(255,255,255,.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.search-bar{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);padding:20px 24px;margin:28px 0 16px;display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap}
+.sb-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:180px}
+.sb-label{font-size:.7rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
+.sb-input{border:1.5px solid var(--bdr);border-radius:6px;padding:9px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s;width:100%}
+.sb-input:focus{border-color:var(--lb);background:#fff}
+.sb-sel{border:1.5px solid var(--bdr);border-radius:6px;padding:9px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);cursor:pointer;width:100%;transition:border-color .2s}
+.sb-sel:focus{border-color:var(--lb);background:#fff}
+.sb-count{font-size:.78rem;font-weight:700;color:var(--lb);padding:9px 0;white-space:nowrap}
+.btn-reset{padding:9px 18px;border-radius:6px;border:1.5px solid var(--bdr);background:var(--bg);font-size:.8rem;font-weight:700;color:var(--mu);cursor:pointer;font-family:'Source Sans 3',sans-serif}
+.btn-reset:hover{border-color:var(--dg);color:var(--dg)}
+.naics-wrap{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);overflow:hidden;margin-bottom:24px}
+.naics-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.naics-table thead{position:sticky;top:52px;z-index:10}
+.naics-table th{background:var(--navy);color:#fff;padding:11px 14px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px;cursor:pointer;user-select:none;white-space:nowrap}
+.naics-table th:hover{background:var(--navy)}
+.naics-table th .sort-arrow{margin-left:4px;opacity:.5}
+.naics-table th.sorted .sort-arrow{opacity:1}
+.naics-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);vertical-align:top;color:var(--mu)}
+.naics-table td.code{font-family:monospace;font-weight:700;color:var(--lb);font-size:.88rem;white-space:nowrap}
+.naics-table td.title{font-weight:600;color:var(--navy);line-height:1.4}
+.naics-table tr:nth-child(even) td{background:#FAFBFD}
+.naics-table tr:hover td{background:#EFF6FF}
+.naics-table tr.hidden{display:none}
+.std-chip{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.sc-rev{background:#EFF6FF;color:#1D4ED8}
+.sc-emp{background:#F0FDF4;color:#15803D}
+.gc-chip{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.gc-high{background:var(--sbg);color:var(--sg)}
+.gc-med{background:var(--wbg);color:var(--wg)}
+.gc-low{background:var(--bg);color:var(--mu);border:1px solid var(--bdr)}
+.no-results{text-align:center;padding:40px;color:var(--mu);font-size:.9rem;font-style:italic}
+.callout{background:var(--bg);border-radius:8px;padding:14px 18px;border:1px solid var(--bdr);margin-bottom:20px}
+.callout p{font-size:.84rem;color:var(--navy);font-weight:600;line-height:1.65;margin:0;border-left:3px solid var(--lb);padding-left:12px}
+.sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
+.sources li:last-child{border-bottom:none}
+.sources a{color:var(--lb);text-decoration:none}
+.acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
+.acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+@media(max-width:720px){.search-bar{flex-direction:column}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}.naics-table{font-size:.76rem}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
@@ -173,7 +121,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool-es.html" class="lang-btn inactive">ES</a>
@@ -187,23 +135,22 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Government Contracting Tool</span>
-    <h1>SBA–NAICS Codes Tool</h1>
+    <span class="article-tag">Government Contracting Tool</span>
+    <h1>SBA&ndash;NAICS Codes Tool</h1>
     <p class="hero-sub">Search, filter, and browse NAICS codes with SBA size standards, government contracting relevance, and set-aside applicability. Find the right codes for your business before certifying or submitting a proposal.</p>
     <div class="hmeta">
       <span>RC2 Consulting</span><span class="dv">|</span>
       <span>2026</span><span class="dv">|</span>
-      <span>NAICS 2022 · SBA Size Standards Effective March 2023</span>
+      <span>NAICS 2022 &middot; SBA Size Standards Effective March 2023</span>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Back to Resources</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&larr; Back to Resources</a>
 
-  <div class="callout" style="margin-top:24px"><p>Your NAICS code determines your SBA size standard, which set-aside categories you can access, and how contracting officers find your business in SAM.gov. Most businesses can legitimately register multiple NAICS codes — but your <em>primary</em> code must reflect your highest-revenue activity. Misrepresenting your primary code to access a more favorable size standard is a federal certification violation.</p></div>
+  <div class="callout" style="margin-top:24px"><p>Your NAICS code determines your SBA size standard, which set-aside categories you can access, and how contracting officers find your business in SAM.gov. Most businesses can legitimately register multiple NAICS codes &mdash; but your <em>primary</em> code must reflect your highest-revenue activity. Misrepresenting your primary code to access a more favorable size standard is a federal certification violation.</p></div>
 
-  <!-- SEARCH BAR -->
   <div class="search-bar">
     <div class="sb-group" style="flex:2">
       <label class="sb-label">Search by code, description, or keyword</label>
@@ -215,18 +162,18 @@
         <option value="">All Sectors</option>
         <option value="Agriculture">Agriculture (11)</option>
         <option value="Construction">Construction (23)</option>
-        <option value="Manufacturing">Manufacturing (31–33)</option>
+        <option value="Manufacturing">Manufacturing (31&ndash;33)</option>
         <option value="Wholesale">Wholesale Trade (42)</option>
-        <option value="Retail">Retail Trade (44–45)</option>
-        <option value="Transportation">Transportation (48–49)</option>
+        <option value="Retail">Retail Trade (44&ndash;45)</option>
+        <option value="Transportation">Transportation (48&ndash;49)</option>
         <option value="Information">Information (51)</option>
-        <option value="Finance">Finance & Insurance (52)</option>
+        <option value="Finance">Finance &amp; Insurance (52)</option>
         <option value="Real Estate">Real Estate (53)</option>
         <option value="Professional">Professional Services (54)</option>
-        <option value="Admin">Admin & Support (56)</option>
+        <option value="Admin">Admin &amp; Support (56)</option>
         <option value="Education">Educational Services (61)</option>
         <option value="Healthcare">Healthcare (62)</option>
-        <option value="Arts">Arts & Entertainment (71)</option>
+        <option value="Arts">Arts &amp; Entertainment (71)</option>
         <option value="Food">Food Services (72)</option>
         <option value="Other Services">Other Services (81)</option>
       </select>
@@ -252,17 +199,16 @@
     <button class="btn-reset" onclick="resetFilters()">Reset</button>
   </div>
 
-  <!-- TABLE -->
   <div class="naics-wrap">
     <table class="naics-table" id="naics-table">
       <thead>
         <tr>
-          <th onclick="sortTable(0)" style="width:90px">NAICS <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(1)">Industry / Description <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(2)" style="width:100px">Sector <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(3)" style="width:160px">Size Standard <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(4)" style="width:100px">Basis <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(5)" style="width:110px">GovCon Use <span class="sort-arrow">↕</span></th>
+          <th onclick="sortTable(0)" style="width:90px">NAICS <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(1)">Industry / Description <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(2)" style="width:100px">Sector <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(3)" style="width:160px">Size Standard <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(4)" style="width:100px">Basis <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(5)" style="width:110px">GovCon Use <span class="sort-arrow">&#8597;</span></th>
         </tr>
       </thead>
       <tbody id="naics-tbody"></tbody>
@@ -271,19 +217,20 @@
   </div>
 
   <div class="sources">
-    <h4>Sources & References</h4>
+    <h4>Sources &amp; References</h4>
     <ul>
-      <li>U.S. Census Bureau — NAICS 2022 Manual — <a href="https://www.census.gov/naics" target="_blank">census.gov/naics</a></li>
-      <li>SBA — Table of Small Business Size Standards (Effective March 2023) — <a href="https://www.sba.gov/document/support--table-size-standards" target="_blank">sba.gov</a></li>
-      <li>SAM.gov — NAICS Code Registration Guidance — <a href="https://sam.gov" target="_blank">sam.gov</a></li>
-      <li>USASpending.gov — Federal Contract Award Data by NAICS — <a href="https://www.usaspending.gov" target="_blank">usaspending.gov</a></li>
-      <li>FAR 19.102 — Size Standards for Small Business Concerns — <a href="https://www.acquisition.gov" target="_blank">acquisition.gov</a></li>
+      <li>U.S. Census Bureau &mdash; NAICS 2022 Manual &mdash; <a href="https://www.census.gov/naics" target="_blank">census.gov/naics</a></li>
+      <li>SBA &mdash; Table of Small Business Size Standards (Effective March 2023) &mdash; <a href="https://www.sba.gov/document/support--table-size-standards" target="_blank">sba.gov</a></li>
+      <li>SAM.gov &mdash; NAICS Code Registration Guidance &mdash; <a href="https://sam.gov" target="_blank">sam.gov</a></li>
+      <li>USASpending.gov &mdash; Federal Contract Award Data by NAICS &mdash; <a href="https://www.usaspending.gov" target="_blank">usaspending.gov</a></li>
+      <li>FAR 19.102 &mdash; Size Standards for Small Business Concerns &mdash; <a href="https://www.acquisition.gov" target="_blank">acquisition.gov</a></li>
     </ul>
   </div>
+
   <div class="acta">
     <h3>Need Help Selecting the Right NAICS Codes?</h3>
     <p>The right NAICS code strategy determines your size standard, your set-aside eligibility, and how contracting officers find your business. RC2 Consulting can review your business activities and identify the most strategically advantageous NAICS code portfolio for federal market entry.</p>
-    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a NAICS Code Strategy Review →</a>
+    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a NAICS Code Strategy Review &rarr;</a>
   </div>
 </div>
 
@@ -304,8 +251,8 @@
 <script>
 // [naics, description, sector, sizeStd, basis, gcRelevance, notes]
 const NAICS_DATA = [
-  ['111','Crop Production','Agriculture','$2M–$3M','Revenue','Low','Niche federal purchase programs'],
-  ['112','Animal Production','Agriculture','$2M–$3.5M','Revenue','Low','USDA programs'],
+  ['111','Crop Production','Agriculture','$2M\u2013$3M','Revenue','Low','Niche federal purchase programs'],
+  ['112','Animal Production','Agriculture','$2M\u2013$3.5M','Revenue','Low','USDA programs'],
   ['115','Agricultural Support Activities','Agriculture','$8.5M','Revenue','Low',''],
   ['2361','Residential Building Construction','Construction','$45M','Revenue','Medium','DoD housing, federal facilities'],
   ['2362','Nonresidential Building Construction','Construction','$45M','Revenue','High','Federal construction, GSA building projects'],
@@ -313,34 +260,34 @@ const NAICS_DATA = [
   ['2372','Land Subdivision','Construction','$45M','Revenue','Low',''],
   ['2373','Highway, Street & Bridge Construction','Construction','$45M','Revenue','High','FHWA, DoT contracts'],
   ['2381','Foundation, Structure Contractors','Construction','$22M','Revenue','Medium','Subcontract-heavy'],
-  ['2382','Building Equipment Contractors','Construction','$22M','Revenue','High','HVAC, electrical — federal buildings'],
-  ['2383','Building Finishing Contractors','Construction','$22M','Revenue','Medium','Interior fit-out — federal'],
+  ['2382','Building Equipment Contractors','Construction','$22M','Revenue','High','HVAC, electrical \u2014 federal buildings'],
+  ['2383','Building Finishing Contractors','Construction','$22M','Revenue','Medium','Interior fit-out \u2014 federal'],
   ['2389','Other Specialty Trade Contractors','Construction','$22M','Revenue','Medium',''],
   ['311','Food Manufacturing','Manufacturing','$47M','Revenue','Medium','USDA, military commissary programs'],
   ['3133','Textile Mills','Manufacturing','1,000','Employees','Medium','DoD fabric requirements'],
   ['3141','Textile Product Mills','Manufacturing','500','Employees','Medium','Military bedding, textiles'],
-  ['3151','Apparel Knitting Mills','Manufacturing','500','Employees','Medium','Military knitwear — Berry Amendment'],
+  ['3151','Apparel Knitting Mills','Manufacturing','500','Employees','Medium','Military knitwear \u2014 Berry Amendment'],
   ['3159','Apparel Accessories Mfg','Manufacturing','500','Employees','Medium',''],
   ['3161','Leather & Hide Tanning','Manufacturing','500','Employees','Low',''],
-  ['3162','Footwear Manufacturing','Manufacturing','500','Employees','Medium','Military boots — Berry Amendment'],
+  ['3162','Footwear Manufacturing','Manufacturing','500','Employees','Medium','Military boots \u2014 Berry Amendment'],
   ['3169','Other Leather Products','Manufacturing','500','Employees','Low',''],
   ['3211','Sawmills & Wood Preservation','Manufacturing','500','Employees','Low',''],
   ['3219','Other Wood Product Mfg','Manufacturing','500','Employees','Low',''],
   ['3241','Petroleum & Coal Products','Manufacturing','1,500','Employees','High','DoD fuel and energy contracts'],
-  ['3251','Basic Chemical Manufacturing','Manufacturing','750–1,000','Employees','Medium','DoD chemical programs'],
+  ['3251','Basic Chemical Manufacturing','Manufacturing','750\u20131,000','Employees','Medium','DoD chemical programs'],
   ['3329','Other Fabricated Metal Products','Manufacturing','500','Employees','High','DoD hardware, components'],
-  ['3341','Computer & Peripheral Equipment','Manufacturing','1,000','Employees','High','IT hardware — federal procurement'],
+  ['3341','Computer & Peripheral Equipment','Manufacturing','1,000','Employees','High','IT hardware \u2014 federal procurement'],
   ['3345','Electronic Instruments Mfg','Manufacturing','1,000','Employees','High','Sensors, defense electronics'],
-  ['3364','Aerospace Products & Parts','Manufacturing','1,500','Employees','High','DoD — primary defense manufacturing NAICS'],
-  ['3391','Medical Equipment & Supplies','Manufacturing','500–1,000','Employees','High','VA, DoD medical supply'],
+  ['3364','Aerospace Products & Parts','Manufacturing','1,500','Employees','High','DoD \u2014 primary defense manufacturing NAICS'],
+  ['3391','Medical Equipment & Supplies','Manufacturing','500\u20131,000','Employees','High','VA, DoD medical supply'],
   ['4231','Motor Vehicle Wholesale','Wholesale','250','Employees','Medium','GSA fleet programs'],
-  ['4234','Professional Equipment Wholesale','Wholesale','250','Employees','High','IT equipment — federal supply'],
-  ['4241','Paper & Paper Products Wholesale','Wholesale','250','Employees','Medium','Office supplies — GSA'],
+  ['4234','Professional Equipment Wholesale','Wholesale','250','Employees','High','IT equipment \u2014 federal supply'],
+  ['4241','Paper & Paper Products Wholesale','Wholesale','250','Employees','Medium','Office supplies \u2014 GSA'],
   ['4245','Apparel & Piece Goods Wholesale','Wholesale','500','Employees','Medium','Military clothing sales points'],
-  ['4251','Electronic Markets & Agents','Wholesale','250','Employees','High','Technology resellers — GSA Schedule'],
+  ['4251','Electronic Markets & Agents','Wholesale','250','Employees','High','Technology resellers \u2014 GSA Schedule'],
   ['4411','Auto Dealers','Retail','$34M','Revenue','Low',''],
   ['4441','Building Material & Supplies','Retail','$47M','Revenue','Medium','Maintenance/repair supplies'],
-  ['4451','Grocery Stores','Retail','$34M','Revenue','Low','Commissary — separate program'],
+  ['4451','Grocery Stores','Retail','$34M','Revenue','Low','Commissary \u2014 separate program'],
   ['4481','Clothing Stores','Retail','$34M','Revenue','Low',''],
   ['4511','Sporting Goods Stores','Retail','$34M','Revenue','Low',''],
   ['4521','Department Stores','Retail','$47M','Revenue','Low',''],
@@ -364,17 +311,17 @@ const NAICS_DATA = [
   ['5412','Accounting & Tax Preparation','Professional','$22M','Revenue','High','DCAA, federal accounting support'],
   ['5413','Architectural & Engineering','Professional','$19M','Revenue','High','Federal design-build, DoD A&E'],
   ['5414','Specialized Design Services','Professional','$19M','Revenue','Medium','Federal graphics, design'],
-  ['5415','Computer Systems Design','Professional','$34M','Revenue','High','IT services — top federal NAICS'],
-  ['54151','Custom Computer Programming','Professional','$34M','Revenue','High','Software development — federal'],
-  ['54152','Computer Systems Design Services','Professional','$34M','Revenue','High','Systems integration — federal'],
+  ['5415','Computer Systems Design','Professional','$34M','Revenue','High','IT services \u2014 top federal NAICS'],
+  ['54151','Custom Computer Programming','Professional','$34M','Revenue','High','Software development \u2014 federal'],
+  ['54152','Computer Systems Design Services','Professional','$34M','Revenue','High','Systems integration \u2014 federal'],
   ['54161','Management Consulting','Professional','$19M','Revenue','High','Federal advisory, program management'],
   ['54162','Environmental Consulting','Professional','$19M','Revenue','High','EPA, DoD environmental programs'],
   ['54169','Other Scientific Consulting','Professional','$19M','Revenue','High','DoD R&D support'],
-  ['5417','Scientific R&D Services','Professional','$34M–$47M','Revenue','High','DARPA, NIH, DoD research'],
+  ['5417','Scientific R&D Services','Professional','$34M\u2013$47M','Revenue','High','DARPA, NIH, DoD research'],
   ['5418','Advertising & PR','Professional','$19M','Revenue','Medium','Federal communications'],
   ['5419','Other Professional Services','Professional','$19M','Revenue','Medium',''],
   ['5611','Office Admin Services','Admin','$19M','Revenue','High','Federal back-office support'],
-  ['5612','Facilities Support Services','Admin','$47M','Revenue','High','Federal building O&M — top NAICS'],
+  ['5612','Facilities Support Services','Admin','$47M','Revenue','High','Federal building O&M \u2014 top NAICS'],
   ['5613','Employment Placement & Staffing','Admin','$34M','Revenue','High','Federal staffing contracts'],
   ['5614','Business Support Services','Admin','$19M','Revenue','High','Federal help desk, call center'],
   ['5615','Travel Arrangement Services','Admin','$19M','Revenue','Medium','Federal travel management'],
@@ -410,9 +357,9 @@ function buildTable(data){
   data.forEach(row=>{
     const tr=document.createElement('tr');
     const gc=row[5];
-    const gcChip=gc==='High'?`<span class="gc-chip gc-high">★ High</span>`:gc==='Medium'?`<span class="gc-chip gc-med">◈ Medium</span>`:`<span class="gc-chip gc-low">Low</span>`;
-    const basis=row[4]==='Employees'?`<span class="std-chip sc-emp">👥 Employees</span>`:`<span class="std-chip sc-rev">💰 Revenue</span>`;
-    tr.innerHTML=`<td class="code">${row[0]}</td><td class="title">${row[1]}${row[6]?`<div style="font-size:.7rem;color:var(--mu);margin-top:3px;font-style:italic">${row[6]}</div>`:''}</td><td style="font-size:.76rem">${row[2]}</td><td style="font-size:.8rem;font-weight:600;color:var(--navy)">${row[3]}</td><td>${basis}</td><td>${gcChip}</td>`;
+    const gcChip=gc==='High'?'<span class="gc-chip gc-high">&#9733; High</span>':gc==='Medium'?'<span class="gc-chip gc-med">&#9670; Medium</span>':'<span class="gc-chip gc-low">Low</span>';
+    const basis=row[4]==='Employees'?'<span class="std-chip sc-emp">Employees</span>':'<span class="std-chip sc-rev">Revenue</span>';
+    tr.innerHTML='<td class="code">'+row[0]+'</td><td class="title">'+row[1]+(row[6]?'<div style="font-size:.7rem;color:var(--mu);margin-top:3px;font-style:italic">'+row[6]+'</div>':'')+'</td><td style="font-size:.76rem">'+row[2]+'</td><td style="font-size:.8rem;font-weight:600;color:var(--navy)">'+row[3]+'</td><td>'+basis+'</td><td>'+gcChip+'</td>';
     tbody.appendChild(tr);
   });
   document.getElementById('result-count').textContent=data.length+' codes';
@@ -454,32 +401,31 @@ function resetFilters(){
   filterTable();
 }
 
-// Init
 filterTable();
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();

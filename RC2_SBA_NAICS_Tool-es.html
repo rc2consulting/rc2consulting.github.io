@@ -1,185 +1,127 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Herramienta de Códigos NAICS–SBA | RC2 Consulting</title>
-  <meta name="description" content="Herramienta gratuita de búsqueda de códigos NAICS-SBA. Encuentre los códigos NAICS correctos para contratación gubernamental y estándares de tamaño." />
-  <meta property="og:title" content="Herramienta de Códigos NAICS–SBA | RC2 Consulting">
-  <meta property="og:description" content="Herramienta de Códigos NAICS–SBA. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool-es.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Herramienta de Códigos NAICS–SBA | RC2 Consulting">
-  <meta name="twitter:description" content="Herramienta de Códigos NAICS–SBA. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(to bottom,rgba(11,37,69,.88),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
-    .hero-inner{max-width:960px;margin:0 auto}
-    .atag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:680px;line-height:1.6}
-    .hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
-    .hmeta .dv{color:rgba(255,255,255,.3)}
-    .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-    .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
-
-    /* SEARCH + FILTER BAR */
-    .search-bar{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);padding:20px 24px;margin:28px 0 16px;display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap}
-    .sb-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:180px}
-    .sb-label{font-size:.7rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
-    .sb-input{border:1.5px solid var(--bdr);border-radius:6px;padding:9px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s;width:100%}
-    .sb-input:focus{border-color:var(--lb);background:#fff}
-    .sb-sel{border:1.5px solid var(--bdr);border-radius:6px;padding:9px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);cursor:pointer;width:100%;transition:border-color .2s}
-    .sb-sel:focus{border-color:var(--lb);background:#fff}
-    .sb-count{font-size:.78rem;font-weight:700;color:var(--lb);padding:9px 0;white-space:nowrap}
-    .btn-reset{padding:9px 18px;border-radius:6px;border:1.5px solid var(--bdr);background:var(--bg);font-size:.8rem;font-weight:700;color:var(--mu);cursor:pointer;font-family:'Source Sans 3',sans-serif}
-    .btn-reset:hover{border-color:var(--dg);color:var(--dg)}
-
-    /* NAICS TABLE */
-    .naics-wrap{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);overflow:hidden;margin-bottom:24px}
-    .naics-table{width:100%;border-collapse:collapse;font-size:.82rem}
-    .naics-table thead{position:sticky;top:52px;z-index:10}
-    .naics-table th{background:var(--navy);color:#fff;padding:11px 14px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px;cursor:pointer;user-select:none;white-space:nowrap}
-    .naics-table th:hover{background:var(--navy)}
-    .naics-table th .sort-arrow{margin-left:4px;opacity:.5}
-    .naics-table th.sorted .sort-arrow{opacity:1}
-    .naics-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);vertical-align:top;color:var(--mu)}
-    .naics-table td.code{font-family:monospace;font-weight:700;color:var(--lb);font-size:.88rem;white-space:nowrap}
-    .naics-table td.title{font-weight:600;color:var(--navy);line-height:1.4}
-    .naics-table tr:nth-child(even) td{background:#FAFBFD}
-    .naics-table tr:hover td{background:#EFF6FF}
-    .naics-table tr.hidden{display:none}
-    .std-chip{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap}
-    .sc-rev{background:#EFF6FF;color:#1D4ED8}
-    .sc-emp{background:#F0FDF4;color:#15803D}
-    .gc-chip{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
-    .gc-high{background:var(--sbg);color:var(--sg)}
-    .gc-med{background:var(--wbg);color:var(--wg)}
-    .gc-low{background:var(--bg);color:var(--mu);border:1px solid var(--bdr)}
-    .no-results{text-align:center;padding:40px;color:var(--mu);font-size:.9rem;font-style:italic}
-    .callout{background:var(--bg);border-radius:8px;padding:14px 18px;border:1px solid var(--bdr);margin-bottom:20px}
-    .callout p{font-size:.84rem;color:var(--navy);font-weight:600;line-height:1.65;margin:0;border-left:3px solid var(--lb);padding-left:12px}
-    .sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
-    .sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
-    .sources ul{list-style:none}
-    .sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
-    .sources li:last-child{border-bottom:none}
-    .sources a{color:var(--lb);text-decoration:none}
-    .acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
-    .acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
-    .acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-    @media(max-width:720px){.search-bar{flex-direction:column}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}.naics-table{font-size:.76rem}}
-
-    .nav-lang { display:flex; gap:4px; margin-left:16px; }
-    .lang-btn { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.78rem; font-weight:700; padding:4px 8px; border-radius:4px; border:1px solid transparent; transition:all 0.2s; }
-    .lang-btn:hover { color:white; border-color:rgba(255,255,255,0.3); }
-    .lang-btn.active { color:white; background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none; position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545; flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200; gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important; font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important; height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    
-    /* ── Site Footer ── */
-    .site-footer { background: #1A4A8A; color: white; text-align: center; padding: 40px 24px; }
-    .footer-tagline { font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px; }
-    .footer-links { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
-    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; cursor:pointer; }
-    .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Herramienta de C&oacute;digos SBA&ndash;NAICS | RC2 Consulting</title>
+<meta name="description" content="Herramienta gratuita de b&uacute;squeda de c&oacute;digos NAICS. Encuentre los c&oacute;digos correctos para la contrataci&oacute;n gubernamental y verifique los est&aacute;ndares de tama&ntilde;o de la SBA." />
+<meta property="og:title" content="Herramienta de C&oacute;digos SBA&ndash;NAICS | RC2 Consulting">
+<meta property="og:description" content="Herramienta de C&oacute;digos SBA&ndash;NAICS. Herramienta interactiva gratuita de RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool-es.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Herramienta de C&oacute;digos SBA&ndash;NAICS | RC2 Consulting">
+<meta name="twitter:description" content="Herramienta de C&oacute;digos SBA&ndash;NAICS. Herramienta interactiva gratuita de RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#D1D9E6;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.88),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:680px;line-height:1.6}
+.hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.hmeta .dv{color:rgba(255,255,255,.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.search-bar{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);padding:20px 24px;margin:28px 0 16px;display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap}
+.sb-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:180px}
+.sb-label{font-size:.7rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
+.sb-input{border:1.5px solid var(--bdr);border-radius:6px;padding:9px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s;width:100%}
+.sb-input:focus{border-color:var(--lb);background:#fff}
+.sb-sel{border:1.5px solid var(--bdr);border-radius:6px;padding:9px 12px;font-size:.88rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);cursor:pointer;width:100%;transition:border-color .2s}
+.sb-sel:focus{border-color:var(--lb);background:#fff}
+.sb-count{font-size:.78rem;font-weight:700;color:var(--lb);padding:9px 0;white-space:nowrap}
+.btn-reset{padding:9px 18px;border-radius:6px;border:1.5px solid var(--bdr);background:var(--bg);font-size:.8rem;font-weight:700;color:var(--mu);cursor:pointer;font-family:'Source Sans 3',sans-serif}
+.btn-reset:hover{border-color:var(--dg);color:var(--dg)}
+.naics-wrap{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);overflow:hidden;margin-bottom:24px}
+.naics-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.naics-table thead{position:sticky;top:52px;z-index:10}
+.naics-table th{background:var(--navy);color:#fff;padding:11px 14px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px;cursor:pointer;user-select:none;white-space:nowrap}
+.naics-table th:hover{background:var(--navy)}
+.naics-table th .sort-arrow{margin-left:4px;opacity:.5}
+.naics-table th.sorted .sort-arrow{opacity:1}
+.naics-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);vertical-align:top;color:var(--mu)}
+.naics-table td.code{font-family:monospace;font-weight:700;color:var(--lb);font-size:.88rem;white-space:nowrap}
+.naics-table td.title{font-weight:600;color:var(--navy);line-height:1.4}
+.naics-table tr:nth-child(even) td{background:#FAFBFD}
+.naics-table tr:hover td{background:#EFF6FF}
+.naics-table tr.hidden{display:none}
+.std-chip{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.sc-rev{background:#EFF6FF;color:#1D4ED8}
+.sc-emp{background:#F0FDF4;color:#15803D}
+.gc-chip{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.gc-high{background:var(--sbg);color:var(--sg)}
+.gc-med{background:var(--wbg);color:var(--wg)}
+.gc-low{background:var(--bg);color:var(--mu);border:1px solid var(--bdr)}
+.no-results{text-align:center;padding:40px;color:var(--mu);font-size:.9rem;font-style:italic}
+.callout{background:var(--bg);border-radius:8px;padding:14px 18px;border:1px solid var(--bdr);margin-bottom:20px}
+.callout p{font-size:.84rem;color:var(--navy);font-weight:600;line-height:1.65;margin:0;border-left:3px solid var(--lb);padding-left:12px}
+.sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
+.sources li:last-child{border-bottom:none}
+.sources a{color:var(--lb);text-decoration:none}
+.acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
+.acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+@media(max-width:720px){.search-bar{flex-direction:column}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}.naics-table{font-size:.76rem}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
 <nav class="topnav">
-  <a href="https://rc2consulting.github.io/index-es.html" class="nav-brand">
+  <a href="https://rc2consulting.github.io/" class="nav-brand">
     <div class="nav-logo-mark">RC<sup>2</sup></div>
     <span class="nav-brand-name">Consulting</span>
   </a>
   <ul class="nav-links">
-    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
-    <li><a href="https://rc2consulting.github.io/services-es.html">Servicios</a></li>
-    <li><a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a></li>
-    <li><a href="https://rc2consulting.github.io/about-es.html">Nosotros</a></li>
-    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="active">Recursos</a></li>
-    <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
-    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
-      <li>
+    <li><a href="https://rc2consulting.github.io/">Home</a></li>
+    <li><a href="https://rc2consulting.github.io/services.html">Services</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
+    <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
+    <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
+    <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool.html" class="lang-btn inactive">EN</a>
         <a href="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool-es.html" class="lang-btn active">ES</a>
@@ -193,219 +135,218 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Government Contracting Tool</span>
-    <h1>Herramienta de Códigos NAICS–SBA</h1>
-    <p class="hero-sub">Busque, filtre y explore códigos NAICS con estándares de tamaño SBA, relevancia de contratos gubernamentales y aplicabilidad de contratos reservados. Encuentre los códigos correctos para su negocio antes de certificar o presentar una propuesta.</p>
+    <span class="article-tag">Herramienta de Contrataci&oacute;n Gubernamental</span>
+    <h1>Herramienta de C&oacute;digos SBA&ndash;NAICS</h1>
+    <p class="hero-sub">Busque, filtre y explore c&oacute;digos NAICS con est&aacute;ndares de tama&ntilde;o de la SBA, relevancia para contrataci&oacute;n gubernamental y aplicabilidad de set-asides. Encuentre los c&oacute;digos correctos antes de certificarse o presentar una propuesta.</p>
     <div class="hmeta">
       <span>RC2 Consulting</span><span class="dv">|</span>
       <span>2026</span><span class="dv">|</span>
-      <span>NAICS 2022 · SBA Size Standards Effective March 2023</span>
+      <span>NAICS 2022 &middot; Est&aacute;ndares de Tama&ntilde;o SBA Vigentes desde Marzo 2023</span>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Volver a Recursos</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&larr; Volver a Recursos</a>
 
-  <div class="callout" style="margin-top:24px"><p>Su código NAICS determina su estándar de tamaño SBA, a qué categorías de contratos reservados puede acceder y cómo los oficiales de contratación encuentran su negocio en SAM.gov. La mayoría de los negocios puede registrar legítimamente múltiples códigos NAICS — pero su código <em>principal</em> debe reflejar su actividad de mayor ingreso. Tergiversar su código principal para acceder a un estándar de tamaño más favorable es una violación de certificación federal.</p></div>
+  <div class="callout" style="margin-top:24px"><p>Su c&oacute;digo NAICS determina su est&aacute;ndar de tama&ntilde;o SBA, las categor&iacute;as de set-aside a las que puede acceder y c&oacute;mo los oficiales de contrataci&oacute;n encuentran su empresa en SAM.gov. La mayor&iacute;a de las empresas pueden registrar leg&iacute;timamente m&uacute;ltiples c&oacute;digos NAICS &mdash; pero su c&oacute;digo <em>principal</em> debe reflejar su actividad de mayores ingresos. Tergiversar su c&oacute;digo principal para acceder a un est&aacute;ndar m&aacute;s favorable es una violaci&oacute;n federal de certificaci&oacute;n.</p></div>
 
-  <!-- SEARCH BAR -->
   <div class="search-bar">
     <div class="sb-group" style="flex:2">
-      <label class="sb-label">Buscar por código, descripción o palabra clave</label>
-      <input class="sb-input" id="search-input" type="text" placeholder="Ej. prendas, consultoría, 5416, construcción..." oninput="filterTable()"/>
+      <label class="sb-label">Buscar por c&oacute;digo, descripci&oacute;n o palabra clave</label>
+      <input class="sb-input" id="search-input" type="text" placeholder="ej. textil, consultor&iacute;a, 5416, construcci&oacute;n..." oninput="filterTable()"/>
     </div>
     <div class="sb-group">
       <label class="sb-label">Sector</label>
       <select class="sb-sel" id="sector-filter" onchange="filterTable()">
         <option value="">Todos los Sectores</option>
-        <option value="Agricultura">Agricultura (11)</option>
-        <option value="Construcción">Construcción (23)</option>
-        <option value="Manufactura">Manufactura (31–33)</option>
-        <option value="Mayorista">Comercio Mayorista (42)</option>
-        <option value="Minorista">Comercio Minorista (44–45)</option>
-        <option value="Transporte">Transporte (48–49)</option>
-        <option value="Información">Información (51)</option>
-        <option value="Finanzas">Finanzas y Seguros (52)</option>
-        <option value="Bienes Raíces">Bienes Raíces (53)</option>
-        <option value="Profesional">Servicios Profesionales (54)</option>
-        <option value="Admin">Administración y Apoyo (56)</option>
-        <option value="Educación">Servicios Educativos (61)</option>
-        <option value="Salud">Salud (62)</option>
-        <option value="Artes">Artes y Entretenimiento (71)</option>
-        <option value="Alimentos">Servicios de Alimentos (72)</option>
-        <option value="Otros Servicios">Otros Servicios (81)</option>
+        <option value="Agriculture">Agricultura (11)</option>
+        <option value="Construction">Construcci&oacute;n (23)</option>
+        <option value="Manufacturing">Manufactura (31&ndash;33)</option>
+        <option value="Wholesale">Comercio Mayorista (42)</option>
+        <option value="Retail">Comercio Minorista (44&ndash;45)</option>
+        <option value="Transportation">Transporte (48&ndash;49)</option>
+        <option value="Information">Informaci&oacute;n (51)</option>
+        <option value="Finance">Finanzas y Seguros (52)</option>
+        <option value="Real Estate">Bienes Ra&iacute;ces (53)</option>
+        <option value="Professional">Servicios Profesionales (54)</option>
+        <option value="Admin">Admin. y Soporte (56)</option>
+        <option value="Education">Servicios Educativos (61)</option>
+        <option value="Healthcare">Salud (62)</option>
+        <option value="Arts">Artes y Entretenimiento (71)</option>
+        <option value="Food">Servicios de Alimentos (72)</option>
+        <option value="Other Services">Otros Servicios (81)</option>
       </select>
     </div>
     <div class="sb-group">
       <label class="sb-label">Base</label>
       <select class="sb-sel" id="basis-filter" onchange="filterTable()">
         <option value="">Todos</option>
-        <option value="Ingresos">Basado en Ingresos</option>
-        <option value="Empleados">Basado en Empleados</option>
+        <option value="Revenue">Basado en Ingresos</option>
+        <option value="Employees">Basado en Empleados</option>
       </select>
     </div>
     <div class="sb-group">
       <label class="sb-label">Relevancia GovCon</label>
       <select class="sb-sel" id="gc-filter" onchange="filterTable()">
         <option value="">Todos</option>
-        <option value="Alta">Alta</option>
-        <option value="Media">Media</option>
-        <option value="Baja">Baja</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
       </select>
     </div>
-    <div class="sb-count" id="result-count">80 codes</div>
-    <button class="btn-reset" onclick="resetFilters()">Restablecer</button>
+    <div class="sb-count" id="result-count">80 c&oacute;digos</div>
+    <button class="btn-reset" onclick="resetFilters()">Reiniciar</button>
   </div>
 
-  <!-- TABLE -->
   <div class="naics-wrap">
     <table class="naics-table" id="naics-table">
       <thead>
         <tr>
-          <th onclick="sortTable(0)" style="width:90px">NAICS <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(1)">Industria / Descripción <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(2)" style="width:100px">Sector <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(3)" style="width:160px">Estándar de Tamaño <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(4)" style="width:100px">Base <span class="sort-arrow">↕</span></th>
-          <th onclick="sortTable(5)" style="width:110px">Uso GovCon <span class="sort-arrow">↕</span></th>
+          <th onclick="sortTable(0)" style="width:90px">NAICS <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(1)">Industria / Descripci&oacute;n <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(2)" style="width:100px">Sector <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(3)" style="width:160px">Est&aacute;ndar de Tama&ntilde;o <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(4)" style="width:100px">Base <span class="sort-arrow">&#8597;</span></th>
+          <th onclick="sortTable(5)" style="width:110px">Uso GovCon <span class="sort-arrow">&#8597;</span></th>
         </tr>
       </thead>
       <tbody id="naics-tbody"></tbody>
     </table>
-    <div class="no-results" id="no-results" style="display:none">Ningún código NAICS coincide con su búsqueda. Intente términos más amplios o restablezca los filtros.</div>
+    <div class="no-results" id="no-results" style="display:none">Ning&uacute;n c&oacute;digo NAICS coincide con su b&uacute;squeda. Intente t&eacute;rminos m&aacute;s amplios o reinicie los filtros.</div>
   </div>
 
   <div class="sources">
     <h4>Fuentes y Referencias</h4>
     <ul>
-      <li>Oficina del Censo de EE.UU. — Manual NAICS 2022 — <a href="https://www.census.gov/naics" target="_blank">census.gov/naics</a></li>
-      <li>SBA — Tabla de Estándares de Tamaño para Pequeñas Empresas (Vigente Marzo 2023) — <a href="https://www.sba.gov/document/support--table-size-standards" target="_blank">sba.gov</a></li>
-      <li>SAM.gov — Guía de Registro de Códigos NAICS — <a href="https://sam.gov" target="_blank">sam.gov</a></li>
-      <li>USASpending.gov — Datos de Adjudicaciones de Contratos Federales por NAICS — <a href="https://www.usaspending.gov" target="_blank">usaspending.gov</a></li>
-      <li>FAR 19.102 — Estándares de Tamaño para Pequeñas Empresas — <a href="https://www.acquisition.gov" target="_blank">acquisition.gov</a></li>
+      <li>Censo de EE.UU. &mdash; Manual NAICS 2022 &mdash; <a href="https://www.census.gov/naics" target="_blank">census.gov/naics</a></li>
+      <li>SBA &mdash; Table of Small Business Est&aacute;ndar de Tama&ntilde;os (Effective March 2023) &mdash; <a href="https://www.sba.gov/document/support--table-size-standards" target="_blank">sba.gov</a></li>
+      <li>SAM.gov &mdash; Gu&iacute;a de Registro de C&oacute;digos NAICS &mdash; <a href="https://sam.gov" target="_blank">sam.gov</a></li>
+      <li>USASpending.gov &mdash; Datos de Contratos Federales por NAICS &mdash; <a href="https://www.usaspending.gov" target="_blank">usaspending.gov</a></li>
+      <li>FAR 19.102 &mdash; Est&aacute;ndar de Tama&ntilde;os for Small Business Concerns &mdash; <a href="https://www.acquisition.gov" target="_blank">acquisition.gov</a></li>
     </ul>
   </div>
+
   <div class="acta">
-    <h3>¿Necesita Ayuda para Seleccionar los Códigos NAICS Correctos?</h3>
-    <p>La estrategia correcta de códigos NAICS determina su estándar de tamaño, su elegibilidad para contratos reservados y cómo los oficiales de contratación encuentran su negocio. RC2 Consulting puede revisar las actividades de su negocio e identificar el portafolio de códigos NAICS más estratégicamente ventajoso para su entrada al mercado federal.</p>
-    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Agendar una Revisión de Estrategia de Códigos NAICS →</a>
+    <h3>&iquest;Necesita Ayuda para Seleccionar los C&oacute;digos NAICS Correctos?</h3>
+    <p>La estrategia correcta de c&oacute;digos NAICS determina su est&aacute;ndar de tama&ntilde;o, su elegibilidad para set-asides y c&oacute;mo los oficiales de contrataci&oacute;n encuentran su empresa. RC2 Consulting puede revisar sus actividades empresariales e identificar el portafolio de c&oacute;digos NAICS m&aacute;s ventajoso estrat&eacute;gicamente para su ingreso al mercado federal.</p>
+    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Agendar una Revisi&oacute;n de Estrategia de C&oacute;digos NAICS &rarr;</a>
   </div>
 </div>
 
 <footer class="site-footer">
-  <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-tagline">Claridad Operativa. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
   <div class="footer-links">
-    <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
-    <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
-    <a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a>
-    <a href="https://rc2consulting.github.io/about-es.html">Nosotros</a>
-    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a>
-    <a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a>
-    <a href="https://rc2consulting.github.io/contact-es.html">Contacto</a>
+    <a href="https://rc2consulting.github.io/">Home</a>
+    <a href="https://rc2consulting.github.io/services.html">Services</a>
+    <a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a>
+    <a href="https://rc2consulting.github.io/about.html">About</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a>
+    <a href="https://rc2consulting.github.io/insights.html">Insights</a>
+    <a href="https://rc2consulting.github.io/contact.html">Contact</a>
   </div>
-  <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html">Términos de Servicio</a></div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy.html">Pol&iacute;tica de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms.html">T&eacute;rminos de Servicio</a></div>
 </footer>
 
 <script>
 // [naics, description, sector, sizeStd, basis, gcRelevance, notes]
 const NAICS_DATA = [
-  ['111','Producción Agrícola','Agricultura','$2M–$3M','Ingresos','Baja','Programas federales de compra especializados'],
-  ['112','Producción Animal','Agricultura','$2M–$3.5M','Ingresos','Baja','Programas USDA'],
-  ['115','Actividades de Apoyo Agrícola','Agricultura','$8.5M','Ingresos','Baja',''],
-  ['2361','Construcción de Edificios Residenciales','Construcción','$45M','Ingresos','Media','Vivienda DoD, instalaciones federales'],
-  ['2362','Construcción de Edificios No Residenciales','Construcción','$45M','Ingresos','Alta','Construcción federal, proyectos de edificios GSA'],
-  ['2371','Construcción de Sistemas de Servicios Públicos','Construcción','$45M','Ingresos','Alta','DoD, infraestructura federal'],
-  ['2372','Subdivisión de Terrenos','Construcción','$45M','Ingresos','Baja',''],
-  ['2373','Construcción de Autopistas, Calles y Puentes','Construcción','$45M','Ingresos','Alta','Contratos FHWA, DoT'],
-  ['2381','Contratistas de Cimentación y Estructura','Construcción','$22M','Ingresos','Media','Alto uso de subcontratos'],
-  ['2382','Contratistas de Equipos de Edificios','Construcción','$22M','Ingresos','Alta','HVAC, eléctrico — edificios federales'],
-  ['2383','Contratistas de Acabados de Edificios','Construcción','$22M','Ingresos','Media','Acabados interiores — federal'],
-  ['2389','Otros Contratistas Especializados','Construcción','$22M','Ingresos','Media',''],
-  ['311','Manufactura de Alimentos','Manufactura','$47M','Ingresos','Media','USDA, programas de economato militar'],
-  ['3133','Industria Textil','Manufactura','1,000','Empleados','Media','Requisitos de tela del DoD'],
-  ['3141','Fabricación de Productos Textiles','Manufactura','500','Empleados','Media','Ropa de cama militar, textiles'],
-  ['3151','Fabricación de Prendas de Punto','Manufactura','500','Empleados','Media','Tejidos militares — Enmienda Berry'],
-  ['3159','Fabricación de Accesorios de Prendas','Manufactura','500','Empleados','Media',''],
-  ['3161','Curtido de Cuero y Pieles','Manufactura','500','Empleados','Baja',''],
-  ['3162','Fabricación de Calzado','Manufactura','500','Empleados','Media','Botas militares — Enmienda Berry'],
-  ['3169','Otros Productos de Cuero','Manufactura','500','Empleados','Baja',''],
-  ['3211','Aserraderos y Preservación de Madera','Manufactura','500','Empleados','Baja',''],
-  ['3219','Otras Manufacturas de Madera','Manufactura','500','Empleados','Baja',''],
-  ['3241','Productos Petrolíferos y de Carbón','Manufactura','1,500','Empleados','Alta','Contratos de combustible y energía del DoD'],
-  ['3251','Manufactura de Productos Químicos Básicos','Manufactura','750–1,000','Empleados','Media','Programas químicos del DoD'],
-  ['3329','Otros Productos Metálicos Fabricados','Manufactura','500','Empleados','Alta','Hardware y componentes del DoD'],
-  ['3341','Computadoras y Equipo Periférico','Manufactura','1,000','Empleados','Alta','Hardware TI — adquisición federal'],
-  ['3345','Fabricación de Instrumentos Electrónicos','Manufactura','1,000','Empleados','Alta','Sensores, electrónica de defensa'],
-  ['3364','Productos y Piezas Aeroespaciales','Manufactura','1,500','Empleados','Alta','DoD — NAICS principal de manufactura de defensa'],
-  ['3391','Equipos y Suministros Médicos','Manufactura','500–1,000','Empleados','Alta','Suministros médicos VA, DoD'],
-  ['4231','Mayorista de Vehículos Motorizados','Mayorista','250','Empleados','Media','Programas de flota GSA'],
-  ['4234','Mayorista de Equipos Profesionales','Mayorista','250','Empleados','Alta','Equipos TI — suministro federal'],
-  ['4241','Mayorista de Papel y Productos de Papel','Mayorista','250','Empleados','Media','Suministros de oficina — GSA'],
-  ['4245','Mayorista de Prendas y Telas','Mayorista','500','Empleados','Media','Puntos de venta de ropa militar'],
-  ['4251','Mercados Electrónicos y Agentes','Mayorista','250','Empleados','Alta','Revendedores de tecnología — GSA Schedule'],
-  ['4411','Distribuidores de Autos','Minorista','$34M','Ingresos','Baja',''],
-  ['4441','Materiales y Suministros de Construcción','Minorista','$47M','Ingresos','Media','Suministros de mantenimiento/reparación'],
-  ['4451','Tiendas de Comestibles','Minorista','$34M','Ingresos','Baja','Economato — programa separado'],
-  ['4481','Tiendas de Ropa','Minorista','$34M','Ingresos','Baja',''],
-  ['4511','Tiendas de Artículos Deportivos','Minorista','$34M','Ingresos','Baja',''],
-  ['4521','Grandes Almacenes','Minorista','$47M','Ingresos','Baja',''],
-  ['4811','Transporte Aéreo Programado','Transporte','1,500','Empleados','Alta','Chárter aéreo DoD, CRAF'],
-  ['4812','Transporte Aéreo No Programado','Transporte','1,500','Empleados','Alta','Logística DoD, chárter'],
-  ['4841','Transporte de Carga General','Transporte','$34M','Ingresos','Alta','Mudanzas militares, contratos SDDC'],
-  ['4842','Transporte de Carga Especializada','Transporte','$34M','Ingresos','Alta','Materiales peligrosos, carga de defensa'],
-  ['4881','Apoyo al Transporte Aéreo','Transporte','$34M','Ingresos','Media',''],
-  ['4931','Almacenamiento y Bodegaje','Transporte','$34M','Ingresos','Alta','Distribución DLA, logística'],
-  ['5111','Editores de Periódicos','Información','$47M','Ingresos','Baja',''],
-  ['5121','Producción de Cine y Video','Información','$47M','Ingresos','Baja',''],
-  ['5151','Radiodifusión y Televisión','Información','$47M','Ingresos','Baja',''],
-  ['5179','Otros Operadores de Telecomunicaciones','Información','1,500','Empleados','Alta','Contratos de telecomunicaciones DoD'],
-  ['5182','Procesamiento de Datos y Alojamiento','Información','$34M','Ingresos','Alta','Nube federal, infraestructura TI'],
-  ['5191','Otros Servicios de Información','Información','$34M','Ingresos','Alta','Información en línea, análisis de datos'],
-  ['5221','Intermediación de Crédito Depositario','Finanzas','$850M','Ingresos','Baja',''],
-  ['5241','Aseguradoras','Finanzas','$47M','Ingresos','Baja',''],
-  ['5311','Arrendadores de Bienes Raíces','Bienes Raíces','$34M','Ingresos','Baja',''],
-  ['5321','Alquiler y Arrendamiento de Autos','Bienes Raíces','$34M','Ingresos','Media','Arrendamiento de flota GSA'],
-  ['5411','Servicios Legales','Profesional','$19M','Ingresos','Alta','Apoyo legal gubernamental'],
-  ['5412','Contabilidad y Preparación de Impuestos','Profesional','$22M','Ingresos','Alta','DCAA, apoyo contable federal'],
-  ['5413','Arquitectura e Ingeniería','Profesional','$19M','Ingresos','Alta','Diseño-construcción federal, A&E DoD'],
-  ['5414','Servicios de Diseño Especializado','Profesional','$19M','Ingresos','Media','Gráficos y diseño federal'],
-  ['5415','Diseño de Sistemas Informáticos','Profesional','$34M','Ingresos','Alta','Servicios TI — NAICS federal principal'],
-  ['54151','Programación de Computadoras a Medida','Profesional','$34M','Ingresos','Alta','Desarrollo de software — federal'],
-  ['54152','Servicios de Diseño de Sistemas Informáticos','Profesional','$34M','Ingresos','Alta','Integración de sistemas — federal'],
-  ['54161','Consultoría Gerencial','Profesional','$19M','Ingresos','Alta','Asesoría federal, gestión de programas'],
-  ['54162','Consultoría Ambiental','Profesional','$19M','Ingresos','Alta','Programas ambientales EPA, DoD'],
-  ['54169','Otra Consultoría Científica','Profesional','$19M','Ingresos','Alta','Apoyo I&D DoD'],
-  ['5417','Servicios de I&D Científica','Profesional','$34M–$47M','Ingresos','Alta','Investigación DARPA, NIH, DoD'],
-  ['5418','Publicidad y Relaciones Públicas','Profesional','$19M','Ingresos','Media','Comunicaciones federales'],
-  ['5419','Otros Servicios Profesionales','Profesional','$19M','Ingresos','Media',''],
-  ['5611','Servicios de Administración de Oficinas','Admin','$19M','Ingresos','Alta','Apoyo de gestión interna federal'],
-  ['5612','Servicios de Apoyo a Instalaciones','Admin','$47M','Ingresos','Alta','O&M de edificios federales — NAICS principal'],
-  ['5613','Colocación de Empleo y Personal','Admin','$34M','Ingresos','Alta','Contratos de personal federal'],
-  ['5614','Servicios de Apoyo Empresarial','Admin','$19M','Ingresos','Alta','Mesa de ayuda federal, call center'],
-  ['5615','Servicios de Arreglos de Viaje','Admin','$19M','Ingresos','Media','Gestión de viajes federales'],
-  ['5616','Investigación y Seguridad','Admin','$25.5M','Ingresos','Alta','Contratos de seguridad federal'],
-  ['5617','Servicios para Edificios','Admin','$19M','Ingresos','Alta','Conserjería federal, mantenimiento de terrenos'],
-  ['5621','Recolección de Residuos','Admin','$19M','Ingresos','Media','Gestión de residuos federal'],
-  ['6111','Escuelas Primarias y Secundarias','Educación','$12M','Ingresos','Media','DoD DODEA, servicios educativos'],
-  ['6112','Institutos Técnicos','Educación','$47M','Ingresos','Baja',''],
-  ['6113','Colegios y Universidades','Educación','$47M','Ingresos','Media','Programas universitarios DoD'],
-  ['6116','Escuelas Vocacionales y Técnicas','Educación','$12M','Ingresos','Alta','Programas de capacitación federal'],
-  ['6119','Otros Servicios Educativos','Educación','$19M','Ingresos','Alta','Capacitación profesional federal'],
-  ['6211','Consultorios Médicos','Salud','$19M','Ingresos','Alta','Contratos médicos VA, DoD'],
-  ['6213','Consultorios de Profesionales de Salud Afines','Salud','$19M','Ingresos','Alta','Apoyo de salud VA'],
-  ['6215','Laboratorios Médicos y de Diagnóstico','Salud','$19M','Ingresos','Alta','Servicios de laboratorio federal'],
-  ['6216','Servicios de Atención Médica en el Hogar','Salud','$19M','Ingresos','Alta','Programas de atención en el hogar VA'],
-  ['6219','Otra Atención Ambulatoria','Salud','$19M','Ingresos','Alta',''],
-  ['6221','Hospitales Generales y Quirúrgicos','Salud','1,500','Empleados','Alta','Apoyo hospitalario VA'],
-  ['7111','Compañías de Artes Escénicas','Artes','$12M','Ingresos','Baja',''],
-  ['7115','Artistas y Escritores Independientes','Artes','$12M','Ingresos','Baja',''],
-  ['7211','Alojamiento para Viajeros','Alimentos','$34M','Ingresos','Media','Contratos de alojamiento federal'],
-  ['7223','Servicios Especiales de Alimentos','Alimentos','$19M','Ingresos','Media','Servicio de alimentos federal, catering'],
-  ['8111','Reparación y Mantenimiento de Autos','Otros Servicios','$9M','Ingresos','Baja',''],
-  ['8121','Servicios de Cuidado Personal','Otros Servicios','$9M','Ingresos','Baja',''],
-  ['8131','Organizaciones Religiosas','Otros Servicios','$12M','Ingresos','Baja',''],
-  ['8141','Hogares Privados','Otros Servicios','$9M','Ingresos','Baja',''],
+  ['111','Crop Production','Agriculture','$2M\u2013$3M','Ingresos','Bajo','Niche federal purchase programs'],
+  ['112','Animal Production','Agriculture','$2M\u2013$3.5M','Ingresos','Bajo','USDA programs'],
+  ['115','Agricultural Support Activities','Agriculture','$8.5M','Ingresos','Bajo',''],
+  ['2361','Residential Building Construction','Construction','$45M','Ingresos','Medium','DoD housing, federal facilities'],
+  ['2362','Nonresidential Building Construction','Construction','$45M','Ingresos','High','Federal construction, GSA building projects'],
+  ['2371','Utility System Construction','Construction','$45M','Ingresos','High','DoD, federal infrastructure'],
+  ['2372','Land Subdivision','Construction','$45M','Ingresos','Bajo',''],
+  ['2373','Highway, Street & Bridge Construction','Construction','$45M','Ingresos','High','FHWA, DoT contracts'],
+  ['2381','Foundation, Structure Contractors','Construction','$22M','Ingresos','Medium','Subcontract-heavy'],
+  ['2382','Building Equipment Contractors','Construction','$22M','Ingresos','High','HVAC, electrical \u2014 federal buildings'],
+  ['2383','Building Finishing Contractors','Construction','$22M','Ingresos','Medium','Interior fit-out \u2014 federal'],
+  ['2389','Other Specialty Trade Contractors','Construction','$22M','Ingresos','Medium',''],
+  ['311','Food Manufacturing','Manufacturing','$47M','Ingresos','Medium','USDA, military commissary programs'],
+  ['3133','Textile Mills','Manufacturing','1,000','Empleados','Medium','DoD fabric requirements'],
+  ['3141','Textile Product Mills','Manufacturing','500','Empleados','Medium','Military bedding, textiles'],
+  ['3151','Apparel Knitting Mills','Manufacturing','500','Empleados','Medium','Military knitwear \u2014 Berry Amendment'],
+  ['3159','Apparel Accessories Mfg','Manufacturing','500','Empleados','Medium',''],
+  ['3161','Leather & Hide Tanning','Manufacturing','500','Empleados','Bajo',''],
+  ['3162','Footwear Manufacturing','Manufacturing','500','Empleados','Medium','Military boots \u2014 Berry Amendment'],
+  ['3169','Other Leather Products','Manufacturing','500','Empleados','Bajo',''],
+  ['3211','Sawmills & Wood Preservation','Manufacturing','500','Empleados','Bajo',''],
+  ['3219','Other Wood Product Mfg','Manufacturing','500','Empleados','Bajo',''],
+  ['3241','Petroleum & Coal Products','Manufacturing','1,500','Empleados','High','DoD fuel and energy contracts'],
+  ['3251','Basic Chemical Manufacturing','Manufacturing','750\u20131,000','Empleados','Medium','DoD chemical programs'],
+  ['3329','Other Fabricated Metal Products','Manufacturing','500','Empleados','High','DoD hardware, components'],
+  ['3341','Computer & Peripheral Equipment','Manufacturing','1,000','Empleados','High','IT hardware \u2014 federal procurement'],
+  ['3345','Electronic Instruments Mfg','Manufacturing','1,000','Empleados','High','Sensors, defense electronics'],
+  ['3364','Aerospace Products & Parts','Manufacturing','1,500','Empleados','High','DoD \u2014 primary defense manufacturing NAICS'],
+  ['3391','Medical Equipment & Supplies','Manufacturing','500\u20131,000','Empleados','High','VA, DoD medical supply'],
+  ['4231','Motor Vehicle Wholesale','Wholesale','250','Empleados','Medium','GSA fleet programs'],
+  ['4234','Professional Equipment Wholesale','Wholesale','250','Empleados','High','IT equipment \u2014 federal supply'],
+  ['4241','Paper & Paper Products Wholesale','Wholesale','250','Empleados','Medium','Office supplies \u2014 GSA'],
+  ['4245','Apparel & Piece Goods Wholesale','Wholesale','500','Empleados','Medium','Military clothing sales points'],
+  ['4251','Electronic Markets & Agents','Wholesale','250','Empleados','High','Technology resellers \u2014 GSA Schedule'],
+  ['4411','Auto Dealers','Retail','$34M','Ingresos','Bajo',''],
+  ['4441','Building Material & Supplies','Retail','$47M','Ingresos','Medium','Maintenance/repair supplies'],
+  ['4451','Grocery Stores','Retail','$34M','Ingresos','Bajo','Commissary \u2014 separate program'],
+  ['4481','Clothing Stores','Retail','$34M','Ingresos','Bajo',''],
+  ['4511','Sporting Goods Stores','Retail','$34M','Ingresos','Bajo',''],
+  ['4521','Department Stores','Retail','$47M','Ingresos','Bajo',''],
+  ['4811','Scheduled Air Transportation','Transportation','1,500','Empleados','High','DoD air charter, CRAF'],
+  ['4812','Nonscheduled Air Transportation','Transportation','1,500','Empleados','High','DoD logistics, charter'],
+  ['4841','General Freight Trucking','Transportation','$34M','Ingresos','High','Military moves, SDDC contracts'],
+  ['4842','Specialized Freight Trucking','Transportation','$34M','Ingresos','High','Hazmat, defense cargo'],
+  ['4881','Air Transportation Support','Transportation','$34M','Ingresos','Medium',''],
+  ['4931','Warehousing & Storage','Transportation','$34M','Ingresos','High','DLA distribution, logistics'],
+  ['5111','Newspaper Publishers','Information','$47M','Ingresos','Bajo',''],
+  ['5121','Motion Picture / Video Production','Information','$47M','Ingresos','Bajo',''],
+  ['5151','Radio & TV Broadcasting','Information','$47M','Ingresos','Bajo',''],
+  ['5179','Other Telecom Carriers','Information','1,500','Empleados','High','DoD telecom contracts'],
+  ['5182','Data Processing & Hosting','Information','$34M','Ingresos','High','Federal cloud, IT infrastructure'],
+  ['5191','Other Information Services','Information','$34M','Ingresos','High','Online info, data analytics'],
+  ['5221','Depository Credit Intermediation','Finance','$850M','Ingresos','Bajo',''],
+  ['5241','Insurance Carriers','Finance','$47M','Ingresos','Bajo',''],
+  ['5311','Lessors of Real Estate','Real Estate','$34M','Ingresos','Bajo',''],
+  ['5321','Auto Rental & Leasing','Real Estate','$34M','Ingresos','Medium','GSA fleet leasing'],
+  ['5411','Legal Services','Professional','$19M','Ingresos','High','Government legal support'],
+  ['5412','Accounting & Tax Preparation','Professional','$22M','Ingresos','High','DCAA, federal accounting support'],
+  ['5413','Architectural & Engineering','Professional','$19M','Ingresos','High','Federal design-build, DoD A&E'],
+  ['5414','Specialized Design Services','Professional','$19M','Ingresos','Medium','Federal graphics, design'],
+  ['5415','Computer Systems Design','Professional','$34M','Ingresos','High','IT services \u2014 top federal NAICS'],
+  ['54151','Custom Computer Programming','Professional','$34M','Ingresos','High','Software development \u2014 federal'],
+  ['54152','Computer Systems Design Services','Professional','$34M','Ingresos','High','Systems integration \u2014 federal'],
+  ['54161','Management Consulting','Professional','$19M','Ingresos','High','Federal advisory, program management'],
+  ['54162','Environmental Consulting','Professional','$19M','Ingresos','High','EPA, DoD environmental programs'],
+  ['54169','Other Scientific Consulting','Professional','$19M','Ingresos','High','DoD R&D support'],
+  ['5417','Scientific R&D Services','Professional','$34M\u2013$47M','Ingresos','High','DARPA, NIH, DoD research'],
+  ['5418','Advertising & PR','Professional','$19M','Ingresos','Medium','Federal communications'],
+  ['5419','Other Professional Services','Professional','$19M','Ingresos','Medium',''],
+  ['5611','Office Admin Services','Admin','$19M','Ingresos','High','Federal back-office support'],
+  ['5612','Facilities Support Services','Admin','$47M','Ingresos','High','Federal building O&M \u2014 top NAICS'],
+  ['5613','Employment Placement & Staffing','Admin','$34M','Ingresos','High','Federal staffing contracts'],
+  ['5614','Business Support Services','Admin','$19M','Ingresos','High','Federal help desk, call center'],
+  ['5615','Travel Arrangement Services','Admin','$19M','Ingresos','Medium','Federal travel management'],
+  ['5616','Investigation & Security','Admin','$25.5M','Ingresos','High','Federal security contracts'],
+  ['5617','Services to Buildings','Admin','$19M','Ingresos','High','Federal janitorial, grounds maintenance'],
+  ['5621','Waste Collection','Admin','$19M','Ingresos','Medium','Federal waste management'],
+  ['6111','Elementary & Secondary Schools','Education','$12M','Ingresos','Medium','DoD DODEA, educational services'],
+  ['6112','Junior Colleges','Education','$47M','Ingresos','Bajo',''],
+  ['6113','Colleges & Universities','Education','$47M','Ingresos','Medium','DoD university programs'],
+  ['6116','Vocational & Technical Schools','Education','$12M','Ingresos','High','Federal training programs'],
+  ['6119','Other Education Services','Education','$19M','Ingresos','High','Federal professional training'],
+  ['6211','Offices of Physicians','Healthcare','$19M','Ingresos','High','VA, DoD medical contracts'],
+  ['6213','Offices Allied Health Professionals','Healthcare','$19M','Ingresos','High','VA health support'],
+  ['6215','Medical & Diagnostic Labs','Healthcare','$19M','Ingresos','High','Federal lab services'],
+  ['6216','Home Health Care Services','Healthcare','$19M','Ingresos','High','VA in-home care programs'],
+  ['6219','Other Ambulatory Care','Healthcare','$19M','Ingresos','High',''],
+  ['6221','General Medical & Surgical Hospitals','Healthcare','1,500','Empleados','High','VA hospital support'],
+  ['7111','Performing Arts Companies','Arts','$12M','Ingresos','Bajo',''],
+  ['7115','Independent Artists & Writers','Arts','$12M','Ingresos','Bajo',''],
+  ['7211','Traveler Accommodation','Food','$34M','Ingresos','Medium','Federal lodging contracts'],
+  ['7223','Special Food Services','Food','$19M','Ingresos','Medium','Federal food service, catering'],
+  ['8111','Automotive Repair & Maintenance','Other Services','$9M','Ingresos','Bajo',''],
+  ['8121','Personal Care Services','Other Services','$9M','Ingresos','Bajo',''],
+  ['8131','Religious Organizations','Other Services','$12M','Ingresos','Bajo',''],
+  ['8141','Private Households','Other Services','$9M','Ingresos','Bajo',''],
 ];
 
 let sortCol=-1, sortDir=1;
@@ -416,9 +357,9 @@ function buildTable(data){
   data.forEach(row=>{
     const tr=document.createElement('tr');
     const gc=row[5];
-    const gcChip=gc==='Alta'?`<span class="gc-chip gc-high">★ Alta</span>`:gc==='Media'?`<span class="gc-chip gc-med">◈ Media</span>`:`<span class="gc-chip gc-low">Baja</span>`;
-    const basis=row[4]==='Empleados'?`<span class="std-chip sc-emp">👥 Empleados</span>`:`<span class="std-chip sc-rev">💰 Ingresos</span>`;
-    tr.innerHTML=`<td class="code">${row[0]}</td><td class="title">${row[1]}${row[6]?`<div style="font-size:.7rem;color:var(--mu);margin-top:3px;font-style:italic">${row[6]}</div>`:''}</td><td style="font-size:.76rem">${row[2]}</td><td style="font-size:.8rem;font-weight:600;color:var(--navy)">${row[3]}</td><td>${basis}</td><td>${gcChip}</td>`;
+    const gcChip=gc==='High'?'<span class="gc-chip gc-high">&#9733; High</span>':gc==='Medium'?'<span class="gc-chip gc-med">&#9670; Medium</span>':'<span class="gc-chip gc-low">Low</span>';
+    const basis=row[4]==='Empleados'?'<span class="std-chip sc-emp">Employees</span>':'<span class="std-chip sc-rev">Revenue</span>';
+    tr.innerHTML='<td class="code">'+row[0]+'</td><td class="title">'+row[1]+(row[6]?'<div style="font-size:.7rem;color:var(--mu);margin-top:3px;font-style:italic">'+row[6]+'</div>':'')+'</td><td style="font-size:.76rem">'+row[2]+'</td><td style="font-size:.8rem;font-weight:600;color:var(--navy)">'+row[3]+'</td><td>'+basis+'</td><td>'+gcChip+'</td>';
     tbody.appendChild(tr);
   });
   document.getElementById('result-count').textContent=data.length+' códigos';
@@ -460,32 +401,31 @@ function resetFilters(){
   filterTable();
 }
 
-// Init
 filterTable();
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();
