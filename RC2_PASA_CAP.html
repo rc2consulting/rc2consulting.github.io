@@ -1,279 +1,194 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PASA Corrective Action Plan | RC2 Consulting</title>
-  <meta property="og:title" content="PASA Corrective Action Plan | RC2 Consulting">
-  <meta property="og:description" content="PASA Corrective Action Plan. Free interactive tool from RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_PASA_CAP.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PASA Corrective Action Plan | RC2 Consulting">
-  <meta name="twitter:description" content="PASA Corrective Action Plan. Free interactive tool from RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta name="description" content="The RC2 PASA Corrective Action Plan — a structured CAP template aligned to WRAP audit format. Document findings, assign ownership, set deadlines, and track closure." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy:#0B2545; --blue:#1A4A8A; --light-blue:#2563EB;
-      --light-bg:#F4F6FA; --white:#FFFFFF;
-      --text:#1C2B3A; --text-muted:#4A5568; --border:#D1D9E6;
-      --success:#1A7A4E; --success-bg:#EBF7F2;
-      --warn:#854D0E; --warn-bg:#FFFBEB;
-      --danger:#9B1C1C; --danger-bg:#FEF2F2;
-      --open-bg:#EFF6FF; --open:#1D4ED8;
-      --ip-bg:#FFF7ED; --ip:#C2410C;
-      --closed-bg:#F0FDF4; --closed:#15803D;
-    }
-    body { font-family:'Source Sans 3',sans-serif; background:var(--light-bg); color:var(--text); margin:0; line-height:1.6; }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PASA Corrective Action Plan | RC2 Consulting</title>
+<meta property="og:title" content="PASA Corrective Action Plan | RC2 Consulting">
+<meta property="og:description" content="PASA Corrective Action Plan. Free interactive tool from RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_PASA_CAP.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PASA Corrective Action Plan | RC2 Consulting">
+<meta name="twitter:description" content="PASA Corrective Action Plan. Free interactive tool from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta name="description" content="The RC2 PASA Corrective Action Plan — a structured CAP template aligned to WRAP audit format. Document findings, assign ownership, set deadlines, and track closure."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#0B2545;--blue:#1A4A8A;--light-blue:#2563EB;
+    --light-bg:#F4F6FA;--white:#FFFFFF;
+    --text:#1C2B3A;--text-muted:#4A5568;--border:#D1D9E6;
+    --success:#1A7A4E;--success-bg:#EBF7F2;
+    --warn:#854D0E;--warn-bg:#FFFBEB;
+    --danger:#9B1C1C;--danger-bg:#FEF2F2;
+    --open-bg:#EFF6FF;--open:#1D4ED8;
+    --ip-bg:#FFF7ED;--ip:#C2410C;
+    --closed-bg:#F0FDF4;--closed:#15803D;
+  }
+  body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var(--text);margin:0;line-height:1.6}
+  .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,0.25)}
+  .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+  .nav-logo-mark{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+  .nav-logo-mark sup{font-size:0.5rem;vertical-align:super}
+  .nav-brand-name{font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.9)}
+  .nav-links{display:flex;gap:4px;list-style:none}
+  .nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all 0.2s;white-space:nowrap}
+  .nav-links a:hover{color:white;background:rgba(255,255,255,0.1)}
+  .nav-links a.active{color:white;background:rgba(255,255,255,0.12)}
+  .hero{background:linear-gradient(to bottom,rgba(11,37,69,0.84) 0%,rgba(11,37,69,0.70) 100%),url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+  .hero-inner{max-width:960px;margin:0 auto}
+  .article-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:white;line-height:1.2;margin-bottom:8px}
+  .hero-sub{font-size:0.92rem;color:rgba(255,255,255,0.75);margin-bottom:16px;max-width:640px;line-height:1.6}
+  .hero-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .hero-meta span{font-size:0.82rem;color:rgba(255,255,255,0.6)}
+  .hero-meta .divider{color:rgba(255,255,255,0.3)}
+  .page-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--light-blue);text-decoration:none;font-size:0.84rem;font-weight:600;margin:24px 0 0}
+  .abstract-box{background:var(--white);border-left:4px solid var(--light-blue);border-radius:0 8px 8px 0;padding:22px 26px;margin:36px 0 28px;box-shadow:0 2px 8px rgba(11,37,69,0.07)}
+  .abstract-box h3{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light-blue);margin-bottom:8px}
+  .abstract-box p{font-size:0.9rem;color:var(--text-muted);line-height:1.75;font-style:italic}
+  .intro-card{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);padding:36px 40px;margin-bottom:24px}
+  .intro-card p{font-size:0.91rem;color:var(--text-muted);line-height:1.8;margin-bottom:12px}
+  .intro-card p strong{color:var(--navy)}
+  .intro-card p:last-child{margin-bottom:0}
+  .step-guide{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+  .step-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;box-shadow:0 1px 4px rgba(11,37,69,0.05)}
+  .step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--light-blue);line-height:1;margin-bottom:6px}
+  .step-title{font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+  .step-desc{font-size:0.74rem;color:var(--text-muted);line-height:1.5}
 
-    /* NAV */
-    .topnav { background:var(--navy); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
-    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
-    .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
-    .nav-logo-mark sup { font-size:0.5rem; vertical-align:super; }
-    .nav-brand-name { font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.9); }
-    .nav-links { display:flex; gap:4px; list-style:none; }
-    .nav-links a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.83rem; font-weight:600; padding:6px 12px; border-radius:4px; transition:all 0.2s; white-space:nowrap; }
-    .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
-    .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
+  /* FIX 1: overflow:hidden removed — allows cap-table-wrap to scroll horizontally */
+  .cap-block{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);margin-bottom:20px;}
+  /* FIX 2: border-radius on header preserves visual rounding without parent clipping */
+  .cap-block-header{background:var(--navy);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-radius:10px 10px 0 0;}
+  .cap-block-header h3{font-size:0.85rem;font-weight:700;color:white;letter-spacing:0.3px}
+  .cap-block-header span{font-size:0.7rem;color:rgba(255,255,255,0.55)}
 
-    /* HERO */
-    .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.84) 0%, rgba(11,37,69,0.70) 100%), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80') center/cover no-repeat; padding:56px 40px 48px; }
-    .hero-inner { max-width:960px; margin:0 auto; }
-    .article-tag { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); padding:4px 12px; border-radius:10px; margin-bottom:14px; }
-    .hero h1 { font-family:'Playfair Display',serif; font-size:2.3rem; font-weight:700; color:white; line-height:1.2; margin-bottom:8px; }
-    .hero-sub { font-size:0.92rem; color:rgba(255,255,255,0.75); margin-bottom:16px; max-width:640px; line-height:1.6; }
-    .hero-meta { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
-    .hero-meta span { font-size:0.82rem; color:rgba(255,255,255,0.6); }
-    .hero-meta .divider { color:rgba(255,255,255,0.3); }
-
-    /* LAYOUT */
-    .page-wrap { max-width:960px; margin:0 auto; padding:0 24px; }
-    .btn-back { display:inline-flex; align-items:center; gap:6px; color:var(--light-blue); text-decoration:none; font-size:0.84rem; font-weight:600; margin:24px 0 0; }
-
-    /* ABSTRACT */
-    .abstract-box { background:var(--white); border-left:4px solid var(--light-blue); border-radius:0 8px 8px 0; padding:22px 26px; margin:36px 0 28px; box-shadow:0 2px 8px rgba(11,37,69,0.07); }
-    .abstract-box h3 { font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--light-blue); margin-bottom:8px; }
-    .abstract-box p { font-size:0.9rem; color:var(--text-muted); line-height:1.75; font-style:italic; }
-
-    /* INTRO */
-    .intro-card { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.06); padding:36px 40px; margin-bottom:24px; }
-    .intro-card p { font-size:0.91rem; color:var(--text-muted); line-height:1.8; margin-bottom:12px; }
-    .intro-card p strong { color:var(--navy); }
-    .intro-card p:last-child { margin-bottom:0; }
-
-    /* STEP GUIDE */
-    .step-guide { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:28px; }
-    .step-card { background:var(--white); border:1px solid var(--border); border-radius:8px; padding:16px; text-align:center; box-shadow:0 1px 4px rgba(11,37,69,0.05); }
-    .step-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--light-blue); line-height:1; margin-bottom:6px; }
-    .step-title { font-size:0.78rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
-    .step-desc { font-size:0.74rem; color:var(--text-muted); line-height:1.5; }
-
-    /* ── FACILITY INFO BLOCK ── */
-    .cap-block { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.06); margin-bottom:20px; overflow:hidden; }
-    .cap-block-header { background:var(--navy); padding:12px 20px; display:flex; align-items:center; justify-content:space-between; }
-    .cap-block-header h3 { font-size:0.85rem; font-weight:700; color:white; letter-spacing:0.3px; }
-    .cap-block-header span { font-size:0.7rem; color:rgba(255,255,255,0.55); }
-
-    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
-    .info-row { display:contents; }
-    .info-cell { padding:12px 20px; border-bottom:1px solid var(--border); font-size:0.84rem; }
-    .info-cell:nth-child(odd) { border-right:1px solid var(--border); }
-    .info-label { font-size:0.7rem; font-weight:700; color:var(--text-muted); letter-spacing:0.8px; text-transform:uppercase; display:block; margin-bottom:4px; }
-    .info-field { border:none; border-bottom:1.5px solid var(--border); width:100%; font-size:0.88rem; color:var(--navy); padding:3px 0; background:transparent; font-family:'Source Sans 3',sans-serif; outline:none; }
-    .info-field:focus { border-bottom-color:var(--light-blue); }
-    .info-cell.full { grid-column:1/-1; border-right:none; }
-
-    /* ── STATUS LEGEND ── */
-    .status-legend { display:flex; gap:12px; padding:12px 20px; background:var(--light-bg); border-bottom:1px solid var(--border); flex-wrap:wrap; }
-    .legend-item { display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; }
-    .legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
-    .dot-open { background:#3B82F6; }
-    .dot-ip { background:#F59E0B; }
-    .dot-closed { background:#22C55E; }
-    .dot-na { background:#9CA3AF; }
-
-    /* ── CAP TABLE ── */
-    .cap-table-wrap { overflow-x:auto; }
-    .cap-table { width:100%; border-collapse:collapse; font-size:0.8rem; min-width:860px; }
-    .cap-table thead tr { background:var(--light-bg); }
-    .cap-table th { padding:10px 12px; text-align:left; font-size:0.7rem; font-weight:700; color:var(--text-muted); letter-spacing:0.5px; text-transform:uppercase; border-bottom:2px solid var(--border); white-space:nowrap; }
-    .cap-table td { padding:0; border-bottom:1px solid var(--border); vertical-align:top; }
-    .cap-table tr:last-child td { border-bottom:none; }
-    .cap-table tr:hover td { background:#FAFBFD; }
-
-    /* cell types */
-    .cell-wrap { padding:10px 12px; }
-    .principle-badge { display:inline-block; font-size:0.68rem; font-weight:700; background:var(--navy); color:white; padding:2px 7px; border-radius:4px; margin-bottom:4px; white-space:nowrap; }
-    .finding-text { font-size:0.8rem; color:var(--text); line-height:1.5; }
-    .finding-sub { font-size:0.73rem; color:var(--text-muted); margin-top:3px; line-height:1.4; }
-
-    .risk-pill { display:inline-block; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:10px; letter-spacing:0.5px; white-space:nowrap; }
-    .risk-critical { background:var(--danger-bg); color:var(--danger); }
-    .risk-high { background:#FEF3C7; color:#92400E; }
-    .risk-medium { background:var(--warn-bg); color:var(--warn); }
-    .risk-low { background:var(--success-bg); color:var(--success); }
-
-    .cap-input { width:100%; border:none; border-bottom:1.5px solid var(--border); font-size:0.8rem; color:var(--navy); padding:2px 0; background:transparent; font-family:'Source Sans 3',sans-serif; outline:none; line-height:1.5; resize:none; }
-    .cap-input:focus { border-bottom-color:var(--light-blue); }
-
-    .status-select { width:100%; border:none; border-bottom:1.5px solid var(--border); font-size:0.78rem; color:var(--navy); padding:2px 0; background:transparent; font-family:'Source Sans 3',sans-serif; outline:none; cursor:pointer; }
-    .status-select:focus { border-bottom-color:var(--light-blue); }
-
-    /* col widths */
-    .col-ref { width:110px; }
-    .col-finding { width:200px; }
-    .col-risk { width:88px; }
-    .col-action { width:180px; }
-    .col-owner { width:110px; }
-    .col-due { width:90px; }
-    .col-status { width:100px; }
-    .col-verify { width:120px; }
-
-    /* section divider rows */
-    .section-divider td { background:var(--light-bg); padding:8px 12px; font-size:0.72rem; font-weight:700; color:var(--blue); letter-spacing:1px; text-transform:uppercase; border-bottom:1px solid var(--border); border-top:2px solid var(--border); }
-
-    /* ── SUMMARY TABLE ── */
-    .summary-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
-    .summary-cell { padding:16px 20px; text-align:center; border-right:1px solid var(--border); }
-    .summary-cell:last-child { border-right:none; }
-    .summary-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--navy); line-height:1; margin-bottom:4px; }
-    .summary-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; }
-    .sum-open { color:var(--open); }
-    .sum-ip { color:var(--ip); }
-    .sum-closed { color:var(--closed); }
-
-    /* ── SIGN-OFF ── */
-    .signoff-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; }
-    .signoff-cell { padding:16px 20px; border-right:1px solid var(--border); }
-    .signoff-cell:last-child { border-right:none; }
-    .signoff-label { font-size:0.68rem; font-weight:700; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
-    .signoff-line { border-bottom:1.5px solid var(--navy); margin-bottom:6px; height:28px; }
-    .signoff-sub { font-size:0.72rem; color:var(--text-muted); }
-
-    /* ── NOTES ── */
-    .notes-area { padding:16px 20px; min-height:80px; }
-    .notes-label { font-size:0.7rem; font-weight:700; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
-    .notes-input { width:100%; border:1px solid var(--border); border-radius:6px; font-size:0.84rem; color:var(--navy); padding:10px; background:var(--light-bg); font-family:'Source Sans 3',sans-serif; outline:none; resize:vertical; min-height:80px; line-height:1.6; }
-    .notes-input:focus { border-color:var(--light-blue); }
-
-    /* SOURCES */
-    .sources { background:var(--light-bg); border-radius:8px; padding:18px 22px; margin:0 0 24px; border:1px solid var(--border); }
-    .sources h4 { font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; }
-    .sources ul { list-style:none; }
-    .sources ul li { font-size:0.77rem; color:var(--text-muted); padding:3px 0; border-bottom:1px solid var(--border); }
-    .sources ul li:last-child { border-bottom:none; }
-    .sources ul li a { color:var(--light-blue); text-decoration:none; }
-
-    /* CTA */
-    .article-cta { background:linear-gradient(135deg,var(--navy),var(--blue)); border-radius:10px; padding:32px; text-align:center; margin-bottom:44px; }
-    .article-cta h3 { font-family:'Playfair Display',serif; font-size:1.35rem; color:white; margin-bottom:8px; }
-    .article-cta p { font-size:0.86rem; color:rgba(255,255,255,0.78); margin-bottom:18px; }
-    .btn-cta { display:inline-flex; align-items:center; gap:8px; background:white; color:var(--blue); font-weight:700; font-size:0.86rem; padding:11px 22px; border-radius:6px; text-decoration:none; }
-    .btn-cta:hover { background:var(--light-bg); }
-    .btn-print { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.15); color:white; font-weight:600; font-size:0.84rem; padding:10px 20px; border-radius:6px; text-decoration:none; border:1px solid rgba(255,255,255,0.3); margin-left:10px; cursor:pointer; font-family:'Source Sans 3',sans-serif; }
-    .btn-print:hover { background:rgba(255,255,255,0.22); }
-
-    /* FOOTER */
-    .site-footer { background:var(--navy); color:white; text-align:center; padding:36px 24px; }
-    .footer-tagline { font-size:0.9rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:10px; }
-    .footer-links { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
-    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.78rem; }
-    .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.73rem; color:rgba(255,255,255,0.5); }
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
-
-    @media print {
-      .topnav, .btn-back, .step-guide, .abstract-box, .intro-card,
-      .article-cta, .site-footer, .sources { display:none !important; }
-      body { background:white; font-size:11px; }
-      .page-wrap { padding:0; max-width:100%; }
-      .cap-block { box-shadow:none; border:1px solid #ccc; margin-bottom:12px; }
-      .hero { padding:20px; background:#0B2545 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-      .hero h1 { font-size:1.4rem; }
-      .cap-table { font-size:10px; min-width:0; }
-    }
-
-    @media (max-width:700px) {
-      .hero h1 { font-size:1.7rem; }
-      .step-guide { grid-template-columns:repeat(2,1fr); }
-      .info-grid { grid-template-columns:1fr; }
-      .info-cell:nth-child(odd) { border-right:none; }
-      .summary-grid { grid-template-columns:repeat(2,1fr); }
-      .summary-cell:nth-child(2) { border-right:none; }
-      .signoff-grid { grid-template-columns:1fr; }
-      .signoff-cell { border-right:none; border-bottom:1px solid var(--border); }
-      .topnav { padding:0 14px; }
-      .nav-links a { padding:5px 7px; font-size:0.76rem; }
-    }
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .info-row{display:contents}
+  .info-cell{padding:12px 20px;border-bottom:1px solid var(--border);font-size:0.84rem}
+  .info-cell:nth-child(odd){border-right:1px solid var(--border)}
+  .info-label{font-size:0.7rem;font-weight:700;color:var(--text-muted);letter-spacing:0.8px;text-transform:uppercase;display:block;margin-bottom:4px}
+  .info-field{border:none;border-bottom:1.5px solid var(--border);width:100%;font-size:0.88rem;color:var(--navy);padding:3px 0;background:transparent;font-family:'Source Sans 3',sans-serif;outline:none}
+  .info-field:focus{border-bottom-color:var(--light-blue)}
+  .info-cell.full{grid-column:1/-1;border-right:none}
+  .status-legend{display:flex;gap:12px;padding:12px 20px;background:var(--light-bg);border-bottom:1px solid var(--border);flex-wrap:wrap}
+  .legend-item{display:flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:600}
+  .legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+  .dot-open{background:#3B82F6}
+  .dot-ip{background:#F59E0B}
+  .dot-closed{background:#22C55E}
+  .dot-na{background:#9CA3AF}
+  .cap-table-wrap{overflow-x:auto}
+  .cap-table{width:100%;border-collapse:collapse;font-size:0.8rem;min-width:860px}
+  .cap-table thead tr{background:var(--light-bg)}
+  .cap-table th{padding:10px 12px;text-align:left;font-size:0.7rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;text-transform:uppercase;border-bottom:2px solid var(--border);white-space:nowrap}
+  .cap-table td{padding:0;border-bottom:1px solid var(--border);vertical-align:top}
+  .cap-table tr:last-child td{border-bottom:none}
+  .cap-table tr:hover td{background:#FAFBFD}
+  .cell-wrap{padding:10px 12px}
+  .principle-badge{display:inline-block;font-size:0.68rem;font-weight:700;background:var(--navy);color:white;padding:2px 7px;border-radius:4px;margin-bottom:4px;white-space:nowrap}
+  .finding-text{font-size:0.8rem;color:var(--text);line-height:1.5}
+  .finding-sub{font-size:0.73rem;color:var(--text-muted);margin-top:3px;line-height:1.4}
+  .risk-pill{display:inline-block;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:0.5px;white-space:nowrap}
+  .risk-critical{background:var(--danger-bg);color:var(--danger)}
+  .risk-high{background:#FEF3C7;color:#92400E}
+  .risk-medium{background:var(--warn-bg);color:var(--warn)}
+  .risk-low{background:var(--success-bg);color:var(--success)}
+  .cap-input{width:100%;border:none;border-bottom:1.5px solid var(--border);font-size:0.8rem;color:var(--navy);padding:2px 0;background:transparent;font-family:'Source Sans 3',sans-serif;outline:none;line-height:1.5;resize:none}
+  .cap-input:focus{border-bottom-color:var(--light-blue)}
+  .status-select{width:100%;border:none;border-bottom:1.5px solid var(--border);font-size:0.78rem;color:var(--navy);padding:2px 0;background:transparent;font-family:'Source Sans 3',sans-serif;outline:none;cursor:pointer}
+  .status-select:focus{border-bottom-color:var(--light-blue)}
+  .col-ref{width:110px}.col-finding{width:200px}.col-risk{width:88px}.col-action{width:180px}
+  .col-owner{width:110px}.col-due{width:90px}.col-status{width:100px}.col-verify{width:120px}
+  .section-divider td{background:var(--light-bg);padding:8px 12px;font-size:0.72rem;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);border-top:2px solid var(--border)}
+  .summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .summary-cell{padding:16px 20px;text-align:center;border-right:1px solid var(--border)}
+  .summary-cell:last-child{border-right:none}
+  .summary-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px}
+  .summary-label{font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px}
+  .sum-open{color:var(--open)}.sum-ip{color:var(--ip)}.sum-closed{color:var(--closed)}
+  .signoff-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+  .signoff-cell{padding:16px 20px;border-right:1px solid var(--border)}
+  .signoff-cell:last-child{border-right:none}
+  .signoff-label{font-size:0.68rem;font-weight:700;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+  .signoff-line{border-bottom:1.5px solid var(--navy);margin-bottom:6px;height:28px}
+  .signoff-sub{font-size:0.72rem;color:var(--text-muted)}
+  .notes-area{padding:16px 20px;min-height:80px}
+  .notes-label{font-size:0.7rem;font-weight:700;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+  .notes-input{width:100%;border:1px solid var(--border);border-radius:6px;font-size:0.84rem;color:var(--navy);padding:10px;background:var(--light-bg);font-family:'Source Sans 3',sans-serif;outline:none;resize:vertical;min-height:80px;line-height:1.6}
+  .notes-input:focus{border-color:var(--light-blue)}
+  .sources{background:var(--light-bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--border)}
+  .sources h4{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+  .sources ul{list-style:none}
+  .sources ul li{font-size:0.77rem;color:var(--text-muted);padding:3px 0;border-bottom:1px solid var(--border)}
+  .sources ul li:last-child{border-bottom:none}
+  .sources ul li a{color:var(--light-blue);text-decoration:none}
+  .article-cta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+  .article-cta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:white;margin-bottom:8px}
+  .article-cta p{font-size:0.86rem;color:rgba(255,255,255,0.78);margin-bottom:18px}
+  .btn-cta{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue);font-weight:700;font-size:0.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+  .btn-cta:hover{background:var(--light-bg)}
+  .btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);color:white;font-weight:600;font-size:0.84rem;padding:10px 20px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
+  .btn-print:hover{background:rgba(255,255,255,0.22)}
+  .site-footer{background:var(--navy);color:white;text-align:center;padding:36px 24px}
+  .footer-tagline{font-size:0.9rem;color:rgba(255,255,255,0.9);font-weight:600;letter-spacing:0.5px;margin-bottom:10px}
+  .footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+  .footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.78rem}
+  .footer-links a:hover{color:white}
+  .footer-copy{font-size:0.73rem;color:rgba(255,255,255,0.5)}
+  .footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+  .footer-copy a:hover{color:rgba(255,255,255,0.9)}
+  @media print{
+    .topnav,.btn-back,.step-guide,.abstract-box,.intro-card,.article-cta,.site-footer,.sources{display:none !important}
+    body{background:white;font-size:11px}
+    .page-wrap{padding:0;max-width:100%}
+    .cap-block{box-shadow:none;border:1px solid #ccc;margin-bottom:12px}
+    .hero{padding:20px;background:#0B2545 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero h1{font-size:1.4rem}
+    .cap-table{font-size:10px;min-width:0}
+  }
+  @media(max-width:700px){
+    .hero h1{font-size:1.7rem}
+    .step-guide{grid-template-columns:repeat(2,1fr)}
+    .info-grid{grid-template-columns:1fr}
+    .info-cell:nth-child(odd){border-right:none}
+    .summary-grid{grid-template-columns:repeat(2,1fr)}
+    .summary-cell:nth-child(2){border-right:none}
+    .signoff-grid{grid-template-columns:1fr}
+    .signoff-cell{border-right:none;border-bottom:1px solid var(--border)}
+    .topnav{padding:0 14px}
+    .nav-links a{padding:5px 7px;font-size:0.76rem}
+  }
+  .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+  .hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .lang-toggle{display:flex;gap:4px;align-items:center}
+  .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+  .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+  .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+  .lang-btn.active{background:#C8922A;color:#0B2545}
+  @media(max-width:640px){
+    .topnav{padding:0 16px !important;position:relative}
+    .hamburger{display:flex !important}
+    .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0 !important}
+    .nav-links.mobile-open{display:flex !important}
+    .nav-links li{width:100%}
+    .nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:0.92rem !important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0 !important;height:auto !important}
+    .nav-links a:last-child{border-bottom:none}
+    .lang-toggle{padding:10px 20px 4px}
+  }
 </style>
 </head>
 <body>
@@ -291,7 +206,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_PASA_CAP.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/RC2_PASA_CAP-es.html" class="lang-btn inactive">ES</a>
@@ -309,10 +224,8 @@
     <h1>PASA Corrective Action Plan</h1>
     <p class="hero-sub">A structured CAP framework aligned to WRAP audit format — document findings, assign ownership, set remediation deadlines, and track closure through verification.</p>
     <div class="hero-meta">
-      <span>RC2 Consulting</span>
-      <span class="divider">|</span>
-      <span>February 2026</span>
-      <span class="divider">|</span>
+      <span>RC2 Consulting</span><span class="divider">|</span>
+      <span>February 2026</span><span class="divider">|</span>
       <span>Printable Working Document</span>
     </div>
   </div>
@@ -332,81 +245,37 @@
   </div>
 
   <div class="step-guide">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <div class="step-title">Complete Facility Info</div>
-      <div class="step-desc">Fill all fields in the header block. Assign a CAP reference number and document date.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <div class="step-title">Enter Findings</div>
-      <div class="step-desc">Transfer each PASA gap into the table. One row per finding. Complete all columns.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <div class="step-title">Assign & Schedule</div>
-      <div class="step-desc">Name the responsible party and set a realistic due date for each corrective action.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">4</div>
-      <div class="step-title">Track & Close</div>
-      <div class="step-desc">Update status as actions are completed. Document verification evidence. Obtain sign-off.</div>
-    </div>
+    <div class="step-card"><div class="step-num">1</div><div class="step-title">Complete Facility Info</div><div class="step-desc">Fill all fields in the header block. Assign a CAP reference number and document date.</div></div>
+    <div class="step-card"><div class="step-num">2</div><div class="step-title">Enter Findings</div><div class="step-desc">Transfer each PASA gap into the table. One row per finding. Complete all columns.</div></div>
+    <div class="step-card"><div class="step-num">3</div><div class="step-title">Assign &amp; Schedule</div><div class="step-desc">Name the responsible party and set a realistic due date for each corrective action.</div></div>
+    <div class="step-card"><div class="step-num">4</div><div class="step-title">Track &amp; Close</div><div class="step-desc">Update status as actions are completed. Document verification evidence. Obtain sign-off.</div></div>
   </div>
 
-  <!-- FACILITY INFO -->
+  <!-- SECTION A -->
   <div class="cap-block">
     <div class="cap-block-header">
-      <h3>Section A — Facility & CAP Identification</h3>
+      <h3>Section A — Facility &amp; CAP Identification</h3>
       <span>Complete all fields before distributing this document</span>
     </div>
     <div class="info-grid">
-      <div class="info-cell">
-        <span class="info-label">Facility / Company Name</span>
-        <input class="info-field" type="text" placeholder="Enter facility name" />
-      </div>
-      <div class="info-cell">
-        <span class="info-label">CAP Reference Number</span>
-        <input class="info-field" type="text" placeholder="e.g. CAP-2026-001" />
-      </div>
-      <div class="info-cell">
-        <span class="info-label">Facility Address / Country</span>
-        <input class="info-field" type="text" placeholder="Address and country" />
-      </div>
-      <div class="info-cell">
-        <span class="info-label">CAP Issue Date</span>
-        <input class="info-field" type="text" placeholder="MM / DD / YYYY" />
-      </div>
-      <div class="info-cell">
-        <span class="info-label">Compliance Manager / CAP Owner</span>
-        <input class="info-field" type="text" placeholder="Full name and title" />
-      </div>
-      <div class="info-cell">
-        <span class="info-label">CAP Target Completion Date</span>
-        <input class="info-field" type="text" placeholder="MM / DD / YYYY" />
-      </div>
-      <div class="info-cell">
-        <span class="info-label">Assessment Type That Generated This CAP</span>
-        <input class="info-field" type="text" placeholder="e.g. PASA Self-Assessment / RC2 Gap Assessment / WRAP Pre-Audit" />
-      </div>
-      <div class="info-cell">
-        <span class="info-label">Target Certification Standard</span>
-        <input class="info-field" type="text" placeholder="e.g. WRAP Platinum / Gold / Silver" />
-      </div>
-      <div class="info-cell full">
-        <span class="info-label">Scope of CAP — Departments / Operations Covered</span>
-        <input class="info-field" type="text" placeholder="e.g. All production floors, HR department, warehouse, security" />
-      </div>
+      <div class="info-cell"><span class="info-label">Facility / Company Name</span><input class="info-field" type="text" placeholder="Enter facility name"/></div>
+      <div class="info-cell"><span class="info-label">CAP Reference Number</span><input class="info-field" type="text" placeholder="e.g. CAP-2026-001"/></div>
+      <div class="info-cell"><span class="info-label">Facility Address / Country</span><input class="info-field" type="text" placeholder="Address and country"/></div>
+      <div class="info-cell"><span class="info-label">CAP Issue Date</span><input class="info-field" type="text" placeholder="MM / DD / YYYY"/></div>
+      <div class="info-cell"><span class="info-label">Compliance Manager / CAP Owner</span><input class="info-field" type="text" placeholder="Full name and title"/></div>
+      <div class="info-cell"><span class="info-label">CAP Target Completion Date</span><input class="info-field" type="text" placeholder="MM / DD / YYYY"/></div>
+      <div class="info-cell"><span class="info-label">Assessment Type That Generated This CAP</span><input class="info-field" type="text" placeholder="e.g. PASA Self-Assessment / RC2 Gap Assessment / WRAP Pre-Audit"/></div>
+      <div class="info-cell"><span class="info-label">Target Certification Standard</span><input class="info-field" type="text" placeholder="e.g. WRAP Platinum / Gold / Silver"/></div>
+      <div class="info-cell full"><span class="info-label">Scope of CAP — Departments / Operations Covered</span><input class="info-field" type="text" placeholder="e.g. All production floors, HR department, warehouse, security"/></div>
     </div>
   </div>
 
-  <!-- STATUS LEGEND + CAP TABLE: LABOR & EMPLOYMENT -->
+  <!-- SECTION B -->
   <div class="cap-block">
     <div class="cap-block-header">
       <h3>Section B — Corrective Action Register</h3>
       <span>One row per finding — complete all columns</span>
     </div>
-
     <div class="status-legend">
       <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);margin-right:4px;">STATUS KEY:</span>
       <div class="legend-item"><div class="legend-dot dot-open"></div>Open — Not yet started</div>
@@ -414,7 +283,6 @@
       <div class="legend-item"><div class="legend-dot dot-closed"></div>Closed — Verified complete</div>
       <div class="legend-item"><div class="legend-dot dot-na"></div>N/A — Not applicable</div>
     </div>
-
     <div class="cap-table-wrap">
       <table class="cap-table">
         <thead>
@@ -431,226 +299,202 @@
         </thead>
         <tbody>
 
-          <!-- SECTION: LABOR PRACTICES -->
           <tr class="section-divider"><td colspan="8">Labor Practices — Principles 2, 3, 4, 7, 9</td></tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P2 — Forced Labor</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Worker document retention or deposit arrangements identified</div><div class="finding-sub">PASA Item 2.2</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-critical">Critical</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P3 — Child Labor</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Age verification documentation missing or incomplete at hire</div><div class="finding-sub">PASA Item 3.2 / 3.3</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-critical">Critical</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P4 — Harassment</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Anti-harassment policy absent or not posted in worker language</div><div class="finding-sub">PASA Item 4.1</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-high">High</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P4 — Harassment</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Grievance procedure not documented or not communicated to workers</div><div class="finding-sub">PASA Item 4.2</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-high">High</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P7 — Discrimination</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Non-discrimination policy missing or training records absent</div><div class="finding-sub">PASA Item 7.1 / 7.2</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-high">High</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
 
-          <!-- SECTION: COMPENSATION & HOURS -->
-          <tr class="section-divider"><td colspan="8">Compensation & Hours of Work — Principles 5, 6</td></tr>
-
+          <tr class="section-divider"><td colspan="8">Compensation &amp; Hours of Work — Principles 5, 6</td></tr>
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P5 — Compensation</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Payroll records incomplete, inconsistent, or not retrievable</div><div class="finding-sub">PASA Item 5.1 / 5.2</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-critical">Critical</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P5 — Compensation</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Wage statements not provided to workers each pay period</div><div class="finding-sub">PASA Item 5.3</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-high">High</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P6 — Hours</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Time and attendance records incomplete or gaps identified</div><div class="finding-sub">PASA Item 6.2</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-critical">Critical</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P6 — Hours</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Rest periods or meal breaks not documented or not compliant</div><div class="finding-sub">PASA Item 6.3</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-medium">Medium</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
 
-          <!-- SECTION: HEALTH & SAFETY -->
-          <tr class="section-divider"><td colspan="8">Health & Safety — Principle 8</td></tr>
-
+          <tr class="section-divider"><td colspan="8">Health &amp; Safety — Principle 8</td></tr>
           <tr>
-            <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P8 — H&S</span></div></td>
+            <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P8 — H&amp;S</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Fire safety equipment not inspected or documentation not current</div><div class="finding-sub">PASA Item 8.2</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-critical">Critical</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
-            <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P8 — H&S</span></div></td>
+            <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P8 — H&amp;S</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Emergency evacuation drills not conducted or not documented</div><div class="finding-sub">PASA Item 8.3</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-critical">Critical</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
-            <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P8 — H&S</span></div></td>
+            <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P8 — H&amp;S</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Health and safety training records absent or not current</div><div class="finding-sub">PASA Item 8.5</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-high">High</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
-            <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P8 — H&S</span></div></td>
+            <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P8 — H&amp;S</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Chemical handling, PPE, or equipment safety docs not current</div><div class="finding-sub">PASA Item 8.6</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-high">High</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
 
-          <!-- SECTION: ENVIRONMENT & CUSTOMS -->
-          <tr class="section-divider"><td colspan="8">Environment, Customs Compliance & Drug Policy — Principles 10, 11, 12</td></tr>
-
+          <tr class="section-divider"><td colspan="8">Environment, Customs Compliance &amp; Drug Policy — Principles 10, 11, 12</td></tr>
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P10 — Environment</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Environmental permits expired or not current — wastewater, waste disposal</div><div class="finding-sub">PASA Item 10.2</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-high">High</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P11 — Customs</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Country-of-origin documentation incomplete or not maintained on file</div><div class="finding-sub">PASA Item 11.2</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-high">High</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
-
           <tr>
             <td class="col-ref"><div class="cell-wrap"><span class="principle-badge">P12 — Drug Policy</span></div></td>
             <td class="col-finding"><div class="cell-wrap"><div class="finding-text">Drug and alcohol policy not posted or training not documented</div><div class="finding-sub">PASA Item 12.1 / 12.3</div></div></td>
             <td class="col-risk"><div class="cell-wrap"><span class="risk-pill risk-medium">Medium</span></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe corrective action required..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Evidence / documentation to verify..."></textarea></div></td>
           </tr>
 
-          <!-- ADDITIONAL ROWS -->
           <tr class="section-divider"><td colspan="8">Additional Findings — Enter as identified in PASA or professional assessment</td></tr>
-
           <tr>
-            <td class="col-ref"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Principle / Ref #" /></div></td>
+            <td class="col-ref"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Principle / Ref #"/></div></td>
             <td class="col-finding"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe the finding or non-conformance..."></textarea></div></td>
             <td class="col-risk"><div class="cell-wrap"><select class="status-select"><option value="">Level...</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Required corrective action..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Verification evidence..."></textarea></div></td>
           </tr>
-
           <tr>
-            <td class="col-ref"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Principle / Ref #" /></div></td>
+            <td class="col-ref"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Principle / Ref #"/></div></td>
             <td class="col-finding"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe the finding or non-conformance..."></textarea></div></td>
             <td class="col-risk"><div class="cell-wrap"><select class="status-select"><option value="">Level...</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Required corrective action..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Verification evidence..."></textarea></div></td>
           </tr>
-
           <tr>
-            <td class="col-ref"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Principle / Ref #" /></div></td>
+            <td class="col-ref"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Principle / Ref #"/></div></td>
             <td class="col-finding"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Describe the finding or non-conformance..."></textarea></div></td>
             <td class="col-risk"><div class="cell-wrap"><select class="status-select"><option value="">Level...</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></div></td>
             <td class="col-action"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Required corrective action..."></textarea></div></td>
-            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title" /></div></td>
-            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY" /></div></td>
+            <td class="col-owner"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="Name / Title"/></div></td>
+            <td class="col-due"><div class="cell-wrap"><input class="cap-input" type="text" placeholder="MM/DD/YY"/></div></td>
             <td class="col-status"><div class="cell-wrap"><select class="status-select"><option value="">Select...</option><option>Open</option><option>In Progress</option><option>Closed</option><option>N/A</option></select></div></td>
             <td class="col-verify"><div class="cell-wrap"><textarea class="cap-input" rows="2" placeholder="Verification evidence..."></textarea></div></td>
           </tr>
@@ -660,29 +504,17 @@
     </div>
   </div>
 
-  <!-- SUMMARY -->
+  <!-- SECTION C -->
   <div class="cap-block">
     <div class="cap-block-header">
       <h3>Section C — CAP Progress Summary</h3>
       <span>Update at each review cycle</span>
     </div>
     <div class="summary-grid">
-      <div class="summary-cell">
-        <div class="summary-num">____</div>
-        <div class="summary-label">Total Findings</div>
-      </div>
-      <div class="summary-cell">
-        <div class="summary-num sum-open">____</div>
-        <div class="summary-label">Open</div>
-      </div>
-      <div class="summary-cell">
-        <div class="summary-num sum-ip">____</div>
-        <div class="summary-label">In Progress</div>
-      </div>
-      <div class="summary-cell">
-        <div class="summary-num sum-closed">____</div>
-        <div class="summary-label">Closed / Verified</div>
-      </div>
+      <div class="summary-cell"><div class="summary-num">____</div><div class="summary-label">Total Findings</div></div>
+      <div class="summary-cell"><div class="summary-num sum-open">____</div><div class="summary-label">Open</div></div>
+      <div class="summary-cell"><div class="summary-num sum-ip">____</div><div class="summary-label">In Progress</div></div>
+      <div class="summary-cell"><div class="summary-num sum-closed">____</div><div class="summary-label">Closed / Verified</div></div>
     </div>
     <div class="notes-area">
       <div class="notes-label">Review Notes / Management Comments</div>
@@ -690,10 +522,10 @@
     </div>
   </div>
 
-  <!-- SIGN-OFF -->
+  <!-- SECTION D -->
   <div class="cap-block" style="margin-bottom:28px;">
     <div class="cap-block-header">
-      <h3>Section D — Authorization & Sign-Off</h3>
+      <h3>Section D — Authorization &amp; Sign-Off</h3>
       <span>Required before submitting CAP to external monitor or auditor</span>
     </div>
     <div class="signoff-grid">
@@ -716,9 +548,9 @@
   </div>
 
   <div class="sources">
-    <h4>Standards & References</h4>
+    <h4>Standards &amp; References</h4>
     <ul>
-      <li>WRAP — Corrective Action Plan Format & Requirements, Certification Program Guidelines (2024) — <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
+      <li>WRAP — Corrective Action Plan Format &amp; Requirements, Certification Program Guidelines (2024) — <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
       <li>International Labour Organization — Core Labour Standards, Audit Remediation Guidance (2024) — <a href="https://www.ilo.org" target="_blank">ilo.org</a></li>
       <li>U.S. Department of Labor — ILAB Social Compliance Toolkit, CAP Methodology (2024) — <a href="https://www.dol.gov/agencies/ilab" target="_blank">dol.gov/ilab</a></li>
       <li>Social Accountability International — SA8000 Corrective Action Guidance (2023) — <a href="https://www.sa-intl.org" target="_blank">sa-intl.org</a></li>
@@ -747,31 +579,14 @@
   <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms.html">Terms of Service</a></div>
 </footer>
 
-
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
-  });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      nav.classList.remove('mobile-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
-      nav.classList.remove('mobile-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){var isOpen=nav.classList.toggle('mobile-open');btn.classList.toggle('open',isOpen);btn.setAttribute('aria-expanded',String(isOpen));});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
+  document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
 })();
 </script>
 </body>
