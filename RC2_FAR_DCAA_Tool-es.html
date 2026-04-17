@@ -335,6 +335,22 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt
     <div class="domain-footer"><span class="df-label">Puntaje del Dominio:</span><span class="df-val" id="df6-val">&mdash;</span><span class="df-label">/ 20</span><div class="df-prog"><div class="df-pfill" id="df6-prog" style="width:0%"></div></div></div>
   </div>
 
+  <!-- SEGUNDO PANEL — replica el panel superior -->
+  <div class="dashboard" style="margin-bottom:20px">
+    <div class="dash-top">
+      <div class="dash-cell"><div class="dash-val" id="ds1b">&mdash;</div><div class="dash-label">Sistema Contable</div><div class="prog-row"><div class="prog-fill" id="dp1b" style="background:#3B82F6;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds2b">&mdash;</div><div class="dash-label">T&amp;A / Control de Tiempo</div><div class="prog-row"><div class="prog-fill" id="dp2b" style="background:#10B981;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds3b">&mdash;</div><div class="dash-label">Sistemas de Compras</div><div class="prog-row"><div class="prog-fill" id="dp3b" style="background:#F59E0B;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds4b">&mdash;</div><div class="dash-label">Cumplimiento Laboral / RRHH</div><div class="prog-row"><div class="prog-fill" id="dp4b" style="background:#8B5CF6;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds5b">&mdash;</div><div class="dash-label">Gestión de Contratos</div><div class="prog-row"><div class="prog-fill" id="dp5b" style="background:#F43F5E;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds6b">&mdash;</div><div class="dash-label">Ciberseguridad</div><div class="prog-row"><div class="prog-fill" id="dp6b" style="background:#06B6D4;width:0%"></div></div></div>
+      <div class="dash-cell composite"><div class="dash-val" id="dtotb">&mdash;</div><div class="dash-label">Compuesto / 150</div></div>
+    </div>
+    <div class="verdict-bar" id="verdict-bar-b">
+      <div><div class="verdict-text">Puntaje cada dominio arriba &mdash; su nivel de preparación FAR/DCAA aparece aquí en tiempo real</div><div class="verdict-sub">Calificación 1&ndash;5: 1=No implementado &middot; 3=Parcialmente &middot; 5=Totalmente implementado y documentado</div></div>
+    </div>
+  </div>
+
   <!-- RESULT TIER CARDS -->
   <div class="result-grid">
     <div class="res-card rc-green" id="tier-ready">
@@ -436,32 +452,44 @@ function calcAll(){
     document.getElementById('d'+d+'-pf').style.width=pct+'%';
     document.getElementById('df'+d+'-val').textContent=hasVal?scaled:'\u2014';
     document.getElementById('df'+d+'-prog').style.width=scorePct+'%';
+    document.getElementById('ds'+d+'b').textContent=hasVal?scaled:'\u2014';
+    document.getElementById('dp'+d+'b').style.width=pct+'%';
   });
 
   const anyDone=Array.from(document.querySelectorAll('select.score-sel')).some(s=>s.value!=='0'&&s.value!=='');
   if(!anyDone){
     document.getElementById('dtot').textContent='\u2014';
     document.getElementById('verdict-bar').className='verdict-bar';
+    document.getElementById('verdict-bar-b').className='verdict-bar';
     document.getElementById('verdict-bar').innerHTML='<div><div class="verdict-text">Score each domain below \u2014 your FAR/DCAA readiness tier appears here in real time</div><div class="verdict-sub">Rate each item 1\u20135: 1=Not in place \u00b7 3=Partially in place \u00b7 5=Fully implemented and documented</div></div>';
+    document.getElementById('verdict-bar-b').innerHTML=document.getElementById('verdict-bar').innerHTML;
     ['tier-ready','tier-conditional','tier-not-ready'].forEach(id=>document.getElementById(id).classList.remove('active-res'));
     return;
   }
 
   document.getElementById('dtot').textContent=composite;
+  document.getElementById('dtotb').textContent=composite;
   const vbar=document.getElementById('verdict-bar');
+  const vbarb=document.getElementById('verdict-bar-b');
   ['tier-ready','tier-conditional','tier-not-ready'].forEach(id=>document.getElementById(id).classList.remove('active-res'));
 
   if(composite>=115){
     vbar.className='verdict-bar v-ready';
+    vbarb.className='verdict-bar v-ready';
     vbar.innerHTML='<div><div class="verdict-text">\u2713 TIER 1 \u2014 CONTRACT READY \u2014 Score: '+composite+'/150</div><div class="verdict-sub">Strong compliance posture. DCAA pre-award survey likely to pass. Continue monitoring and annual review cadence.</div></div>';
+    vbarb.innerHTML=vbar.innerHTML;
     document.getElementById('tier-ready').classList.add('active-res');
   } else if(composite>=75){
     vbar.className='verdict-bar v-conditional';
+    vbarb.className='verdict-bar v-conditional';
     vbar.innerHTML='<div><div class="verdict-text">\u26A0 TIER 2 \u2014 CONDITIONAL READINESS \u2014 Score: '+composite+'/150</div><div class="verdict-sub">Identifiable gaps present. Develop corrective action plan for domains below 15 points before pursuing cost-reimbursement contracts.</div></div>';
+    vbarb.innerHTML=vbar.innerHTML;
     document.getElementById('tier-conditional').classList.add('active-res');
   } else {
     vbar.className='verdict-bar v-not-ready';
+    vbarb.className='verdict-bar v-not-ready';
     vbar.innerHTML='<div><div class="verdict-text">\u2717 TIER 3 \u2014 NOT CONTRACT READY \u2014 Score: '+composite+'/150</div><div class="verdict-sub">Significant compliance gaps. Do not pursue cost-reimbursement or CPFF contracts. Remediate fundamental systems before submitting proposals.</div></div>';
+    vbarb.innerHTML=vbar.innerHTML;
     document.getElementById('tier-not-ready').classList.add('active-res');
   }
 }
