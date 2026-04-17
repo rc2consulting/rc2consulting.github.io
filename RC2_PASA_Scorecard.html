@@ -1,239 +1,218 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════
+  RC2 PASA PRE-AUDIT RISK SCORECARD (EN)
+  CAP-70 Phase 3 Tool #3 Retrofit — 2026-04-17
+  Surgical Gold Standard retrofit from near-compliant source
+═══════════════════════════════════════════════════════════════════════════
+-->
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PASA Pre-Audit Risk Scorecard | RC2 Consulting</title>
-  <meta property="og:title" content="PASA Pre-Audit Risk Scorecard | RC2 Consulting">
-  <meta property="og:description" content="PASA Pre-Audit Risk Scorecard. Free interactive tool from RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_PASA_Scorecard.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PASA Pre-Audit Risk Scorecard | RC2 Consulting">
-  <meta name="twitter:description" content="PASA Pre-Audit Risk Scorecard. Free interactive tool from RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta name="description" content="The PASA Pre-Audit Self-Assessment — a structured scorecard for organizations preparing for WRAP or social compliance audits. Identify your highest-risk gaps before an auditor does." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy:#0B2545; --blue:#1A4A8A; --light-blue:#2563EB;
-      --light-bg:#F4F6FA; --white:#FFFFFF;
-      --text:#1C2B3A; --text-muted:#4A5568; --border:#E2E8F0;
-      --success:#1A7A4E; --success-bg:#EBF7F2;
-      --warn:#854D0E; --warn-bg:#FFFBEB;
-      --danger:#9B1C1C; --danger-bg:#FEF2F2;
-    }
-    body { font-family:'Source Sans 3',sans-serif; background:var(--light-bg); color:var(--text); margin:0; line-height:1.7; }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PASA Pre-Audit Risk Scorecard | RC2 Consulting</title>
+<meta property="og:title" content="PASA Pre-Audit Risk Scorecard | RC2 Consulting">
+<meta property="og:description" content="The PASA Pre-Audit Self-Assessment — a structured scoring tool for organizations preparing for WRAP or social compliance audits. Identify your highest-risk gaps before an auditor does.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_PASA_Scorecard.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PASA Pre-Audit Risk Scorecard | RC2 Consulting">
+<meta name="twitter:description" content="Structured scoring tool for WRAP audit preparation. Identify your highest-risk gaps before an auditor does. Free from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta name="description" content="The PASA Pre-Audit Self-Assessment — a structured scorecard for organizations preparing for WRAP or social compliance audits. Identify your highest-risk gaps before an auditor does."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B2545;--blue:#1A4A8A;--light-blue:#2563EB;
+  --light-bg:#F4F6FA;--white:#FFFFFF;
+  --text:#1C2B3A;--text-muted:#4A5568;--border:#D1D9E6;
+  --success:#1A7A4E;--success-bg:#EBF7F2;
+  --warn:#854D0E;--warn-bg:#FFFBEB;
+  --danger:#9B1C1C;--danger-bg:#FEF2F2;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var(--text);margin:0;line-height:1.7}
 
-    /* NAV */
-    .topnav { background:var(--navy); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
-    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
-    .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
-    .nav-logo-mark sup { font-size:0.5rem; vertical-align:super; }
-    .nav-brand-name { font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.9); }
-    .nav-links { display:flex; gap:4px; list-style:none; }
-    .nav-links a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.83rem; font-weight:600; padding:6px 12px; border-radius:4px; transition:all 0.2s; white-space:nowrap; }
-    .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
-    .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
+/* NAV */
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,0.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:0.5rem;vertical-align:super}
+.nav-brand-name{font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all 0.2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:white;background:rgba(255,255,255,0.12)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
 
-    /* HERO */
-    .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.82) 0%, rgba(11,37,69,0.65) 100%), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80') center/cover no-repeat; padding:64px 40px 56px; }
-    .hero-inner { max-width:900px; margin:0 auto; }
-    .article-tag { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); padding:4px 12px; border-radius:10px; margin-bottom:16px; }
-    .hero h1 { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:700; color:white; line-height:1.2; margin-bottom:10px; }
-    .hero-sub { font-size:0.95rem; color:rgba(255,255,255,0.78); margin-bottom:16px; max-width:600px; }
-    .hero-meta { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
-    .hero-meta span { font-size:0.82rem; color:rgba(255,255,255,0.65); }
-    .hero-meta .divider { color:rgba(255,255,255,0.3); }
+/* HERO */
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,0.82) 0%,rgba(11,37,69,0.65) 100%),url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:white;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:0.92rem;color:rgba(255,255,255,0.75);margin-bottom:16px;max-width:640px;line-height:1.6}
+.hero-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-meta span{font-size:0.82rem;color:rgba(255,255,255,0.6)}
+.hero-meta .divider{color:rgba(255,255,255,0.3)}
 
-    /* LAYOUT */
-    .article-wrap { max-width:900px; margin:0 auto; padding:0 28px; }
-    .btn-back { display:inline-flex; align-items:center; gap:6px; color:var(--light-blue); text-decoration:none; font-size:0.85rem; font-weight:600; margin:28px 0 0; }
+/* LAYOUT */
+.page-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--light-blue);text-decoration:none;font-size:0.85rem;font-weight:600;margin:28px 0 0}
+.btn-back:hover{color:var(--navy)}
 
-    /* ABSTRACT */
-    .abstract-box { background:var(--white); border-left:4px solid var(--light-blue); border-radius:0 8px 8px 0; padding:24px 28px; margin:40px 0; box-shadow:0 2px 8px rgba(11,37,69,0.07); }
-    .abstract-box h3 { font-size:0.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--light-blue); margin-bottom:10px; }
-    .abstract-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.75; font-style:italic; }
+/* ABSTRACT */
+.abstract-box{background:var(--white);border-left:4px solid var(--light-blue);border-radius:0 8px 8px 0;padding:22px 26px;margin:36px 0 28px;box-shadow:0 2px 8px rgba(11,37,69,0.07)}
+.abstract-box h3{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light-blue);margin-bottom:8px}
+.abstract-box p{font-size:0.9rem;color:var(--text-muted);line-height:1.75;font-style:italic}
 
-    /* INTRO CARD */
-    .intro-body { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.06); padding:40px 48px; margin-bottom:28px; }
-    .intro-body p { font-size:0.93rem; color:var(--text-muted); line-height:1.8; margin-bottom:14px; }
-    .intro-body p strong { color:var(--navy); }
-    .intro-body h2 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--navy); margin:28px 0 12px; border-top:2px solid var(--border); padding-top:8px; }
-    .intro-body h2:first-child { border-top:none; padding-top:0; margin-top:0; }
+/* INTRO CARD */
+.intro-card{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);padding:36px 40px;margin-bottom:24px}
+.intro-card p{font-size:0.91rem;color:var(--text-muted);line-height:1.8;margin-bottom:12px}
+.intro-card p strong{color:var(--navy)}
+.intro-card p:last-child{margin-bottom:0}
 
-    /* HOW TO USE */
-    .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:16px 0; }
-    .how-card { background:var(--light-bg); border:1px solid var(--border); border-radius:8px; padding:16px; text-align:center; }
-    .how-num { font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--light-blue); font-weight:700; line-height:1; margin-bottom:6px; }
-    .how-card p { font-size:0.82rem; color:var(--text-muted); line-height:1.5; margin:0; }
+/* STEP GUIDE */
+.step-guide{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;box-shadow:0 1px 4px rgba(11,37,69,0.05)}
+.step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--light-blue);line-height:1;margin-bottom:6px}
+.step-title{font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.step-desc{font-size:0.74rem;color:var(--text-muted);line-height:1.5}
 
-    /* SCORE KEY */
-    .score-key { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:16px 0; }
-    .key-item { border-radius:6px; padding:10px 12px; text-align:center; border:1px solid; }
-    .key-item.k4 { background:var(--success-bg); border-color:#BBF7D0; }
-    .key-item.k3 { background:#F0FDF4; border-color:#D1FAE5; }
-    .key-item.k2 { background:var(--warn-bg); border-color:#FDE68A; }
-    .key-item.k1 { background:var(--danger-bg); border-color:#FECACA; }
-    .key-score { font-size:1.2rem; font-weight:700; font-family:'Playfair Display',serif; }
-    .k4 .key-score { color:var(--success); }
-    .k3 .key-score { color:#15803D; }
-    .k2 .key-score { color:var(--warn); }
-    .k1 .key-score { color:var(--danger); }
-    .key-label { font-size:0.72rem; font-weight:700; margin-top:3px; }
-    .key-desc { font-size:0.72rem; color:var(--text-muted); margin-top:3px; }
+/* CAP BLOCK */
+.cap-block{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);margin-bottom:20px;overflow:hidden}
+.cap-block-header{background:var(--navy);padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.cap-block-header h3{font-size:0.85rem;font-weight:700;color:white;letter-spacing:0.3px}
+.cap-block-header span{font-size:0.7rem;color:rgba(255,255,255,0.55)}
+.cap-block-body{padding:20px 24px}
 
-    /* SCORECARD SECTION */
-    .scorecard-section { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.06); margin-bottom:20px; overflow:hidden; }
-    .section-header { background:var(--navy); padding:14px 24px; display:flex; align-items:center; justify-content:space-between; }
-    .section-title { font-size:0.88rem; font-weight:700; color:white; }
-    .section-wrap-ref { font-size:0.72rem; color:rgba(255,255,255,0.55); }
-    .scorecard-table { width:100%; border-collapse:collapse; }
-    .scorecard-table th { background:var(--light-bg); padding:10px 16px; text-align:left; font-size:0.75rem; font-weight:700; color:var(--text-muted); letter-spacing:0.5px; border-bottom:2px solid var(--border); }
-    .scorecard-table th.score-col { text-align:center; width:80px; }
-    .scorecard-table td { padding:12px 16px; border-bottom:1px solid var(--border); font-size:0.84rem; color:var(--text-muted); vertical-align:top; line-height:1.5; }
-    .scorecard-table tr:last-child td { border-bottom:none; }
-    .scorecard-table td.item-num { color:var(--blue); font-weight:700; width:32px; }
-    .score-cell { text-align:center; }
-    .score-box { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:6px; font-size:0.85rem; font-weight:700; border:2px solid var(--border); background:var(--light-bg); color:var(--text-muted); }
-    .section-total { background:var(--light-bg); padding:12px 24px; display:flex; align-items:center; justify-content:space-between; border-top:2px solid var(--border); }
-    .section-total-label { font-size:0.8rem; font-weight:700; color:var(--navy); }
-    .section-total-score { display:flex; align-items:center; gap:8px; }
-    .total-blank { display:inline-block; width:80px; border-bottom:2px solid var(--navy); height:24px; text-align:center; font-weight:700; }
-    .total-max { font-size:0.78rem; color:var(--text-muted); }
+/* SCORE KEY */
+.score-key{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.key-item{border-radius:6px;padding:10px 12px;text-align:center;border:1px solid}
+.key-item.k4{background:var(--success-bg);border-color:#BBF7D0}
+.key-item.k3{background:#F0FDF4;border-color:#D1FAE5}
+.key-item.k2{background:var(--warn-bg);border-color:#FDE68A}
+.key-item.k1{background:var(--danger-bg);border-color:#FECACA}
+.key-score{font-size:1.2rem;font-weight:700;font-family:'Playfair Display',serif}
+.k4 .key-score{color:var(--success)}
+.k3 .key-score{color:#15803D}
+.k2 .key-score{color:var(--warn)}
+.k1 .key-score{color:var(--danger)}
+.key-label{font-size:0.72rem;font-weight:700;margin-top:3px}
+.key-desc{font-size:0.72rem;color:var(--text-muted);margin-top:3px}
 
-    /* RESULTS MATRIX */
-    .results-matrix { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.06); overflow:hidden; margin-bottom:28px; }
-    .matrix-header { background:var(--navy); padding:14px 24px; }
-    .matrix-header h3 { font-size:0.88rem; font-weight:700; color:white; }
-    .matrix-rows { padding:0; }
-    .matrix-row { display:grid; grid-template-columns:100px 1fr 200px; gap:0; border-bottom:1px solid var(--border); }
-    .matrix-row:last-child { border-bottom:none; }
-    .matrix-range { padding:16px; font-size:1rem; font-weight:700; font-family:'Playfair Display',serif; display:flex; align-items:center; border-right:1px solid var(--border); }
-    .range-pass { color:var(--success); }
-    .range-conditional { color:var(--warn); }
-    .range-fail { color:var(--danger); }
-    .matrix-content { padding:14px 16px; }
-    .matrix-content h4 { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
-    .matrix-content p { font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin:0; }
-    .matrix-action { padding:14px 16px; border-left:1px solid var(--border); display:flex; align-items:center; }
-    .matrix-action p { font-size:0.78rem; color:var(--text-muted); line-height:1.5; margin:0; }
+/* SCORECARD SECTIONS */
+.scorecard-section{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);margin-bottom:20px;overflow:hidden}
+.section-header{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.section-title{font-size:0.88rem;font-weight:700;color:white}
+.section-wrap-ref{font-size:0.72rem;color:rgba(255,255,255,0.55)}
+.scorecard-table{width:100%;border-collapse:collapse}
+.scorecard-table th{background:var(--light-bg);padding:10px 16px;text-align:left;font-size:0.75rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;border-bottom:2px solid var(--border)}
+.scorecard-table th.score-col{text-align:center;width:80px}
+.scorecard-table td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:0.84rem;color:var(--text-muted);vertical-align:top;line-height:1.5}
+.scorecard-table tr:last-child td{border-bottom:none}
+.scorecard-table td.item-num{color:var(--blue);font-weight:700;width:32px}
+.score-cell{text-align:center}
+.score-box{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;font-size:0.85rem;font-weight:700;border:2px solid var(--border);background:var(--light-bg);color:var(--text-muted)}
+.section-total{background:var(--light-bg);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-top:2px solid var(--border)}
+.section-total-label{font-size:0.8rem;font-weight:700;color:var(--navy)}
+.section-total-score{display:flex;align-items:center;gap:8px}
+.total-blank{display:inline-block;width:80px;border-bottom:2px solid var(--navy);height:24px;text-align:center;font-weight:700}
+.total-max{font-size:0.78rem;color:var(--text-muted)}
 
-    /* PRIORITY SECTION */
-    .priority-box { background:linear-gradient(135deg,var(--navy),var(--blue)); border-radius:10px; padding:28px 32px; margin-bottom:28px; }
-    .priority-box h3 { font-size:0.88rem; font-weight:700; color:white; letter-spacing:1px; text-transform:uppercase; margin-bottom:16px; }
-    .priority-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .priority-item { display:flex; align-items:flex-start; gap:10px; }
-    .priority-item::before { content:'→'; color:#93C5FD; font-weight:700; flex-shrink:0; margin-top:2px; }
-    .priority-item span { font-size:0.84rem; color:rgba(255,255,255,0.85); line-height:1.5; }
+/* RESULTS MATRIX */
+.results-matrix{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);overflow:hidden;margin-bottom:28px}
+.matrix-header{background:var(--navy);padding:14px 24px}
+.matrix-header h3{font-size:0.88rem;font-weight:700;color:white}
+.matrix-rows{padding:0}
+.matrix-row{display:grid;grid-template-columns:100px 1fr 200px;gap:0;border-bottom:1px solid var(--border)}
+.matrix-row:last-child{border-bottom:none}
+.matrix-range{padding:16px;font-size:1rem;font-weight:700;font-family:'Playfair Display',serif;display:flex;align-items:center;border-right:1px solid var(--border)}
+.range-pass{color:var(--success)}
+.range-conditional{color:var(--warn)}
+.range-fail{color:var(--danger)}
+.matrix-content{padding:14px 16px}
+.matrix-content h4{font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.matrix-content p{font-size:0.8rem;color:var(--text-muted);line-height:1.5;margin:0}
+.matrix-action{padding:14px 16px;border-left:1px solid var(--border);display:flex;align-items:center}
+.matrix-action p{font-size:0.78rem;color:var(--text-muted);line-height:1.5;margin:0}
 
-    /* SOURCES */
-    .sources { background:var(--light-bg); border-radius:8px; padding:20px 24px; margin:0 0 28px; border:1px solid var(--border); }
-    .sources h4 { font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; }
-    .sources ul { list-style:none; }
-    .sources ul li { font-size:0.78rem; color:var(--text-muted); padding:4px 0; border-bottom:1px solid var(--border); }
-    .sources ul li:last-child { border-bottom:none; }
-    .sources ul li a { color:var(--light-blue); text-decoration:none; }
+/* PRIORITY BOX */
+.priority-box{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:28px 32px;margin-bottom:28px}
+.priority-box h3{font-size:0.88rem;font-weight:700;color:white;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.priority-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.priority-item{display:flex;align-items:flex-start;gap:10px}
+.priority-item::before{content:'→';color:#93C5FD;font-weight:700;flex-shrink:0;margin-top:2px}
+.priority-item span{font-size:0.84rem;color:rgba(255,255,255,0.85);line-height:1.5}
 
-    /* CTA */
-    .article-cta { background:linear-gradient(135deg,var(--navy),var(--blue)); border-radius:10px; padding:36px; text-align:center; margin-bottom:48px; }
-    .article-cta h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:white; margin-bottom:10px; }
-    .article-cta p { font-size:0.88rem; color:rgba(255,255,255,0.78); margin-bottom:20px; }
-    .btn-cta { display:inline-flex; align-items:center; gap:8px; background:white; color:var(--blue); font-weight:700; font-size:0.88rem; padding:12px 24px; border-radius:6px; text-decoration:none; }
-    .btn-cta:hover { background:var(--light-bg); }
+/* SOURCES */
+.sources{background:var(--light-bg);border-radius:8px;padding:20px 24px;margin:0 0 28px;border:1px solid var(--border)}
+.sources h4{font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.sources ul{list-style:none}
+.sources ul li{font-size:0.78rem;color:var(--text-muted);padding:4px 0;border-bottom:1px solid var(--border)}
+.sources ul li:last-child{border-bottom:none}
+.sources ul li a{color:var(--light-blue);text-decoration:none}
 
-    /* FOOTER */
-    .site-footer { background:var(--navy); color:white; text-align:center; padding:40px 24px; }
-    .footer-tagline { font-size:0.92rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:12px; }
-    .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
-    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; }
-    .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+/* CTA */
+.article-cta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.article-cta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:white;margin-bottom:8px}
+.article-cta p{font-size:0.86rem;color:rgba(255,255,255,0.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue);font-weight:700;font-size:0.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-cta:hover{background:var(--light-bg)}
 
-    @media (max-width:700px) {
-      .hero h1 { font-size:1.8rem; }
-      .intro-body { padding:24px 18px; }
-      .how-grid { grid-template-columns:1fr; }
-      .score-key { grid-template-columns:repeat(2,1fr); }
-      .matrix-row { grid-template-columns:1fr; }
-      .matrix-range { border-right:none; border-bottom:1px solid var(--border); }
-      .matrix-action { border-left:none; border-top:1px solid var(--border); }
-      .priority-grid { grid-template-columns:1fr; }
-      .topnav { padding:0 16px; }
-      .nav-links a { padding:5px 8px; font-size:0.78rem; }
-    }
-    @media print {
-      .topnav, .btn-back, .article-cta, .site-footer { display:none; }
-      body { background:white; }
-      .scorecard-section, .results-matrix { box-shadow:none; border:1px solid #ccc; }
-    }
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
+/* FOOTER */
+.site-footer{background:var(--navy);color:white;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:0.9rem;color:rgba(255,255,255,0.9);font-weight:600;letter-spacing:0.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.78rem}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:0.73rem;color:rgba(255,255,255,0.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
 
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
+/* RESPONSIVE */
+@media(max-width:700px){
+  .hero h1{font-size:1.8rem}
+  .intro-card{padding:24px 18px}
+  .step-guide{grid-template-columns:repeat(2,1fr)}
+  .score-key{grid-template-columns:repeat(2,1fr)}
+  .matrix-row{grid-template-columns:1fr}
+  .matrix-range{border-right:none;border-bottom:1px solid var(--border)}
+  .matrix-action{border-left:none;border-top:1px solid var(--border)}
+  .priority-grid{grid-template-columns:1fr}
+  .topnav{padding:0 16px}
+  .nav-links a{padding:5px 8px;font-size:0.78rem}
+}
+@media print{
+  .topnav,.btn-back,.article-cta,.site-footer,.step-guide,.abstract-box,.intro-card{display:none}
+  body{background:white}
+  .scorecard-section,.results-matrix{box-shadow:none;border:1px solid #ccc}
+}
 
+/* HAMBURGER */
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:640px){
+  .topnav{padding:0 16px !important;position:relative}
+  .hamburger{display:flex !important}
+  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0 !important}
+  .nav-links.mobile-open{display:flex !important}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:0.92rem !important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0 !important;height:auto !important}
+  .nav-links a:last-child{border-bottom:none}
+  .lang-toggle{padding:10px 20px 4px}
+}
 </style>
 </head>
 <body>
@@ -251,7 +230,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_PASA_Scorecard.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/RC2_PASA_Scorecard-es.html" class="lang-btn inactive">ES</a>
@@ -271,14 +250,14 @@
     <div class="hero-meta">
       <span>RC2 Consulting</span>
       <span class="divider">|</span>
-      <span>February 2026</span>
+      <span>2026</span>
       <span class="divider">|</span>
-      <span>Printable Tool</span>
+      <span>12 Sections · 40 Items · Printable Tool</span>
     </div>
   </div>
 </section>
 
-<div class="article-wrap">
+<div class="page-wrap">
   <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Back to Resources</a>
 
   <div class="abstract-box">
@@ -286,59 +265,53 @@
     <p>The PASA Pre-Audit Self-Assessment is a structured scoring tool designed to give organizations an honest, scored picture of their audit readiness before a WRAP or equivalent social compliance audit is conducted. It is not a substitute for a professional compliance assessment — but it is the most important first step any organization can take in understanding where their risk is concentrated and where their preparation effort should be focused.</p>
   </div>
 
-  <div class="intro-body">
-    <h2>What Is the PASA Scorecard?</h2>
-    <p>The <strong>Pre-Audit Self-Assessment (PASA)</strong> is a facility-level readiness diagnostic built around the 12 core principles of the WRAP certification standard. Each principle is broken down into its most commonly audited components — documentation, systems, training, and physical compliance. Each component is scored on a 1–4 scale reflecting current readiness level.</p>
-    <p>The PASA does not replace a WRAP audit or a professional gap assessment. What it does is give facility managers, compliance officers, and leadership teams a structured, scored framework for understanding where gaps exist — and how significant those gaps are — before an external auditor arrives.</p>
-    <p>Organizations that conduct a PASA self-assessment and act on its findings before their formal audit consistently perform better — because they arrive at the audit having already identified and addressed their highest-risk areas.</p>
+  <div class="intro-card">
+    <p>The <strong>Pre-Audit Self-Assessment (PASA)</strong> is a facility-level readiness diagnostic built around the 12 core principles of the WRAP certification standard. Each principle is broken down into its most commonly audited components — documentation, systems, training, and physical compliance — scored on a 1–4 scale reflecting current readiness.</p>
+    <p>Organizations that conduct a PASA self-assessment and act on its findings before their formal audit consistently perform better — because they arrive at the audit having already identified and addressed their highest-risk areas. <strong>Score what exists and is verifiable today — not what you intend to do.</strong></p>
+  </div>
 
-    <h2>How to Use This Scorecard</h2>
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-num">1</div>
-        <p>Score each item honestly using the 1–4 scale. Do not score what you intend to do — score what exists and is verifiable today.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">2</div>
-        <p>Total each section. Record your section scores and calculate your overall PASA score out of 160 points.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">3</div>
-        <p>Use the results matrix to determine your readiness tier and identify which sections require immediate corrective action.</p>
-      </div>
+  <div class="step-guide">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-title">Score Honestly</div>
+      <div class="step-desc">Rate each item using the 1–4 scale. Score what exists today — not what you plan to do.</div>
     </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-title">Calculate Totals</div>
+      <div class="step-desc">Total each section. Calculate your overall PASA score out of 160 points.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-title">Review the Matrix</div>
+      <div class="step-desc">Use the results matrix to determine your readiness tier and identify critical sections.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-title">Prioritize &amp; Act</div>
+      <div class="step-desc">Target all items scored 1 or 2 for corrective action before your formal audit.</div>
+    </div>
+  </div>
 
-    <h2>Scoring Key</h2>
-    <div class="score-key">
-      <div class="key-item k4">
-        <div class="key-score">4</div>
-        <div class="key-label">Fully Compliant</div>
-        <div class="key-desc">Documented, current, verifiable</div>
-      </div>
-      <div class="key-item k3">
-        <div class="key-score">3</div>
-        <div class="key-label">Mostly Compliant</div>
-        <div class="key-desc">In place but minor gaps</div>
-      </div>
-      <div class="key-item k2">
-        <div class="key-score">2</div>
-        <div class="key-label">Partially Compliant</div>
-        <div class="key-desc">Exists but incomplete</div>
-      </div>
-      <div class="key-item k1">
-        <div class="key-score">1</div>
-        <div class="key-label">Not Compliant</div>
-        <div class="key-desc">Absent or unverifiable</div>
+  <!-- SCORING KEY -->
+  <div class="cap-block">
+    <div class="cap-block-header">
+      <h3>Scoring Key</h3>
+      <span>Score what is verifiable today — not what is planned</span>
+    </div>
+    <div class="cap-block-body">
+      <div class="score-key">
+        <div class="key-item k4"><div class="key-score">4</div><div class="key-label">Fully Compliant</div><div class="key-desc">Documented, current, verifiable</div></div>
+        <div class="key-item k3"><div class="key-score">3</div><div class="key-label">Mostly Compliant</div><div class="key-desc">In place but minor gaps</div></div>
+        <div class="key-item k2"><div class="key-score">2</div><div class="key-label">Partially Compliant</div><div class="key-desc">Exists but incomplete</div></div>
+        <div class="key-item k1"><div class="key-score">1</div><div class="key-label">Not Compliant</div><div class="key-desc">Absent or unverifiable</div></div>
       </div>
     </div>
   </div>
 
   <!-- SECTION 1 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 1 — Compliance With Laws & Workplace Regulations</span>
-      <span class="section-wrap-ref">WRAP Principle 1</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 1 — Compliance With Laws &amp; Workplace Regulations</span><span class="section-wrap-ref">WRAP Principle 1</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -348,18 +321,12 @@
         <tr><td class="item-num">1.4</td><td>Management accountability for legal compliance assigned in writing</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 1 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 1 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 2 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 2 — Prohibition of Forced Labor</span>
-      <span class="section-wrap-ref">WRAP Principle 2</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 2 — Prohibition of Forced Labor</span><span class="section-wrap-ref">WRAP Principle 2</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -369,18 +336,12 @@
         <tr><td class="item-num">2.4</td><td>Recruitment and hiring practices documented and reviewed for forced labor indicators</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 2 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 2 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 3 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 3 — Prohibition of Child Labor</span>
-      <span class="section-wrap-ref">WRAP Principle 3</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 3 — Prohibition of Child Labor</span><span class="section-wrap-ref">WRAP Principle 3</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -390,18 +351,12 @@
         <tr><td class="item-num">3.4</td><td>Remediation procedure documented for cases where underage employment is discovered</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 3 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 3 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 4 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 4 — Prohibition of Harassment & Abuse</span>
-      <span class="section-wrap-ref">WRAP Principle 4</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 4 — Prohibition of Harassment &amp; Abuse</span><span class="section-wrap-ref">WRAP Principle 4</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -411,18 +366,12 @@
         <tr><td class="item-num">4.4</td><td>Documented investigation and corrective action process for complaints</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 4 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 4 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 5 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 5 — Compensation & Benefits</span>
-      <span class="section-wrap-ref">WRAP Principle 5</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 5 — Compensation &amp; Benefits</span><span class="section-wrap-ref">WRAP Principle 5</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -432,18 +381,12 @@
         <tr><td class="item-num">5.4</td><td>Benefits provided per local legal requirements — documentation current and retrievable</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 5 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 5 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 6 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 6 — Hours of Work</span>
-      <span class="section-wrap-ref">WRAP Principle 6</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 6 — Hours of Work</span><span class="section-wrap-ref">WRAP Principle 6</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -453,18 +396,12 @@
         <tr><td class="item-num">6.4</td><td>Voluntary overtime confirmed — no evidence of coerced or mandatory excessive overtime</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 6 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 6 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 7 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 7 — Prohibition of Discrimination</span>
-      <span class="section-wrap-ref">WRAP Principle 7</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 7 — Prohibition of Discrimination</span><span class="section-wrap-ref">WRAP Principle 7</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -474,18 +411,12 @@
         <tr><td class="item-num">7.4</td><td>Mechanism for reporting discrimination complaints documented and accessible</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 7 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 7 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 8 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 8 — Health & Safety</span>
-      <span class="section-wrap-ref">WRAP Principle 8</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 8 — Health &amp; Safety</span><span class="section-wrap-ref">WRAP Principle 8</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -497,18 +428,12 @@
         <tr><td class="item-num">8.6</td><td>Chemical handling, PPE, and equipment safety documentation current</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 8 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 24</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 8 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 24</span></div></div>
   </div>
 
   <!-- SECTION 9 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 9 — Freedom of Association & Collective Bargaining</span>
-      <span class="section-wrap-ref">WRAP Principle 9</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 9 — Freedom of Association &amp; Collective Bargaining</span><span class="section-wrap-ref">WRAP Principle 9</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -518,18 +443,12 @@
         <tr><td class="item-num">9.4</td><td>Communication channels between management and workers documented and active</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 9 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 9 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 10 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 10 — Environment</span>
-      <span class="section-wrap-ref">WRAP Principle 10</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 10 — Environment</span><span class="section-wrap-ref">WRAP Principle 10</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -539,18 +458,12 @@
         <tr><td class="item-num">10.4</td><td>Environmental inspection records maintained and current</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 10 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 10 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 11 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 11 — Customs Compliance</span>
-      <span class="section-wrap-ref">WRAP Principle 11</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 11 — Customs Compliance</span><span class="section-wrap-ref">WRAP Principle 11</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -560,18 +473,12 @@
         <tr><td class="item-num">11.4</td><td>Staff responsible for customs compliance identified and trained</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 11 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 11 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 12 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Section 12 — Drug & Alcohol Policy</span>
-      <span class="section-wrap-ref">WRAP Principle 12</span>
-    </div>
+    <div class="section-header"><span class="section-title">Section 12 — Drug &amp; Alcohol Policy</span><span class="section-wrap-ref">WRAP Principle 12</span></div>
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
@@ -581,40 +488,26 @@
         <tr><td class="item-num">12.4</td><td>Enforcement and disciplinary procedure for violations documented</td><td class="score-cell"><div class="score-box"></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Section 12 Total</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Section 12 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- RESULTS MATRIX -->
   <div class="results-matrix">
-    <div class="matrix-header">
-      <h3>PASA Results Interpretation Matrix — Total Score Out of 160</h3>
-    </div>
+    <div class="matrix-header"><h3>PASA Results Interpretation Matrix — Total Score Out of 160</h3></div>
     <div class="matrix-rows">
       <div class="matrix-row">
         <div class="matrix-range"><span class="range-pass">136–160</span></div>
-        <div class="matrix-content">
-          <h4>Audit Ready</h4>
-          <p>Strong documentation and systems across all 12 principles. Minor gaps exist but do not represent material audit risk. Organization is prepared to enter the formal WRAP audit process.</p>
-        </div>
+        <div class="matrix-content"><h4>Audit Ready</h4><p>Strong documentation and systems across all 12 principles. Minor gaps exist but do not represent material audit risk. Organization is prepared to enter the formal WRAP audit process.</p></div>
         <div class="matrix-action"><p>Schedule WRAP pre-audit with registered monitor. Focus on closing remaining minor gaps before submission.</p></div>
       </div>
       <div class="matrix-row">
         <div class="matrix-range"><span class="range-conditional">100–135</span></div>
-        <div class="matrix-content">
-          <h4>Conditionally Ready</h4>
-          <p>Meaningful gaps exist in one or more sections. Documentation or systems deficiencies would likely generate audit findings. Additional preparation is required before formal audit.</p>
-        </div>
+        <div class="matrix-content"><h4>Conditionally Ready</h4><p>Meaningful gaps exist in one or more sections. Documentation or systems deficiencies would likely generate audit findings. Additional preparation is required before formal audit.</p></div>
         <div class="matrix-action"><p>Identify lowest-scoring sections. Build a 60–90 day corrective action plan targeting all items scored 1 or 2. Conduct follow-up PASA before proceeding.</p></div>
       </div>
       <div class="matrix-row">
         <div class="matrix-range"><span class="range-fail">Below 100</span></div>
-        <div class="matrix-content">
-          <h4>Not Ready — Significant Gaps</h4>
-          <p>Significant documentation, systems, or policy gaps across multiple sections. Proceeding to formal audit without remediation will result in failure and corrective action requirements.</p>
-        </div>
+        <div class="matrix-content"><h4>Not Ready — Significant Gaps</h4><p>Significant documentation, systems, or policy gaps across multiple sections. Proceeding to formal audit without remediation will result in failure and corrective action requirements.</p></div>
         <div class="matrix-action"><p>Engage professional compliance support. Build a structured 90–180 day remediation plan. Do not submit for formal audit until PASA score exceeds 120.</p></div>
       </div>
     </div>
@@ -624,7 +517,7 @@
   <div class="priority-box">
     <h3>Priority Action Areas — Where Most Facilities Score Lowest</h3>
     <div class="priority-grid">
-      <div class="priority-item"><span>Training records — health & safety, harassment, onboarding</span></div>
+      <div class="priority-item"><span>Training records — health &amp; safety, harassment, onboarding</span></div>
       <div class="priority-item"><span>Written policies — missing or undated in multiple sections</span></div>
       <div class="priority-item"><span>Payroll and hours documentation — gaps and inconsistencies</span></div>
       <div class="priority-item"><span>Emergency evacuation drill records — absent or outdated</span></div>
@@ -636,12 +529,12 @@
   </div>
 
   <div class="sources">
-    <h4>Sources & Standards Referenced</h4>
+    <h4>Sources &amp; Standards Referenced</h4>
     <ul>
-      <li>WRAP — 12 Principles Program Standards, Certification Criteria & Audit Protocols (2024) — <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
-      <li>International Labour Organization — Core Labour Standards Reference (2024) — <a href="https://www.ilo.org" target="_blank">ilo.org</a></li>
-      <li>U.S. Department of Labor — Bureau of International Labor Affairs, Social Compliance Audit Methodology (2024) — <a href="https://www.dol.gov/agencies/ilab" target="_blank">dol.gov/ilab</a></li>
-      <li>Social Accountability International — SA8000 Audit Criteria Cross-Reference (2023) — <a href="https://www.sa-intl.org" target="_blank">sa-intl.org</a></li>
+      <li>WRAP — 12 Principles Program Standards, Certification Criteria &amp; Audit Protocols (2024) — <a href="https://www.wrapcompliance.org" target="_blank" rel="noopener">wrapcompliance.org</a></li>
+      <li>International Labour Organization — Core Labour Standards Reference (2024) — <a href="https://www.ilo.org" target="_blank" rel="noopener">ilo.org</a></li>
+      <li>U.S. Department of Labor — Bureau of International Labor Affairs, Social Compliance Audit Methodology (2024) — <a href="https://www.dol.gov/agencies/ilab" target="_blank" rel="noopener">dol.gov/ilab</a></li>
+      <li>Social Accountability International — SA8000 Audit Criteria Cross-Reference (2023) — <a href="https://www.sa-intl.org" target="_blank" rel="noopener">sa-intl.org</a></li>
     </ul>
   </div>
 
@@ -650,6 +543,7 @@
     <p>The PASA is a powerful starting point. RC2 Consulting conducts structured pre-audit gap assessments that go deeper — identifying documentation gaps, policy deficiencies, and training system weaknesses with a corrective action plan built into the deliverable.</p>
     <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a Pre-Audit Assessment →</a>
   </div>
+
 </div>
 
 <footer class="site-footer">
@@ -666,31 +560,14 @@
   <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms.html">Terms of Service</a></div>
 </footer>
 
-
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
-  });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      nav.classList.remove('mobile-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
-      nav.classList.remove('mobile-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){var isOpen=nav.classList.toggle('mobile-open');btn.classList.toggle('open',isOpen);btn.setAttribute('aria-expanded',String(isOpen));});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
+  document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
 })();
 </script>
 </body>
