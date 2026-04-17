@@ -1,227 +1,172 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════
+  RC2 CONSTRUCTOR DE MARCO DE KPI (ES)
+  CAP-70 Phase 3 Tool #2 ES — 2026-04-17
+  Traducción ES del EN aprobado. Estructura idéntica.
+═══════════════════════════════════════════════════════════════════════════
+-->
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Constructor de Marco KPI | RC2 Consulting</title>
-  <meta property="og:title" content="Constructor de Marco KPI | RC2 Consulting">
-  <meta property="og:description" content="Constructor de Marco KPI. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_KPI_Tool-es.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Constructor de Marco KPI | RC2 Consulting">
-  <meta name="twitter:description" content="Constructor de Marco KPI. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta name="description" content="Construya y evalúe el marco de KPIs de su organización con el Constructor de Marco KPI de RC2 — herramienta interactiva gratuita."/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;
-      --gold:#C8922A;--gold-lt:#F0B429;
-      --bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;
-      --green:#1A7A4E;--gbg:#EBF7F2;--gbdr:#BBF7D0;
-      --yellow:#92400E;--ybg:#FFFBEB;--ybdr:#FDE68A;
-      --red:#9B1C1C;--rbg:#FEF2F2;--rbdr:#FECACA;
-    }
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-
-    /* NAV */
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s}
-    .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .nav-lang{display:flex;gap:4px}
-    .lang-btn{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.2);transition:all .2s}
-    .lang-btn:hover{color:white;border-color:rgba(255,255,255,.5)}
-    .lang-btn.active{color:white;background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4)}
-
-    /* HERO */
-    .hero{background:linear-gradient(to bottom, rgba(11,37,69,0.85) 0%, rgba(11,37,69,0.70) 100%), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80') center/cover no-repeat;padding:64px 40px 56px;position:relative;overflow:hidden}
-    /* hero ::before removed */
-    .hero-inner{max-width:1140px;margin:0 auto;position:relative;z-index:1}
-    .atag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.7);max-width:680px;line-height:1.7}
-
-    /* DASHBOARD */
-    .dash{background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:20px 40px}
-    .dash-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:20px;align-items:center}
-    .dash-stat{text-align:center}
-    .dash-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1}
-    .dash-lbl{font-size:.66rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
-    .dash-score-bar{background:rgba(255,255,255,.1);border-radius:20px;height:8px;margin-top:8px;overflow:hidden}
-    .dash-score-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#F0B429,#4ADE80);transition:width .6s ease}
-    .verdict-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;font-weight:700;font-size:.82rem;border:2px solid transparent;transition:all .4s}
-    .verdict-green{background:var(--gbg);color:var(--green);border-color:var(--gbdr)}
-    .verdict-yellow{background:var(--ybg);color:var(--yellow);border-color:var(--ybdr)}
-    .verdict-red{background:var(--rbg);color:var(--red);border-color:var(--rbdr)}
-    .verdict-navy{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.15)}
-
-    /* MAIN */
-    .main{max-width:1140px;margin:0 auto;padding:32px 40px 60px}
-    .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-
-    /* SECTION CARDS */
-    .sc{background:var(--w);border-radius:12px;border:1px solid var(--bdr);overflow:hidden;box-shadow:0 2px 10px rgba(11,37,69,.07)}
-    .sc-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--bdr)}
-    .sc-head-left{display:flex;align-items:center;gap:10px}
-    .sc-icon{font-size:1.2rem}
-    .sc-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--navy)}
-    .sc-subtitle{font-size:.72rem;color:var(--mu);margin-top:1px}
-    .sc-score-chip{font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:10px;transition:all .3s}
-    .chip-green{background:var(--gbg);color:var(--green);border:1px solid var(--gbdr)}
-    .chip-yellow{background:var(--ybg);color:var(--yellow);border:1px solid var(--ybdr)}
-    .chip-red{background:var(--rbg);color:var(--red);border:1px solid var(--rbdr)}
-    .chip-gray{background:var(--bg);color:var(--mu);border:1px solid var(--bdr)}
-
-    /* KPI ROWS */
-    .sc-body{padding:16px 20px;display:flex;flex-direction:column;gap:14px}
-    .kpi-row{display:flex;flex-direction:column;gap:6px}
-    .kpi-label{font-size:.8rem;font-weight:700;color:var(--txt)}
-    .kpi-label span{font-size:.72rem;font-weight:400;color:var(--mu);margin-left:6px}
-    .kpi-inputs{display:grid;grid-template-columns:1fr 90px 90px;gap:8px;align-items:center}
-    .kpi-name-input{font-size:.82rem;padding:7px 10px;border:1.5px solid var(--bdr);border-radius:6px;color:var(--navy);background:var(--bg);font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color .2s}
-    .kpi-name-input:focus{border-color:var(--lb);background:#fff}
-    .score-select{font-size:.8rem;padding:7px 8px;border:1.5px solid var(--bdr);border-radius:6px;color:var(--navy);background:var(--bg);font-family:'Source Sans 3',sans-serif;outline:none;cursor:pointer;transition:all .2s}
-    .score-select:focus{border-color:var(--lb)}
-    .score-select.s1{border-color:var(--rbdr);background:var(--rbg)}
-    .score-select.s2{border-color:#FCD34D;background:#FFFBEB}
-    .score-select.s3{border-color:#93C5FD;background:#EFF6FF}
-    .score-select.s4{border-color:#86EFAC;background:#F0FDF4}
-    .score-select.s5{border-color:var(--gbdr);background:var(--gbg)}
-    .kpi-hint{font-size:.72rem;color:var(--mu);line-height:1.45}
-    .divider{height:1px;background:var(--bdr)}
-
-    /* FULL WIDTH SECTION */
-    .sc-full{grid-column:1/-1}
-
-    /* ADD KPI BUTTON */
-    .add-kpi-btn{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:var(--lb);background:none;border:1.5px dashed #BFDBFE;border-radius:6px;padding:8px 14px;cursor:pointer;width:100%;justify-content:center;transition:all .2s;font-family:'Source Sans 3',sans-serif;margin-top:4px}
-    .add-kpi-btn:hover{background:#EFF6FF;border-color:var(--lb)}
-
-    /* RESULTS PANEL */
-    .results-panel{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:12px;padding:28px 32px;grid-column:1/-1;color:#fff}
-    .results-panel h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold-lt);margin-bottom:20px}
-    .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
-    .r-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:16px;text-align:center}
-    .r-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff}
-    .r-lbl{font-size:.66rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
-    .r-bar{background:rgba(255,255,255,.1);border-radius:10px;height:5px;margin-top:8px;overflow:hidden}
-    .r-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#F0B429,#4ADE80);transition:width .6s}
-
-    /* PRIORITY TABLE */
-    .priority-table{width:100%;border-collapse:collapse;margin-top:8px}
-    .priority-table th{font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);padding:8px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1)}
-    .priority-table td{font-size:.8rem;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.85);vertical-align:top}
-    .priority-table tr:last-child td{border-bottom:none}
-    .prio-badge{display:inline-block;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:8px}
-    .prio-high{background:#FEF2F2;color:#9B1C1C}
-    .prio-med{background:#FFFBEB;color:#92400E}
-
-    /* EXPORT / RESET */
-    .action-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-    .btn-export{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:6px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s}
-    .btn-export:hover{background:var(--gold-lt)}
-    .btn-reset{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.2);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s}
-    .btn-reset:hover{background:rgba(255,255,255,.15)}
-
-    /* INSTRUCTION BOX */
-    .instr{background:var(--w);border-radius:12px;border:1px solid var(--bdr);padding:20px 24px;margin-bottom:24px;grid-column:1/-1;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
-    .instr-step{display:flex;align-items:flex-start;gap:10px;flex:1;min-width:200px}
-    .instr-num{background:var(--navy);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;flex-shrink:0;margin-top:2px}
-    .instr-text strong{font-size:.82rem;color:var(--navy);display:block;margin-bottom:3px}
-    .instr-text p{font-size:.76rem;color:var(--mu);line-height:1.5}
-
-    /* FOOTER */
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem transition:color 0.2s; cursor:pointer; }
-    .fl a:hover { color:white; }
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-
-    @media(max-width:800px){
-      .tool-grid{grid-template-columns:1fr}
-      .hero,.main{padding-left:20px;padding-right:20px}
-      .dash{padding:16px 20px}
-      .dash-inner{grid-template-columns:1fr 1fr}
-      .results-grid{grid-template-columns:1fr 1fr}
-      .kpi-inputs{grid-template-columns:1fr 80px}
-      .topnav{padding:0 14px}
-      .nav-links a{font-size:.74rem;padding:5px 7px}
-    }
-    @media print{.topnav,.site-footer,.add-kpi-btn,.action-row,.instr{display:none}.hero{padding:20px}.main{padding:20px}}
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Constructor de Marco de KPI | RC2 Consulting</title>
+<meta property="og:title" content="Constructor de Marco de KPI | RC2 Consulting">
+<meta property="og:description" content="Evalúe su organización en 6 dominios de desempeño. Nombre sus KPIs, califique madurez e importancia, y obtenga puntuación compuesta en tiempo real. Gratis de RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_KPI_Tool-es.html">
+<meta property="og:type" content="website"><meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Constructor de Marco de KPI | RC2 Consulting">
+<meta name="twitter:description" content="Evalúe 6 dominios de desempeño y obtenga puntuación compuesta en tiempo real. Gratis de RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta name="description" content="Constructor de Marco de KPI interactivo y gratuito — evalúe su organización en 6 dominios de desempeño con puntuación compuesta en tiempo real y lista de acciones priorizadas."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B2545;--blue:#1A4A8A;--light-blue:#2563EB;
+  --accent:#C8922A;--accent-light:#F0B429;
+  --light-bg:#F4F6FA;--white:#FFFFFF;
+  --text:#1C2B3A;--text-muted:#4A5568;--border:#D1D9E6;
+  --green:#1A7A4E;--green-bg:#EBF7F2;--green-border:#BBF7D0;
+  --yellow:#92400E;--yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --red:#9B1C1C;--red-bg:#FEF2F2;--red-border:#FECACA;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var(--text);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,0.84) 0%,rgba(11,37,69,0.70) 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.92rem;color:rgba(255,255,255,.75);margin-bottom:16px;max-width:640px;line-height:1.6}
+.hero-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-meta span{font-size:.82rem;color:rgba(255,255,255,.6)}
+.hero-meta .divider{color:rgba(255,255,255,.3)}
+.dash{background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:20px 40px}
+.dash-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:20px;align-items:center}
+.dash-stat{text-align:center}
+.dash-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1}
+.dash-lbl{font-size:.66rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
+.dash-score-bar{background:rgba(255,255,255,.1);border-radius:20px;height:8px;margin-top:8px;overflow:hidden}
+.dash-score-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#F0B429,#4ADE80);transition:width .6s ease}
+.verdict-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;font-weight:700;font-size:.82rem;border:2px solid transparent;transition:all .4s}
+.verdict-green{background:var(--green-bg);color:var(--green);border-color:var(--green-border)}
+.verdict-yellow{background:var(--yellow-bg);color:var(--yellow);border-color:var(--yellow-border)}
+.verdict-red{background:var(--red-bg);color:var(--red);border-color:var(--red-border)}
+.verdict-navy{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.15)}
+.page-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--light-blue);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.btn-back:hover{color:var(--navy)}
+.abstract-box{background:var(--white);border-left:4px solid var(--light-blue);border-radius:0 8px 8px 0;padding:22px 26px;margin:36px 0 28px;box-shadow:0 2px 8px rgba(11,37,69,.07)}
+.abstract-box h3{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light-blue);margin-bottom:8px}
+.abstract-box p{font-size:.9rem;color:var(--text-muted);line-height:1.75;font-style:italic}
+.intro-card{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,.06);padding:36px 40px;margin-bottom:24px}
+.intro-card p{font-size:.91rem;color:var(--text-muted);line-height:1.8;margin-bottom:12px}
+.intro-card p strong{color:var(--navy)}
+.intro-card p:last-child{margin-bottom:0}
+.step-guide{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;box-shadow:0 1px 4px rgba(11,37,69,.05)}
+.step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--light-blue);line-height:1;margin-bottom:6px}
+.step-title{font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.step-desc{font-size:.74rem;color:var(--text-muted);line-height:1.5}
+.cap-block{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
+.cap-block-header{background:var(--navy);padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.cap-block-header h3{font-size:.85rem;font-weight:700;color:white;letter-spacing:.3px}
+.cap-block-header span{font-size:.7rem;color:rgba(255,255,255,.55)}
+.cap-block-body{padding:20px 24px}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sc{background:var(--white);border-radius:12px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 10px rgba(11,37,69,.07)}
+.sc-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)}
+.sc-head-left{display:flex;align-items:center;gap:10px}
+.sc-icon{font-size:1.2rem}
+.sc-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--navy)}
+.sc-subtitle{font-size:.72rem;color:var(--text-muted);margin-top:1px}
+.sc-score-chip{font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:10px;transition:all .3s}
+.chip-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.chip-yellow{background:var(--yellow-bg);color:var(--yellow);border:1px solid var(--yellow-border)}
+.chip-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.chip-gray{background:var(--light-bg);color:var(--text-muted);border:1px solid var(--border)}
+.sc-body{padding:16px 20px;display:flex;flex-direction:column;gap:14px}
+.kpi-row{display:flex;flex-direction:column;gap:6px}
+.kpi-label{font-size:.8rem;font-weight:700;color:var(--text)}
+.kpi-label span{font-size:.72rem;font-weight:400;color:var(--text-muted);margin-left:6px}
+.kpi-inputs{display:grid;grid-template-columns:1fr 90px 90px;gap:8px;align-items:center}
+.kpi-name-input{font-size:.82rem;padding:7px 10px;border:1.5px solid var(--border);border-radius:6px;color:var(--navy);background:var(--light-bg);font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color .2s}
+.kpi-name-input:focus{border-color:var(--light-blue);background:#fff}
+.score-select{font-size:.8rem;padding:7px 8px;border:1.5px solid var(--border);border-radius:6px;color:var(--navy);background:var(--light-bg);font-family:'Source Sans 3',sans-serif;outline:none;cursor:pointer;transition:all .2s}
+.score-select:focus{border-color:var(--light-blue)}
+.score-select.s1{border-color:var(--red-border);background:var(--red-bg)}
+.score-select.s2{border-color:#FCD34D;background:#FFFBEB}
+.score-select.s3{border-color:#93C5FD;background:#EFF6FF}
+.score-select.s4{border-color:#86EFAC;background:#F0FDF4}
+.score-select.s5{border-color:var(--green-border);background:var(--green-bg)}
+.divider{height:1px;background:var(--border)}
+.sc-full{grid-column:1/-1}
+.add-kpi-btn{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:var(--light-blue);background:none;border:1.5px dashed #BFDBFE;border-radius:6px;padding:8px 14px;cursor:pointer;width:100%;justify-content:center;transition:all .2s;font-family:'Source Sans 3',sans-serif;margin-top:4px}
+.add-kpi-btn:hover{background:#EFF6FF;border-color:var(--light-blue)}
+.results-panel{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:12px;padding:28px 32px;grid-column:1/-1;color:#fff}
+.results-panel h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--accent-light);margin-bottom:20px}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.r-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:16px;text-align:center}
+.r-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff}
+.r-lbl{font-size:.66rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
+.r-bar{background:rgba(255,255,255,.1);border-radius:10px;height:5px;margin-top:8px;overflow:hidden}
+.r-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#F0B429,#4ADE80);transition:width .6s}
+.priority-table{width:100%;border-collapse:collapse;margin-top:8px}
+.priority-table th{font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);padding:8px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1)}
+.priority-table td{font-size:.8rem;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.85);vertical-align:top}
+.priority-table tr:last-child td{border-bottom:none}
+.prio-badge{display:inline-block;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:8px}
+.prio-high{background:#FEF2F2;color:#9B1C1C}
+.prio-med{background:#FFFBEB;color:#92400E}
+.action-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn-export{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--navy);font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:6px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s}
+.btn-export:hover{background:var(--accent-light)}
+.btn-reset{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.2);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s}
+.btn-reset:hover{background:rgba(255,255,255,.15)}
+.sources{background:var(--light-bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--border)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources ul li{font-size:.77rem;color:var(--text-muted);padding:3px 0;border-bottom:1px solid var(--border)}
+.sources ul li:last-child{border-bottom:none}
+.sources ul li a{color:var(--light-blue);text-decoration:none}
+.article-cta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.article-cta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:white;margin-bottom:8px}
+.article-cta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-cta:hover{background:var(--light-bg)}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-copy a:hover{color:rgba(255,255,255,.9)}
+@media(max-width:800px){.tool-grid{grid-template-columns:1fr}.hero,.page-wrap{padding-left:20px;padding-right:20px}.dash{padding:16px 20px}.dash-inner{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:1fr 1fr}.kpi-inputs{grid-template-columns:1fr 80px}.topnav{padding:0 14px}.nav-links a{font-size:.74rem;padding:5px 7px}.step-guide{grid-template-columns:repeat(2,1fr)}}
+@media print{.topnav,.site-footer,.add-kpi-btn,.action-row,.abstract-box,.intro-card,.step-guide,.btn-back,.sources,.article-cta{display:none}.hero{padding:20px}.page-wrap{padding:20px}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:640px){.topnav{padding:0 16px !important;position:relative}.hamburger{display:flex !important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,.15);box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:200;gap:0 !important}.nav-links.mobile-open{display:flex !important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:.92rem !important;border-bottom:1px solid rgba(255,255,255,.07);border-radius:0 !important;height:auto !important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
@@ -239,32 +184,29 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="active">Recursos</a></li>
     <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
     <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_KPI_Tool.html" class="lang-btn inactive">EN</a>
         <a href="https://rc2consulting.github.io/RC2_KPI_Tool-es.html" class="lang-btn active">ES</a>
       </div>
     </li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+  <button class="hamburger" id="hamburger" aria-label="Alternar navegación" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Herramienta de Gestión del Desempeño</span>
-    <h1>Constructor de Marco KPI</h1>
-    <p class="hero-sub">Evalúe su organización en 6 dominios de desempeño. Nombre sus KPIs, califique su madurez actual y obtenga una puntuación compuesta en tiempo real, lista de acciones prioritarias y resumen exportable del marco — para cualquier industria.</p>
+    <span class="article-tag">Herramienta de Gestión del Desempeño</span>
+    <h1>Constructor de Marco de KPI</h1>
+    <p class="hero-sub">Evalúe su organización en 6 dominios de desempeño. Nombre sus KPIs, califique su madurez actual, y obtenga una puntuación compuesta en tiempo real, lista de acciones prioritarias y resumen exportable — para cualquier industria.</p>
     <div class="hero-meta">
-      <span>RC2 Consulting</span><span>|</span><span>2026</span><span>|</span><span>Interactivo — Puntuación en Tiempo Real</span>
+      <span>RC2 Consulting</span><span class="divider">|</span><span>2026</span><span class="divider">|</span><span>Interactivo — Puntuación en Tiempo Real</span>
     </div>
   </div>
 </section>
 
-<div class="back-wrap"><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">← Volver a Recursos</a></div>
-
-<!-- LIVE DASHBOARD -->
 <div class="dash">
   <div class="dash-inner">
     <div class="dash-stat">
@@ -281,405 +223,177 @@
       <div class="dash-lbl">Dominios Evaluados</div>
     </div>
     <div>
-      <div class="verdict-badge verdict-navy" id="d-verdict">⬜ Begin Assessment</div>
+      <div class="verdict-badge verdict-navy" id="d-verdict">Iniciar Evaluación</div>
     </div>
   </div>
 </div>
 
-<div class="main">
-  <div class="tool-grid">
+<div class="page-wrap">
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="btn-back">← Volver a Recursos</a>
 
-    <!-- INSTRUCTIONS -->
-    <div class="instr sc-full">
-      <div class="instr-step">
-        <div class="instr-num">1</div>
-        <div class="instr-text">
-          <strong>Nombre sus KPIs</strong>
-          <p>Escriba los nombres reales de las métricas que usa su organización (o deje los predeterminados). Agregue KPIs personalizados con el botón +.</p>
+  <div class="abstract-box">
+    <h3>Resumen Ejecutivo</h3>
+    <p>Una herramienta interactiva de puntuación del marco de KPI que cubre 6 dominios de desempeño organizacional — Financiero, Cliente, Operaciones, Cumplimiento, Personas y Estratégico. Nombre sus KPIs, califique su madurez actual e importancia estratégica, y obtenga una puntuación compuesta en tiempo real con una lista de acciones priorizadas que identifica dónde enfocarse primero.</p>
+  </div>
+
+  <div class="intro-card">
+    <p>Para cada uno de los 6 dominios, califique sus KPIs actuales en una escala de madurez de 5 puntos (1=No Medido → 5=Completamente Optimizado) y su Importancia Estratégica (1–5). La herramienta calcula una puntuación compuesta ponderada e identifica las brechas de mayor prioridad — los KPIs donde la baja madurez se combina con alta importancia estratégica.</p>
+    <p><strong>Puede renombrar cualquier KPI para que coincida con lo que su organización realmente rastrea,</strong> y agregar KPIs personalizados usando el botón + en cada dominio. Use Exportar Resumen para crear un marco imprimible para su equipo directivo o asesor de operaciones.</p>
+  </div>
+
+  <div class="step-guide">
+    <div class="step-card"><div class="step-num">1</div><div class="step-title">Nombre sus KPIs</div><div class="step-desc">Escriba los nombres de métricas que su organización usa, o deje los valores predeterminados.</div></div>
+    <div class="step-card"><div class="step-num">2</div><div class="step-title">Evalúe el Estado Actual</div><div class="step-desc">Califique Madurez Actual (1–5) e Importancia Estratégica (1–5) para cada KPI.</div></div>
+    <div class="step-card"><div class="step-num">3</div><div class="step-title">Revise los Resultados</div><div class="step-desc">La puntuación compuesta, dominios y lista de acciones se actualizan en tiempo real.</div></div>
+    <div class="step-card"><div class="step-num">4</div><div class="step-title">Exporte el Resumen</div><div class="step-desc">Haga clic en Exportar Resumen para un marco imprimible para compartir con su equipo.</div></div>
+  </div>
+
+  <div class="cap-block">
+    <div class="cap-block-header">
+      <h3>Marco de KPI — Evalúe 6 Dominios de Desempeño</h3>
+      <span>Madurez 1–5 · Importancia 1–5</span>
+    </div>
+    <div class="cap-block-body">
+      <div class="tool-grid">
+
+        <!-- DOMINIO 1: FINANCIERO -->
+        <div class="sc" id="domain-financial">
+          <div class="sc-head"><div class="sc-head-left"><span class="sc-icon">💰</span><div><div class="sc-title">Desempeño Financiero</div><div class="sc-subtitle">Rentabilidad · Crecimiento · Eficiencia</div></div></div><span class="sc-score-chip chip-gray" id="chip-financial">–</span></div>
+          <div class="sc-body" id="body-financial">
+            <div class="kpi-row"><div class="kpi-label">Tasa de Crecimiento de Ingresos <span>% de aumento interanual en ingresos</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Crecimiento de Ingresos" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Margen Bruto / Operativo <span>% de beneficio después de costos directos</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Margen Bruto %" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Flujo de Caja Operativo <span>Efectivo generado por operaciones principales</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Flujo de Caja Operativo" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Días de Cuentas por Cobrar <span>Días promedio para cobrar el pago</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Días de Cartera Pendiente" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+          </div>
+          <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-financial','financial')">+ Agregar KPI Financiero</button></div>
         </div>
-      </div>
-      <div class="instr-step">
-        <div class="instr-num">2</div>
-        <div class="instr-text">
-          <strong>Califique el Estado Actual</strong>
-          <p>Para cada KPI, califique la Madurez Actual (1=No Medido → 5=Totalmente Optimizado) y la Importancia Estratégica (1–5).</p>
+
+        <!-- DOMINIO 2: CLIENTE -->
+        <div class="sc" id="domain-customer">
+          <div class="sc-head"><div class="sc-head-left"><span class="sc-icon">🤝</span><div><div class="sc-title">Desempeño del Cliente</div><div class="sc-subtitle">Satisfacción · Retención · Adquisición</div></div></div><span class="sc-score-chip chip-gray" id="chip-customer">–</span></div>
+          <div class="sc-body" id="body-customer">
+            <div class="kpi-row"><div class="kpi-label">Tasa de Retención de Clientes <span>% de clientes retenidos período a período</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Retención de Clientes" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Net Promoter Score (NPS) <span>Lealtad del cliente y probabilidad de recomendación</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Net Promoter Score" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Costo de Adquisición de Clientes <span>Costo total para adquirir un nuevo cliente</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Costo de Adquisición de Clientes" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tasa de Resolución de Quejas <span>% de quejas resueltas dentro del SLA</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Resolución de Quejas" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+          </div>
+          <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-customer','customer')">+ Agregar KPI del Cliente</button></div>
         </div>
-      </div>
-      <div class="instr-step">
-        <div class="instr-num">3</div>
-        <div class="instr-text">
-          <strong>Revise los Resultados</strong>
-          <p>Su puntuación compuesta, puntuaciones por dominio y lista de acciones prioritarias se actualizan en tiempo real mientras completa la evaluación.</p>
+
+        <!-- DOMINIO 3: OPERACIONES -->
+        <div class="sc" id="domain-operations">
+          <div class="sc-head"><div class="sc-head-left"><span class="sc-icon">⚙️</span><div><div class="sc-title">Operaciones y Calidad</div><div class="sc-subtitle">Eficiencia · Calidad · Entrega</div></div></div><span class="sc-score-chip chip-gray" id="chip-operations">–</span></div>
+          <div class="sc-body" id="body-operations">
+            <div class="kpi-row"><div class="kpi-label">Tasa de Entrega a Tiempo <span>% de pedidos entregados en la fecha comprometida</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Entrega a Tiempo" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Rendimiento de Primera Pasada <span>% de producción que cumple especificación a la primera</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Rendimiento de Primera Pasada" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Utilización de Capacidad <span>% de capacidad disponible siendo utilizada</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Utilización de Capacidad" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tiempo de Ciclo / Tiempo de Entrega <span>Tiempo desde recepción del pedido hasta entrega</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tiempo de Ciclo Pedido-Entrega" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+          </div>
+          <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-operations','operations')">+ Agregar KPI de Operaciones</button></div>
         </div>
-      </div>
-      <div class="instr-step">
-        <div class="instr-num">4</div>
-        <div class="instr-text">
-          <strong>Exportar Resumen</strong>
-          <p>Haga clic en "Exportar Resumen" para abrir una versión imprimible del marco KPI para su equipo o asesor.</p>
+
+        <!-- DOMINIO 4: CUMPLIMIENTO -->
+        <div class="sc" id="domain-compliance">
+          <div class="sc-head"><div class="sc-head-left"><span class="sc-icon">🛡️</span><div><div class="sc-title">Cumplimiento y Riesgo</div><div class="sc-subtitle">Auditoría · Regulatorio · Documentación</div></div></div><span class="sc-score-chip chip-gray" id="chip-compliance">–</span></div>
+          <div class="sc-body" id="body-compliance">
+            <div class="kpi-row"><div class="kpi-label">Tasa de Cierre de Hallazgos de Auditoría <span>% de hallazgos cerrados en 30 días</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Cierre de Hallazgos" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tasa de Finalización de Capacitación <span>% del personal que completa la capacitación requerida a tiempo</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Finalización de Capacitación" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tasa de Cumplimiento de Políticas <span>% de procesos siguiendo la política documentada</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Cumplimiento de Políticas" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tasa de Reporte de Incidentes / Casi-Incidentes <span>Documentación de eventos de seguridad y riesgo</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Reporte de Incidentes" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+          </div>
+          <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-compliance','compliance')">+ Agregar KPI de Cumplimiento</button></div>
         </div>
+
+        <!-- DOMINIO 5: PERSONAS -->
+        <div class="sc" id="domain-people">
+          <div class="sc-head"><div class="sc-head-left"><span class="sc-icon">👥</span><div><div class="sc-title">Personas y Cultura</div><div class="sc-subtitle">Talento · Compromiso · Desarrollo</div></div></div><span class="sc-score-chip chip-gray" id="chip-people">–</span></div>
+          <div class="sc-body" id="body-people">
+            <div class="kpi-row"><div class="kpi-label">Tasa de Rotación de Empleados <span>% de la fuerza laboral que se va anualmente</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Rotación de Empleados" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Puntuación de Compromiso del Empleado <span>Índice de compromiso/satisfacción basado en encuestas</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Puntuación de Compromiso del Empleado" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tiempo para Cubrir Vacantes <span>Días desde la publicación del puesto hasta oferta aceptada</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tiempo para Cubrir Vacantes" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tasa de Ausentismo <span>% de días laborales programados perdidos</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Ausentismo" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+          </div>
+          <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-people','people')">+ Agregar KPI de Personas</button></div>
+        </div>
+
+        <!-- DOMINIO 6: ESTRATÉGICO -->
+        <div class="sc" id="domain-strategic">
+          <div class="sc-head"><div class="sc-head-left"><span class="sc-icon">🎯</span><div><div class="sc-title">Estrategia y Crecimiento</div><div class="sc-subtitle">Innovación · Mercado · Cartera</div></div></div><span class="sc-score-chip chip-gray" id="chip-strategic">–</span></div>
+          <div class="sc-body" id="body-strategic">
+            <div class="kpi-row"><div class="kpi-label">Ratio de Cobertura del Embudo de Ventas <span>Valor del embudo ÷ cuota (indicador anticipado)</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Ratio de Cobertura del Embudo" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">% de Ingresos de Nuevos Mercados / Canales <span>% de ingresos de nuevos mercados o canales</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="% Ingresos de Nuevos Mercados" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tasa de Finalización de Iniciativas Estratégicas <span>% de proyectos estratégicos a tiempo y dentro del presupuesto</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Finalización de Iniciativas Estratégicas" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+            <div class="divider"></div>
+            <div class="kpi-row"><div class="kpi-label">Tasa de Cierre / Conversión de Propuestas <span>% de propuestas convertidas en contratos</span></div><div class="kpi-inputs"><input class="kpi-name-input" type="text" value="Tasa de Cierre" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>
+          </div>
+          <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-strategic','strategic')">+ Agregar KPI Estratégico</button></div>
+        </div>
+
+        <!-- PANEL DE RESULTADOS -->
+        <div class="results-panel sc-full" id="results-panel">
+          <h2>📊 Resultados de la Evaluación del Marco</h2>
+          <div class="results-grid">
+            <div class="r-card"><div class="r-val" id="r-financial">–</div><div class="r-lbl">Financiero</div><div class="r-bar"><div class="r-fill" id="rf-financial" style="width:0%"></div></div></div>
+            <div class="r-card"><div class="r-val" id="r-customer">–</div><div class="r-lbl">Cliente</div><div class="r-bar"><div class="r-fill" id="rf-customer" style="width:0%"></div></div></div>
+            <div class="r-card"><div class="r-val" id="r-operations">–</div><div class="r-lbl">Operaciones</div><div class="r-bar"><div class="r-fill" id="rf-operations" style="width:0%"></div></div></div>
+            <div class="r-card"><div class="r-val" id="r-compliance">–</div><div class="r-lbl">Cumplimiento</div><div class="r-bar"><div class="r-fill" id="rf-compliance" style="width:0%"></div></div></div>
+            <div class="r-card"><div class="r-val" id="r-people">–</div><div class="r-lbl">Personas</div><div class="r-bar"><div class="r-fill" id="rf-people" style="width:0%"></div></div></div>
+            <div class="r-card"><div class="r-val" id="r-strategic">–</div><div class="r-lbl">Estratégico</div><div class="r-bar"><div class="r-fill" id="rf-strategic" style="width:0%"></div></div></div>
+            <div class="r-card" style="grid-column:span 2"><div class="r-val" id="r-overall">–</div><div class="r-lbl">Compuesto General</div><div class="r-bar"><div class="r-fill" id="rf-overall" style="width:0%"></div></div></div>
+            <div class="r-card" style="grid-column:span 2"><div class="r-val" id="r-kpi-count">–</div><div class="r-lbl">KPIs Evaluados</div></div>
+          </div>
+          <h2 style="font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px">Acciones Prioritarias — Alta Importancia, Baja Madurez</h2>
+          <table class="priority-table" id="priority-table">
+            <thead><tr><th>Nombre del KPI</th><th>Dominio</th><th>Madurez</th><th>Importancia</th><th>Prioridad</th></tr></thead>
+            <tbody id="priority-body"><tr><td colspan="5" style="color:rgba(255,255,255,.4);font-style:italic">Complete la evaluación anterior para ver las acciones prioritarias</td></tr></tbody>
+          </table>
+          <div class="action-row">
+            <button class="btn-export" onclick="exportSummary()">Exportar Resumen (Imprimir)</button>
+            <button class="btn-reset" onclick="resetAll()">↺ Restablecer Todo</button>
+          </div>
+        </div>
+
       </div>
     </div>
+  </div>
 
-    <!-- DOMAIN 1: FINANCIAL -->
-    <div class="sc" id="domain-financial">
-      <div class="sc-head">
-        <div class="sc-head-left">
-          <span class="sc-icon">💰</span>
-          <div>
-            <div class="sc-title">Desempeño Financiero</div>
-            <div class="sc-subtitle">Rentabilidad · Crecimiento · Eficiencia</div>
-          </div>
-        </div>
-        <span class="sc-score-chip chip-gray" id="chip-financial">–</span>
-      </div>
-      <div class="sc-body" id="body-financial">
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Crecimiento de Ingresos <span>% de aumento interanual en ingresos</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Crecimiento de Ingresos" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()" title="Madurez Actual (1=No Medido, 5=Totalmente Optimizado)">
-              <option value="0">Madurez</option>
-              <option value="1">1 – No Medido</option>
-              <option value="2">2 – Ad Hoc</option>
-              <option value="3">3 – Definido</option>
-              <option value="4">4 – Gestionado</option>
-              <option value="5">5 – Optimizado</option>
-            </select>
-            <select class="score-select" onchange="styleSelect(this);calc()" title="Importancia Estratégica (1=Baja, 5=Crítica)">
-              <option value="0">Importancia</option>
-              <option value="1">1 – Baja</option>
-              <option value="2">2 – Moderada</option>
-              <option value="3">3 – Importante</option>
-              <option value="4">4 – Alta</option>
-              <option value="5">5 – Crítica</option>
-            </select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Margen Bruto / Operativo <span>% de ganancia después de costos directos</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Margen Bruto %" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Flujo de Caja Operativo <span>Efectivo generado por operaciones principales</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Flujo de Caja Operativo" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Días de Cuentas por Cobrar <span>Días promedio para cobrar pagos</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Días de CxC Pendientes" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-      </div>
-      <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-financial','financial')">+ Agregar KPI Financiero</button></div>
-    </div>
+  <div class="sources">
+    <h4>Metodología y Referencias</h4>
+    <ul>
+      <li>Kaplan, R.S. &amp; Norton, D.P. — El Cuadro de Mando Integral: Traduciendo la Estrategia en Acción (Harvard Business Review Press, 1996)</li>
+      <li>MIT Sloan Management Review — Diseño de KPI y Medición del Desempeño Organizacional (2024)</li>
+      <li>Gartner — Benchmarks de Gestión del Desempeño y Marcos de KPI para Organizaciones del Mercado Medio (2024)</li>
+      <li>APQC — Benchmarking de Estándares Abiertos — Marco de Clasificación de Procesos (2024) — <a href="https://www.apqc.org" target="_blank" rel="noopener">apqc.org</a></li>
+    </ul>
+  </div>
 
-    <!-- DOMAIN 2: CUSTOMER -->
-    <div class="sc" id="domain-customer">
-      <div class="sc-head">
-        <div class="sc-head-left">
-          <span class="sc-icon">🤝</span>
-          <div>
-            <div class="sc-title">Desempeño del Cliente</div>
-            <div class="sc-subtitle">Satisfacción · Retención · Adquisición</div>
-          </div>
-        </div>
-        <span class="sc-score-chip chip-gray" id="chip-customer">–</span>
-      </div>
-      <div class="sc-body" id="body-customer">
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Retención de Clientes <span>% clientes retenidos período a período</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Retención de Clientes" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Net Promoter Score (NPS) <span>Lealtad del cliente y probabilidad de referencia</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Net Promoter Score" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Costo de Adquisición de Clientes <span>Costo total para adquirir un nuevo cliente</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Costo de Adquisición de Clientes" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Resolución de Quejas <span>% quejas resueltas dentro del SLA</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Resolución de Quejas" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-      </div>
-      <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-customer','customer')">+ Agregar KPI de Cliente</button></div>
-    </div>
+  <div class="article-cta">
+    <h3>¿Listo para Construir su Marco de KPI?</h3>
+    <p>RC2 Consulting diseña e implementa sistemas de KPI que conectan sus métricas operativas con los resultados estratégicos — desde la selección de métricas hasta el despliegue del tablero y las estructuras de responsabilidad del equipo.</p>
+    <a class="btn-cta" href="https://rc2consulting.github.io/contact-es.html">Programe una Revisión del Marco de KPI →</a>
+  </div>
 
-    <!-- DOMAIN 3: OPERATIONS -->
-    <div class="sc" id="domain-operations">
-      <div class="sc-head">
-        <div class="sc-head-left">
-          <span class="sc-icon">⚙️</span>
-          <div>
-            <div class="sc-title">Operaciones y Calidad</div>
-            <div class="sc-subtitle">Eficiencia · Calidad · Entrega</div>
-          </div>
-        </div>
-        <span class="sc-score-chip chip-gray" id="chip-operations">–</span>
-      </div>
-      <div class="sc-body" id="body-operations">
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Entrega a Tiempo <span>% pedidos entregados en fecha comprometida</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Entrega a Tiempo" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Rendimiento de Primera Pasada <span>% producción que cumple calidad a la primera</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Rendimiento de Primera Pasada" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Utilización de Capacidad <span>% de capacidad disponible en uso</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Utilización de Capacidad" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tiempo de Ciclo / Lead Time <span>Tiempo desde recepción de pedido hasta entrega</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tiempo de Ciclo Pedido-Entrega" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-      </div>
-      <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-operations','operations')">+ Agregar KPI de Operaciones</button></div>
-    </div>
-
-    <!-- DOMAIN 4: COMPLIANCE -->
-    <div class="sc" id="domain-compliance">
-      <div class="sc-head">
-        <div class="sc-head-left">
-          <span class="sc-icon">🛡️</span>
-          <div>
-            <div class="sc-title">Cumplimiento y Riesgo</div>
-            <div class="sc-subtitle">Auditoría · Regulatorio · Documentación</div>
-          </div>
-        </div>
-        <span class="sc-score-chip chip-gray" id="chip-compliance">–</span>
-      </div>
-      <div class="sc-body" id="body-compliance">
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Cierre de Hallazgos <span>% hallazgos cerrados en 30 días</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Cierre de Hallazgos" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Completación de Capacitación <span>% personal que completa capacitación requerida a tiempo</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Capacitación Completada" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Cumplimiento de Políticas <span>% procesos que siguen la política documentada</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Cumplimiento de Políticas" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Reporte de Incidentes <span>Documentación de eventos de seguridad y riesgo</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Reporte de Incidentes" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-      </div>
-      <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-compliance','compliance')">+ Agregar KPI de Cumplimiento</button></div>
-    </div>
-
-    <!-- DOMAIN 5: PEOPLE -->
-    <div class="sc" id="domain-people">
-      <div class="sc-head">
-        <div class="sc-head-left">
-          <span class="sc-icon">👥</span>
-          <div>
-            <div class="sc-title">Personas y Cultura</div>
-            <div class="sc-subtitle">Talento · Compromiso · Desarrollo</div>
-          </div>
-        </div>
-        <span class="sc-score-chip chip-gray" id="chip-people">–</span>
-      </div>
-      <div class="sc-body" id="body-people">
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Rotación de Personal <span>% fuerza laboral que sale anualmente</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Rotación Anual" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Puntuación de Compromiso <span>Índice de compromiso/satisfacción basado en encuestas</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Puntuación de Compromiso" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tiempo para Cubrir Posiciones <span>Días desde publicación hasta oferta aceptada</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tiempo para Cubrir" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Ausentismo <span>% días laborales programados no trabajados</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Ausentismo" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-      </div>
-      <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-people','people')">+ Agregar KPI de Personas</button></div>
-    </div>
-
-    <!-- DOMAIN 6: STRATEGIC / GROWTH -->
-    <div class="sc" id="domain-strategic">
-      <div class="sc-head">
-        <div class="sc-head-left">
-          <span class="sc-icon">🎯</span>
-          <div>
-            <div class="sc-title">Estrategia y Crecimiento</div>
-            <div class="sc-subtitle">Innovación · Mercado · Pipeline</div>
-          </div>
-        </div>
-        <span class="sc-score-chip chip-gray" id="chip-strategic">–</span>
-      </div>
-      <div class="sc-body" id="body-strategic">
-        <div class="kpi-row">
-          <div class="kpi-label">Ratio de Cobertura del Pipeline <span>Valor del pipeline ÷ cuota (indicador anticipado)</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Ratio de Cobertura del Pipeline" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">% Ingresos de Nuevos Mercados <span>% ingresos de nuevos mercados o canales</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="% Ingresos Nuevos Mercados" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Completación de Iniciativas <span>% proyectos estratégicos a tiempo y presupuesto</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Completación de Iniciativas Estratégicas" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="kpi-row">
-          <div class="kpi-label">Tasa de Conversión de Propuestas <span>% propuestas convertidas en contratos</span></div>
-          <div class="kpi-inputs">
-            <input class="kpi-name-input" type="text" value="Tasa de Conversión de Propuestas" oninput="calc()"/>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-            <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-          </div>
-        </div>
-      </div>
-      <div style="padding:0 20px 14px"><button class="add-kpi-btn" onclick="addKpi('body-strategic','strategic')">+ Agregar KPI Estratégico</button></div>
-    </div>
-
-    <!-- RESULTS PANEL -->
-    <div class="results-panel" id="results-panel">
-      <h2>📊 Resultados de la Evaluación del Marco</h2>
-      <div class="results-grid" id="results-grid">
-        <div class="r-card"><div class="r-val" id="r-financial">–</div><div class="r-lbl">Financiero</div><div class="r-bar"><div class="r-fill" id="rf-financial" style="width:0%"></div></div></div>
-        <div class="r-card"><div class="r-val" id="r-customer">–</div><div class="r-lbl">Cliente</div><div class="r-bar"><div class="r-fill" id="rf-customer" style="width:0%"></div></div></div>
-        <div class="r-card"><div class="r-val" id="r-operations">–</div><div class="r-lbl">Operaciones</div><div class="r-bar"><div class="r-fill" id="rf-operations" style="width:0%"></div></div></div>
-        <div class="r-card"><div class="r-val" id="r-compliance">–</div><div class="r-lbl">Cumplimiento</div><div class="r-bar"><div class="r-fill" id="rf-compliance" style="width:0%"></div></div></div>
-        <div class="r-card"><div class="r-val" id="r-people">–</div><div class="r-lbl">Personas</div><div class="r-bar"><div class="r-fill" id="rf-people" style="width:0%"></div></div></div>
-        <div class="r-card"><div class="r-val" id="r-strategic">–</div><div class="r-lbl">Estrategia</div><div class="r-bar"><div class="r-fill" id="rf-strategic" style="width:0%"></div></div></div>
-        <div class="r-card" style="grid-column:span 2"><div class="r-val" id="r-total" style="font-size:2.2rem">–</div><div class="r-lbl">Compuesto General</div><div class="r-bar"><div class="r-fill" id="rf-total" style="width:0%"></div></div></div>
-        <div class="r-card" style="grid-column:span 2"><div class="r-val" id="r-kpis" style="font-size:2.2rem">–</div><div class="r-lbl">KPIs Evaluados</div></div>
-      </div>
-
-      <div style="margin-top:4px">
-        <div style="font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px">🔴 Acciones Prioritarias — Alta Importancia, Baja Madurez</div>
-        <table class="priority-table" id="priority-table">
-          <thead><tr><th>Nombre del KPI</th><th>Dominio</th><th>Maturity</th><th>Importance</th><th>Prioridad</th></tr></thead>
-          <tbody id="priority-body"><tr><td colspan="5" style="color:rgba(255,255,255,.4);font-style:italic">Complete la evaluación para ver las acciones prioritarias</td></tr></tbody>
-        </table>
-      </div>
-
-      <div class="action-row">
-        <button class="btn-export" onclick="exportSummary()">📄 Exportar Resumen (Imprimir)</button>
-        <button class="btn-reset" onclick="resetAll()">↺ Reiniciar Todo</button>
-      </div>
-    </div>
-
-  </div><!-- end tool-grid -->
-</div><!-- end main -->
+</div>
 
 <footer class="site-footer">
-  <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-tagline">Claridad Operativa. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
   <div class="footer-links">
     <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
     <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
@@ -693,166 +407,81 @@
 </footer>
 
 <script>
-const DOMAINS = ['financial','customer','operations','compliance','people','strategic'];
-const DOMAIN_LABELS = {financial:'Financiero',customer:'Cliente',operations:'Operaciones',compliance:'Cumplimiento',people:'Personas',strategic:'Estrategia'};
+const domains=['financial','customer','operations','compliance','people','strategic'];
+const domainLabels={financial:'Financiero',customer:'Cliente',operations:'Operaciones',compliance:'Cumplimiento',people:'Personas',strategic:'Estratégico'};
 
-function styleSelect(sel){
-  const v = parseInt(sel.value);
-  sel.className = 'score-select' + (v ? ' s'+v : '');
-}
+function styleSelect(el){el.className='score-select';const v=parseInt(el.value);if(v>=1&&v<=5)el.classList.add('s'+v);}
 
-function getDomainData(domainId){
-  const body = document.getElementById('body-'+domainId);
-  const rows = body.querySelectorAll('.kpi-row');
-  let totalScore=0, totalWeight=0, count=0, items=[];
+function getDomainData(domId){
+  const body=document.getElementById('body-'+domId);
+  const rows=body.querySelectorAll('.kpi-inputs');
+  let scores=[],total=0,count=0;
   rows.forEach(row=>{
-    const nameEl = row.querySelector('.kpi-name-input');
-    const selects = row.querySelectorAll('.score-select');
-    if(selects.length < 2) return;
-    const m = parseInt(selects[0].value)||0;
-    const imp = parseInt(selects[1].value)||0;
-    if(m===0 && imp===0) return;
-    const name = nameEl ? nameEl.value : '';
-    count++;
-    totalScore += m * imp;
-    totalWeight += 5 * imp; // max possible for this item
-    if(imp>0) items.push({name, domain:DOMAIN_LABELS[domainId], maturity:m, importance:imp, score:m*imp, maxScore:5*imp});
+    const sels=row.querySelectorAll('.score-select');
+    const mat=parseInt(sels[0].value)||0;
+    const imp=parseInt(sels[1].value)||0;
+    const name=row.previousElementSibling?.querySelector('.kpi-name-input')?.value||'';
+    if(mat>0&&imp>0){const weighted=mat*imp;scores.push({name,mat,imp,weighted,domId});total+=weighted;count++;}
   });
-  const pct = totalWeight>0 ? Math.round((totalScore/totalWeight)*100) : 0;
-  return {pct, count, items};
+  const maxPossible=count*25;
+  const pct=maxPossible>0?Math.round((total/maxPossible)*100):0;
+  return{scores,total,count,pct};
 }
 
 function calc(){
-  let totalPct=0, domainsActive=0, allItems=[], totalKPIs=0;
-
-  DOMAINS.forEach(d=>{
-    const {pct,count,items} = getDomainData(d);
-    totalKPIs += count;
-    if(count>0){
-      domainsActive++;
-      totalPct += pct;
+  let allScores=[],totalDomains=0,domainPcts={},totalKpis=0;
+  domains.forEach(d=>{
+    const data=getDomainData(d);
+    totalKpis+=data.count;
+    if(data.count>0){
+      totalDomains++;domainPcts[d]=data.pct;allScores=allScores.concat(data.scores);
+      const chip=document.getElementById('chip-'+d);
+      chip.textContent=data.pct+'%';
+      chip.className='sc-score-chip '+(data.pct>=70?'chip-green':data.pct>=40?'chip-yellow':'chip-red');
+      const rv=document.getElementById('r-'+d);const rf=document.getElementById('rf-'+d);
+      if(rv)rv.textContent=data.pct+'%';if(rf)rf.style.width=data.pct+'%';
+    }else{
+      const chip=document.getElementById('chip-'+d);chip.textContent='–';chip.className='sc-score-chip chip-gray';
+      const rv=document.getElementById('r-'+d);const rf=document.getElementById('rf-'+d);
+      if(rv)rv.textContent='–';if(rf)rf.style.width='0%';
     }
-    allItems = allItems.concat(items);
-
-    // domain score chip
-    const chip = document.getElementById('chip-'+d);
-    if(count===0){chip.textContent='–';chip.className='sc-score-chip chip-gray';}
-    else if(pct>=70){chip.textContent=pct+'%';chip.className='sc-score-chip chip-green';}
-    else if(pct>=45){chip.textContent=pct+'%';chip.className='sc-score-chip chip-yellow';}
-    else{chip.textContent=pct+'%';chip.className='sc-score-chip chip-red';}
-
-    // results panel
-    const rv = document.getElementById('r-'+d);
-    const rf = document.getElementById('rf-'+d);
-    if(rv) rv.textContent = count>0 ? pct+'%' : '–';
-    if(rf) rf.style.width = pct+'%';
   });
-
-  const composite = domainsActive>0 ? Math.round(totalPct/domainsActive) : 0;
-
-  // dashboard
-  document.getElementById('d-total').textContent = domainsActive>0 ? composite+'%' : '0%';
-  document.getElementById('d-bar').style.width = composite+'%';
-  document.getElementById('d-kpis').textContent = totalKPIs;
-  document.getElementById('d-domains').textContent = domainsActive+'/6';
-
-  // results total
-  const rt = document.getElementById('r-total');
-  const rft = document.getElementById('rf-total');
-  if(rt) rt.textContent = domainsActive>0 ? composite+'%' : '–';
-  if(rft) rft.style.width = composite+'%';
-  const rk = document.getElementById('r-kpis');
-  if(rk) rk.textContent = totalKPIs;
-
-  // verdict
-  const v = document.getElementById('d-verdict');
-  if(domainsActive===0){v.textContent='⬜ Iniciar Evaluación';v.className='verdict-badge verdict-navy';}
-  else if(composite>=75){v.textContent='✅ Marco Sólido';v.className='verdict-badge verdict-green';}
-  else if(composite>=50){v.textContent='⚠️ Marco en Desarrollo';v.className='verdict-badge verdict-yellow';}
-  else{v.textContent='🔴 Brecha en el Marco';v.className='verdict-badge verdict-red';}
-
-  // priority table — high importance (4-5), low maturity (1-3)
-  const priorities = allItems
-    .filter(i=>i.importance>=4 && i.maturity<=3)
-    .sort((a,b)=>(a.maturity-a.importance)-(b.maturity-b.importance));
-
-  const pb = document.getElementById('priority-body');
-  if(priorities.length===0){
-    pb.innerHTML = '<tr><td colspan="5" style="color:rgba(255,255,255,.4);font-style:italic">'+(totalKPIs>0 ? 'No se identificaron brechas de alta prioridad — buena cobertura del marco' : 'Complete la evaluación para ver las acciones prioritarias')+'</td></tr>';
-  } else {
-    pb.innerHTML = priorities.slice(0,10).map(i=>{
-      const gap = i.importance - i.maturity;
-      const pClass = gap>=3 ? 'prio-high' : 'prio-med';
-      const pLabel = gap>=3 ? '🔴 Alta' : '🟡 Media';
-      const mLabel = ['','No Medido','Ad Hoc','Definido','Gestionado','Optimizado'][i.maturity]||'–';
-      const iLabel = ['','Baja','Moderada','Importante','Alta','Crítica'][i.importance]||'–';
-      return `<tr><td>${i.name}</td><td>${i.domain}</td><td>${mLabel}</td><td>${iLabel}</td><td><span class="prio-badge ${pClass}">${pLabel}</span></td></tr>`;
-    }).join('');
-  }
+  const composite=totalDomains>0?Math.round(Object.values(domainPcts).reduce((a,b)=>a+b,0)/totalDomains):0;
+  document.getElementById('d-total').textContent=composite?composite+'%':'0';
+  document.getElementById('d-kpis').textContent=totalKpis;
+  document.getElementById('d-domains').textContent=totalDomains+'/6';
+  document.getElementById('d-bar').style.width=composite+'%';
+  const verdict=document.getElementById('d-verdict');
+  if(composite===0){verdict.textContent='Iniciar Evaluación';verdict.className='verdict-badge verdict-navy';}
+  else if(composite>=70){verdict.textContent='Marco Sólido';verdict.className='verdict-badge verdict-green';}
+  else if(composite>=40){verdict.textContent='Marco en Desarrollo';verdict.className='verdict-badge verdict-yellow';}
+  else{verdict.textContent='Base Necesaria';verdict.className='verdict-badge verdict-red';}
+  const rov=document.getElementById('r-overall');const rfov=document.getElementById('rf-overall');const rkpi=document.getElementById('r-kpi-count');
+  if(rov)rov.textContent=composite?composite+'%':'–';if(rfov)rfov.style.width=composite+'%';if(rkpi)rkpi.textContent=totalKpis||'–';
+  const tbody=document.getElementById('priority-body');
+  if(allScores.length===0){tbody.innerHTML='<tr><td colspan="5" style="color:rgba(255,255,255,.4);font-style:italic">Complete la evaluación anterior para ver las acciones prioritarias</td></tr>';return;}
+  const priorities=allScores.filter(s=>s.imp>=4&&s.mat<=3).sort((a,b)=>(b.imp-b.mat)-(a.imp-a.mat));
+  if(priorities.length===0){tbody.innerHTML='<tr><td colspan="5" style="color:rgba(255,255,255,.7)">No se identificaron brechas de alta prioridad. Fuerte madurez en los KPIs evaluados.</td></tr>';return;}
+  tbody.innerHTML=priorities.map(s=>{
+    const gap=s.imp-s.mat;
+    const badge=gap>=3?'<span class="prio-badge prio-high">Alta</span>':'<span class="prio-badge prio-med">Media</span>';
+    return`<tr><td>${s.name}</td><td>${domainLabels[s.domId]}</td><td>${s.mat}/5</td><td>${s.imp}/5</td><td>${badge}</td></tr>`;
+  }).join('');
 }
 
-function addKpi(bodyId, domain){
-  const body = document.getElementById(bodyId);
-  const row = document.createElement('div');
-  row.className = 'kpi-row';
-  row.innerHTML = `
-    <div class="divider"></div>
-    <div class="kpi-label">Custom KPI</div>
-    <div class="kpi-inputs">
-      <input class="kpi-name-input" type="text" placeholder="Enter KPI name..." oninput="calc()"/>
-      <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select>
-      <select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select>
-    </div>`;
-  // Insert before the add button's parent
-  const addBtn = body.nextElementSibling;
-  body.appendChild(row);
-  row.querySelector('input').focus();
-  calc();
+function addKpi(bodyId,domId){
+  const body=document.getElementById(bodyId);
+  const div=document.createElement('div');
+  div.innerHTML=`<div class="divider"></div><div class="kpi-row"><div class="kpi-label">KPI Personalizado</div><div class="kpi-inputs"><input class="kpi-name-input" type="text" placeholder="Nombre del KPI" oninput="calc()"/><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Madurez</option><option value="1">1 – No Medido</option><option value="2">2 – Ad Hoc</option><option value="3">3 – Definido</option><option value="4">4 – Gestionado</option><option value="5">5 – Optimizado</option></select><select class="score-select" onchange="styleSelect(this);calc()"><option value="0">Importancia</option><option value="1">1 – Baja</option><option value="2">2 – Moderada</option><option value="3">3 – Importante</option><option value="4">4 – Alta</option><option value="5">5 – Crítica</option></select></div></div>`;
+  body.appendChild(div);calc();
 }
 
-function resetAll(){
-  if(!confirm('¿Reiniciar todas las puntuaciones y nombres de KPI a los predeterminados?')) return;
-  document.querySelectorAll('.score-select').forEach(s=>{s.value='0';s.className='score-select';});
-  document.querySelectorAll('.kpi-name-input').forEach(i=>{ if(!i.placeholder) return; /* keep default values */ });
-  // Remove custom rows
-  DOMAINS.forEach(d=>{
-    const body = document.getElementById('body-'+d);
-    const rows = body.querySelectorAll('.kpi-row');
-    rows.forEach((r,idx)=>{ if(idx>=4) r.remove(); });
-  });
-  calc();
-}
-
-function exportSummary(){
-  window.print();
-}
+function exportSummary(){window.print();}
+function resetAll(){if(confirm('¿Restablecer todas las puntuaciones? Esto no se puede deshacer.')){document.querySelectorAll('.score-select').forEach(s=>{s.value='0';s.className='score-select';});document.querySelectorAll('.kpi-name-input').forEach(i=>{if(i.placeholder==='Nombre del KPI')i.value='';});calc();}}
+calc();
 </script>
-
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
-  });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      nav.classList.remove('mobile-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
-      nav.classList.remove('mobile-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
-})();
+(function(){var btn=document.getElementById('hamburger');var nav=document.querySelector('.nav-links');if(!btn||!nav)return;btn.addEventListener('click',function(){var isOpen=nav.classList.toggle('mobile-open');btn.classList.toggle('open',isOpen);btn.setAttribute('aria-expanded',String(isOpen));});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});})();
 </script>
 </body>
 </html>
