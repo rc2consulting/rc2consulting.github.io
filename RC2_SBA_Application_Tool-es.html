@@ -238,13 +238,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt
     <div class="master-bar"><div class="master-fill" id="master-fill" style="width:0%"></div></div>
     <div class="bar-labels"><span>0%</span><span>Fase 1 Pre-Solicitud</span><span>Fase 2 Enviada</span><span>Fase 3 En Revisión</span><span>100%</span></div>
     <div class="status-bar" id="status-bar">
-      <div><div class="status-text">Seleccione su programa de certificación arriba, luego marque los elementos completados abajo</div><div class="status-sub">0 de 48 elementos completados en las cuatro fases</div></div>
+      <div><div class="status-text">Seleccione un programa de certificación y marque los elementos completados abajo</div><div class="status-sub">0 de 48 elementos completados en las cuatro fases</div></div>
       <div class="overall-pct" id="ovpct">0%</div>
     </div>
   </div>
 
   <div class="prog-selector">
-    <h3>Paso 1 &mdash; Seleccione su Programa de Certificación SBA Objetivo</h3>
+    <h3>Seleccione su Programa de Certificación</h3>
     <div class="prog-btns">
       <button class="prog-btn" onclick="selectProg(this,'8a')">8(a) Business Development</button>
       <button class="prog-btn" onclick="selectProg(this,'wosb')">WOSB / EDWOSB</button>
@@ -253,6 +253,30 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt
       <button class="prog-btn" onclick="selectProg(this,'vosb')">VOSB</button>
     </div>
     <div class="prog-info" id="prog-info"></div>
+  </div>
+
+
+  <!-- REFERENCIA DE DOCUMENTOS -->
+  <div class="phase-block" style="margin-bottom:20px">
+    <div style="background:var(--navy);padding:12px 22px">
+      <h3 style="font-size:.86rem;font-weight:700;color:#fff">Lista de Verificación de Documentos por Programa</h3>
+      <p style="font-size:.73rem;color:rgba(255,255,255,.6);margin-top:2px">Los documentos requeridos varían por programa &mdash; revíselos antes de abrir el portal MySBA</p>
+    </div>
+    <div style="padding:16px 20px">
+        <table class="doc-table">
+          <thead><tr><th>Documento</th><th>8(a)</th><th>WOSB/EDWOSB</th><th>HUBZone</th><th>SDVOSB/VOSB</th></tr></thead>
+          <tbody>
+            <tr><td>Documentos de constitución empresarial</td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td></tr>
+            <tr><td>Declaraciones fiscales empresariales 3 años</td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td></tr>
+            <tr><td>Declaraciones fiscales personales 3 años</td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-cond">Solo EDWOSB</span></td><td>No requerido</td><td>No requerido</td></tr>
+            <tr><td>Estado financiero personal</td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-cond">Solo EDWOSB</span></td><td>No requerido</td><td>No requerido</td></tr>
+            <tr><td>Narrativa de desventaja social</td><td><span class="doc-req dr-req">Requerido</span></td><td>No aplica</td><td>No aplica</td><td>No aplica</td></tr>
+            <tr><td>DD-214 / documentos de discapacidad VA</td><td>No requerido</td><td>No requerido</td><td>No requerido</td><td><span class="doc-req dr-req">Requerido</span></td></tr>
+            <tr><td>Prueba de domicilio de empleados (HUBZone)</td><td>No requerido</td><td>No requerido</td><td><span class="doc-req dr-req">Requerido</span></td><td>No requerido</td></tr>
+            <tr><td>Registros de nómina (prueba 35% HUBZone)</td><td>No requerido</td><td>No requerido</td><td><span class="doc-req dr-req">Requerido</span></td><td>No requerido</td></tr>
+          </tbody>
+        </table>
+    </div>
   </div>
 
   <!-- PHASE 1 -->
@@ -292,22 +316,6 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">All required narrative statements drafted (8(a): social disadvantage narrative, business history, personal narrative)</span></div>
       </div>
       <div class="tip-box"><p>SBA reviewers evaluate the quality and completeness of narrative statements as heavily as financial documentation in 8(a) applications. Budget 3&ndash;4 weeks for the narrative drafting phase alone. Vague, generic narratives are the leading cause of 8(a) denial. Source: SBA OHA Appeals Decisions, 2023&ndash;2025.</p></div>
-      <div style="background:var(--bg);border-radius:8px;padding:14px 16px;border:1px solid var(--bdr);margin-top:12px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">Lista de Verificación de Documentos por Programa</div>
-        <table class="doc-table">
-          <thead><tr><th>Documento</th><th>8(a)</th><th>WOSB/EDWOSB</th><th>HUBZone</th><th>SDVOSB/VOSB</th></tr></thead>
-          <tbody>
-            <tr><td>Documentos de constitución empresarial</td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td></tr>
-            <tr><td>Declaraciones fiscales empresariales 3 años</td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-req">Requerido</span></td></tr>
-            <tr><td>Declaraciones fiscales personales 3 años</td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-cond">Solo EDWOSB</span></td><td>No requerido</td><td>No requerido</td></tr>
-            <tr><td>Estado financiero personal</td><td><span class="doc-req dr-req">Requerido</span></td><td><span class="doc-req dr-cond">Solo EDWOSB</span></td><td>No requerido</td><td>No requerido</td></tr>
-            <tr><td>Narrativa de desventaja social</td><td><span class="doc-req dr-req">Requerido</span></td><td>No aplica</td><td>No aplica</td><td>No aplica</td></tr>
-            <tr><td>DD-214 / documentos de discapacidad VA</td><td>No requerido</td><td>No requerido</td><td>No requerido</td><td><span class="doc-req dr-req">Requerido</span></td></tr>
-            <tr><td>Prueba de domicilio de empleados (HUBZone)</td><td>No requerido</td><td>No requerido</td><td><span class="doc-req dr-req">Requerido</span></td><td>No requerido</td></tr>
-            <tr><td>Registros de nómina (prueba 35% HUBZone)</td><td>No requerido</td><td>No requerido</td><td><span class="doc-req dr-req">Requerido</span></td><td>No requerido</td></tr>
-          </tbody>
-        </table>
-      </div>
     </div>
   </div>
 
@@ -537,7 +545,7 @@ function calcAll(){
   document.getElementById('ovpct').textContent=overall+'%';
   const sbar=document.getElementById('status-bar');
   let cls='status-bar',txt='',sub=grand+' de '+total+' elementos completados en las cuatro fases';
-  if(overall===0){txt='Seleccione su programa de certificación arriba, luego marque los elementos completados abajo';}
+  if(overall===0){txt='Seleccione un programa de certificación y marque los elementos completados abajo';}
   else if(overall<33){txt='Etapa Inicial \u2014 Enfoque en completar la documentación de Fase 1 antes de abrir el portal';cls+=' early';}
   else if(overall<66){txt='En Progreso \u2014 Preparación de solicitud en curso. Continúe trabajando en las Fases 2 y 3.';cls+=' progressing';}
   else if(overall<90){txt='Avanzado \u2014 Sólida preparación. Complete los elementos de infraestructura post-certificación de Fase 4.';cls+=' ready';}
