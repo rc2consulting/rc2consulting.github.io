@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+Applied 14/14 fixes
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -31,7 +32,7 @@
     :root {
       --navy:#0B2545; --blue:#1A4A8A; --light-blue:#2563EB;
       --light-bg:#F4F6FA; --white:#FFFFFF;
-      --text:#1C2B3A; --text-muted:#4A5568; --border:#E2E8F0;
+      --text:#1C2B3A; --text-muted:#4A5568; --border:#D1D9E6;
       --success:#1A7A4E; --success-bg:#EBF7F2;
       --warn:#854D0E; --warn-bg:#FFFBEB;
       --danger:#9B1C1C; --danger-bg:#FEF2F2;
@@ -57,21 +58,19 @@
     /* HERO */
     .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.85) 0%, rgba(11,37,69,0.70) 100%), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80') center/cover no-repeat; padding: 64px 40px 56px; position:relative; overflow:hidden; }
     /* hero ::before removed */
-    .hero-inner { max-width:1140px; margin:0 auto; position:relative; z-index:1; }
-    .atag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.75); font-size:0.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:14px; }
+    .hero-inner { max-width:960px; margin:0 auto; position:relative; z-index:1; }
+    .article-tag { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); padding:4px 12px; border-radius:10px; margin-bottom:14px; }
     .hero h1 { font-family:'Playfair Display',serif; font-size:2.3rem; font-weight:700; color:white; line-height:1.25; margin-bottom:10px; }
     .hero-sub { font-size:0.9rem; color:rgba(255,255,255,0.72); max-width:680px; line-height:1.7; margin-bottom:14px; }
     .hero-meta { font-size:0.75rem; color:rgba(255,255,255,0.45); letter-spacing:0.3px; }
     .hero-meta span { margin:0 10px; }
 
     /* BACK LINK */
-    .back-link { max-width:900px; margin:20px auto 0; padding:0 40px; }
-    .back-link a { color:var(--light-blue); font-size:0.83rem; font-weight:600; text-decoration:none; }
-    .back-link a:hover { text-decoration:underline; }
+    .btn-back { display:inline-flex; align-items:center; gap:6px; color:var(--light-blue); text-decoration:none; font-size:0.84rem; font-weight:600; margin:24px 0 0; }
 
     /* LIVE DASHBOARD */
     .dash { background:var(--navy); border-top:1px solid rgba(255,255,255,0.1); padding:18px 40px; }
-    .dash-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr) auto; gap:16px; align-items:center; }
+    .dash-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr) auto; gap:16px; align-items:center; }
     .dash-stat { text-align:center; }
     .dash-val { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:white; line-height:1; }
     .dash-lbl { font-size:0.62rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:3px; }
@@ -83,7 +82,7 @@
     .v-red { background:#7F1D1D; color:#FCA5A5; border:1px solid #F87171; }
 
     /* MAIN */
-    .page-wrap { max-width:900px; margin:0 auto; padding:32px 40px 60px; }
+    .page-wrap { max-width:960px; margin:0 auto; padding:24px 24px 60px; }
 
     /* FACILITY INFO */
     .facility-box { background:white; border:1px solid var(--border); border-radius:10px; padding:24px; margin-bottom:28px; }
@@ -200,12 +199,12 @@
     .print-btn button:hover { background:var(--light-bg); }
 
     /* FOOTER */
-    .site-footer { background:var(--navy); padding:28px 40px; text-align:center; margin-top:60px; }
-    .footer-tagline { font-family:'Playfair Display',serif; font-size:0.9rem; color:rgba(255,255,255,0.5); margin-bottom:14px; font-style:italic; }
-    .footer-links { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; margin-bottom:12px; }
-    .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.78rem; }
+    .site-footer { background:var(--navy); padding:36px 24px; text-align:center; }
+    .footer-tagline { font-size:0.9rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:12px; }
+    .footer-links { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
+    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.78rem; transition:color 0.2s; }
     .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.72rem; color:rgba(255,255,255,0.3); }
+    .footer-copy { font-size:0.73rem; color:rgba(255,255,255,0.5); }
     .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
     .footer-copy a:hover { color:rgba(255,255,255,0.9); }
 
@@ -305,7 +304,7 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Compliance Tool</span>
+    <span class="article-tag">Compliance Tool</span>
     <h1>Health &amp; Safety Inspection Checklist</h1>
     <p class="hero-sub">A structured facility inspection tool covering 8 critical H&S domains aligned to WRAP Principle 8 and OSHA general industry standards. Score each item, identify deficiencies, and generate a prioritized corrective action summary.</p>
     <div class="hero-meta">
@@ -313,8 +312,6 @@
     </div>
   </div>
 </section>
-
-<div class="back-link"><a href="https://rc2consulting.github.io/RC2_Resources_Page.html">← Back to Resources</a></div>
 
 <!-- LIVE DASHBOARD -->
 <div class="dash">
@@ -342,6 +339,7 @@
 </div>
 
 <div class="page-wrap">
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Back to Resources</a>
 
   <!-- ABOUT -->
   <div class="abstract-box">
