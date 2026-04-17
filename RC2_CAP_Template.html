@@ -1,670 +1,178 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WRAP Corrective Action Plan Template | RC2 Consulting</title>
-  <meta property="og:title" content="WRAP Corrective Action Plan Template | RC2 Consulting">
-  <meta property="og:description" content="WRAP Corrective Action Plan Template. Free interactive tool from RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_CAP_Template.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WRAP Corrective Action Plan Template | RC2 Consulting">
-  <meta name="twitter:description" content="WRAP Corrective Action Plan Template. Free interactive tool from RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta name="description" content="Interactive WRAP Corrective Action Plan (CAP) Template — fill online and print or save as PDF. Free from RC2 Consulting." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:       #0B2545;
-      --blue:       #1A4A8A;
-      --light-blue: #4A90E2;
-      --accent:     #C8922A;
-      --accent-light:#F0B429;
-      --light-bg:   #F4F6FA;
-      --white:      #FFFFFF;
-      --text:       #1C2B3A;
-      --text-muted: #4A5568;
-      --border:     #D1D9E6;
-      --success:    #1A7A4E;
-      --success-bg: #EBF7F2;
-      --danger:     #9B1C1C;
-      --danger-bg:  #FEF2F2;
-      --input-bg:   #F8FAFD;
-    }
-
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      background: var(--light-bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* ─── SCREEN ONLY ─── */
-    @media screen {
-
-      .hero {
-        background: linear-gradient(to bottom, rgba(11,37,69,0.72) 0%, rgba(11,37,69,0.55) 50%, rgba(11,37,69,0.72) 100%), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;
-        color: white;
-        padding: 48px 24px 64px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(ellipse at 75% 50%, rgba(74,144,226,0.15) 0%, transparent 60%);
-      }
-      .rc2-badge {
-        display: inline-block;
-        background: rgba(74,144,226,0.2);
-        border: 1px solid rgba(74,144,226,0.4);
-        color: #A8C8F0;
-        font-size: 0.68rem;
-        font-weight: 700;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        padding: 5px 16px;
-        border-radius: 20px;
-        margin-bottom: 16px;
-        position: relative;
-      }
-      .hero h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.6rem;
-        font-weight: 700;
-        margin-bottom: 12px;
-        position: relative;
-      }
-      .hero h1 span { color: #FFFFFF; }
-      .hero p {
-        font-size: 1rem;
-        color: rgba(255,255,255,0.75);
-        max-width: 540px;
-        margin: 0 auto 24px;
-        position: relative;
-      }
-
-      /* Toolbar */
-      .toolbar {
-        background: var(--white);
-        border-bottom: 1px solid var(--border);
-        padding: 14px 24px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 8px rgba(11,37,69,0.08);
-        flex-wrap: wrap;
-      }
-      .toolbar-left {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .toolbar-title {
-        font-size: 0.9rem;
-        font-weight: 700;
-        color: var(--navy);
-      }
-      .toolbar-subtitle {
-        font-size: 0.78rem;
-        color: var(--text-muted);
-      }
-      .progress-wrap {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex: 1;
-        max-width: 320px;
-      }
-      .progress-track {
-        flex: 1;
-        height: 6px;
-        background: var(--border);
-        border-radius: 3px;
-        overflow: hidden;
-      }
-      .progress-fill {
-        height: 100%;
-        background: linear-gradient(to right, var(--blue), var(--accent));
-        border-radius: 3px;
-        transition: width 0.4s ease;
-        width: 0%;
-      }
-      .progress-pct {
-        font-size: 0.78rem;
-        font-weight: 700;
-        color: var(--blue);
-        min-width: 36px;
-      }
-      .toolbar-right { display: flex; gap: 10px; }
-      .btn-clear {
-        background: none;
-        border: 1px solid var(--border);
-        color: var(--text-muted);
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
-      .btn-clear:hover { border-color: var(--danger); color: var(--danger); }
-      .btn-print {
-        background: var(--blue);
-        color: white;
-        border: none;
-        padding: 8px 20px;
-        border-radius: 6px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .btn-print:hover { background: var(--navy); }
-
-      /* Main form wrapper */
-      .form-wrap {
-        max-width: 900px;
-        margin: 32px auto 64px;
-        padding: 0 24px;
-      }
-
-      /* Instructions */
-      .instructions {
-        background: var(--white);
-        border-left: 4px solid var(--light-blue);
-        border-radius: 0 10px 10px 0;
-        padding: 16px 20px;
-        margin-bottom: 28px;
-        box-shadow: 0 2px 8px rgba(11,37,69,0.06);
-      }
-      .instructions p {
-        font-size: 0.88rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-      .instructions p strong { color: var(--navy); }
-
-    } /* end @media screen */
-
-    /* ─── SECTION CARDS ─── */
-    .cap-section {
-      background: var(--white);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 10px rgba(11,37,69,0.07);
-      margin-bottom: 24px;
-      overflow: hidden;
-    }
-
-    .section-header {
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-num {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: white;
-      flex-shrink: 0;
-    }
-    .num-finding  { background: var(--danger); }
-    .num-root     { background: #92400E; }
-    .num-actions  { background: var(--blue); }
-    .num-person   { background: var(--success); }
-    .num-verify   { background: var(--navy); }
-
-    .section-title-wrap { flex: 1; }
-    .section-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .section-subtitle {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-    .section-required {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--danger);
-      background: var(--danger-bg);
-      padding: 3px 8px;
-      border-radius: 8px;
-    }
-
-    .section-body { padding: 24px; }
-
-    /* Form fields */
-    .field-group {
-      margin-bottom: 20px;
-    }
-    .field-group:last-child { margin-bottom: 0; }
-
-    .field-row {
-      display: grid;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .field-row.cols-2 { grid-template-columns: 1fr 1fr; }
-    .field-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-
-    label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-      letter-spacing: 0.3px;
-    }
-    label .req { color: var(--danger); margin-left: 2px; }
-    label .hint {
-      font-weight: 400;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      display: block;
-      margin-top: 2px;
-    }
-
-    input[type="text"],
-    input[type="date"],
-    input[type="email"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 7px;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.9rem;
-      color: var(--text);
-      background: var(--input-bg);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-    }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--light-blue);
-      box-shadow: 0 0 0 3px rgba(74,144,226,0.12);
-      background: var(--white);
-    }
-    textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
-    select { cursor: pointer; }
-
-    /* Severity selector */
-    .severity-group {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .severity-option { position: relative; }
-    .severity-option input { display: none; }
-    .severity-option label {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: 20px;
-      border: 2px solid var(--border);
-      cursor: pointer;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      transition: all 0.2s;
-      margin: 0;
-      letter-spacing: 0.5px;
-    }
-    .severity-option input:checked + label.critical { border-color: var(--danger); background: var(--danger-bg); color: var(--danger); }
-    .severity-option input:checked + label.major    { border-color: #92400E; background: #FEF3C7; color: #92400E; }
-    .severity-option input:checked + label.minor    { border-color: var(--blue); background: #EFF6FF; color: var(--blue); }
-    .severity-option input:checked + label.observation { border-color: var(--success); background: var(--success-bg); color: var(--success); }
-    .severity-option label:hover { border-color: var(--light-blue); }
-
-    /* Action items repeater */
-    .action-list { display: flex; flex-direction: column; gap: 14px; }
-
-    .action-item {
-      background: var(--light-bg);
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      padding: 16px 18px;
-      position: relative;
-    }
-    .action-item-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-    .action-num-badge {
-      background: var(--blue);
-      color: white;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      font-size: 0.72rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .btn-remove-action {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 1rem;
-      padding: 2px 6px;
-      border-radius: 4px;
-      transition: all 0.2s;
-    }
-    .btn-remove-action:hover { background: var(--danger-bg); color: var(--danger); }
-
-    .btn-add-action {
-      background: none;
-      border: 2px dashed var(--border);
-      color: var(--blue);
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 12px;
-    }
-    .btn-add-action:hover { border-color: var(--blue); background: #EFF6FF; }
-
-    /* Verification status */
-    .verify-status {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .verify-option { position: relative; }
-    .verify-option input { display: none; }
-    .verify-option label {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: 7px;
-      border: 2px solid var(--border);
-      cursor: pointer;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: all 0.2s;
-      margin: 0;
-    }
-    .verify-option input:checked + label.not-started { border-color: var(--text-muted); background: #F1F5F9; color: var(--text-muted); }
-    .verify-option input:checked + label.in-progress { border-color: #92400E; background: #FEF3C7; color: #92400E; }
-    .verify-option input:checked + label.completed   { border-color: var(--success); background: var(--success-bg); color: var(--success); }
-    .verify-option input:checked + label.verified    { border-color: var(--navy); background: #EFF6FF; color: var(--navy); }
-    .verify-option label:hover { border-color: var(--light-blue); }
-
-    /* Summary box */
-    .summary-box {
-      background: #1A4A8A;
-      color: white;
-      border-radius: 12px;
-      padding: 24px 28px;
-      margin-bottom: 24px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      text-align: center;
-    }
-    .summary-stat .snum {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent-light);
-      display: block;
-      line-height: 1;
-    }
-    .summary-stat .slabel {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.65);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 4px;
-      display: block;
-    }
-
-    /* Footer */
-    @media screen {
-      .page-footer {
-        text-align: center;
-        padding: 28px 24px;
-        font-size: 0.82rem;
-        color: var(--text-muted);
-      }
-      .page-footer strong { color: var(--blue); }
-    }
-
-    /* ══════════════════════════
-       PRINT STYLES
-    ══════════════════════════ */
-    @media print {
-      body { background: white; font-size: 10pt; }
-      .hero, .toolbar, .instructions, .btn-add-action,
-      .btn-remove-action, .btn-print, .btn-clear,
-      .page-footer { display: none !important; }
-
-      .form-wrap {
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      .print-header {
-        display: flex !important;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 16px;
-        border-bottom: 3px solid #0B2545;
-        margin-bottom: 20px;
-      }
-      .print-header h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 18pt;
-        color: #0B2545;
-      }
-      .print-header p { font-size: 9pt; color: #4A5568; }
-      .print-logo { font-size: 12pt; font-weight: 700; color: #1A4A8A; }
-
-      .cap-section {
-        border: 1px solid #D1D9E6;
-        border-radius: 0;
-        box-shadow: none;
-        margin-bottom: 16px;
-        page-break-inside: avoid;
-      }
-      .section-header { padding: 10px 14px; }
-      .section-body { padding: 14px; }
-      .section-num { width: 24px; height: 24px; font-size: 9pt; }
-      .section-title { font-size: 11pt; }
-      .section-subtitle { display: none; }
-      .section-required { display: none; }
-
-      label { font-size: 8.5pt; margin-bottom: 3px; }
-      label .hint { font-size: 7.5pt; }
-
-      input[type="text"], input[type="date"], input[type="email"], select, textarea {
-        border: 1px solid #D1D9E6;
-        border-radius: 3px;
-        padding: 6px 8px;
-        font-size: 9.5pt;
-        background: white;
-      }
-      textarea { min-height: 60px; }
-
-      .severity-group, .verify-status {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-      }
-      .severity-option label, .verify-option label {
-        padding: 4px 10px;
-        font-size: 8.5pt;
-        border: 1px solid #D1D9E6;
-        border-radius: 4px;
-      }
-      .severity-option input:checked + label,
-      .verify-option input:checked + label {
-        border: 2px solid #0B2545;
-        font-weight: 700;
-      }
-
-      .action-item { background: #F8FAFD; }
-      .action-num-badge { width: 18px; height: 18px; font-size: 8pt; }
-
-      .summary-box {
-        background: #0B2545 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        padding: 14px;
-        margin-bottom: 14px;
-        border-radius: 6px;
-      }
-
-      .field-row.cols-2 { grid-template-columns: 1fr 1fr; }
-      .field-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-
-      .print-footer {
-        display: block !important;
-        text-align: center;
-        font-size: 8pt;
-        color: #4A5568;
-        border-top: 1px solid #D1D9E6;
-        padding-top: 10px;
-        margin-top: 20px;
-      }
-    }
-
-    .print-header { display: none; }
-    .print-footer { display: none; }
-
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 1.8rem; }
-      .field-row.cols-2, .field-row.cols-3 { grid-template-columns: 1fr; }
-      .summary-box { grid-template-columns: repeat(2, 1fr); }
-      .toolbar { flex-direction: column; align-items: flex-start; }
-      .progress-wrap { max-width: 100%; width: 100%; }
-    }
-  
-    /* ══ SHARED NAV ══ */
-    .topnav { background: #0B2545; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 52px; position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
-    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
-    .nav-logo-mark { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
-    .nav-logo-mark sup { font-size:0.5rem; vertical-align:super; }
-    .nav-brand-name { font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.9); }
-    .nav-links { display:flex; gap:4px; list-style:none; }
-    .nav-links a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.83rem; font-weight:600; padding:6px 12px; border-radius:4px; transition:all 0.2s; white-space:nowrap; }
-    .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
-    .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
-    /* ══ SHARED FOOTER ══ */
-    .site-footer { background: #1A4A8A; color: white; text-align: center; padding: 40px 24px; }
-    .footer-tagline { font-size:0.92rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:12px; }
-    .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
-    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; }
-    .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
-
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>WRAP Corrective Action Plan Template | RC2 Consulting</title>
+<meta property="og:title" content="WRAP Corrective Action Plan Template | RC2 Consulting">
+<meta property="og:description" content="WRAP Corrective Action Plan Template. Free interactive tool from RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_CAP_Template.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WRAP Corrective Action Plan Template | RC2 Consulting">
+<meta name="twitter:description" content="WRAP Corrective Action Plan Template. Free interactive tool from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta name="description" content="Interactive WRAP Corrective Action Plan (CAP) Template &mdash; fill online and print or save as PDF. Free from RC2 Consulting." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--light-blue:#4A90E2;--accent:#C8922A;--accent-light:#F0B429;--light-bg:#F4F6FA;--white:#FFFFFF;--text:#1C2B3A;--text-muted:#4A5568;--border:#D1D9E6;--success:#1A7A4E;--success-bg:#EBF7F2;--danger:#9B1C1C;--danger-bg:#FEF2F2;--input-bg:#F8FAFD}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var(--text);line-height:1.6}
+@media screen{
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,0.72) 0%,rgba(11,37,69,0.55) 50%,rgba(11,37,69,0.72) 100%),url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;color:white;padding:48px 24px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 50%,rgba(74,144,226,0.15) 0%,transparent 60%)}
+.rc2-badge{display:inline-block;background:rgba(74,144,226,0.2);border:1px solid rgba(74,144,226,0.4);color:#A8C8F0;font-size:0.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:16px;position:relative}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;margin-bottom:12px;position:relative}
+.hero h1 span{color:#FFFFFF}
+.hero p{font-size:1rem;color:rgba(255,255,255,0.75);max-width:540px;margin:0 auto 24px;position:relative}
+.toolbar{background:var(--white);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:52px;z-index:100;box-shadow:0 2px 8px rgba(11,37,69,0.08);flex-wrap:wrap}
+.toolbar-left{display:flex;align-items:center;gap:12px}
+.toolbar-title{font-size:0.9rem;font-weight:700;color:var(--navy)}
+.toolbar-subtitle{font-size:0.78rem;color:var(--text-muted)}
+.progress-wrap{display:flex;align-items:center;gap:10px;flex:1;max-width:320px}
+.progress-track{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(to right,var(--blue),var(--accent));border-radius:3px;transition:width 0.4s ease;width:0%}
+.progress-pct{font-size:0.78rem;font-weight:700;color:var(--blue);min-width:36px}
+.toolbar-right{display:flex;gap:10px}
+.btn-clear{background:none;border:1px solid var(--border);color:var(--text-muted);padding:8px 16px;border-radius:6px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.btn-clear:hover{border-color:var(--danger);color:var(--danger)}
+.btn-print{background:var(--blue);color:white;border:none;padding:8px 20px;border-radius:6px;font-size:0.85rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:6px}
+.btn-print:hover{background:var(--navy)}
+.form-wrap{max-width:960px;margin:32px auto 64px;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--light-blue);text-decoration:none;font-size:.84rem;font-weight:600;margin:0 0 24px;display:inline-flex}
+.instructions{background:var(--white);border-left:4px solid var(--light-blue);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:28px;box-shadow:0 2px 8px rgba(11,37,69,0.06)}
+.instructions p{font-size:0.88rem;color:var(--text-muted);line-height:1.6}
+.instructions p strong{color:var(--navy)}
+}
+.cap-section{background:var(--white);border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 10px rgba(11,37,69,0.07);margin-bottom:24px;overflow:hidden}
+.section-header{padding:18px 24px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border)}
+.section-num{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:white;flex-shrink:0}
+.num-finding{background:var(--danger)}
+.num-root{background:#92400E}
+.num-actions{background:var(--blue)}
+.num-person{background:var(--success)}
+.num-verify{background:var(--navy)}
+.section-title-wrap{flex:1}
+.section-title{font-size:1rem;font-weight:700;color:var(--navy)}
+.section-subtitle{font-size:0.78rem;color:var(--text-muted);margin-top:2px}
+.section-required{font-size:0.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--danger);background:var(--danger-bg);padding:3px 8px;border-radius:8px}
+.section-body{padding:24px}
+.field-group{margin-bottom:20px}
+.field-group:last-child{margin-bottom:0}
+.field-row{display:grid;gap:16px;margin-bottom:20px}
+.field-row.cols-2{grid-template-columns:1fr 1fr}
+.field-row.cols-3{grid-template-columns:1fr 1fr 1fr}
+label{display:block;font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:0.3px}
+label .req{color:var(--danger);margin-left:2px}
+label .hint{font-weight:400;color:var(--text-muted);font-size:0.75rem;display:block;margin-top:2px}
+input[type="text"],input[type="date"],input[type="email"],select,textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:7px;font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--text);background:var(--input-bg);transition:border-color 0.2s,box-shadow 0.2s;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--light-blue);box-shadow:0 0 0 3px rgba(74,144,226,0.12);background:var(--white)}
+textarea{resize:vertical;min-height:90px;line-height:1.6}
+select{cursor:pointer}
+.severity-group{display:flex;gap:10px;flex-wrap:wrap}
+.severity-option{position:relative}
+.severity-option input{display:none}
+.severity-option label{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;border:2px solid var(--border);cursor:pointer;font-size:0.82rem;font-weight:700;color:var(--text-muted);transition:all 0.2s;margin:0;letter-spacing:0.5px}
+.severity-option input:checked+label.critical{border-color:var(--danger);background:var(--danger-bg);color:var(--danger)}
+.severity-option input:checked+label.major{border-color:#92400E;background:#FEF3C7;color:#92400E}
+.severity-option input:checked+label.minor{border-color:var(--blue);background:#EFF6FF;color:var(--blue)}
+.severity-option input:checked+label.observation{border-color:var(--success);background:var(--success-bg);color:var(--success)}
+.severity-option label:hover{border-color:var(--light-blue)}
+.action-list{display:flex;flex-direction:column;gap:14px}
+.action-item{background:var(--light-bg);border-radius:10px;border:1px solid var(--border);padding:16px 18px;position:relative}
+.action-item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.action-num-badge{background:var(--blue);color:white;width:24px;height:24px;border-radius:50%;font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.btn-remove-action{background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;padding:2px 6px;border-radius:4px;transition:all 0.2s}
+.btn-remove-action:hover{background:var(--danger-bg);color:var(--danger)}
+.btn-add-action{background:none;border:2px dashed var(--border);color:var(--blue);font-size:0.85rem;font-weight:700;padding:12px;border-radius:8px;cursor:pointer;width:100%;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px}
+.btn-add-action:hover{border-color:var(--blue);background:#EFF6FF}
+.verify-status{display:flex;gap:10px;flex-wrap:wrap}
+.verify-option{position:relative}
+.verify-option input{display:none}
+.verify-option label{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:7px;border:2px solid var(--border);cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--text-muted);transition:all 0.2s;margin:0}
+.verify-option input:checked+label.not-started{border-color:var(--text-muted);background:#F1F5F9;color:var(--text-muted)}
+.verify-option input:checked+label.in-progress{border-color:#92400E;background:#FEF3C7;color:#92400E}
+.verify-option input:checked+label.completed{border-color:var(--success);background:var(--success-bg);color:var(--success)}
+.verify-option input:checked+label.verified{border-color:var(--navy);background:#EFF6FF;color:var(--navy)}
+.verify-option label:hover{border-color:var(--light-blue)}
+.summary-box{background:#1A4A8A;color:white;border-radius:12px;padding:24px 28px;margin-bottom:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.summary-stat .snum{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent-light);display:block;line-height:1}
+.summary-stat .slabel{font-size:0.72rem;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:1px;margin-top:4px;display:block}
+@media screen{
+.page-footer{text-align:center;padding:28px 24px;font-size:0.82rem;color:var(--text-muted)}
+.page-footer strong{color:var(--blue)}
+}
+@media print{
+body{background:white;font-size:10pt}
+.hero,.toolbar,.instructions,.btn-add-action,.btn-remove-action,.btn-print,.btn-clear,.page-footer,.btn-back{display:none!important}
+.form-wrap{max-width:100%;margin:0;padding:0}
+.print-header{display:flex!important;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:3px solid #0B2545;margin-bottom:20px}
+.print-header h1{font-family:'Playfair Display',serif;font-size:18pt;color:#0B2545}
+.print-header p{font-size:9pt;color:#4A5568}
+.print-logo{font-size:12pt;font-weight:700;color:#1A4A8A}
+.cap-section{border:1px solid #D1D9E6;border-radius:0;box-shadow:none;margin-bottom:16px;page-break-inside:avoid}
+.section-header{padding:10px 14px}
+.section-body{padding:14px}
+.section-num{width:24px;height:24px;font-size:9pt}
+.section-title{font-size:11pt}
+.section-subtitle{display:none}
+.section-required{display:none}
+label{font-size:8.5pt;margin-bottom:3px}
+label .hint{font-size:7.5pt}
+input[type="text"],input[type="date"],input[type="email"],select,textarea{border:1px solid #D1D9E6;border-radius:3px;padding:6px 8px;font-size:9.5pt;background:white}
+textarea{min-height:60px}
+.severity-group,.verify-status{display:flex;flex-wrap:wrap;gap:6px}
+.severity-option label,.verify-option label{padding:4px 10px;font-size:8.5pt;border:1px solid #D1D9E6;border-radius:4px}
+.severity-option input:checked+label,.verify-option input:checked+label{border:2px solid #0B2545;font-weight:700}
+.action-item{background:#F8FAFD}
+.action-num-badge{width:18px;height:18px;font-size:8pt}
+.summary-box{background:#0B2545!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:14px;margin-bottom:14px;border-radius:6px}
+.field-row.cols-2{grid-template-columns:1fr 1fr}
+.field-row.cols-3{grid-template-columns:1fr 1fr 1fr}
+.print-footer{display:block!important;text-align:center;font-size:8pt;color:#4A5568;border-top:1px solid #D1D9E6;padding-top:10px;margin-top:20px}
+}
+.print-header{display:none}
+.print-footer{display:none}
+@media(max-width:640px){
+.hero h1{font-size:1.8rem}
+.field-row.cols-2,.field-row.cols-3{grid-template-columns:1fr}
+.summary-box{grid-template-columns:repeat(2,1fr)}
+.toolbar{flex-direction:column;align-items:flex-start}
+.progress-wrap{max-width:100%;width:100%}
+}
+.topnav{background:#0B2545;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,0.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:0.5rem;vertical-align:super}
+.nav-brand-name{font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all 0.2s;white-space:nowrap}
+.nav-links a:hover{color:white;background:rgba(255,255,255,0.1)}
+.nav-links a.active{color:white;background:rgba(255,255,255,0.12)}
+.site-footer{background:#0B2545;color:white;text-align:center;padding:40px 24px}
+.footer-tagline{font-size:0.92rem;color:rgba(255,255,255,0.9);font-weight:600;letter-spacing:0.5px;margin-bottom:12px}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.8rem;transition:color 0.2s}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
@@ -681,7 +189,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_CAP_Template.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/RC2_CAP_Template-es.html" class="lang-btn inactive">ES</a>
@@ -693,14 +201,12 @@
   </button>
 </nav>
 
-<!-- ─── HERO ─── -->
 <section class="hero">
   <div class="rc2-badge">RC2 CONSULTING</div>
   <h1>WRAP Corrective Action <span>Plan</span></h1>
-  <p>Interactive template — fill out each section online, then print or save as PDF. Free. No signup required.</p>
+  <p>Interactive template &mdash; fill out each section online, then print or save as PDF. Free. No signup required.</p>
 </section>
 
-<!-- ─── STICKY TOOLBAR ─── -->
 <div class="toolbar">
   <div class="toolbar-left">
     <div>
@@ -715,49 +221,34 @@
     <span class="progress-pct" id="progressPct">0%</span>
   </div>
   <div class="toolbar-right">
-    <button class="btn-clear" onclick="clearForm()">🗑 Clear All</button>
-    <button class="btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+    <button class="btn-clear" onclick="clearForm()">Clear All</button>
+    <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
   </div>
 </div>
 
-<!-- ─── FORM ─── -->
 <div class="form-wrap">
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&larr; Back to Resources</a>
 
-  <!-- Print header — only shows when printing -->
   <div class="print-header">
     <div>
       <h1>WRAP Corrective Action Plan</h1>
       <p>Generated by RC2 Consulting | rc2consulting.com</p>
     </div>
-    <div class="print-logo">RC² Consulting</div>
+    <div class="print-logo">RC&sup2; Consulting</div>
   </div>
 
-  <!-- Instructions -->
   <div class="instructions">
-    <p><strong>How to use this template:</strong> Complete each section for every audit finding that requires corrective action. For multiple findings, print one completed form per finding. When finished, click <strong>"Print / Save PDF"</strong> to save your completed CAP. Use browser Print → Save as PDF for a digital copy.</p>
+    <p><strong>How to use this template:</strong> Complete each section for every audit finding that requires corrective action. For multiple findings, print one completed form per finding. When finished, click <strong>&ldquo;Print / Save PDF&rdquo;</strong> to save your completed CAP. Use browser Print &rarr; Save as PDF for a digital copy.</p>
   </div>
 
-  <!-- Progress Summary -->
   <div class="summary-box" id="summaryBox">
-    <div class="summary-stat">
-      <span class="snum" id="sumFinding">—</span>
-      <span class="slabel">Principle</span>
-    </div>
-    <div class="summary-stat">
-      <span class="snum" id="sumSeverity">—</span>
-      <span class="slabel">Severity</span>
-    </div>
-    <div class="summary-stat">
-      <span class="snum" id="sumActions">0</span>
-      <span class="slabel">Actions Added</span>
-    </div>
-    <div class="summary-stat">
-      <span class="snum" id="sumDeadline">—</span>
-      <span class="slabel">Target Date</span>
-    </div>
+    <div class="summary-stat"><span class="snum" id="sumFinding">&mdash;</span><span class="slabel">Principle</span></div>
+    <div class="summary-stat"><span class="snum" id="sumSeverity">&mdash;</span><span class="slabel">Severity</span></div>
+    <div class="summary-stat"><span class="snum" id="sumActions">0</span><span class="slabel">Actions Added</span></div>
+    <div class="summary-stat"><span class="snum" id="sumDeadline">&mdash;</span><span class="slabel">Target Date</span></div>
   </div>
 
-  <!-- ══ SECTION 1: AUDIT FINDING DESCRIPTION ══ -->
+  <!-- SECTION 1 -->
   <div class="cap-section">
     <div class="section-header">
       <div class="section-num num-finding">1</div>
@@ -768,16 +259,15 @@
       <span class="section-required">Required</span>
     </div>
     <div class="section-body">
-
       <div class="field-row cols-3">
         <div class="field-group">
           <label for="auditDate">Audit Date <span class="req">*</span></label>
-          <input type="date" id="auditDate" />
+          <input type="date" id="auditDate"/>
         </div>
         <div class="field-group">
           <label for="auditType">Audit Type <span class="req">*</span></label>
           <select id="auditType">
-            <option value="">— Select —</option>
+            <option value="">&mdash; Select &mdash;</option>
             <option>WRAP Initial Audit</option>
             <option>WRAP Renewal Audit</option>
             <option>WRAP Follow-Up Audit</option>
@@ -788,87 +278,66 @@
         </div>
         <div class="field-group">
           <label for="auditorName">Auditor / Firm Name</label>
-          <input type="text" id="auditorName" placeholder="e.g. Bureau Veritas" />
+          <input type="text" id="auditorName" placeholder="e.g. Bureau Veritas"/>
         </div>
       </div>
-
       <div class="field-row cols-2">
         <div class="field-group">
           <label for="facilityName">Facility Name <span class="req">*</span></label>
-          <input type="text" id="facilityName" placeholder="Full legal facility name" />
+          <input type="text" id="facilityName" placeholder="Full legal facility name"/>
         </div>
         <div class="field-group">
           <label for="facilityLocation">Facility Location</label>
-          <input type="text" id="facilityLocation" placeholder="City, Country" />
+          <input type="text" id="facilityLocation" placeholder="City, Country"/>
         </div>
       </div>
-
       <div class="field-row cols-2">
         <div class="field-group">
-          <label for="wrapPrinciple">WRAP Principle Cited <span class="req">*</span>
-            <span class="hint">Select the principle this finding falls under</span>
-          </label>
+          <label for="wrapPrinciple">WRAP Principle Cited <span class="req">*</span><span class="hint">Select the principle this finding falls under</span></label>
           <select id="wrapPrinciple">
-            <option value="">— Select Principle —</option>
-            <option value="P1">Principle 1 — Compliance with Laws</option>
-            <option value="P2">Principle 2 — Prohibition of Forced Labor</option>
-            <option value="P3">Principle 3 — Prohibition of Child Labor</option>
-            <option value="P4">Principle 4 — Prohibition of Harassment or Abuse</option>
-            <option value="P5">Principle 5 — Compensation and Benefits</option>
-            <option value="P6">Principle 6 — Hours of Work</option>
-            <option value="P7">Principle 7 — Prohibition of Discrimination</option>
-            <option value="P8">Principle 8 — Health and Safety</option>
-            <option value="P9">Principle 9 — Freedom of Association</option>
-            <option value="P10">Principle 10 — Environment</option>
-            <option value="P11">Principle 11 — Customs Compliance</option>
-            <option value="P12">Principle 12 — Security</option>
+            <option value="">&mdash; Select Principle &mdash;</option>
+            <option value="P1">Principle 1 &mdash; Compliance with Laws</option>
+            <option value="P2">Principle 2 &mdash; Prohibition of Forced Labor</option>
+            <option value="P3">Principle 3 &mdash; Prohibition of Child Labor</option>
+            <option value="P4">Principle 4 &mdash; Prohibition of Harassment or Abuse</option>
+            <option value="P5">Principle 5 &mdash; Compensation and Benefits</option>
+            <option value="P6">Principle 6 &mdash; Hours of Work</option>
+            <option value="P7">Principle 7 &mdash; Prohibition of Discrimination</option>
+            <option value="P8">Principle 8 &mdash; Health and Safety</option>
+            <option value="P9">Principle 9 &mdash; Freedom of Association</option>
+            <option value="P10">Principle 10 &mdash; Environment</option>
+            <option value="P11">Principle 11 &mdash; Customs Compliance</option>
+            <option value="P12">Principle 12 &mdash; Security</option>
           </select>
         </div>
         <div class="field-group">
           <label>Finding Severity <span class="req">*</span></label>
           <div class="severity-group">
-            <div class="severity-option">
-              <input type="radio" name="severity" id="sev-critical" value="Critical" />
-              <label for="sev-critical" class="critical">🔴 Critical</label>
-            </div>
-            <div class="severity-option">
-              <input type="radio" name="severity" id="sev-major" value="Major" />
-              <label for="sev-major" class="major">🟡 Major</label>
-            </div>
-            <div class="severity-option">
-              <input type="radio" name="severity" id="sev-minor" value="Minor" />
-              <label for="sev-minor" class="minor">🔵 Minor</label>
-            </div>
-            <div class="severity-option">
-              <input type="radio" name="severity" id="sev-obs" value="Observation" />
-              <label for="sev-obs" class="observation">🟢 Observation</label>
-            </div>
+            <div class="severity-option"><input type="radio" name="severity" id="sev-critical" value="Critical"/><label for="sev-critical" class="critical">Critical</label></div>
+            <div class="severity-option"><input type="radio" name="severity" id="sev-major" value="Major"/><label for="sev-major" class="major">Major</label></div>
+            <div class="severity-option"><input type="radio" name="severity" id="sev-minor" value="Minor"/><label for="sev-minor" class="minor">Minor</label></div>
+            <div class="severity-option"><input type="radio" name="severity" id="sev-obs" value="Observation"/><label for="sev-obs" class="observation">Observation</label></div>
           </div>
         </div>
       </div>
-
       <div class="field-group">
-        <label for="findingDesc">Finding Description <span class="req">*</span>
-          <span class="hint">Describe the nonconformance exactly as stated by the auditor</span>
-        </label>
-        <textarea id="findingDesc" rows="4" placeholder="e.g. Fire exit on production floor level 2 was found partially blocked by fabric storage rolls, reducing the exit width to below the minimum legal requirement of 36 inches. Exit signage was present but illumination was non-functional."></textarea>
+        <label for="findingDesc">Finding Description <span class="req">*</span><span class="hint">Describe the nonconformance exactly as stated by the auditor</span></label>
+        <textarea id="findingDesc" rows="4" placeholder="e.g. Fire exit on production floor level 2 was found partially blocked by fabric storage rolls, reducing the exit width below the minimum legal requirement of 36 inches. Exit signage was present but illumination was non-functional."></textarea>
       </div>
-
       <div class="field-row cols-2">
         <div class="field-group">
           <label for="findingRef">Auditor Finding Reference # / Code</label>
-          <input type="text" id="findingRef" placeholder="e.g. WRAP-2026-008-P8" />
+          <input type="text" id="findingRef" placeholder="e.g. WRAP-2026-008-P8"/>
         </div>
         <div class="field-group">
           <label for="findingArea">Area / Department Where Found</label>
-          <input type="text" id="findingArea" placeholder="e.g. Production Floor Level 2, Cutting Room" />
+          <input type="text" id="findingArea" placeholder="e.g. Production Floor Level 2, Cutting Room"/>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- ══ SECTION 2: ROOT CAUSE ANALYSIS ══ -->
+  <!-- SECTION 2 -->
   <div class="cap-section">
     <div class="section-header">
       <div class="section-num num-root">2</div>
@@ -879,26 +348,19 @@
       <span class="section-required">Required</span>
     </div>
     <div class="section-body">
-
       <div class="field-group">
-        <label for="immediateCase">Immediate Cause
-          <span class="hint">What directly caused the finding? (The visible symptom)</span>
-        </label>
+        <label for="immediateCase">Immediate Cause<span class="hint">What directly caused the finding? (The visible symptom)</span></label>
         <textarea id="immediateCase" rows="3" placeholder="e.g. Fabric rolls were placed in the exit corridor during a high-volume production week to create additional staging space near the cutting machines."></textarea>
       </div>
-
       <div class="field-group">
-        <label for="rootCause">Root Cause <span class="req">*</span>
-          <span class="hint">Why did the immediate cause occur? Ask "why" at least 3 times to get here</span>
-        </label>
-        <textarea id="rootCause" rows="4" placeholder="e.g. Root Cause: No formal procedure exists prohibiting the use of emergency exit corridors for temporary storage. Supervisors were not trained on emergency exit clearance requirements. Monthly H&S inspections are not conducted, so the blockage was not identified and corrected before the audit."></textarea>
+        <label for="rootCause">Root Cause <span class="req">*</span><span class="hint">Why did the immediate cause occur? Ask &ldquo;why&rdquo; at least 3 times to get here</span></label>
+        <textarea id="rootCause" rows="4" placeholder="e.g. Root Cause: No formal procedure exists prohibiting the use of emergency exit corridors for temporary storage. Supervisors were not trained on emergency exit clearance requirements. Monthly H&amp;S inspections are not conducted, so the blockage was not identified before the audit."></textarea>
       </div>
-
       <div class="field-row cols-2">
         <div class="field-group">
           <label for="rootCategory">Root Cause Category</label>
           <select id="rootCategory">
-            <option value="">— Select Category —</option>
+            <option value="">&mdash; Select Category &mdash;</option>
             <option>Missing or inadequate policy/procedure</option>
             <option>Lack of worker/supervisor training</option>
             <option>Inadequate management oversight</option>
@@ -913,25 +375,21 @@
         <div class="field-group">
           <label for="systemicRisk">Is This a Systemic Issue?</label>
           <select id="systemicRisk">
-            <option value="">— Select —</option>
-            <option>No — isolated to this area/instance</option>
-            <option>Possibly — needs further investigation</option>
-            <option>Yes — affects multiple areas or processes</option>
+            <option value="">&mdash; Select &mdash;</option>
+            <option>No &mdash; isolated to this area/instance</option>
+            <option>Possibly &mdash; needs further investigation</option>
+            <option>Yes &mdash; affects multiple areas or processes</option>
           </select>
         </div>
       </div>
-
       <div class="field-group">
-        <label for="contributingFactors">Contributing Factors
-          <span class="hint">Any additional factors that allowed this condition to exist</span>
-        </label>
-        <textarea id="contributingFactors" rows="3" placeholder="e.g. Peak production season created unusual pressure on floor space. Previous supervisor who managed H&S was promoted and replacement has not yet been fully trained."></textarea>
+        <label for="contributingFactors">Contributing Factors<span class="hint">Any additional factors that allowed this condition to exist</span></label>
+        <textarea id="contributingFactors" rows="3" placeholder="e.g. Peak production season created unusual pressure on floor space. Previous supervisor who managed H&amp;S was promoted and replacement has not yet been fully trained."></textarea>
       </div>
-
     </div>
   </div>
 
-  <!-- ══ SECTION 3: CORRECTIVE ACTION STEPS ══ -->
+  <!-- SECTION 3 -->
   <div class="cap-section">
     <div class="section-header">
       <div class="section-num num-actions">3</div>
@@ -942,19 +400,15 @@
       <span class="section-required">Required</span>
     </div>
     <div class="section-body">
-
       <div class="field-group">
-        <label for="immediateAction">Immediate / Containment Action <span class="req">*</span>
-          <span class="hint">What was done immediately to correct the finding on the spot?</span>
-        </label>
+        <label for="immediateAction">Immediate / Containment Action <span class="req">*</span><span class="hint">What was done immediately to correct the finding on the spot?</span></label>
         <textarea id="immediateAction" rows="3" placeholder="e.g. Fabric rolls removed from exit corridor on same day as audit finding. Exit width confirmed clear and measured at 42 inches. Emergency exit lighting repaired within 24 hours. Area re-inspected and confirmed compliant."></textarea>
       </div>
-
       <div class="action-list" id="actionList">
         <div class="action-item" id="action-1">
           <div class="action-item-header">
             <div class="action-num-badge">1</div>
-            <button class="btn-remove-action" onclick="removeAction(1)" title="Remove this action">✕</button>
+            <button class="btn-remove-action" onclick="removeAction(1)" title="Remove this action">&times;</button>
           </div>
           <div class="field-row cols-2">
             <div class="field-group">
@@ -965,7 +419,7 @@
               <div class="field-group">
                 <label>Action Type</label>
                 <select class="action-type">
-                  <option value="">— Select —</option>
+                  <option value="">&mdash; Select &mdash;</option>
                   <option>Policy / Procedure Update</option>
                   <option>Staff Training</option>
                   <option>Physical / Infrastructure Change</option>
@@ -976,75 +430,62 @@
                   <option>Other</option>
                 </select>
               </div>
-              <div class="field-group" style="margin-top:12px;">
+              <div class="field-group" style="margin-top:12px">
                 <label>Target Completion Date</label>
-                <input type="date" class="action-date" />
+                <input type="date" class="action-date"/>
               </div>
             </div>
           </div>
           <div class="field-group">
-            <label>Evidence of Completion
-              <span class="hint">What document, record, or proof will show this action is done?</span>
-            </label>
-            <input type="text" class="action-evidence" placeholder="e.g. Updated H&S policy signed by GM, posted, and translated into Spanish" />
+            <label>Evidence of Completion<span class="hint">What document, record, or proof will show this action is done?</span></label>
+            <input type="text" class="action-evidence" placeholder="e.g. Updated H&amp;S policy signed by GM, posted, and translated into Spanish"/>
           </div>
         </div>
       </div>
-
-      <button class="btn-add-action" onclick="addAction()">
-        ＋ Add Another Corrective Action Step
-      </button>
-
+      <button class="btn-add-action" onclick="addAction()">&#xFF0B; Add Another Corrective Action Step</button>
     </div>
   </div>
 
-  <!-- ══ SECTION 4: PERSON RESPONSIBLE & DEADLINE ══ -->
+  <!-- SECTION 4 -->
   <div class="cap-section">
     <div class="section-header">
       <div class="section-num num-person">4</div>
       <div class="section-title-wrap">
-        <div class="section-title">Person Responsible & Deadline</div>
+        <div class="section-title">Person Responsible &amp; Deadline</div>
         <div class="section-subtitle">Assign clear ownership and accountability for each action</div>
       </div>
       <span class="section-required">Required</span>
     </div>
     <div class="section-body">
-
       <div class="field-row cols-2">
         <div class="field-group">
-          <label for="primaryOwner">Primary Owner — CAP Lead <span class="req">*</span>
-            <span class="hint">The person accountable for overall CAP completion</span>
-          </label>
-          <input type="text" id="primaryOwner" placeholder="Full name" />
+          <label for="primaryOwner">Primary Owner &mdash; CAP Lead <span class="req">*</span><span class="hint">The person accountable for overall CAP completion</span></label>
+          <input type="text" id="primaryOwner" placeholder="Full name"/>
         </div>
         <div class="field-group">
           <label for="primaryTitle">Title / Role</label>
-          <input type="text" id="primaryTitle" placeholder="e.g. Compliance Manager" />
+          <input type="text" id="primaryTitle" placeholder="e.g. Compliance Manager"/>
         </div>
       </div>
-
       <div class="field-row cols-2">
         <div class="field-group">
           <label for="primaryEmail">Email Address</label>
-          <input type="email" id="primaryEmail" placeholder="email@facility.com" />
+          <input type="email" id="primaryEmail" placeholder="email@facility.com"/>
         </div>
         <div class="field-group">
           <label for="overallDeadline">Overall CAP Completion Deadline <span class="req">*</span></label>
-          <input type="date" id="overallDeadline" />
+          <input type="date" id="overallDeadline"/>
         </div>
       </div>
-
       <div class="field-row cols-2">
         <div class="field-group">
-          <label for="managementSponsor">Management Sponsor / Approver
-            <span class="hint">Senior manager who has approved and committed to this CAP</span>
-          </label>
-          <input type="text" id="managementSponsor" placeholder="Full name and title" />
+          <label for="managementSponsor">Management Sponsor / Approver<span class="hint">Senior manager who has approved and committed to this CAP</span></label>
+          <input type="text" id="managementSponsor" placeholder="Full name and title"/>
         </div>
         <div class="field-group">
           <label for="reportingFrequency">Progress Reporting Frequency</label>
           <select id="reportingFrequency">
-            <option value="">— Select —</option>
+            <option value="">&mdash; Select &mdash;</option>
             <option>Weekly</option>
             <option>Bi-weekly</option>
             <option>Monthly</option>
@@ -1053,18 +494,14 @@
           </select>
         </div>
       </div>
-
       <div class="field-group">
-        <label for="resourcesRequired">Resources / Support Required
-          <span class="hint">Budget, staffing, external support, or tools needed to execute this CAP</span>
-        </label>
-        <textarea id="resourcesRequired" rows="3" placeholder="e.g. H&S policy update requires legal review ($500 est.). Training session requires 2 hours production downtime for each shift. Physical changes to storage layout require maintenance team coordination."></textarea>
+        <label for="resourcesRequired">Resources / Support Required<span class="hint">Budget, staffing, external support, or tools needed to execute this CAP</span></label>
+        <textarea id="resourcesRequired" rows="3" placeholder="e.g. H&amp;S policy update requires legal review ($500 est.). Training session requires 2 hours production downtime for each shift. Physical changes to storage layout require maintenance team coordination."></textarea>
       </div>
-
     </div>
   </div>
 
-  <!-- ══ SECTION 5: FOLLOW-UP VERIFICATION ══ -->
+  <!-- SECTION 5 -->
   <div class="cap-section">
     <div class="section-header">
       <div class="section-num num-verify">5</div>
@@ -1074,36 +511,20 @@
       </div>
     </div>
     <div class="section-body">
-
       <div class="field-group">
         <label>Current CAP Status</label>
         <div class="verify-status">
-          <div class="verify-option">
-            <input type="radio" name="capStatus" id="status-notstarted" value="Not Started" />
-            <label for="status-notstarted" class="not-started">⬜ Not Started</label>
-          </div>
-          <div class="verify-option">
-            <input type="radio" name="capStatus" id="status-inprogress" value="In Progress" />
-            <label for="status-inprogress" class="in-progress">🔄 In Progress</label>
-          </div>
-          <div class="verify-option">
-            <input type="radio" name="capStatus" id="status-completed" value="Completed" />
-            <label for="status-completed" class="completed">✅ Actions Completed</label>
-          </div>
-          <div class="verify-option">
-            <input type="radio" name="capStatus" id="status-verified" value="Verified Closed" />
-            <label for="status-verified" class="verified">🔒 Verified Closed</label>
-          </div>
+          <div class="verify-option"><input type="radio" name="capStatus" id="status-notstarted" value="Not Started"/><label for="status-notstarted" class="not-started">Not Started</label></div>
+          <div class="verify-option"><input type="radio" name="capStatus" id="status-inprogress" value="In Progress"/><label for="status-inprogress" class="in-progress">In Progress</label></div>
+          <div class="verify-option"><input type="radio" name="capStatus" id="status-completed" value="Completed"/><label for="status-completed" class="completed">&#10003; Actions Completed</label></div>
+          <div class="verify-option"><input type="radio" name="capStatus" id="status-verified" value="Verified Closed"/><label for="status-verified" class="verified">&#9632; Verified Closed</label></div>
         </div>
       </div>
-
       <div class="field-row cols-2">
         <div class="field-group">
-          <label for="verificationMethod">Verification Method <span class="req">*</span>
-            <span class="hint">How will you confirm the corrective actions have been implemented and are working?</span>
-          </label>
+          <label for="verificationMethod">Verification Method <span class="req">*</span><span class="hint">How will you confirm the corrective actions have been implemented and are working?</span></label>
           <select id="verificationMethod">
-            <option value="">— Select Primary Method —</option>
+            <option value="">&mdash; Select Primary Method &mdash;</option>
             <option>Internal audit / inspection walkthrough</option>
             <option>Document review and recordkeeping check</option>
             <option>Worker interviews / knowledge testing</option>
@@ -1116,171 +537,95 @@
         </div>
         <div class="field-group">
           <label for="verificationDate">Planned Verification Date</label>
-          <input type="date" id="verificationDate" />
+          <input type="date" id="verificationDate"/>
         </div>
       </div>
-
       <div class="field-group">
-        <label for="verificationPlan">Verification Plan Detail
-          <span class="hint">Describe specifically how you will verify each corrective action is effective</span>
-        </label>
-        <textarea id="verificationPlan" rows="4" placeholder="e.g. 1) H&S officer will conduct monthly exit corridor inspections using the WRAP H&S checklist and photograph all exits. 2) Supervisor training attendance sheets will be reviewed. 3) Random worker interviews (3–5 workers) will confirm awareness of the no-storage policy. 4) All records will be filed in the H&S binder — Section 3B."></textarea>
+        <label for="verificationPlan">Verification Plan Detail<span class="hint">Describe specifically how you will verify each corrective action is effective</span></label>
+        <textarea id="verificationPlan" rows="4" placeholder="e.g. 1) H&amp;S officer will conduct monthly exit corridor inspections using the WRAP H&amp;S checklist and photograph all exits. 2) Supervisor training attendance sheets will be reviewed. 3) Random worker interviews (3&ndash;5 workers) will confirm awareness of the no-storage policy. 4) All records will be filed in the H&amp;S binder &mdash; Section 3B."></textarea>
       </div>
-
       <div class="field-row cols-2">
         <div class="field-group">
-          <label for="preventionMeasure">Preventive Measure for Recurrence
-            <span class="hint">What systemic change prevents this from happening again?</span>
-          </label>
-          <textarea id="preventionMeasure" rows="3" placeholder="e.g. Monthly H&S inspection schedule formally established. H&S checklist includes emergency exit clearance as first inspection item. Results reported to General Manager monthly."></textarea>
+          <label for="preventionMeasure">Preventive Measure for Recurrence<span class="hint">What systemic change prevents this from happening again?</span></label>
+          <textarea id="preventionMeasure" rows="3" placeholder="e.g. Monthly H&amp;S inspection schedule formally established. H&amp;S checklist includes emergency exit clearance as first inspection item. Results reported to General Manager monthly."></textarea>
         </div>
         <div class="field-group">
-          <label for="closureEvidence">Evidence Required for Closure
-            <span class="hint">What specific documents must exist to formally close this CAP?</span>
-          </label>
-          <textarea id="closureEvidence" rows="3" placeholder="e.g. (1) Updated H&S policy signed and posted. (2) Training attendance records. (3) 3 consecutive monthly inspection reports showing exits clear. (4) Auditor or brand confirmation of closure."></textarea>
+          <label for="closureEvidence">Evidence Required for Closure<span class="hint">What specific documents must exist to formally close this CAP?</span></label>
+          <textarea id="closureEvidence" rows="3" placeholder="e.g. (1) Updated H&amp;S policy signed and posted. (2) Training attendance records. (3) 3 consecutive monthly inspection reports showing exits clear. (4) Auditor or brand confirmation of closure."></textarea>
         </div>
       </div>
-
       <div class="field-group">
         <label for="closureNotes">Closure Notes / Final Comments</label>
         <textarea id="closureNotes" rows="3" placeholder="Record actual completion date, final verification outcome, and any notes for future reference..."></textarea>
       </div>
-
     </div>
   </div>
 
-  <!-- Print footer -->
-  <div class="print-footer">
-    RC2 Consulting | Operations & Compliance Solutions | © 2026 RC2 Consulting. All rights reserved. | This template is provided as a free resource. RC2 Consulting is not responsible for audit outcomes based on its use.
-  </div>
-
-</div><!-- end form-wrap -->
-
-<!-- Page footer -->
-
+  <div class="print-footer">RC2 Consulting | Operations &amp; Compliance Solutions | &copy; 2026 RC2 Consulting. All rights reserved. | This template is provided as a free resource. RC2 Consulting is not responsible for audit outcomes based on its use.</div>
+</div>
 
 <script>
-  // ── Progress tracker ──
-  function updateProgress() {
-    const required = document.querySelectorAll('input[required], select[required], textarea[required]');
-    const allFields = document.querySelectorAll(
-      'input[type="text"], input[type="date"], input[type="email"], select, textarea, input[type="radio"]:checked'
-    );
-    let filled = 0;
-    let total = 0;
-    allFields.forEach(f => {
-      if (f.type === 'radio') return;
-      total++;
-      if (f.value && f.value.trim() !== '' && f.value !== '— Select —' && f.value !== '— Select Principle —' && f.value !== '— Select Category —' && f.value !== '') filled++;
-    });
-    // Count radio groups
-    const radioGroups = ['severity', 'capStatus'];
-    radioGroups.forEach(name => {
-      total++;
-      if (document.querySelector(`input[name="${name}"]:checked`)) filled++;
-    });
-
-    const pct = total > 0 ? Math.round((filled / total) * 100) : 0;
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressPct').textContent = pct + '%';
-
-    // Update summary
-    const principleEl = document.getElementById('wrapPrinciple');
-    const principleText = principleEl.value ? principleEl.options[principleEl.selectedIndex].text.split(' — ')[0] : '—';
-    document.getElementById('sumFinding').textContent = principleText;
-
-    const sevChecked = document.querySelector('input[name="severity"]:checked');
-    document.getElementById('sumSeverity').textContent = sevChecked ? sevChecked.value : '—';
-
-    document.getElementById('sumActions').textContent = document.querySelectorAll('.action-item').length;
-
-    const deadline = document.getElementById('overallDeadline').value;
-    if (deadline) {
-      const d = new Date(deadline + 'T00:00:00');
-      document.getElementById('sumDeadline').textContent = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    } else {
-      document.getElementById('sumDeadline').textContent = '—';
-    }
+function updateProgress(){
+  const allFields=document.querySelectorAll('input[type="text"],input[type="date"],input[type="email"],select,textarea');
+  let filled=0,total=0;
+  allFields.forEach(f=>{
+    total++;
+    if(f.value&&f.value.trim()!==''&&f.value!=='\u2014 Select \u2014'&&f.value!=='\u2014 Select Principle \u2014'&&f.value!=='\u2014 Select Category \u2014'&&f.value!=='') filled++;
+  });
+  const radioGroups=['severity','capStatus'];
+  radioGroups.forEach(name=>{
+    total++;
+    if(document.querySelector('input[name="'+name+'"]:checked')) filled++;
+  });
+  const pct=total>0?Math.round((filled/total)*100):0;
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressPct').textContent=pct+'%';
+  const principleEl=document.getElementById('wrapPrinciple');
+  const principleText=principleEl.value?principleEl.options[principleEl.selectedIndex].text.split(' \u2014 ')[0]:'\u2014';
+  document.getElementById('sumFinding').textContent=principleText;
+  const sevChecked=document.querySelector('input[name="severity"]:checked');
+  document.getElementById('sumSeverity').textContent=sevChecked?sevChecked.value:'\u2014';
+  document.getElementById('sumActions').textContent=document.querySelectorAll('.action-item').length;
+  const deadline=document.getElementById('overallDeadline').value;
+  if(deadline){
+    const d=new Date(deadline+'T00:00:00');
+    document.getElementById('sumDeadline').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  } else {
+    document.getElementById('sumDeadline').textContent='\u2014';
   }
+}
+document.addEventListener('input',updateProgress);
+document.addEventListener('change',updateProgress);
 
-  document.addEventListener('input', updateProgress);
-  document.addEventListener('change', updateProgress);
-
-  // ── Add Action Item ──
-  let actionCount = 1;
-  function addAction() {
-    actionCount++;
-    const id = actionCount;
-    const list = document.getElementById('actionList');
-    const div = document.createElement('div');
-    div.className = 'action-item';
-    div.id = `action-${id}`;
-    div.innerHTML = `
-      <div class="action-item-header">
-        <div class="action-num-badge">${id}</div>
-        <button class="btn-remove-action" onclick="removeAction(${id})" title="Remove this action">✕</button>
-      </div>
-      <div class="field-row cols-2">
-        <div class="field-group">
-          <label>Action Description <span class="req">*</span></label>
-          <textarea rows="3" class="action-desc" placeholder="Describe the specific corrective action step..."></textarea>
-        </div>
-        <div>
-          <div class="field-group">
-            <label>Action Type</label>
-            <select class="action-type">
-              <option value="">— Select —</option>
-              <option>Policy / Procedure Update</option>
-              <option>Staff Training</option>
-              <option>Physical / Infrastructure Change</option>
-              <option>Process Implementation</option>
-              <option>Documentation / Recordkeeping</option>
-              <option>Monitoring / Inspection Schedule</option>
-              <option>Contractor / Supplier Action</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="field-group" style="margin-top:12px;">
-            <label>Target Completion Date</label>
-            <input type="date" class="action-date" />
-          </div>
-        </div>
-      </div>
-      <div class="field-group">
-        <label>Evidence of Completion
-          <span class="hint">What document, record, or proof will show this action is done?</span>
-        </label>
-        <input type="text" class="action-evidence" placeholder="e.g. Signed training attendance sheet filed in H&S binder" />
-      </div>`;
-    list.appendChild(div);
+let actionCount=1;
+function addAction(){
+  actionCount++;
+  const id=actionCount;
+  const list=document.getElementById('actionList');
+  const div=document.createElement('div');
+  div.className='action-item';
+  div.id='action-'+id;
+  div.innerHTML='<div class="action-item-header"><div class="action-num-badge">'+id+'</div><button class="btn-remove-action" onclick="removeAction('+id+')" title="Remove this action">&times;</button></div><div class="field-row cols-2"><div class="field-group"><label>Action Description <span class="req">*</span></label><textarea rows="3" class="action-desc" placeholder="Describe the specific corrective action step..."></textarea></div><div><div class="field-group"><label>Action Type</label><select class="action-type"><option value="">&mdash; Select &mdash;</option><option>Policy / Procedure Update</option><option>Staff Training</option><option>Physical / Infrastructure Change</option><option>Process Implementation</option><option>Documentation / Recordkeeping</option><option>Monitoring / Inspection Schedule</option><option>Contractor / Supplier Action</option><option>Other</option></select></div><div class="field-group" style="margin-top:12px"><label>Target Completion Date</label><input type="date" class="action-date"/></div></div></div><div class="field-group"><label>Evidence of Completion<span class="hint">What document, record, or proof will show this action is done?</span></label><input type="text" class="action-evidence" placeholder="e.g. Signed training attendance sheet filed in H&amp;S binder"/></div>';
+  list.appendChild(div);
+  updateProgress();
+}
+function removeAction(id){
+  const el=document.getElementById('action-'+id);
+  if(document.querySelectorAll('.action-item').length>1){el.remove();updateProgress();}
+}
+function clearForm(){
+  if(confirm('Clear all fields and start over? This cannot be undone.')){
+    document.querySelectorAll('input[type="text"],input[type="date"],input[type="email"],textarea').forEach(el=>el.value='');
+    document.querySelectorAll('select').forEach(el=>el.selectedIndex=0);
+    document.querySelectorAll('input[type="radio"]').forEach(el=>el.checked=false);
+    const list=document.getElementById('actionList');
+    const items=list.querySelectorAll('.action-item');
+    items.forEach((item,i)=>{if(i>0) item.remove();});
+    actionCount=1;
     updateProgress();
   }
-
-  function removeAction(id) {
-    const el = document.getElementById(`action-${id}`);
-    if (document.querySelectorAll('.action-item').length > 1) {
-      el.remove();
-      updateProgress();
-    }
-  }
-
-  // ── Clear Form ──
-  function clearForm() {
-    if (confirm('Clear all fields and start over? This cannot be undone.')) {
-      document.querySelectorAll('input[type="text"], input[type="date"], input[type="email"], textarea').forEach(el => el.value = '');
-      document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
-      document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
-      // Reset action items to just one
-      const list = document.getElementById('actionList');
-      const items = list.querySelectorAll('.action-item');
-      items.forEach((item, i) => { if (i > 0) item.remove(); });
-      actionCount = 1;
-      updateProgress();
-    }
-  }
-
-  updateProgress();
+}
+updateProgress();
 </script>
 
 <footer class="site-footer">
@@ -1298,27 +643,27 @@
 </footer>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();
