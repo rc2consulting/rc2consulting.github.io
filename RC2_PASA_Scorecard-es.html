@@ -1,238 +1,279 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════
+  RC2 PASA PRE-AUDIT RISK SCORECARD (EN)
+  CAP-70 Phase 3 Tool #3 Retrofit — 2026-04-17
+  Surgical Gold Standard retrofit from near-compliant source
+═══════════════════════════════════════════════════════════════════════════
+-->
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tarjeta de Puntuación de Riesgo PASA Pre-Auditoría | RC2 Consulting</title>
-  <meta property="og:title" content="Tarjeta de Puntuación de Riesgo PASA Pre-Auditoría | RC2 Consulting">
-  <meta property="og:description" content="Tarjeta de Puntuación de Riesgo PASA Pre-Auditoría. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_PASA_Scorecard-es.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tarjeta de Puntuación de Riesgo PASA Pre-Auditoría | RC2 Consulting">
-  <meta name="twitter:description" content="Tarjeta de Puntuación de Riesgo PASA Pre-Auditoría. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta name="description" content="The PASA Pre-Audit Self-Assessment — a structured scorecard for organizations preparing for WRAP or social compliance audits. Identify your highest-risk gaps before an auditor does." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy:#0B2545; --blue:#1A4A8A; --light-blue:#2563EB;
-      --light-bg:#F4F6FA; --white:#FFFFFF;
-      --text:#1C2B3A; --text-muted:#4A5568; --border:#E2E8F0;
-      --success:#1A7A4E; --success-bg:#EBF7F2;
-      --warn:#854D0E; --warn-bg:#FFFBEB;
-      --danger:#9B1C1C; --danger-bg:#FEF2F2;
-    }
-    body { font-family:'Source Sans 3',sans-serif; background:var(--light-bg); color:var(--text); margin:0; line-height:1.7; }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Scorecard de Pre-Auditoría PASA | RC2 Consulting</title>
+<meta property="og:title" content="PASA Pre-Audit Risk Scorecard | RC2 Consulting">
+<meta property="og:description" content="The PASA Pre-Audit Self-Assessment — a structured scoring tool for organizations preparing for WRAP or social compliance audits. Identify your highest-risk gaps before an auditor does.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_PASA_Scorecard-es.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PASA Pre-Audit Risk Scorecard | RC2 Consulting">
+<meta name="twitter:description" content="Structured scoring tool for WRAP audit preparation. Identify your highest-risk gaps before an auditor does. Free from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta name="description" content="The PASA Pre-Audit Self-Assessment — a structured scorecard for organizations preparing for WRAP or social compliance audits. Identify your highest-risk gaps before an auditor does."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B2545;--blue:#1A4A8A;--light-blue:#2563EB;
+  --light-bg:#F4F6FA;--white:#FFFFFF;
+  --text:#1C2B3A;--text-muted:#4A5568;--border:#D1D9E6;
+  --success:#1A7A4E;--success-bg:#EBF7F2;
+  --warn:#854D0E;--warn-bg:#FFFBEB;
+  --danger:#9B1C1C;--danger-bg:#FEF2F2;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var(--text);margin:0;line-height:1.7}
 
-    /* NAV */
-    .topnav { background:var(--navy); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
-    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
-    .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
-    .nav-logo-mark sup { font-size:0.5rem; vertical-align:super; }
-    .nav-brand-name { font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.9); }
-    .nav-links { display:flex; gap:4px; list-style:none; }
-    .nav-links a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.83rem; font-weight:600; padding:6px 12px; border-radius:4px; transition:all 0.2s; white-space:nowrap; }
-    .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
-    .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
+/* NAV */
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,0.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:0.5rem;vertical-align:super}
+.nav-brand-name{font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all 0.2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:white;background:rgba(255,255,255,0.12)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
 
-    /* HERO */
-    .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.82) 0%, rgba(11,37,69,0.65) 100%), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80') center/cover no-repeat; padding:64px 40px 56px; }
-    .hero-inner { max-width:900px; margin:0 auto; }
-    .article-tag { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); padding:4px 12px; border-radius:10px; margin-bottom:16px; }
-    .hero h1 { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:700; color:white; line-height:1.2; margin-bottom:10px; }
-    .hero-sub { font-size:0.95rem; color:rgba(255,255,255,0.78); margin-bottom:16px; max-width:600px; }
-    .hero-meta { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
-    .hero-meta span { font-size:0.82rem; color:rgba(255,255,255,0.65); }
-    .hero-meta .divider { color:rgba(255,255,255,0.3); }
+/* HERO */
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,0.82) 0%,rgba(11,37,69,0.65) 100%),url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:white;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:0.92rem;color:rgba(255,255,255,0.75);margin-bottom:16px;max-width:640px;line-height:1.6}
+.hero-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-meta span{font-size:0.82rem;color:rgba(255,255,255,0.6)}
+.hero-meta .divider{color:rgba(255,255,255,0.3)}
 
-    /* LAYOUT */
-    .article-wrap { max-width:900px; margin:0 auto; padding:0 28px; }
-    .btn-back { display:inline-flex; align-items:center; gap:6px; color:var(--light-blue); text-decoration:none; font-size:0.85rem; font-weight:600; margin:28px 0 0; }
+/* LAYOUT */
+.page-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--light-blue);text-decoration:none;font-size:0.85rem;font-weight:600;margin:28px 0 0}
+.btn-back:hover{color:var(--navy)}
 
-    /* ABSTRACT */
-    .abstract-box { background:var(--white); border-left:4px solid var(--light-blue); border-radius:0 8px 8px 0; padding:24px 28px; margin:40px 0; box-shadow:0 2px 8px rgba(11,37,69,0.07); }
-    .abstract-box h3 { font-size:0.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--light-blue); margin-bottom:10px; }
-    .abstract-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.75; font-style:italic; }
+/* ABSTRACT */
+.abstract-box{background:var(--white);border-left:4px solid var(--light-blue);border-radius:0 8px 8px 0;padding:22px 26px;margin:36px 0 28px;box-shadow:0 2px 8px rgba(11,37,69,0.07)}
+.abstract-box h3{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light-blue);margin-bottom:8px}
+.abstract-box p{font-size:0.9rem;color:var(--text-muted);line-height:1.75;font-style:italic}
 
-    /* INTRO CARD */
-    .intro-body { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.06); padding:40px 48px; margin-bottom:28px; }
-    .intro-body p { font-size:0.93rem; color:var(--text-muted); line-height:1.8; margin-bottom:14px; }
-    .intro-body p strong { color:var(--navy); }
-    .intro-body h2 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--navy); margin:28px 0 12px; border-top:2px solid var(--border); padding-top:8px; }
-    .intro-body h2:first-child { border-top:none; padding-top:0; margin-top:0; }
+/* INTRO CARD */
+.intro-card{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);padding:36px 40px;margin-bottom:24px}
+.intro-card p{font-size:0.91rem;color:var(--text-muted);line-height:1.8;margin-bottom:12px}
+.intro-card p strong{color:var(--navy)}
+.intro-card p:last-child{margin-bottom:0}
 
-    /* HOW TO USE */
-    .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:16px 0; }
-    .how-card { background:var(--light-bg); border:1px solid var(--border); border-radius:8px; padding:16px; text-align:center; }
-    .how-num { font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--light-blue); font-weight:700; line-height:1; margin-bottom:6px; }
-    .how-card p { font-size:0.82rem; color:var(--text-muted); line-height:1.5; margin:0; }
+/* STEP GUIDE */
+.step-guide{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;box-shadow:0 1px 4px rgba(11,37,69,0.05)}
+.step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--light-blue);line-height:1;margin-bottom:6px}
+.step-title{font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.step-desc{font-size:0.74rem;color:var(--text-muted);line-height:1.5}
 
-    /* SCORE KEY */
-    .score-key { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:16px 0; }
-    .key-item { border-radius:6px; padding:10px 12px; text-align:center; border:1px solid; }
-    .key-item.k4 { background:var(--success-bg); border-color:#BBF7D0; }
-    .key-item.k3 { background:#F0FDF4; border-color:#D1FAE5; }
-    .key-item.k2 { background:var(--warn-bg); border-color:#FDE68A; }
-    .key-item.k1 { background:var(--danger-bg); border-color:#FECACA; }
-    .key-score { font-size:1.2rem; font-weight:700; font-family:'Playfair Display',serif; }
-    .k4 .key-score { color:var(--success); }
-    .k3 .key-score { color:#15803D; }
-    .k2 .key-score { color:var(--warn); }
-    .k1 .key-score { color:var(--danger); }
-    .key-label { font-size:0.72rem; font-weight:700; margin-top:3px; }
-    .key-desc { font-size:0.72rem; color:var(--text-muted); margin-top:3px; }
+/* CAP BLOCK */
+.cap-block{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);margin-bottom:20px;overflow:hidden}
+.cap-block-header{background:var(--navy);padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.cap-block-header h3{font-size:0.85rem;font-weight:700;color:white;letter-spacing:0.3px}
+.cap-block-header span{font-size:0.7rem;color:rgba(255,255,255,0.55)}
+.cap-block-body{padding:20px 24px}
 
-    /* SCORECARD SECTION */
-    .scorecard-section { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.06); margin-bottom:20px; overflow:hidden; }
-    .section-header { background:var(--navy); padding:14px 24px; display:flex; align-items:center; justify-content:space-between; }
-    .section-title { font-size:0.88rem; font-weight:700; color:white; }
-    .section-wrap-ref { font-size:0.72rem; color:rgba(255,255,255,0.55); }
-    .scorecard-table { width:100%; border-collapse:collapse; }
-    .scorecard-table th { background:var(--light-bg); padding:10px 16px; text-align:left; font-size:0.75rem; font-weight:700; color:var(--text-muted); letter-spacing:0.5px; border-bottom:2px solid var(--border); }
-    .scorecard-table th.score-col { text-align:center; width:80px; }
-    .scorecard-table td { padding:12px 16px; border-bottom:1px solid var(--border); font-size:0.84rem; color:var(--text-muted); vertical-align:top; line-height:1.5; }
-    .scorecard-table tr:last-child td { border-bottom:none; }
-    .scorecard-table td.item-num { color:var(--blue); font-weight:700; width:32px; }
-    .score-cell { text-align:center; }
-    .score-box { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:6px; font-size:0.85rem; font-weight:700; border:2px solid var(--border); background:var(--light-bg); color:var(--text-muted); }
-    .section-total { background:var(--light-bg); padding:12px 24px; display:flex; align-items:center; justify-content:space-between; border-top:2px solid var(--border); }
-    .section-total-label { font-size:0.8rem; font-weight:700; color:var(--navy); }
-    .section-total-score { display:flex; align-items:center; gap:8px; }
-    .total-blank { display:inline-block; width:80px; border-bottom:2px solid var(--navy); height:24px; text-align:center; font-weight:700; }
-    .total-max { font-size:0.78rem; color:var(--text-muted); }
+/* SCORE KEY */
+.score-key{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.key-item{border-radius:6px;padding:10px 12px;text-align:center;border:1px solid}
+.key-item.k4{background:var(--success-bg);border-color:#BBF7D0}
+.key-item.k3{background:#F0FDF4;border-color:#D1FAE5}
+.key-item.k2{background:var(--warn-bg);border-color:#FDE68A}
+.key-item.k1{background:var(--danger-bg);border-color:#FECACA}
+.key-score{font-size:1.2rem;font-weight:700;font-family:'Playfair Display',serif}
+.k4 .key-score{color:var(--success)}
+.k3 .key-score{color:#15803D}
+.k2 .key-score{color:var(--warn)}
+.k1 .key-score{color:var(--danger)}
+.key-label{font-size:0.72rem;font-weight:700;margin-top:3px}
+.key-desc{font-size:0.72rem;color:var(--text-muted);margin-top:3px}
 
-    /* RESULTS MATRIX */
-    .results-matrix { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.06); overflow:hidden; margin-bottom:28px; }
-    .matrix-header { background:var(--navy); padding:14px 24px; }
-    .matrix-header h3 { font-size:0.88rem; font-weight:700; color:white; }
-    .matrix-rows { padding:0; }
-    .matrix-row { display:grid; grid-template-columns:100px 1fr 200px; gap:0; border-bottom:1px solid var(--border); }
-    .matrix-row:last-child { border-bottom:none; }
-    .matrix-range { padding:16px; font-size:1rem; font-weight:700; font-family:'Playfair Display',serif; display:flex; align-items:center; border-right:1px solid var(--border); }
-    .range-pass { color:var(--success); }
-    .range-conditional { color:var(--warn); }
-    .range-fail { color:var(--danger); }
-    .matrix-content { padding:14px 16px; }
-    .matrix-content h4 { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
-    .matrix-content p { font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin:0; }
-    .matrix-action { padding:14px 16px; border-left:1px solid var(--border); display:flex; align-items:center; }
-    .matrix-action p { font-size:0.78rem; color:var(--text-muted); line-height:1.5; margin:0; }
+/* SCORECARD SECTIONS */
+.scorecard-section{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);margin-bottom:20px;overflow:hidden}
+.section-header{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.section-title{font-size:0.88rem;font-weight:700;color:white}
+.section-wrap-ref{font-size:0.72rem;color:rgba(255,255,255,0.55)}
+.scorecard-table{width:100%;border-collapse:collapse}
+.scorecard-table th{background:var(--light-bg);padding:10px 16px;text-align:left;font-size:0.75rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;border-bottom:2px solid var(--border)}
+.scorecard-table th.score-col{text-align:center;width:80px}
+.scorecard-table td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:0.84rem;color:var(--text-muted);vertical-align:top;line-height:1.5}
+.scorecard-table tr:last-child td{border-bottom:none}
+.scorecard-table td.item-num{color:var(--blue);font-weight:700;width:32px}
+.score-cell{text-align:center}
+.score-box{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;font-size:0.85rem;font-weight:700;border:2px solid var(--border);background:var(--light-bg);color:var(--text-muted)}
+.section-total{background:var(--light-bg);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-top:2px solid var(--border)}
+.section-total-label{font-size:0.8rem;font-weight:700;color:var(--navy)}
+.section-total-score{display:flex;align-items:center;gap:8px}
+.total-blank{display:inline-block;width:80px;border-bottom:2px solid var(--navy);height:24px;text-align:center;font-weight:700}
+.total-max{font-size:0.78rem;color:var(--text-muted)}
 
-    /* PRIORITY SECTION */
-    .priority-box { background:linear-gradient(135deg,var(--navy),var(--blue)); border-radius:10px; padding:28px 32px; margin-bottom:28px; }
-    .priority-box h3 { font-size:0.88rem; font-weight:700; color:white; letter-spacing:1px; text-transform:uppercase; margin-bottom:16px; }
-    .priority-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .priority-item { display:flex; align-items:flex-start; gap:10px; }
-    .priority-item::before { content:'→'; color:#93C5FD; font-weight:700; flex-shrink:0; margin-top:2px; }
-    .priority-item span { font-size:0.84rem; color:rgba(255,255,255,0.85); line-height:1.5; }
+/* RESULTS MATRIX */
+.results-matrix{background:var(--white);border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(11,37,69,0.06);overflow:hidden;margin-bottom:28px}
+.matrix-header{background:var(--navy);padding:14px 24px}
+.matrix-header h3{font-size:0.88rem;font-weight:700;color:white}
+.matrix-rows{padding:0}
+.matrix-row{display:grid;grid-template-columns:100px 1fr 200px;gap:0;border-bottom:1px solid var(--border)}
+.matrix-row:last-child{border-bottom:none}
+.matrix-range{padding:16px;font-size:1rem;font-weight:700;font-family:'Playfair Display',serif;display:flex;align-items:center;border-right:1px solid var(--border)}
+.range-pass{color:var(--success)}
+.range-conditional{color:var(--warn)}
+.range-fail{color:var(--danger)}
+.matrix-content{padding:14px 16px}
+.matrix-content h4{font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.matrix-content p{font-size:0.8rem;color:var(--text-muted);line-height:1.5;margin:0}
+.matrix-action{padding:14px 16px;border-left:1px solid var(--border);display:flex;align-items:center}
+.matrix-action p{font-size:0.78rem;color:var(--text-muted);line-height:1.5;margin:0}
 
-    /* SOURCES */
-    .sources { background:var(--light-bg); border-radius:8px; padding:20px 24px; margin:0 0 28px; border:1px solid var(--border); }
-    .sources h4 { font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; }
-    .sources ul { list-style:none; }
-    .sources ul li { font-size:0.78rem; color:var(--text-muted); padding:4px 0; border-bottom:1px solid var(--border); }
-    .sources ul li:last-child { border-bottom:none; }
-    .sources ul li a { color:var(--light-blue); text-decoration:none; }
+/* PRIORITY BOX */
+.priority-box{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:28px 32px;margin-bottom:28px}
+.priority-box h3{font-size:0.88rem;font-weight:700;color:white;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.priority-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.priority-item{display:flex;align-items:flex-start;gap:10px}
+.priority-item::before{content:'→';color:#93C5FD;font-weight:700;flex-shrink:0;margin-top:2px}
+.priority-item span{font-size:0.84rem;color:rgba(255,255,255,0.85);line-height:1.5}
 
-    /* CTA */
-    .article-cta { background:linear-gradient(135deg,var(--navy),var(--blue)); border-radius:10px; padding:36px; text-align:center; margin-bottom:48px; }
-    .article-cta h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:white; margin-bottom:10px; }
-    .article-cta p { font-size:0.88rem; color:rgba(255,255,255,0.78); margin-bottom:20px; }
-    .btn-cta { display:inline-flex; align-items:center; gap:8px; background:white; color:var(--blue); font-weight:700; font-size:0.88rem; padding:12px 24px; border-radius:6px; text-decoration:none; }
-    .btn-cta:hover { background:var(--light-bg); }
+/* SOURCES */
+.sources{background:var(--light-bg);border-radius:8px;padding:20px 24px;margin:0 0 28px;border:1px solid var(--border)}
+.sources h4{font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.sources ul{list-style:none}
+.sources ul li{font-size:0.78rem;color:var(--text-muted);padding:4px 0;border-bottom:1px solid var(--border)}
+.sources ul li:last-child{border-bottom:none}
+.sources ul li a{color:var(--light-blue);text-decoration:none}
 
-    /* FOOTER */
-    .site-footer { background:var(--navy); color:white; text-align:center; padding:40px 24px; }
-    .footer-tagline { font-size:0.92rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:12px; }
-    .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
-    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; }
-    .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+/* CTA */
+.article-cta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.article-cta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:white;margin-bottom:8px}
+.article-cta p{font-size:0.86rem;color:rgba(255,255,255,0.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue);font-weight:700;font-size:0.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-cta:hover{background:var(--light-bg)}
 
-    @media (max-width:700px) {
-      .hero h1 { font-size:1.8rem; }
-      .intro-body { padding:24px 18px; }
-      .how-grid { grid-template-columns:1fr; }
-      .score-key { grid-template-columns:repeat(2,1fr); }
-      .matrix-row { grid-template-columns:1fr; }
-      .matrix-range { border-right:none; border-bottom:1px solid var(--border); }
-      .matrix-action { border-left:none; border-top:1px solid var(--border); }
-      .priority-grid { grid-template-columns:1fr; }
-      .topnav { padding:0 16px; }
-      .nav-links a { padding:5px 8px; font-size:0.78rem; }
-    }
-    @media print {
-      .topnav, .btn-back, .article-cta, .site-footer { display:none; }
-      body { background:white; }
-      .scorecard-section, .results-matrix { box-shadow:none; border:1px solid #ccc; }
-    }
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none; position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545; flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200; gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important; font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important; height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
+/* FOOTER */
+.site-footer{background:var(--navy);color:white;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:0.9rem;color:rgba(255,255,255,0.9);font-weight:600;letter-spacing:0.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.78rem}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:0.73rem;color:rgba(255,255,255,0.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
 
+/* RESPONSIVE */
+@media(max-width:700px){
+  .hero h1{font-size:1.8rem}
+  .intro-card{padding:24px 18px}
+  .step-guide{grid-template-columns:repeat(2,1fr)}
+  .score-key{grid-template-columns:repeat(2,1fr)}
+  .matrix-row{grid-template-columns:1fr}
+  .matrix-range{border-right:none;border-bottom:1px solid var(--border)}
+  .matrix-action{border-left:none;border-top:1px solid var(--border)}
+  .priority-grid{grid-template-columns:1fr}
+  .topnav{padding:0 16px}
+  .nav-links a{padding:5px 8px;font-size:0.78rem}
+}
+@media print{
+  .topnav,.btn-back,.article-cta,.site-footer,.step-guide,.abstract-box,.intro-card{display:none}
+  body{background:white}
+  .scorecard-section,.results-matrix{box-shadow:none;border:1px solid #ccc}
+}
+
+/* HAMBURGER */
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:640px){
+  .topnav{padding:0 16px !important;position:relative}
+  .hamburger{display:flex !important}
+  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0 !important}
+  .nav-links.mobile-open{display:flex !important}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:0.92rem !important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0 !important;height:auto !important}
+  .nav-links a:last-child{border-bottom:none}
+  .lang-toggle{padding:10px 20px 4px}
+}
+
+  /* ── INTERACTIVE SCORING ── */
+  .score-btns{display:flex;gap:3px;justify-content:center;align-items:center;padding:4px 2px}
+  .score-btn{width:30px;height:30px;border-radius:6px;border:1.5px solid var(--border);background:var(--light-bg);font-size:0.76rem;font-weight:700;color:var(--text-muted);cursor:pointer;transition:all 0.15s;flex-shrink:0;line-height:1}
+  .score-btn:hover{border-color:var(--light-blue);color:var(--light-blue);background:var(--white)}
+  .score-btn.active.s1{background:var(--danger-bg);border-color:var(--danger);color:var(--danger)}
+  .score-btn.active.s2{background:#FEF3C7;border-color:#D97706;color:#92400E}
+  .score-btn.active.s3{background:#F0FDF4;border-color:#86EFAC;color:#15803D}
+  .score-btn.active.s4{background:var(--success-bg);border-color:var(--success);color:var(--success)}
+
+  /* ── SCORE TRACKER STRIP ── */
+  .score-tracker{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 2px 8px rgba(11,37,69,0.06)}
+  .tracker-score{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--navy);line-height:1}
+  .tracker-denom{font-size:0.85rem;color:var(--text-muted);font-weight:600}
+  .tracker-bar-wrap{flex:1;min-width:160px;max-width:260px}
+  .tracker-bar-track{background:var(--light-bg);border-radius:6px;height:10px;overflow:hidden;border:1px solid var(--border)}
+  .tracker-bar-fill{height:100%;border-radius:6px;transition:width 0.3s,background 0.3s;background:var(--border);width:0%}
+  .tracker-label{font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+  .tier-badge{font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:20px;white-space:nowrap}
+  .tier-default{background:var(--light-bg);color:var(--text-muted);border:1px solid var(--border)}
+  .tier-pass{background:var(--success-bg);color:var(--success);border:1px solid #BBF7D0}
+  .tier-cond{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
+  .tier-fail{background:var(--danger-bg);color:var(--danger);border:1px solid #FECACA}
+
+  /* ── RESULTS PANEL ── */
+  .results-panel{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:12px;padding:28px 32px;margin-bottom:44px}
+  .results-panel h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:#F0B429;margin-bottom:20px;letter-spacing:0.3px}
+  .results-top{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.12)}
+  .results-big-score{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:white;line-height:1}
+  .results-big-denom{font-size:0.9rem;color:rgba(255,255,255,0.55);display:block;margin-top:2px}
+  .results-bar-wrap{}
+  .results-bar-label{font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+  .results-bar-track{background:rgba(255,255,255,0.1);border-radius:6px;height:12px;overflow:hidden;width:100%}
+  .results-bar-fill{height:100%;border-radius:6px;transition:width 0.4s,background 0.4s;background:rgba(255,255,255,0.25);width:0%}
+  .results-verdict{text-align:right}
+  .results-verdict-label{font-size:0.68rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+
+  /* ── GAP LIST ── */
+  .gap-list-header{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .gap-list{display:flex;flex-direction:column;gap:6px}
+  .gap-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:10px 14px}
+  .gap-item-score{font-size:0.75rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0}
+  .gap-s1{background:var(--danger-bg);color:var(--danger)}
+  .gap-s2{background:#FEF3C7;color:#92400E}
+  .gap-item-text{font-size:0.8rem;color:rgba(255,255,255,0.85);line-height:1.45}
+  .gap-item-section{font-size:0.7rem;color:rgba(255,255,255,0.45);text-align:right;white-space:nowrap}
+  .gap-empty{font-size:0.84rem;color:rgba(255,255,255,0.5);font-style:italic;padding:12px 0}
+
+  .results-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+  .btn-print-results{background:white;color:var(--navy);font-weight:700;font-size:0.82rem;padding:9px 18px;border-radius:6px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.2s}
+  .btn-print-results:hover{background:var(--light-bg)}
+  .btn-reset-results{background:rgba(255,255,255,0.12);color:white;font-weight:600;font-size:0.82rem;padding:9px 18px;border-radius:6px;border:1px solid rgba(255,255,255,0.25);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.2s}
+  .btn-reset-results:hover{background:rgba(255,255,255,0.2)}
+
+  .total-val{font-size:0.95rem;font-weight:700;color:var(--navy);min-width:28px;display:inline-block;text-align:center}
 </style>
 </head>
 <body>
 
 <nav class="topnav">
-  <a href="https://rc2consulting.github.io/index-es.html" class="nav-brand">
+  <a href="https://rc2consulting.github.io/" class="nav-brand">
     <div class="nav-logo-mark">RC<sup>2</sup></div>
     <span class="nav-brand-name">Consulting</span>
   </a>
@@ -244,7 +285,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="active">Recursos</a></li>
     <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
     <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_PASA_Scorecard.html" class="lang-btn inactive">EN</a>
         <a href="https://rc2consulting.github.io/RC2_PASA_Scorecard-es.html" class="lang-btn active">ES</a>
@@ -259,390 +300,352 @@
 <section class="hero">
   <div class="hero-inner">
     <span class="article-tag">Herramienta de Cumplimiento</span>
-    <h1>Tarjeta de Puntuación de Riesgo PASA Pre-Auditoría</h1>
-    <p class="hero-sub">Autoevaluación Pre-Auditoría — Una herramienta de puntuación estructurada para organizaciones que se preparan para auditorías WRAP o de cumplimiento social. Identifique sus brechas de mayor riesgo antes de que lo haga un auditor.</p>
+    <h1>Scorecard de Pre-Auditoría de Riesgo PASA</h1>
+    <p class="hero-sub">Autoevaluación de Pre-Auditoría — Herramienta de puntuación estructurada para organizaciones que se preparan para auditorías WRAP. Identifique sus brechas de mayor riesgo antes que un auditor.</p>
     <div class="hero-meta">
       <span>RC2 Consulting</span>
       <span class="divider">|</span>
-      <span>Febrero 2026</span>
+      <span>2026</span>
       <span class="divider">|</span>
-      <span>Herramienta Imprimible</span>
+      <span>12 Secciones · 50 Elementos · Herramienta Interactiva</span>
     </div>
   </div>
 </section>
 
-<div class="article-wrap">
+<div class="page-wrap">
   <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="btn-back">← Volver a Recursos</a>
 
   <div class="abstract-box">
     <h3>Acerca de Esta Herramienta</h3>
-    <p>La Autoevaluación Pre-Auditoría PASA es una herramienta de puntuación estructurada diseñada para dar a las organizaciones una imagen honesta y puntuada de su preparación para auditorías antes de que se realice una auditoría WRAP o de cumplimiento social equivalente. No es un sustituto de una evaluación de cumplimiento profesional — pero es el primer paso más importante que cualquier organización puede tomar para comprender dónde se concentra su riesgo y dónde debe enfocarse su esfuerzo de preparación.</p>
+    <p>La Autoevaluación de Pre-Auditoría PASA es una herramienta de puntuación estructurada diseñada para dar a las organizaciones una imagen honesta y puntuada de su preparación para auditorías. No sustituye a una evaluación profesional de cumplimiento — pero es el primer paso más importante que cualquier organización puede tomar.</p>
   </div>
 
-  <div class="intro-body">
-    <h2>¿Qué es la Tarjeta de Puntuación PASA?</h2>
-    <p>La <strong>Autoevaluación Pre-Auditoría (PASA)</strong> es un diagnóstico de preparación a nivel de instalación construido en torno a los 12 principios fundamentales del estándar de certificación WRAP. Cada principio se desglosa en sus componentes más auditados — documentación, sistemas, capacitación y cumplimiento físico. Cada componente se puntúa en una escala del 1 al 4 que refleja el nivel de preparación actual.</p>
-    <p>El PASA no reemplaza una auditoría WRAP ni una evaluación profesional de brechas. Lo que hace es dar a los gerentes de instalaciones, oficiales de cumplimiento y equipos de liderazgo un marco estructurado y puntuado para comprender dónde existen brechas — y cuán significativas son — antes de que llegue un auditor externo.</p>
-    <p>Las organizaciones que realizan una autoevaluación PASA y actúan sobre sus hallazgos antes de su auditoría formal consistentemente se desempeñan mejor — porque llegan a la auditoría habiendo ya identificado y abordado sus áreas de mayor riesgo.</p>
+  <div class="intro-card">
+    <p>La <strong>Autoevaluación de Pre-Auditoría (PASA)</strong> es un diagnóstico de preparación a nivel de instalación construido en torno a los 12 principios fundamentales del estándar WRAP. Cada principio se desglosa en sus componentes más auditados — documentación, sistemas, capacitación y cumplimiento físico — puntuados en una escala del 1 al 4.</p>
+    <p>Las organizaciones que realizan una autoevaluación PASA y actúan sobre sus hallazgos antes de su auditoría formal obtienen sistemáticamente mejores resultados. <strong>Puntúe lo que existe y es verificable hoy — no lo que tiene intención de hacer.</strong></p>
+  </div>
 
-    <h2>Cómo Usar Esta Tarjeta de Puntuación</h2>
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-num">1</div>
-        <p>Puntúe cada elemento honestamente usando la escala del 1 al 4. No puntúe lo que tiene la intención de hacer — puntúe lo que existe y es verificable hoy.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">2</div>
-        <p>Total por sección. Registre sus puntuaciones de sección y calcule su puntuación PASA general de 160 puntos.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">3</div>
-        <p>Use la matriz de resultados para determinar su nivel de preparación e identificar qué secciones requieren acción correctiva inmediata.</p>
-      </div>
+  <div class="step-guide">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-title">Puntúe con Honestidad</div>
+      <div class="step-desc">Califique cada elemento usando la escala 1–4. Puntúe lo que existe hoy — no lo que planea hacer.</div>
     </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-title">Calcule los Totales</div>
+      <div class="step-desc">Total each section. Calculate your overall PASA score out of 160 points.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-title">Revise la Matriz</div>
+      <div class="step-desc">Use la matriz de resultados para determinar su nivel de preparación e identificar secciones críticas.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-title">Priorice y Actúe</div>
+      <div class="step-desc">Dirija todas las acciones correctivas a los elementos puntuados 1 o 2 antes de su auditoría formal.</div>
+    </div>
+  </div>
 
-    <h2>Escala de Puntuación</h2>
-    <div class="score-key">
-      <div class="key-item k4">
-        <div class="key-score">4</div>
-        <div class="key-label">Totalmente Conforme</div>
-        <div class="key-desc">Documentado, vigente, verificable</div>
-      </div>
-      <div class="key-item k3">
-        <div class="key-score">3</div>
-        <div class="key-label">Mayormente Conforme</div>
-        <div class="key-desc">Establecido pero con brechas menores</div>
-      </div>
-      <div class="key-item k2">
-        <div class="key-score">2</div>
-        <div class="key-label">Parcialmente Conforme</div>
-        <div class="key-desc">Existe pero incompleto</div>
-      </div>
-      <div class="key-item k1">
-        <div class="key-score">1</div>
-        <div class="key-label">No Conforme</div>
-        <div class="key-desc">Ausente o no verificable</div>
+
+  <!-- LIVE SCORE TRACKER -->
+  <div class="score-tracker">
+    <div>
+      <div class="tracker-label">Puntuación en Vivo</div>
+      <span class="tracker-score" id="live-score">—</span>
+      <span class="tracker-denom"> / 200</span>
+    </div>
+    <div class="tracker-bar-wrap">
+      <div class="tracker-label">Progreso</div>
+      <div class="tracker-bar-track"><div class="tracker-bar-fill" id="tracker-bar"></div></div>
+    </div>
+    <div>
+      <div class="tracker-label">Nivel de Preparación</div>
+      <span class="tier-badge tier-default" id="tier-badge">No Iniciado</span>
+    </div>
+  </div>
+
+  <!-- SCORING KEY -->
+  <div class="cap-block">
+    <div class="cap-block-header">
+      <h3>Clave de Puntuación</h3>
+      <span>Puntúe lo que es verificable hoy — no lo que está planeado</span>
+    </div>
+    <div class="cap-block-body">
+      <div class="score-key">
+        <div class="key-item k4"><div class="key-score">4</div><div class="key-label">Totalmente Conforme</div><div class="key-desc">Documentado, vigente, verificable</div></div>
+        <div class="key-item k3"><div class="key-score">3</div><div class="key-label">Mayormente Conforme</div><div class="key-desc">Implementado, brechas menores</div></div>
+        <div class="key-item k2"><div class="key-score">2</div><div class="key-label">Parcialmente Conforme</div><div class="key-desc">Existe pero incompleto</div></div>
+        <div class="key-item k1"><div class="key-score">1</div><div class="key-label">No Conforme</div><div class="key-desc">Ausente o no verificable</div></div>
       </div>
     </div>
   </div>
 
   <!-- SECTION 1 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 1 — Cumplimiento de Leyes y Reglamentos Laborales</span>
-      <span class="section-wrap-ref">Principio WRAP 1</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 1 — Cumplimiento de Leyes y Reglamentos Laborales</span><span class="section-wrap-ref">Principio WRAP 1</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">1.1</td><td>Política escrita que confirma el compromiso de cumplir con todas las leyes y regulaciones locales aplicables</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">1.2</td><td>Registro legal de la empresa, licencias y permisos de operación vigentes y archivados</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">1.3</td><td>Proceso de revisión periódica de cumplimiento legal documentado y ejecutado</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">1.4</td><td>Responsabilidad gerencial por el cumplimiento legal asignada por escrito</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">1.1</td><td>Política escrita que confirma el compromiso de cumplir con todas las leyes y reglamentos locales aplicables</td><td class="score-cell"><div class="score-btns" data-section="1" data-item="1.1" data-short="Política de cumplimiento legal" data-sec-label="Compliance With Laws & Workplace Regulations"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">1.2</td><td>Registro comercial legal, licencias y permisos de operación vigentes y archivados</td><td class="score-cell"><div class="score-btns" data-section="1" data-item="1.2" data-short="Registrations & permits current" data-sec-label="Compliance With Laws & Workplace Regulations"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">1.3</td><td>Proceso regular de revisión del cumplimiento legal documentado y ejecutado</td><td class="score-cell"><div class="score-btns" data-section="1" data-item="1.3" data-short="Proceso de revisión de cumplimiento" data-sec-label="Compliance With Laws & Workplace Regulations"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">1.4</td><td>Responsabilidad gerencial para el cumplimiento legal asignada por escrito</td><td class="score-cell"><div class="score-btns" data-section="1" data-item="1.4" data-short="Responsabilidad gerencial" data-sec-label="Compliance With Laws & Workplace Regulations"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 1</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 1</span><div class="section-total-score"><span class="total-val" id="sec-1-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 2 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 2 — Prohibición del Trabajo Forzado</span>
-      <span class="section-wrap-ref">Principio WRAP 2</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 2 — Prohibición del Trabajo Forzoso</span><span class="section-wrap-ref">Principio WRAP 2</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">2.1</td><td>Política escrita contra el trabajo forzado publicada y accesible para todos los trabajadores</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">2.2</td><td>No existen depósitos de trabajadores, retención de documentos ni arreglos de servidumbre por deudas</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">2.3</td><td>Los trabajadores tienen libertad de abandonar las instalaciones y terminar el empleo sin penalización</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">2.4</td><td>Prácticas de reclutamiento y contratación documentadas y revisadas en busca de indicadores de trabajo forzado</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">2.1</td><td>Política escrita contra el trabajo forzoso publicada y accesible para todos los trabajadores</td><td class="score-cell"><div class="score-btns" data-section="2" data-item="2.1" data-short="Política contra trabajo forzoso publicada" data-sec-label="Prohibición del Trabajo Forzoso"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">2.2</td><td>No existen acuerdos de depósito de trabajadores, retención de documentos o servidumbre por deudas</td><td class="score-cell"><div class="score-btns" data-section="2" data-item="2.2" data-short="Sin depósitos ni retención de documentos" data-sec-label="Prohibición del Trabajo Forzoso"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">2.3</td><td>Los trabajadores tienen libertad de salir de las instalaciones y terminar su empleo sin penalización</td><td class="score-cell"><div class="score-btns" data-section="2" data-item="2.3" data-short="Trabajadores libres de salir" data-sec-label="Prohibición del Trabajo Forzoso"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">2.4</td><td>Prácticas de reclutamiento y contratación documentadas y revisadas en busca de indicadores de trabajo forzoso</td><td class="score-cell"><div class="score-btns" data-section="2" data-item="2.4" data-short="Prácticas de reclutamiento documentadas" data-sec-label="Prohibición del Trabajo Forzoso"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 2</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 2</span><div class="section-total-score"><span class="total-val" id="sec-2-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 3 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 3 — Prohibición del Trabajo Infantil</span>
-      <span class="section-wrap-ref">Principio WRAP 3</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 3 — Prohibición del Trabajo Infantil</span><span class="section-wrap-ref">Principio WRAP 3</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">3.1</td><td>Política escrita de prohibición del trabajo infantil establecida y comunicada a todo el personal</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">3.2</td><td>Documentación de verificación de edad recopilada y mantenida para todos los trabajadores al momento de contratación</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">3.3</td><td>Cumplimiento de la edad mínima confirmado para todos los trabajadores actuales — registros recuperables</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">3.4</td><td>Procedimiento de remediación documentado para casos en que se descubra empleo de menores</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">3.1</td><td>Política escrita de prohibición del trabajo infantil implementada y comunicada a todo el personal</td><td class="score-cell"><div class="score-btns" data-section="3" data-item="3.1" data-short="Política de trabajo infantil comunicada" data-sec-label="Prohibición del Trabajo Infantil"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">3.2</td><td>Documentación de verificación de edad recopilada y mantenida para todos los trabajadores al contratar</td><td class="score-cell"><div class="score-btns" data-section="3" data-item="3.2" data-short="Verificación de edad al contratar" data-sec-label="Prohibición del Trabajo Infantil"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">3.3</td><td>Cumplimiento de edad mínima confirmado para todos los trabajadores actuales — registros recuperables</td><td class="score-cell"><div class="score-btns" data-section="3" data-item="3.3" data-short="Edad mínima confirmada — registros recuperables" data-sec-label="Prohibición del Trabajo Infantil"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">3.4</td><td>Procedimiento de remediación documentado para casos en que se descubra empleo de menores de edad</td><td class="score-cell"><div class="score-btns" data-section="3" data-item="3.4" data-short="Procedimiento de remediación documentado" data-sec-label="Prohibición del Trabajo Infantil"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 3</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 3</span><div class="section-total-score"><span class="total-val" id="sec-3-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 4 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 4 — Prohibición del Acoso o Abuso</span>
-      <span class="section-wrap-ref">Principio WRAP 4</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 4 — Prohibición del Acoso y Abuso</span><span class="section-wrap-ref">Principio WRAP 4</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">4.1</td><td>Política escrita contra el acoso y abuso publicada en el idioma del trabajador</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">4.2</td><td>Procedimiento de quejas confidencial documentado y comunicado a todos los trabajadores</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">4.3</td><td>Registros de capacitación contra el acoso mantenidos con fechas, asistentes y contenido</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">4.4</td><td>Proceso documentado de investigación y acción correctiva para quejas</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">4.1</td><td>Política escrita contra el acoso y el abuso publicada en el idioma del trabajador</td><td class="score-cell"><div class="score-btns" data-section="4" data-item="4.1" data-short="Política anti-acoso publicada" data-sec-label="Prohibition of Harassment & Abuse"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">4.2</td><td>Procedimiento confidencial de quejas documentado y comunicado a todos los trabajadores</td><td class="score-cell"><div class="score-btns" data-section="4" data-item="4.2" data-short="Procedimiento de quejas documentado" data-sec-label="Prohibition of Harassment & Abuse"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">4.3</td><td>Registros de capacitación anti-acoso mantenidos con fechas, participantes y contenido</td><td class="score-cell"><div class="score-btns" data-section="4" data-item="4.3" data-short="Registros de capacitación mantenidos" data-sec-label="Prohibition of Harassment & Abuse"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">4.4</td><td>Proceso documentado de investigación y acción correctiva para quejas</td><td class="score-cell"><div class="score-btns" data-section="4" data-item="4.4" data-short="Proceso de investigación documentado" data-sec-label="Prohibition of Harassment & Abuse"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 4</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 4</span><div class="section-total-score"><span class="total-val" id="sec-4-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 5 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 5 — Compensación y Beneficios</span>
-      <span class="section-wrap-ref">Principio WRAP 5</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 5 — Compensación y Beneficios</span><span class="section-wrap-ref">Principio WRAP 5</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">5.1</td><td>Todos los trabajadores compensados al o por encima del salario mínimo legalmente requerido — registros de nómina lo confirman</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">5.2</td><td>Horas extras y tasas de pago por tiempo extra documentadas y en cumplimiento con la ley local</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">5.3</td><td>Talones de pago o estados de salario proporcionados a los trabajadores cada período de pago</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">5.4</td><td>Beneficios proporcionados según los requisitos legales locales — documentación vigente y recuperable</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">5.1</td><td>Todos los trabajadores compensados al nivel del salario mínimo legal o por encima — registros de nómina confirman</td><td class="score-cell"><div class="score-btns" data-section="5" data-item="5.1" data-short="Cumplimiento de salario mínimo confirmado" data-sec-label="Compensation & Benefits"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">5.2</td><td>Horas extras y tarifas de pago de horas extras documentadas y conformes con la ley local</td><td class="score-cell"><div class="score-btns" data-section="5" data-item="5.2" data-short="Overtime documented & compliant" data-sec-label="Compensation & Benefits"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">5.3</td><td>Recibos de pago o estados de salario entregados a los trabajadores en cada período de pago</td><td class="score-cell"><div class="score-btns" data-section="5" data-item="5.3" data-short="Recibos de pago entregados cada período" data-sec-label="Compensation & Benefits"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">5.4</td><td>Beneficios proporcionados según los requisitos legales locales — documentación vigente y recuperable</td><td class="score-cell"><div class="score-btns" data-section="5" data-item="5.4" data-short="Beneficios según requisitos legales" data-sec-label="Compensation & Benefits"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 5</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 5</span><div class="section-total-score"><span class="total-val" id="sec-5-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 6 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 6 — Horas de Trabajo</span>
-      <span class="section-wrap-ref">Principio WRAP 6</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 6 — Horas de Trabajo</span><span class="section-wrap-ref">Principio WRAP 6</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">6.1</td><td>Working hours for all workers comply with local legal maximums — time records confirm</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">6.2</td><td>Time and attendance records maintained, complete, and retrievable for 12+ months</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">6.3</td><td>Rest periods, meal breaks, and weekly days off documented and provided as required</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">6.4</td><td>Voluntary overtime confirmed — no evidence of coerced or mandatory excessive overtime</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">6.1</td><td>Las horas de trabajo de todos los trabajadores cumplen con los máximos legales locales — registros de tiempo confirman</td><td class="score-cell"><div class="score-btns" data-section="6" data-item="6.1" data-short="Horas cumplen máximos legales" data-sec-label="Horas de Trabajo"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">6.2</td><td>Registros de tiempo y asistencia mantenidos, completos y recuperables por 12+ meses</td><td class="score-cell"><div class="score-btns" data-section="6" data-item="6.2" data-short="Time & attendance records complete" data-sec-label="Horas de Trabajo"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">6.3</td><td>Períodos de descanso, pausas para comidas y días libres semanales documentados y proporcionados según lo requerido</td><td class="score-cell"><div class="score-btns" data-section="6" data-item="6.3" data-short="Rest periods & breaks documented" data-sec-label="Horas de Trabajo"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">6.4</td><td>Horas extras voluntarias confirmadas — sin evidencia de horas extras excesivas coercitivas o obligatorias</td><td class="score-cell"><div class="score-btns" data-section="6" data-item="6.4" data-short="Horas extras voluntarias confirmadas" data-sec-label="Horas de Trabajo"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 6</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 6</span><div class="section-total-score"><span class="total-val" id="sec-6-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 7 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 7 — Prohibición de la Discriminación</span>
-      <span class="section-wrap-ref">Principio WRAP 7</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 7 — Prohibición de la Discriminación</span><span class="section-wrap-ref">Principio WRAP 7</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">7.1</td><td>Written non-discrimination policy covering hiring, promotion, pay, and termination</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">7.2</td><td>Non-discrimination training documented with attendance records</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">7.3</td><td>Hiring and personnel records demonstrate non-discriminatory practices</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">7.4</td><td>Mechanism for reporting discrimination complaints documented and accessible</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">7.1</td><td>Política escrita de no discriminación que cubre contratación, promoción, salario y terminación</td><td class="score-cell"><div class="score-btns" data-section="7" data-item="7.1" data-short="Política de no discriminación implementada" data-sec-label="Prohibición de la Discriminación"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">7.2</td><td>Capacitación de no discriminación documentada con registros de asistencia</td><td class="score-cell"><div class="score-btns" data-section="7" data-item="7.2" data-short="Registros de capacitación documentados" data-sec-label="Prohibición de la Discriminación"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">7.3</td><td>Registros de contratación y personal demuestran prácticas no discriminatorias</td><td class="score-cell"><div class="score-btns" data-section="7" data-item="7.3" data-short="Registros de personal demuestran cumplimiento" data-sec-label="Prohibición de la Discriminación"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">7.4</td><td>Mecanismo para reportar quejas de discriminación documentado y accesible</td><td class="score-cell"><div class="score-btns" data-section="7" data-item="7.4" data-short="Mecanismo de reporte de quejas" data-sec-label="Prohibición de la Discriminación"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 7</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 7</span><div class="section-total-score"><span class="total-val" id="sec-7-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 8 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 8 — Salud y Seguridad</span>
-      <span class="section-wrap-ref">Principio WRAP 8</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 8 — Salud y Seguridad</span><span class="section-wrap-ref">Principio WRAP 8</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">8.1</td><td>Written health and safety policy in place — management accountability assigned</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.2</td><td>Fire safety equipment inspected, documented, and current — evacuation routes posted</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.3</td><td>Emergency evacuation drills conducted and documented with dates and participant counts</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.4</td><td>First aid resources available, certified personnel identified, and records current</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.5</td><td>Health and safety training records maintained for all workers</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.6</td><td>Chemical handling, PPE, and equipment safety documentation current</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">8.1</td><td>Política escrita de salud y seguridad implementada — responsabilidad gerencial asignada</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.1" data-short="H&S policy — management accountability" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.2</td><td>Equipos de seguridad contra incendios inspeccionados, documentados y vigentes — rutas de evacuación publicadas</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.2" data-short="Equipos contra incendio inspeccionados" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.3</td><td>Simulacros de evacuación de emergencia realizados y documentados con fechas y número de participantes</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.3" data-short="Simulacros de evacuación realizados" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.4</td><td>Recursos de primeros auxilios disponibles, personal certificado identificado y registros vigentes</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.4" data-short="First aid resources & certified staff" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.5</td><td>Registros de capacitación en salud y seguridad mantenidos para todos los trabajadores</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.5" data-short="H&S training records maintained" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.6</td><td>Documentación de manejo de químicos, EPP y seguridad de equipos vigente</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.6" data-short="Docs seguridad químicos / EPP / equipos" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 8</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 24</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 8</span><div class="section-total-score"><span class="total-val" id="sec-8-total">—</span><span class="total-max">/ 24</span></div></div>
   </div>
 
   <!-- SECTION 9 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 9 — Libertad de Asociación y Negociación Colectiva</span>
-      <span class="section-wrap-ref">Principio WRAP 9</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 9 — Libertad de Asociación y Negociación Colectiva</span><span class="section-wrap-ref">Principio WRAP 9</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">9.1</td><td>Written policy respecting workers' rights to freedom of association per local law</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">9.2</td><td>No evidence of interference with lawful worker organizing or representation activities</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">9.3</td><td>Where unions are restricted by law, alternative worker representation mechanisms documented</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">9.4</td><td>Communication channels between management and workers documented and active</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">9.1</td><td>Política escrita que respeta los derechos de los trabajadores a la libertad de asociación según la ley local</td><td class="score-cell"><div class="score-btns" data-section="9" data-item="9.1" data-short="Política de libertad de asociación" data-sec-label="Freedom of Association & Collective Bargaining"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">9.2</td><td>Sin evidencia de interferencia con actividades legítimas de organización o representación de trabajadores</td><td class="score-cell"><div class="score-btns" data-section="9" data-item="9.2" data-short="Sin interferencia con organización laboral" data-sec-label="Freedom of Association & Collective Bargaining"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">9.3</td><td>Donde los sindicatos están restringidos por ley, se documentan mecanismos alternativos de representación</td><td class="score-cell"><div class="score-btns" data-section="9" data-item="9.3" data-short="Representación alternativa documentada" data-sec-label="Freedom of Association & Collective Bargaining"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">9.4</td><td>Canales de comunicación entre la gerencia y los trabajadores documentados y activos</td><td class="score-cell"><div class="score-btns" data-section="9" data-item="9.4" data-short="Canales de comunicación gerencia-trabajadores" data-sec-label="Freedom of Association & Collective Bargaining"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 9</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 9</span><div class="section-total-score"><span class="total-val" id="sec-9-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 10 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 10 — Medio Ambiente</span>
-      <span class="section-wrap-ref">Principio WRAP 10</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 10 — Medio Ambiente</span><span class="section-wrap-ref">Principio WRAP 10</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">10.1</td><td>Environmental compliance policy documented and management accountability assigned</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">10.2</td><td>Required environmental permits current — wastewater, air emissions, waste disposal</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">10.3</td><td>Chemical storage, handling, and disposal procedures documented and followed</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">10.4</td><td>Environmental inspection records maintained and current</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">10.1</td><td>Política de cumplimiento ambiental documentada y responsabilidad gerencial asignada</td><td class="score-cell"><div class="score-btns" data-section="10" data-item="10.1" data-short="Política de cumplimiento ambiental" data-sec-label="Medio Ambiente"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">10.2</td><td>Permisos ambientales requeridos vigentes — aguas residuales, emisiones de aire, disposición de residuos</td><td class="score-cell"><div class="score-btns" data-section="10" data-item="10.2" data-short="Permisos ambientales vigentes" data-sec-label="Medio Ambiente"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">10.3</td><td>Procedimientos de almacenamiento, manejo y disposición de químicos documentados y seguidos</td><td class="score-cell"><div class="score-btns" data-section="10" data-item="10.3" data-short="Procedimientos de manejo de químicos" data-sec-label="Medio Ambiente"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">10.4</td><td>Registros de inspección ambiental mantenidos y vigentes</td><td class="score-cell"><div class="score-btns" data-section="10" data-item="10.4" data-short="Registros de inspección ambiental" data-sec-label="Medio Ambiente"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 10</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 10</span><div class="section-total-score"><span class="total-val" id="sec-10-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 11 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 11 — Cumplimiento Aduanero</span>
-      <span class="section-wrap-ref">Principio WRAP 11</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 11 — Cumplimiento Aduanero</span><span class="section-wrap-ref">Principio WRAP 11</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">11.1</td><td>Import/export documentation systems compliant with applicable customs regulations</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">11.2</td><td>Country-of-origin documentation accurate, complete, and maintained on file</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">11.3</td><td>Facility security procedures documented and compliant with applicable trade programs</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">11.4</td><td>Staff responsible for customs compliance identified and trained</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">11.1</td><td>Sistemas de documentación de importación/exportación conformes con las regulaciones aduaneras aplicables</td><td class="score-cell"><div class="score-btns" data-section="11" data-item="11.1" data-short="Sistemas de documentación importación/exportación" data-sec-label="Cumplimiento Aduanero"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">11.2</td><td>Documentación de país de origen precisa, completa y mantenida en archivo</td><td class="score-cell"><div class="score-btns" data-section="11" data-item="11.2" data-short="Documentación de país de origen" data-sec-label="Cumplimiento Aduanero"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">11.3</td><td>Procedimientos de seguridad de la instalación documentados y conformes con los programas de comercio aplicables</td><td class="score-cell"><div class="score-btns" data-section="11" data-item="11.3" data-short="Seguridad instalación — programas comerciales" data-sec-label="Cumplimiento Aduanero"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">11.4</td><td>Personal responsable del cumplimiento aduanero identificado y capacitado</td><td class="score-cell"><div class="score-btns" data-section="11" data-item="11.4" data-short="Personal de cumplimiento aduanero identificado" data-sec-label="Cumplimiento Aduanero"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 11</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 11</span><div class="section-total-score"><span class="total-val" id="sec-11-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 12 -->
   <div class="scorecard-section">
-    <div class="section-header">
-      <span class="section-title">Sección 12 — Política de Drogas y Alcohol</span>
-      <span class="section-wrap-ref">Principio WRAP 12</span>
-    </div>
+    <div class="section-header"><span class="section-title">Sección 12 — Política de Drogas y Alcohol</span><span class="section-wrap-ref">Principio WRAP 12</span></div>
     <table class="scorecard-table">
-      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntuación (1–4)</th></tr></thead>
+      <thead><tr><th>#</th><th>Elemento de Evaluación</th><th class="score-col">Puntaje (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">12.1</td><td>Written drug and alcohol-free workplace policy in place and communicated to all workers</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">12.2</td><td>Policy posted in worker language in visible workplace locations</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">12.3</td><td>Training on drug and alcohol policy documented with attendance records</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">12.4</td><td>Enforcement and disciplinary procedure for violations documented</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">12.1</td><td>Política escrita de lugar de trabajo libre de drogas y alcohol implementada y comunicada a todos los trabajadores</td><td class="score-cell"><div class="score-btns" data-section="12" data-item="12.1" data-short="Política libre drogas/alcohol comunicada" data-sec-label="Drug & Alcohol Policy"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">12.2</td><td>Política publicada en el idioma del trabajador en lugares visibles del lugar de trabajo</td><td class="score-cell"><div class="score-btns" data-section="12" data-item="12.2" data-short="Política publicada en idioma del trabajador" data-sec-label="Drug & Alcohol Policy"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">12.3</td><td>Capacitación sobre la política de drogas y alcohol documentada con registros de asistencia</td><td class="score-cell"><div class="score-btns" data-section="12" data-item="12.3" data-short="Registros de capacitación documentados" data-sec-label="Drug & Alcohol Policy"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">12.4</td><td>Procedimiento de aplicación y disciplina para violaciones documentado</td><td class="score-cell"><div class="score-btns" data-section="12" data-item="12.4" data-short="Enforcement & disciplinary procedure" data-sec-label="Drug & Alcohol Policy"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total">
-      <span class="section-total-label">Total Sección 12</span>
-      <div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div>
-    </div>
+    <div class="section-total"><span class="section-total-label">Total Sección 12</span><div class="section-total-score"><span class="total-val" id="sec-12-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- RESULTS MATRIX -->
   <div class="results-matrix">
-    <div class="matrix-header">
-      <h3>Matriz de Interpretación de Resultados PASA — Puntuación Total sobre 160</h3>
-    </div>
+    <div class="matrix-header"><h3>Matriz de Interpretación de Resultados PASA — Puntuación Total sobre 200</h3></div>
     <div class="matrix-rows">
       <div class="matrix-row">
-        <div class="matrix-range"><span class="range-pass">136–160</span></div>
-        <div class="matrix-content">
-          <h4>Listo para Auditoría</h4>
-          <p>Documentación sólida y sistemas en todos los 12 principios. Existen brechas menores pero no representan un riesgo material de auditoría. La organización está preparada para iniciar el proceso de auditoría WRAP formal.</p>
-        </div>
-        <div class="matrix-action"><p>Programe la pre-auditoría WRAP con un monitor registrado. Enfóquese en cerrar las brechas menores restantes antes del envío.</p></div>
+        <div class="matrix-range"><span class="range-pass">170–200</span></div>
+        <div class="matrix-content"><h4>Listo para Auditoría</h4><p>Documentación y sistemas sólidos en los 12 principios. Existen brechas menores pero no representan riesgo material de auditoría. La organización está preparada para iniciar el proceso formal de auditoría WRAP.</p></div>
+        <div class="matrix-action"><p>Programe la pre-auditoría WRAP con un monitor registrado. Enfóquese en cerrar las brechas menores restantes antes de la presentación.</p></div>
       </div>
       <div class="matrix-row">
-        <div class="matrix-range"><span class="range-conditional">100–135</span></div>
-        <div class="matrix-content">
-          <h4>Condicionalmente Listo</h4>
-          <p>Existen brechas significativas en una o más secciones. Las deficiencias en documentación o sistemas probablemente generarán hallazgos de auditoría. Se requiere preparación adicional antes de la auditoría formal.</p>
-        </div>
-        <div class="matrix-action"><p>Identifique las secciones con menor puntuación. Construya un plan de acción correctiva de 60–90 días enfocado en todos los elementos puntuados 1 o 2. Realice un PASA de seguimiento antes de continuar.</p></div>
+        <div class="matrix-range"><span class="range-conditional">124–169</span></div>
+        <div class="matrix-content"><h4>Condicionalmente Listo</h4><p>Existen brechas significativas en una o más secciones. Las deficiencias probablemente generarían hallazgos de auditoría. Se requiere preparación adicional antes de la auditoría formal.</p></div>
+        <div class="matrix-action"><p>Identifique las secciones con menor puntuación. Construya un plan de acción correctiva de 60–90 días dirigido a todos los elementos puntuados 1 o 2. Realice un PASA de seguimiento antes de continuar.</p></div>
       </div>
       <div class="matrix-row">
-        <div class="matrix-range"><span class="range-fail">Menos de 100</span></div>
-        <div class="matrix-content">
-          <h4>No Listo — Brechas Significativas</h4>
-          <p>Brechas significativas de documentación, sistemas o políticas en múltiples secciones. Proceder a la auditoría formal sin remediación resultará en fallo y requisitos de acción correctiva.</p>
-        </div>
-        <div class="matrix-action"><p>Contrate apoyo profesional de cumplimiento. Construya un plan de remediación estructurado de 90–180 días. No envíe para auditoría formal hasta que la puntuación PASA supere 120.</p></div>
+        <div class="matrix-range"><span class="range-fail">Below 100</span></div>
+        <div class="matrix-content"><h4>No Listo — Brechas Significativas</h4><p>Brechas significativas de documentación, sistemas o políticas en múltiples secciones. Proceder a una auditoría formal sin remediación resultará en incumplimientos y requisitos de acción correctiva.</p></div>
+        <div class="matrix-action"><p>Contrate apoyo profesional de cumplimiento. Construya un plan de remediación estructurado de 90–180 días. No envíe para auditoría formal hasta que la puntuación PASA supere 150.</p></div>
       </div>
     </div>
   </div>
 
   <!-- PRIORITY ACTION -->
   <div class="priority-box">
-    <h3>Áreas de Acción Prioritaria — Donde la Mayoría de Instalaciones Obtienen Menor Puntuación</h3>
+    <h3>Áreas de Acción Prioritaria — Donde la Mayoría de las Instalaciones Obtienen Menor Puntuación</h3>
     <div class="priority-grid">
       <div class="priority-item"><span>Registros de capacitación — salud y seguridad, acoso, incorporación</span></div>
-      <div class="priority-item"><span>Políticas escritas — ausentes o sin fecha en múltiples secciones</span></div>
+      <div class="priority-item"><span>Políticas escritas — faltantes o sin fecha en múltiples secciones</span></div>
       <div class="priority-item"><span>Documentación de nómina y horas — brechas e inconsistencias</span></div>
       <div class="priority-item"><span>Registros de simulacros de evacuación — ausentes o desactualizados</span></div>
       <div class="priority-item"><span>Procedimiento de quejas — no documentado o no comunicado</span></div>
       <div class="priority-item"><span>Permisos ambientales y registros de inspección — no vigentes</span></div>
-      <div class="priority-item"><span>Historial de auditoría interna — sin autoevaluación previa en archivo</span></div>
-      <div class="priority-item"><span>Documentación de verificación de edad — incompleta a nivel de expediente de contratación</span></div>
+      <div class="priority-item"><span>Historial de auditorías internas — sin autoevaluación previa en archivo</span></div>
+      <div class="priority-item"><span>Documentación de verificación de edad — incompleta a nivel de expediente</span></div>
+    </div>
+  </div>
+
+
+  <!-- RESULTS PANEL -->
+  <div class="results-panel" id="results-panel">
+    <h2>Sus Resultados de Evaluación PASA</h2>
+    <div class="results-top">
+      <div>
+        <div class="results-bar-label">Puntuación Total</div>
+        <span class="results-big-score" id="res-score">—</span>
+        <span class="results-big-denom">/ 200</span>
+      </div>
+      <div class="results-bar-wrap">
+        <div class="results-bar-label">Progreso de Puntuación</div>
+        <div class="results-bar-track"><div class="results-bar-fill" id="res-bar"></div></div>
+      </div>
+      <div class="results-verdict">
+        <div class="results-verdict-label">Nivel de Preparación</div>
+        <span class="tier-badge tier-default" id="res-tier">No Iniciado</span>
+      </div>
+    </div>
+    <div class="gap-list-header" id="gap-list-header">Elementos Puntuados 1 o 2 — Acciones Correctivas Prioritarias</div>
+    <div class="gap-list" id="gap-list">
+      <div class="gap-empty">Complete la scorecard arriba para ver su lista de acciones prioritarias.</div>
+    </div>
+    <div class="results-actions">
+      <button class="btn-print-results" onclick="window.print()">🖨 Imprimir / Guardar como PDF</button>
+      <button class="btn-reset-results" onclick="resetScorecard()">↺ Reiniciar Scorecard</button>
     </div>
   </div>
 
   <div class="sources">
-    <h4>Fuentes y Estándares Referenciados</h4>
+    <h4>Fuentes y Normas Referenciadas</h4>
     <ul>
-      <li>WRAP — 12 Principles Program Standards, Certification Criteria & Audit Protocols (2024) — <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
-      <li>International Labour Organization — Core Labour Standards Reference (2024) — <a href="https://www.ilo.org" target="_blank">ilo.org</a></li>
-      <li>U.S. Department of Labor — Bureau of International Labor Affairs, Social Compliance Audit Methodology (2024) — <a href="https://www.dol.gov/agencies/ilab" target="_blank">dol.gov/ilab</a></li>
-      <li>Social Accountability International — SA8000 Audit Criteria Cross-Reference (2023) — <a href="https://www.sa-intl.org" target="_blank">sa-intl.org</a></li>
+      <li>WRAP — Estándares del Programa de 12 Principios, Criterios de Certificación y Protocolos de Auditoría (2024) — <a href="https://www.wrapcompliance.org" target="_blank" rel="noopener">wrapcompliance.org</a></li>
+      <li>Organización Internacional del Trabajo — Referencia de Normas Fundamentales del Trabajo (2024) — <a href="https://www.ilo.org" target="_blank" rel="noopener">ilo.org</a></li>
+      <li>Departamento de Trabajo de EE.UU. — Oficina de Asuntos Laborales Internacionales, Metodología de Auditoría de Cumplimiento Social (2024) — <a href="https://www.dol.gov/agencies/ilab" target="_blank" rel="noopener">dol.gov/ilab</a></li>
+      <li>Social Accountability International — Referencia Cruzada de Criterios de Auditoría SA8000 (2023) — <a href="https://www.sa-intl.org" target="_blank" rel="noopener">sa-intl.org</a></li>
     </ul>
   </div>
 
   <div class="article-cta">
     <h3>¿Desea una Evaluación Profesional de Brechas?</h3>
-    <p>The PASA is a powerful starting point. RC2 Consulting conducts structured pre-audit gap assessments that go deeper — identifying documentation gaps, policy deficiencies, and training system weaknesses with a corrective action plan built into the deliverable.</p>
-    <a href="https://rc2consulting.github.io/contact-es.html" class="btn-cta">Schedule a Pre-Audit Assessment →</a>
+    <p>El PASA es un poderoso punto de partida. RC2 Consulting realiza evaluaciones estructuradas de brechas pre-auditoría que van más profundo — identificando brechas de documentación, deficiencias de políticas y debilidades del sistema de capacitación con un plan de acción correctiva integrado en el entregable.</p>
+    <a href="https://rc2consulting.github.io/contact-es.html" class="btn-cta">Programe una Evaluación Pre-Auditoría →</a>
   </div>
+
 </div>
 
 <footer class="site-footer">
@@ -659,32 +662,137 @@
   <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html">Términos de Servicio</a></div>
 </footer>
 
-
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
-  });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      nav.classList.remove('mobile-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
-      nav.classList.remove('mobile-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){var isOpen=nav.classList.toggle('mobile-open');btn.classList.toggle('open',isOpen);btn.setAttribute('aria-expanded',String(isOpen));});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
+  document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
 })();
+
+  // ════════════════════════════════════════════════
+  //  INTERACTIVE PASA SCORECARD
+  // ════════════════════════════════════════════════
+
+  function setScore(btn) {
+    var group = btn.closest('.score-btns');
+    group.querySelectorAll('.score-btn').forEach(function(b) {
+      b.className = 'score-btn';
+    });
+    var val = btn.getAttribute('data-val');
+    btn.classList.add('active', 's' + val);
+    calc();
+  }
+
+  function calc() {
+    var total = 0, scored = 0;
+    var sectionTotals = {};
+    var gaps = [];
+
+    document.querySelectorAll('.score-btns').forEach(function(group) {
+      var active = group.querySelector('.score-btn.active');
+      var sec = group.getAttribute('data-section');
+      var val = active ? parseInt(active.getAttribute('data-val')) : 0;
+
+      if (!sectionTotals[sec]) sectionTotals[sec] = 0;
+
+      if (val > 0) {
+        total += val;
+        scored++;
+        sectionTotals[sec] += val;
+        if (val <= 2) {
+          gaps.push({
+            val: val,
+            sec: sec,
+            secLabel: 'Principle ' + group.getAttribute('data-section') + ' — ' + group.getAttribute('data-sec-label'),
+            short: group.getAttribute('data-short'),
+          });
+        }
+      }
+    });
+
+    // Update section totals
+    for (var s in sectionTotals) {
+      var el = document.getElementById('sec-' + s + '-total');
+      if (el) el.textContent = sectionTotals[s] > 0 ? sectionTotals[s] : '—';
+    }
+
+    // Update tracker
+    var pct = Math.round((total / 200) * 100);
+    var scoreEl = document.getElementById('live-score');
+    var barEl = document.getElementById('tracker-bar');
+    var tierEl = document.getElementById('tier-badge');
+    if (scoreEl) scoreEl.textContent = scored > 0 ? total : '—';
+    if (barEl) barEl.style.width = (scored > 0 ? pct : 0) + '%';
+
+    // Tier logic
+    var tierClass, tierText, barColor;
+    if (scored === 0) {
+      tierClass = 'tier-default'; tierText = 'No Iniciado'; barColor = 'var(--border)';
+    } else if (total >= 170) {
+      tierClass = 'tier-pass'; tierText = 'Listo para Auditoría'; barColor = 'var(--success)';
+    } else if (total >= 124) {
+      tierClass = 'tier-cond'; tierText = 'Condicionalmente Listo'; barColor = '#D97706';
+    } else {
+      tierClass = 'tier-fail'; tierText = 'Brechas Significativas'; barColor = 'var(--danger)';
+    }
+
+    if (barEl) barEl.style.background = barColor;
+    if (tierEl) { tierEl.className = 'tier-badge ' + tierClass; tierEl.textContent = tierText; }
+
+    // Update results panel
+    var resScore = document.getElementById('res-score');
+    var resBar = document.getElementById('res-bar');
+    var resTier = document.getElementById('res-tier');
+    if (resScore) resScore.textContent = scored > 0 ? total : '—';
+    if (resBar) { resBar.style.width = (scored > 0 ? pct : 0) + '%'; resBar.style.background = barColor; }
+    if (resTier) { resTier.className = 'tier-badge ' + tierClass; resTier.textContent = tierText; }
+
+    // Update gap list
+    var gapList = document.getElementById('gap-list');
+    if (!gapList) return;
+    if (scored === 0) {
+      gapList.innerHTML = '<div class="gap-empty">Complete la scorecard arriba para ver su lista de acciones prioritarias.</div>';
+      return;
+    }
+    if (gaps.length === 0) {
+      gapList.innerHTML = '<div class="gap-empty">No items scored 1 or 2. Strong compliance posture across all rated sections.</div>';
+      return;
+    }
+    // Sort: 1s before 2s, then by section number
+    gaps.sort(function(a,b) {
+      if (a.val !== b.val) return a.val - b.val;
+      return parseInt(a.sec) - parseInt(b.sec);
+    });
+    gapList.innerHTML = gaps.map(function(g) {
+      var badgeClass = g.val === 1 ? 'gap-s1' : 'gap-s2';
+      var badgeText = g.val === 1 ? 'Puntaje: 1 — No Conforme' : 'Puntaje: 2 — Parcialmente Conforme';
+      return '<div class="gap-item">' +
+        '<span class="gap-item-score ' + badgeClass + '">' + badgeText + '</span>' +
+        '<span class="gap-item-text">' + g.short + '</span>' +
+        '<span class="gap-item-section">P' + g.sec + '</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  function resetScorecard() {
+    document.querySelectorAll('.score-btn').forEach(function(btn) {
+      btn.className = 'score-btn';
+    });
+    for (var i = 1; i <= 12; i++) {
+      var el = document.getElementById('sec-' + i + '-total');
+      if (el) el.textContent = '—';
+    }
+    var els = ['live-score','res-score'];
+    els.forEach(function(id) { var el=document.getElementById(id); if(el) el.textContent='—'; });
+    ['tracker-bar','res-bar'].forEach(function(id) { var el=document.getElementById(id); if(el){el.style.width='0%';el.style.background='var(--border)';} });
+    ['tier-badge','res-tier'].forEach(function(id) { var el=document.getElementById(id); if(el){el.className='tier-badge tier-default';el.textContent='No Iniciado';} });
+    var gapList = document.getElementById('gap-list');
+    if (gapList) gapList.innerHTML = '<div class="gap-empty">Complete la scorecard arriba para ver su lista de acciones prioritarias.</div>';
+  }
+
 </script>
 </body>
 </html>

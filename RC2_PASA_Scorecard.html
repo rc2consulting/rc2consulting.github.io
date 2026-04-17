@@ -213,6 +213,61 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
   .nav-links a:last-child{border-bottom:none}
   .lang-toggle{padding:10px 20px 4px}
 }
+
+  /* ── INTERACTIVE SCORING ── */
+  .score-btns{display:flex;gap:3px;justify-content:center;align-items:center;padding:4px 2px}
+  .score-btn{width:30px;height:30px;border-radius:6px;border:1.5px solid var(--border);background:var(--light-bg);font-size:0.76rem;font-weight:700;color:var(--text-muted);cursor:pointer;transition:all 0.15s;flex-shrink:0;line-height:1}
+  .score-btn:hover{border-color:var(--light-blue);color:var(--light-blue);background:var(--white)}
+  .score-btn.active.s1{background:var(--danger-bg);border-color:var(--danger);color:var(--danger)}
+  .score-btn.active.s2{background:#FEF3C7;border-color:#D97706;color:#92400E}
+  .score-btn.active.s3{background:#F0FDF4;border-color:#86EFAC;color:#15803D}
+  .score-btn.active.s4{background:var(--success-bg);border-color:var(--success);color:var(--success)}
+
+  /* ── SCORE TRACKER STRIP ── */
+  .score-tracker{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 2px 8px rgba(11,37,69,0.06)}
+  .tracker-score{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--navy);line-height:1}
+  .tracker-denom{font-size:0.85rem;color:var(--text-muted);font-weight:600}
+  .tracker-bar-wrap{flex:1;min-width:160px;max-width:260px}
+  .tracker-bar-track{background:var(--light-bg);border-radius:6px;height:10px;overflow:hidden;border:1px solid var(--border)}
+  .tracker-bar-fill{height:100%;border-radius:6px;transition:width 0.3s,background 0.3s;background:var(--border);width:0%}
+  .tracker-label{font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+  .tier-badge{font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:20px;white-space:nowrap}
+  .tier-default{background:var(--light-bg);color:var(--text-muted);border:1px solid var(--border)}
+  .tier-pass{background:var(--success-bg);color:var(--success);border:1px solid #BBF7D0}
+  .tier-cond{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
+  .tier-fail{background:var(--danger-bg);color:var(--danger);border:1px solid #FECACA}
+
+  /* ── RESULTS PANEL ── */
+  .results-panel{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:12px;padding:28px 32px;margin-bottom:44px}
+  .results-panel h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:#F0B429;margin-bottom:20px;letter-spacing:0.3px}
+  .results-top{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.12)}
+  .results-big-score{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:white;line-height:1}
+  .results-big-denom{font-size:0.9rem;color:rgba(255,255,255,0.55);display:block;margin-top:2px}
+  .results-bar-wrap{}
+  .results-bar-label{font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+  .results-bar-track{background:rgba(255,255,255,0.1);border-radius:6px;height:12px;overflow:hidden;width:100%}
+  .results-bar-fill{height:100%;border-radius:6px;transition:width 0.4s,background 0.4s;background:rgba(255,255,255,0.25);width:0%}
+  .results-verdict{text-align:right}
+  .results-verdict-label{font-size:0.68rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+
+  /* ── GAP LIST ── */
+  .gap-list-header{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .gap-list{display:flex;flex-direction:column;gap:6px}
+  .gap-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:10px 14px}
+  .gap-item-score{font-size:0.75rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0}
+  .gap-s1{background:var(--danger-bg);color:var(--danger)}
+  .gap-s2{background:#FEF3C7;color:#92400E}
+  .gap-item-text{font-size:0.8rem;color:rgba(255,255,255,0.85);line-height:1.45}
+  .gap-item-section{font-size:0.7rem;color:rgba(255,255,255,0.45);text-align:right;white-space:nowrap}
+  .gap-empty{font-size:0.84rem;color:rgba(255,255,255,0.5);font-style:italic;padding:12px 0}
+
+  .results-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+  .btn-print-results{background:white;color:var(--navy);font-weight:700;font-size:0.82rem;padding:9px 18px;border-radius:6px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.2s}
+  .btn-print-results:hover{background:var(--light-bg)}
+  .btn-reset-results{background:rgba(255,255,255,0.12);color:white;font-weight:600;font-size:0.82rem;padding:9px 18px;border-radius:6px;border:1px solid rgba(255,255,255,0.25);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.2s}
+  .btn-reset-results:hover{background:rgba(255,255,255,0.2)}
+
+  .total-val{font-size:0.95rem;font-weight:700;color:var(--navy);min-width:28px;display:inline-block;text-align:center}
 </style>
 </head>
 <body>
@@ -252,7 +307,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
       <span class="divider">|</span>
       <span>2026</span>
       <span class="divider">|</span>
-      <span>12 Sections · 40 Items · Printable Tool</span>
+      <span>12 Sections · 50 Items · Interactive Tool</span>
     </div>
   </div>
 </section>
@@ -293,6 +348,24 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     </div>
   </div>
 
+
+  <!-- LIVE SCORE TRACKER -->
+  <div class="score-tracker">
+    <div>
+      <div class="tracker-label">Live Score</div>
+      <span class="tracker-score" id="live-score">—</span>
+      <span class="tracker-denom"> / 200</span>
+    </div>
+    <div class="tracker-bar-wrap">
+      <div class="tracker-label">Progress</div>
+      <div class="tracker-bar-track"><div class="tracker-bar-fill" id="tracker-bar"></div></div>
+    </div>
+    <div>
+      <div class="tracker-label">Readiness Tier</div>
+      <span class="tier-badge tier-default" id="tier-badge">Not Started</span>
+    </div>
+  </div>
+
   <!-- SCORING KEY -->
   <div class="cap-block">
     <div class="cap-block-header">
@@ -315,13 +388,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">1.1</td><td>Written policy confirming commitment to comply with all applicable local laws and regulations</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">1.2</td><td>Legal business registration, licenses, and operating permits current and on file</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">1.3</td><td>Regular legal compliance review process documented and executed</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">1.4</td><td>Management accountability for legal compliance assigned in writing</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">1.1</td><td>Written policy confirming commitment to comply with all applicable local laws and regulations</td><td class="score-cell"><div class="score-btns" data-section="1" data-item="1.1" data-short="Legal compliance policy" data-sec-label="Compliance With Laws & Workplace Regulations"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">1.2</td><td>Legal business registration, licenses, and operating permits current and on file</td><td class="score-cell"><div class="score-btns" data-section="1" data-item="1.2" data-short="Registrations & permits current" data-sec-label="Compliance With Laws & Workplace Regulations"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">1.3</td><td>Regular legal compliance review process documented and executed</td><td class="score-cell"><div class="score-btns" data-section="1" data-item="1.3" data-short="Compliance review process" data-sec-label="Compliance With Laws & Workplace Regulations"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">1.4</td><td>Management accountability for legal compliance assigned in writing</td><td class="score-cell"><div class="score-btns" data-section="1" data-item="1.4" data-short="Management accountability" data-sec-label="Compliance With Laws & Workplace Regulations"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 1 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 1 Total</span><div class="section-total-score"><span class="total-val" id="sec-1-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 2 -->
@@ -330,13 +403,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">2.1</td><td>Written anti-forced labor policy posted and accessible to all workers</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">2.2</td><td>No worker deposits, document retention, or debt bondage arrangements exist</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">2.3</td><td>Workers free to leave premises and terminate employment without penalty</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">2.4</td><td>Recruitment and hiring practices documented and reviewed for forced labor indicators</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">2.1</td><td>Written anti-forced labor policy posted and accessible to all workers</td><td class="score-cell"><div class="score-btns" data-section="2" data-item="2.1" data-short="Anti-forced labor policy posted" data-sec-label="Prohibition of Forced Labor"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">2.2</td><td>No worker deposits, document retention, or debt bondage arrangements exist</td><td class="score-cell"><div class="score-btns" data-section="2" data-item="2.2" data-short="No deposits or document retention" data-sec-label="Prohibition of Forced Labor"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">2.3</td><td>Workers free to leave premises and terminate employment without penalty</td><td class="score-cell"><div class="score-btns" data-section="2" data-item="2.3" data-short="Workers free to leave" data-sec-label="Prohibition of Forced Labor"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">2.4</td><td>Recruitment and hiring practices documented and reviewed for forced labor indicators</td><td class="score-cell"><div class="score-btns" data-section="2" data-item="2.4" data-short="Recruitment practices documented" data-sec-label="Prohibition of Forced Labor"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 2 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 2 Total</span><div class="section-total-score"><span class="total-val" id="sec-2-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 3 -->
@@ -345,13 +418,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">3.1</td><td>Written child labor prohibition policy in place and communicated to all staff</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">3.2</td><td>Age verification documentation collected and maintained for all workers at hiring</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">3.3</td><td>Minimum age compliance confirmed for all current workers — records retrievable</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">3.4</td><td>Remediation procedure documented for cases where underage employment is discovered</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">3.1</td><td>Written child labor prohibition policy in place and communicated to all staff</td><td class="score-cell"><div class="score-btns" data-section="3" data-item="3.1" data-short="Child labor policy communicated" data-sec-label="Prohibition of Child Labor"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">3.2</td><td>Age verification documentation collected and maintained for all workers at hiring</td><td class="score-cell"><div class="score-btns" data-section="3" data-item="3.2" data-short="Age verification at hiring" data-sec-label="Prohibition of Child Labor"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">3.3</td><td>Minimum age compliance confirmed for all current workers — records retrievable</td><td class="score-cell"><div class="score-btns" data-section="3" data-item="3.3" data-short="Minimum age confirmed — records retrievable" data-sec-label="Prohibition of Child Labor"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">3.4</td><td>Remediation procedure documented for cases where underage employment is discovered</td><td class="score-cell"><div class="score-btns" data-section="3" data-item="3.4" data-short="Remediation procedure documented" data-sec-label="Prohibition of Child Labor"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 3 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 3 Total</span><div class="section-total-score"><span class="total-val" id="sec-3-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 4 -->
@@ -360,13 +433,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">4.1</td><td>Written anti-harassment and anti-abuse policy posted in worker language</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">4.2</td><td>Confidential grievance procedure documented and communicated to all workers</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">4.3</td><td>Anti-harassment training records maintained with dates, attendees, and content</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">4.4</td><td>Documented investigation and corrective action process for complaints</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">4.1</td><td>Written anti-harassment and anti-abuse policy posted in worker language</td><td class="score-cell"><div class="score-btns" data-section="4" data-item="4.1" data-short="Anti-harassment policy posted" data-sec-label="Prohibition of Harassment & Abuse"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">4.2</td><td>Confidential grievance procedure documented and communicated to all workers</td><td class="score-cell"><div class="score-btns" data-section="4" data-item="4.2" data-short="Grievance procedure documented" data-sec-label="Prohibition of Harassment & Abuse"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">4.3</td><td>Anti-harassment training records maintained with dates, attendees, and content</td><td class="score-cell"><div class="score-btns" data-section="4" data-item="4.3" data-short="Training records maintained" data-sec-label="Prohibition of Harassment & Abuse"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">4.4</td><td>Documented investigation and corrective action process for complaints</td><td class="score-cell"><div class="score-btns" data-section="4" data-item="4.4" data-short="Investigation process documented" data-sec-label="Prohibition of Harassment & Abuse"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 4 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 4 Total</span><div class="section-total-score"><span class="total-val" id="sec-4-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 5 -->
@@ -375,13 +448,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">5.1</td><td>All workers compensated at or above legally mandated minimum wage — payroll records confirm</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">5.2</td><td>Overtime hours and overtime pay rates documented and compliant with local law</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">5.3</td><td>Pay stubs or wage statements provided to workers each pay period</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">5.4</td><td>Benefits provided per local legal requirements — documentation current and retrievable</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">5.1</td><td>All workers compensated at or above legally mandated minimum wage — payroll records confirm</td><td class="score-cell"><div class="score-btns" data-section="5" data-item="5.1" data-short="Minimum wage compliance confirmed" data-sec-label="Compensation & Benefits"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">5.2</td><td>Overtime hours and overtime pay rates documented and compliant with local law</td><td class="score-cell"><div class="score-btns" data-section="5" data-item="5.2" data-short="Overtime documented & compliant" data-sec-label="Compensation & Benefits"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">5.3</td><td>Pay stubs or wage statements provided to workers each pay period</td><td class="score-cell"><div class="score-btns" data-section="5" data-item="5.3" data-short="Pay stubs provided each period" data-sec-label="Compensation & Benefits"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">5.4</td><td>Benefits provided per local legal requirements — documentation current and retrievable</td><td class="score-cell"><div class="score-btns" data-section="5" data-item="5.4" data-short="Benefits per legal requirements" data-sec-label="Compensation & Benefits"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 5 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 5 Total</span><div class="section-total-score"><span class="total-val" id="sec-5-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 6 -->
@@ -390,13 +463,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">6.1</td><td>Working hours for all workers comply with local legal maximums — time records confirm</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">6.2</td><td>Time and attendance records maintained, complete, and retrievable for 12+ months</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">6.3</td><td>Rest periods, meal breaks, and weekly days off documented and provided as required</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">6.4</td><td>Voluntary overtime confirmed — no evidence of coerced or mandatory excessive overtime</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">6.1</td><td>Working hours for all workers comply with local legal maximums — time records confirm</td><td class="score-cell"><div class="score-btns" data-section="6" data-item="6.1" data-short="Hours comply with legal maximums" data-sec-label="Hours of Work"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">6.2</td><td>Time and attendance records maintained, complete, and retrievable for 12+ months</td><td class="score-cell"><div class="score-btns" data-section="6" data-item="6.2" data-short="Time & attendance records complete" data-sec-label="Hours of Work"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">6.3</td><td>Rest periods, meal breaks, and weekly days off documented and provided as required</td><td class="score-cell"><div class="score-btns" data-section="6" data-item="6.3" data-short="Rest periods & breaks documented" data-sec-label="Hours of Work"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">6.4</td><td>Voluntary overtime confirmed — no evidence of coerced or mandatory excessive overtime</td><td class="score-cell"><div class="score-btns" data-section="6" data-item="6.4" data-short="Voluntary overtime confirmed" data-sec-label="Hours of Work"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 6 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 6 Total</span><div class="section-total-score"><span class="total-val" id="sec-6-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 7 -->
@@ -405,13 +478,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">7.1</td><td>Written non-discrimination policy covering hiring, promotion, pay, and termination</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">7.2</td><td>Non-discrimination training documented with attendance records</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">7.3</td><td>Hiring and personnel records demonstrate non-discriminatory practices</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">7.4</td><td>Mechanism for reporting discrimination complaints documented and accessible</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">7.1</td><td>Written non-discrimination policy covering hiring, promotion, pay, and termination</td><td class="score-cell"><div class="score-btns" data-section="7" data-item="7.1" data-short="Non-discrimination policy in place" data-sec-label="Prohibition of Discrimination"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">7.2</td><td>Non-discrimination training documented with attendance records</td><td class="score-cell"><div class="score-btns" data-section="7" data-item="7.2" data-short="Training records documented" data-sec-label="Prohibition of Discrimination"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">7.3</td><td>Hiring and personnel records demonstrate non-discriminatory practices</td><td class="score-cell"><div class="score-btns" data-section="7" data-item="7.3" data-short="Personnel records demonstrate compliance" data-sec-label="Prohibition of Discrimination"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">7.4</td><td>Mechanism for reporting discrimination complaints documented and accessible</td><td class="score-cell"><div class="score-btns" data-section="7" data-item="7.4" data-short="Complaint reporting mechanism" data-sec-label="Prohibition of Discrimination"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 7 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 7 Total</span><div class="section-total-score"><span class="total-val" id="sec-7-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 8 -->
@@ -420,15 +493,15 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">8.1</td><td>Written health and safety policy in place — management accountability assigned</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.2</td><td>Fire safety equipment inspected, documented, and current — evacuation routes posted</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.3</td><td>Emergency evacuation drills conducted and documented with dates and participant counts</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.4</td><td>First aid resources available, certified personnel identified, and records current</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.5</td><td>Health and safety training records maintained for all workers</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">8.6</td><td>Chemical handling, PPE, and equipment safety documentation current</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">8.1</td><td>Written health and safety policy in place — management accountability assigned</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.1" data-short="H&S policy — management accountability" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.2</td><td>Fire safety equipment inspected, documented, and current — evacuation routes posted</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.2" data-short="Fire safety equipment inspected" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.3</td><td>Emergency evacuation drills conducted and documented with dates and participant counts</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.3" data-short="Evacuation drills conducted" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.4</td><td>First aid resources available, certified personnel identified, and records current</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.4" data-short="First aid resources & certified staff" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.5</td><td>Health and safety training records maintained for all workers</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.5" data-short="H&S training records maintained" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">8.6</td><td>Chemical handling, PPE, and equipment safety documentation current</td><td class="score-cell"><div class="score-btns" data-section="8" data-item="8.6" data-short="Chemical / PPE / equipment safety docs" data-sec-label="Health & Safety"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 8 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 24</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 8 Total</span><div class="section-total-score"><span class="total-val" id="sec-8-total">—</span><span class="total-max">/ 24</span></div></div>
   </div>
 
   <!-- SECTION 9 -->
@@ -437,13 +510,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">9.1</td><td>Written policy respecting workers' rights to freedom of association per local law</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">9.2</td><td>No evidence of interference with lawful worker organizing or representation activities</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">9.3</td><td>Where unions are restricted by law, alternative worker representation mechanisms documented</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">9.4</td><td>Communication channels between management and workers documented and active</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">9.1</td><td>Written policy respecting workers' rights to freedom of association per local law</td><td class="score-cell"><div class="score-btns" data-section="9" data-item="9.1" data-short="Freedom of association policy" data-sec-label="Freedom of Association & Collective Bargaining"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">9.2</td><td>No evidence of interference with lawful worker organizing or representation activities</td><td class="score-cell"><div class="score-btns" data-section="9" data-item="9.2" data-short="No interference with organizing" data-sec-label="Freedom of Association & Collective Bargaining"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">9.3</td><td>Where unions are restricted by law, alternative worker representation mechanisms documented</td><td class="score-cell"><div class="score-btns" data-section="9" data-item="9.3" data-short="Alternative representation documented" data-sec-label="Freedom of Association & Collective Bargaining"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">9.4</td><td>Communication channels between management and workers documented and active</td><td class="score-cell"><div class="score-btns" data-section="9" data-item="9.4" data-short="Management-worker communication channels" data-sec-label="Freedom of Association & Collective Bargaining"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 9 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 9 Total</span><div class="section-total-score"><span class="total-val" id="sec-9-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 10 -->
@@ -452,13 +525,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">10.1</td><td>Environmental compliance policy documented and management accountability assigned</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">10.2</td><td>Required environmental permits current — wastewater, air emissions, waste disposal</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">10.3</td><td>Chemical storage, handling, and disposal procedures documented and followed</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">10.4</td><td>Environmental inspection records maintained and current</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">10.1</td><td>Environmental compliance policy documented and management accountability assigned</td><td class="score-cell"><div class="score-btns" data-section="10" data-item="10.1" data-short="Environmental compliance policy" data-sec-label="Environment"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">10.2</td><td>Required environmental permits current — wastewater, air emissions, waste disposal</td><td class="score-cell"><div class="score-btns" data-section="10" data-item="10.2" data-short="Environmental permits current" data-sec-label="Environment"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">10.3</td><td>Chemical storage, handling, and disposal procedures documented and followed</td><td class="score-cell"><div class="score-btns" data-section="10" data-item="10.3" data-short="Chemical handling procedures" data-sec-label="Environment"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">10.4</td><td>Environmental inspection records maintained and current</td><td class="score-cell"><div class="score-btns" data-section="10" data-item="10.4" data-short="Environmental inspection records" data-sec-label="Environment"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 10 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 10 Total</span><div class="section-total-score"><span class="total-val" id="sec-10-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 11 -->
@@ -467,13 +540,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">11.1</td><td>Import/export documentation systems compliant with applicable customs regulations</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">11.2</td><td>Country-of-origin documentation accurate, complete, and maintained on file</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">11.3</td><td>Facility security procedures documented and compliant with applicable trade programs</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">11.4</td><td>Staff responsible for customs compliance identified and trained</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">11.1</td><td>Import/export documentation systems compliant with applicable customs regulations</td><td class="score-cell"><div class="score-btns" data-section="11" data-item="11.1" data-short="Import/export documentation systems" data-sec-label="Customs Compliance"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">11.2</td><td>Country-of-origin documentation accurate, complete, and maintained on file</td><td class="score-cell"><div class="score-btns" data-section="11" data-item="11.2" data-short="Country-of-origin documentation" data-sec-label="Customs Compliance"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">11.3</td><td>Facility security procedures documented and compliant with applicable trade programs</td><td class="score-cell"><div class="score-btns" data-section="11" data-item="11.3" data-short="Facility security — trade programs" data-sec-label="Customs Compliance"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">11.4</td><td>Staff responsible for customs compliance identified and trained</td><td class="score-cell"><div class="score-btns" data-section="11" data-item="11.4" data-short="Customs compliance staff identified" data-sec-label="Customs Compliance"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 11 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 11 Total</span><div class="section-total-score"><span class="total-val" id="sec-11-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- SECTION 12 -->
@@ -482,33 +555,33 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <table class="scorecard-table">
       <thead><tr><th>#</th><th>Assessment Item</th><th class="score-col">Score (1–4)</th></tr></thead>
       <tbody>
-        <tr><td class="item-num">12.1</td><td>Written drug and alcohol-free workplace policy in place and communicated to all workers</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">12.2</td><td>Policy posted in worker language in visible workplace locations</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">12.3</td><td>Training on drug and alcohol policy documented with attendance records</td><td class="score-cell"><div class="score-box"></div></td></tr>
-        <tr><td class="item-num">12.4</td><td>Enforcement and disciplinary procedure for violations documented</td><td class="score-cell"><div class="score-box"></div></td></tr>
+        <tr><td class="item-num">12.1</td><td>Written drug and alcohol-free workplace policy in place and communicated to all workers</td><td class="score-cell"><div class="score-btns" data-section="12" data-item="12.1" data-short="Drug/alcohol-free policy communicated" data-sec-label="Drug & Alcohol Policy"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">12.2</td><td>Policy posted in worker language in visible workplace locations</td><td class="score-cell"><div class="score-btns" data-section="12" data-item="12.2" data-short="Policy posted in worker language" data-sec-label="Drug & Alcohol Policy"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">12.3</td><td>Training on drug and alcohol policy documented with attendance records</td><td class="score-cell"><div class="score-btns" data-section="12" data-item="12.3" data-short="Training records documented" data-sec-label="Drug & Alcohol Policy"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
+        <tr><td class="item-num">12.4</td><td>Enforcement and disciplinary procedure for violations documented</td><td class="score-cell"><div class="score-btns" data-section="12" data-item="12.4" data-short="Enforcement & disciplinary procedure" data-sec-label="Drug & Alcohol Policy"><button class="score-btn" data-val="1" onclick="setScore(this)">1</button><button class="score-btn" data-val="2" onclick="setScore(this)">2</button><button class="score-btn" data-val="3" onclick="setScore(this)">3</button><button class="score-btn" data-val="4" onclick="setScore(this)">4</button></div></td></tr>
       </tbody>
     </table>
-    <div class="section-total"><span class="section-total-label">Section 12 Total</span><div class="section-total-score"><span class="total-blank"></span><span class="total-max">/ 16</span></div></div>
+    <div class="section-total"><span class="section-total-label">Section 12 Total</span><div class="section-total-score"><span class="total-val" id="sec-12-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
   <!-- RESULTS MATRIX -->
   <div class="results-matrix">
-    <div class="matrix-header"><h3>PASA Results Interpretation Matrix — Total Score Out of 160</h3></div>
+    <div class="matrix-header"><h3>PASA Results Interpretation Matrix — Total Score Out of 200</h3></div>
     <div class="matrix-rows">
       <div class="matrix-row">
-        <div class="matrix-range"><span class="range-pass">136–160</span></div>
+        <div class="matrix-range"><span class="range-pass">170–200</span></div>
         <div class="matrix-content"><h4>Audit Ready</h4><p>Strong documentation and systems across all 12 principles. Minor gaps exist but do not represent material audit risk. Organization is prepared to enter the formal WRAP audit process.</p></div>
         <div class="matrix-action"><p>Schedule WRAP pre-audit with registered monitor. Focus on closing remaining minor gaps before submission.</p></div>
       </div>
       <div class="matrix-row">
-        <div class="matrix-range"><span class="range-conditional">100–135</span></div>
+        <div class="matrix-range"><span class="range-conditional">124–169</span></div>
         <div class="matrix-content"><h4>Conditionally Ready</h4><p>Meaningful gaps exist in one or more sections. Documentation or systems deficiencies would likely generate audit findings. Additional preparation is required before formal audit.</p></div>
         <div class="matrix-action"><p>Identify lowest-scoring sections. Build a 60–90 day corrective action plan targeting all items scored 1 or 2. Conduct follow-up PASA before proceeding.</p></div>
       </div>
       <div class="matrix-row">
         <div class="matrix-range"><span class="range-fail">Below 100</span></div>
-        <div class="matrix-content"><h4>Not Ready — Significant Gaps</h4><p>Significant documentation, systems, or policy gaps across multiple sections. Proceeding to formal audit without remediation will result in failure and corrective action requirements.</p></div>
-        <div class="matrix-action"><p>Engage professional compliance support. Build a structured 90–180 day remediation plan. Do not submit for formal audit until PASA score exceeds 120.</p></div>
+        <div class="matrix-content"><h4>Not Ready — Significant Gaps</h4><p>Significant documentation, systems, or policy gaps across multiple sections. Proceeding to formal audit without remediation will result in failures and corrective action requirements.</p></div>
+        <div class="matrix-action"><p>Engage professional compliance support. Build a structured 90–180 day remediation plan. Do not submit for formal audit until PASA score exceeds 150.</p></div>
       </div>
     </div>
   </div>
@@ -525,6 +598,35 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
       <div class="priority-item"><span>Environmental permits and inspection records — not current</span></div>
       <div class="priority-item"><span>Internal audit history — no prior self-assessment on file</span></div>
       <div class="priority-item"><span>Age verification documentation — incomplete at hiring file level</span></div>
+    </div>
+  </div>
+
+
+  <!-- RESULTS PANEL -->
+  <div class="results-panel" id="results-panel">
+    <h2>Your PASA Assessment Results</h2>
+    <div class="results-top">
+      <div>
+        <div class="results-bar-label">Overall Score</div>
+        <span class="results-big-score" id="res-score">—</span>
+        <span class="results-big-denom">/ 200</span>
+      </div>
+      <div class="results-bar-wrap">
+        <div class="results-bar-label">Score Progress</div>
+        <div class="results-bar-track"><div class="results-bar-fill" id="res-bar"></div></div>
+      </div>
+      <div class="results-verdict">
+        <div class="results-verdict-label">Readiness Tier</div>
+        <span class="tier-badge tier-default" id="res-tier">Not Started</span>
+      </div>
+    </div>
+    <div class="gap-list-header" id="gap-list-header">Items Scored 1 or 2 — Priority Corrective Actions</div>
+    <div class="gap-list" id="gap-list">
+      <div class="gap-empty">Complete the scorecard above to see your priority action list.</div>
+    </div>
+    <div class="results-actions">
+      <button class="btn-print-results" onclick="window.print()">🖨 Print / Save as PDF</button>
+      <button class="btn-reset-results" onclick="resetScorecard()">↺ Reset Scorecard</button>
     </div>
   </div>
 
@@ -569,6 +671,128 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
   nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
   document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
 })();
+
+  // ════════════════════════════════════════════════
+  //  INTERACTIVE PASA SCORECARD
+  // ════════════════════════════════════════════════
+
+  function setScore(btn) {
+    var group = btn.closest('.score-btns');
+    group.querySelectorAll('.score-btn').forEach(function(b) {
+      b.className = 'score-btn';
+    });
+    var val = btn.getAttribute('data-val');
+    btn.classList.add('active', 's' + val);
+    calc();
+  }
+
+  function calc() {
+    var total = 0, scored = 0;
+    var sectionTotals = {};
+    var gaps = [];
+
+    document.querySelectorAll('.score-btns').forEach(function(group) {
+      var active = group.querySelector('.score-btn.active');
+      var sec = group.getAttribute('data-section');
+      var val = active ? parseInt(active.getAttribute('data-val')) : 0;
+
+      if (!sectionTotals[sec]) sectionTotals[sec] = 0;
+
+      if (val > 0) {
+        total += val;
+        scored++;
+        sectionTotals[sec] += val;
+        if (val <= 2) {
+          gaps.push({
+            val: val,
+            sec: sec,
+            secLabel: 'Principle ' + group.getAttribute('data-section') + ' — ' + group.getAttribute('data-sec-label'),
+            short: group.getAttribute('data-short'),
+          });
+        }
+      }
+    });
+
+    // Update section totals
+    for (var s in sectionTotals) {
+      var el = document.getElementById('sec-' + s + '-total');
+      if (el) el.textContent = sectionTotals[s] > 0 ? sectionTotals[s] : '—';
+    }
+
+    // Update tracker
+    var pct = Math.round((total / 200) * 100);
+    var scoreEl = document.getElementById('live-score');
+    var barEl = document.getElementById('tracker-bar');
+    var tierEl = document.getElementById('tier-badge');
+    if (scoreEl) scoreEl.textContent = scored > 0 ? total : '—';
+    if (barEl) barEl.style.width = (scored > 0 ? pct : 0) + '%';
+
+    // Tier logic
+    var tierClass, tierText, barColor;
+    if (scored === 0) {
+      tierClass = 'tier-default'; tierText = 'Not Started'; barColor = 'var(--border)';
+    } else if (total >= 170) {
+      tierClass = 'tier-pass'; tierText = 'Audit Ready'; barColor = 'var(--success)';
+    } else if (total >= 124) {
+      tierClass = 'tier-cond'; tierText = 'Conditionally Ready'; barColor = '#D97706';
+    } else {
+      tierClass = 'tier-fail'; tierText = 'Significant Gaps'; barColor = 'var(--danger)';
+    }
+
+    if (barEl) barEl.style.background = barColor;
+    if (tierEl) { tierEl.className = 'tier-badge ' + tierClass; tierEl.textContent = tierText; }
+
+    // Update results panel
+    var resScore = document.getElementById('res-score');
+    var resBar = document.getElementById('res-bar');
+    var resTier = document.getElementById('res-tier');
+    if (resScore) resScore.textContent = scored > 0 ? total : '—';
+    if (resBar) { resBar.style.width = (scored > 0 ? pct : 0) + '%'; resBar.style.background = barColor; }
+    if (resTier) { resTier.className = 'tier-badge ' + tierClass; resTier.textContent = tierText; }
+
+    // Update gap list
+    var gapList = document.getElementById('gap-list');
+    if (!gapList) return;
+    if (scored === 0) {
+      gapList.innerHTML = '<div class="gap-empty">Complete the scorecard above to see your priority action list.</div>';
+      return;
+    }
+    if (gaps.length === 0) {
+      gapList.innerHTML = '<div class="gap-empty">No items scored 1 or 2. Strong compliance posture across all rated sections.</div>';
+      return;
+    }
+    // Sort: 1s before 2s, then by section number
+    gaps.sort(function(a,b) {
+      if (a.val !== b.val) return a.val - b.val;
+      return parseInt(a.sec) - parseInt(b.sec);
+    });
+    gapList.innerHTML = gaps.map(function(g) {
+      var badgeClass = g.val === 1 ? 'gap-s1' : 'gap-s2';
+      var badgeText = g.val === 1 ? 'Score: 1 — Not Compliant' : 'Score: 2 — Partially Compliant';
+      return '<div class="gap-item">' +
+        '<span class="gap-item-score ' + badgeClass + '">' + badgeText + '</span>' +
+        '<span class="gap-item-text">' + g.short + '</span>' +
+        '<span class="gap-item-section">P' + g.sec + '</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  function resetScorecard() {
+    document.querySelectorAll('.score-btn').forEach(function(btn) {
+      btn.className = 'score-btn';
+    });
+    for (var i = 1; i <= 12; i++) {
+      var el = document.getElementById('sec-' + i + '-total');
+      if (el) el.textContent = '—';
+    }
+    var els = ['live-score','res-score'];
+    els.forEach(function(id) { var el=document.getElementById(id); if(el) el.textContent='—'; });
+    ['tracker-bar','res-bar'].forEach(function(id) { var el=document.getElementById(id); if(el){el.style.width='0%';el.style.background='var(--border)';} });
+    ['tier-badge','res-tier'].forEach(function(id) { var el=document.getElementById(id); if(el){el.className='tier-badge tier-default';el.textContent='Not Started';} });
+    var gapList = document.getElementById('gap-list');
+    if (gapList) gapList.innerHTML = '<div class="gap-empty">Complete the scorecard above to see your priority action list.</div>';
+  }
+
 </script>
 </body>
 </html>
