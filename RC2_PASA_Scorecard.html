@@ -224,13 +224,13 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
   .score-btn.active.s4{background:var(--success-bg);border-color:var(--success);color:var(--success)}
 
   /* ── SCORE TRACKER STRIP ── */
-  .score-tracker{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 2px 8px rgba(11,37,69,0.06)}
-  .tracker-score{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--navy);line-height:1}
+  .score-tracker{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 22px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 2px 8px rgba(11,37,69,0.06)}
+  .tracker-score{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--navy);line-height:1}
   .tracker-denom{font-size:0.85rem;color:var(--text-muted);font-weight:600}
   .tracker-bar-wrap{flex:1;min-width:160px;max-width:260px}
   .tracker-bar-track{background:var(--light-bg);border-radius:6px;height:10px;overflow:hidden;border:1px solid var(--border)}
   .tracker-bar-fill{height:100%;border-radius:6px;transition:width 0.3s,background 0.3s;background:var(--border);width:0%}
-  .tracker-label{font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+  .tracker-label{font-size:0.68rem;color:var(--text-muted);margin-bottom:3px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
   .tier-badge{font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:20px;white-space:nowrap}
   .tier-default{background:var(--light-bg);color:var(--text-muted);border:1px solid var(--border)}
   .tier-pass{background:var(--success-bg);color:var(--success);border:1px solid #BBF7D0}
@@ -564,6 +564,24 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     <div class="section-total"><span class="section-total-label">Section 12 Total</span><div class="section-total-score"><span class="total-val" id="sec-12-total">—</span><span class="total-max">/ 16</span></div></div>
   </div>
 
+
+  <!-- SECOND LIVE SCORE TRACKER — below Section 12 -->
+  <div class="score-tracker">
+    <div>
+      <div class="tracker-label">Live Score</div>
+      <span class="tracker-score" id="live-score-2">—</span>
+      <span class="tracker-denom"> / 200</span>
+    </div>
+    <div class="tracker-bar-wrap">
+      <div class="tracker-label">Progress</div>
+      <div class="tracker-bar-track"><div class="tracker-bar-fill" id="tracker-bar-2"></div></div>
+    </div>
+    <div>
+      <div class="tracker-label">Readiness Tier</div>
+      <span class="tier-badge tier-default" id="tier-badge-2">Not Started</span>
+    </div>
+  </div>
+
   <!-- RESULTS MATRIX -->
   <div class="results-matrix">
     <div class="matrix-header"><h3>PASA Results Interpretation Matrix — Total Score Out of 200</h3></div>
@@ -742,6 +760,14 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
     if (barEl) barEl.style.background = barColor;
     if (tierEl) { tierEl.className = 'tier-badge ' + tierClass; tierEl.textContent = tierText; }
 
+    // Sync second tracker strip
+    var scoreEl2 = document.getElementById('live-score-2');
+    var barEl2 = document.getElementById('tracker-bar-2');
+    var tierEl2 = document.getElementById('tier-badge-2');
+    if (scoreEl2) scoreEl2.textContent = scored > 0 ? total : '—';
+    if (barEl2) { barEl2.style.width = (scored > 0 ? pct : 0) + '%'; barEl2.style.background = barColor; }
+    if (tierEl2) { tierEl2.className = 'tier-badge ' + tierClass; tierEl2.textContent = tierText; }
+
     // Update results panel
     var resScore = document.getElementById('res-score');
     var resBar = document.getElementById('res-bar');
@@ -785,10 +811,10 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var
       var el = document.getElementById('sec-' + i + '-total');
       if (el) el.textContent = '—';
     }
-    var els = ['live-score','res-score'];
+    var els = ['live-score','live-score-2','res-score'];
     els.forEach(function(id) { var el=document.getElementById(id); if(el) el.textContent='—'; });
-    ['tracker-bar','res-bar'].forEach(function(id) { var el=document.getElementById(id); if(el){el.style.width='0%';el.style.background='var(--border)';} });
-    ['tier-badge','res-tier'].forEach(function(id) { var el=document.getElementById(id); if(el){el.className='tier-badge tier-default';el.textContent='Not Started';} });
+    ['tracker-bar','tracker-bar-2','res-bar'].forEach(function(id) { var el=document.getElementById(id); if(el){el.style.width='0%';el.style.background='var(--border)';} });
+    ['tier-badge','tier-badge-2','res-tier'].forEach(function(id) { var el=document.getElementById(id); if(el){el.className='tier-badge tier-default';el.textContent='Not Started';} });
     var gapList = document.getElementById('gap-list');
     if (gapList) gapList.innerHTML = '<div class="gap-empty">Complete the scorecard above to see your priority action list.</div>';
   }
