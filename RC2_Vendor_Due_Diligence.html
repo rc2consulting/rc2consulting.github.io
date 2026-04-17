@@ -1,206 +1,149 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Vendor Due Diligence Checklist | RC2 Consulting</title>
-  <meta name="description" content="Free vendor due diligence checklist tool. Evaluate supplier compliance, financial stability, operational capacity, and risk before onboarding new vendors." />
-  <meta property="og:title" content="Vendor Due Diligence Checklist | RC2 Consulting">
-  <meta property="og:description" content="Vendor Due Diligence Checklist. Free interactive tool from RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_Vendor_Due_Diligence.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Vendor Due Diligence Checklist | RC2 Consulting">
-  <meta name="twitter:description" content="Vendor Due Diligence Checklist. Free interactive tool from RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(to bottom,rgba(11,37,69,.86),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
-    .hero-inner{max-width:960px;margin:0 auto}
-    .atag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:640px;line-height:1.6}
-    .hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
-    .hmeta .dv{color:rgba(255,255,255,.3)}
-    .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-    .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
-
-    /* LIVE DASHBOARD */
-    .dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px}
-    .dash-top{display:grid;grid-template-columns:repeat(5,1fr) 160px;gap:12px;margin-bottom:12px}
-    .dash-cell{text-align:center;padding:12px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
-    .dash-val{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;line-height:1;margin-bottom:3px;transition:all .3s}
-    .dash-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
-    .dash-cell.composite{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
-    .dash-cell.composite .dash-val{font-size:1.8rem;color:#93C5FD}
-    .prog-row{height:6px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:5px}
-    .prog-fill{height:6px;border-radius:3px;transition:width .4s}
-    .verdict-bar{border-radius:8px;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:all .4s;flex-wrap:wrap;gap:8px}
-    .verdict-bar.v-approved{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
-    .verdict-bar.v-conditional{background:rgba(133,77,14,.2);border-color:rgba(133,77,14,.5)}
-    .verdict-bar.v-rejected{background:rgba(155,28,28,.2);border-color:rgba(155,28,28,.5)}
-    .verdict-text{font-size:.86rem;font-weight:700;color:#fff}
-    .verdict-sub{font-size:.74rem;color:rgba(255,255,255,.65)}
-    .critical-alert{background:rgba(155,28,28,.3);border:1px solid rgba(155,28,28,.6);border-radius:6px;padding:6px 14px;font-size:.76rem;font-weight:700;color:#FCA5A5}
-
-    /* BLOCKS */
-    .vdd-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
-    .vdd-hdr{background:var(--navy);padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-    .vdd-hdr h3{font-size:.86rem;font-weight:700;color:#fff}
-    .vdd-hdr .sec-score{font-size:.78rem;font-weight:700;color:#93C5FD;background:rgba(37,99,235,.3);padding:3px 10px;border-radius:12px}
-    .info-grid{display:grid;grid-template-columns:1fr 1fr 1fr}
-    .ic{padding:12px 18px;border-bottom:1px solid var(--bdr);border-right:1px solid var(--bdr)}
-    .ic:nth-child(3n){border-right:none}
-    .ic.full{grid-column:1/-1;border-right:none}
-    .ilabel{font-size:.69rem;font-weight:700;color:var(--mu);letter-spacing:.8px;text-transform:uppercase;display:block;margin-bottom:4px}
-    .ifield{border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.86rem;color:var(--navy);padding:3px 0;background:transparent;font-family:'Source Sans 3',sans-serif;outline:none}
-    .ifield:focus{border-bottom-color:var(--lb)}
-
-    /* ITEM TABLE */
-    .itable{width:100%;border-collapse:collapse}
-    .itable th{background:var(--bg);padding:9px 14px;text-align:left;font-size:.7rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr);letter-spacing:.4px}
-    .itable td{padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:.82rem;color:var(--mu);vertical-align:middle}
-    .itable tr:last-child td{border-bottom:none}
-    .itable tr:hover td{background:#FAFBFD}
-    .itable td.inum{font-size:.72rem;font-weight:700;color:var(--lb);width:36px}
-    .itable td.itext{line-height:1.45;color:var(--txt)}
-    .itable td.isub{font-size:.72rem;color:var(--mu)}
-    .yn-grp{display:flex;align-items:center;justify-content:center;gap:8px}
-    .yn-btn{width:32px;height:26px;border:1.5px solid var(--bdr);border-radius:4px;font-size:.72rem;font-weight:700;cursor:pointer;background:transparent;font-family:'Source Sans 3',sans-serif;transition:all .2s}
-    .yn-btn.y-btn:hover,.yn-btn.y-btn.sel{background:var(--sbg);border-color:var(--sg);color:var(--sg)}
-    .yn-btn.n-btn:hover,.yn-btn.n-btn.sel{background:var(--dbg);border-color:var(--dg);color:var(--dg)}
-    .yn-btn.na-btn:hover,.yn-btn.na-btn.sel{background:var(--bg);border-color:var(--mu);color:var(--mu)}
-    .flag-sel{border:none;border-bottom:1.5px solid var(--bdr);font-size:.76rem;color:var(--navy);background:transparent;font-family:'Source Sans 3',sans-serif;outline:none;cursor:pointer;padding:2px 0;width:80px}
-    .note-f{border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;color:var(--navy);background:transparent;font-family:'Source Sans 3',sans-serif;outline:none}
-    .note-f:focus{border-bottom-color:var(--lb)}
-    .crit-row td{background:#FFF5F5}
-    .sec-footer{background:var(--bg);padding:10px 14px;border-top:1px solid var(--bdr);display:flex;align-items:center;gap:16px}
-    .sec-foot-label{font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
-    .sec-foot-val{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy)}
-    .sec-prog{flex:1;height:6px;background:var(--bdr);border-radius:3px}
-    .sec-prog-fill{height:6px;border-radius:3px;transition:width .3s;background:var(--lb)}
-
-    /* RATING / DECISION */
-    .rating-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
-    .rc{padding:14px 16px;text-align:center;border-right:1px solid var(--bdr)}
-    .rc:last-child{border-right:none}
-    .rc-label{font-size:.68rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-    .rc-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--navy);min-height:36px;line-height:1}
-    .rc-max{font-size:.66rem;color:var(--mu)}
-    .dec-grid{display:grid;grid-template-columns:repeat(3,1fr)}
-    .dec-opt{padding:16px;border-right:1px solid var(--bdr);display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .2s}
-    .dec-opt:last-child{border-right:none}
-    .dec-opt.active-approved{background:var(--sbg)}
-    .dec-opt.active-conditional{background:var(--wbg)}
-    .dec-opt.active-rejected{background:var(--dbg)}
-    .dec-radio{width:18px;height:18px;accent-color:var(--lb);cursor:pointer;flex-shrink:0}
-    .dec-h4{font-size:.84rem;font-weight:700;color:var(--navy);margin-bottom:2px}
-    .dec-p{font-size:.72rem;color:var(--mu);line-height:1.4;margin:0}
-    .sg-grid{display:grid;grid-template-columns:1fr 1fr}
-    .sgc{padding:16px 20px;border-right:1px solid var(--bdr)}
-    .sgc:last-child{border-right:none}
-    .sgl{font-size:.69rem;font-weight:700;color:var(--mu);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-    .sgline{border-bottom:1.5px solid var(--navy);margin-bottom:6px;height:28px}
-    .sgsub{font-size:.72rem;color:var(--mu)}
-
-    .sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
-    .sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
-    .sources ul{list-style:none}
-    .sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
-    .sources li:last-child{border-bottom:none}
-    .sources a{color:var(--lb);text-decoration:none}
-    .acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
-    .acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
-    .acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
-    .btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem transition:color 0.2s; cursor:pointer; }
-    .fl a:hover { color:white; }
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-    @media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.info-grid{grid-template-columns:1fr 1fr}.rating-row{grid-template-columns:repeat(2,1fr)}.dec-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
-    @media print{.topnav,.btn-back,.dashboard,.acta,.site-footer,.sources{display:none}.vdd-block{box-shadow:none;break-inside:avoid}}
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vendor Due Diligence Checklist | RC2 Consulting</title>
+<meta name="description" content="Free vendor due diligence checklist tool. Evaluate supplier compliance, financial stability, operational capacity, and risk before onboarding new vendors." />
+<meta property="og:title" content="Vendor Due Diligence Checklist | RC2 Consulting">
+<meta property="og:description" content="Vendor Due Diligence Checklist. Free interactive tool from RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_Vendor_Due_Diligence.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vendor Due Diligence Checklist | RC2 Consulting">
+<meta name="twitter:description" content="Vendor Due Diligence Checklist. Free interactive tool from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#D1D9E6;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.86),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:640px;line-height:1.6}
+.hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.hmeta .dv{color:rgba(255,255,255,.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px}
+.dash-top{display:grid;grid-template-columns:repeat(5,1fr) 160px;gap:12px;margin-bottom:12px}
+.dash-cell{text-align:center;padding:12px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+.dash-val{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;line-height:1;margin-bottom:3px;transition:all .3s}
+.dash-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
+.dash-cell.composite{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
+.dash-cell.composite .dash-val{font-size:1.8rem;color:#93C5FD}
+.prog-row{height:6px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:5px}
+.prog-fill{height:6px;border-radius:3px;transition:width .4s}
+.verdict-bar{border-radius:8px;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:all .4s;flex-wrap:wrap;gap:8px}
+.verdict-bar.v-approved{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
+.verdict-bar.v-conditional{background:rgba(133,77,14,.2);border-color:rgba(133,77,14,.5)}
+.verdict-bar.v-rejected{background:rgba(155,28,28,.2);border-color:rgba(155,28,28,.5)}
+.verdict-text{font-size:.86rem;font-weight:700;color:#fff}
+.verdict-sub{font-size:.74rem;color:rgba(255,255,255,.65)}
+.critical-alert{background:rgba(155,28,28,.3);border:1px solid rgba(155,28,28,.6);border-radius:6px;padding:6px 14px;font-size:.76rem;font-weight:700;color:#FCA5A5}
+.vdd-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
+.vdd-hdr{background:var(--navy);padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
+.vdd-hdr h3{font-size:.86rem;font-weight:700;color:#fff}
+.vdd-hdr .sec-score{font-size:.78rem;font-weight:700;color:#93C5FD;background:rgba(37,99,235,.3);padding:3px 10px;border-radius:12px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr 1fr}
+.ic{padding:12px 18px;border-bottom:1px solid var(--bdr);border-right:1px solid var(--bdr)}
+.ic:nth-child(3n){border-right:none}
+.ic.full{grid-column:1/-1;border-right:none}
+.ilabel{font-size:.69rem;font-weight:700;color:var(--mu);letter-spacing:.8px;text-transform:uppercase;display:block;margin-bottom:4px}
+.ifield{border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.86rem;color:var(--navy);padding:3px 0;background:transparent;font-family:'Source Sans 3',sans-serif;outline:none}
+.ifield:focus{border-bottom-color:var(--lb)}
+.itable{width:100%;border-collapse:collapse}
+.itable th{background:var(--bg);padding:9px 14px;text-align:left;font-size:.7rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr);letter-spacing:.4px}
+.itable td{padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:.82rem;color:var(--mu);vertical-align:middle}
+.itable tr:last-child td{border-bottom:none}
+.itable tr:hover td{background:#FAFBFD}
+.itable td.inum{font-size:.72rem;font-weight:700;color:var(--lb);width:36px}
+.itable td.itext{line-height:1.45;color:var(--txt)}
+.itable td.isub{font-size:.72rem;color:var(--mu)}
+.yn-grp{display:flex;align-items:center;justify-content:center;gap:8px}
+.yn-btn{width:32px;height:26px;border:1.5px solid var(--bdr);border-radius:4px;font-size:.72rem;font-weight:700;cursor:pointer;background:transparent;font-family:'Source Sans 3',sans-serif;transition:all .2s}
+.yn-btn.y-btn:hover,.yn-btn.y-btn.sel{background:var(--sbg);border-color:var(--sg);color:var(--sg)}
+.yn-btn.n-btn:hover,.yn-btn.n-btn.sel{background:var(--dbg);border-color:var(--dg);color:var(--dg)}
+.yn-btn.na-btn:hover,.yn-btn.na-btn.sel{background:var(--bg);border-color:var(--mu);color:var(--mu)}
+.flag-sel{border:none;border-bottom:1.5px solid var(--bdr);font-size:.76rem;color:var(--navy);background:transparent;font-family:'Source Sans 3',sans-serif;outline:none;cursor:pointer;padding:2px 0;width:80px}
+.note-f{border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;color:var(--navy);background:transparent;font-family:'Source Sans 3',sans-serif;outline:none}
+.note-f:focus{border-bottom-color:var(--lb)}
+.crit-row td{background:#FFF5F5}
+.sec-footer{background:var(--bg);padding:10px 14px;border-top:1px solid var(--bdr);display:flex;align-items:center;gap:16px}
+.sec-foot-label{font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+.sec-foot-val{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy)}
+.sec-prog{flex:1;height:6px;background:var(--bdr);border-radius:3px}
+.sec-prog-fill{height:6px;border-radius:3px;transition:width .3s;background:var(--lb)}
+.rating-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.rc{padding:14px 16px;text-align:center;border-right:1px solid var(--bdr)}
+.rc:last-child{border-right:none}
+.rc-label{font-size:.68rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.rc-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--navy);min-height:36px;line-height:1}
+.rc-max{font-size:.66rem;color:var(--mu)}
+.dec-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.dec-opt{padding:16px;border-right:1px solid var(--bdr);display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .2s}
+.dec-opt:last-child{border-right:none}
+.dec-opt.active-approved{background:var(--sbg)}
+.dec-opt.active-conditional{background:var(--wbg)}
+.dec-opt.active-rejected{background:var(--dbg)}
+.dec-radio{width:18px;height:18px;accent-color:var(--lb);cursor:pointer;flex-shrink:0}
+.dec-h4{font-size:.84rem;font-weight:700;color:var(--navy);margin-bottom:2px}
+.dec-p{font-size:.72rem;color:var(--mu);line-height:1.4;margin:0}
+.sg-grid{display:grid;grid-template-columns:1fr 1fr}
+.sgc{padding:16px 20px;border-right:1px solid var(--bdr)}
+.sgc:last-child{border-right:none}
+.sgl{font-size:.69rem;font-weight:700;color:var(--mu);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.sgline{border-bottom:1.5px solid var(--navy);margin-bottom:6px;height:28px}
+.sgsub{font-size:.72rem;color:var(--mu)}
+.sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
+.sources li:last-child{border-bottom:none}
+.sources a{color:var(--lb);text-decoration:none}
+.acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
+.acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+@media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.info-grid{grid-template-columns:1fr 1fr}.rating-row{grid-template-columns:repeat(2,1fr)}.dec-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
+@media print{.topnav,.btn-back,.dashboard,.acta,.site-footer,.sources{display:none}.vdd-block{box-shadow:none;break-inside:avoid}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
@@ -217,7 +160,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_Vendor_Due_Diligence.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/RC2_Vendor_Due_Diligence-es.html" class="lang-btn inactive">ES</a>
@@ -231,38 +174,36 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Supply Chain Tool</span>
+    <span class="article-tag">Supply Chain Tool</span>
     <h1>Vendor Due Diligence Checklist</h1>
     <p class="hero-sub">Qualify new suppliers across five categories. Your section scores, overall rating, and qualification decision update in real time as you complete each item.</p>
     <div class="hmeta">
       <span>RC2 Consulting</span><span class="dv">|</span>
       <span>February 2026</span><span class="dv">|</span>
-      <span>Interactive — Real-Time Scoring</span>
+      <span>Interactive &mdash; Real-Time Scoring</span>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Back to Resources</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&larr; Back to Resources</a>
 
-  <!-- LIVE DASHBOARD -->
   <div class="dashboard">
     <div class="dash-top">
-      <div class="dash-cell"><div class="dash-val" id="ds1">—</div><div class="dash-label">Legal</div><div class="prog-row"><div class="prog-fill" id="dp1" style="background:#3B82F6;width:0%"></div></div></div>
-      <div class="dash-cell"><div class="dash-val" id="ds2">—</div><div class="dash-label">Financial</div><div class="prog-row"><div class="prog-fill" id="dp2" style="background:#8B5CF6;width:0%"></div></div></div>
-      <div class="dash-cell"><div class="dash-val" id="ds3">—</div><div class="dash-label">Operational</div><div class="prog-row"><div class="prog-fill" id="dp3" style="background:#F59E0B;width:0%"></div></div></div>
-      <div class="dash-cell"><div class="dash-val" id="ds4">—</div><div class="dash-label">Compliance</div><div class="prog-row"><div class="prog-fill" id="dp4" style="background:#10B981;width:0%"></div></div></div>
-      <div class="dash-cell"><div class="dash-val" id="ds5">—</div><div class="dash-label">Ethical</div><div class="prog-row"><div class="prog-fill" id="dp5" style="background:#EF4444;width:0%"></div></div></div>
-      <div class="dash-cell composite"><div class="dash-val" id="dtot">—</div><div class="dash-label">Score / 25</div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds1">&mdash;</div><div class="dash-label">Legal</div><div class="prog-row"><div class="prog-fill" id="dp1" style="background:#3B82F6;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds2">&mdash;</div><div class="dash-label">Financial</div><div class="prog-row"><div class="prog-fill" id="dp2" style="background:#8B5CF6;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds3">&mdash;</div><div class="dash-label">Operational</div><div class="prog-row"><div class="prog-fill" id="dp3" style="background:#F59E0B;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds4">&mdash;</div><div class="dash-label">Compliance</div><div class="prog-row"><div class="prog-fill" id="dp4" style="background:#10B981;width:0%"></div></div></div>
+      <div class="dash-cell"><div class="dash-val" id="ds5">&mdash;</div><div class="dash-label">Ethical</div><div class="prog-row"><div class="prog-fill" id="dp5" style="background:#EF4444;width:0%"></div></div></div>
+      <div class="dash-cell composite"><div class="dash-val" id="dtot">&mdash;</div><div class="dash-label">Score / 25</div></div>
     </div>
     <div class="verdict-bar" id="verdict-bar">
-      <div><div class="verdict-text">Answer items below — your qualification verdict appears here in real time</div><div class="verdict-sub">Y = 1 point · N = 0 points · N/A = excluded from score · Critical items flagged separately</div></div>
+      <div><div class="verdict-text">Answer items below &mdash; your qualification verdict appears here in real time</div><div class="verdict-sub">Y = 1 point &middot; N = 0 points &middot; N/A = excluded from score &middot; Critical items flagged separately</div></div>
     </div>
   </div>
 
-  <!-- VENDOR INFO -->
   <div class="vdd-block">
-    <div class="vdd-hdr"><h3>Vendor Identification</h3><span>Complete all fields — one form per vendor</span></div>
+    <div class="vdd-hdr"><h3>Vendor Identification</h3><span>Complete all fields &mdash; one form per vendor</span></div>
     <div class="info-grid">
       <div class="ic"><span class="ilabel">Vendor / Supplier Name</span><input class="ifield" placeholder="Legal registered name"/></div>
       <div class="ic"><span class="ilabel">DBA / Trade Name</span><input class="ifield" placeholder="If different from legal name"/></div>
@@ -270,110 +211,104 @@
       <div class="ic"><span class="ilabel">Country / City</span><input class="ifield" placeholder="Country and city of operation"/></div>
       <div class="ic"><span class="ilabel">Products / Services Offered</span><input class="ifield" placeholder="Describe what they will supply"/></div>
       <div class="ic"><span class="ilabel">Assessed By</span><input class="ifield" placeholder="Name and title"/></div>
-      <div class="ic full"><span class="ilabel">Primary Contact — Name, Title, Email, Phone</span><input class="ifield" placeholder="Vendor primary contact details"/></div>
+      <div class="ic full"><span class="ilabel">Primary Contact &mdash; Name, Title, Email, Phone</span><input class="ifield" placeholder="Vendor primary contact details"/></div>
     </div>
   </div>
 
-  <!-- SECTION 1 -->
   <div class="vdd-block">
-    <div class="vdd-hdr"><h3>Section 1 — Legal & Business Standing</h3><span class="sec-score" id="ss1">0 / 5</span></div>
+    <div class="vdd-hdr"><h3>Section 1 &mdash; Legal &amp; Business Standing</h3><span class="sec-score" id="ss1">0 / 5</span></div>
     <table class="itable">
       <thead><tr><th style="width:36px">#</th><th>Due Diligence Item</th><th style="width:130px;text-align:center">Y / N / N/A</th><th style="width:90px">Risk Flag</th><th style="width:180px">Notes</th></tr></thead>
       <tbody>
-        <tr class="crit-row"><td class="inum">1.1</td><td class="itext">Business legally registered — certificate obtained <span style="font-size:.68rem;color:var(--dg);font-weight:700">★ Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_1','NA')">N/A</button></div><input type="hidden" id="v_1_1" data-sec="1" data-crit="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">1.2</td><td class="itext">Tax ID confirmed and active</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_2','NA')">N/A</button></div><input type="hidden" id="v_1_2" data-sec="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">1.3</td><td class="itext">Required operating licenses current</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_3','NA')">N/A</button></div><input type="hidden" id="v_1_3" data-sec="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr class="crit-row"><td class="inum">1.4</td><td class="itext">No sanctions/debarments — OFAC &amp; SAM.gov clear <span style="font-size:.68rem;color:var(--dg);font-weight:700">★ Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_4','NA')">N/A</button></div><input type="hidden" id="v_1_4" data-sec="1" data-crit="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">1.5</td><td class="itext">Ownership structure disclosed — no shell arrangements</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_5','NA')">N/A</button></div><input type="hidden" id="v_1_5" data-sec="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr class="crit-row"><td class="inum">1.1</td><td class="itext">Business legally registered &mdash; certificate obtained <span style="font-size:.68rem;color:var(--dg);font-weight:700">&#9733; Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_1','NA')">N/A</button></div><input type="hidden" id="v_1_1" data-sec="1" data-crit="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">1.2</td><td class="itext">Tax ID confirmed and active</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_2','NA')">N/A</button></div><input type="hidden" id="v_1_2" data-sec="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">1.3</td><td class="itext">Required operating licenses current</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_3','NA')">N/A</button></div><input type="hidden" id="v_1_3" data-sec="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr class="crit-row"><td class="inum">1.4</td><td class="itext">No sanctions/debarments &mdash; OFAC &amp; SAM.gov clear <span style="font-size:.68rem;color:var(--dg);font-weight:700">&#9733; Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_4','NA')">N/A</button></div><input type="hidden" id="v_1_4" data-sec="1" data-crit="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">1.5</td><td class="itext">Ownership structure disclosed &mdash; no shell arrangements</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'1_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'1_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'1_5','NA')">N/A</button></div><input type="hidden" id="v_1_5" data-sec="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
       </tbody>
     </table>
     <div class="sec-footer"><span class="sec-foot-label">Section Score:</span><span class="sec-foot-val" id="sf1">0</span><span class="sec-foot-label">/ 5</span><div class="sec-prog"><div class="sec-prog-fill" id="sfp1"></div></div></div>
   </div>
 
-  <!-- SECTION 2 -->
   <div class="vdd-block">
-    <div class="vdd-hdr"><h3>Section 2 — Financial Health & Stability</h3><span class="sec-score" id="ss2">0 / 5</span></div>
+    <div class="vdd-hdr"><h3>Section 2 &mdash; Financial Health &amp; Stability</h3><span class="sec-score" id="ss2">0 / 5</span></div>
     <table class="itable">
       <thead><tr><th style="width:36px">#</th><th>Due Diligence Item</th><th style="width:130px;text-align:center">Y / N / N/A</th><th style="width:90px">Risk Flag</th><th style="width:180px">Notes</th></tr></thead>
       <tbody>
-        <tr><td class="inum">2.1</td><td class="itext">Audited financials provided for prior 2 years</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_1','NA')">N/A</button></div><input type="hidden" id="v_2_1" data-sec="2" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr class="crit-row"><td class="inum">2.2</td><td class="itext">No insolvency, bankruptcy, or significant debt flags <span style="font-size:.68rem;color:var(--dg);font-weight:700">★ Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_2','NA')">N/A</button></div><input type="hidden" id="v_2_2" data-sec="2" data-crit="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">2.3</td><td class="itext">Credit references from 2+ buyers reviewed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_3','NA')">N/A</button></div><input type="hidden" id="v_2_3" data-sec="2" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">2.4</td><td class="itext">Payment history with suppliers confirmed — no late payment pattern</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_4','NA')">N/A</button></div><input type="hidden" id="v_2_4" data-sec="2" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">2.5</td><td class="itext">Financial capacity to fulfill projected order volume confirmed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_5','NA')">N/A</button></div><input type="hidden" id="v_2_5" data-sec="2" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">2.1</td><td class="itext">Audited financials provided for prior 2 years</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_1','NA')">N/A</button></div><input type="hidden" id="v_2_1" data-sec="2" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr class="crit-row"><td class="inum">2.2</td><td class="itext">No insolvency, bankruptcy, or significant debt flags <span style="font-size:.68rem;color:var(--dg);font-weight:700">&#9733; Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_2','NA')">N/A</button></div><input type="hidden" id="v_2_2" data-sec="2" data-crit="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">2.3</td><td class="itext">Credit references from 2+ buyers reviewed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_3','NA')">N/A</button></div><input type="hidden" id="v_2_3" data-sec="2" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">2.4</td><td class="itext">Payment history with suppliers confirmed &mdash; no late payment pattern</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_4','NA')">N/A</button></div><input type="hidden" id="v_2_4" data-sec="2" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">2.5</td><td class="itext">Financial capacity to fulfill projected order volume confirmed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'2_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'2_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'2_5','NA')">N/A</button></div><input type="hidden" id="v_2_5" data-sec="2" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
       </tbody>
     </table>
     <div class="sec-footer"><span class="sec-foot-label">Section Score:</span><span class="sec-foot-val" id="sf2">0</span><span class="sec-foot-label">/ 5</span><div class="sec-prog"><div class="sec-prog-fill" id="sfp2"></div></div></div>
   </div>
 
-  <!-- SECTION 3 -->
   <div class="vdd-block">
-    <div class="vdd-hdr"><h3>Section 3 — Operational Capacity & Quality Systems</h3><span class="sec-score" id="ss3">0 / 5</span></div>
+    <div class="vdd-hdr"><h3>Section 3 &mdash; Operational Capacity &amp; Quality Systems</h3><span class="sec-score" id="ss3">0 / 5</span></div>
     <table class="itable">
       <thead><tr><th style="width:36px">#</th><th>Due Diligence Item</th><th style="width:130px;text-align:center">Y / N / N/A</th><th style="width:90px">Risk Flag</th><th style="width:180px">Notes</th></tr></thead>
       <tbody>
-        <tr class="crit-row"><td class="inum">3.1</td><td class="itext">On-site facility visit completed <span style="font-size:.68rem;color:var(--dg);font-weight:700">★ Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_1','NA')">N/A</button></div><input type="hidden" id="v_3_1" data-sec="3" data-crit="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">3.2</td><td class="itext">Production capacity confirmed vs. projected monthly volumes</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_2','NA')">N/A</button></div><input type="hidden" id="v_3_2" data-sec="3" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">3.3</td><td class="itext">Quality control systems documented — inspection, defect tracking, CA process</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_3','NA')">N/A</button></div><input type="hidden" id="v_3_3" data-sec="3" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr class="crit-row"><td class="inum">3.4</td><td class="itext">No unauthorized subcontracting disclosed <span style="font-size:.68rem;color:var(--dg);font-weight:700">★ Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_4','NA')">N/A</button></div><input type="hidden" id="v_3_4" data-sec="3" data-crit="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">3.5</td><td class="itext">Management team assessed — experienced, traceable history</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_5','NA')">N/A</button></div><input type="hidden" id="v_3_5" data-sec="3" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr class="crit-row"><td class="inum">3.1</td><td class="itext">On-site facility visit completed <span style="font-size:.68rem;color:var(--dg);font-weight:700">&#9733; Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_1','NA')">N/A</button></div><input type="hidden" id="v_3_1" data-sec="3" data-crit="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">3.2</td><td class="itext">Production capacity confirmed vs. projected monthly volumes</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_2','NA')">N/A</button></div><input type="hidden" id="v_3_2" data-sec="3" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">3.3</td><td class="itext">Quality control systems documented &mdash; inspection, defect tracking, CA process</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_3','NA')">N/A</button></div><input type="hidden" id="v_3_3" data-sec="3" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr class="crit-row"><td class="inum">3.4</td><td class="itext">No unauthorized subcontracting disclosed <span style="font-size:.68rem;color:var(--dg);font-weight:700">&#9733; Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_4','NA')">N/A</button></div><input type="hidden" id="v_3_4" data-sec="3" data-crit="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">3.5</td><td class="itext">Management team assessed &mdash; experienced, traceable history</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'3_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'3_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'3_5','NA')">N/A</button></div><input type="hidden" id="v_3_5" data-sec="3" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
       </tbody>
     </table>
     <div class="sec-footer"><span class="sec-foot-label">Section Score:</span><span class="sec-foot-val" id="sf3">0</span><span class="sec-foot-label">/ 5</span><div class="sec-prog"><div class="sec-prog-fill" id="sfp3"></div></div></div>
   </div>
 
-  <!-- SECTION 4 -->
   <div class="vdd-block">
-    <div class="vdd-hdr"><h3>Section 4 — Social Compliance & Labor Practices</h3><span class="sec-score" id="ss4">0 / 5</span></div>
+    <div class="vdd-hdr"><h3>Section 4 &mdash; Social Compliance &amp; Labor Practices</h3><span class="sec-score" id="ss4">0 / 5</span></div>
     <table class="itable">
       <thead><tr><th style="width:36px">#</th><th>Due Diligence Item</th><th style="width:130px;text-align:center">Y / N / N/A</th><th style="width:90px">Risk Flag</th><th style="width:180px">Notes</th></tr></thead>
       <tbody>
-        <tr><td class="inum">4.1</td><td class="itext">Active WRAP, SA8000, BSCI or equivalent certification confirmed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_1','NA')">N/A</button></div><input type="hidden" id="v_4_1" data-sec="4" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr class="crit-row"><td class="inum">4.2</td><td class="itext">No forced labor, child labor, or debt bondage indicators <span style="font-size:.68rem;color:var(--dg);font-weight:700">★ Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_2','NA')">N/A</button></div><input type="hidden" id="v_4_2" data-sec="4" data-crit="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">4.3</td><td class="itext">Wages at or above legal minimum — payroll records reviewed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_3','NA')">N/A</button></div><input type="hidden" id="v_4_3" data-sec="4" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">4.4</td><td class="itext">Working hours within legal maximums — time records reviewed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_4','NA')">N/A</button></div><input type="hidden" id="v_4_4" data-sec="4" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">4.5</td><td class="itext">Grievance procedure documented and accessible to workers</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_5','NA')">N/A</button></div><input type="hidden" id="v_4_5" data-sec="4" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">4.1</td><td class="itext">Active WRAP, SA8000, BSCI or equivalent certification confirmed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_1','NA')">N/A</button></div><input type="hidden" id="v_4_1" data-sec="4" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr class="crit-row"><td class="inum">4.2</td><td class="itext">No forced labor, child labor, or debt bondage indicators <span style="font-size:.68rem;color:var(--dg);font-weight:700">&#9733; Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_2','NA')">N/A</button></div><input type="hidden" id="v_4_2" data-sec="4" data-crit="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">4.3</td><td class="itext">Wages at or above legal minimum &mdash; payroll records reviewed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_3','NA')">N/A</button></div><input type="hidden" id="v_4_3" data-sec="4" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">4.4</td><td class="itext">Working hours within legal maximums &mdash; time records reviewed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_4','NA')">N/A</button></div><input type="hidden" id="v_4_4" data-sec="4" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">4.5</td><td class="itext">Grievance procedure documented and accessible to workers</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'4_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'4_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'4_5','NA')">N/A</button></div><input type="hidden" id="v_4_5" data-sec="4" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
       </tbody>
     </table>
     <div class="sec-footer"><span class="sec-foot-label">Section Score:</span><span class="sec-foot-val" id="sf4">0</span><span class="sec-foot-label">/ 5</span><div class="sec-prog"><div class="sec-prog-fill" id="sfp4"></div></div></div>
   </div>
 
-  <!-- SECTION 5 -->
   <div class="vdd-block">
-    <div class="vdd-hdr"><h3>Section 5 — Ethical Standing & Reputational Risk</h3><span class="sec-score" id="ss5">0 / 5</span></div>
+    <div class="vdd-hdr"><h3>Section 5 &mdash; Ethical Standing &amp; Reputational Risk</h3><span class="sec-score" id="ss5">0 / 5</span></div>
     <table class="itable">
       <thead><tr><th style="width:36px">#</th><th>Due Diligence Item</th><th style="width:130px;text-align:center">Y / N / N/A</th><th style="width:90px">Risk Flag</th><th style="width:180px">Notes</th></tr></thead>
       <tbody>
-        <tr><td class="inum">5.1</td><td class="itext">No negative press re: labor, corruption, or environmental in prior 3 years</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_1','NA')">N/A</button></div><input type="hidden" id="v_5_1" data-sec="5" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">5.2</td><td class="itext">Anti-bribery / anti-corruption policy in place — Code of Conduct signed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_2','NA')">N/A</button></div><input type="hidden" id="v_5_2" data-sec="5" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">5.3</td><td class="itext">Buyer references from 2+ current/former clients — positive feedback</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_3','NA')">N/A</button></div><input type="hidden" id="v_5_3" data-sec="5" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr class="crit-row"><td class="inum">5.4</td><td class="itext">No FCPA, UFLPA, or forced labor import prohibition flags <span style="font-size:.68rem;color:var(--dg);font-weight:700">★ Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_4','NA')">N/A</button></div><input type="hidden" id="v_5_4" data-sec="5" data-crit="1" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
-        <tr><td class="inum">5.5</td><td class="itext">Environmental compliance — no outstanding violations or enforcement</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_5','NA')">N/A</button></div><input type="hidden" id="v_5_5" data-sec="5" value=""/></td><td><select class="flag-sel"><option>—</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">5.1</td><td class="itext">No negative press re: labor, corruption, or environmental in prior 3 years</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_1','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_1','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_1','NA')">N/A</button></div><input type="hidden" id="v_5_1" data-sec="5" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">5.2</td><td class="itext">Anti-bribery / anti-corruption policy in place &mdash; Code of Conduct signed</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_2','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_2','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_2','NA')">N/A</button></div><input type="hidden" id="v_5_2" data-sec="5" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">5.3</td><td class="itext">Buyer references from 2+ current/former clients &mdash; positive feedback</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_3','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_3','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_3','NA')">N/A</button></div><input type="hidden" id="v_5_3" data-sec="5" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr class="crit-row"><td class="inum">5.4</td><td class="itext">No FCPA, UFLPA, or forced labor import prohibition flags <span style="font-size:.68rem;color:var(--dg);font-weight:700">&#9733; Critical</span></td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_4','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_4','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_4','NA')">N/A</button></div><input type="hidden" id="v_5_4" data-sec="5" data-crit="1" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
+        <tr><td class="inum">5.5</td><td class="itext">Environmental compliance &mdash; no outstanding violations or enforcement</td><td><div class="yn-grp"><button class="yn-btn y-btn" onclick="setYN(this,'5_5','Y')">Y</button><button class="yn-btn n-btn" onclick="setYN(this,'5_5','N')">N</button><button class="yn-btn na-btn" onclick="setYN(this,'5_5','NA')">N/A</button></div><input type="hidden" id="v_5_5" data-sec="5" value=""/></td><td><select class="flag-sel"><option>&mdash;</option><option>None</option><option>Low</option><option>Medium</option><option>High</option></select></td><td><input class="note-f" placeholder="Notes..."/></td></tr>
       </tbody>
     </table>
     <div class="sec-footer"><span class="sec-foot-label">Section Score:</span><span class="sec-foot-val" id="sf5">0</span><span class="sec-foot-label">/ 5</span><div class="sec-prog"><div class="sec-prog-fill" id="sfp5"></div></div></div>
   </div>
 
-  <!-- OVERALL RATING + DECISION -->
   <div class="vdd-block" style="margin-bottom:28px">
-    <div class="vdd-hdr"><h3>Overall Vendor Rating & Qualification Decision</h3><span>Updates automatically</span></div>
+    <div class="vdd-hdr"><h3>Overall Vendor Rating &amp; Qualification Decision</h3><span>Updates automatically</span></div>
     <div class="rating-row">
-      <div class="rc"><div class="rc-label">Legal</div><div class="rc-val" id="r1">—</div><div class="rc-max">/ 5</div></div>
-      <div class="rc"><div class="rc-label">Financial</div><div class="rc-val" id="r2">—</div><div class="rc-max">/ 5</div></div>
-      <div class="rc"><div class="rc-label">Operational</div><div class="rc-val" id="r3">—</div><div class="rc-max">/ 5</div></div>
-      <div class="rc"><div class="rc-label">Compliance</div><div class="rc-val" id="r4">—</div><div class="rc-max">/ 5</div></div>
-      <div class="rc" style="border-right:none"><div class="rc-label">Ethical</div><div class="rc-val" id="r5">—</div><div class="rc-max">/ 5</div></div>
+      <div class="rc"><div class="rc-label">Legal</div><div class="rc-val" id="r1">&mdash;</div><div class="rc-max">/ 5</div></div>
+      <div class="rc"><div class="rc-label">Financial</div><div class="rc-val" id="r2">&mdash;</div><div class="rc-max">/ 5</div></div>
+      <div class="rc"><div class="rc-label">Operational</div><div class="rc-val" id="r3">&mdash;</div><div class="rc-max">/ 5</div></div>
+      <div class="rc"><div class="rc-label">Compliance</div><div class="rc-val" id="r4">&mdash;</div><div class="rc-max">/ 5</div></div>
+      <div class="rc" style="border-right:none"><div class="rc-label">Ethical</div><div class="rc-val" id="r5">&mdash;</div><div class="rc-max">/ 5</div></div>
     </div>
     <div style="background:var(--bg);padding:12px 20px;border-top:1px solid var(--bdr);border-bottom:2px solid var(--bdr);display:flex;align-items:center;gap:20px">
       <span style="font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px">Composite Score:</span>
-      <span style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--navy)" id="rtot">—</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--navy)" id="rtot">&mdash;</span>
       <span style="font-size:.78rem;color:var(--mu)">/ 25</span>
       <span style="font-size:.8rem;color:var(--mu);margin-left:8px" id="rdesc"></span>
     </div>
     <div class="dec-grid" id="dec-grid">
-      <label class="dec-opt" id="dec-approved"><input class="dec-radio" type="radio" name="decision" value="approved"><div><div class="dec-h4" style="color:var(--sg)">✓ Approved</div><div class="dec-p">No critical flags. Score ≥ 18/25. Proceed to onboarding.</div></div></label>
-      <label class="dec-opt" id="dec-conditional"><input class="dec-radio" type="radio" name="decision" value="conditional"><div><div class="dec-h4" style="color:var(--wg)">⚠ Conditional Approval</div><div class="dec-p">Score 12–17/25 or isolated flags. Use with mitigation plan.</div></div></label>
-      <label class="dec-opt" id="dec-rejected"><input class="dec-radio" type="radio" name="decision" value="rejected"><div><div class="dec-h4" style="color:var(--dg)">✗ Not Approved</div><div class="dec-p">Score &lt; 12 or critical item answered N. Do not engage.</div></div></label>
+      <label class="dec-opt" id="dec-approved"><input class="dec-radio" type="radio" name="decision" value="approved"><div><div class="dec-h4" style="color:var(--sg)">&#10003; Approved</div><div class="dec-p">No critical flags. Score &ge; 18/25. Proceed to onboarding.</div></div></label>
+      <label class="dec-opt" id="dec-conditional"><input class="dec-radio" type="radio" name="decision" value="conditional"><div><div class="dec-h4" style="color:var(--wg)">&#9888; Conditional Approval</div><div class="dec-p">Score 12&ndash;17/25 or isolated flags. Use with mitigation plan.</div></div></label>
+      <label class="dec-opt" id="dec-rejected"><input class="dec-radio" type="radio" name="decision" value="rejected"><div><div class="dec-h4" style="color:var(--dg)">&#10007; Not Approved</div><div class="dec-p">Score &lt; 12 or critical item answered N. Do not engage.</div></div></label>
     </div>
     <div style="border-top:2px solid var(--bdr)">
       <div class="sg-grid">
@@ -384,19 +319,20 @@
   </div>
 
   <div class="sources">
-    <h4>Sources & References</h4>
+    <h4>Sources &amp; References</h4>
     <ul>
-      <li>U.S. CBP — UFLPA Entity List (2025) — <a href="https://www.cbp.gov/trade/forced-labor/UFLPA" target="_blank">cbp.gov</a></li>
-      <li>U.S. Treasury / OFAC — Sanctions List Search — <a href="https://ofac.treas.gov" target="_blank">ofac.treas.gov</a></li>
-      <li>SAM.gov — System for Award Management Exclusions — <a href="https://sam.gov" target="_blank">sam.gov</a></li>
-      <li>WRAP — Active Certified Facility Registry (2024) — <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
+      <li>U.S. CBP &mdash; UFLPA Entity List (2025) &mdash; <a href="https://www.cbp.gov/trade/forced-labor/UFLPA" target="_blank">cbp.gov</a></li>
+      <li>U.S. Treasury / OFAC &mdash; Sanctions List Search &mdash; <a href="https://ofac.treas.gov" target="_blank">ofac.treas.gov</a></li>
+      <li>SAM.gov &mdash; System for Award Management Exclusions &mdash; <a href="https://sam.gov" target="_blank">sam.gov</a></li>
+      <li>WRAP &mdash; Active Certified Facility Registry (2024) &mdash; <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
     </ul>
   </div>
+
   <div class="acta">
     <h3>Need Support Qualifying Vendors?</h3>
     <p>RC2 Consulting conducts structured vendor qualification assessments including on-site visits, document reviews, and risk ratings.</p>
-    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Request Vendor Assessment Support →</a>
-    <button class="btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Request Vendor Assessment Support &rarr;</a>
+    <button class="btn-print" onclick="window.print()">&#128424; Print / Save as PDF</button>
   </div>
 </div>
 
@@ -424,7 +360,7 @@ function setYN(btn,id,val){
   calcAll();
 }
 function calcAll(){
-  let total=0, critFail=[], secScores={};
+  let total=0,critFail=[],secScores={};
   let answeredCount=0;
   SECS.forEach(s=>{
     let pts=0,possible=0;
@@ -439,7 +375,6 @@ function calcAll(){
       } else if(v==='NA'){answeredCount++;}
     }
     secScores[s]=pts;
-    // Update section UI
     document.getElementById('sf'+s).textContent=pts;
     document.getElementById('sfp'+s).style.width=(pts/5*100)+'%';
     document.getElementById('ss'+s).textContent=pts+' / 5';
@@ -450,9 +385,7 @@ function calcAll(){
   });
   document.getElementById('dtot').textContent=total;
   document.getElementById('rtot').textContent=total;
-  // Decision
   const hasCritFail=critFail.length>0;
-  let verdict='';
   ['approved','conditional','rejected'].forEach(d=>{
     document.getElementById('dec-'+d).className='dec-opt';
   });
@@ -461,52 +394,49 @@ function calcAll(){
   const rdesc=document.getElementById('rdesc');
   if(answeredCount===0){rdesc.textContent='';return;}
   if(hasCritFail||total<12){
-    verdict='rejected';
     document.getElementById('dec-rejected').classList.add('active-rejected');
     document.querySelector('[name=decision][value=rejected]').checked=true;
     vbar.classList.add('v-rejected');
-    vbar.innerHTML='<div><div class="verdict-text">🚫 NOT APPROVED — Score: '+total+'/25'+(hasCritFail?' | Critical item(s) failed':'')+' </div><div class="verdict-sub">Score below 12 or critical compliance item failed. Do not engage this vendor.</div></div>'+(hasCritFail?'<div class="critical-alert">⚠ Critical item failed — immediate disqualification</div>':'');
-    rdesc.textContent='Not Approved — Critical flag or score below 12';
+    vbar.innerHTML='<div><div class="verdict-text">NOT APPROVED &mdash; Score: '+total+'/25'+(hasCritFail?' | Critical item(s) failed':'')+' </div><div class="verdict-sub">Score below 12 or critical compliance item failed. Do not engage this vendor.</div></div>'+(hasCritFail?'<div class="critical-alert">&#9888; Critical item failed &mdash; immediate disqualification</div>':'');
+    rdesc.textContent='Not Approved \u2014 Critical flag or score below 12';
   } else if(total<18){
-    verdict='conditional';
     document.getElementById('dec-conditional').classList.add('active-conditional');
     document.querySelector('[name=decision][value=conditional]').checked=true;
     vbar.classList.add('v-conditional');
-    vbar.innerHTML='<div><div class="verdict-text">⚠️ CONDITIONAL APPROVAL — Score: '+total+'/25</div><div class="verdict-sub">Proceed with documented mitigation plan for gaps identified. Enhanced monitoring required.</div></div>';
-    rdesc.textContent='Conditional — document mitigation plan before proceeding';
+    vbar.innerHTML='<div><div class="verdict-text">CONDITIONAL APPROVAL &mdash; Score: '+total+'/25</div><div class="verdict-sub">Proceed with documented mitigation plan for gaps identified. Enhanced monitoring required.</div></div>';
+    rdesc.textContent='Conditional \u2014 document mitigation plan before proceeding';
   } else {
-    verdict='approved';
     document.getElementById('dec-approved').classList.add('active-approved');
     document.querySelector('[name=decision][value=approved]').checked=true;
     vbar.classList.add('v-approved');
-    vbar.innerHTML='<div><div class="verdict-text">✅ APPROVED — Score: '+total+'/25</div><div class="verdict-sub">No critical flags. Strong across all dimensions. Proceed to vendor onboarding.</div></div>';
-    rdesc.textContent='Approved — proceed to onboarding';
+    vbar.innerHTML='<div><div class="verdict-text">APPROVED &mdash; Score: '+total+'/25</div><div class="verdict-sub">No critical flags. Strong across all dimensions. Proceed to vendor onboarding.</div></div>';
+    rdesc.textContent='Approved \u2014 proceed to onboarding';
   }
 }
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();
