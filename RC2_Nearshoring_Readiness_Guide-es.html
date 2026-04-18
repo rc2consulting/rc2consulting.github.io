@@ -1,210 +1,146 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Guía de Preparación para Nearshoring | RC2 Consulting</title>
-  <meta name="description" content="Herramienta gratuita de evaluación de preparación para nearshoring. Evalúe factores operativos, regulatorios, logísticos y de fuerza laboral." />
-  <meta property="og:title" content="Guía de Preparación para Nearshoring | RC2 Consulting">
-  <meta property="og:description" content="Guía de Preparación para Nearshoring. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide-es.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Guía de Preparación para Nearshoring | RC2 Consulting">
-  <meta name="twitter:description" content="Guía de Preparación para Nearshoring. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(to bottom,rgba(11,37,69,.84),rgba(11,37,69,.68)),url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
-    .hero-inner{max-width:960px;margin:0 auto}
-    .atag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:640px;line-height:1.6}
-    .hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
-    .hmeta .dv{color:rgba(255,255,255,.3)}
-    .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-    .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
-
-    /* LIVE DASHBOARD */
-    .dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px}
-    .dash-top{display:grid;grid-template-columns:repeat(4,1fr) 160px;gap:12px;margin-bottom:12px}
-    .dash-cell{text-align:center;padding:13px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
-    .dash-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;line-height:1;margin-bottom:3px;transition:all .3s}
-    .dash-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
-    .dash-cell.overall{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
-    .dash-cell.overall .dash-val{font-size:1.7rem;color:#93C5FD}
-    .prog-row{height:5px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:5px}
-    .prog-fill{height:5px;border-radius:3px;transition:width .4s}
-    .status-bar{border-radius:8px;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:all .4s;flex-wrap:wrap;gap:8px}
-    .status-bar.early{background:rgba(133,77,14,.15);border-color:rgba(133,77,14,.4)}
-    .status-bar.progressing{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4)}
-    .status-bar.ready{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
-    .status-text{font-size:.88rem;font-weight:700;color:#fff}
-    .status-sub{font-size:.74rem;color:rgba(255,255,255,.65)}
-    .overall-pct{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#93C5FD}
-
-    /* MASTER PROGRESS BAR */
-    .master-bar{height:10px;background:rgba(255,255,255,.12);border-radius:5px;margin:12px 0 4px;overflow:hidden}
-    .master-fill{height:10px;border-radius:5px;background:linear-gradient(90deg,#3B82F6,#10B981);transition:width .5s}
-    .bar-labels{display:flex;justify-content:space-between;font-size:.66rem;color:rgba(255,255,255,.45)}
-
-    /* PHASE BLOCKS */
-    .phase-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
-    .phase-hdr{padding:14px 22px;display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--bdr)}
-    .ph1-bg{background:linear-gradient(to right,#EFF6FF,#F4F6FA)}
-    .ph2-bg{background:linear-gradient(to right,#F0FDF4,#F4F6FA)}
-    .ph3-bg{background:linear-gradient(to right,#FFF7ED,#F4F6FA)}
-    .ph4-bg{background:linear-gradient(to right,#FDF4FF,#F4F6FA)}
-    .phase-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;line-height:1;min-width:36px}
-    .ph1 .phase-num{color:#1D4ED8}
-    .ph2 .phase-num{color:#15803D}
-    .ph3 .phase-num{color:#C2410C}
-    .ph4 .phase-num{color:#7E22CE}
-    .phase-title-wrap{flex:1}
-    .phase-title-wrap h3{font-size:1rem;font-weight:700;color:var(--navy)}
-    .phase-title-wrap p{font-size:.76rem;color:var(--mu);margin-top:2px}
-    .phase-badge{text-align:right;min-width:100px}
-    .phase-pct{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1}
-    .phase-sub{font-size:.66rem;color:var(--mu)}
-    .phase-progbar{height:4px;background:var(--bdr);border-radius:2px;margin-top:4px}
-    .phase-fill{height:4px;border-radius:2px;transition:width .3s}
-    .ph1 .phase-fill{background:#3B82F6}
-    .ph2 .phase-fill{background:#10B981}
-    .ph3 .phase-fill{background:#F59E0B}
-    .ph4 .phase-fill{background:#8B5CF6}
-
-    /* PHASE BODY */
-    .phase-body{padding:18px 22px}
-    .group-title{font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--bdr)}
-    .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
-    .check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border-radius:6px;border:1.5px solid var(--bdr);cursor:pointer;transition:all .2s;user-select:none}
-    .check-item:hover{border-color:var(--lb);background:#EFF6FF}
-    .check-item.checked{background:var(--sbg);border-color:var(--sg)}
-    .check-item.checked .cbox{background:var(--sg);border-color:var(--sg)}
-    .check-item.checked .cbox::after{content:'✓';color:#fff;font-size:.7rem;font-weight:700;line-height:16px}
-    .cbox{width:18px;height:18px;border:2px solid var(--bdr);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-    .ctext{font-size:.8rem;color:var(--txt);line-height:1.45}
-    .check-item.checked .ctext{color:var(--sg)}
-
-    /* COUNTRY TABLE inside phase */
-    .ctable{width:100%;border-collapse:collapse;font-size:.8rem;margin:12px 0}
-    .ctable th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px}
-    .ctable td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
-    .ctable td:first-child{font-weight:700;color:var(--navy)}
-    .ctable tr:nth-child(even) td{background:var(--bg)}
-    .tag{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
-    .tg{background:var(--sbg);color:var(--sg)}
-    .ty{background:var(--wbg);color:var(--wg)}
-    .tr{background:var(--dbg);color:var(--dg)}
-
-    /* COST TABLE */
-    .cost-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0}
-    .cost-table th{background:var(--bg);padding:9px 12px;text-align:left;font-size:.74rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr)}
-    .cost-table td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
-    .cost-table td:first-child{font-weight:600;color:var(--navy)}
-    .cost-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--navy);background:var(--bg)}
-    .ci{border:none;width:80px;font-size:.8rem;color:var(--navy);background:transparent;font-family:'Source Sans 3',sans-serif;outline:none;border-bottom:1.5px solid var(--bdr);text-align:center;padding:2px 4px}
-    .ci:focus{border-bottom-color:var(--lb)}
-
-    .sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
-    .sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
-    .sources ul{list-style:none}
-    .sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
-    .sources li:last-child{border-bottom:none}
-    .sources a{color:var(--lb);text-decoration:none}
-    .acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
-    .acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
-    .acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
-    .btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-    @media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.check-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
-    @media print{.topnav,.btn-back,.dashboard,.acta,.site-footer,.sources{display:none}.phase-block{box-shadow:none;break-inside:avoid}}
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none; position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545; flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200; gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important; font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important; height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    
-    /* ── Site Footer ── */
-    .site-footer { background: #1A4A8A; color: white; text-align: center; padding: 40px 24px; }
-    .footer-tagline { font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px; }
-    .footer-links { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
-    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; cursor:pointer; }
-    .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Guía de Preparación para Nearshoring | RC2 Consulting</title>
+<meta name="description" content="Herramienta gratuita de evaluación de preparación para nearshoring. Lista de verificación fase por fase para evaluar factores operativos, regulatorios, logísticos y de fuerza laboral." />
+<meta property="og:title" content="Guía de Preparación para Nearshoring | RC2 Consulting">
+<meta property="og:description" content="Guía de Preparación para Nearshoring. Herramienta interactiva gratuita de RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide-es.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Guía de Preparación para Nearshoring | RC2 Consulting">
+<meta name="twitter:description" content="Guía de Preparación para Nearshoring. Herramienta interactiva gratuita de RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#D1D9E6;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.84),rgba(11,37,69,.68)),url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:640px;line-height:1.6}
+.hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.hmeta .dv{color:rgba(255,255,255,.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px}
+.dash-top{display:grid;grid-template-columns:repeat(4,1fr) 160px;gap:12px;margin-bottom:12px}
+.dash-cell{text-align:center;padding:13px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+.dash-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;line-height:1;margin-bottom:3px;transition:all .3s}
+.dash-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
+.dash-cell.overall{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
+.dash-cell.overall .dash-val{font-size:1.7rem;color:#93C5FD}
+.prog-row{height:5px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:5px}
+.prog-fill{height:5px;border-radius:3px;transition:width .4s}
+.status-bar{border-radius:8px;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:all .4s;flex-wrap:wrap;gap:8px}
+.status-bar.early{background:rgba(133,77,14,.15);border-color:rgba(133,77,14,.4)}
+.status-bar.progressing{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4)}
+.status-bar.ready{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
+.status-text{font-size:.88rem;font-weight:700;color:#fff}
+.status-sub{font-size:.74rem;color:rgba(255,255,255,.65)}
+.overall-pct{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#93C5FD}
+.master-bar{height:10px;background:rgba(255,255,255,.12);border-radius:5px;margin:12px 0 4px;overflow:hidden}
+.master-fill{height:10px;border-radius:5px;background:linear-gradient(90deg,#3B82F6,#10B981);transition:width .5s}
+.bar-labels{display:flex;justify-content:space-between;font-size:.66rem;color:rgba(255,255,255,.45)}
+.phase-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
+.phase-hdr{padding:14px 22px;display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--bdr)}
+.ph1-bg{background:linear-gradient(to right,#EFF6FF,#F4F6FA)}
+.ph2-bg{background:linear-gradient(to right,#F0FDF4,#F4F6FA)}
+.ph3-bg{background:linear-gradient(to right,#FFF7ED,#F4F6FA)}
+.ph4-bg{background:linear-gradient(to right,#FDF4FF,#F4F6FA)}
+.phase-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;line-height:1;min-width:36px}
+.ph1 .phase-num{color:#1D4ED8}
+.ph2 .phase-num{color:#15803D}
+.ph3 .phase-num{color:#C2410C}
+.ph4 .phase-num{color:#7E22CE}
+.phase-title-wrap{flex:1}
+.phase-title-wrap h3{font-size:1rem;font-weight:700;color:var(--navy)}
+.phase-title-wrap p{font-size:.76rem;color:var(--mu);margin-top:2px}
+.phase-badge{text-align:right;min-width:100px}
+.phase-pct{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1}
+.phase-sub{font-size:.66rem;color:var(--mu)}
+.phase-progbar{height:4px;background:var(--bdr);border-radius:2px;margin-top:4px}
+.phase-fill{height:4px;border-radius:2px;transition:width .3s}
+.ph1 .phase-fill{background:#3B82F6}
+.ph2 .phase-fill{background:#10B981}
+.ph3 .phase-fill{background:#F59E0B}
+.ph4 .phase-fill{background:#8B5CF6}
+.phase-body{padding:18px 22px}
+.group-title{font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--bdr)}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border-radius:6px;border:1.5px solid var(--bdr);cursor:pointer;transition:all .2s;user-select:none}
+.check-item:hover{border-color:var(--lb);background:#EFF6FF}
+.check-item.checked{background:var(--sbg);border-color:var(--sg)}
+.check-item.checked .cbox{background:var(--sg);border-color:var(--sg)}
+.check-item.checked .cbox::after{content:'\2713';color:#fff;font-size:.7rem;font-weight:700;line-height:16px}
+.cbox{width:18px;height:18px;border:2px solid var(--bdr);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.ctext{font-size:.8rem;color:var(--txt);line-height:1.45}
+.check-item.checked .ctext{color:var(--sg)}
+.ctable{width:100%;border-collapse:collapse;font-size:.8rem;margin:12px 0}
+.ctable th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px}
+.ctable td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
+.ctable td:first-child{font-weight:700;color:var(--navy)}
+.ctable tr:nth-child(even) td{background:var(--bg)}
+.tag{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.tg{background:var(--sbg);color:var(--sg)}
+.ty{background:var(--wbg);color:var(--wg)}
+.tr{background:var(--dbg);color:var(--dg)}
+.cost-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0}
+.cost-table th{background:var(--bg);padding:9px 12px;text-align:left;font-size:.74rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr)}
+.cost-table td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
+.cost-table td:first-child{font-weight:600;color:var(--navy)}
+.cost-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--navy);background:var(--bg)}
+.sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
+.sources li:last-child{border-bottom:none}
+.sources a{color:var(--lb);text-decoration:none}
+.acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
+.acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+@media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.check-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
+@media print{.topnav,.btn-back,.dashboard,.acta,.site-footer,.sources{display:none}.phase-block{box-shadow:none;break-inside:avoid}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
@@ -221,7 +157,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="active">Recursos</a></li>
     <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
     <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide.html" class="lang-btn inactive">EN</a>
         <a href="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide-es.html" class="lang-btn active">ES</a>
@@ -235,21 +171,20 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Herramienta de Cadena de Suministro</span>
+    <span class="article-tag">Herramienta de Cadena de Suministro</span>
     <h1>Guía de Preparación para Nearshoring</h1>
-    <p class="hero-sub">Lista de verificación de preparación fase por fase — marque los elementos a medida que los complete. Su puntuación de preparación y el progreso por fase se registran en tiempo real en las cuatro fases.</p>
+    <p class="hero-sub">Lista de verificación de preparación fase por fase &mdash; marque los elementos a medida que los complete. Su puntuación de preparación y el progreso por fase se registran en tiempo real en las cuatro fases.</p>
     <div class="hmeta">
       <span>RC2 Consulting</span><span class="dv">|</span>
       <span>Febrero 2026</span><span class="dv">|</span>
-      <span>Interactivo — Seguimiento de Progreso en Tiempo Real</span>
+      <span>Interactivo &mdash; Seguimiento de Progreso en Tiempo Real</span>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="btn-back">← Volver a Recursos</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="btn-back">&larr; Volver a Recursos</a>
 
-  <!-- LIVE DASHBOARD -->
   <div class="dashboard">
     <div class="dash-top">
       <div class="dash-cell"><div class="dash-val" id="dv1">0%</div><div class="dash-label">Fase 1</div><div class="prog-row"><div class="prog-fill" id="dp1" style="background:#3B82F6;width:0%"></div></div></div>
@@ -262,7 +197,7 @@
     <div class="bar-labels"><span>0%</span><span>Fase 1</span><span>Fase 2</span><span>Fase 3</span><span>100%</span></div>
     <div style="margin-top:10px">
       <div class="status-bar" id="status-bar">
-        <div><div class="status-text">Marque los elementos a continuación a medida que los complete — el progreso se registra en tiempo real</div><div class="status-sub">0 de 48 elementos completados en las cuatro fases</div></div>
+        <div><div class="status-text">Marque los elementos a continuación a medida que los complete &mdash; el progreso se registra en tiempo real</div><div class="status-sub">0 de 48 elementos completados en las cuatro fases</div></div>
         <div class="overall-pct" id="ovpct">0%</div>
       </div>
     </div>
@@ -273,7 +208,7 @@
     <div class="phase-hdr ph1-bg">
       <span class="phase-num ph1">01</span>
       <div class="phase-title-wrap">
-        <h3>Evaluación Estratégica — Pre-Decisión</h3>
+        <h3>Evaluación Estratégica &mdash; Pre-Decisión</h3>
         <p>Completar antes de comprometerse con cualquier mercado o proveedor de nearshoring</p>
       </div>
       <div class="phase-badge">
@@ -285,7 +220,7 @@
     <div class="phase-body">
       <div class="group-title">Caso de Negocio y Modelado Financiero</div>
       <div class="check-grid" data-phase="1">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Modelo de costo total en destino completado — todas las variables de costo incluidas</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Modelo de costo total en destino completado &mdash; todas las variables de costo incluidas</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Exposición arancelaria actual bajo la estructura de abastecimiento existente cuantificada</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Ahorros arancelarios CAFTA-DR / USMCA / TLC modelados por país objetivo</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Costo de arranque de calidad y tasa de retrabajo durante la transición presupuestados</span></div>
@@ -297,27 +232,25 @@
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Mínimo 2 países objetivo evaluados y comparados</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Estabilidad política y riesgo de política evaluados para cada candidato</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Elegibilidad para acuerdos comerciales confirmada con asesoría legal</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Visita de mercado en terreno completada — sin compromiso antes de visita in situ</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Visita de mercado en terreno completada &mdash; sin compromiso antes de visita in situ</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Opción de mercado secundario identificada para riesgo de concentración</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Escenario de salida modelado para interrupción del mercado primario</span></div>
       </div>
-
-      <!-- COUNTRY MATRIX -->
       <div style="background:var(--bg);border-radius:8px;padding:14px 16px;border:1px solid var(--bdr);margin-top:4px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">📊 Matriz de Referencia de Preparación de Países — América Latina 2026</div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">Matriz de Referencia de Preparación del País &mdash; América Latina 2026</div>
         <table class="ctable">
           <thead><tr><th>País</th><th>Marco Comercial</th><th>Costo Laboral</th><th>Infraestructura</th><th>Estabilidad Política</th><th>Base WRAP</th><th>Preparación General</th></tr></thead>
           <tbody>
-            <tr><td>Mexico</td><td>USMCA</td><td>Medio-Alto</td><td>Fuerte</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">High</span></td></tr>
-            <tr><td>Honduras</td><td>CAFTA-DR</td><td>Low</td><td>Moderado</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">High</span></td></tr>
-            <tr><td>Guatemala</td><td>CAFTA-DR</td><td>Low</td><td>Moderado</td><td><span class="tag tg">Estable</span></td><td>En Crecimiento</td><td><span class="tag tg">High</span></td></tr>
-            <tr><td>El Salvador</td><td>CAFTA-DR</td><td>Low</td><td>Bueno</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">High</span></td></tr>
-            <tr><td>Colombia</td><td>US-Colombia FTA</td><td>Bajo-Medio</td><td>Moderado</td><td><span class="tag tg">Estable</span></td><td>En Desarrollo</td><td><span class="tag ty">Medium</span></td></tr>
-            <tr><td>Costa Rica</td><td>CAFTA-DR</td><td>Medium</td><td>Fuerte</td><td><span class="tag tg">Estable</span></td><td>En Desarrollo</td><td><span class="tag ty">Medium</span></td></tr>
+            <tr><td>Mexico</td><td>USMCA</td><td>Medio-Alto</td><td>Fuerte</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">Alto</span></td></tr>
+            <tr><td>Honduras</td><td>CAFTA-DR</td><td>Low</td><td>Moderado</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">Alto</span></td></tr>
+            <tr><td>Guatemala</td><td>CAFTA-DR</td><td>Low</td><td>Moderado</td><td><span class="tag tg">Estable</span></td><td>En Crecimiento</td><td><span class="tag tg">Alto</span></td></tr>
+            <tr><td>El Salvador</td><td>CAFTA-DR</td><td>Low</td><td>Good</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">Alto</span></td></tr>
+            <tr><td>Colombia</td><td>US-Colombia FTA</td><td>Low-Medium</td><td>Moderado</td><td><span class="tag tg">Estable</span></td><td>En Desarrollo</td><td><span class="tag ty">Medio</span></td></tr>
+            <tr><td>Costa Rica</td><td>CAFTA-DR</td><td>Medio</td><td>Fuerte</td><td><span class="tag tg">Estable</span></td><td>En Desarrollo</td><td><span class="tag ty">Medio</span></td></tr>
             <tr><td>Nicaragua</td><td>CAFTA-DR</td><td>Muy Bajo</td><td>Limitado</td><td><span class="tag tr">Alto Riesgo</span></td><td>Limitado</td><td><span class="tag tr">Alto Riesgo</span></td></tr>
           </tbody>
         </table>
-        <p style="font-size:.7rem;color:var(--mu);margin-top:6px">Sources: World Bank LPI 2024 · WRAP Registry 2024 · USTR 2025 · RC2 Analysis</p>
+        <p style="font-size:.7rem;color:var(--mu);margin-top:6px">Sources: World Bank LPI 2024 &middot; WRAP Registry 2024 &middot; USTR 2025 &middot; RC2 Analysis</p>
       </div>
     </div>
   </div>
@@ -327,7 +260,7 @@
     <div class="phase-hdr ph2-bg">
       <span class="phase-num ph2">02</span>
       <div class="phase-title-wrap">
-        <h3>Base Operacional — Pre-Lanzamiento</h3>
+        <h3>Base Operacional &mdash; Pre-Lanzamiento</h3>
         <p>Completar antes de la primera corrida de producción o envío</p>
       </div>
       <div class="phase-badge">
@@ -340,7 +273,7 @@
       <div class="group-title">Calificación de Proveedores e Instalaciones</div>
       <div class="check-grid" data-phase="2">
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Criterios de calificación de proveedores definidos y documentados</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Auditoría de fábrica completada — revisión física y de documentación</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Auditoría de fábrica completada &mdash; revisión física y de documentación</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Estado de cumplimiento social del proveedor confirmado o evaluado</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Estrategia de abastecimiento de materias primas y componentes mapeada</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Proveedor de respaldo identificado para continuidad de producción</span></div>
@@ -355,21 +288,19 @@
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Escenarios de variabilidad de tiempo de entrega modelados (mejor/base/peor)</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Transporte terrestre a la zona de producción evaluado</span></div>
       </div>
-
-      <!-- TOTAL LANDED COST -->
       <div style="background:var(--bg);border-radius:8px;padding:14px 16px;border:1px solid var(--bdr);margin-top:4px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px">💰 Lista de Verificación de Costo Total en Destino — Todas las Variables Deben Incluirse</div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px">Lista de Verificación de Costo Total en Destino &mdash; Todas las Variables Deben Incluirse</div>
         <table class="cost-table">
-          <thead><tr><th>Categoría de Costo</th><th style="text-align:center;width:120px">¿Incluido?</th><th>Notas</th></tr></thead>
+          <thead><tr><th>Categoría de Costo</th><th style="text-align:center;width:120px">¿Incluido?</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td>Mano de obra — salarios directos</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Pendiente</option><option>✓ Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Mano de obra — costo de rotación y reclutamiento</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Pendiente</option><option>✓ Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Mano de obra — costo de arranque de calidad / capacitación</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Pendiente</option><option>✓ Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Flete marítimo / aéreo + tarifas portuarias</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Pendiente</option><option>✓ Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Derechos aduaneros y aranceles (post-TLC)</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Pendiente</option><option>✓ Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Costos de cumplimiento / certificación</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Pendiente</option><option>✓ Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Inspección QC + costo de retrabajo/defectos</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Pendiente</option><option>✓ Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Gastos generales de gestión + riesgo cambiario</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Pendiente</option><option>✓ Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Mano de obra &mdash; salarios directos</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pendiente</option><option>&#10003; Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Mano de obra &mdash; costo de rotación y reclutamiento</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pendiente</option><option>&#10003; Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Mano de obra &mdash; costo de arranque de calidad / capacitación</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pendiente</option><option>&#10003; Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Flete marítimo / aéreo + tarifas portuarias</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pendiente</option><option>&#10003; Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Derechos aduaneros y aranceles (post-TLC)</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pendiente</option><option>&#10003; Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Costos de cumplimiento / certificación</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pendiente</option><option>&#10003; Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Inspección QC + costo de retrabajo/defectos</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pendiente</option><option>&#10003; Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Gastos generales de gestión + riesgo cambiario</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pendiente</option><option>&#10003; Incluido</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
           </tbody>
         </table>
       </div>
@@ -381,8 +312,8 @@
     <div class="phase-hdr ph3-bg">
       <span class="phase-num ph3">03</span>
       <div class="phase-title-wrap">
-        <h3>Fuerza de Trabajo y Sistemas de Calidad — Arranque</h3>
-        <p>Primeros 6–18 meses de producción</p>
+        <h3>Fuerza de Trabajo y Sistemas de Calidad &mdash; Arranque</h3>
+        <p>Primeros 6&ndash;18 meses de producción</p>
       </div>
       <div class="phase-badge">
         <div class="phase-pct" id="pp3">0%</div>
@@ -418,7 +349,7 @@
       <span class="phase-num ph4">04</span>
       <div class="phase-title-wrap">
         <h3>Certificación de Cumplimiento y Escala</h3>
-        <p>18–36 meses — construyendo valor a largo plazo en la cadena de suministro</p>
+        <p>18&ndash;36 meses &mdash; construyendo valor a largo plazo en la cadena de suministro</p>
       </div>
       <div class="phase-badge">
         <div class="phase-pct" id="pp4">0%</div>
@@ -430,19 +361,19 @@
       <div class="group-title">Cumplimiento Social y Certificación</div>
       <div class="check-grid" data-phase="4">
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Proceso de certificación WRAP o equivalente iniciado</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Autoevaluación PASA completada — brechas en CAP activo</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Autoevaluación PASA completada &mdash; brechas en CAP activo</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Biblioteca de políticas completa documentada en todos los 12 principios WRAP</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Historial de auditoría interna establecido — cadencia trimestral</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Historial de auditoría interna establecido &mdash; cadencia trimestral</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Monitor registrado WRAP contratado para revisión pre-auditoría</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Calendario anual de renovación de certificación establecido</span></div>
       </div>
       <div class="group-title">Optimización de la Cadena de Suministro</div>
       <div class="check-grid" data-phase="4">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Base de proveedores local expandida — dependencia de Asia reducida</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Base de proveedores local expandida &mdash; dependencia de Asia reducida</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Opción de segundo país desarrollada para riesgo de concentración</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Capacidad de producción expandida sobre una base de calidad probada</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Relaciones con compradores expandidas usando la certificación como credencial</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Reportes del panel de KPI estabilizados — revisión operacional semanal</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Reportes del panel de KPI estabilizados &mdash; revisión operacional semanal</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Plan de estrategia de nearshoring del Año 2 documentado y aprobado</span></div>
       </div>
     </div>
@@ -451,22 +382,23 @@
   <div class="sources">
     <h4>Fuentes y Referencias</h4>
     <ul>
-      <li>U.S. Trade Representative — CAFTA-DR & USMCA Trade Agreement Guides (2025) — <a href="https://ustr.gov" target="_blank">ustr.gov</a></li>
-      <li>Banco Mundial — Índice de Desempeño Logístico, América Latina (2024) — <a href="https://www.worldbank.org" target="_blank">worldbank.org</a></li>
-      <li>WRAP — Requisitos del Programa de Certificación (2024) — <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
-      <li>Kearney — Índice de Reshoring, Informe de Cadena de Suministro de América Latina (2025) — <a href="https://www.kearney.com" target="_blank">kearney.com</a></li>
+      <li>U.S. Trade Representative &mdash; Guías de Acuerdos Comerciales CAFTA-DR &amp; USMCA (2025) &mdash; <a href="https://ustr.gov" target="_blank">ustr.gov</a></li>
+      <li>Banco Mundial &mdash; Índice de Desempeño Logístico, América Latina (2024) &mdash; <a href="https://www.worldbank.org" target="_blank">worldbank.org</a></li>
+      <li>WRAP &mdash; Requisitos del Programa de Certificación (2024) &mdash; <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
+      <li>Kearney &mdash; Índice de Reshoring, Informe de Cadena de Suministro de América Latina (2025) &mdash; <a href="https://www.kearney.com" target="_blank">kearney.com</a></li>
     </ul>
   </div>
+
   <div class="acta">
     <h3>¿Listo para Planificar su Transición de Nearshoring?</h3>
-    <p>RC2 Consulting guía a las empresas en cada fase de la preparación para nearshoring — desde el modelado del costo total en destino hasta la calificación de proveedores, certificación de cumplimiento y lanzamiento operacional.</p>
-    <a href="https://rc2consulting.github.io/contact-es.html" class="btn-cta">Agendar una Consulta de Preparación →</a>
-    <button class="btn-print" onclick="window.print()">🖨 Imprimir / Guardar como PDF</button>
+    <p>RC2 Consulting guía a las empresas en cada fase de la preparación para nearshoring &mdash; desde el modelado del costo total en destino hasta la calificación de proveedores, certificación de cumplimiento y lanzamiento operacional.</p>
+    <a href="https://rc2consulting.github.io/contact-es.html" class="btn-cta">Agendar una Consulta de Preparación &rarr;</a>
+    <button class="btn-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
   </div>
 </div>
 
 <footer class="site-footer">
-  <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-tagline">Claridad Operativa. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
   <div class="footer-links">
     <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
     <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
@@ -480,7 +412,7 @@
 </footer>
 
 <script>
-const PHASE_TOTAL=12; // each phase has 12 checkboxes
+const PHASE_TOTAL=12;
 
 function toggle(el){
   el.classList.toggle('checked');
@@ -489,8 +421,7 @@ function toggle(el){
 
 function calcAll(){
   let grandTotal=0;
-  const phases=[1,2,3,4];
-  phases.forEach(p=>{
+  [1,2,3,4].forEach(p=>{
     const items=document.querySelectorAll('[data-phase="'+p+'"] .check-item');
     let checked=0;
     items.forEach(it=>{if(it.classList.contains('checked')) checked++;});
@@ -509,38 +440,38 @@ function calcAll(){
   document.getElementById('ovpct').textContent=overallPct+'%';
   const sbar=document.getElementById('status-bar');
   sbar.className='status-bar';
-  let txt='',sub=grandTotal+' of '+totalItems+' items completed across all four phases';
-  if(overallPct===0){txt='Marque los elementos a continuación a medida que los complete — el progreso se registra en tiempo real';}
-  else if(overallPct<33){txt='🟡 Early Stage — Enfóquese en completar la evaluación estratégica de la Fase 1 antes de comprometerse';sbar.classList.add('early');}
-  else if(overallPct<66){txt='🔵 In Progress — Operational foundation building. Keep moving through Phase 2 & 3.';sbar.classList.add('progressing');}
-  else if(overallPct<90){txt='🟢 Advanced — Strong readiness profile. Complete Phase 4 compliance and scale items.';sbar.classList.add('ready');}
-  else{txt='✅ High Readiness — '+overallPct+'% complete. Ready to accelerate certification and scale.';sbar.classList.add('ready');}
-  document.getElementById('status-bar').innerHTML='<div><div class="status-text">'+txt+'</div><div class="status-sub">'+sub+'</div></div><div class="overall-pct" id="ovpct">'+overallPct+'%</div>';
+  let txt='',sub=grandTotal+' de '+totalItems+' elementos completados en las cuatro fases';
+  if(overallPct===0){txt='Marque los elementos a continuación a medida que los complete \u2014 el progreso se registra en tiempo real';}
+  else if(overallPct<33){txt='Etapa Inicial \u2014 Enfóquese en completar la evaluación estratégica de la Fase 1 antes de comprometerse';sbar.classList.add('early');}
+  else if(overallPct<66){txt='En Progreso \u2014 Construyendo la base operacional. Continúe avanzando por las Fases 2 y 3.';sbar.classList.add('progressing');}
+  else if(overallPct<90){txt='Avanzado \u2014 Sólido perfil de preparación. Complete los elementos de cumplimiento y escala de Fase 4.';sbar.classList.add('ready');}
+  else{txt='\u2713 Alta Preparación \u2014 '+overallPct+'% completado. Listo para acelerar la certificación y la escala.';sbar.classList.add('ready');}
+  sbar.innerHTML='<div><div class="status-text">'+txt+'</div><div class="status-sub">'+sub+'</div></div><div class="overall-pct" id="ovpct">'+overallPct+'%</div>';
 }
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();

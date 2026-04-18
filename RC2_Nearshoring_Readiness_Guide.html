@@ -1,209 +1,146 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Nearshoring Readiness Guide | RC2 Consulting</title>
-  <meta name="description" content="Free nearshoring readiness assessment tool. Evaluate operational, regulatory, logistics, and workforce factors before relocating production to the Americas." />
-  <meta property="og:title" content="Nearshoring Readiness Guide | RC2 Consulting">
-  <meta property="og:description" content="Nearshoring Readiness Guide. Free interactive tool from RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Nearshoring Readiness Guide | RC2 Consulting">
-  <meta name="twitter:description" content="Nearshoring Readiness Guide. Free interactive tool from RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(to bottom,rgba(11,37,69,.84),rgba(11,37,69,.68)),url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
-    .hero-inner{max-width:960px;margin:0 auto}
-    .atag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:640px;line-height:1.6}
-    .hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
-    .hmeta .dv{color:rgba(255,255,255,.3)}
-    .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-    .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
-
-    /* LIVE DASHBOARD */
-    .dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px}
-    .dash-top{display:grid;grid-template-columns:repeat(4,1fr) 160px;gap:12px;margin-bottom:12px}
-    .dash-cell{text-align:center;padding:13px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
-    .dash-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;line-height:1;margin-bottom:3px;transition:all .3s}
-    .dash-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
-    .dash-cell.overall{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
-    .dash-cell.overall .dash-val{font-size:1.7rem;color:#93C5FD}
-    .prog-row{height:5px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:5px}
-    .prog-fill{height:5px;border-radius:3px;transition:width .4s}
-    .status-bar{border-radius:8px;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:all .4s;flex-wrap:wrap;gap:8px}
-    .status-bar.early{background:rgba(133,77,14,.15);border-color:rgba(133,77,14,.4)}
-    .status-bar.progressing{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4)}
-    .status-bar.ready{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
-    .status-text{font-size:.88rem;font-weight:700;color:#fff}
-    .status-sub{font-size:.74rem;color:rgba(255,255,255,.65)}
-    .overall-pct{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#93C5FD}
-
-    /* MASTER PROGRESS BAR */
-    .master-bar{height:10px;background:rgba(255,255,255,.12);border-radius:5px;margin:12px 0 4px;overflow:hidden}
-    .master-fill{height:10px;border-radius:5px;background:linear-gradient(90deg,#3B82F6,#10B981);transition:width .5s}
-    .bar-labels{display:flex;justify-content:space-between;font-size:.66rem;color:rgba(255,255,255,.45)}
-
-    /* PHASE BLOCKS */
-    .phase-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
-    .phase-hdr{padding:14px 22px;display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--bdr)}
-    .ph1-bg{background:linear-gradient(to right,#EFF6FF,#F4F6FA)}
-    .ph2-bg{background:linear-gradient(to right,#F0FDF4,#F4F6FA)}
-    .ph3-bg{background:linear-gradient(to right,#FFF7ED,#F4F6FA)}
-    .ph4-bg{background:linear-gradient(to right,#FDF4FF,#F4F6FA)}
-    .phase-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;line-height:1;min-width:36px}
-    .ph1 .phase-num{color:#1D4ED8}
-    .ph2 .phase-num{color:#15803D}
-    .ph3 .phase-num{color:#C2410C}
-    .ph4 .phase-num{color:#7E22CE}
-    .phase-title-wrap{flex:1}
-    .phase-title-wrap h3{font-size:1rem;font-weight:700;color:var(--navy)}
-    .phase-title-wrap p{font-size:.76rem;color:var(--mu);margin-top:2px}
-    .phase-badge{text-align:right;min-width:100px}
-    .phase-pct{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1}
-    .phase-sub{font-size:.66rem;color:var(--mu)}
-    .phase-progbar{height:4px;background:var(--bdr);border-radius:2px;margin-top:4px}
-    .phase-fill{height:4px;border-radius:2px;transition:width .3s}
-    .ph1 .phase-fill{background:#3B82F6}
-    .ph2 .phase-fill{background:#10B981}
-    .ph3 .phase-fill{background:#F59E0B}
-    .ph4 .phase-fill{background:#8B5CF6}
-
-    /* PHASE BODY */
-    .phase-body{padding:18px 22px}
-    .group-title{font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--bdr)}
-    .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
-    .check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border-radius:6px;border:1.5px solid var(--bdr);cursor:pointer;transition:all .2s;user-select:none}
-    .check-item:hover{border-color:var(--lb);background:#EFF6FF}
-    .check-item.checked{background:var(--sbg);border-color:var(--sg)}
-    .check-item.checked .cbox{background:var(--sg);border-color:var(--sg)}
-    .check-item.checked .cbox::after{content:'✓';color:#fff;font-size:.7rem;font-weight:700;line-height:16px}
-    .cbox{width:18px;height:18px;border:2px solid var(--bdr);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-    .ctext{font-size:.8rem;color:var(--txt);line-height:1.45}
-    .check-item.checked .ctext{color:var(--sg)}
-
-    /* COUNTRY TABLE inside phase */
-    .ctable{width:100%;border-collapse:collapse;font-size:.8rem;margin:12px 0}
-    .ctable th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px}
-    .ctable td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
-    .ctable td:first-child{font-weight:700;color:var(--navy)}
-    .ctable tr:nth-child(even) td{background:var(--bg)}
-    .tag{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
-    .tg{background:var(--sbg);color:var(--sg)}
-    .ty{background:var(--wbg);color:var(--wg)}
-    .tr{background:var(--dbg);color:var(--dg)}
-
-    /* COST TABLE */
-    .cost-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0}
-    .cost-table th{background:var(--bg);padding:9px 12px;text-align:left;font-size:.74rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr)}
-    .cost-table td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
-    .cost-table td:first-child{font-weight:600;color:var(--navy)}
-    .cost-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--navy);background:var(--bg)}
-    .ci{border:none;width:80px;font-size:.8rem;color:var(--navy);background:transparent;font-family:'Source Sans 3',sans-serif;outline:none;border-bottom:1.5px solid var(--bdr);text-align:center;padding:2px 4px}
-    .ci:focus{border-bottom-color:var(--lb)}
-
-    .sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
-    .sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
-    .sources ul{list-style:none}
-    .sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
-    .sources li:last-child{border-bottom:none}
-    .sources a{color:var(--lb);text-decoration:none}
-    .acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
-    .acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
-    .acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
-    .btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem transition:color 0.2s; cursor:pointer; }
-    .fl a:hover { color:white; }
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-    @media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.check-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
-    @media print{.topnav,.btn-back,.dashboard,.acta,.site-footer,.sources{display:none}.phase-block{box-shadow:none;break-inside:avoid}}
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nearshoring Readiness Guide | RC2 Consulting</title>
+<meta name="description" content="Free nearshoring readiness assessment tool. Phase-by-phase checklist for evaluating operational, regulatory, logistics, and workforce readiness factors." />
+<meta property="og:title" content="Nearshoring Readiness Guide | RC2 Consulting">
+<meta property="og:description" content="Nearshoring Readiness Guide. Free interactive tool from RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nearshoring Readiness Guide | RC2 Consulting">
+<meta name="twitter:description" content="Nearshoring Readiness Guide. Free interactive tool from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#D1D9E6;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.84),rgba(11,37,69,.68)),url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:640px;line-height:1.6}
+.hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.hmeta .dv{color:rgba(255,255,255,.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px}
+.dash-top{display:grid;grid-template-columns:repeat(4,1fr) 160px;gap:12px;margin-bottom:12px}
+.dash-cell{text-align:center;padding:13px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+.dash-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;line-height:1;margin-bottom:3px;transition:all .3s}
+.dash-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
+.dash-cell.overall{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
+.dash-cell.overall .dash-val{font-size:1.7rem;color:#93C5FD}
+.prog-row{height:5px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:5px}
+.prog-fill{height:5px;border-radius:3px;transition:width .4s}
+.status-bar{border-radius:8px;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:all .4s;flex-wrap:wrap;gap:8px}
+.status-bar.early{background:rgba(133,77,14,.15);border-color:rgba(133,77,14,.4)}
+.status-bar.progressing{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4)}
+.status-bar.ready{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
+.status-text{font-size:.88rem;font-weight:700;color:#fff}
+.status-sub{font-size:.74rem;color:rgba(255,255,255,.65)}
+.overall-pct{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#93C5FD}
+.master-bar{height:10px;background:rgba(255,255,255,.12);border-radius:5px;margin:12px 0 4px;overflow:hidden}
+.master-fill{height:10px;border-radius:5px;background:linear-gradient(90deg,#3B82F6,#10B981);transition:width .5s}
+.bar-labels{display:flex;justify-content:space-between;font-size:.66rem;color:rgba(255,255,255,.45)}
+.phase-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
+.phase-hdr{padding:14px 22px;display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--bdr)}
+.ph1-bg{background:linear-gradient(to right,#EFF6FF,#F4F6FA)}
+.ph2-bg{background:linear-gradient(to right,#F0FDF4,#F4F6FA)}
+.ph3-bg{background:linear-gradient(to right,#FFF7ED,#F4F6FA)}
+.ph4-bg{background:linear-gradient(to right,#FDF4FF,#F4F6FA)}
+.phase-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;line-height:1;min-width:36px}
+.ph1 .phase-num{color:#1D4ED8}
+.ph2 .phase-num{color:#15803D}
+.ph3 .phase-num{color:#C2410C}
+.ph4 .phase-num{color:#7E22CE}
+.phase-title-wrap{flex:1}
+.phase-title-wrap h3{font-size:1rem;font-weight:700;color:var(--navy)}
+.phase-title-wrap p{font-size:.76rem;color:var(--mu);margin-top:2px}
+.phase-badge{text-align:right;min-width:100px}
+.phase-pct{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1}
+.phase-sub{font-size:.66rem;color:var(--mu)}
+.phase-progbar{height:4px;background:var(--bdr);border-radius:2px;margin-top:4px}
+.phase-fill{height:4px;border-radius:2px;transition:width .3s}
+.ph1 .phase-fill{background:#3B82F6}
+.ph2 .phase-fill{background:#10B981}
+.ph3 .phase-fill{background:#F59E0B}
+.ph4 .phase-fill{background:#8B5CF6}
+.phase-body{padding:18px 22px}
+.group-title{font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--bdr)}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border-radius:6px;border:1.5px solid var(--bdr);cursor:pointer;transition:all .2s;user-select:none}
+.check-item:hover{border-color:var(--lb);background:#EFF6FF}
+.check-item.checked{background:var(--sbg);border-color:var(--sg)}
+.check-item.checked .cbox{background:var(--sg);border-color:var(--sg)}
+.check-item.checked .cbox::after{content:'\2713';color:#fff;font-size:.7rem;font-weight:700;line-height:16px}
+.cbox{width:18px;height:18px;border:2px solid var(--bdr);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.ctext{font-size:.8rem;color:var(--txt);line-height:1.45}
+.check-item.checked .ctext{color:var(--sg)}
+.ctable{width:100%;border-collapse:collapse;font-size:.8rem;margin:12px 0}
+.ctable th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px}
+.ctable td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
+.ctable td:first-child{font-weight:700;color:var(--navy)}
+.ctable tr:nth-child(even) td{background:var(--bg)}
+.tag{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.tg{background:var(--sbg);color:var(--sg)}
+.ty{background:var(--wbg);color:var(--wg)}
+.tr{background:var(--dbg);color:var(--dg)}
+.cost-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0}
+.cost-table th{background:var(--bg);padding:9px 12px;text-align:left;font-size:.74rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr)}
+.cost-table td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
+.cost-table td:first-child{font-weight:600;color:var(--navy)}
+.cost-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--navy);background:var(--bg)}
+.sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
+.sources li:last-child{border-bottom:none}
+.sources a{color:var(--lb);text-decoration:none}
+.acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
+.acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+@media(max-width:720px){.dash-top{grid-template-columns:repeat(3,1fr)}.check-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
+@media print{.topnav,.btn-back,.dashboard,.acta,.site-footer,.sources{display:none}.phase-block{box-shadow:none;break-inside:avoid}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
@@ -220,7 +157,7 @@
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
     <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide-es.html" class="lang-btn inactive">ES</a>
@@ -234,21 +171,20 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Supply Chain Tool</span>
+    <span class="article-tag">Supply Chain Tool</span>
     <h1>Nearshoring Readiness Guide</h1>
-    <p class="hero-sub">A phase-by-phase readiness checklist — check off items as you complete them. Your readiness score and phase progress track in real time across all four phases.</p>
+    <p class="hero-sub">Phase-by-phase readiness checklist &mdash; check off items as you complete them. Your readiness score and phase-by-phase progress track in real time across all four phases.</p>
     <div class="hmeta">
       <span>RC2 Consulting</span><span class="dv">|</span>
       <span>February 2026</span><span class="dv">|</span>
-      <span>Interactive — Real-Time Progress Tracking</span>
+      <span>Interactive &mdash; Real-Time Progress Tracking</span>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">← Back to Resources</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&larr; Back to Resources</a>
 
-  <!-- LIVE DASHBOARD -->
   <div class="dashboard">
     <div class="dash-top">
       <div class="dash-cell"><div class="dash-val" id="dv1">0%</div><div class="dash-label">Phase 1</div><div class="prog-row"><div class="prog-fill" id="dp1" style="background:#3B82F6;width:0%"></div></div></div>
@@ -261,7 +197,7 @@
     <div class="bar-labels"><span>0%</span><span>Phase 1</span><span>Phase 2</span><span>Phase 3</span><span>100%</span></div>
     <div style="margin-top:10px">
       <div class="status-bar" id="status-bar">
-        <div><div class="status-text">Check off items below as you complete them — progress tracks in real time</div><div class="status-sub">0 of 48 items completed across all four phases</div></div>
+        <div><div class="status-text">Check off items below as you complete them &mdash; progress tracks in real time</div><div class="status-sub">0 of 48 items completed across all four phases</div></div>
         <div class="overall-pct" id="ovpct">0%</div>
       </div>
     </div>
@@ -272,7 +208,7 @@
     <div class="phase-hdr ph1-bg">
       <span class="phase-num ph1">01</span>
       <div class="phase-title-wrap">
-        <h3>Strategic Evaluation — Pre-Decision</h3>
+        <h3>Strategic Assessment &mdash; Pre-Decision</h3>
         <p>Complete before committing to any nearshoring market or vendor</p>
       </div>
       <div class="phase-badge">
@@ -282,9 +218,9 @@
       </div>
     </div>
     <div class="phase-body">
-      <div class="group-title">Business Case & Financial Modeling</div>
+      <div class="group-title">Business Case &amp; Financial Modeling</div>
       <div class="check-grid" data-phase="1">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Total landed cost model completed — all cost variables included</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Total landed cost model completed &mdash; all cost variables included</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Current tariff exposure under existing sourcing structure quantified</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">CAFTA-DR / USMCA / FTA tariff savings modeled by target country</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Quality ramp cost and rework rate during transition budgeted</span></div>
@@ -296,14 +232,12 @@
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Minimum 2 target countries evaluated and compared</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Political stability and policy risk assessed for each candidate</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Trade agreement eligibility confirmed with legal counsel</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">On-the-ground market visit completed — no commitment before site visit</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">In-market visit completed &mdash; no commitment before on-site visit</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Secondary market option identified for concentration risk</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Exit scenario modeled for primary market disruption</span></div>
       </div>
-
-      <!-- COUNTRY MATRIX -->
       <div style="background:var(--bg);border-radius:8px;padding:14px 16px;border:1px solid var(--bdr);margin-top:4px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">📊 Country Readiness Reference Matrix — Latin America 2026</div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">Country Readiness Reference Matrix &mdash; Latin America 2026</div>
         <table class="ctable">
           <thead><tr><th>Country</th><th>Trade Framework</th><th>Labor Cost</th><th>Infrastructure</th><th>Political Stability</th><th>WRAP Base</th><th>Overall Readiness</th></tr></thead>
           <tbody>
@@ -316,7 +250,7 @@
             <tr><td>Nicaragua</td><td>CAFTA-DR</td><td>Very Low</td><td>Limited</td><td><span class="tag tr">High Risk</span></td><td>Limited</td><td><span class="tag tr">High Risk</span></td></tr>
           </tbody>
         </table>
-        <p style="font-size:.7rem;color:var(--mu);margin-top:6px">Sources: World Bank LPI 2024 · WRAP Registry 2024 · USTR 2025 · RC2 Analysis</p>
+        <p style="font-size:.7rem;color:var(--mu);margin-top:6px">Sources: World Bank LPI 2024 &middot; WRAP Registry 2024 &middot; USTR 2025 &middot; RC2 Analysis</p>
       </div>
     </div>
   </div>
@@ -326,7 +260,7 @@
     <div class="phase-hdr ph2-bg">
       <span class="phase-num ph2">02</span>
       <div class="phase-title-wrap">
-        <h3>Operational Foundation — Pre-Launch</h3>
+        <h3>Operational Foundation &mdash; Pre-Launch</h3>
         <p>Complete before first production run or shipment</p>
       </div>
       <div class="phase-badge">
@@ -336,39 +270,37 @@
       </div>
     </div>
     <div class="phase-body">
-      <div class="group-title">Vendor & Facility Qualification</div>
+      <div class="group-title">Vendor &amp; Facility Qualification</div>
       <div class="check-grid" data-phase="2">
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Vendor qualification criteria defined and documented</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Factory audit completed — physical and documentation review</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Social compliance status of vendor confirmed or assessed</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Factory audit completed &mdash; physical and documentation review</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Vendor social compliance status confirmed or assessed</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Raw material and component sourcing strategy mapped</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Backup vendor identified for production continuity</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Production capacity confirmed against volume requirements</span></div>
       </div>
-      <div class="group-title">Logistics & Customs</div>
+      <div class="group-title">Logistics &amp; Customs</div>
       <div class="check-grid" data-phase="2">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Freight forwarder with Latin America expertise engaged</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Licensed customs broker for relevant trade corridors retained</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Freight forwarder with Latin America experience contracted</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Licensed customs broker for relevant trade corridors contracted</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Country-of-origin documentation system established</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Import entry process mapped and tested before first shipment</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Lead time variability scenarios modeled (best/base/worst)</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Inland transportation to production zone evaluated</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Inland transport to production zone assessed</span></div>
       </div>
-
-      <!-- TOTAL LANDED COST -->
       <div style="background:var(--bg);border-radius:8px;padding:14px 16px;border:1px solid var(--bdr);margin-top:4px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px">💰 Total Landed Cost Checklist — All Variables Must Be Included</div>
+        <div style="font-size:.72rem;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px">Total Landed Cost Checklist &mdash; All Variables Must Be Included</div>
         <table class="cost-table">
           <thead><tr><th>Cost Category</th><th style="text-align:center;width:120px">Included?</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td>Labor — direct wages</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Not yet</option><option>✓ Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Labor — turnover & recruitment cost</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Not yet</option><option>✓ Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Labor — quality ramp / training cost</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Not yet</option><option>✓ Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Ocean / air freight + port fees</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Not yet</option><option>✓ Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Customs duties & tariffs (post-FTA)</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Not yet</option><option>✓ Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Compliance / certification costs</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Not yet</option><option>✓ Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>QC inspection + rework/defect cost</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Not yet</option><option>✓ Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
-            <tr><td>Management overhead + currency risk</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>☐ Not yet</option><option>✓ Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Labor &mdash; direct wages</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pending</option><option>&#10003; Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Labor &mdash; turnover and recruitment cost</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pending</option><option>&#10003; Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Labor &mdash; quality ramp / training cost</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pending</option><option>&#10003; Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Ocean / air freight + port fees</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pending</option><option>&#10003; Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Customs duties and tariffs (post-FTA)</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pending</option><option>&#10003; Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Compliance / certification costs</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pending</option><option>&#10003; Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>QC inspection + defect/rework cost</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pending</option><option>&#10003; Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
+            <tr><td>Management overhead + currency risk</td><td style="text-align:center"><select style="border:none;font-size:.78rem;background:transparent;outline:none;cursor:pointer"><option>&#9744; Pending</option><option>&#10003; Included</option><option>N/A</option></select></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.76rem;background:transparent;outline:none" placeholder="Notes..."/></td></tr>
           </tbody>
         </table>
       </div>
@@ -380,8 +312,8 @@
     <div class="phase-hdr ph3-bg">
       <span class="phase-num ph3">03</span>
       <div class="phase-title-wrap">
-        <h3>Workforce & Quality Systems — Ramp-Up</h3>
-        <p>First 6–18 months of production</p>
+        <h3>Workforce &amp; Quality Systems &mdash; Launch</h3>
+        <p>First 6&ndash;18 months of production</p>
       </div>
       <div class="phase-badge">
         <div class="phase-pct" id="pp3">0%</div>
@@ -396,15 +328,15 @@
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Workforce training program built on documented SOPs</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Training records system established from day one</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Turnover tracking and retention strategy in place</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Worker communication established in local language</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Worker communications established in local language</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Grievance procedure posted and communicated to workers</span></div>
       </div>
-      <div class="group-title">Quality Systems Transfer</div>
+      <div class="group-title">Quality System Transfer</div>
       <div class="check-grid" data-phase="3">
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Quality standards documented in local language</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Inspection protocols adapted to new production environment</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Defect rate KPI tracked weekly through ramp-up</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Third-party QC inspection engaged during first production runs</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Defect rate KPI tracked weekly during launch period</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Third-party QC inspection contracted for initial production runs</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Corrective action system built for quality findings</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Buyer quality requirements confirmed with vendor in writing</span></div>
       </div>
@@ -416,8 +348,8 @@
     <div class="phase-hdr ph4-bg">
       <span class="phase-num ph4">04</span>
       <div class="phase-title-wrap">
-        <h3>Compliance Certification & Scale</h3>
-        <p>18–36 months — building long-term supply chain value</p>
+        <h3>Compliance Certification &amp; Scale</h3>
+        <p>18&ndash;36 months &mdash; building long-term supply chain value</p>
       </div>
       <div class="phase-badge">
         <div class="phase-pct" id="pp4">0%</div>
@@ -426,41 +358,42 @@
       </div>
     </div>
     <div class="phase-body">
-      <div class="group-title">Social Compliance & Certification</div>
+      <div class="group-title">Social Compliance &amp; Certification</div>
       <div class="check-grid" data-phase="4">
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">WRAP or equivalent certification process initiated</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">PASA self-assessment completed — gaps in active CAP</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">PASA self-assessment completed &mdash; gaps in active CAP</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Full policy library documented across all 12 WRAP principles</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Internal audit history established — quarterly cadence</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">WRAP-registered monitor engaged for pre-audit review</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Internal audit history established &mdash; quarterly cadence</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Registered WRAP monitor contracted for pre-audit review</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Annual certification renewal calendar established</span></div>
       </div>
       <div class="group-title">Supply Chain Optimization</div>
       <div class="check-grid" data-phase="4">
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Local supply base expanded — Asia dependency reduced</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Local supplier base expanded &mdash; Asia dependency reduced</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Second-country option developed for concentration risk</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Production capacity expanded on proven quality foundation</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Buyer relationships expanded using certification as credential</span></div>
-        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">KPI dashboard reporting stabilized — weekly operational review</span></div>
+        <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">KPI dashboard reporting stabilized &mdash; weekly operational review</span></div>
         <div class="check-item" onclick="toggle(this)"><div class="cbox"></div><span class="ctext">Year 2 nearshoring strategy plan documented and approved</span></div>
       </div>
     </div>
   </div>
 
   <div class="sources">
-    <h4>Sources & References</h4>
+    <h4>Sources &amp; References</h4>
     <ul>
-      <li>U.S. Trade Representative — CAFTA-DR & USMCA Trade Agreement Guides (2025) — <a href="https://ustr.gov" target="_blank">ustr.gov</a></li>
-      <li>World Bank — Logistics Performance Index, Latin America (2024) — <a href="https://www.worldbank.org" target="_blank">worldbank.org</a></li>
-      <li>WRAP — Certification Program Requirements (2024) — <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
-      <li>Kearney — Reshoring Index, Latin America Supply Chain Report (2025) — <a href="https://www.kearney.com" target="_blank">kearney.com</a></li>
+      <li>U.S. Trade Representative &mdash; CAFTA-DR &amp; USMCA Trade Agreement Guides (2025) &mdash; <a href="https://ustr.gov" target="_blank">ustr.gov</a></li>
+      <li>World Bank &mdash; Logistics Performance Index, Latin America (2024) &mdash; <a href="https://www.worldbank.org" target="_blank">worldbank.org</a></li>
+      <li>WRAP &mdash; Certification Program Requirements (2024) &mdash; <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
+      <li>Kearney &mdash; Reshoring Index, Latin America Supply Chain Report (2025) &mdash; <a href="https://www.kearney.com" target="_blank">kearney.com</a></li>
     </ul>
   </div>
+
   <div class="acta">
     <h3>Ready to Plan Your Nearshoring Transition?</h3>
-    <p>RC2 Consulting guides companies through every phase of nearshoring readiness — from total landed cost modeling through vendor qualification, compliance certification, and operational launch.</p>
-    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a Readiness Consultation →</a>
-    <button class="btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+    <p>RC2 Consulting guides companies through every phase of nearshoring readiness &mdash; from total landed cost modeling to vendor qualification, compliance certification, and operational launch.</p>
+    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Schedule a Readiness Consultation &rarr;</a>
+    <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
   </div>
 </div>
 
@@ -479,7 +412,7 @@
 </footer>
 
 <script>
-const PHASE_TOTAL=12; // each phase has 12 checkboxes
+const PHASE_TOTAL=12;
 
 function toggle(el){
   el.classList.toggle('checked');
@@ -488,8 +421,7 @@ function toggle(el){
 
 function calcAll(){
   let grandTotal=0;
-  const phases=[1,2,3,4];
-  phases.forEach(p=>{
+  [1,2,3,4].forEach(p=>{
     const items=document.querySelectorAll('[data-phase="'+p+'"] .check-item');
     let checked=0;
     items.forEach(it=>{if(it.classList.contains('checked')) checked++;});
@@ -509,37 +441,37 @@ function calcAll(){
   const sbar=document.getElementById('status-bar');
   sbar.className='status-bar';
   let txt='',sub=grandTotal+' of '+totalItems+' items completed across all four phases';
-  if(overallPct===0){txt='Check off items below as you complete them — progress tracks in real time';}
-  else if(overallPct<33){txt='🟡 Early Stage — Focus on completing Phase 1 strategic evaluation before committing';sbar.classList.add('early');}
-  else if(overallPct<66){txt='🔵 In Progress — Operational foundation building. Keep moving through Phase 2 & 3.';sbar.classList.add('progressing');}
-  else if(overallPct<90){txt='🟢 Advanced — Strong readiness profile. Complete Phase 4 compliance and scale items.';sbar.classList.add('ready');}
-  else{txt='✅ High Readiness — '+overallPct+'% complete. Ready to accelerate certification and scale.';sbar.classList.add('ready');}
-  document.getElementById('status-bar').innerHTML='<div><div class="status-text">'+txt+'</div><div class="status-sub">'+sub+'</div></div><div class="overall-pct" id="ovpct">'+overallPct+'%</div>';
+  if(overallPct===0){txt='Check off items below as you complete them \u2014 progress tracks in real time';}
+  else if(overallPct<33){txt='Early Stage \u2014 Focus on completing the Phase 1 strategic assessment before committing';sbar.classList.add('early');}
+  else if(overallPct<66){txt='In Progress \u2014 Operational foundation building. Keep moving through Phases 2 and 3.';sbar.classList.add('progressing');}
+  else if(overallPct<90){txt='Advanced \u2014 Strong readiness profile. Complete Phase 4 compliance and scale items.';sbar.classList.add('ready');}
+  else{txt='\u2713 High Readiness \u2014 '+overallPct+'% complete. Ready to accelerate certification and scale.';sbar.classList.add('ready');}
+  sbar.innerHTML='<div><div class="status-text">'+txt+'</div><div class="status-sub">'+sub+'</div></div><div class="overall-pct" id="ovpct">'+overallPct+'%</div>';
 }
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();
