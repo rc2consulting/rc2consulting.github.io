@@ -1,247 +1,182 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Evaluación de Riesgo País | RC2 Consulting</title>
-  <meta name="description" content="Herramienta gratuita de evaluación de riesgo país. Evalúe estabilidad política, entorno regulatorio, infraestructura comercial y riesgo operativo." />
-  <meta property="og:title" content="Evaluación de Riesgo País | RC2 Consulting">
-  <meta property="og:description" content="Evaluación de Riesgo País. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta property="og:url" content="https://rc2consulting.github.io/RC2_Country_Risk_Assessment-es.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Evaluación de Riesgo País | RC2 Consulting">
-  <meta name="twitter:description" content="Evaluación de Riesgo País. Herramienta interactiva gratuita de RC2 Consulting.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(to bottom,rgba(11,37,69,.86),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
-    .hero-inner{max-width:960px;margin:0 auto}
-    .atag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
-    .hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:620px;line-height:1.6}
-    .hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
-    .hmeta .div{color:rgba(255,255,255,.3)}
-    .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-    .btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
-
-    /* LIVE DASHBOARD */
-    .dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px;display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-    .dash-cell{text-align:center;padding:12px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
-    .dash-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;transition:color .3s}
-    .dash-label{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
-    .dash-cell.composite{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
-    .dash-cell.composite .dash-val{font-size:2rem;color:#93C5FD}
-    .tier-badge{grid-column:1/-1;border-radius:8px;padding:12px 16px;text-align:center;border:1px solid;transition:all .4s;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
-    .tier-badge.tier1{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
-    .tier-badge.tier2{background:rgba(133,77,14,.2);border-color:rgba(133,77,14,.5)}
-    .tier-badge.tier3{background:rgba(155,28,28,.2);border-color:rgba(155,28,28,.5)}
-    .tier-text{font-size:.84rem;font-weight:700;color:#fff}
-    .tier-sub{font-size:.74rem;color:rgba(255,255,255,.65);margin-top:2px}
-
-    /* REFERENCE MATRIX */
-    .ref-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
-    .ref-header{background:#1E3A5F;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
-    .ref-header h3{font-size:.86rem;font-weight:700;color:#fff}
-    .ref-header span{font-size:.78rem;color:rgba(255,255,255,.6)}
-    .ref-content{padding:16px 20px;display:none}
-    .ref-content.open{display:block}
-    .ref-note{font-size:.8rem;color:var(--mu);margin-bottom:12px;font-style:italic}
-    .ctable{width:100%;border-collapse:collapse;font-size:.8rem}
-    .ctable th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px}
-    .ctable td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
-    .ctable td:first-child{font-weight:700;color:var(--navy)}
-    .ctable tr:nth-child(even) td{background:var(--bg)}
-    .tag{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
-    .tg{background:var(--sbg);color:var(--sg)}
-    .ty{background:var(--wbg);color:var(--wg)}
-    .tr{background:var(--dbg);color:var(--dg)}
-
-    /* BLOCKS */
-    .cra-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
-    .cra-hdr{background:var(--navy);padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-    .cra-hdr h3{font-size:.86rem;font-weight:700;color:#fff}
-    .cra-hdr span{font-size:.72rem;color:rgba(255,255,255,.55)}
-    .info-grid{display:grid;grid-template-columns:1fr 1fr 1fr}
-    .ic{padding:12px 18px;border-bottom:1px solid var(--bdr);border-right:1px solid var(--bdr)}
-    .ic:nth-child(3n){border-right:none}
-    .ic.full{grid-column:1/-1;border-right:none}
-    .ilabel{font-size:.69rem;font-weight:700;color:var(--mu);letter-spacing:.8px;text-transform:uppercase;display:block;margin-bottom:4px}
-    .ifield{border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.86rem;color:var(--navy);padding:3px 0;background:transparent;font-family:'Source Sans 3',sans-serif;outline:none}
-    .ifield:focus{border-bottom-color:var(--lb)}
-
-    /* SCORE TABLE */
-    .stable{width:100%;border-collapse:collapse}
-    .stable th{background:var(--bg);padding:9px 12px;text-align:left;font-size:.7rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr);letter-spacing:.4px}
-    .stable th.tc{text-align:center}
-    .stable td{padding:10px 12px;border-bottom:1px solid var(--bdr);font-size:.82rem;color:var(--mu);vertical-align:top}
-    .stable td.fn{font-weight:600;color:var(--navy)}
-    .stable td.ev{font-size:.76rem;color:var(--mu);line-height:1.45}
-    .stable tr:hover td{background:#FAFBFD}
-    .sdiv td{background:var(--bg)!important;font-size:.7rem;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;border-top:2px solid var(--bdr)}
-    .stot td{background:var(--bg)!important;font-weight:700;color:var(--navy);border-top:2px solid var(--bdr)}
-    .stot td.tc{text-align:center}
-    .tot-row td{background:var(--navy)!important;color:#fff;font-weight:700;font-size:.88rem;border-top:2px solid var(--bdr)}
-    .tot-row td.tc{text-align:center}
-    .si{border:none;border-bottom:1.5px solid var(--bdr);width:60px;font-size:.84rem;color:var(--navy);background:transparent;font-family:'Source Sans 3',sans-serif;outline:none;text-align:center}
-    .si:focus{border-bottom-color:var(--lb)}
-    .wbadge{display:inline-block;background:rgba(37,99,235,.1);color:var(--lb);font-size:.72rem;font-weight:700;padding:2px 6px;border-radius:4px}
-    .ws-out{display:inline-block;min-width:60px;text-align:center;font-weight:700;color:var(--navy);font-size:.84rem;border-bottom:1.5px solid var(--bdr);padding:2px 0}
-    .sub-out{display:inline-block;min-width:60px;text-align:center;font-weight:700;color:var(--navy);font-size:.86rem}
-    .tot-out{display:inline-block;min-width:70px;text-align:center;font-weight:700;color:#fff;font-size:.95rem}
-    .prog-bar-wrap{margin:4px 0 0;height:6px;background:rgba(255,255,255,.2);border-radius:3px}
-    .prog-bar{height:6px;background:#4ADE80;border-radius:3px;width:0%;transition:width .4s}
-
-    /* DIM PROGRESS */
-    .dim-prog{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:14px 20px;background:var(--bg);border-top:1px solid var(--bdr)}
-    .dp-cell{text-align:center}
-    .dp-label{font-size:.65rem;font-weight:700;color:var(--mu);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
-    .dp-val{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy)}
-    .dp-max{font-size:.65rem;color:var(--mu)}
-    .dp-bar{height:4px;background:var(--bdr);border-radius:2px;margin-top:4px}
-    .dp-fill{height:4px;border-radius:2px;transition:width .3s}
-
-    /* RESULT MATRIX */
-    .rm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px}
-    .rm-card{border-radius:8px;padding:14px;border:2px solid transparent;transition:all .3s}
-    .rm-green{background:var(--sbg);border-color:#BBF7D0}
-    .rm-yellow{background:var(--wbg);border-color:#FDE68A}
-    .rm-red{background:var(--dbg);border-color:#FECACA}
-    .rm-card.active{box-shadow:0 0 0 3px rgba(37,99,235,.4);transform:scale(1.02)}
-    .rm-range{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:4px}
-    .rm-green .rm-range{color:var(--sg)}
-    .rm-yellow .rm-range{color:var(--wg)}
-    .rm-red .rm-range{color:var(--dg)}
-    .rm-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:6px}
-    .rm-desc{font-size:.76rem;color:var(--mu);line-height:1.5}
-
-    /* NOTES / SIGNOFF */
-    .notes-i{width:100%;border:1.5px solid var(--bdr);border-radius:6px;font-size:.84rem;color:var(--navy);padding:10px;background:var(--bg);font-family:'Source Sans 3',sans-serif;outline:none;resize:vertical;min-height:80px;line-height:1.6}
-    .notes-i:focus{border-color:var(--lb)}
-    .sg-grid{display:grid;grid-template-columns:1fr 1fr}
-    .sgc{padding:16px 20px;border-right:1px solid var(--bdr)}
-    .sgc:last-child{border-right:none}
-    .sgl{font-size:.69rem;font-weight:700;color:var(--mu);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-    .sgline{border-bottom:1.5px solid var(--navy);margin-bottom:6px;height:28px}
-    .sgsub{font-size:.72rem;color:var(--mu)}
-
-    /* SOURCES / CTA / FOOTER */
-    .sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
-    .sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
-    .sources ul{list-style:none}
-    .sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
-    .sources li:last-child{border-bottom:none}
-    .sources a{color:var(--lb);text-decoration:none}
-    .acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
-    .acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
-    .acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
-    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
-    .btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
-    .ft{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
-    .fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .fl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
-    .fc{font-size:.73rem;color:rgba(255,255,255,.5)}
-    @media(max-width:720px){.dashboard{grid-template-columns:repeat(3,1fr)}.info-grid{grid-template-columns:1fr 1fr}.rm-grid{grid-template-columns:1fr}.dim-prog{grid-template-columns:repeat(3,1fr)}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
-    @media print{.topnav,.btn-back,.dashboard,.acta,.site-footer,.sources,.ref-block{display:none}.cra-block{box-shadow:none;break-inside:avoid}}
-  
-    /* ── Hamburger Button ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .lang-toggle { display:flex; gap:4px; align-items:center; }
-    .lang-btn { font-size:.72rem; font-weight:700; padding:5px 10px; text-decoration:none; transition:all .2s; letter-spacing:.5px; border-radius:4px; }
-    .lang-btn.inactive { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); }
-    .lang-btn.inactive:hover { background:rgba(255,255,255,.15); color:#fff; }
-    .lang-btn.active { background:#C8922A; color:#0B2545; }
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none; position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545; flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200; gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important; font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important; height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-
-    
-    /* ── Site Footer ── */
-    .site-footer { background: #1A4A8A; color: white; text-align: center; padding: 40px 24px; }
-    .footer-tagline { font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px; }
-    .footer-links { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
-    .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; cursor:pointer; }
-    .footer-links a:hover { color:white; }
-    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Evaluación de Riesgo País | RC2 Consulting</title>
+<meta name="description" content="Herramienta gratuita de evaluación de riesgo país. Evalúe estabilidad política, entorno regulatorio, infraestructura comercial y riesgo operativo para operaciones internacionales." />
+<meta property="og:title" content="Evaluación de Riesgo País | RC2 Consulting">
+<meta property="og:description" content="Evaluación de Riesgo País. Herramienta interactiva gratuita de RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_Country_Risk_Assessment-es.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evaluación de Riesgo País | RC2 Consulting">
+<meta name="twitter:description" content="Evaluación de Riesgo País. Herramienta interactiva gratuita de RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#D1D9E6;--sg:#1A7A4E;--sbg:#EBF7F2;--wg:#854D0E;--wbg:#FFFBEB;--dg:#9B1C1C;--dbg:#FEF2F2}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.86),rgba(11,37,69,.7)),url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:14px;max-width:620px;line-height:1.6}
+.hmeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hmeta span{font-size:.8rem;color:rgba(255,255,255,.6)}
+.hmeta .dv{color:rgba(255,255,255,.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--lb);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.dashboard{background:var(--navy);border-radius:10px;padding:20px 24px;margin:28px 0 20px;display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.dash-cell{text-align:center;padding:12px 8px;background:rgba(255,255,255,.07);border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+.dash-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;transition:color .3s}
+.dash-label{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.8px}
+.dash-cell.composite{background:rgba(37,99,235,.25);border-color:rgba(37,99,235,.5)}
+.dash-cell.composite .dash-val{font-size:2rem;color:#93C5FD}
+.tier-badge{grid-column:1/-1;border-radius:8px;padding:12px 16px;text-align:center;border:1px solid;transition:all .4s;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
+.tier-badge.tier1{background:rgba(26,122,78,.2);border-color:rgba(26,122,78,.5)}
+.tier-badge.tier2{background:rgba(133,77,14,.2);border-color:rgba(133,77,14,.5)}
+.tier-badge.tier3{background:rgba(155,28,28,.2);border-color:rgba(155,28,28,.5)}
+.tier-text{font-size:.84rem;font-weight:700;color:#fff}
+.tier-sub{font-size:.74rem;color:rgba(255,255,255,.65);margin-top:2px}
+.ref-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
+.ref-header{background:#1E3A5F;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
+.ref-header h3{font-size:.86rem;font-weight:700;color:#fff}
+.ref-header span{font-size:.78rem;color:rgba(255,255,255,.6)}
+.ref-content{padding:16px 20px;display:none}
+.ref-content.open{display:block}
+.ref-note{font-size:.8rem;color:var(--mu);margin-bottom:12px;font-style:italic}
+.ctable{width:100%;border-collapse:collapse;font-size:.8rem}
+.ctable th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.4px}
+.ctable td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--mu)}
+.ctable td:first-child{font-weight:700;color:var(--navy)}
+.ctable tr:nth-child(even) td{background:var(--bg)}
+.tag{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.tg{background:var(--sbg);color:var(--sg)}
+.ty{background:var(--wbg);color:var(--wg)}
+.tr{background:var(--dbg);color:var(--dg)}
+.cra-block{background:var(--w);border-radius:10px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);margin-bottom:20px;overflow:hidden}
+.cra-hdr{background:var(--navy);padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
+.cra-hdr h3{font-size:.86rem;font-weight:700;color:#fff}
+.cra-hdr span{font-size:.72rem;color:rgba(255,255,255,.55)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr 1fr}
+.ic{padding:12px 18px;border-bottom:1px solid var(--bdr);border-right:1px solid var(--bdr)}
+.ic:nth-child(3n){border-right:none}
+.ic.full{grid-column:1/-1;border-right:none}
+.ilabel{font-size:.69rem;font-weight:700;color:var(--mu);letter-spacing:.8px;text-transform:uppercase;display:block;margin-bottom:4px}
+.ifield{border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.86rem;color:var(--navy);padding:3px 0;background:transparent;font-family:'Source Sans 3',sans-serif;outline:none}
+.ifield:focus{border-bottom-color:var(--lb)}
+.stable{width:100%;border-collapse:collapse}
+.stable th{background:var(--bg);padding:9px 12px;text-align:left;font-size:.7rem;font-weight:700;color:var(--mu);border-bottom:2px solid var(--bdr);letter-spacing:.4px}
+.stable th.tc{text-align:center}
+.stable td{padding:10px 12px;border-bottom:1px solid var(--bdr);font-size:.82rem;color:var(--mu);vertical-align:top}
+.stable td.fn{font-weight:600;color:var(--navy)}
+.stable td.ev{font-size:.76rem;color:var(--mu);line-height:1.45}
+.stable tr:hover td{background:#FAFBFD}
+.sdiv td{background:var(--bg)!important;font-size:.7rem;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;border-top:2px solid var(--bdr)}
+.stot td{background:var(--bg)!important;font-weight:700;color:var(--navy);border-top:2px solid var(--bdr)}
+.stot td.tc{text-align:center}
+.tot-row td{background:var(--navy)!important;color:#fff;font-weight:700;font-size:.88rem;border-top:2px solid var(--bdr)}
+.tot-row td.tc{text-align:center}
+.si{border:none;border-bottom:1.5px solid var(--bdr);width:60px;font-size:.84rem;color:var(--navy);background:transparent;font-family:'Source Sans 3',sans-serif;outline:none;text-align:center}
+.si:focus{border-bottom-color:var(--lb)}
+.wbadge{display:inline-block;background:rgba(37,99,235,.1);color:var(--lb);font-size:.72rem;font-weight:700;padding:2px 6px;border-radius:4px}
+.ws-out{display:inline-block;min-width:60px;text-align:center;font-weight:700;color:var(--navy);font-size:.84rem;border-bottom:1.5px solid var(--bdr);padding:2px 0}
+.sub-out{display:inline-block;min-width:60px;text-align:center;font-weight:700;color:var(--navy);font-size:.86rem}
+.tot-out{display:inline-block;min-width:70px;text-align:center;font-weight:700;color:#fff;font-size:.95rem}
+.prog-bar-wrap{margin:4px 0 0;height:6px;background:rgba(255,255,255,.2);border-radius:3px}
+.prog-bar{height:6px;background:#4ADE80;border-radius:3px;width:0%;transition:width .4s}
+.dim-prog{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:14px 20px;background:var(--bg);border-top:1px solid var(--bdr)}
+.dp-cell{text-align:center}
+.dp-label{font-size:.65rem;font-weight:700;color:var(--mu);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.dp-val{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy)}
+.dp-max{font-size:.65rem;color:var(--mu)}
+.dp-bar{height:4px;background:var(--bdr);border-radius:2px;margin-top:4px}
+.dp-fill{height:4px;border-radius:2px;transition:width .3s}
+.rm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px}
+.rm-card{border-radius:8px;padding:14px;border:2px solid transparent;transition:all .3s}
+.rm-green{background:var(--sbg);border-color:#BBF7D0}
+.rm-yellow{background:var(--wbg);border-color:#FDE68A}
+.rm-red{background:var(--dbg);border-color:#FECACA}
+.rm-card.active{box-shadow:0 0 0 3px rgba(37,99,235,.4);transform:scale(1.02)}
+.rm-range{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:4px}
+.rm-green .rm-range{color:var(--sg)}
+.rm-yellow .rm-range{color:var(--wg)}
+.rm-red .rm-range{color:var(--dg)}
+.rm-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.rm-desc{font-size:.76rem;color:var(--mu);line-height:1.5}
+.notes-i{width:100%;border:1.5px solid var(--bdr);border-radius:6px;font-size:.84rem;color:var(--navy);padding:10px;background:var(--bg);font-family:'Source Sans 3',sans-serif;outline:none;resize:vertical;min-height:80px;line-height:1.6}
+.notes-i:focus{border-color:var(--lb)}
+.sg-grid{display:grid;grid-template-columns:1fr 1fr}
+.sgc{padding:16px 20px;border-right:1px solid var(--bdr)}
+.sgc:last-child{border-right:none}
+.sgl{font-size:.69rem;font-weight:700;color:var(--mu);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.sgline{border-bottom:1.5px solid var(--navy);margin-bottom:6px;height:28px}
+.sgsub{font-size:.72rem;color:var(--mu)}
+.sources{background:var(--bg);border-radius:8px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--bdr)}
+.sources h4{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.sources ul{list-style:none}
+.sources li{font-size:.77rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bdr)}
+.sources li:last-child{border-bottom:none}
+.sources a{color:var(--lb);text-decoration:none}
+.acta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.acta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:8px}
+.acta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-print{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.84rem;padding:10px 20px;border-radius:6px;border:1px solid rgba(255,255,255,.3);margin-left:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif}
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-copy a:hover{color:rgba(255,255,255,0.9)}
+@media(max-width:720px){.dashboard{grid-template-columns:repeat(3,1fr)}.info-grid{grid-template-columns:1fr 1fr}.rm-grid{grid-template-columns:1fr}.dim-prog{grid-template-columns:repeat(3,1fr)}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}}
+@media print{.topnav,.btn-back,.dashboard,.acta,.site-footer,.sources,.ref-block{display:none}.cra-block{box-shadow:none;break-inside:avoid}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+@media(max-width:640px){.topnav{padding:0 16px!important;position:relative}.hamburger{display:flex!important}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column!important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0!important}.nav-links.mobile-open{display:flex!important}.nav-links li{width:100%}.nav-links a{display:block;width:100%;padding:12px 20px!important;font-size:0.92rem!important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0!important;height:auto!important}.nav-links a:last-child{border-bottom:none}.lang-toggle{padding:10px 20px 4px}}
 </style>
 </head>
 <body>
 <nav class="topnav">
-  <a href="https://rc2consulting.github.io/index-es.html" class="nav-brand">
+  <a href="https://rc2consulting.github.io/" class="nav-brand">
     <div class="nav-logo-mark">RC<sup>2</sup></div>
     <span class="nav-brand-name">Consulting</span>
   </a>
   <ul class="nav-links">
-    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
-    <li><a href="https://rc2consulting.github.io/services-es.html">Servicios</a></li>
-    <li><a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a></li>
-    <li><a href="https://rc2consulting.github.io/about-es.html">Nosotros</a></li>
-    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="active">Recursos</a></li>
-    <li><a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a></li>
-    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
-      <li>
+    <li><a href="https://rc2consulting.github.io/">Home</a></li>
+    <li><a href="https://rc2consulting.github.io/services.html">Services</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
+    <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
+    <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
+    <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/RC2_Country_Risk_Assessment.html" class="lang-btn inactive">EN</a>
         <a href="https://rc2consulting.github.io/RC2_Country_Risk_Assessment-es.html" class="lang-btn active">ES</a>
@@ -255,258 +190,224 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="atag">Herramienta de Cadena de Suministro</span>
+    <span class="article-tag">Herramienta de Cadena de Suministro</span>
     <h1>Evaluación de Riesgo País</h1>
-    <p class="hero-sub">Evalúe los mercados de nearshoring en cinco dimensiones de riesgo ponderadas. Las puntuaciones se calculan en tiempo real — su Puntuación de Riesgo País compuesta y nivel se actualizan instantáneamente a medida que completa la evaluación.</p>
+    <p class="hero-sub">Evalúe mercados de nearshoring en cinco dimensiones ponderadas de riesgo. Las puntuaciones se calculan en tiempo real &mdash; su Puntaje Compuesto de Riesgo País y el nivel se actualizan instantáneamente.</p>
     <div class="hmeta">
-      <span>RC2 Consulting</span><span class="div">|</span>
-      <span>February 2026</span><span class="div">|</span>
-      <span>Interactivo — Puntuación en Tiempo Real</span>
+      <span>RC2 Consulting</span><span class="dv">|</span>
+      <span>February 2026</span><span class="dv">|</span>
+      <span>Interactivo &mdash; Puntuación en Tiempo Real</span>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="btn-back">← Volver a Recursos</a>
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&larr; Volver a Recursos</a>
 
-  <!-- LIVE DASHBOARD -->
   <div class="dashboard">
-    <div class="dash-cell">
-      <div class="dash-val" id="d1-score">—</div>
-      <div class="dash-label">Political</div>
-      <div class="prog-bar-wrap"><div class="prog-bar" id="d1-bar"></div></div>
-    </div>
-    <div class="dash-cell">
-      <div class="dash-val" id="d2-score">—</div>
-      <div class="dash-label">Trade Policy</div>
-      <div class="prog-bar-wrap"><div class="prog-bar" id="d2-bar"></div></div>
-    </div>
-    <div class="dash-cell">
-      <div class="dash-val" id="d3-score">—</div>
-      <div class="dash-label">Logistics</div>
-      <div class="prog-bar-wrap"><div class="prog-bar" id="d3-bar"></div></div>
-    </div>
-    <div class="dash-cell">
-      <div class="dash-val" id="d4-score">—</div>
-      <div class="dash-label">Mercado Laboral</div>
-      <div class="prog-bar-wrap"><div class="prog-bar" id="d4-bar"></div></div>
-    </div>
-    <div class="dash-cell">
-      <div class="dash-val" id="d5-score">—</div>
-      <div class="dash-label">Compliance</div>
-      <div class="prog-bar-wrap"><div class="prog-bar" id="d5-bar"></div></div>
-    </div>
-    <div class="dash-cell composite">
-      <div class="dash-val" id="comp-score">—</div>
-      <div class="dash-label">Score / 175</div>
-    </div>
+    <div class="dash-cell"><div class="dash-val" id="d1-score">&mdash;</div><div class="dash-label">Político</div><div class="prog-bar-wrap"><div class="prog-bar" id="d1-bar"></div></div></div>
+    <div class="dash-cell"><div class="dash-val" id="d2-score">&mdash;</div><div class="dash-label">Política Comercial</div><div class="prog-bar-wrap"><div class="prog-bar" id="d2-bar"></div></div></div>
+    <div class="dash-cell"><div class="dash-val" id="d3-score">&mdash;</div><div class="dash-label">Logística</div><div class="prog-bar-wrap"><div class="prog-bar" id="d3-bar"></div></div></div>
+    <div class="dash-cell"><div class="dash-val" id="d4-score">&mdash;</div><div class="dash-label">Mercado Laboral</div><div class="prog-bar-wrap"><div class="prog-bar" id="d4-bar"></div></div></div>
+    <div class="dash-cell"><div class="dash-val" id="d5-score">&mdash;</div><div class="dash-label">Cumplimiento</div><div class="prog-bar-wrap"><div class="prog-bar" id="d5-bar"></div></div></div>
+    <div class="dash-cell composite"><div class="dash-val" id="comp-score">&mdash;</div><div class="dash-label">Puntaje / 175</div></div>
     <div class="tier-badge" id="tier-badge">
       <div class="tier-text">Complete la evaluación para ver su Nivel de Riesgo País</div>
-      <div class="tier-sub">Las puntuaciones se actualizan en tiempo real a medida que ingresa datos</div>
+      <div class="tier-sub">Las puntuaciones se actualizan en tiempo real al ingresar datos</div>
     </div>
   </div>
 
-  <!-- REFERENCE MATRIX -->
   <div class="ref-block">
     <div class="ref-header" onclick="toggleRef()">
-      <h3>📊 Matriz de Referencia de Preparación de Países — América Latina 2026</h3>
-      <span id="ref-toggle-label">Haga clic para expandir ▼</span>
+      <h3>Matriz de Referencia de Preparación del País &mdash; América Latina 2026</h3>
+      <span id="ref-toggle-label">Haga clic para expandir &#9660;</span>
     </div>
     <div class="ref-content" id="ref-content">
-      <p class="ref-note">Use esta matriz de referencia para guiar sus puntuaciones. Esta matriz muestra la evaluación base de RC2 de los mercados clave de nearshoring en las mismas dimensiones que está evaluando.</p>
+      <p class="ref-note">Use esta matriz de referencia para informar sus puntuaciones. Esta matriz muestra la evaluación base de RC2 de los principales mercados de nearshoring en las mismas dimensiones que está puntuando.</p>
       <table class="ctable">
-        <thead>
-          <tr><th>País</th><th>Marco Comercial</th><th>Costo Laboral</th><th>Infraestructura</th><th>Estabilidad Política</th><th>Base Certificación WRAP</th><th>Preparación General</th></tr>
-        </thead>
+        <thead><tr><th>País</th><th>Marco Comercial</th><th>Costo Laboral</th><th>Infraestructura</th><th>Estabilidad Política</th><th>Base de Certificación WRAP</th><th>Preparación General</th></tr></thead>
         <tbody>
-          <tr><td>Mexico</td><td>USMCA</td><td>Medio-Alto</td><td>Fuerte</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">High</span></td></tr>
-          <tr><td>Honduras</td><td>CAFTA-DR</td><td>Low</td><td>Moderado</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">High</span></td></tr>
-          <tr><td>Guatemala</td><td>CAFTA-DR</td><td>Low</td><td>Moderado</td><td><span class="tag tg">Estable</span></td><td>En Crecimiento</td><td><span class="tag tg">High</span></td></tr>
-          <tr><td>El Salvador</td><td>CAFTA-DR</td><td>Low</td><td>Good</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">High</span></td></tr>
-          <tr><td>Colombia</td><td>US-Colombia FTA</td><td>Bajo-Medio</td><td>Moderado</td><td><span class="tag tg">Estable</span></td><td>En Desarrollo</td><td><span class="tag ty">Medium</span></td></tr>
-          <tr><td>Costa Rica</td><td>CAFTA-DR</td><td>Medium</td><td>Fuerte</td><td><span class="tag tg">Estable</span></td><td>En Desarrollo</td><td><span class="tag ty">Medium</span></td></tr>
-          <tr><td>Nicaragua</td><td>CAFTA-DR</td><td>Very Low</td><td>Limited</td><td><span class="tag tr">Alto Riesgo</span></td><td>Limited</td><td><span class="tag tr">Alto Riesgo</span></td></tr>
-          <tr><td>Peru</td><td>US-Peru FTA</td><td>Bajo-Medio</td><td>Moderado</td><td><span class="tag ty">Moderado</span></td><td>Minimal</td><td><span class="tag ty">Medium</span></td></tr>
+          <tr><td>Mexico</td><td>USMCA</td><td>Medio-Alto</td><td>Fuerte</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">Alto</span></td></tr>
+          <tr><td>Honduras</td><td>CAFTA-DR</td><td>Bajo</td><td>Moderado</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">Alto</span></td></tr>
+          <tr><td>Guatemala</td><td>CAFTA-DR</td><td>Bajo</td><td>Moderado</td><td><span class="tag tg">Estable</span></td><td>Creciente</td><td><span class="tag tg">Alto</span></td></tr>
+          <tr><td>El Salvador</td><td>CAFTA-DR</td><td>Bajo</td><td>Good</td><td><span class="tag ty">Moderado</span></td><td>Fuerte</td><td><span class="tag tg">Alto</span></td></tr>
+          <tr><td>Colombia</td><td>US-Colombia FTA</td><td>Bajo-Medio</td><td>Moderado</td><td><span class="tag tg">Estable</span></td><td>En Desarrollo</td><td><span class="tag ty">Medio</span></td></tr>
+          <tr><td>Costa Rica</td><td>CAFTA-DR</td><td>Medio</td><td>Fuerte</td><td><span class="tag tg">Estable</span></td><td>En Desarrollo</td><td><span class="tag ty">Medio</span></td></tr>
+          <tr><td>Nicaragua</td><td>CAFTA-DR</td><td>Muy Bajo</td><td>Limitado</td><td><span class="tag tr">Alto Riesgo</span></td><td>Limitado</td><td><span class="tag tr">Alto Riesgo</span></td></tr>
+          <tr><td>Peru</td><td>US-Peru FTA</td><td>Bajo-Medio</td><td>Moderado</td><td><span class="tag ty">Moderado</span></td><td>Mínimo</td><td><span class="tag ty">Medio</span></td></tr>
         </tbody>
       </table>
-      <p style="font-size:.72rem;color:var(--mu);margin-top:10px;">Sources: World Bank LPI 2024 · WRAP Registry 2024 · USTR Trade Agreements 2025 · RC2 Consulting Analysis</p>
+      <p style="font-size:.72rem;color:var(--mu);margin-top:10px">Sources: World Bank LPI 2024 &middot; WRAP Registry 2024 &middot; USTR Trade Agreements 2025 &middot; RC2 Consulting Analysis</p>
     </div>
   </div>
 
-  <!-- COUNTRY INFO -->
   <div class="cra-block">
-    <div class="cra-hdr"><h3>Country & Assessment Identification</h3><span>One form per country evaluated</span></div>
+    <div class="cra-hdr"><h3>País e Identificación de la Evaluación</h3><span>Un formulario por país evaluado</span></div>
     <div class="info-grid">
-      <div class="ic"><span class="ilabel">Country Being Assessed</span><input class="ifield" placeholder="Country name" /></div>
-      <div class="ic"><span class="ilabel">Assessment Date</span><input class="ifield" placeholder="MM / DD / YYYY" /></div>
-      <div class="ic"><span class="ilabel">Assessed By</span><input class="ifield" placeholder="Name and title" /></div>
-      <div class="ic"><span class="ilabel">Production / Sourcing Type</span><input class="ifield" placeholder="e.g. apparel manufacturing" /></div>
-      <div class="ic"><span class="ilabel">Applicable Trade Agreement</span><input class="ifield" placeholder="e.g. CAFTA-DR / USMCA" /></div>
-      <div class="ic"><span class="ilabel">Assessment Reference #</span><input class="ifield" placeholder="e.g. CRA-2026-001" /></div>
+      <div class="ic"><span class="ilabel">País a Evaluar</span><input class="ifield" placeholder="Nombre del país"/></div>
+      <div class="ic"><span class="ilabel">Fecha de Evaluación</span><input class="ifield" placeholder="MM / DD / YYYY"/></div>
+      <div class="ic"><span class="ilabel">Evaluado Por</span><input class="ifield" placeholder="Nombre y título"/></div>
+      <div class="ic"><span class="ilabel">Tipo de Producción / Abastecimiento</span><input class="ifield" placeholder="ej. manufactura de ropa"/></div>
+      <div class="ic"><span class="ilabel">Acuerdo Comercial Aplicable</span><input class="ifield" placeholder="ej. CAFTA-DR / USMCA"/></div>
+      <div class="ic"><span class="ilabel">Número de Referencia de la Evaluación</span><input class="ifield" placeholder="ej. CRA-2026-001"/></div>
     </div>
   </div>
 
-  <!-- SCORING SCALE GUIDE -->
   <div style="background:var(--w);border-radius:10px;border:1px solid var(--bdr);padding:16px 20px;margin-bottom:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;box-shadow:0 2px 8px rgba(11,37,69,.06)">
-    <div style="text-align:center;background:var(--sbg);border:1px solid #BBF7D0;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--sg)">5</div><div style="font-size:.7rem;font-weight:700;color:var(--sg)">Very Low Risk</div><div style="font-size:.66rem;color:var(--mu)">Favorable conditions</div></div>
-    <div style="text-align:center;background:#F0FDF4;border:1px solid #D1FAE5;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#15803D">4</div><div style="font-size:.7rem;font-weight:700;color:#15803D">Low Risk</div><div style="font-size:.66rem;color:var(--mu)">Generally favorable</div></div>
-    <div style="text-align:center;background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#C2410C">3</div><div style="font-size:.7rem;font-weight:700;color:#C2410C">Moderate Risk</div><div style="font-size:.66rem;color:var(--mu)">Monitor closely</div></div>
-    <div style="text-align:center;background:var(--wbg);border:1px solid #FDE68A;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--wg)">2</div><div style="font-size:.7rem;font-weight:700;color:var(--wg)">Alto Riesgo</div><div style="font-size:.66rem;color:var(--mu)">Mitigation required</div></div>
-    <div style="text-align:center;background:var(--dbg);border:1px solid #FECACA;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--dg)">1</div><div style="font-size:.7rem;font-weight:700;color:var(--dg)">Critical Risk</div><div style="font-size:.66rem;color:var(--mu)">Do not proceed</div></div>
+    <div style="text-align:center;background:var(--sbg);border:1px solid #BBF7D0;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--sg)">5</div><div style="font-size:.7rem;font-weight:700;color:var(--sg)">Riesgo Muy Bajo</div><div style="font-size:.66rem;color:var(--mu)">Condiciones favorables</div></div>
+    <div style="text-align:center;background:#F0FDF4;border:1px solid #D1FAE5;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#15803D">4</div><div style="font-size:.7rem;font-weight:700;color:#15803D">Riesgo Bajo</div><div style="font-size:.66rem;color:var(--mu)">Generalmente favorable</div></div>
+    <div style="text-align:center;background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#C2410C">3</div><div style="font-size:.7rem;font-weight:700;color:#C2410C">Riesgo Moderado</div><div style="font-size:.66rem;color:var(--mu)">Monitorear de cerca</div></div>
+    <div style="text-align:center;background:var(--wbg);border:1px solid #FDE68A;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--wg)">2</div><div style="font-size:.7rem;font-weight:700;color:var(--wg)">Alto Riesgo</div><div style="font-size:.66rem;color:var(--mu)">Requiere mitigación</div></div>
+    <div style="text-align:center;background:var(--dbg);border:1px solid #FECACA;border-radius:8px;padding:10px"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--dg)">1</div><div style="font-size:.7rem;font-weight:700;color:var(--dg)">Riesgo Crítico</div><div style="font-size:.66rem;color:var(--mu)">No proceder</div></div>
   </div>
 
-  <!-- SCORING TABLE -->
   <div class="cra-block">
-    <div class="cra-hdr"><h3>Weighted Risk Scoring Matrix</h3><span>Enter scores 1–5. Weighted totals calculate automatically.</span></div>
+    <div class="cra-hdr"><h3>Matriz Ponderada de Puntuación de Riesgo</h3><span>Ingrese puntuaciones 1&ndash;5. Los totales ponderados se calculan automáticamente.</span></div>
     <table class="stable">
       <thead>
         <tr>
-          <th style="width:22%">Risk Factor</th>
-          <th style="width:24%">What to Evaluate</th>
-          <th class="tc" style="width:80px">Puntuación<br>(1–5)</th>
+          <th style="width:22%">Factor de Riesgo</th>
+          <th style="width:24%">Qué Evaluar</th>
+          <th class="tc" style="width:80px">Puntaje<br>(1&ndash;5)</th>
           <th class="tc" style="width:70px">Peso</th>
-          <th class="tc" style="width:80px">Weighted</th>
-          <th>Notes / Evidence</th>
+          <th class="tc" style="width:80px">Ponderado</th>
+          <th>Notas / Evidencia</th>
         </tr>
       </thead>
       <tbody>
+        <tr class="sdiv"><td colspan="6">Dimensión 1 &mdash; Estabilidad Política y Entorno Regulatorio &nbsp;|&nbsp; Máx: 35</td></tr>
+        <tr><td class="fn">Estabilidad gubernamental</td><td class="ev">Elecciones recientes, transiciones, cambios constitucionales</td><td style="text-align:center"><input class="si" data-dim="1" data-weight="2" id="s1_1" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w1_1">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Estado de derecho y contratos</td><td class="ev">Independencia judicial, ejecutabilidad de contratos</td><td style="text-align:center"><input class="si" data-dim="1" data-weight="2" id="s1_2" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w1_2">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Riesgo de corrupción y soborno</td><td class="ev">Puntaje CPI de Transparencia Internacional para este país</td><td style="text-align:center"><input class="si" data-dim="1" data-weight="2" id="s1_3" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w1_3">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Clima de inversión extranjera</td><td class="ev">Apertura a IED, repatriación de utilidades, derechos de propiedad</td><td style="text-align:center"><input class="si" data-dim="1" data-weight="1" id="s1_4" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;1</span></td><td style="text-align:center"><span class="ws-out" id="w1_4">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Subtotal Dimensión 1</td><td class="tc"><span class="sub-out" id="sub1">&mdash;</span><span style="font-size:.7rem;color:var(--mu)"> / 35</span></td><td></td></tr>
 
-        <tr class="sdiv"><td colspan="6">Dimension 1 — Political Stability & Regulatory Environment &nbsp;|&nbsp; Max: 35</td></tr>
-        <tr><td class="fn">Government stability</td><td class="ev">Recent elections, transitions, constitutional changes</td><td style="text-align:center"><input class="si" data-dim="1" data-weight="2" id="s1_1" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w1_1">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Rule of law & contracts</td><td class="ev">Judicial independence, contract enforceability</td><td style="text-align:center"><input class="si" data-dim="1" data-weight="2" id="s1_2" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w1_2">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Corruption & bribery risk</td><td class="ev">Transparency Intl. CPI score for this country</td><td style="text-align:center"><input class="si" data-dim="1" data-weight="2" id="s1_3" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w1_3">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Foreign investment climate</td><td class="ev">FDI openness, profit repatriation, property rights</td><td style="text-align:center"><input class="si" data-dim="1" data-weight="1" id="s1_4" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×1</span></td><td style="text-align:center"><span class="ws-out" id="w1_4">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Dimension 1 Subtotal</td><td class="tc"><span class="sub-out" id="sub1">—</span><span style="font-size:.7rem;color:var(--mu)"> / 35</span></td><td></td></tr>
+        <tr class="sdiv"><td colspan="6">Dimensión 2 &mdash; Política Comercial y Acceso Arancelario &nbsp;|&nbsp; Máx: 45</td></tr>
+        <tr><td class="fn">Acceso a acuerdos comerciales</td><td class="ev">Aplicabilidad de CAFTA-DR, USMCA o TLC a los productos</td><td style="text-align:center"><input class="si" data-dim="2" data-weight="3" id="s2_1" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;3</span></td><td style="text-align:center"><span class="ws-out" id="w2_1">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Viabilidad de reglas de origen</td><td class="ev">Requisitos yarn-forward / fiber-forward alcanzables</td><td style="text-align:center"><input class="si" data-dim="2" data-weight="2" id="s2_2" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w2_2">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Estabilidad de la política comercial</td><td class="ev">Probabilidad de renegociación o perturbación del acuerdo</td><td style="text-align:center"><input class="si" data-dim="2" data-weight="2" id="s2_3" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w2_3">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Riesgo de cumplimiento de exportación</td><td class="ev">Sanciones, indicadores OFAC, señales de vacilación del comprador</td><td style="text-align:center"><input class="si" data-dim="2" data-weight="2" id="s2_4" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w2_4">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Subtotal Dimensión 2</td><td class="tc"><span class="sub-out" id="sub2">&mdash;</span><span style="font-size:.7rem;color:var(--mu)"> / 45</span></td><td></td></tr>
 
-        <tr class="sdiv"><td colspan="6">Dimension 2 — Trade Policy & Tariff Access &nbsp;|&nbsp; Max: 45</td></tr>
-        <tr><td class="fn">Trade agreement access</td><td class="ev">CAFTA-DR, USMCA, or FTA applicability to products</td><td style="text-align:center"><input class="si" data-dim="2" data-weight="3" id="s2_1" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×3</span></td><td style="text-align:center"><span class="ws-out" id="w2_1">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Rules of origin feasibility</td><td class="ev">Yarn-forward / fiber-forward requirements achievable</td><td style="text-align:center"><input class="si" data-dim="2" data-weight="2" id="s2_2" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w2_2">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Trade policy stability</td><td class="ev">Likelihood of agreement renegotiation or disruption</td><td style="text-align:center"><input class="si" data-dim="2" data-weight="2" id="s2_3" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w2_3">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Export compliance risk</td><td class="ev">Sanctions, OFAC flags, buyer hesitancy indicators</td><td style="text-align:center"><input class="si" data-dim="2" data-weight="2" id="s2_4" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w2_4">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Dimension 2 Subtotal</td><td class="tc"><span class="sub-out" id="sub2">—</span><span style="font-size:.7rem;color:var(--mu)"> / 45</span></td><td></td></tr>
+        <tr class="sdiv"><td colspan="6">Dimensión 3 &mdash; Logística e Infraestructura &nbsp;|&nbsp; Máx: 30</td></tr>
+        <tr><td class="fn">Acceso y capacidad portuaria</td><td class="ev">Calidad del puerto, congestión, manejo de contenedores</td><td style="text-align:center"><input class="si" data-dim="3" data-weight="2" id="s3_1" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w3_1">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Transporte terrestre e interior</td><td class="ev">Condiciones viales puerto &rarr; zonas de producción</td><td style="text-align:center"><input class="si" data-dim="3" data-weight="2" id="s3_2" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w3_2">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Experiencia en fletes y aduanas</td><td class="ev">Profundidad y calidad de servicio de proveedores logísticos locales</td><td style="text-align:center"><input class="si" data-dim="3" data-weight="1" id="s3_3" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;1</span></td><td style="text-align:center"><span class="ws-out" id="w3_3">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Confiabilidad de energía y servicios</td><td class="ev">Estabilidad eléctrica, acceso al agua, telecomunicaciones</td><td style="text-align:center"><input class="si" data-dim="3" data-weight="1" id="s3_4" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;1</span></td><td style="text-align:center"><span class="ws-out" id="w3_4">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Subtotal Dimensión 3</td><td class="tc"><span class="sub-out" id="sub3">&mdash;</span><span style="font-size:.7rem;color:var(--mu)"> / 30</span></td><td></td></tr>
 
-        <tr class="sdiv"><td colspan="6">Dimension 3 — Logistics & Infrastructure &nbsp;|&nbsp; Max: 30</td></tr>
-        <tr><td class="fn">Port access & capacity</td><td class="ev">Port quality, congestion, container handling</td><td style="text-align:center"><input class="si" data-dim="3" data-weight="2" id="s3_1" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w3_1">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Road & inland transport</td><td class="ev">Road conditions port → production zones</td><td style="text-align:center"><input class="si" data-dim="3" data-weight="2" id="s3_2" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w3_2">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Freight & customs expertise</td><td class="ev">Local logistics provider depth and service quality</td><td style="text-align:center"><input class="si" data-dim="3" data-weight="1" id="s3_3" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×1</span></td><td style="text-align:center"><span class="ws-out" id="w3_3">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Energy & utility reliability</td><td class="ev">Power stability, water access, telecommunications</td><td style="text-align:center"><input class="si" data-dim="3" data-weight="1" id="s3_4" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×1</span></td><td style="text-align:center"><span class="ws-out" id="w3_4">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Dimension 3 Subtotal</td><td class="tc"><span class="sub-out" id="sub3">—</span><span style="font-size:.7rem;color:var(--mu)"> / 30</span></td><td></td></tr>
+        <tr class="sdiv"><td colspan="6">Dimensión 4 &mdash; Mercado Laboral y Fuerza de Trabajo &nbsp;|&nbsp; Máx: 35</td></tr>
+        <tr><td class="fn">Competitividad del costo laboral</td><td class="ev">Niveles salariales vs. mercado de abastecimiento actual</td><td style="text-align:center"><input class="si" data-dim="4" data-weight="2" id="s4_1" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w4_1">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Disponibilidad de mano de obra calificada</td><td class="ev">Profundidad de habilidades técnicas para su tipo de producción</td><td style="text-align:center"><input class="si" data-dim="4" data-weight="2" id="s4_2" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w4_2">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Riesgo de rotación de personal</td><td class="ev">Tasas de rotación industriales, entorno de retención</td><td style="text-align:center"><input class="si" data-dim="4" data-weight="2" id="s4_3" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w4_3">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Estabilidad cambiaria</td><td class="ev">Volatilidad de moneda local vs. USD, últimos 24 meses</td><td style="text-align:center"><input class="si" data-dim="4" data-weight="1" id="s4_4" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;1</span></td><td style="text-align:center"><span class="ws-out" id="w4_4">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Subtotal Dimensión 4</td><td class="tc"><span class="sub-out" id="sub4">&mdash;</span><span style="font-size:.7rem;color:var(--mu)"> / 35</span></td><td></td></tr>
 
-        <tr class="sdiv"><td colspan="6">Dimension 4 — Labor Market & Workforce &nbsp;|&nbsp; Max: 35</td></tr>
-        <tr><td class="fn">Labor cost competitiveness</td><td class="ev">Wage levels vs. current sourcing market</td><td style="text-align:center"><input class="si" data-dim="4" data-weight="2" id="s4_1" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w4_1">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Skilled labor availability</td><td class="ev">Technical skills depth for your production type</td><td style="text-align:center"><input class="si" data-dim="4" data-weight="2" id="s4_2" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w4_2">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Workforce turnover risk</td><td class="ev">Industry turnover rates, retention environment</td><td style="text-align:center"><input class="si" data-dim="4" data-weight="2" id="s4_3" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w4_3">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Currency stability</td><td class="ev">Local currency volatility vs. USD, prior 24 months</td><td style="text-align:center"><input class="si" data-dim="4" data-weight="1" id="s4_4" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×1</span></td><td style="text-align:center"><span class="ws-out" id="w4_4">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Dimension 4 Subtotal</td><td class="tc"><span class="sub-out" id="sub4">—</span><span style="font-size:.7rem;color:var(--mu)"> / 35</span></td><td></td></tr>
+        <tr class="sdiv"><td colspan="6">Dimensión 5 &mdash; Preparación para el Cumplimiento Social &nbsp;|&nbsp; Máx: 30</td></tr>
+        <tr><td class="fn">Base de certificación WRAP</td><td class="ev">Número de instalaciones certificadas disponibles en el país</td><td style="text-align:center"><input class="si" data-dim="5" data-weight="2" id="s5_1" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w5_1">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Infraestructura de cumplimiento local</td><td class="ev">Monitores WRAP, consultores, capacidad de auditoría disponible</td><td style="text-align:center"><input class="si" data-dim="5" data-weight="1" id="s5_2" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;1</span></td><td style="text-align:center"><span class="ws-out" id="w5_2">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Aplicación de la ley laboral</td><td class="ev">Fortaleza del sistema gubernamental de inspección laboral</td><td style="text-align:center"><input class="si" data-dim="5" data-weight="2" id="s5_3" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;2</span></td><td style="text-align:center"><span class="ws-out" id="w5_3">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr><td class="fn">Cumplimiento ambiental</td><td class="ev">Fortaleza regulatoria y historial de aplicación</td><td style="text-align:center"><input class="si" data-dim="5" data-weight="1" id="s5_4" type="number" min="1" max="5" placeholder="&mdash;" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">&times;1</span></td><td style="text-align:center"><span class="ws-out" id="w5_4">&mdash;</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notas..."></td></tr>
+        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Subtotal Dimensión 5</td><td class="tc"><span class="sub-out" id="sub5">&mdash;</span><span style="font-size:.7rem;color:var(--mu)"> / 30</span></td><td></td></tr>
 
-        <tr class="sdiv"><td colspan="6">Dimension 5 — Social Compliance Readiness &nbsp;|&nbsp; Max: 30</td></tr>
-        <tr><td class="fn">WRAP certification base</td><td class="ev">Number of certified facilities available in country</td><td style="text-align:center"><input class="si" data-dim="5" data-weight="2" id="s5_1" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w5_1">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Local compliance infrastructure</td><td class="ev">WRAP monitors, consultants, audit capacity available</td><td style="text-align:center"><input class="si" data-dim="5" data-weight="1" id="s5_2" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×1</span></td><td style="text-align:center"><span class="ws-out" id="w5_2">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Labor law enforcement</td><td class="ev">Strength of government labor inspection system</td><td style="text-align:center"><input class="si" data-dim="5" data-weight="2" id="s5_3" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×2</span></td><td style="text-align:center"><span class="ws-out" id="w5_3">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr><td class="fn">Environmental compliance</td><td class="ev">Regulation strength and enforcement track record</td><td style="text-align:center"><input class="si" data-dim="5" data-weight="1" id="s5_4" type="number" min="1" max="5" placeholder="—" oninput="calc()"></td><td style="text-align:center"><span class="wbadge">×1</span></td><td style="text-align:center"><span class="ws-out" id="w5_4">—</span></td><td><input style="border:none;border-bottom:1.5px solid var(--bdr);width:100%;font-size:.78rem;outline:none;background:transparent" placeholder="Notes..."></td></tr>
-        <tr class="stot"><td colspan="4" style="text-align:right;font-size:.76rem;padding-right:16px">Dimension 5 Subtotal</td><td class="tc"><span class="sub-out" id="sub5">—</span><span style="font-size:.7rem;color:var(--mu)"> / 30</span></td><td></td></tr>
-
-        <tr class="tot-row"><td colspan="4" style="text-align:right;padding-right:16px">COMPOSITE COUNTRY RISK SCORE</td><td class="tc"><span class="tot-out" id="tot-out">—</span><span style="font-size:.72rem;color:rgba(255,255,255,.6)"> / 175</span></td><td style="font-size:.76rem;color:rgba(255,255,255,.65)">See tier interpretation below</td></tr>
+        <tr class="tot-row"><td colspan="4" style="text-align:right;padding-right:16px">PUNTAJE COMPUESTO DE RIESGO PAÍS</td><td class="tc"><span class="tot-out" id="tot-out">&mdash;</span><span style="font-size:.72rem;color:rgba(255,255,255,.6)"> / 175</span></td><td style="font-size:.76rem;color:rgba(255,255,255,.65)">Ver interpretación de nivel abajo</td></tr>
       </tbody>
     </table>
 
-    <!-- DIM PROGRESS BARS -->
     <div class="dim-prog">
-      <div class="dp-cell"><div class="dp-label">Political</div><div class="dp-val" id="dp1">—</div><div class="dp-max">/ 35</div><div class="dp-bar"><div class="dp-fill" id="df1" style="background:#3B82F6"></div></div></div>
-      <div class="dp-cell"><div class="dp-label">Trade</div><div class="dp-val" id="dp2">—</div><div class="dp-max">/ 45</div><div class="dp-bar"><div class="dp-fill" id="df2" style="background:#8B5CF6"></div></div></div>
-      <div class="dp-cell"><div class="dp-label">Logistics</div><div class="dp-val" id="dp3">—</div><div class="dp-max">/ 30</div><div class="dp-bar"><div class="dp-fill" id="df3" style="background:#F59E0B"></div></div></div>
-      <div class="dp-cell"><div class="dp-label">Labor</div><div class="dp-val" id="dp4">—</div><div class="dp-max">/ 35</div><div class="dp-bar"><div class="dp-fill" id="df4" style="background:#10B981"></div></div></div>
-      <div class="dp-cell"><div class="dp-label">Compliance</div><div class="dp-val" id="dp5">—</div><div class="dp-max">/ 30</div><div class="dp-bar"><div class="dp-fill" id="df5" style="background:#EF4444"></div></div></div>
+      <div class="dp-cell"><div class="dp-label">Político</div><div class="dp-val" id="dp1">&mdash;</div><div class="dp-max">/ 35</div><div class="dp-bar"><div class="dp-fill" id="df1" style="background:#3B82F6"></div></div></div>
+      <div class="dp-cell"><div class="dp-label">Comercio</div><div class="dp-val" id="dp2">&mdash;</div><div class="dp-max">/ 45</div><div class="dp-bar"><div class="dp-fill" id="df2" style="background:#8B5CF6"></div></div></div>
+      <div class="dp-cell"><div class="dp-label">Logística</div><div class="dp-val" id="dp3">&mdash;</div><div class="dp-max">/ 30</div><div class="dp-bar"><div class="dp-fill" id="df3" style="background:#F59E0B"></div></div></div>
+      <div class="dp-cell"><div class="dp-label">Laboral</div><div class="dp-val" id="dp4">&mdash;</div><div class="dp-max">/ 35</div><div class="dp-bar"><div class="dp-fill" id="df4" style="background:#10B981"></div></div></div>
+      <div class="dp-cell"><div class="dp-label">Cumplimiento</div><div class="dp-val" id="dp5">&mdash;</div><div class="dp-max">/ 30</div><div class="dp-bar"><div class="dp-fill" id="df5" style="background:#EF4444"></div></div></div>
     </div>
   </div>
 
-  <!-- TIER RESULT -->
   <div class="cra-block">
-    <div class="cra-hdr"><h3>Score Interpretation — Country Risk Tier</h3><span>Updates automatically as you score</span></div>
+    <div class="cra-hdr"><h3>Interpretación del Puntaje &mdash; Nivel de Riesgo País</h3><span>Se actualiza automáticamente al puntuar</span></div>
     <div class="rm-grid">
       <div class="rm-card rm-green" id="tier1-card">
-        <div class="rm-range">140–175</div>
-        <div class="rm-title">Tier 1 — Favorable Market</div>
-        <div class="rm-desc">Strong enabling conditions across most dimensions. Proceed to vendor qualification and operational planning. Standard mitigation measures apply.</div>
+        <div class="rm-range">140&ndash;175</div>
+        <div class="rm-title">Nivel 1 &mdash; Mercado Favorable</div>
+        <div class="rm-desc">Condiciones favorables en la mayoría de las dimensiones. Proceda a la calificación de proveedores y planificación operativa. Se aplican medidas de mitigación estándar.</div>
       </div>
       <div class="rm-card rm-yellow" id="tier2-card">
-        <div class="rm-range">100–139</div>
-        <div class="rm-title">Tier 2 — Conditional Market</div>
-        <div class="rm-desc">Meaningful risks in one or more dimensions. Proceed with specific mitigation strategies. Enhanced ongoing monitoring required.</div>
+        <div class="rm-range">100&ndash;139</div>
+        <div class="rm-title">Nivel 2 &mdash; Mercado Condicional</div>
+        <div class="rm-desc">Riesgos significativos en una o más dimensiones. Proceda con estrategias específicas de mitigación. Se requiere monitoreo continuo mejorado.</div>
       </div>
       <div class="rm-card rm-red" id="tier3-card">
         <div class="rm-range">Below 100</div>
-        <div class="rm-title">Tier 3 — High-Risk Market</div>
-        <div class="rm-desc">Significant risk concentration. Do not commit capital or volume without executive review and multi-country optionality plan.</div>
+        <div class="rm-title">Nivel 3 &mdash; Mercado de Alto Riesgo</div>
+        <div class="rm-desc">Concentración de riesgo significativa. No comprometa capital o volumen sin revisión ejecutiva y plan de opcionalidad multipaís.</div>
       </div>
     </div>
   </div>
 
-  <!-- RECOMMENDATION & SIGN-OFF -->
   <div class="cra-block" style="margin-bottom:28px">
-    <div class="cra-hdr"><h3>Assessment Recommendation & Authorization</h3></div>
+    <div class="cra-hdr"><h3>Recomendación y Autorización de la Evaluación</h3></div>
     <div style="padding:20px 24px">
-      <p style="font-size:.72rem;font-weight:700;color:var(--mu);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Analyst Recommendation & Key Risk Notes</p>
-      <textarea class="notes-i" placeholder="Summarize key risk findings, mitigation recommendations, and overall market suitability..."></textarea>
+      <p style="font-size:.72rem;font-weight:700;color:var(--mu);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Recomendación del Analista y Notas Clave de Riesgo</p>
+      <textarea class="notes-i" placeholder="Resuma los hallazgos de riesgo clave, recomendaciones de mitigación y la idoneidad general del mercado..."></textarea>
     </div>
     <div style="border-top:2px solid var(--bdr)">
       <div class="sg-grid">
-        <div class="sgc"><div class="sgl">Assessed By — Name & Title</div><div class="sgline"></div><div class="sgsub">Signature &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ___________</div></div>
-        <div class="sgc"><div class="sgl">Reviewed By — Name & Title</div><div class="sgline"></div><div class="sgsub">Signature &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ___________</div></div>
+        <div class="sgc"><div class="sgl">Evaluado Por &mdash; Name &amp; Title</div><div class="sgline"></div><div class="sgsub">Signature &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ___________</div></div>
+        <div class="sgc"><div class="sgl">Revisado Por &mdash; Nombre y Título</div><div class="sgline"></div><div class="sgsub">Signature &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ___________</div></div>
       </div>
     </div>
   </div>
 
   <div class="sources">
-    <h4>Sources & Data References</h4>
+    <h4>Fuentes y Referencias de Datos</h4>
     <ul>
-      <li>Transparency International — Corruption Perceptions Index (2025) — <a href="https://www.transparency.org" target="_blank">transparency.org</a></li>
-      <li>World Bank — Logistics Performance Index & Doing Business (2024) — <a href="https://www.worldbank.org" target="_blank">worldbank.org</a></li>
-      <li>U.S. Trade Representative — Trade Agreement Tariff Schedules & Rules of Origin (2025) — <a href="https://ustr.gov" target="_blank">ustr.gov</a></li>
-      <li>Inter-American Development Bank — Latin America Competitiveness Report (2024) — <a href="https://www.iadb.org" target="_blank">iadb.org</a></li>
-      <li>WRAP — Certified Facility Registry by Country (2024) — <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
-      <li>U.S. State Department — Country Reports on Human Rights Practices (2025) — <a href="https://www.state.gov" target="_blank">state.gov</a></li>
+      <li>Transparency International &mdash; Corruption Perceptions Index (2025) &mdash; <a href="https://www.transparency.org" target="_blank">transparency.org</a></li>
+      <li>World Bank &mdash; Logistics Performance Index &amp; Doing Business (2024) &mdash; <a href="https://www.worldbank.org" target="_blank">worldbank.org</a></li>
+      <li>U.S. Trade Representative &mdash; Trade Agreement Tariff Schedules &amp; Rules of Origin (2025) &mdash; <a href="https://ustr.gov" target="_blank">ustr.gov</a></li>
+      <li>Inter-American Development Bank &mdash; Latin America Competitiveness Report (2024) &mdash; <a href="https://www.iadb.org" target="_blank">iadb.org</a></li>
+      <li>WRAP &mdash; Certified Facility Registry by Country (2024) &mdash; <a href="https://www.wrapcompliance.org" target="_blank">wrapcompliance.org</a></li>
+      <li>U.S. State Department &mdash; Country Reports on Human Rights Practices (2025) &mdash; <a href="https://www.state.gov" target="_blank">state.gov</a></li>
     </ul>
   </div>
+
   <div class="acta">
-    <h3>Need a Custom Country Risk Assessment?</h3>
-    <p>RC2 Consulting builds company-specific country risk analyses using primary market intelligence and sourcing data.</p>
-    <a href="https://rc2consulting.github.io/contact-es.html" class="btn-cta">Request a Custom Assessment →</a>
-    <button class="btn-print" onclick="window.print()">🖨 Imprimir / Guardar como PDF</button>
+    <h3>¿Necesita una Evaluación de Riesgo País Personalizada?</h3>
+    <p>RC2 Consulting elabora análisis de riesgo país específicos para empresas utilizando inteligencia de mercado primaria y datos de abastecimiento.</p>
+    <a href="https://rc2consulting.github.io/contact.html" class="btn-cta">Solicitar una Evaluación Personalizada &rarr;</a>
+    <button class="btn-print" onclick="window.print()">Imprimir / Guardar como PDF</button>
   </div>
 </div>
 
 <footer class="site-footer">
-  <div class="footer-tagline">Claridad Operacional. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-tagline">Claridad Operativa. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
   <div class="footer-links">
-    <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
-    <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
-    <a href="https://rc2consulting.github.io/who-we-help-es.html">A Quién Ayudamos</a>
-    <a href="https://rc2consulting.github.io/about-es.html">Nosotros</a>
-    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a>
-    <a href="https://rc2consulting.github.io/insights-es.html">Perspectivas</a>
-    <a href="https://rc2consulting.github.io/contact-es.html">Contacto</a>
+    <a href="https://rc2consulting.github.io/">Home</a>
+    <a href="https://rc2consulting.github.io/services.html">Services</a>
+    <a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a>
+    <a href="https://rc2consulting.github.io/about.html">About</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a>
+    <a href="https://rc2consulting.github.io/insights.html">Insights</a>
+    <a href="https://rc2consulting.github.io/contact.html">Contact</a>
   </div>
-  <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html">Términos de Servicio</a></div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy.html">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms.html">Términos de Servicio</a></div>
 </footer>
 
 <script>
-// Dimension config: [weight per factor]
-const DIMS = {
-  1:{factors:['s1_1','s1_2','s1_3','s1_4'], weights:[2,2,2,1], max:35},
-  2:{factors:['s2_1','s2_2','s2_3','s2_4'], weights:[3,2,2,2], max:45},
-  3:{factors:['s3_1','s3_2','s3_3','s3_4'], weights:[2,2,1,1], max:30},
-  4:{factors:['s4_1','s4_2','s4_3','s4_4'], weights:[2,2,2,1], max:35},
-  5:{factors:['s5_1','s5_2','s5_3','s5_4'], weights:[2,1,2,1], max:30}
+const DIMS={
+  1:{factors:['s1_1','s1_2','s1_3','s1_4'],weights:[2,2,2,1],max:35},
+  2:{factors:['s2_1','s2_2','s2_3','s2_4'],weights:[3,2,2,2],max:45},
+  3:{factors:['s3_1','s3_2','s3_3','s3_4'],weights:[2,2,1,1],max:30},
+  4:{factors:['s4_1','s4_2','s4_3','s4_4'],weights:[2,2,2,1],max:35},
+  5:{factors:['s5_1','s5_2','s5_3','s5_4'],weights:[2,1,2,1],max:30}
 };
 
 function clamp(v){return Math.min(5,Math.max(1,v));}
 
 function calc(){
-  let composite=0, allFilled=true;
+  let composite=0;
   for(let d=1;d<=5;d++){
     const dim=DIMS[d];
-    let sub=0, dimFilled=true;
+    let sub=0,dimFilled=true;
     dim.factors.forEach((id,i)=>{
       const el=document.getElementById(id);
       const raw=parseFloat(el.value);
@@ -519,34 +420,21 @@ function calc(){
         if(wout) wout.textContent=weighted;
       } else {
         dimFilled=false;
-        allFilled=false;
-        if(wout) wout.textContent='—';
+        if(wout) wout.textContent='\u2014';
       }
     });
-    // Subtotals
     const subEl=document.getElementById('sub'+d);
     const dpEl=document.getElementById('dp'+d);
     const dfEl=document.getElementById('df'+d);
     const dashEl=document.getElementById('d'+d+'-score');
     const barEl=document.getElementById('d'+d+'-bar');
-    if(dimFilled){
-      if(subEl) subEl.textContent=sub;
-      if(dpEl) dpEl.textContent=sub;
-      if(dfEl) dfEl.style.width=(sub/dim.max*100)+'%';
-      if(dashEl) dashEl.textContent=sub;
-      if(barEl) barEl.style.width=(sub/dim.max*100)+'%';
-      composite+=sub;
-    } else {
-      // Partial fill - show what we have
-      if(subEl) subEl.textContent=sub>0?sub+'*':'—';
-      if(dpEl) dpEl.textContent=sub>0?sub:'—';
-      if(dfEl) dfEl.style.width=(sub/dim.max*100)+'%';
-      if(dashEl) dashEl.textContent=sub>0?sub:'—';
-      if(barEl) barEl.style.width=(sub/dim.max*100)+'%';
-      composite+=sub;
-    }
+    if(subEl) subEl.textContent=sub>0?(dimFilled?sub:sub+'*'):'\u2014';
+    if(dpEl) dpEl.textContent=sub>0?sub:'\u2014';
+    if(dfEl) dfEl.style.width=(sub/dim.max*100)+'%';
+    if(dashEl) dashEl.textContent=sub>0?sub:'\u2014';
+    if(barEl) barEl.style.width=(sub/dim.max*100)+'%';
+    composite+=sub;
   }
-  // Composite
   const totEl=document.getElementById('tot-out');
   const compEl=document.getElementById('comp-score');
   if(composite>0){
@@ -565,15 +453,15 @@ function updateTier(score){
   badge.className='tier-badge';
   if(score>=140){
     badge.classList.add('tier1');
-    badge.innerHTML='<div class="tier-text">✅ Tier 1 — Favorable Market (Score: '+score+' / 175)</div><div class="tier-sub">Strong enabling conditions. Proceed to vendor qualification and operational planning.</div>';
+    badge.innerHTML='<div class="tier-text">\u2713 Nivel 1 \u2014 Mercado Favorable (Puntaje: '+score+' / 175)</div><div class="tier-sub">Condiciones favorables. Proceda a la calificación de proveedores y planificación operativa.</div>';
     t1.classList.add('active');
   } else if(score>=100){
     badge.classList.add('tier2');
-    badge.innerHTML='<div class="tier-text">⚠️ Tier 2 — Conditional Market (Score: '+score+' / 175)</div><div class="tier-sub">Meaningful risks present. Proceed with targeted mitigation strategies for low-scoring dimensions.</div>';
+    badge.innerHTML='<div class="tier-text">\u26A0 Nivel 2 \u2014 Mercado Condicional (Puntaje: '+score+' / 175)</div><div class="tier-sub">Riesgos significativos presentes. Proceda con estrategias de mitigación para dimensiones de puntaje bajo.</div>';
     t2.classList.add('active');
   } else {
     badge.classList.add('tier3');
-    badge.innerHTML='<div class="tier-text">🚫 Tier 3 — High-Risk Market (Score: '+score+' / 175)</div><div class="tier-sub">Significant risk concentration. Requires executive review before committing capital or volume.</div>';
+    badge.innerHTML='<div class="tier-text">\u26D4 Nivel 3 \u2014 Mercado de Alto Riesgo (Puntaje: '+score+' / 175)</div><div class="tier-sub">Concentración de riesgo significativa. Requiere revisión ejecutiva antes de comprometer capital o volumen.</div>';
     t3.classList.add('active');
   }
 }
@@ -581,39 +469,38 @@ function updateTier(score){
 function toggleRef(){
   const c=document.getElementById('ref-content');
   const l=document.getElementById('ref-toggle-label');
-  if(c.classList.contains('open')){c.classList.remove('open');l.textContent='Haga clic para expandir ▼';}
-  else{c.classList.add('open');l.textContent='Click to collapse ▲';}
+  if(c.classList.contains('open')){c.classList.remove('open');l.textContent='Haga clic para expandir \u25BC';}
+  else{c.classList.add('open');l.textContent='Haga clic para contraer \u25B2';}
 }
 
-// Auto-expand matrix on load
 window.onload=function(){
   document.getElementById('ref-content').classList.add('open');
-  document.getElementById('ref-toggle-label').textContent='Click to collapse ▲';
+  document.getElementById('ref-toggle-label').textContent='Haga clic para contraer \u25B2';
 };
 </script>
 
 <script>
-(function() {
-  var btn = document.getElementById('hamburger');
-  var nav = document.querySelector('.nav-links');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+(function(){
+  var btn=document.getElementById('hamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var isOpen=nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open',isOpen);
+    btn.setAttribute('aria-expanded',String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('mobile-open');
       btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded','false');
     }
   });
 })();
