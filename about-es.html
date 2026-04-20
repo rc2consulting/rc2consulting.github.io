@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -130,11 +130,9 @@
        Applied 2026-02-28 — all core pages
     ════════════════════════════════════════ */
 
-    /* Prevent ANY horizontal overflow site-wide */
     html, body { overflow-x: hidden; max-width: 100%; }
     *, *::before, *::after { box-sizing: border-box; }
 
-    /* ── Hamburger button (hidden on desktop) ── */
     .hamburger {
       display: none;
       background: none; border: none; cursor: pointer;
@@ -150,9 +148,7 @@
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ── Tablet breakpoint: 900px ── */
     @media (max-width: 900px) {
-      /* Sections lose the heavy side padding */
       section, .hero, .services-strip, .cta-strip, .clients-gain,
       .page-hero, .article-section, .section-pad,
       .resources-section, .rc-section, .wrap {
@@ -161,9 +157,7 @@
       }
     }
 
-    /* ── Mobile breakpoint: 640px ── */
     @media (max-width: 640px) {
-      /* NAV — collapse to hamburger */
       .topnav { padding: 0 16px !important; position: relative; }
       .hamburger { display: flex !important; }
 
@@ -192,7 +186,6 @@
       .nav-links a:last-child { border-bottom: none; }
       .lang-toggle { padding: 10px 20px 4px; }
 
-      /* Prevent overflow on ALL containers */
       .hero-inner, .strip-inner, .cta-inner, .page-inner,
       .article-wrap, .services-grid, .rc-grid, .team-grid,
       .wrap-inner, .resources-grid {
@@ -201,7 +194,6 @@
         overflow-x: hidden !important;
       }
 
-      /* Typography scaling */
       h1, .hero-left h1, .page-hero h1 {
         font-size: clamp(1.5rem, 6vw, 2rem) !important;
         line-height: 1.25 !important;
@@ -209,7 +201,6 @@
       h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }
       h3 { font-size: clamp(0.95rem, 4vw, 1.1rem) !important; }
 
-      /* Section padding */
       section, .hero, .services-strip, .cta-strip,
       .clients-gain, .page-hero, .wrap {
         padding-left: 16px !important;
@@ -218,69 +209,47 @@
         padding-bottom: 40px !important;
       }
 
-      /* Hero adjustments */
-      .hero-inner {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-      }
+      .hero-inner { grid-template-columns: 1fr !important; gap: 24px !important; }
       .hero-card { display: none !important; }
       .hero-left p { font-size: 0.93rem !important; }
 
-      /* Grids → single column */
       .services-grid, .gains-grid, .cta-inner,
       .team-grid, .rc-grid, .resources-grid,
       .agreement-grid, .action-grid, .stat-grid,
-      .horizon-row, .ca-grid, .ca-statgrid,
-      .aapn-box {
+      .horizon-row, .ca-grid, .ca-statgrid, .aapn-box {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
       }
 
-      /* Service cols stack, lose side border */
-      .service-col {
-        border-right: none !important;
-        border-bottom: 1px solid var(--border) !important;
-      }
+      .service-col { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
       .service-col:last-child { border-bottom: none !important; }
 
-      /* Buttons full-width on mobile */
       .btn-cta-large, .btn-primary, .cta-btn {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding: 14px 20px !important;
+        display: block !important; width: 100% !important;
+        text-align: center !important; padding: 14px 20px !important;
       }
 
-      /* Tables — allow horizontal scroll within container only */
       table, .tariff-table, .table-wrap {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        max-width: 100%;
+        display: block; overflow-x: auto;
+        -webkit-overflow-scrolling: touch; max-width: 100%;
       }
 
-      /* Articles */
       .abstract-box, .callout, .horizon-box,
       .map-section, .chart-section, .agreement-card,
-      .country-accordion, .aapn-box {
-        padding: 18px 16px !important;
-      }
+      .country-accordion, .aapn-box { padding: 18px 16px !important; }
       .map-grid { grid-template-columns: 1fr !important; }
       .bar-label { width: 110px !important; font-size: 0.7rem !important; }
       .bar-val { font-size: 0.65rem !important; }
 
-      /* Footer */
       .footer-links { gap: 12px !important; }
       .footer-links a { font-size: 0.78rem; }
     }
 
-    /* ── Very small phones: 380px ── */
     @media (max-width: 380px) {
       .topnav { padding: 0 12px !important; }
       h1, .hero-left h1 { font-size: 1.45rem !important; }
       section, .hero, .services-strip, .cta-strip {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
+        padding-left: 12px !important; padding-right: 12px !important;
       }
       .nav-logo-mark { font-size: 1rem !important; }
       .nav-brand-name { font-size: 0.68rem !important; }
@@ -328,12 +297,10 @@
   <div class="about-block">
     <h3>Nuestra Misión</h3>
     <p>Alinear los objetivos de crecimiento con la claridad operativa y la integridad del cumplimiento mediante una implementación disciplinada y una rendición de cuentas medible.</p>
-    <p style="margin-top:10px;"><strong style="color:var(--navy);">No entregamos teoría. Construimos sistemas prácticos que las organizaciones pueden ejecutar.</strong></p>
   </div>
   <div class="about-block">
     <h3>Nuestro Enfoque</h3>
-    <p>RC2 utiliza herramientas estructuradas de preparación y evaluaciones operativas para ayudar a las organizaciones a prepararse para entornos de auditoría, certificación y revisión de desempeño.</p>
-    <p style="margin-top:10px;">Identificamos brechas en la documentación, fortalecemos la infraestructura de cumplimiento, implementamos sistemas basados en SOPs y alineamos a los equipos de liderazgo en torno a estándares de ejecución medibles. Nuestro enfoque garantiza que las organizaciones no solo estén preparadas para la revisión, sino estructuradas para un desempeño operativo sostenido.</p>
+    <p><strong style="color:var(--navy);">No entregamos teoría. Construimos sistemas prácticos que las organizaciones pueden ejecutar.</strong></p>
   </div>
 </div></div>
 
