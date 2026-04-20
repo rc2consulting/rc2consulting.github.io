@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -100,7 +100,7 @@
     }
     .btn-get-started:hover { background: #153D6F; transform: translateY(-1px); }
 
-    /* ── SERVICES STRIP ── */
+    /* ── TRUST STRIP ── */
     .trust-strip { background: var(--navy); padding: 28px 40px; }
     .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
     .trust-item { text-align: center; flex: 1; min-width: 140px; }
@@ -130,33 +130,19 @@
     .service-col ul li::before { content: '→'; color: var(--blue); flex-shrink: 0; }
 
     /* ── WHAT CLIENTS GAIN ── */
-    .clients-gain {
-      background: var(--navy);
-      padding: 72px 40px; text-align: center;
-    }
-    .clients-gain h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem; color: white; margin-bottom: 40px;
-    }
-    .gains-grid {
-      max-width: 800px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
-    }
+    .clients-gain { background: var(--navy); padding: 72px 40px; text-align: center; }
+    .clients-gain h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: white; margin-bottom: 40px; }
+    .gains-grid { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .gain-item {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 8px; padding: 18px 22px;
-      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px; padding: 18px 22px; display: flex; align-items: center; gap: 12px;
     }
     .gain-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; }
     .gain-text { font-size: 0.9rem; color: rgba(255,255,255,0.9); font-weight: 600; text-align: left; }
 
     /* ── CTA STRIP ── */
     .cta-strip { background: var(--light-bg); padding: 56px 40px; }
-    .cta-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-    }
+    .cta-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     .cta-left h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 10px; }
     .cta-left p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
     .cta-right { text-align: center; }
@@ -194,32 +180,25 @@
 
     .btn-espanol {
       display:inline-flex;align-items:center;gap:8px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.3);
-      color:rgba(255,255,255,.9);
-      font-weight:700;font-size:.82rem;
-      padding:10px 20px;border-radius:7px;
-      text-decoration:none;margin-top:12px;
-      transition:all .2s;width:100%;justify-content:center;
-      letter-spacing:.3px;
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.3);
+      color:rgba(255,255,255,.9); font-weight:700;font-size:.82rem;
+      padding:10px 20px;border-radius:7px; text-decoration:none;margin-top:12px;
+      transition:all .2s;width:100%;justify-content:center; letter-spacing:.3px;
     }
     .btn-espanol:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5);color:#fff}
     .btn-espanol .es-flag{font-size:1rem}
-  
+
     .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
     .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
     .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
     .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
     .lang-btn.active{background:#C8922A;color:#0B2545}
-  
-    /* ── EXPANDABLE BULLETS (home service cards) ── */
+
+    /* ── EXPANDABLE BULLETS ── */
     .service-col ul li { display:block; padding:0; border-bottom:1px solid var(--border); }
     .service-col ul li:last-child { border-bottom:none; }
     .service-col ul li::before { display:none; }
-    .svc-bullet {
-      display:flex; align-items:center; gap:8px; padding:7px 0;
-      cursor:pointer; user-select:none;
-    }
+    .svc-bullet { display:flex; align-items:center; gap:8px; padding:7px 0; cursor:pointer; user-select:none; }
     .svc-bullet .arrow { color:var(--blue); flex-shrink:0; font-size:0.85rem; }
     .svc-bullet .bullet-label { font-size:0.84rem; color:var(--text-muted); flex:1; line-height:1.4; transition:color .2s; }
     .svc-bullet:hover .bullet-label { color:var(--navy); }
@@ -233,163 +212,60 @@
       border-left:3px solid var(--light-blue); margin:0 0 4px; }
     .svc-desc.open { display:block; }
 
-    /* ════════════════════════════════════════
-       RC2 GLOBAL MOBILE OPTIMIZATION
-       Applied 2026-02-28 — all core pages
-    ════════════════════════════════════════ */
-
-    /* Prevent ANY horizontal overflow site-wide */
     html, body { overflow-x: hidden; max-width: 100%; }
-    *, *::before, *::after { box-sizing: border-box; }
-
-    /* ── Hamburger button (hidden on desktop) ── */
     .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 6px; margin-left: auto; z-index: 300;
     }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: rgba(255,255,255,0.9); border-radius: 2px; transition: all .28s ease; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ── Tablet breakpoint: 900px ── */
     @media (max-width: 900px) {
-      /* Sections lose the heavy side padding */
       section, .hero, .trust-strip, .services-strip, .cta-strip, .clients-gain,
-      .page-hero, .article-section, .section-pad,
-      .resources-section, .rc-section, .wrap {
-        padding-left: 24px !important;
-        padding-right: 24px !important;
+      .page-hero, .article-section, .section-pad, .resources-section, .rc-section, .wrap {
+        padding-left: 24px !important; padding-right: 24px !important;
       }
     }
-
-    /* ── Mobile breakpoint: 640px ── */
     @media (max-width: 640px) {
-      /* NAV — collapse to hamburger */
       .topnav { padding: 0 16px !important; position: relative; }
       .hamburger { display: flex !important; }
-
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
+        display: none; position: absolute; top: 52px; left: 0; right: 0;
+        background: #0B2545; flex-direction: column !important; padding: 8px 0 16px;
+        border-top: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        z-index: 200; gap: 0 !important;
       }
       .nav-links.mobile-open { display: flex !important; }
       .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
+      .nav-links a { display: block; width: 100%; padding: 12px 20px !important; font-size: 0.92rem !important; border-bottom: 1px solid rgba(255,255,255,0.07); border-radius: 0 !important; height: auto !important; }
       .nav-links a:last-child { border-bottom: none; }
       .lang-toggle { padding: 10px 20px 4px; }
-
-      /* Prevent overflow on ALL containers */
-      .hero-inner, .strip-inner, .cta-inner, .page-inner,
-      .article-wrap, .services-grid, .rc-grid, .team-grid,
-      .wrap-inner, .resources-grid {
-        max-width: 100% !important;
-        width: 100% !important;
-        overflow-x: hidden !important;
-      }
-
-      /* Typography scaling */
-      h1, .hero-left h1, .page-hero h1 {
-        font-size: clamp(1.5rem, 6vw, 2rem) !important;
-        line-height: 1.25 !important;
-      }
+      .hero-inner, .strip-inner, .cta-inner, .page-inner, .article-wrap, .services-grid, .rc-grid, .team-grid, .wrap-inner, .resources-grid { max-width: 100% !important; width: 100% !important; overflow-x: hidden !important; }
+      h1, .hero-left h1, .page-hero h1 { font-size: clamp(1.5rem, 6vw, 2rem) !important; line-height: 1.25 !important; }
       h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }
       h3 { font-size: clamp(0.95rem, 4vw, 1.1rem) !important; }
-
-      /* Section padding */
-      section, .hero, .services-strip, .cta-strip,
-      .clients-gain, .page-hero, .wrap {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
-      }
-
-      /* Hero adjustments */
-      .hero-inner {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-      }
+      section, .hero, .services-strip, .cta-strip, .clients-gain, .page-hero, .wrap { padding-left: 16px !important; padding-right: 16px !important; padding-top: 40px !important; padding-bottom: 40px !important; }
+      .hero-inner { grid-template-columns: 1fr !important; gap: 24px !important; }
       .hero-card { display: none !important; }
       .hero-left p { font-size: 0.93rem !important; }
-
-      /* Grids → single column */
-      .services-grid, .gains-grid, .cta-inner,
-      .team-grid, .rc-grid, .resources-grid,
-      .agreement-grid, .action-grid, .stat-grid,
-      .horizon-row, .ca-grid, .ca-statgrid,
-      .aapn-box {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-      }
-
-      /* Service cols stack, lose side border */
-      .service-col {
-        border-right: none !important;
-        border-bottom: 1px solid var(--border) !important;
-      }
+      .services-grid, .gains-grid, .cta-inner, .team-grid, .rc-grid, .resources-grid, .agreement-grid, .action-grid, .stat-grid, .horizon-row, .ca-grid, .ca-statgrid, .aapn-box { grid-template-columns: 1fr !important; gap: 16px !important; }
+      .service-col { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
       .service-col:last-child { border-bottom: none !important; }
-
-      /* Buttons full-width on mobile */
-      .btn-cta-large, .btn-primary, .cta-btn {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding: 14px 20px !important;
-      }
-
-      /* Tables — allow horizontal scroll within container only */
-      table, .tariff-table, .table-wrap {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        max-width: 100%;
-      }
-
-      /* Articles */
-      .abstract-box, .callout, .horizon-box,
-      .map-section, .chart-section, .agreement-card,
-      .country-accordion, .aapn-box {
-        padding: 18px 16px !important;
-      }
+      .btn-cta-large, .btn-primary, .cta-btn { display: block !important; width: 100% !important; text-align: center !important; padding: 14px 20px !important; }
+      table, .tariff-table, .table-wrap { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      .abstract-box, .callout, .horizon-box, .map-section, .chart-section, .agreement-card, .country-accordion, .aapn-box { padding: 18px 16px !important; }
       .map-grid { grid-template-columns: 1fr !important; }
       .bar-label { width: 110px !important; font-size: 0.7rem !important; }
       .bar-val { font-size: 0.65rem !important; }
-
-      /* Footer */
       .footer-links { gap: 12px !important; }
       .footer-links a { font-size: 0.78rem; }
     }
-
-    /* ── Very small phones: 380px ── */
     @media (max-width: 380px) {
       .topnav { padding: 0 12px !important; }
       h1, .hero-left h1 { font-size: 1.45rem !important; }
-      section, .hero, .services-strip, .cta-strip {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-      }
+      section, .hero, .services-strip, .cta-strip { padding-left: 12px !important; padding-right: 12px !important; }
       .nav-logo-mark { font-size: 1rem !important; }
       .nav-brand-name { font-size: 0.68rem !important; }
     }
@@ -397,7 +273,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="topnav">
   <a href="https://rc2consulting.github.io/" class="nav-brand">
     <div class="nav-logo-mark">RC<sup>2</sup></div>
@@ -409,9 +284,9 @@
     <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
     <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
     <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a></li>
-         <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
+    <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
     <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
-      <li>
+    <li>
       <div class="lang-toggle">
         <a href="https://rc2consulting.github.io/index.html" class="lang-btn active">EN</a>
         <a href="https://rc2consulting.github.io/index-es.html" class="lang-btn inactive">ES</a>
@@ -423,7 +298,6 @@
   </button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
@@ -440,12 +314,20 @@
   </div>
 </section>
 
-<!-- TRUST SIGNALS -->
+<!-- TRUST SIGNALS — CHANGE 1: Removed WRAP, moved EN|ES to pos 2, added SOP pos 3, AAPN+SPESA far right -->
 <section class="trust-strip">
   <div class="trust-inner">
     <div class="trust-item">
       <div class="trust-badge">60+</div>
       <div class="trust-label">Years Combined<br>Experience</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-badge">EN | ES</div>
+      <div class="trust-label">Bilingual<br>Service Delivery</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-badge">SOP</div>
+      <div class="trust-label">Systems &amp;<br>Procedures</div>
     </div>
     <div class="trust-item">
       <div class="trust-badge">AAPN</div>
@@ -455,21 +337,34 @@
       <div class="trust-badge">SPESA</div>
       <div class="trust-label">Board Member<br><span class="trust-sub">2023–Present</span></div>
     </div>
-    <div class="trust-item">
-      <div class="trust-badge">EN | ES</div>
-      <div class="trust-label">Bilingual<br>Service Delivery</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-badge">WRAP</div>
-      <div class="trust-label">2026 Audit<br>Expertise</div>
-    </div>
   </div>
 </section>
 
-<!-- SERVICES STRIP -->
+<!-- SERVICES STRIP — CHANGE 2: Sales & Growth moved to far left -->
 <section class="services-strip">
   <div class="strip-inner">
     <div class="services-grid">
+      <div class="service-col">
+        <h3>Sales &amp; Growth Enablement</h3>
+        <ul>
+          <li>
+            <div class="svc-bullet" onclick="toggleDesc(this)"><span class="arrow">→</span><span class="bullet-label">New Business Development</span><span class="expand-icon">+</span></div>
+            <div class="svc-desc">We identify and pursue your highest-value growth opportunities — from target market definition and prospect research to outreach strategy and first-meeting preparation. We build the front end of your revenue engine so your team spends time on qualified conversations, not cold searches.</div>
+          </li>
+          <li>
+            <div class="svc-bullet" onclick="toggleDesc(this)"><span class="arrow">→</span><span class="bullet-label">Performance Optimization</span><span class="expand-icon">+</span></div>
+            <div class="svc-desc">We analyze your existing sales team's activity, conversion rates, and deal velocity to find where revenue is being lost. Then we build the coaching frameworks, KPI dashboards, and accountability structures that turn average performers into consistent producers.</div>
+          </li>
+          <li>
+            <div class="svc-bullet" onclick="toggleDesc(this)"><span class="arrow">→</span><span class="bullet-label">Pipeline Development</span><span class="expand-icon">+</span></div>
+            <div class="svc-desc">We design and implement a structured, repeatable pipeline process — from lead generation through close — so your revenue flow is predictable and measurable. A healthy pipeline is not an accident; it is a system, and we build it with the right stages, tools, and follow-through discipline.</div>
+          </li>
+          <li>
+            <div class="svc-bullet" onclick="toggleDesc(this)"><span class="arrow">→</span><span class="bullet-label">Sales Messaging</span><span class="expand-icon">+</span></div>
+            <div class="svc-desc">We craft the language your sales team uses to open doors, handle objections, and close deals — tailored to your specific buyer, industry, and competitive landscape. The right message delivered at the right moment is the difference between a prospect who engages and one who goes silent.</div>
+          </li>
+        </ul>
+      </div>
       <div class="service-col">
         <h3>Operations &amp; Execution</h3>
         <ul>
@@ -504,35 +399,18 @@
           </li>
         </ul>
       </div>
-      <div class="service-col">
-        <h3>Sales &amp; Growth Enablement</h3>
-        <ul>
-          <li>
-            <div class="svc-bullet" onclick="toggleDesc(this)"><span class="arrow">→</span><span class="bullet-label">New Business Development</span><span class="expand-icon">+</span></div>
-            <div class="svc-desc">We identify and pursue your highest-value growth opportunities — from target market definition and prospect research to outreach strategy and first-meeting preparation. We build the front end of your revenue engine so your team spends time on qualified conversations, not cold searches.</div>
-          </li>
-          <li>
-            <div class="svc-bullet" onclick="toggleDesc(this)"><span class="arrow">→</span><span class="bullet-label">Performance Optimization</span><span class="expand-icon">+</span></div>
-            <div class="svc-desc">We analyze your existing sales team's activity, conversion rates, and deal velocity to find where revenue is being lost. Then we build the coaching frameworks, KPI dashboards, and accountability structures that turn average performers into consistent producers.</div>
-          </li>
-          <li>
-            <div class="svc-bullet" onclick="toggleDesc(this)"><span class="arrow">→</span><span class="bullet-label">Pipeline Development</span><span class="expand-icon">+</span></div>
-            <div class="svc-desc">We design and implement a structured, repeatable pipeline process — from lead generation through close — so your revenue flow is predictable and measurable. A healthy pipeline is not an accident; it is a system, and we build it with the right stages, tools, and follow-through discipline.</div>
-          </li>
-          <li>
-            <div class="svc-bullet" onclick="toggleDesc(this)"><span class="arrow">→</span><span class="bullet-label">Sales Messaging</span><span class="expand-icon">+</span></div>
-            <div class="svc-desc">We craft the language your sales team uses to open doors, handle objections, and close deals — tailored to your specific buyer, industry, and competitive landscape. The right message delivered at the right moment is the difference between a prospect who engages and one who goes silent.</div>
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- WHAT CLIENTS GAIN -->
+<!-- WHAT CLIENTS GAIN — CHANGE 3: Revenue growth systems moved to top-left, "Clear" removed -->
 <section class="clients-gain">
   <h2>What Clients Gain</h2>
   <div class="gains-grid">
+    <div class="gain-item">
+      <span class="gain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+      <span class="gain-text">Revenue growth systems</span>
+    </div>
     <div class="gain-item">
       <span class="gain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></span>
       <span class="gain-text">Structured execution plans</span>
@@ -550,17 +428,12 @@
       <span class="gain-text">Repeatable internal processes</span>
     </div>
     <div class="gain-item">
-      <span class="gain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
-      <span class="gain-text">Clear revenue growth systems</span>
-    </div>
-    <div class="gain-item">
       <span class="gain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
       <span class="gain-text">Strengthened compliance posture</span>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-strip">
   <div class="cta-inner">
     <div class="cta-left">
@@ -573,7 +446,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-tagline">Operational Clarity. Compliance Confidence. Systems That Scale.</div>
   <div class="footer-links">
@@ -588,7 +460,6 @@
   <div class="footer-copy">© 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms.html">Terms of Service</a></div>
 </footer>
 
-
 <script>
 function toggleDesc(btn) {
   const desc = btn.nextElementSibling;
@@ -597,7 +468,6 @@ function toggleDesc(btn) {
   desc.classList.toggle('open', !isOpen);
 }
 </script>
-
 <script>
 (function() {
   var btn = document.getElementById('hamburger');
@@ -608,7 +478,6 @@ function toggleDesc(btn) {
     btn.classList.toggle('open', isOpen);
     btn.setAttribute('aria-expanded', isOpen);
   });
-  // Close menu on link click
   nav.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() {
       nav.classList.remove('mobile-open');
@@ -616,7 +485,6 @@ function toggleDesc(btn) {
       btn.setAttribute('aria-expanded', false);
     });
   });
-  // Close on outside click
   document.addEventListener('click', function(e) {
     if (!btn.contains(e.target) && !nav.contains(e.target)) {
       nav.classList.remove('mobile-open');
@@ -626,6 +494,5 @@ function toggleDesc(btn) {
   });
 })();
 </script>
-
 </body>
 </html>
