@@ -30,36 +30,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy: #0B1E3D;
-      --navy-mid: #0D2347;
-      --gold: #C9A84C;
-      --gold-light: #E8C96A;
-      --white: #ffffff;
-      --off-white: #F7F6F2;
-      --text-dark: #1a1a2e;
-      --text-mid: #3d3d5c;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --card-bg: #ffffff;
-      --tag-trade: #0D2347;
-      --tag-ops: #1a3d2b;
-      --tag-gov: #2d1b4e;
-      --tag-growth: #3d1a1a;
-      --tag-perf: #1a2d3d;
-      --tag-industry: #2d2d0d;
-    }
-
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      color: var(--text-dark);
-      background: var(--off-white);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    /* ── NAV ── */
+    :root { --navy: #0B1E3D; --navy-mid: #0D2347; --gold: #C9A84C; --gold-light: #E8C96A; --white: #ffffff; --off-white: #F7F6F2; --text-dark: #1a1a2e; --text-mid: #3d3d5c; --text-muted: #6b7280; --border: #e5e7eb; --card-bg: #ffffff; --tag-trade: #0D2347; --tag-ops: #1a3d2b; --tag-gov: #2d1b4e; --tag-growth: #3d1a1a; --tag-perf: #1a2d3d; --tag-industry: #2d2d0d; }
+    body { font-family: 'Source Sans 3', sans-serif; color: var(--text-dark); background: var(--off-white); font-size: 16px; line-height: 1.6; }
     .topnav { background:var(--navy); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
     .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
     .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
@@ -85,413 +57,77 @@
     .site-footer .footer-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; transition:color 0.2s; }
     .site-footer .footer-links a:hover { color:white; }
     .site-footer .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
-
-
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(to bottom, rgba(11,30,61,0.82) 0%, rgba(11,30,61,0.65) 100%), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center / cover no-repeat;
-      padding: 4rem 2rem 3.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 79px,
-        rgba(201,168,76,0.04) 79px,
-        rgba(201,168,76,0.04) 80px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 79px,
-        rgba(201,168,76,0.04) 79px,
-        rgba(201,168,76,0.04) 80px
-      );
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      color: rgba(255,255,255,0.7);
-      font-size: 1.05rem;
-      max-width: 580px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-    .hero-divider {
-      width: 60px;
-      height: 2px;
-      background: var(--gold);
-      margin: 0 auto;
-    }
-
-    /* ── FILTER BAR ── */
-    .filter-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      position: sticky;
-      top: 68px;
-      z-index: 90;
-    }
-    .filter-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-btn:hover { border-color: var(--navy); color: var(--navy); }
-    .filter-btn.active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: var(--white);
-    }
-
-    /* ── MAIN LAYOUT ── */
-    .page-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem 5rem;
-    }
-
-    .section-header {
-      margin-bottom: 2rem;
-    }
-    .section-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.25rem;
-    }
-    .section-header p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-    .section-divider {
-      width: 40px;
-      height: 2px;
-      background: var(--gold);
-      margin: 0.75rem 0 0;
-    }
-
-    /* ── FEATURED ARTICLE ── */
-    .featured-article {
-      background: var(--navy);
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 320px;
-    }
-    .featured-content {
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .featured-tag {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.75rem;
-      border-radius: 100px;
-      margin-bottom: 1.25rem;
-      width: fit-content;
-    }
-    .featured-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.3;
-      margin-bottom: 1rem;
-    }
-    .featured-content p {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    .featured-visual {
-      background: linear-gradient(135deg, #0D2347, #071529);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .featured-visual::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 20px,
-        rgba(201,168,76,0.05) 20px,
-        rgba(201,168,76,0.05) 21px
-      );
-    }
-    .featured-visual-text {
-      position: relative;
-      font-family: 'Playfair Display', serif;
-      font-size: 6rem;
-      font-weight: 700;
-      color: rgba(201,168,76,0.12);
-      line-height: 1;
-      text-align: center;
-    }
-
-    /* ── ARTICLE GRID ── */
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .article-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.75rem;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    }
-    .article-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(13,35,71,0.1);
-      border-color: rgba(13,35,71,0.2);
-    }
-    .card-tag {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.65rem;
-      border-radius: 100px;
-      margin-bottom: 1rem;
-      width: fit-content;
-    }
-    .tag-trade { background: #E8F0FB; color: #0D2347; }
-    .tag-industry { background: #FDF6E3; color: #7a5c00; }
-    .tag-operations { background: #E8F5EE; color: #1a5c3a; }
-    .tag-govcon { background: #F0EBF8; color: #4a1d8a; }
-    .tag-growth { background: #FEF0F0; color: #8a1d1d; }
-    .tag-performance { background: #E8F3F8; color: #0d4a6b; }
-
-    .article-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.35;
-      margin-bottom: 0.75rem;
-    }
-    .article-card p {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      line-height: 1.6;
-      flex: 1;
-      margin-bottom: 1.25rem;
-    }
-    .card-read-link {
-      color: var(--navy);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: gap 0.2s;
-    }
-    .article-card:hover .card-read-link { gap: 0.65rem; }
-    .card-read-link::after { content: '›'; font-size: 1.1rem; }
-
-    /* ── CTA SECTION ── */
-    .cta-section {
-      background: var(--navy);
-      border-radius: 12px;
-      padding: 3rem;
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .cta-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
-    .cta-section p {
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 1.75rem;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.875rem 2rem;
-      border-radius: 6px;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.6);
-      padding: 2.5rem 2rem;
-      text-align: center;
-    }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
-    .footer-logo span { color: var(--gold); }
-    .footer-tagline {
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 1.25rem;
-    }
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      list-style: none;
-      margin-bottom: 1.5rem;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-copy {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.3);
-    }
+    .hero { background: linear-gradient(to bottom, rgba(11,30,61,0.82) 0%, rgba(11,30,61,0.65) 100%), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat; padding:4rem 2rem 3.5rem; text-align:center; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(201,168,76,0.04) 79px,rgba(201,168,76,0.04) 80px),repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(201,168,76,0.04) 79px,rgba(201,168,76,0.04) 80px); }
+    .hero-content { position:relative; z-index:1; max-width:720px; margin:0 auto; }
+    .hero-eyebrow { font-size:0.75rem; font-weight:600; letter-spacing:0.2em; color:var(--gold); text-transform:uppercase; margin-bottom:1rem; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,2.75rem); font-weight:700; color:var(--white); line-height:1.2; margin-bottom:1rem; }
+    .hero p { color:rgba(255,255,255,0.7); font-size:1.05rem; max-width:580px; margin:0 auto 2rem; line-height:1.7; }
+    .hero-divider { width:60px; height:2px; background:var(--gold); margin:0 auto; }
+    .filter-bar { background:var(--white); border-bottom:1px solid var(--border); padding:1rem 2rem; display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; position:sticky; top:68px; z-index:90; }
+    .filter-btn { background:none; border:1px solid var(--border); color:var(--text-muted); font-family:'Source Sans 3',sans-serif; font-size:0.8rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; padding:0.4rem 1rem; border-radius:100px; cursor:pointer; transition:all 0.2s; }
+    .filter-btn:hover { border-color:var(--navy); color:var(--navy); }
+    .filter-btn.active { background:var(--navy); border-color:var(--navy); color:var(--white); }
+    .page-content { max-width:1200px; margin:0 auto; padding:3rem 2rem 5rem; }
+    .section-header { margin-bottom:2rem; }
+    .section-header h2 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--navy); margin-bottom:0.25rem; }
+    .section-header p { color:var(--text-muted); font-size:0.95rem; }
+    .section-divider { width:40px; height:2px; background:var(--gold); margin:0.75rem 0 0; }
+    .featured-article { background:var(--navy); border-radius:12px; overflow:hidden; margin-bottom:3rem; display:grid; grid-template-columns:1fr 1fr; min-height:320px; }
+    .featured-content { padding:3rem; display:flex; flex-direction:column; justify-content:center; }
+    .featured-tag { display:inline-block; background:var(--gold); color:var(--navy); font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:100px; margin-bottom:1.25rem; width:fit-content; }
+    .featured-content h2 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--white); line-height:1.3; margin-bottom:1rem; }
+    .featured-content p { color:rgba(255,255,255,0.7); font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem; }
+    .featured-visual { background:linear-gradient(135deg,#0D2347,#071529); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .featured-visual::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(201,168,76,0.05) 20px,rgba(201,168,76,0.05) 21px); }
+    .featured-visual-text { position:relative; font-family:'Playfair Display',serif; font-size:6rem; font-weight:700; color:rgba(201,168,76,0.12); line-height:1; text-align:center; }
+    .articles-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:1.5rem; margin-bottom:3.5rem; }
+    .article-card { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:1.75rem; text-decoration:none; display:flex; flex-direction:column; transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s; }
+    .article-card:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(13,35,71,0.1); border-color:rgba(13,35,71,0.2); }
+    .card-tag { display:inline-block; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.25rem 0.65rem; border-radius:100px; margin-bottom:1rem; width:fit-content; }
+    .tag-trade { background:#E8F0FB; color:#0D2347; }
+    .tag-industry { background:#FDF6E3; color:#7a5c00; }
+    .tag-operations { background:#E8F5EE; color:#1a5c3a; }
+    .tag-govcon { background:#F0EBF8; color:#4a1d8a; }
+    .tag-growth { background:#FEF0F0; color:#8a1d1d; }
+    .tag-performance { background:#E8F3F8; color:#0d4a6b; }
+    .article-card h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--navy); line-height:1.35; margin-bottom:0.75rem; }
+    .article-card p { color:var(--text-muted); font-size:0.875rem; line-height:1.6; flex:1; margin-bottom:1.25rem; }
+    .card-read-link { color:var(--navy); font-size:0.85rem; font-weight:600; letter-spacing:0.03em; display:flex; align-items:center; gap:0.4rem; transition:gap 0.2s; }
+    .article-card:hover .card-read-link { gap:0.65rem; }
+    .card-read-link::after { content:'›'; font-size:1.1rem; }
+    .cta-section { background:var(--navy); border-radius:12px; padding:3rem; text-align:center; margin-top:1rem; }
+    .cta-section h2 { font-family:'Playfair Display',serif; font-size:1.75rem; color:var(--white); margin-bottom:0.75rem; }
+    .cta-section p { color:rgba(255,255,255,0.7); margin-bottom:1.75rem; max-width:520px; margin-left:auto; margin-right:auto; }
+    .cta-btn { display:inline-block; background:var(--gold); color:var(--navy); font-weight:700; font-size:0.9rem; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none; padding:0.875rem 2rem; border-radius:6px; transition:background 0.2s,transform 0.2s; }
+    .cta-btn:hover { background:var(--gold-light); transform:translateY(-1px); }
+    footer { background:var(--navy); color:rgba(255,255,255,0.6); padding:2.5rem 2rem; text-align:center; }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--white); margin-bottom:1rem; }
+    .footer-logo span { color:var(--gold); }
+    .footer-tagline { font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:1.25rem; }
+    .footer-links { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; list-style:none; margin-bottom:1.5rem; }
+    .footer-links a { color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.85rem; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--gold); }
+    .footer-copy { font-size:0.78rem; color:rgba(255,255,255,0.3); }
     .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
     .footer-copy a:hover { color:rgba(255,255,255,0.9); }
-
-    @media (max-width: 900px) {
-      .topnav { padding:0 16px; }
-      .nav-links a { padding:5px 8px; font-size:0.78rem; }
-    }
-    @media (max-width: 768px) {
-      .featured-article { grid-template-columns: 1fr; }
-      .featured-visual { display: none; }
-      .articles-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-      .nav-links {
-        display: none; position: absolute; top: 52px; left: 0; right: 0;
-        background: #0B2545; flex-direction: column !important;
-        padding: 8px 0 16px; border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35); z-index: 200; gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%; padding: 12px 20px !important;
-        font-size: 0.92rem !important; border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important; height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-    }
-    @media (max-width: 380px) {
-      .topnav { padding: 0 12px !important; }
-      .nav-logo-mark { font-size: 1rem !important; }
-      .nav-brand-name { font-size: 0.68rem !important; }
-    }
-  
-    /* CTA STRIP - matches homepage Gold Standard */
-    .cta-strip { background: var(--light-bg); padding: 56px 40px; }
-    .cta-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-    }
-    .cta-left h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 10px; }
-    .cta-left p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
-    .cta-right { text-align: center; }
-    .btn-cta-large {
-      display: inline-block; background: #1A4A8A; color: white;
-      font-weight: 700; font-size: 1rem; padding: 16px 36px;
-      border-radius: 7px; text-decoration: none; transition: all 0.2s;
-    }
-    .btn-cta-large:hover { background: #153D6F; transform: translateY(-2px); }
-    @media (max-width: 900px) {
-      .cta-inner { grid-template-columns: 1fr; text-align: center; }
-    }
-    @media (max-width: 640px) {
-      .btn-cta-large { display: block !important; width: 100% !important; text-align: center !important; padding: 14px 20px !important; }
-      .cta-strip { padding: 40px 16px !important; }
-      .cta-inner { grid-template-columns: 1fr !important; gap: 16px !important; }
-    }
-
+    @media (max-width: 900px) { .topnav { padding:0 16px; } .nav-links a { padding:5px 8px; font-size:0.78rem; } }
+    @media (max-width: 768px) { .featured-article { grid-template-columns:1fr; } .featured-visual { display:none; } .articles-grid { grid-template-columns:1fr; } }
+    @media (max-width: 640px) { .topnav { padding:0 16px !important; position:relative; } .hamburger { display:flex !important; } .nav-links { display:none; position:absolute; top:52px; left:0; right:0; background:#0B2545; flex-direction:column !important; padding:8px 0 16px; border-top:1px solid rgba(255,255,255,0.15); box-shadow:0 8px 24px rgba(0,0,0,0.35); z-index:200; gap:0 !important; } .nav-links.mobile-open { display:flex !important; } .nav-links li { width:100%; } .nav-links a { display:block; width:100%; padding:12px 20px !important; font-size:0.92rem !important; border-bottom:1px solid rgba(255,255,255,0.07); border-radius:0 !important; height:auto !important; } .nav-links a:last-child { border-bottom:none; } .lang-toggle { padding:10px 20px 4px; } }
+    @media (max-width: 380px) { .topnav { padding:0 12px !important; } .nav-logo-mark { font-size:1rem !important; } .nav-brand-name { font-size:0.68rem !important; } }
+    .cta-strip { background:#F4F6FA; padding:56px 40px; }
+    .cta-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+    .cta-left h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:#0B1E3D; margin-bottom:10px; }
+    .cta-left p { font-size:0.9rem; color:#6b7280; line-height:1.7; }
+    .cta-right { text-align:center; }
+    .btn-cta-large { display:inline-block; background:#1A4A8A; color:white; font-weight:700; font-size:1rem; padding:16px 36px; border-radius:7px; text-decoration:none; transition:all 0.2s; }
+    .btn-cta-large:hover { background:#153D6F; transform:translateY(-2px); }
+    @media (max-width:900px) { .cta-inner { grid-template-columns:1fr; text-align:center; } }
+    @media (max-width:640px) { .btn-cta-large { display:block !important; width:100% !important; text-align:center !important; padding:14px 20px !important; } .cta-strip { padding:40px 16px !important; } .cta-inner { grid-template-columns:1fr !important; gap:16px !important; } }
   </style>
 </head>
 <body>
 
-<!-- ── NAVIGATION ── -->
 <nav class="topnav">
   <a href="https://rc2consulting.github.io/" class="nav-brand">
     <div class="nav-logo-mark">RC<sup>2</sup></div>
@@ -517,7 +153,6 @@
   </button>
 </nav>
 
-<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-content">
     <p class="hero-eyebrow">RC2 Consulting — Executive Intelligence</p>
@@ -527,7 +162,6 @@
   </div>
 </section>
 
-<!-- ── FILTER BAR ── -->
 <div class="filter-bar">
   <button class="filter-btn active" onclick="filterCards('all', this)">All Topics</button>
   <button class="filter-btn" onclick="filterCards('trade', this)">Trade Intelligence</button>
@@ -538,10 +172,8 @@
   <button class="filter-btn" onclick="filterCards('performance', this)">Performance Management</button>
 </div>
 
-<!-- ── MAIN CONTENT ── -->
 <main class="page-content">
 
-  <!-- Featured Article -->
   <div class="section-header">
     <h2>Featured Analysis</h2>
     <div class="section-divider"></div>
@@ -554,9 +186,7 @@
       <p>How three converging forces — historically aggressive tariffs, Western Hemisphere nearshoring, and the Iran conflict — are reshaping supply chains, financial markets, and strategic planning for manufacturers and growth-stage businesses.</p>
       <span class="card-read-link">Read Full Briefing</span>
     </div>
-    <div class="featured-visual">
-      <div class="featured-visual-text">2026</div>
-    </div>
+    <div class="featured-visual"><div class="featured-visual-text">2026</div></div>
   </a>
 
   <a href="https://rc2consulting.github.io/RC2_Article_Trade_Tariffs.html" class="featured-article" style="text-decoration:none;">
@@ -566,12 +196,9 @@
       <p>A triple-horizon analysis of the 2025–2026 tariff landscape — Section 122, Section 232, IEEPA authority, country-by-country exposure, and what supply chain professionals must do now.</p>
       <span class="card-read-link">Read Full Analysis</span>
     </div>
-    <div class="featured-visual">
-      <div class="featured-visual-text">2026</div>
-    </div>
+    <div class="featured-visual"><div class="featured-visual-text">2026</div></div>
   </a>
 
-  <!-- Articles Grid -->
   <div class="section-header">
     <h2>All Articles</h2>
     <p>Organized chronologically — newest first.</p>
@@ -579,153 +206,119 @@
   </div>
 
   <div class="articles-grid" id="articles-grid">
-
-    <!-- Trade Intelligence -->
     <a href="https://rc2consulting.github.io/RC2_Article_Americas_Trade.html" class="article-card" data-category="trade">
       <span class="card-tag tag-trade">Trade Intelligence</span>
       <h3>The Americas Trade Landscape 2026 — Executive Summary</h3>
       <p>Country-by-country analysis of USMCA, CAFTA-DR, Haiti HOPE/HELP, reciprocal trade agreements, and the 2026 nearshoring playbook for the Western Hemisphere.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Industry Intelligence -->
     <a href="https://rc2consulting.github.io/RC2_Article_SPESA.html" class="article-card" data-category="industry">
       <span class="card-tag tag-industry">Industry Intelligence</span>
       <h3>SPESA: Sewn Products Equipment &amp; Suppliers of the Americas</h3>
       <p>The strategic role of SPESA, its member ecosystem, Texprocess Americas, and what factory operators and compliance professionals must know about the technology transformation reshaping Western Hemisphere manufacturing.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Industry Analysis -->
     <a href="https://rc2consulting.github.io/RC2_2026_Compliance_Gap.html" class="article-card" data-category="industry">
       <span class="card-tag tag-industry">Industry Analysis</span>
       <h3>What Most Companies Miss Before a WRAP Audit</h3>
       <p>A deep dive covering the 5 critical compliance gaps, corrective action, and audit readiness in 2026.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Operations Strategy -->
     <a href="https://rc2consulting.github.io/RC2_Article_Compliance_Growth.html" class="article-card" data-category="operations">
       <span class="card-tag tag-operations">Operations Strategy</span>
       <h3>Building Compliance Into Your Growth Strategy</h3>
       <p>A neutral executive outline for companies that need to adopt a systematic compliance framework before scaling.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Government Contracting -->
     <a href="https://rc2consulting.github.io/RC2_Article_SBA_Certification.html" class="article-card" data-category="govcon">
       <span class="card-tag tag-govcon">Government Contracting</span>
       <h3>SBA Certification &amp; Government Contracting: What Business Owners Need to Know</h3>
       <p>The federal government awards over $161B annually to certified small businesses. Most eligible companies never compete — because they don't understand how the process works.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Government Contracting -->
     <a href="https://rc2consulting.github.io/RC2_Article_SAM_Registration.html" class="article-card" data-category="govcon">
       <span class="card-tag tag-govcon">Government Contracting</span>
       <h3>Registering on SAM.gov — Step-by-Step Guide</h3>
       <p>A practical walkthrough of the SAM.gov registration process — requirements, timelines, common errors, and how to maintain your registration once active.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Government Contracting -->
     <a href="https://rc2consulting.github.io/RC2_Article_SBA_Special_Programs.html" class="article-card" data-category="govcon">
       <span class="card-tag tag-govcon">Government Contracting</span>
       <h3>SBA Special Programs — 8(a), WOSB, HUBZone &amp; SDVOSB</h3>
       <p>A program-by-program breakdown of SBA set-aside certifications — eligibility, benefits, application process, and strategic use in federal contracting.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Government Contracting -->
     <a href="https://rc2consulting.github.io/RC2_Article_NAICS_Codes.html" class="article-card" data-category="govcon">
       <span class="card-tag tag-govcon">Government Contracting</span>
       <h3>NAICS Codes Strategy — Selecting the Right Codes Before You Bid</h3>
       <p>NAICS code selection is one of the most consequential — and most overlooked — decisions in government contracting. This guide shows you how to get it right.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Supply Chain / Trade -->
     <a href="https://rc2consulting.github.io/RC2_Article_Nearshoring.html" class="article-card" data-category="trade">
       <span class="card-tag tag-trade">Supply Chain</span>
       <h3>Nearshoring to the Americas: Operational Risks &amp; Readiness Factors</h3>
       <p>What businesses need to know about the Latin America compliance landscape before shifting production.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Growth Strategy -->
     <a href="https://rc2consulting.github.io/RC2_Article_Growth_Infrastructure.html" class="article-card" data-category="growth">
       <span class="card-tag tag-growth">Growth Strategy</span>
       <h3>Why Growth Outpaces Infrastructure — And How to Close the Gap</h3>
       <p>Operational infrastructure issues that derail scaling businesses and the frameworks that close them.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Performance Management -->
     <a href="https://rc2consulting.github.io/RC2_Article_KPI_Framework.html" class="article-card" data-category="performance">
       <span class="card-tag tag-performance">Performance Management</span>
       <h3>KPI Framework Development: A Strategic Guide to Measuring What Actually Matters</h3>
       <p>The architecture, design principles, and implementation process for a high-performance KPI framework — connecting daily operations to long-term strategy.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Performance Management -->
     <a href="https://rc2consulting.github.io/RC2_Article_KPI_Strategic_Alignment.html" class="article-card" data-category="performance">
       <span class="card-tag tag-performance">Performance Management</span>
       <h3>Strategic Alignment — Connecting KPIs to Organizational Goals</h3>
       <p>How to ensure your KPI framework is anchored to strategy — not just activity. The difference between metrics that drive decisions and metrics that just fill dashboards.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Performance Management -->
     <a href="https://rc2consulting.github.io/RC2_Article_KPI_Measurable_Metrics.html" class="article-card" data-category="performance">
       <span class="card-tag tag-performance">Performance Management</span>
       <h3>Defining Measurable Metrics — Building KPIs That Actually Work</h3>
       <p>The technical side of KPI design — how to define, quantify, and validate metrics so they can be tracked consistently and used for real decision-making.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Performance Management -->
     <a href="https://rc2consulting.github.io/RC2_Article_KPI_Balancing_Indicators.html" class="article-card" data-category="performance">
       <span class="card-tag tag-performance">Performance Management</span>
       <h3>Balancing Indicators — Leading vs. Lagging KPIs Explained</h3>
       <p>Most organizations overweight lagging indicators. This article explains how to balance your KPI portfolio across leading, lagging, and process metrics.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Performance Management -->
     <a href="https://rc2consulting.github.io/RC2_Article_KPI_Process_Steps.html" class="article-card" data-category="performance">
       <span class="card-tag tag-performance">Performance Management</span>
       <h3>KPI Implementation — A Step-by-Step Process for Rollout</h3>
       <p>From framework design through team adoption — a practical implementation guide for organizations rolling out KPI systems for the first time.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
-    <!-- Performance Management -->
     <a href="https://rc2consulting.github.io/RC2_Article_KPI_Continuous_Improvement.html" class="article-card" data-category="performance">
       <span class="card-tag tag-performance">Performance Management</span>
       <h3>Continuous Improvement — Keeping Your KPI Framework Relevant</h3>
       <p>KPI frameworks decay if they aren't actively maintained. This article covers the review cadences, update triggers, and governance structures that keep performance systems current.</p>
       <span class="card-read-link">Read Article</span>
     </a>
-
   </div>
 
-  <!-- CTA -->
-<section class="cta-strip">
-  <div class="cta-inner">
-    <div class="cta-left">
-      <h2>Ready to Build With Structure?</h2>
-      <p>If your organization is preparing to certify, scale, or strengthen compliance, we can help you build the operational systems that support long-term success.</p>
+  <!-- CTA — UPDATED: "Ready to Get Started?" -->
+  <section class="cta-strip">
+    <div class="cta-inner">
+      <div class="cta-left">
+        <h2>Ready to Get Started?</h2>
+        <p>Tell us about your organization and we'll determine the right engagement path.</p>
+      </div>
+      <div class="cta-right">
+        <a href="https://rc2consulting.github.io/contact.html" class="btn-cta-large">Start the Conversation →</a>
+      </div>
     </div>
-    <div class="cta-right">
-      <a href="https://rc2consulting.github.io/contact.html" class="btn-cta-large">Start the Conversation →</a>
-    </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
-<!-- ── FOOTER ── -->
 <footer class="site-footer">
   <div class="footer-tagline">Operational Clarity. Compliance Confidence. Systems That Scale.</div>
   <div class="footer-links">
@@ -766,7 +359,6 @@
   });
 })();
 </script>
-
 <script>
   function filterCards(category, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -780,6 +372,5 @@
     });
   }
 </script>
-
 </body>
 </html>

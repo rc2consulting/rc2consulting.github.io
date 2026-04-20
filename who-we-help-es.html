@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -28,14 +28,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #0B2545; --blue: #1A4A8A; --light-blue: #2563EB;
-      --light-bg: #F4F6FA; --white: #FFFFFF;
-      --text: #1C2B3A; --text-muted: #4A5568; --border: #E2E8F0;
-    }
+    :root { --navy: #0B2545; --blue: #1A4A8A; --light-blue: #2563EB; --light-bg: #F4F6FA; --white: #FFFFFF; --text: #1C2B3A; --text-muted: #4A5568; --border: #E2E8F0; }
     body { font-family: 'Source Sans 3', sans-serif; background: var(--light-bg); color: var(--text); margin: 0; line-height: 1.6; }
-
-    /* NAV */
     .topnav { background:var(--navy); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:52px; position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
     .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
     .nav-logo-mark { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; width:32px; height:32px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
@@ -45,48 +39,22 @@
     .nav-links a { color:rgba(255,255,255,0.78); text-decoration:none; font-size:0.83rem; font-weight:600; padding:6px 12px; border-radius:4px; transition:all 0.2s; }
     .nav-links a:hover { color:white; background:rgba(255,255,255,0.1); }
     .nav-links a.active { color:white; background:rgba(255,255,255,0.12); }
-
-    /* HERO */
     .hero { background:linear-gradient(to bottom, rgba(11,37,69,0.75) 0%, rgba(11,37,69,0.55) 50%, rgba(11,37,69,0.75) 100%), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat; padding:72px 40px; text-align:center; }
     .hero h1 { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:700; color:white; margin-bottom:14px; line-height:1.25; }
     .hero p { font-size:1rem; color:rgba(255,255,255,0.82); max-width:600px; margin:0 auto; line-height:1.7; }
-
-    /* CONTENT */
     .page { max-width:1000px; margin:0 auto; padding:0 28px; }
     .section { padding:56px 0; }
-
-    .client-card {
-      background:var(--white); border-radius:10px; border:1px solid var(--border);
-      box-shadow:0 2px 8px rgba(11,37,69,0.07); padding:32px 36px;
-      margin-bottom:20px; display:grid; grid-template-columns:1fr 1fr; gap:40px;
-      transition:transform 0.2s, box-shadow 0.2s;
-    }
+    .client-card { background:var(--white); border-radius:10px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(11,37,69,0.07); padding:32px 36px; margin-bottom:20px; display:grid; grid-template-columns:1fr 1fr; gap:40px; transition:transform 0.2s, box-shadow 0.2s; }
     .client-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(11,37,69,0.12); }
-
-    .client-card-header {
-      grid-column:1/-1; padding-bottom:16px; border-bottom:2px solid var(--border); margin-bottom:4px;
-    }
+    .client-card-header { grid-column:1/-1; padding-bottom:16px; border-bottom:2px solid var(--border); margin-bottom:4px; }
     .client-tag { font-size:0.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--light-blue); margin-bottom:6px; }
     .client-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--navy); }
-
     .col-label { font-size:0.75rem; font-weight:700; color:var(--text-muted); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; }
     .check-list { list-style:none; }
     .check-list li { font-size:0.87rem; color:var(--text-muted); padding:5px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
     .check-list li:last-child { border-bottom:none; }
     .check-list.you li::before { content:'•'; color:var(--navy); font-weight:700; flex-shrink:0; }
     .check-list.helps li::before { content:'✓'; color:#1A7A4E; font-weight:700; flex-shrink:0; }
-
-    /* BOTTOM CTA */
-    .bottom-cta {
-      background:linear-gradient(to bottom, rgba(11,37,69,0.78) 0%, rgba(11,37,69,0.65) 100%), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;
-      padding:64px 28px; text-align:center;
-    }
-    .bottom-cta h3 { font-family:'Playfair Display',serif; font-size:1.7rem; color:white; margin-bottom:10px; }
-    .bottom-cta p { font-size:0.95rem; color:rgba(255,255,255,0.78); max-width:520px; margin:0 auto 24px; line-height:1.7; }
-    .btn-cta { display:inline-flex; align-items:center; gap:8px; background:var(--light-blue); color:white; font-weight:700; font-size:0.92rem; padding:13px 28px; border-radius:6px; text-decoration:none; transition:all 0.2s; }
-    .btn-cta:hover { background:#1d4ed8; transform:translateY(-1px); }
-
-    /* FOOTER */
     .site-footer { background:var(--navy); color:white; text-align:center; padding:40px 24px; }
     .footer-tagline { font-size:0.92rem; color:rgba(255,255,255,0.9); font-weight:600; letter-spacing:0.5px; margin-bottom:12px; }
     .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
@@ -95,210 +63,32 @@
     .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.5); }
     .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
     .footer-copy a:hover { color:rgba(255,255,255,0.9); }
-
-    @media (max-width:700px) {
-      .client-card { grid-template-columns:1fr; gap:20px; padding:24px; }
-      .client-card-header { grid-column:1; }
-      .hero h1 { font-size:1.9rem; }
-      .topnav { padding:0 16px; }
-      .nav-links a { padding:5px 8px; font-size:0.78rem; }
-    }
-  
+    @media (max-width:700px) { .client-card { grid-template-columns:1fr; gap:20px; padding:24px; } .client-card-header { grid-column:1; } .hero h1 { font-size:1.9rem; } .topnav { padding:0 16px; } .nav-links a { padding:5px 8px; font-size:0.78rem; } }
     .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
     .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
     .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
     .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
     .lang-btn.active{background:#C8922A;color:#0B2545}
-  
-    /* ════════════════════════════════════════
-       RC2 GLOBAL MOBILE OPTIMIZATION
-       Applied 2026-02-28 — all core pages
-    ════════════════════════════════════════ */
-
-    /* Prevent ANY horizontal overflow site-wide */
     html, body { overflow-x: hidden; max-width: 100%; }
-    *, *::before, *::after { box-sizing: border-box; }
-
-    /* ── Hamburger button (hidden on desktop) ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 6px;
-      margin-left: auto; z-index: 300;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: rgba(255,255,255,0.9); border-radius: 2px;
-      transition: all .28s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ── Tablet breakpoint: 900px ── */
-    @media (max-width: 900px) {
-      /* Sections lose the heavy side padding */
-      section, .hero, .services-strip, .cta-strip, .clients-gain,
-      .page-hero, .article-section, .section-pad,
-      .resources-section, .rc-section, .wrap {
-        padding-left: 24px !important;
-        padding-right: 24px !important;
-      }
-    }
-
-    /* ── Mobile breakpoint: 640px ── */
-    @media (max-width: 640px) {
-      /* NAV — collapse to hamburger */
-      .topnav { padding: 0 16px !important; position: relative; }
-      .hamburger { display: flex !important; }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: #0B2545;
-        flex-direction: column !important;
-        padding: 8px 0 16px;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-        z-index: 200;
-        gap: 0 !important;
-      }
-      .nav-links.mobile-open { display: flex !important; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block; width: 100%;
-        padding: 12px 20px !important;
-        font-size: 0.92rem !important;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        border-radius: 0 !important;
-        height: auto !important;
-      }
-      .nav-links a:last-child { border-bottom: none; }
-      .lang-toggle { padding: 10px 20px 4px; }
-
-      /* Prevent overflow on ALL containers */
-      .hero-inner, .strip-inner, .cta-inner, .page-inner,
-      .article-wrap, .services-grid, .rc-grid, .team-grid,
-      .wrap-inner, .resources-grid {
-        max-width: 100% !important;
-        width: 100% !important;
-        overflow-x: hidden !important;
-      }
-
-      /* Typography scaling */
-      h1, .hero-left h1, .page-hero h1 {
-        font-size: clamp(1.5rem, 6vw, 2rem) !important;
-        line-height: 1.25 !important;
-      }
-      h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }
-      h3 { font-size: clamp(0.95rem, 4vw, 1.1rem) !important; }
-
-      /* Section padding */
-      section, .hero, .services-strip, .cta-strip,
-      .clients-gain, .page-hero, .wrap {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
-      }
-
-      /* Hero adjustments */
-      .hero-inner {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-      }
-      .hero-card { display: none !important; }
-      .hero-left p { font-size: 0.93rem !important; }
-
-      /* Grids → single column */
-      .services-grid, .gains-grid, .cta-inner,
-      .team-grid, .rc-grid, .resources-grid,
-      .agreement-grid, .action-grid, .stat-grid,
-      .horizon-row, .ca-grid, .ca-statgrid,
-      .aapn-box {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-      }
-
-      /* Service cols stack, lose side border */
-      .service-col {
-        border-right: none !important;
-        border-bottom: 1px solid var(--border) !important;
-      }
-      .service-col:last-child { border-bottom: none !important; }
-
-      /* Buttons full-width on mobile */
-      .btn-cta-large, .btn-primary, .cta-btn {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding: 14px 20px !important;
-      }
-
-      /* Tables — allow horizontal scroll within container only */
-      table, .tariff-table, .table-wrap {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        max-width: 100%;
-      }
-
-      /* Articles */
-      .abstract-box, .callout, .horizon-box,
-      .map-section, .chart-section, .agreement-card,
-      .country-accordion, .aapn-box {
-        padding: 18px 16px !important;
-      }
-      .map-grid { grid-template-columns: 1fr !important; }
-      .bar-label { width: 110px !important; font-size: 0.7rem !important; }
-      .bar-val { font-size: 0.65rem !important; }
-
-      /* Footer */
-      .footer-links { gap: 12px !important; }
-      .footer-links a { font-size: 0.78rem; }
-    }
-
-    /* ── Very small phones: 380px ── */
-    @media (max-width: 380px) {
-      .topnav { padding: 0 12px !important; }
-      h1, .hero-left h1 { font-size: 1.45rem !important; }
-      section, .hero, .services-strip, .cta-strip {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-      }
-      .nav-logo-mark { font-size: 1rem !important; }
-      .nav-brand-name { font-size: 0.68rem !important; }
-    }
-
-    /* CTA STRIP - matches homepage Gold Standard */
+    .hamburger { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:6px; margin-left:auto; z-index:300; }
+    .hamburger span { display:block; width:24px; height:2px; background:rgba(255,255,255,0.9); border-radius:2px; transition:all .28s ease; }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    @media (max-width: 640px) { .topnav { padding:0 16px !important; position:relative; } .hamburger { display:flex !important; } .nav-links { display:none; position:absolute; top:52px; left:0; right:0; background:#0B2545; flex-direction:column !important; padding:8px 0 16px; border-top:1px solid rgba(255,255,255,0.15); box-shadow:0 8px 24px rgba(0,0,0,0.35); z-index:200; gap:0 !important; } .nav-links.mobile-open { display:flex !important; } .nav-links li { width:100%; } .nav-links a { display:block; width:100%; padding:12px 20px !important; font-size:0.92rem !important; border-bottom:1px solid rgba(255,255,255,0.07); border-radius:0 !important; height:auto !important; } .nav-links a:last-child { border-bottom:none; } .lang-toggle { padding:10px 20px 4px; } .btn-cta-large, .btn-primary, .cta-btn { display:block !important; width:100% !important; text-align:center !important; padding:14px 20px !important; } .footer-links { gap:12px !important; } .footer-links a { font-size:0.78rem; } }
+    @media (max-width: 380px) { .topnav { padding:0 12px !important; } .nav-logo-mark { font-size:1rem !important; } .nav-brand-name { font-size:0.68rem !important; } }
     .cta-strip { background: var(--light-bg); padding: 56px 40px; }
-    .cta-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-    }
+    .cta-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     .cta-left h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 10px; }
     .cta-left p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
     .cta-right { text-align: center; }
-    .btn-cta-large {
-      display: inline-block; background: #1A4A8A; color: white;
-      font-weight: 700; font-size: 1rem; padding: 16px 36px;
-      border-radius: 7px; text-decoration: none; transition: all 0.2s;
-    }
+    .btn-cta-large { display: inline-block; background: #1A4A8A; color: white; font-weight: 700; font-size: 1rem; padding: 16px 36px; border-radius: 7px; text-decoration: none; transition: all 0.2s; }
     .btn-cta-large:hover { background: #153D6F; transform: translateY(-2px); }
-    @media (max-width: 900px) {
-      .cta-inner { grid-template-columns: 1fr; text-align: center; }
-    }
-    @media (max-width: 640px) {
-      .btn-cta-large { display: block !important; width: 100% !important; text-align: center !important; padding: 14px 20px !important; }
-      .cta-strip { padding: 40px 16px !important; }
-      .cta-inner { grid-template-columns: 1fr !important; gap: 16px !important; }
-    }
-
+    @media (max-width: 900px) { .cta-inner { grid-template-columns: 1fr; text-align: center; } }
+    @media (max-width: 640px) { .btn-cta-large { display:block !important; width:100% !important; text-align:center !important; padding:14px 20px !important; } .cta-strip { padding:40px 16px !important; } .cta-inner { grid-template-columns:1fr !important; gap:16px !important; } }
   </style>
 </head>
 <body>
-
 <nav class="topnav">
   <a href="https://rc2consulting.github.io/index-es.html" class="nav-brand">
     <div class="nav-logo-mark">RC<sup>2</sup></div>
@@ -448,29 +238,28 @@
     </div>
   </div>
 
-
   <div class="client-card">
     <div class="client-card-header">
-      <div class="client-tag">Constituci&#243;n de Empresa y Capacitaci&#243;n</div>
+      <div class="client-tag">Constitución de Empresa y Capacitación</div>
       <div class="client-title">Emprendedores y Organizaciones Construyendo desde Cero</div>
     </div>
     <div>
       <div class="col-label">Usted Es</div>
       <ul class="check-list you">
-        <li>Est&#225; comenzando un negocio y necesita orientaci&#243;n para constituir una LLC</li>
-        <li>Opera de manera informal y est&#225; listo para construir una estructura adecuada</li>
-        <li>Le faltan procesos documentados, pol&#237;ticas o registros de cumplimiento</li>
-        <li>Gestiona un equipo sin programas formales de capacitaci&#243;n implementados</li>
-        <li>Crece r&#225;pidamente pero le faltan los sistemas para sostenerlo</li>
+        <li>Está comenzando un negocio y necesita orientación para constituir una LLC</li>
+        <li>Opera de manera informal y está listo para construir una estructura adecuada</li>
+        <li>Le faltan procesos documentados, políticas o registros de cumplimiento</li>
+        <li>Gestiona un equipo sin programas formales de capacitación implementados</li>
+        <li>Crece rápidamente pero le faltan los sistemas para sostenerlo</li>
       </ul>
     </div>
     <div>
-      <div class="col-label">C&#243;mo RC2 Ayuda</div>
+      <div class="col-label">Cómo RC2 Ayuda</div>
       <ul class="check-list helps">
-        <li>Orientaci&#243;n para constituci&#243;n de LLC &#8212; estructura, registro y cumplimiento operativo</li>
-        <li>Revisi&#243;n de documentaci&#243;n de cumplimiento y correcci&#243;n de brechas</li>
-        <li>Optimizaci&#243;n de procesos &#8212; SOPs, flujos de trabajo y marcos operativos</li>
-        <li>Desarrollo de programas de capacitaci&#243;n y educaci&#243;n para el personal</li>
+        <li>Orientación para constitución de LLC — estructura, registro y cumplimiento operativo</li>
+        <li>Revisión de documentación de cumplimiento y corrección de brechas</li>
+        <li>Optimización de procesos — SOPs, flujos de trabajo y marcos operativos</li>
+        <li>Desarrollo de programas de capacitación y educación para el personal</li>
         <li>Sistemas escalables que crecen con su negocio</li>
       </ul>
     </div>
@@ -478,12 +267,12 @@
 
 </div></div>
 
-<!-- CTA -->
+<!-- CTA — UPDATED: "¿Listo para Comenzar?" -->
 <section class="cta-strip">
   <div class="cta-inner">
     <div class="cta-left">
-      <h2>¿Listo para Construir con Estructura?</h2>
-      <p>Si su organización se está preparando para certificarse, escalar o fortalecer el cumplimiento, podemos ayudarle a construir los sistemas operativos que respaldan el éxito a largo plazo.</p>
+      <h2>¿Listo para Comenzar?</h2>
+      <p>Cuéntenos sobre su organización y determinaremos el camino de trabajo adecuado.</p>
     </div>
     <div class="cta-right">
       <a href="https://rc2consulting.github.io/contact-es.html" class="btn-cta-large">Iniciar la Conversación →</a>
@@ -505,7 +294,6 @@
   <div class="footer-copy">© 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html">Términos de Servicio</a></div>
 </footer>
 
-
 <script>
 (function() {
   var btn = document.getElementById('hamburger');
@@ -516,7 +304,6 @@
     btn.classList.toggle('open', isOpen);
     btn.setAttribute('aria-expanded', isOpen);
   });
-  // Close menu on link click
   nav.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() {
       nav.classList.remove('mobile-open');
@@ -524,7 +311,6 @@
       btn.setAttribute('aria-expanded', false);
     });
   });
-  // Close on outside click
   document.addEventListener('click', function(e) {
     if (!btn.contains(e.target) && !nav.contains(e.target)) {
       nav.classList.remove('mobile-open');
@@ -534,6 +320,5 @@
   });
 })();
 </script>
-
 </body>
 </html>
