@@ -51,7 +51,7 @@
   .section-pill{font-size:0.64rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);background:#EFF6FF;border:1px solid #BFDBFE;padding:4px 12px;border-radius:12px;white-space:nowrap;}
   .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .card{background:var(--white);border-radius:8px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(11,37,69,0.06);overflow:hidden;display:flex;flex-direction:column;height:370px;transition:transform 0.2s,box-shadow 0.2s;}
+  .card{background:var(--white);border-radius:8px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(11,37,69,0.06);display:flex;flex-direction:column;min-height:370px;transition:transform 0.2s,box-shadow 0.2s;}
   .card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(11,37,69,0.13);}
   .photo{width:100%;height:150px;background-size:cover;background-position:center;flex-shrink:0;}
   .p-cap{background-image:linear-gradient(rgba(11,37,69,0.35),rgba(11,37,69,0.35)),url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=70');}
@@ -67,8 +67,8 @@
   .card-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;}
   .card-cat{font-size:0.63rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
   .card-title{font-size:0.9rem;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px;}
-  .card-desc{font-size:0.78rem;color:var(--text-muted);line-height:1.55;margin-bottom:14px;flex:1;overflow:hidden;}
-  .card-soon{font-size:0.78rem;color:var(--text-muted);font-style:italic;flex:1;margin-bottom:14px;line-height:1.5;overflow:hidden;}
+  .card-desc{font-size:0.78rem;color:var(--text-muted);line-height:1.55;margin-bottom:14px;flex:1;}
+  .card-soon{font-size:0.78rem;color:var(--text-muted);font-style:italic;flex:1;margin-bottom:14px;line-height:1.5;}
   .btn-blue{display:inline-flex;align-items:center;gap:6px;background:var(--light-blue);color:white;font-size:0.76rem;font-weight:700;padding:8px 16px;border-radius:5px;text-decoration:none;transition:background 0.2s;align-self:flex-start;}
   .btn-blue:hover{background:#1d4ed8;}
   .center-wrap{text-align:center;padding:24px 0 0;}
@@ -224,6 +224,31 @@
     <span class="section-pill">Colecciones Curadas</span>
   </div>
   <div class="grid-rc-new">
+    <div class="rc-card">
+      <span class="rc-icon">🌐</span>
+      <div class="rc-title">Centro de Estrategia de Cadena de Suministro y Nearshoring</div>
+      <div class="rc-desc">Orientación de preparación operacional para estrategias de América Latina y planificación de la cadena de suministro.</div>
+      <span class="rc-sub-label sba">Cadena de Suministro</span>
+      <ul class="rc-links">
+        <li><a href="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide-es.html" target="_blank">Guía de Preparación para Nearshoring</a></li>
+        <li><a href="https://rc2consulting.github.io/RC2_Tariff_Impact_Tool-es.html" target="_blank">Herramienta de Análisis de Impacto Arancelario</a></li>
+        <li><a href="https://rc2consulting.github.io/RC2_Vendor_Due_Diligence-es.html" target="_blank">Lista de Diligencia Debida de Proveedores</a></li>
+        <li><a href="https://rc2consulting.github.io/RC2_Country_Risk_Assessment-es.html" target="_blank">Evaluación de Riesgo País</a></li>
+      </ul>
+      <a href="https://rc2consulting.github.io/RC2_Tariff_Impact_Tool-es.html" class="btn-blue">Explorar Recursos ›</a>
+    </div>
+    <div class="rc-card">
+      <span class="rc-icon">🗺️</span>
+      <div class="rc-title">Navegador Comercial de las Américas y el Caribe</div>
+      <div class="rc-desc">Buscador interactivo país por país de cada acuerdo comercial, TBI, TIFA y programa de preferencias en el Hemisferio Occidental — 29 países, 109 enlaces gubernamentales.</div>
+      <span class="rc-sub-label navigator">Inteligencia Comercial</span>
+      <ul class="rc-links">
+        <li><a href="https://rc2consulting.github.io/RC2_Americas_Trade_Navigator-es.html" target="_blank">🌐 Navegador Comercial — Español</a></li>
+        <li><a href="https://rc2consulting.github.io/RC2_Article_Americas_Trade-es.html" target="_blank">El Panorama Comercial de las Américas 2026 — Resumen Ejecutivo</a></li>
+        <li><a href="https://rc2consulting.github.io/RC2_Article_Trade_Tariffs-es.html" target="_blank">Comercio Global y Aranceles 2026 — Resumen Ejecutivo</a></li>
+      </ul>
+      <a href="https://rc2consulting.github.io/RC2_Americas_Trade_Navigator-es.html" target="_blank" class="btn-blue">Abrir Navegador Comercial ›</a>
+    </div>
     <div class="rc-card-wide">
       <span class="rc-icon">📋</span>
       <div class="rc-title">Kit de Cumplimiento WRAP &amp; PASA</div>
@@ -232,14 +257,6 @@
       <div class="rc-sub-group"><span class="rc-sub-label audit">Pre-Auditoría PASA</span><ul class="rc-links"><li><a href="https://rc2consulting.github.io/RC2_PASA_Scorecard-es.html" target="_blank">Scorecard de Pre-Auditoría PASA</a></li><li><a href="https://rc2consulting.github.io/RC2_HS_Inspection_Checklist-es.html" target="_blank">Lista de Verificación de Seguridad e Higiene</a></li></ul></div>
       <div class="rc-sub-group"><span class="rc-sub-label tools">Herramientas de Brecha &amp; CAP</span><ul class="rc-links"><li><a href="https://rc2consulting.github.io/RC2_Gap_Analysis-es.html" target="_blank">Herramienta de Análisis de Brechas de Cumplimiento</a></li><li><a href="https://rc2consulting.github.io/RC2_CAP_Template-es.html" target="_blank">Plantilla de Plan de Acción Correctiva (CAP)</a></li></ul></div>
       <a href="https://rc2consulting.github.io/RC2_WRAP_12_Principles_Guide-es.html" target="_blank" class="btn-blue">Abrir Kit de Cumplimiento ›</a>
-    </div>
-    <div class="rc-card-wide">
-      <span class="rc-icon">🏛️</span>
-      <div class="rc-title">Kit de Contratación Gubernamental</div>
-      <div class="rc-desc">Herramientas completas de certificación SBA, registro federal, estrategia de códigos NAICS y preparación FAR/DCAA para pequeñas empresas que ingresan al mercado federal.</div>
-      <div class="rc-sub-group"><span class="rc-sub-label sba">Herramientas Interactivas SBA</span><ul class="rc-links"><li><a href="https://rc2consulting.github.io/RC2_SBA_Application_Tool-es.html" target="_blank">Herramienta de Proceso de Solicitud SBA</a></li><li><a href="https://rc2consulting.github.io/RC2_SBA_Size_Standard_Tool-es.html" target="_blank">Herramienta de Estándares de Tamaño SBA</a></li><li><a href="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool-es.html" target="_blank">Herramienta de Códigos SBA–NAICS</a></li><li><a href="https://rc2consulting.github.io/RC2_FAR_DCAA_Tool-es.html" target="_blank">Herramienta de Preparación FAR / DCAA</a></li></ul></div>
-      <div class="rc-sub-group"><span class="rc-sub-label articles">Guías &amp; Artículos</span><ul class="rc-links"><li><a href="https://rc2consulting.github.io/RC2_Article_SBA_Certification-es.html" target="_blank">Certificación SBA — Resumen Ejecutivo</a></li><li><a href="https://rc2consulting.github.io/RC2_Article_SAM_Registration-es.html" target="_blank">Registro en SAM.gov — Guía</a></li><li><a href="https://rc2consulting.github.io/RC2_Article_SBA_Special_Programs-es.html" target="_blank">Programas Especiales SBA — Artículo</a></li><li><a href="https://rc2consulting.github.io/RC2_Article_NAICS_Codes-es.html" target="_blank">Estrategia de Códigos NAICS — Artículo</a></li></ul></div>
-      <a href="https://rc2consulting.github.io/RC2_Article_SBA_Certification-es.html" target="_blank" class="btn-blue">Abrir Kit de Contratación ›</a>
     </div>
     <div class="rc-card">
       <span class="rc-icon">📈</span>
@@ -258,31 +275,6 @@
       <a href="https://rc2consulting.github.io/RC2_KPI_Tool-es.html" target="_blank" class="btn-blue">Abrir Kit KPI ›</a>
     </div>
     <div class="rc-card">
-      <span class="rc-icon">🗺️</span>
-      <div class="rc-title">Navegador Comercial de las Américas y el Caribe</div>
-      <div class="rc-desc">Buscador interactivo país por país de cada acuerdo comercial, TBI, TIFA y programa de preferencias en el Hemisferio Occidental — 29 países, 109 enlaces gubernamentales.</div>
-      <span class="rc-sub-label navigator">Inteligencia Comercial</span>
-      <ul class="rc-links">
-        <li><a href="https://rc2consulting.github.io/RC2_Americas_Trade_Navigator-es.html" target="_blank">🌐 Navegador Comercial — Español</a></li>
-        <li><a href="https://rc2consulting.github.io/RC2_Article_Americas_Trade-es.html" target="_blank">El Panorama Comercial de las Américas 2026 — Resumen Ejecutivo</a></li>
-        <li><a href="https://rc2consulting.github.io/RC2_Article_Trade_Tariffs-es.html" target="_blank">Comercio Global y Aranceles 2026 — Resumen Ejecutivo</a></li>
-      </ul>
-      <a href="https://rc2consulting.github.io/RC2_Americas_Trade_Navigator-es.html" target="_blank" class="btn-blue">Abrir Navegador Comercial ›</a>
-    </div>
-    <div class="rc-card">
-      <span class="rc-icon">🌐</span>
-      <div class="rc-title">Centro de Estrategia de Cadena de Suministro y Nearshoring</div>
-      <div class="rc-desc">Orientación de preparación operacional para estrategias de América Latina y planificación de la cadena de suministro.</div>
-      <span class="rc-sub-label sba">Cadena de Suministro</span>
-      <ul class="rc-links">
-        <li><a href="https://rc2consulting.github.io/RC2_Nearshoring_Readiness_Guide-es.html" target="_blank">Guía de Preparación para Nearshoring</a></li>
-        <li><a href="https://rc2consulting.github.io/RC2_Tariff_Impact_Tool-es.html" target="_blank">Herramienta de Análisis de Impacto Arancelario</a></li>
-        <li><a href="https://rc2consulting.github.io/RC2_Vendor_Due_Diligence-es.html" target="_blank">Lista de Diligencia Debida de Proveedores</a></li>
-        <li><a href="https://rc2consulting.github.io/RC2_Country_Risk_Assessment-es.html" target="_blank">Evaluación de Riesgo País</a></li>
-      </ul>
-      <a href="https://rc2consulting.github.io/RC2_Tariff_Impact_Tool-es.html" class="btn-blue">Explorar Recursos ›</a>
-    </div>
-    <div class="rc-card">
       <span class="rc-icon">🏢</span>
       <div class="rc-title">Centro de Recursos para Constitución de LLC</div>
       <div class="rc-desc">Guía paso a paso para constituir y lanzar una nueva LLC — nombre comercial, registro estatal, EIN, bancos, licencias, seguros, cumplimiento e infraestructura de crecimiento.</div>
@@ -291,6 +283,14 @@
         <li><a href="https://rc2consulting.github.io/RC2_LLC_Formation_Guide-es.html" target="_blank">Guía de Constitución de LLC — Lista Interactiva</a></li>
       </ul>
       <a href="https://rc2consulting.github.io/RC2_LLC_Formation_Guide-es.html" target="_blank" class="btn-blue">Abrir Guía de Constitución ›</a>
+    </div>
+    <div class="rc-card-wide">
+      <span class="rc-icon">🏛️</span>
+      <div class="rc-title">Kit de Contratación Gubernamental</div>
+      <div class="rc-desc">Herramientas completas de certificación SBA, registro federal, estrategia de códigos NAICS y preparación FAR/DCAA para pequeñas empresas que ingresan al mercado federal.</div>
+      <div class="rc-sub-group"><span class="rc-sub-label sba">Herramientas Interactivas SBA</span><ul class="rc-links"><li><a href="https://rc2consulting.github.io/RC2_SBA_Application_Tool-es.html" target="_blank">Herramienta de Proceso de Solicitud SBA</a></li><li><a href="https://rc2consulting.github.io/RC2_SBA_Size_Standard_Tool-es.html" target="_blank">Herramienta de Estándares de Tamaño SBA</a></li><li><a href="https://rc2consulting.github.io/RC2_SBA_NAICS_Tool-es.html" target="_blank">Herramienta de Códigos SBA–NAICS</a></li><li><a href="https://rc2consulting.github.io/RC2_FAR_DCAA_Tool-es.html" target="_blank">Herramienta de Preparación FAR / DCAA</a></li></ul></div>
+      <div class="rc-sub-group"><span class="rc-sub-label articles">Guías &amp; Artículos</span><ul class="rc-links"><li><a href="https://rc2consulting.github.io/RC2_Article_SBA_Certification-es.html" target="_blank">Certificación SBA — Resumen Ejecutivo</a></li><li><a href="https://rc2consulting.github.io/RC2_Article_SAM_Registration-es.html" target="_blank">Registro en SAM.gov — Guía</a></li><li><a href="https://rc2consulting.github.io/RC2_Article_SBA_Special_Programs-es.html" target="_blank">Programas Especiales SBA — Artículo</a></li><li><a href="https://rc2consulting.github.io/RC2_Article_NAICS_Codes-es.html" target="_blank">Estrategia de Códigos NAICS — Artículo</a></li></ul></div>
+      <a href="https://rc2consulting.github.io/RC2_Article_SBA_Certification-es.html" target="_blank" class="btn-blue">Abrir Kit de Contratación ›</a>
     </div>
   </div>
 </div></div>
