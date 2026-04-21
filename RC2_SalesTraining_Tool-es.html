@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<!--
+════════════════════════════════════════════════════════════════════════
+  RC2 EXECUTIVE SALES TRAINING TOOL (ES)
+  File: RC2_SalesTraining_Tool-es.html
+  Built: 2026-04-20
+  Format reference: RC2_KPI_Tool.html (Gold Standard match)
+  5 Módulos · Evaluaciones por Escenario · Íconos SVG · EN/ES Toggle
+  © RC2 Consulting, LLC — Contenido original. No reproduce ni hace
+  referencia a materiales de ninguna organización de capacitación
+  comercial con marca registrada.
+════════════════════════════════════════════════════════════════════════
+-->
+<html lang="es">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PC5L4ZH7KY');
+</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Herramienta de Capacitación en Ventas | RC2 Consulting</title>
+<meta property="og:title" content="Herramienta de Capacitación Ejecutiva en Ventas | RC2 Consulting">
+<meta property="og:description" content="Una herramienta interactiva de 5 módulos basada en 60+ años de experiencia ejecutiva en operaciones, cumplimiento y cadena de suministro global. Gratuita de RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_SalesTraining_Tool-es.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Herramienta de Capacitación Ejecutiva en Ventas | RC2 Consulting">
+<meta name="twitter:description" content="5 módulos interactivos de ventas: gestión de cartera, descubrimiento, partes interesadas, comunicación de valor y sistemas de desarrollo de negocios. De RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta name="description" content="Herramienta interactiva gratuita de capacitación en ventas de RC2 Consulting — 5 módulos sobre gestión de cartera, descubrimiento, partes interesadas, comunicación de valor y sistemas de desarrollo de negocios."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B2545;--blue:#1A4A8A;--light-blue:#2563EB;
+  --accent:#C8922A;--accent-light:#F0B429;
+  --light-bg:#F4F6FA;--white:#FFFFFF;
+  --text:#1C2B3A;--text-muted:#4A5568;--border:#D1D9E6;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var(--text);margin:0;line-height:1.6}
+
+/* ═══ NAV ═══ */
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+
+/* ═══ HERO ═══ */
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.87) 0%,rgba(11,37,69,.73) 100%),url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.92rem;color:rgba(255,255,255,.75);margin-bottom:16px;max-width:640px;line-height:1.6}
+.hero-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-meta span{font-size:.82rem;color:rgba(255,255,255,.6)}
+.hero-meta .divider{color:rgba(255,255,255,.3)}
+
+/* ═══ PROGRESS DASHBOARD ═══ */
+.prog-dash{background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:18px 40px}
+.prog-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:24px;align-items:center}
+.prog-stat{text-align:center}
+.prog-val{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:#fff;line-height:1}
+.prog-lbl{font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px}
+.prog-dots-wrap{display:flex;flex-direction:column;gap:6px}
+.prog-dots-label{font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.prog-dots{display:flex;gap:6px}
+.prog-dot{flex:1;height:6px;border-radius:10px;background:rgba(255,255,255,.14);transition:background .4s}
+.prog-dot.done{background:var(--accent)}
+.prog-dot.partial{background:rgba(200,146,42,.4)}
+.prog-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:700;font-size:.8rem;border:2px solid transparent;transition:all .4s;white-space:nowrap}
+.badge-navy{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.15)}
+.badge-gold{background:rgba(200,146,42,.15);color:var(--accent-light);border-color:rgba(200,146,42,.35)}
+.badge-blue{background:rgba(37,99,235,.15);color:#93C5FD;border-color:rgba(37,99,235,.3)}
+
+/* ═══ PAGE LAYOUT ═══ */
+.page-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--light-blue);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.btn-back:hover{color:var(--navy)}
+
+/* ═══ ABSTRACT BOX ═══ */
+.abstract-box{background:var(--white);border-left:4px solid var(--light-blue);border-radius:0 8px 8px 0;padding:22px 26px;margin:36px 0 28px;box-shadow:0 2px 8px rgba(11,37,69,.07)}
+.abstract-box h3{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light-blue);margin-bottom:8px}
+.abstract-box p{font-size:.9rem;color:var(--text-muted);line-height:1.75;font-style:italic}
+
+/* ═══ TAB NAVIGATION ═══ */
+.tab-nav{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:32px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{display:flex;align-items:center;gap:8px;padding:13px 18px;border:none;background:none;font-family:'Source Sans 3',sans-serif;font-size:.81rem;font-weight:700;color:var(--text-muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .2s;flex-shrink:0}
+.tab-btn:hover{color:var(--navy);background:rgba(11,37,69,.04)}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--accent)}
+.tab-btn svg{flex-shrink:0;color:currentColor}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ═══ MODULE HEADER ═══ */
+.module-tag{display:inline-flex;align-items:center;gap:8px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);background:rgba(200,146,42,.09);border:1px solid rgba(200,146,42,.22);padding:5px 14px;border-radius:10px;margin-bottom:12px}
+.module-title{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.25}
+.module-desc{font-size:.9rem;color:var(--text-muted);max-width:720px;line-height:1.78;margin-bottom:28px}
+
+/* ═══ CONCEPT BLOCKS ═══ */
+.concept-block{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:26px 30px;margin-bottom:18px;box-shadow:0 2px 8px rgba(11,37,69,.05)}
+.concept-block h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:12px}
+.concept-block p{font-size:.88rem;color:var(--text-muted);line-height:1.8;margin-bottom:10px}
+.concept-block p:last-child{margin-bottom:0}
+.concept-block ul{list-style:none;padding:0;margin-top:10px}
+.concept-block ul li{font-size:.87rem;color:var(--text-muted);padding:8px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.concept-block ul li:last-child{border-bottom:none}
+.li-dot{display:block;width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px}
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.c-pill{background:var(--light-bg);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.c-pill-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:5px}
+.c-pill-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.c-pill-desc{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+
+/* ═══ RC2 EXAMPLE BOX ═══ */
+.rc2-example{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:24px 28px;margin-bottom:20px}
+.rc2-example-label{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-light);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.rc2-example h4{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:10px;line-height:1.3}
+.rc2-example p{font-size:.86rem;color:rgba(255,255,255,.82);line-height:1.78}
+.rc2-example strong{color:#fff}
+
+/* ═══ ASSESSMENT BLOCK ═══ */
+.assessment-block{background:var(--white);border-radius:10px;border:2px solid var(--border);padding:28px 30px;margin-bottom:20px;box-shadow:0 2px 8px rgba(11,37,69,.05)}
+.assessment-head{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.assessment-head-text h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy)}
+.assessment-head-text p{font-size:.78rem;color:var(--text-muted);margin-top:3px}
+.q-block{margin-bottom:24px}
+.q-num{font-size:.63rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.q-scenario{font-size:.88rem;font-weight:600;color:var(--navy);line-height:1.55;margin-bottom:12px}
+.q-options{display:flex;flex-direction:column;gap:8px}
+.q-option{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border:1.5px solid var(--border);border-radius:7px;cursor:pointer;transition:all .2s;font-size:.85rem;color:var(--text);line-height:1.5}
+.q-option:hover:not(.disabled){border-color:var(--light-blue);background:#EFF6FF}
+.q-option input[type="radio"]{accent-color:var(--accent);flex-shrink:0;margin-top:3px;cursor:pointer}
+.q-option.disabled{cursor:default}
+.q-option.reveal-correct{border-color:var(--accent);background:rgba(200,146,42,.09);font-weight:600;color:var(--navy)}
+.q-option.reveal-wrong{border-color:#CBD5E1;background:#F8FAFC;color:var(--text-muted);opacity:.65}
+.q-option.reveal-chosen-wrong{border-color:var(--blue);background:rgba(26,74,138,.06);color:var(--navy)}
+.q-divider{height:1px;background:var(--border);margin:22px 0}
+.btn-submit{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-weight:700;font-size:.84rem;padding:11px 24px;border-radius:6px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;margin-top:22px}
+.btn-submit:hover:not(:disabled){background:var(--blue)}
+.btn-submit:disabled{opacity:.45;cursor:not-allowed}
+.btn-retake{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--navy);font-weight:700;font-size:.84rem;padding:11px 22px;border-radius:6px;border:1.5px solid var(--border);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;margin-top:10px;margin-left:10px}
+.btn-retake:hover{background:var(--light-bg)}
+
+/* ═══ SCORE REVEAL ═══ */
+.score-reveal{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:24px 28px;margin-top:22px;display:none}
+.score-reveal.visible{display:block}
+.score-top{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:14px}
+.score-ring{width:76px;height:76px;border-radius:50%;border:3px solid var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.score-num{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:#fff;line-height:1}
+.score-denom{font-size:.62rem;color:rgba(255,255,255,.55);font-weight:700;letter-spacing:.5px}
+.score-text h4{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:5px}
+.score-text p{font-size:.83rem;color:rgba(255,255,255,.78);line-height:1.65}
+.score-bar-wrap{background:rgba(255,255,255,.12);border-radius:20px;height:6px;overflow:hidden;margin-top:10px;max-width:300px}
+.score-bar-fill{height:100%;border-radius:20px;background:var(--accent);transition:width .7s ease}
+
+/* ═══ ACTION ITEMS ═══ */
+.action-block{background:rgba(200,146,42,.06);border:1.5px solid rgba(200,146,42,.24);border-radius:10px;padding:22px 26px;margin-top:20px}
+.action-block-head{font-size:.64rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.action-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+.action-list li{display:flex;align-items:flex-start;gap:12px;font-size:.87rem;color:var(--text);line-height:1.65}
+.action-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:.66rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* ═══ INTRO TAB ELEMENTS ═══ */
+.intro-welcome{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:28px 32px;margin-bottom:22px;box-shadow:0 2px 8px rgba(11,37,69,.05)}
+.intro-welcome p{font-size:.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:10px}
+.intro-welcome p:last-child{margin-bottom:0}
+.intro-welcome strong{color:var(--navy)}
+.authority-strip{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:24px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}
+.auth-stat{text-align:center}
+.auth-val{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--accent-light);line-height:1}
+.auth-lbl{font-size:.66rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.52);margin-top:5px;line-height:1.4}
+.module-overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.mod-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:0 1px 4px rgba(11,37,69,.05);cursor:pointer;transition:all .2s;text-align:center}
+.mod-card:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(11,37,69,.1);transform:translateY(-1px)}
+.mod-icon-wrap{width:46px;height:46px;border-radius:10px;background:rgba(11,37,69,.07);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--navy)}
+.mod-card h4{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--navy);margin-bottom:5px;line-height:1.3}
+.mod-card p{font-size:.74rem;color:var(--text-muted);line-height:1.5}
+.mod-num-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(200,146,42,.1);color:var(--accent);border:1px solid rgba(200,146,42,.2);padding:3px 8px;border-radius:6px;margin-bottom:8px}
+.how-to-block{background:var(--light-bg);border-radius:10px;border:1px solid var(--border);padding:22px 26px;margin-bottom:28px}
+.how-to-block h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin-bottom:14px}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.how-step{text-align:center;padding:14px}
+.how-step-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--light-blue);line-height:1;margin-bottom:6px}
+.how-step-title{font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.how-step-desc{font-size:.73rem;color:var(--text-muted);line-height:1.5}
+
+/* ═══ CTA BOX ═══ */
+.article-cta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.article-cta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:white;margin-bottom:8px}
+.article-cta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-cta:hover{background:var(--light-bg)}
+
+/* ═══ FOOTER ═══ */
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-copy a:hover{color:rgba(255,255,255,.9)}
+
+/* ═══ HAMBURGER ═══ */
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:800px){
+  .hero,.page-wrap{padding-left:20px;padding-right:20px}
+  .prog-dash{padding:14px 20px}
+  .prog-inner{grid-template-columns:1fr 1fr}
+  .authority-strip{grid-template-columns:1fr 1fr}
+  .module-overview-grid{grid-template-columns:1fr 1fr}
+  .concept-grid{grid-template-columns:1fr}
+  .how-steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .topnav{padding:0 16px !important;position:relative}
+  .hamburger{display:flex !important}
+  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,.15);box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:200;gap:0 !important}
+  .nav-links.mobile-open{display:flex !important}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:.92rem !important;border-bottom:1px solid rgba(255,255,255,.07);border-radius:0 !important;height:auto !important}
+  .lang-toggle{padding:10px 20px 4px}
+  .hero h1{font-size:1.75rem}
+  .hero{padding:40px 20px 36px}
+  .tab-btn{padding:10px 13px;font-size:.75rem}
+  .module-overview-grid{grid-template-columns:1fr}
+  .authority-strip{grid-template-columns:1fr}
+  .prog-inner{grid-template-columns:1fr 1fr}
+  .how-steps{grid-template-columns:1fr 1fr}
+  .concept-grid{grid-template-columns:1fr}
+}
+@media print{.topnav,.site-footer,.btn-back,.article-cta,.tab-nav,.btn-submit,.btn-retake,.prog-dash{display:none}.hero{padding:20px}.page-wrap{padding:20px}}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="topnav">
+  <a href="https://rc2consulting.github.io/index-es.html" class="nav-brand">
+    <div class="nav-logo-mark">RC<sup>2</sup></div>
+    <span class="nav-brand-name">Consulting</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://rc2consulting.github.io/index-es.html">Inicio</a></li>
+    <li><a href="https://rc2consulting.github.io/services-es.html">Servicios</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help-es.html">A Qui&#233;n Ayudamos</a></li>
+    <li><a href="https://rc2consulting.github.io/about-es.html">Nosotros</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="active">Recursos</a></li>
+    <li><a href="https://rc2consulting.github.io/insights-es.html">Art&#237;culos</a></li>
+    <li><a href="https://rc2consulting.github.io/contact-es.html">Contacto</a></li>
+    <li>
+      <div class="lang-toggle">
+        <a href="https://rc2consulting.github.io/RC2_SalesTraining_Tool.html" class="lang-btn inactive">EN</a>
+        <a href="https://rc2consulting.github.io/RC2_SalesTraining_Tool-es.html" class="lang-btn active">ES</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="article-tag">Herramienta de Capacitaci&#243;n en Ventas</span>
+    <h1>Herramienta de Capacitaci&#243;n Ejecutiva en Ventas RC2</h1>
+    <p class="hero-sub">Cinco m&#243;dulos que cubren el proceso completo de ventas consultivas — desde los fundamentos de la cartera hasta la construcci&#243;n de un sistema de desarrollo de negocios que genera oportunidades de manera constante. Basado en m&#225;s de 60 a&#241;os de experiencia ejecutiva en operaciones, cumplimiento y cadena de suministro global.</p>
+    <div class="hero-meta">
+      <span>RC2 Consulting</span>
+      <span class="divider">|</span>
+      <span>5 M&#243;dulos &middot; Evaluaciones por Escenario</span>
+      <span class="divider">|</span>
+      <span>Contenido Original RC2</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROGRESS DASHBOARD ═══ -->
+<div class="prog-dash">
+  <div class="prog-inner">
+    <div class="prog-stat">
+      <div class="prog-val" id="d-score">0</div>
+      <div class="prog-lbl">Puntaje Total</div>
+    </div>
+    <div class="prog-stat">
+      <div class="prog-val" id="d-pct">0%</div>
+      <div class="prog-lbl">General</div>
+    </div>
+    <div class="prog-dots-wrap">
+      <div class="prog-dots-label">Progreso por M&#243;dulo</div>
+      <div class="prog-dots">
+        <div class="prog-dot" id="pd-1" title="M&#243;dulo 1"></div>
+        <div class="prog-dot" id="pd-2" title="M&#243;dulo 2"></div>
+        <div class="prog-dot" id="pd-3" title="M&#243;dulo 3"></div>
+        <div class="prog-dot" id="pd-4" title="M&#243;dulo 4"></div>
+        <div class="prog-dot" id="pd-5" title="M&#243;dulo 5"></div>
+      </div>
+    </div>
+    <div>
+      <div class="prog-badge badge-navy" id="d-badge" style="cursor:pointer" onclick="badgeClick()">Iniciar Capacitaci&#243;n</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PAGE CONTENT ═══ -->
+<div class="page-wrap">
+
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" class="btn-back">&#8592; Volver a Recursos</a>
+
+  <!-- Abstract -->
+  <div class="abstract-box">
+    <h3>Acerca de Esta Herramienta</h3>
+    <p>La Herramienta de Capacitaci&#243;n Ejecutiva en Ventas de RC2 es un recurso interactivo de 5 m&#243;dulos elaborado &#237;ntegramente con contenido original de RC2, respaldado por investigaciones del sector disponibles p&#250;blicamente. Cubre los fundamentos de la cartera comercial, la t&#233;cnica de descubrimiento, la navegaci&#243;n de partes interesadas, la comunicaci&#243;n de valor y los sistemas de desarrollo de negocios — con evaluaciones basadas en escenarios y elementos de acci&#243;n inmediata para cada m&#243;dulo. Jill F. Coleman y Eddie Castleton, cofundadores de RC2 Consulting con m&#225;s de 60 a&#241;os de experiencia ejecutiva combinada, son la autoridad detr&#225;s de todo el contenido.</p>
+  </div>
+
+  <!-- ═══ TAB NAVIGATION ═══ -->
+  <div class="tab-nav" role="tablist" aria-label="M&#243;dulos de Capacitaci&#243;n">
+    <button class="tab-btn active" onclick="showTab(0)" role="tab" aria-selected="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      Introducci&#243;n
+    </button>
+    <button class="tab-btn" onclick="showTab(1)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2V12.46z"/></svg>
+      M&#243;dulo 1: Cartera
+    </button>
+    <button class="tab-btn" onclick="showTab(2)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      M&#243;dulo 2: Descubrimiento
+    </button>
+    <button class="tab-btn" onclick="showTab(3)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      M&#243;dulo 3: Partes Interesadas
+    </button>
+    <button class="tab-btn" onclick="showTab(4)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      M&#243;dulo 4: Valor
+    </button>
+    <button class="tab-btn" onclick="showTab(5)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      M&#243;dulo 5: Sistema DN
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       TAB 0 — INTRODUCCIÓN
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-0">
+
+    <div class="intro-welcome">
+      <p><strong>Esta herramienta fue creada para cualquier persona que venda servicios profesionales</strong> — ya sea que sea nuevo en el desarrollo de negocios o un profesional experimentado que busca perfeccionar una disciplina espec&#237;fica. Los cinco m&#243;dulos cubren el arco completo de la venta consultiva, desde la primera conversaci&#243;n de prospecci&#243;n hasta la construcci&#243;n de un sistema de cartera que se sostiene por s&#237; solo a lo largo del tiempo.</p>
+      <p>Todo el contenido est&#225; fundamentado en experiencia real. Jill F. Coleman aporta m&#225;s de 35 a&#241;os de liderazgo ejecutivo en cadena de suministro global, manufactura y consultor&#237;a de cumplimiento. Eddie Castleton aporta m&#225;s de 30 a&#241;os en operaciones, cumplimiento, investigaci&#243;n de fraude, capacitaci&#243;n y gesti&#243;n de proyectos. Juntos, los cofundadores de RC2 han guiado a empresas en manufactura de confecci&#243;n, contrataci&#243;n gubernamental y operaciones del mercado medio a trav&#233;s de compromisos complejos de alto impacto.</p>
+      <p>Trabaje los m&#243;dulos en orden o navegue directamente al &#225;rea donde desea mejorar sus habilidades. Cada m&#243;dulo concluye con una autoevaluaci&#243;n basada en escenarios y tres elementos de acci&#243;n inmediata que puede aplicar de inmediato.</p>
+    </div>
+
+    <div class="authority-strip">
+      <div class="auth-stat">
+        <div class="auth-val">60+</div>
+        <div class="auth-lbl">A&#241;os de Experiencia Ejecutiva Combinada</div>
+      </div>
+      <div class="auth-stat">
+        <div class="auth-val">3</div>
+        <div class="auth-lbl">&#193;reas: WRAP &middot; Contrataci&#243;n Gov. &middot; Operaciones</div>
+      </div>
+      <div class="auth-stat">
+        <div class="auth-val">5</div>
+        <div class="auth-lbl">M&#243;dulos &middot; 22 Escenarios &middot; 15 Acciones</div>
+      </div>
+    </div>
+
+    <div class="module-overview-grid">
+      <div class="mod-card" onclick="showTab(1)">
+        <div class="mod-num-badge">M&#243;dulo 1</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2V12.46z"/></svg></div>
+        <h4>Cartera, Prospecci&#243;n y Calificaci&#243;n</h4>
+        <p>Las cinco etapas del proceso de venta consultiva, los criterios de calificaci&#243;n y la diferencia entre la venta transaccional y la consultiva.</p>
+      </div>
+      <div class="mod-card" onclick="showTab(2)">
+        <div class="mod-num-badge">M&#243;dulo 2</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h4>Dominio del Descubrimiento</h4>
+        <p>La secuencia de descubrimiento RC2, la distancia problema-resultado y la raz&#243;n de escucha que distingue a los consultores excepcionales.</p>
+      </div>
+      <div class="mod-card" onclick="showTab(3)">
+        <div class="mod-num-badge">M&#243;dulo 3</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Navegaci&#243;n de Partes Interesadas</h4>
+        <p>Por qu&#233; se estancan los negocios, los cuatro roles de decisi&#243;n en todo comit&#233; de compra y la estrategia para m&#250;ltiples partes interesadas.</p>
+      </div>
+      <div class="mod-card" onclick="showTab(4)">
+        <div class="mod-num-badge">M&#243;dulo 4</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h4>Comunicaci&#243;n de Valor</h4>
+        <p>Caracter&#237;sticas vs. resultados, el marco de lenguaje de valor RC2 y c&#243;mo reencuadrar las objeciones de precio en una conversaci&#243;n de caso de negocio.</p>
+      </div>
+      <div class="mod-card" onclick="showTab(5)">
+        <div class="mod-num-badge">M&#243;dulo 5</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <h4>Construir un Sistema de DN</h4>
+        <p>Los cinco pilares de un sistema repetible de desarrollo de negocios, LinkedIn para servicios profesionales y marketing basado en cuentas para consultoras peque&#241;as.</p>
+      </div>
+    </div>
+
+    <div class="how-to-block">
+      <h3>C&#243;mo Usar Esta Herramienta</h3>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div class="how-step-title">Seleccione un M&#243;dulo</div>
+          <div class="how-step-desc">Haga clic en cualquier pesta&#241;a. Trabaje en orden o salte al &#225;rea que desea fortalecer.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div class="how-step-title">Lea el Contenido</div>
+          <div class="how-step-desc">Cada m&#243;dulo cubre 3&#8211;4 conceptos clave con ejemplos espec&#237;ficos de las l&#237;neas de servicio de RC2.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div class="how-step-title">Complete la Evaluaci&#243;n</div>
+          <div class="how-step-desc">Responda 4&#8211;5 preguntas basadas en escenarios. Env&#237;e para ver su puntaje y las respuestas correctas.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">4</div>
+          <div class="how-step-title">Aplique las Acciones</div>
+          <div class="how-step-desc">Tres elementos de acci&#243;n espec&#237;ficos cierran cada m&#243;dulo. Aplique al menos uno esta semana.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tab-0 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 1 — MÓDULO 1: CARTERA
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-1">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2V12.46z"/></svg>
+      M&#243;dulo 1 de 5
+    </div>
+    <h2 class="module-title">Fundamentos de Ventas: Cartera, Prospecci&#243;n y Calificaci&#243;n</h2>
+    <p class="module-desc">El fundamento de toda operaci&#243;n de ventas eficaz es una cartera gestionada y medible. Este m&#243;dulo cubre c&#243;mo funciona un proceso de venta consultiva, por qu&#233; la calificaci&#243;n es innegociable y qu&#233; distingue la venta transaccional del enfoque consultivo que requieren las firmas de servicios profesionales.</p>
+
+    <div class="concept-block">
+      <h3>&#191;Qu&#233; es una Cartera Comercial y por qu&#233; importa?</h3>
+      <p>Una cartera comercial es un marco visual que muestra d&#243;nde se encuentra cada cliente potencial en su proceso de ventas — desde la primera conversaci&#243;n hasta la firma del contrato. Sin una cartera, el desarrollo de negocios es reactivo. Con una, se convierte en un sistema gestionado y medible que puede diagnosticar, mejorar y escalar.</p>
+      <p>El beneficio m&#225;s importante de una cartera estructurada es la previsibilidad. Puede ver cu&#225;ntos prospectos est&#225;n en cada etapa, estimar cu&#225;ntos convertir&#225;n y detectar exactamente d&#243;nde se rompe el proceso. Para una consultora boutique, esa visibilidad es la diferencia entre un crecimiento sostenible y un ciclo de ingresos irregular.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>Las Cinco Etapas del Proceso de Venta Consultiva</h3>
+      <p>La mayor&#237;a de los compromisos de servicios profesionales avanzan a trav&#233;s de cinco etapas consistentes. Entender d&#243;nde se encuentra cada prospecto — y qu&#233; se necesita para avanzarlo — es la habilidad central de la gesti&#243;n de cartera.</p>
+      <div class="concept-grid">
+        <div class="c-pill"><div class="c-pill-num">01</div><div class="c-pill-title">Prospecci&#243;n</div><div class="c-pill-desc">Identificar empresas que coincidan con su perfil de cliente ideal y establecer el primer contacto.</div></div>
+        <div class="c-pill"><div class="c-pill-num">02</div><div class="c-pill-title">Calificaci&#243;n</div><div class="c-pill-desc">Confirmar que el prospecto tiene necesidad genuina, presupuesto, autoridad de decisi&#243;n y un cronograma realista.</div></div>
+        <div class="c-pill"><div class="c-pill-num">03</div><div class="c-pill-title">Descubrimiento</div><div class="c-pill-desc">Comprender la profundidad del problema, el costo de la inacci&#243;n y c&#243;mo se toman las decisiones dentro de la organizaci&#243;n.</div></div>
+        <div class="c-pill"><div class="c-pill-num">04</div><div class="c-pill-title">Propuesta</div><div class="c-pill-desc">Presentar una soluci&#243;n personalizada vinculada directamente a los problemas declarados y los resultados deseados del cliente.</div></div>
+        <div class="c-pill"><div class="c-pill-num">05</div><div class="c-pill-title">Acuerdo e Incorporaci&#243;n</div><div class="c-pill-desc">Confirmar el alcance, firmar la carta de compromiso y hacer la transici&#243;n hacia la entrega del servicio.</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>Venta Transaccional vs. Venta Consultiva</h3>
+      <p>La venta transaccional se centra en el intercambio: precio, velocidad y especificaci&#243;n del producto. El comprador ya sabe lo que quiere. El trabajo del vendedor es cerrar r&#225;pidamente. Este modelo funciona para materias primas — no para compromisos complejos de servicios profesionales.</p>
+      <p>La venta consultiva comienza con una comprensi&#243;n profunda de la situaci&#243;n del cliente antes de ofrecer cualquier soluci&#243;n. El consultor diagnostica primero, prescribe despu&#233;s. Para RC2 — donde cada compromiso de preparaci&#243;n para auditor&#237;a WRAP, cada proyecto de elegibilidad para contratos gubernamentales y cada evaluaci&#243;n operativa se construye a la medida de la brecha espec&#237;fica del cliente — la venta consultiva es el &#250;nico modelo apropiado.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>Los Cuatro Criterios de Calificaci&#243;n</h3>
+      <p>Antes de invertir tiempo significativo en cualquier oportunidad, confirme cuatro elementos. Un prospecto que carezca de cualquiera de ellos no est&#225; listo para avanzar.</p>
+      <ul>
+        <li><span class="li-dot"></span><strong>Necesidad &mdash;</strong> &#191;El cliente tiene un problema genuino y reconocido que su servicio aborda directamente? &#191;Lo ha articulado el mismo cliente?</li>
+        <li><span class="li-dot"></span><strong>Presupuesto &mdash;</strong> &#191;Se ha asignado financiamiento, o puede aprobarse en un plazo que se alinee con su capacidad? La ausencia de presupuesto comprometido no es un factor descalificante — pero requiere un camino claro hacia la aprobaci&#243;n.</li>
+        <li><span class="li-dot"></span><strong>Autoridad &mdash;</strong> &#191;La persona con quien habla puede tomar o influir significativamente en la decisi&#243;n de compra? Si no, &#191;qui&#233;n puede — y c&#243;mo llega hasta esa persona?</li>
+        <li><span class="li-dot"></span><strong>Cronograma &mdash;</strong> &#191;Existe un plazo realista y espec&#237;fico para el compromiso que se alinee con la urgencia del cliente y su capacidad disponible?</li>
+      </ul>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 en Pr&#225;ctica — Calificaci&#243;n para Auditor&#237;a WRAP
+      </div>
+      <h4>C&#243;mo Califica RC2 una Consulta de Auditor&#237;a WRAP</h4>
+      <p>Cuando un fabricante de prendas contacta a RC2 sobre preparaci&#243;n para auditor&#237;a WRAP, la primera conversaci&#243;n no es un argumento de venta — es una conversaci&#243;n de calificaci&#243;n. RC2 pregunta: <strong>&#191;Se ha programado formalmente una auditor&#237;a?</strong> &#191;Cu&#225;l es el estado actual de su documentaci&#243;n de cumplimiento? &#191;Qui&#233;n ha aprobado el gasto en consultor&#237;a de este compromiso? &#191;Y cu&#225;l es el cronograma hacia la primera inspecci&#243;n? Esas cuatro respuestas se corresponden directamente con nuestros cuatro criterios de calificaci&#243;n — y determinan si esta es una oportunidad inmediata, un prospecto en desarrollo, o simplemente no es el momento adecuado.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-1">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Autoevaluaci&#243;n M&#243;dulo 1</h3>
+          <p>5 preguntas basadas en escenarios &middot; Seleccione una respuesta por pregunta &middot; Env&#237;e al completar</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 1 de 5</div>
+        <div class="q-scenario">Una empresa manufacturera llama a su firma. Dice: "Necesitamos una auditor&#237;a de cumplimiento." Tiene 10 minutos antes de otra reuni&#243;n. &#191;Cu&#225;l es su mejor primera acci&#243;n?</div>
+        <div class="q-options" id="m1q1">
+          <label class="q-option"><input type="radio" name="m1q1" value="A"> A. &nbsp;Agendar una llamada de descubrimiento completa para la pr&#243;xima semana sin hacer preguntas ahora.</label>
+          <label class="q-option"><input type="radio" name="m1q1" value="B"> B. &nbsp;Enviarles su propuesta y lista de tarifas de inmediato.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m1q1" value="C"> C. &nbsp;Hacer 3&#8211;4 preguntas de calificaci&#243;n para evaluar la necesidad, el cronograma y la autoridad antes de comprometer tiempo.</label>
+          <label class="q-option"><input type="radio" name="m1q1" value="D"> D. &nbsp;Decirles su tarifa por hora y dejarles decidir si quieren continuar.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 2 de 5</div>
+        <div class="q-scenario">Un prospecto le indica que quiere iniciar un compromiso en 6 meses. A&#250;n no ha asignado presupuesto. &#191;D&#243;nde deber&#237;a ubicarse esta oportunidad en su cartera?</div>
+        <div class="q-options" id="m1q2">
+          <label class="q-option"><input type="radio" name="m1q2" value="A"> A. &nbsp;Etapa de cliente activo — comenzar a coordinar de inmediato.</label>
+          <label class="q-option"><input type="radio" name="m1q2" value="B"> B. &nbsp;Etapa de propuesta — enviar el alcance de trabajo esta semana.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m1q2" value="C"> C. &nbsp;Prospecto en etapa inicial — asignar una cadencia de seguimiento y retomar en 60&#8211;90 d&#237;as.</label>
+          <label class="q-option"><input type="radio" name="m1q2" value="D"> D. &nbsp;No calificado — eliminar de su cartera por completo.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 3 de 5</div>
+        <div class="q-scenario">Tiene 20 prospectos en su cartera. &#191;Cu&#225;l indicador &#250;nico le dice m&#225;s sobre la salud de su cartera?</div>
+        <div class="q-options" id="m1q3">
+          <label class="q-option"><input type="radio" name="m1q3" value="A"> A. &nbsp;El valor total estimado en d&#243;lares de todas las oportunidades.</label>
+          <label class="q-option"><input type="radio" name="m1q3" value="B"> B. &nbsp;El n&#250;mero de propuestas enviadas este mes.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m1q3" value="C"> C. &nbsp;La distribuci&#243;n de prospectos en las cinco etapas con estimaciones de conversi&#243;n realistas para cada una.</label>
+          <label class="q-option"><input type="radio" name="m1q3" value="D"> D. &nbsp;Cu&#225;ntos prospectos se han comunicado con usted esta semana.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 4 de 5</div>
+        <div class="q-scenario">&#191;Cu&#225;l es la distinci&#243;n central entre la venta consultiva y la transaccional para una firma de servicios profesionales?</div>
+        <div class="q-options" id="m1q4">
+          <label class="q-option"><input type="radio" name="m1q4" value="A"> A. &nbsp;La venta consultiva se enfoca en construir relaciones m&#225;s largas; la transaccional, en cierres m&#225;s r&#225;pidos.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m1q4" value="B"> B. &nbsp;La venta consultiva diagnostica el problema espec&#237;fico del cliente antes de proponer cualquier soluci&#243;n.</label>
+          <label class="q-option"><input type="radio" name="m1q4" value="C"> C. &nbsp;La venta transaccional es m&#225;s efectiva para compromisos de servicios complejos.</label>
+          <label class="q-option"><input type="radio" name="m1q4" value="D"> D. &nbsp;La venta consultiva solo funciona cuando se tiene un equipo grande detr&#225;s.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 5 de 5</div>
+        <div class="q-scenario">Un prospecto claramente tiene presupuesto y una necesidad genuina — pero la persona con quien ha hablado durante tres semanas no puede aprobar el contrato. &#191;Cu&#225;l es el siguiente paso correcto?</div>
+        <div class="q-options" id="m1q5">
+          <label class="q-option"><input type="radio" name="m1q5" value="A"> A. &nbsp;Enviar la propuesta a esta persona de todas formas y esperar que pueda escalarla.</label>
+          <label class="q-option"><input type="radio" name="m1q5" value="B"> B. &nbsp;Descartar la oportunidad — si no pueden aprobar, no vale la pena su tiempo.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m1q5" value="C"> C. &nbsp;Pedir a su contacto que le presente al tomador de decisiones e involucrar a ambas personas en el proceso.</label>
+          <label class="q-option"><input type="radio" name="m1q5" value="D"> D. &nbsp;Ofrecer un descuento significativo para facilitar que su contacto obtenga aprobaci&#243;n interna.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-1" onclick="submitModule(1)" disabled>Enviar Evaluaci&#243;n</button>
+        <button class="btn-retake" id="retake-1" onclick="retakeModule(1)" style="display:none">&#8634; Repetir</button>
+      </div>
+
+      <div class="score-reveal" id="score-1">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-1">0</div>
+            <div class="score-denom">de 5</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-1"></h4>
+            <p id="score-msg-1"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-1" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Acciones — Aplicar Esta Semana
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Mapee su cartera actual y asigne cada prospecto activo a una de las cinco etapas. Identifique las etapas vac&#237;as — esas brechas predicen d&#243;nde se estancar&#225; su ingreso en 60&#8211;90 d&#237;as.</li>
+        <li><div class="action-num">2</div>Redacte sus cinco preguntas de calificaci&#243;n est&#225;ndar — las que har&#225; en cada primera llamada independientemente de cu&#225;n prometedora parezca la consulta entrante. Pract&#237;quelas hasta que suenen naturales.</li>
+        <li><div class="action-num">3</div>Revise sus &#250;ltimas tres propuestas. &#191;En qu&#233; etapa cerr&#243; o se estanc&#243; cada una? &#191;Hubo una brecha de calificaci&#243;n que debi&#243; detectarse antes en el proceso?</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-1 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 2 — MÓDULO 2: DESCUBRIMIENTO
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-2">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      M&#243;dulo 2 de 5
+    </div>
+    <h2 class="module-title">Dominio del Descubrimiento: Las Preguntas que Importan</h2>
+    <p class="module-desc">El descubrimiento es la fase m&#225;s importante de cualquier compromiso de servicios profesionales. Cuando se hace bien, lo posiciona como el diagnosticador experto — la persona que entiende el problema del cliente mejor que nadie m&#225;s en la sala.</p>
+
+    <div class="concept-block">
+      <h3>Por qu&#233; el Descubrimiento es la Fase M&#225;s Importante</h3>
+      <p>Muchos consultores de servicios profesionales pasan la mayor parte de sus conversaciones de ventas hablando sobre sus propias credenciales, servicios y procesos. Esto es un error — y los clientes lo perciben. La posici&#243;n m&#225;s poderosa que puede ocupar en cualquier conversaci&#243;n de ventas es la del experto que escucha antes de prescribir.</p>
+      <p>El descubrimiento es una conversaci&#243;n estructurada dise&#241;ada para revelar una cosa: la brecha entre donde se encuentra el cliente hoy y donde necesita estar — y lo que les cuesta dejar esa brecha abierta. Cada propuesta, decisi&#243;n de alcance y conversaci&#243;n de precio que sigue fluye de la calidad de esta conversaci&#243;n.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>La Secuencia de Descubrimiento RC2</h3>
+      <p>RC2 utiliza un marco de conversaci&#243;n de cuatro etapas que avanza desde la comprensi&#243;n del entorno actual del cliente hasta establecer un compromiso claro con el cambio.</p>
+      <div class="concept-grid">
+        <div class="c-pill"><div class="c-pill-num">C</div><div class="c-pill-title">Contexto</div><div class="c-pill-desc">Comprenda la situaci&#243;n actual del cliente — procesos, sistemas, certificaciones, estructura del equipo e historial con el &#225;rea problem&#225;tica.</div></div>
+        <div class="c-pill"><div class="c-pill-num">D</div><div class="c-pill-title">Desaf&#237;o</div><div class="c-pill-desc">Identifique el problema o brecha espec&#237;fica. &#191;D&#243;nde est&#225; la fricci&#243;n? &#191;Qu&#233; est&#225; fallando, qu&#233; falta, qu&#233; est&#225; en riesgo ahora mismo?</div></div>
+        <div class="c-pill"><div class="c-pill-num">C</div><div class="c-pill-title">Consecuencia</div><div class="c-pill-desc">Explore qu&#233; sucede si el problema no se resuelve. Esta es la etapa m&#225;s importante — establece el caso de negocio para su compromiso.</div></div>
+        <div class="c-pill"><div class="c-pill-num">C</div><div class="c-pill-title">Compromiso</div><div class="c-pill-desc">Defina c&#243;mo se ve el &#233;xito. &#191;Qu&#233; resultado espec&#237;fico har&#237;a que este compromiso valiera cada peso? &#191;Qu&#233; significa "resuelto" para ellos?</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>La Distancia Problema-Resultado</h3>
+      <p>Cada compromiso de consultor&#237;a existe para cerrar una brecha. La distancia entre el estado actual del cliente — el problema — y su estado deseado — el resultado — define el valor de su servicio. Cuanto mayor sea esa brecha y m&#225;s costoso sea dejarla abierta, m&#225;s s&#243;lido ser&#225; el caso de negocio para el compromiso.</p>
+      <p>Los profesionales de descubrimiento de alto rendimiento pasan la mayor parte de la conversaci&#243;n mapeando esa distancia antes de describir cualquier soluci&#243;n. Los clientes que pueden articular claramente su propio problema tienen mucha m&#225;s probabilidad de comprometerse en un contrato que los que todav&#237;a no est&#225;n seguros de cu&#225;l es el problema.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>La Raz&#243;n de Escucha</h3>
+      <p>En una llamada de descubrimiento bien ejecutada, el consultor deber&#237;a hablar aproximadamente el 30% del tiempo y escuchar el otro 70%. Despu&#233;s de cada llamada de descubrimiento, revise sus notas. Si contienen principalmente informaci&#243;n sobre lo que usted les dijo — sus servicios, su proceso, sus credenciales — la llamada no fue de descubrimiento. Fue un argumento de ventas. Las notas de un descubrimiento genuino deben estar llenas casi exclusivamente de informaci&#243;n sobre el cliente: sus procesos, sus brechas, sus metas, sus restricciones y su lenguaje.</p>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 en Pr&#225;ctica — Descubrimiento para Contrataci&#243;n Gubernamental
+      </div>
+      <h4>Lo que RC2 Pregunta Antes de Proponer un Compromiso de Contrataci&#243;n Gubernamental</h4>
+      <p>Antes de recomendar un alcance de trabajo, RC2 realiza una entrevista estructurada que cubre: el estado actual del registro de la empresa en SAM.gov, los c&#243;digos NAICS que creen que aplican a su trabajo, si tienen una declaraci&#243;n de capacidades existente, cualquier historial previo de licitaciones y las oportunidades contractuales espec&#237;ficas que quieren perseguir. <strong>Al final de esa conversaci&#243;n, RC2 tiene una imagen precisa de la brecha del cliente</strong> — y el cliente tiene una comprensi&#243;n clara de exactamente lo que se necesitar&#225; para cerrarla.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-2">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Autoevaluaci&#243;n M&#243;dulo 2</h3>
+          <p>4 preguntas basadas en escenarios &middot; Seleccione una respuesta por pregunta &middot; Env&#237;e al completar</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 1 de 4</div>
+        <div class="q-scenario">Est&#225; en una llamada de descubrimiento con el due&#241;o de una f&#225;brica de confecciones. Ya le dijeron que necesitan preparaci&#243;n para auditor&#237;a WRAP. &#191;Cu&#225;l es su mejor siguiente paso?</div>
+        <div class="q-options" id="m2q1">
+          <label class="q-option"><input type="radio" name="m2q1" value="A"> A. &nbsp;Comenzar de inmediato con la descripci&#243;n de su metodolog&#237;a y proceso de servicio.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m2q1" value="B"> B. &nbsp;Preguntar sobre su documentaci&#243;n de cumplimiento actual y las &#225;reas espec&#237;ficas donde saben que tienen brechas.</label>
+          <label class="q-option"><input type="radio" name="m2q1" value="C"> C. &nbsp;Enviarles la propuesta antes de que termine la llamada — ya saben lo que quieren.</label>
+          <label class="q-option"><input type="radio" name="m2q1" value="D"> D. &nbsp;Pedir de inmediato una referencia a sus otros proveedores.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 2 de 4</div>
+        <div class="q-scenario">Un prospecto dice: "No estamos seguros de estar listos para contratar." Esta afirmaci&#243;n se entiende mejor como:</div>
+        <div class="q-options" id="m2q2">
+          <label class="q-option"><input type="radio" name="m2q2" value="A"> A. &nbsp;Un rechazo claro — avance y dedique su tiempo a oportunidades m&#225;s prometedoras.</label>
+          <label class="q-option"><input type="radio" name="m2q2" value="B"> B. &nbsp;Una se&#241;al para reducir su precio hasta que se sientan c&#243;modos comprometiendo.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m2q2" value="C"> C. &nbsp;Una invitaci&#243;n a explorar qu&#233; significa "listos" para ellos y qu&#233; les impide tomar acci&#243;n.</label>
+          <label class="q-option"><input type="radio" name="m2q2" value="D"> D. &nbsp;Un acuerdo para iniciar una conversaci&#243;n en el cuarto trimestre — agende un seguimiento y espere.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 3 de 4</div>
+        <div class="q-scenario">&#191;Cu&#225;l de las siguientes secuencias de preguntas refleja mejor la Secuencia de Descubrimiento RC2?</div>
+        <div class="q-options" id="m2q3">
+          <label class="q-option"><input type="radio" name="m2q3" value="A"> A. &nbsp;"&#191;Cu&#225;l es su presupuesto?" &#8594; "&#191;Cu&#225;les son sus objetivos?" &#8594; "&#191;Cu&#225;ndo pueden empezar?"</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m2q3" value="B"> B. &nbsp;"Cu&#233;nteme sobre su proceso de cumplimiento actual" &#8594; "&#191;D&#243;nde est&#225;n las brechas?" &#8594; "&#191;Qu&#233; pasa si esto no se resuelve antes de su pr&#243;xima auditor&#237;a?" &#8594; "&#191;Qu&#233; significar&#237;a un resultado limpio para su negocio?"</label>
+          <label class="q-option"><input type="radio" name="m2q3" value="C"> C. &nbsp;"&#191;Ha escuchado sobre nuestros servicios?" &#8594; "&#191;Puedo enviarle una propuesta hoy?"</label>
+          <label class="q-option"><input type="radio" name="m2q3" value="D"> D. &nbsp;"&#191;Qui&#233;n es su proveedor actual?" &#8594; "&#191;Podemos ofrecer un mejor precio?" &#8594; "&#191;Cu&#225;ndo vencen sus contratos?"</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 4 de 4</div>
+        <div class="q-scenario">Despu&#233;s de una llamada de descubrimiento de 45 minutos, revisa sus notas. Contienen principalmente detalles sobre su propio proceso de servicio y las credenciales de su firma. &#191;Qu&#233; le indica esto?</div>
+        <div class="q-options" id="m2q4">
+          <label class="q-option"><input type="radio" name="m2q4" value="A"> A. &nbsp;Excelente llamada — educ&#243; al prospecto a fondo sobre sus capacidades.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m2q4" value="B"> B. &nbsp;La llamada no fue un verdadero descubrimiento — habl&#243; demasiado y no gener&#243; suficiente informaci&#243;n sobre la situaci&#243;n del cliente.</label>
+          <label class="q-option"><input type="radio" name="m2q4" value="C"> C. &nbsp;El prospecto no estaba listo — el descubrimiento funciona mejor cuando el cliente est&#225; m&#225;s avanzado en su proceso.</label>
+          <label class="q-option"><input type="radio" name="m2q4" value="D"> D. &nbsp;Necesita programar una llamada de seguimiento m&#225;s larga para extraer m&#225;s informaci&#243;n del cliente.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-2" onclick="submitModule(2)" disabled>Enviar Evaluaci&#243;n</button>
+        <button class="btn-retake" id="retake-2" onclick="retakeModule(2)" style="display:none">&#8634; Repetir</button>
+      </div>
+
+      <div class="score-reveal" id="score-2">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-2">0</div>
+            <div class="score-denom">de 4</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-2"></h4>
+            <p id="score-msg-2"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-2" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Acciones — Aplicar Esta Semana
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Construya un gui&#243;n est&#225;ndar de 10 preguntas de descubrimiento para su l&#237;nea de servicio m&#225;s com&#250;n, organizado por las cuatro etapas de RC2: Contexto, Desaf&#237;o, Consecuencia y Compromiso. Escriba las preguntas reales — no categor&#237;as, sino las palabras exactas que dir&#237;a.</li>
+        <li><div class="action-num">2</div>En su pr&#243;xima llamada de descubrimiento, est&#225;blezca una meta interna de una raz&#243;n escucha&#8211;habla de 70/30. Tome notas en tiempo real. Despu&#233;s revise: &#191;cu&#225;nto de lo que escribi&#243; es sobre el cliente vs. sobre usted mismo?</li>
+        <li><div class="action-num">3</div>Despu&#233;s de cada llamada de descubrimiento, documente tres cosas: &#191;Cu&#225;l es la brecha espec&#237;fica del cliente? &#191;Cu&#225;l es el costo de la inacci&#243;n? &#191;C&#243;mo se ve el &#233;xito para ellos? Si no puede responder las tres, el descubrimiento fue incompleto.</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-2 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 3 — MÓDULO 3: PARTES INTERESADAS
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-3">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      M&#243;dulo 3 de 5
+    </div>
+    <h2 class="module-title">Navegaci&#243;n de Partes Interesadas: Mapear el Comit&#233; de Compra</h2>
+    <p class="module-desc">La raz&#243;n m&#225;s com&#250;n por la que un negocio bien calificado se estanca no es el precio, el momento ni la competencia — es la persona equivocada en la sala. Mapear la estructura de toma de decisiones y construir relaciones dentro de ella es una competencia central para cualquier firma de servicios profesionales.</p>
+
+    <div class="concept-block">
+      <h3>Por qu&#233; se Estancan los Negocios</h3>
+      <p>Puede tener la mejor soluci&#243;n del mercado, una relaci&#243;n s&#243;lida con su contacto principal, honorarios competitivos y una propuesta clara — y a&#250;n perder el negocio porque la persona con quien ha hablado no puede aprobar la compra. Esta es la raz&#243;n m&#225;s com&#250;n por la que las oportunidades bien desarrolladas no cierran.</p>
+      <p>Cuanto antes identifique qui&#233;n controla la decisi&#243;n final — y cuanto antes construya una relaci&#243;n con esa persona — m&#225;s predecible se vuelve su tasa de cierre.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>Los Cuatro Roles de Decisi&#243;n</h3>
+      <p>En la mayor&#237;a de las situaciones de compra organizacional, cuatro roles distintos determinan el resultado.</p>
+      <div class="concept-grid">
+        <div class="c-pill"><div class="c-pill-num">01</div><div class="c-pill-title">Controlador del Presupuesto</div><div class="c-pill-desc">Controla la aprobaci&#243;n financiera. Sin su firma, ning&#250;n contrato avanza. Puede no aparecer en las conversaciones iniciales — encontrarle es fundamental.</div></div>
+        <div class="c-pill"><div class="c-pill-num">02</div><div class="c-pill-title">Usuario Final</div><div class="c-pill-desc">Trabajar&#225; con usted d&#237;a a d&#237;a. Tiene la visi&#243;n m&#225;s clara del problema y suele ser su aliado m&#225;s motivado — pero rara vez tiene autoridad financiera final.</div></div>
+        <div class="c-pill"><div class="c-pill-num">03</div><div class="c-pill-title">Evaluador T&#233;cnico</div><div class="c-pill-desc">Eval&#250;a si su enfoque es s&#243;lido, sus credenciales son adecuadas y su metodolog&#237;a se ajusta a los requisitos. Suele ser el COO o el director de calidad.</div></div>
+        <div class="c-pill"><div class="c-pill-num">04</div><div class="c-pill-title">Defensor Interno</div><div class="c-pill-desc">Cree en su soluci&#243;n y la defiende internamente cuando usted no est&#225; presente. Identificar y equipar a su defensor es una de las actividades de mayor apalancamiento en la venta de servicios.</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>Estados de Compra Organizacional</h3>
+      <p>Toda organizaci&#243;n a la que se acerca se encuentra en uno de tres estados en un momento dado — y su estrategia debe adaptarse al estado que encuentre.</p>
+      <ul>
+        <li><span class="li-dot"></span><strong>Proactivo &mdash;</strong> La organizaci&#243;n reconoce una brecha y busca activamente mejorar. Est&#225; abierta a nuevas soluciones y avanza a un ritmo medido. Este es el estado ideal para un compromiso consultivo.</li>
+        <li><span class="li-dot"></span><strong>Reactivo &mdash;</strong> La organizaci&#243;n est&#225; respondiendo a una crisis — una auditor&#237;a fallida, un contrato perdido, una citaci&#243;n regulatoria. Necesitan ayuda de inmediato. La urgencia juega a su favor, al igual que su capacidad de aportar orientaci&#243;n estructurada y calmada en una situaci&#243;n estresante.</li>
+        <li><span class="li-dot"></span><strong>Neutral &mdash;</strong> La organizaci&#243;n no percibe una necesidad urgente. Est&#225;n satisfechos o desconocen el riesgo que llevan. Vender en estado neutral requiere ayudarles a ver un riesgo que a&#250;n no han reconocido, o construir una relaci&#243;n a largo plazo para cuando cambien las condiciones.</li>
+      </ul>
+    </div>
+
+    <div class="concept-block">
+      <h3>Estrategia para M&#250;ltiples Partes Interesadas</h3>
+      <p>Cuando participan m&#250;ltiples tomadores de decisiones, su estrategia debe incluir cuatro disciplinas clave.</p>
+      <ul>
+        <li><span class="li-dot"></span>Identifique los cuatro roles antes de llegar a la etapa de propuesta — pregunte directamente a su contacto principal qui&#233;n m&#225;s participar&#225; en la decisi&#243;n.</li>
+        <li><span class="li-dot"></span>Construya una relaci&#243;n con al menos dos partes interesadas antes de presentar una propuesta — no deje que todo el negocio descanse sobre un &#250;nico punto de contacto.</li>
+        <li><span class="li-dot"></span>Equipe a su defensor interno con el lenguaje, los datos y los argumentos adecuados para defender su propuesta eficazmente cuando usted no est&#233; presente.</li>
+        <li><span class="li-dot"></span>Aborde directamente las preocupaciones espec&#237;ficas del controlador del presupuesto y del evaluador t&#233;cnico — no suponga que su defensor traducir&#225; su mensaje con precisi&#243;n.</li>
+      </ul>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 en Pr&#225;ctica — Estrategia de Partes Interesadas en Contrataci&#243;n Gubernamental
+      </div>
+      <h4>Tres Tomadores de Decisiones en una Peque&#241;a Empresa</h4>
+      <p>En un compromiso t&#237;pico de elegibilidad para contratos gubernamentales, el due&#241;o del negocio tiene la visi&#243;n — quiere acceder a ingresos de contratos federales. El contador o CFO controla la aprobaci&#243;n del presupuesto — quiere un ROI claro y una estructura de honorarios definida. El gerente de operaciones es el defensor del d&#237;a a d&#237;a — quiere soporte pr&#225;ctico de documentaci&#243;n y un proceso claro. <strong>RC2 prepara argumentos distintos para cada persona:</strong> diversificaci&#243;n estrat&#233;gica de ingresos para el due&#241;o, una comparaci&#243;n concreta costo&#8211;beneficio para el CFO, y una descripci&#243;n pr&#225;ctica del flujo de trabajo para el equipo de operaciones.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-3">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Autoevaluaci&#243;n M&#243;dulo 3</h3>
+          <p>5 preguntas basadas en escenarios &middot; Seleccione una respuesta por pregunta &middot; Env&#237;e al completar</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 1 de 5</div>
+        <div class="q-scenario">Ha estado hablando con el gerente de operaciones de una f&#225;brica durante seis semanas. Adora su propuesta. Pero el negocio sigue estancado. &#191;Qu&#233; es lo m&#225;s probable que est&#233; ocurriendo?</div>
+        <div class="q-options" id="m3q1">
+          <label class="q-option"><input type="radio" name="m3q1" value="A"> A. &nbsp;Su precio es demasiado alto — ofrezca un descuento para avanzar el negocio.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m3q1" value="B"> B. &nbsp;El gerente de operaciones no tiene autoridad de presupuesto — alguien m&#225;s necesita aprobar el contrato.</label>
+          <label class="q-option"><input type="radio" name="m3q1" value="C"> C. &nbsp;Su propuesta no tiene suficiente detalle — agregue m&#225;s especificaciones.</label>
+          <label class="q-option"><input type="radio" name="m3q1" value="D"> D. &nbsp;La empresa no est&#225; lista — remu&#233;vales de su cartera activa.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 2 de 5</div>
+        <div class="q-scenario">Su defensor interno le env&#237;a un mensaje: "Le mostr&#233; la propuesta a mi jefe y dijo que lo pensar&#225;." &#191;Cu&#225;l es la respuesta m&#225;s productiva?</div>
+        <div class="q-options" id="m3q2">
+          <label class="q-option"><input type="radio" name="m3q2" value="A"> A. &nbsp;Esperar con paciencia — el jefe regresar&#225; cuando est&#233; listo.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m3q2" value="B"> B. &nbsp;Preguntar a su defensor qu&#233; preguntas o preocupaciones espec&#237;ficas plante&#243; su jefe y ofrecer presentar directamente para abordar esas dudas.</label>
+          <label class="q-option"><input type="radio" name="m3q2" value="C"> C. &nbsp;Reducir sus honorarios de inmediato para eliminar cualquier hesitaci&#243;n financiera.</label>
+          <label class="q-option"><input type="radio" name="m3q2" value="D"> D. &nbsp;Hacer seguimiento en 30 d&#237;as con la misma propuesta sin cambios.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 3 de 5</div>
+        <div class="q-scenario">Un fabricante de prendas acaba de recibir un resultado fallido en su auditor&#237;a WRAP. Est&#225;n en modo crisis y buscan ayuda de urgencia. &#191;En qu&#233; estado de compra organizacional se encuentran?</div>
+        <div class="q-options" id="m3q3">
+          <label class="q-option"><input type="radio" name="m3q3" value="A"> A. &nbsp;Proactivo — quieren mejorar proactivamente su postura de cumplimiento.</label>
+          <label class="q-option"><input type="radio" name="m3q3" value="B"> B. &nbsp;Neutral — no tienen urgencia particular para moverse r&#225;pidamente.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m3q3" value="C"> C. &nbsp;Reactivo — est&#225;n respondiendo a una crisis inmediata y necesitan orientaci&#243;n estructurada bajo presi&#243;n de tiempo.</label>
+          <label class="q-option"><input type="radio" name="m3q3" value="D"> D. &nbsp;En equilibrio — est&#225;n satisfechos con su relaci&#243;n de proveedor actual.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 4 de 5</div>
+        <div class="q-scenario">&#191;Cu&#225;l situaci&#243;n de partes interesadas presenta el mayor riesgo para el cierre exitoso de un negocio de servicios profesionales?</div>
+        <div class="q-options" id="m3q4">
+          <label class="q-option"><input type="radio" name="m3q4" value="A"> A. &nbsp;Un &#250;nico tomador de decisiones que ha revisado su propuesta y est&#225; entusiasmado con ella.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m3q4" value="B"> B. &nbsp;M&#250;ltiples partes interesadas involucradas en la decisi&#243;n, pero usted solo se ha reunido con el usuario final — no con el controlador del presupuesto ni con el evaluador t&#233;cnico.</label>
+          <label class="q-option"><input type="radio" name="m3q4" value="C"> C. &nbsp;Un defensor interno que apoya su propuesta pero no controla el presupuesto.</label>
+          <label class="q-option"><input type="radio" name="m3q4" value="D"> D. &nbsp;Un CFO que ha aprobado formalmente el presupuesto para el compromiso.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 5 de 5</div>
+        <div class="q-scenario">Durante una presentaci&#243;n de propuesta, el CEO pregunta: "&#191;Por qu&#233; deber&#237;amos elegirlos a ustedes sobre una firma consultora m&#225;s grande y establecida?" La mejor respuesta es:</div>
+        <div class="q-options" id="m3q5">
+          <label class="q-option"><input type="radio" name="m3q5" value="A"> A. &nbsp;Explicar que las firmas grandes tienen precios excesivos y son menos receptivas que las boutique.</label>
+          <label class="q-option"><input type="radio" name="m3q5" value="B"> B. &nbsp;Mencionar a sus competidores espec&#237;ficamente y explicar por qu&#233; cada uno es una opci&#243;n inferior.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m3q5" value="C"> C. &nbsp;Conectar la experiencia espec&#237;fica de RC2 — m&#225;s de 60 a&#241;os combinados, experiencia directa en WRAP y contrataci&#243;n gubernamental — directamente con el problema declarado y el resultado deseado del cliente.</label>
+          <label class="q-option"><input type="radio" name="m3q5" value="D"> D. &nbsp;Pedir m&#225;s tiempo para preparar una comparaci&#243;n competitiva m&#225;s detallada.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-3" onclick="submitModule(3)" disabled>Enviar Evaluaci&#243;n</button>
+        <button class="btn-retake" id="retake-3" onclick="retakeModule(3)" style="display:none">&#8634; Repetir</button>
+      </div>
+
+      <div class="score-reveal" id="score-3">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-3">0</div>
+            <div class="score-denom">de 5</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-3"></h4>
+            <p id="score-msg-3"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-3" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Acciones — Aplicar Esta Semana
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Para cada oportunidad activa, dibuje un mapa simple de partes interesadas: &#191;qui&#233;n es el controlador del presupuesto, qui&#233;n es el usuario final, qui&#233;n es su defensor y qui&#233;n es el evaluador t&#233;cnico? Si no sabe qui&#233;n ocupa alguno de estos roles, esa es su pr&#243;xima conversaci&#243;n.</li>
+        <li><div class="action-num">2</div>Piense en un negocio que perdi&#243; en los &#250;ltimos 12 meses que esperaba ganar. &#191;Estaba la persona correcta en la sala? Si la respuesta es no, identifique el punto espec&#237;fico del proceso donde debi&#243; haber involucrado al tomador de decisiones real.</li>
+        <li><div class="action-num">3</div>Redacte dos argumentos espec&#237;ficos para un CFO o controlador del presupuesto en su l&#237;nea de servicio m&#225;s com&#250;n — uno enfocado en la reducci&#243;n de riesgos, uno en el ROI. Estos no son su discurso est&#225;ndar — est&#225;n dirigidos espec&#237;ficamente a tomadores de decisiones financieras.</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-3 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 4 — MÓDULO 4: COMUNICACIÓN DE VALOR
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-4">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      M&#243;dulo 4 de 5
+    </div>
+    <h2 class="module-title">Comunicaci&#243;n de Valor: Vender Resultados, No Servicios</h2>
+    <p class="module-desc">La mayor&#237;a de las firmas de servicios profesionales describen lo que hacen. Las m&#225;s efectivas describen lo que gana el cliente. Estas son dos conversaciones completamente diferentes — y la que elija determina si los clientes lo ven como un proveedor o como un socio estrat&#233;gico.</p>
+
+    <div class="concept-block">
+      <h3>Caracter&#237;sticas vs. Resultados</h3>
+      <p>Una caracter&#237;stica describe un insumo — algo que usted hace como parte de su servicio. Un resultado describe lo que cambia para el cliente gracias a ese servicio. La diferencia importa porque los clientes no compran servicios. Compran el estado futuro que su servicio crea para ellos.</p>
+      <p><strong>Lenguaje de caracter&#237;sticas:</strong> "Revisamos su documentaci&#243;n en 12 &#225;reas de cumplimiento." "Completamos su registro en SAM.gov." "Realizamos una auditor&#237;a de procesos con metodolog&#237;a de observaci&#243;n estructurada."</p>
+      <p><strong>Lenguaje de resultados:</strong> "Su instalaci&#243;n entra a la auditor&#237;a con documentaci&#243;n completa y lista para el auditor en los 12 principios WRAP." "Usted queda habilitado para competir por contratos federales en sus categor&#237;as NAICS objetivo." "Sus procesos clave funcionan con menos retrabajos y una l&#237;nea base documentada que su equipo puede mantener sin nosotros."</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>El Marco de Lenguaje de Valor RC2</h3>
+      <p>RC2 utiliza una declaraci&#243;n estructurada para enmarcar su valor en cada conversaci&#243;n, propuesta y comunicaci&#243;n al cliente.</p>
+      <p style="background:rgba(11,37,69,.05);padding:14px 18px;border-radius:8px;border-left:3px solid var(--accent);font-style:italic;font-weight:600;color:var(--navy)">"Ayudamos a [tipo de cliente] que [enfrenta este desaf&#237;o] a lograr [resultado espec&#237;fico] mediante [lo que hacemos]."</p>
+      <p><strong>Aplicado a auditor&#237;a WRAP:</strong> "Ayudamos a fabricantes de prendas que se preparan para la certificaci&#243;n WRAP a lograr una postura de cumplimiento documentada y lista para la auditor&#237;a en 60&#8211;90 d&#237;as, gui&#225;ndoles a trav&#233;s de los 12 principios WRAP, construyendo su expediente de evidencias y preparando a su equipo para el proceso de entrevista con el auditor."</p>
+      <p><strong>Aplicado a contrataci&#243;n gubernamental:</strong> "Ayudamos a peque&#241;as y medianas empresas que quieren competir por contratos federales a quedar registradas y capacitadas para licitar, completando todos los requisitos de SAM.gov, desarrollando una declaraci&#243;n de capacidades s&#243;lida e identificando sus c&#243;digos NAICS y veh&#237;culos contractuales de mejor ajuste."</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>Adaptar el Lenguaje de Valor por Parte Interesada</h3>
+      <p>El mismo resultado significa cosas diferentes para distintas personas en la misma organizaci&#243;n. Los comunicadores de valor eficaces adaptan su enfoque a las preocupaciones y motivaciones de la persona espec&#237;fica con quien hablan.</p>
+      <ul>
+        <li><span class="li-dot"></span><strong>Due&#241;o / CEO &mdash;</strong> Posicionamiento competitivo, acceso a nuevos mercados, reducci&#243;n del riesgo operativo, crecimiento estrat&#233;gico.</li>
+        <li><span class="li-dot"></span><strong>CFO / Controlador del Presupuesto &mdash;</strong> Costo del incumplimiento vs. costo del compromiso, ROI en t&#233;rminos cuantificables, riesgo de inacci&#243;n expresado en dinero.</li>
+        <li><span class="li-dot"></span><strong>Gerente de Operaciones &mdash;</strong> Menos retrabajos, procedimientos m&#225;s claros, reducci&#243;n del estr&#233;s de la auditor&#237;a, procesos documentados que el equipo puede mantener.</li>
+        <li><span class="li-dot"></span><strong>Responsable de Cumplimiento o Calidad &mdash;</strong> Confianza en el proceso de auditor&#237;a, trazabilidad documental, preparaci&#243;n del equipo, credibilidad regulatoria.</li>
+      </ul>
+    </div>
+
+    <div class="concept-block">
+      <h3>Reencuadrar las Objeciones de Precio</h3>
+      <p>Cuando un cliente dice "es demasiado caro" o "no estamos seguros de que valga la inversi&#243;n", eso casi nunca es una afirmaci&#243;n sobre su precio. Es una se&#241;al de que el valor no se ha comunicado de manera suficientemente efectiva. La respuesta correcta no es bajar su precio — es reencuadrar la conversaci&#243;n en torno al costo de la inacci&#243;n.</p>
+      <p>El reencuadre: <em>"Entiendo completamente. Revisemos juntos lo que cuesta mantener la situaci&#243;n actual. Una auditor&#237;a fallida retrasa las renovaciones de contratos con compradores, genera costos de re-inspecci&#243;n y requiere que su equipo gestione la correcci&#243;n encima de su trabajo habitual. &#191;Cu&#225;l es el costo real de ese escenario en los pr&#243;ximos seis meses? Eso es lo que comparamos con nuestros honorarios."</em></p>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 en Pr&#225;ctica — Reencuadrar una Objeci&#243;n de Precio
+      </div>
+      <h4>Cuando el Due&#241;o de una F&#225;brica Dijo: "Sus Honorarios Parecen Altos"</h4>
+      <p>Durante una presentaci&#243;n de propuesta, el due&#241;o de la f&#225;brica dijo: <em>"Sus honorarios parecen altos para una operaci&#243;n peque&#241;a como la nuestra."</em> La respuesta de RC2: <strong>"D&#233;jeme mostrarle lo que t&#237;picamente cuesta una inspecci&#243;n fallida para una instalaci&#243;n de su tama&#241;o — la tarifa de re-auditor&#237;a, el tiempo de retraso con los compradores durante la correcci&#243;n, las horas del personal gestionando documentaci&#243;n correctiva sobre su carga habitual de producci&#243;n. Ese total suele ser de tres a cinco veces nuestros honorarios. Lo que hacemos es ayudarle a evitar ese escenario y entrar a la auditor&#237;a con la evidencia ya construida, organizada y lista."</strong> La conversaci&#243;n pas&#243; de la comparaci&#243;n de precio a la gesti&#243;n de riesgos — y el compromiso avanz&#243;.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-4">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Autoevaluaci&#243;n M&#243;dulo 4</h3>
+          <p>4 preguntas basadas en escenarios &middot; Seleccione una respuesta por pregunta &middot; Env&#237;e al completar</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 1 de 4</div>
+        <div class="q-scenario">Est&#225; explicando su servicio de preparaci&#243;n para auditor&#237;a WRAP al due&#241;o de una f&#225;brica. &#191;Cu&#225;l declaraci&#243;n comunica el valor de manera m&#225;s efectiva?</div>
+        <div class="q-options" id="m4q1">
+          <label class="q-option"><input type="radio" name="m4q1" value="A"> A. &nbsp;"Revisamos su documentaci&#243;n y realizamos entrevistas a trabajadores en 12 &#225;reas de cumplimiento."</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m4q1" value="B"> B. &nbsp;"Dejamos su instalaci&#243;n lista para la auditor&#237;a en 60&#8211;90 d&#237;as — con documentaci&#243;n completa en los 12 principios WRAP y un equipo seguro para la entrevista con el auditor."</label>
+          <label class="q-option"><input type="radio" name="m4q1" value="C"> C. &nbsp;"Somos especialistas en cumplimiento con 35 a&#241;os de experiencia en manufactura."</label>
+          <label class="q-option"><input type="radio" name="m4q1" value="D"> D. &nbsp;"Seguimos el proceso del Manual de Instalaci&#243;n WRAP y completamos todos los formularios requeridos."</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 2 de 4</div>
+        <div class="q-scenario">Un CFO pregunta: "&#191;Cu&#225;l es el retorno sobre la inversi&#243;n de contratar a su firma?" La respuesta m&#225;s s&#243;lida es:</div>
+        <div class="q-options" id="m4q2">
+          <label class="q-option"><input type="radio" name="m4q2" value="A"> A. &nbsp;Explicar que el ROI es dif&#237;cil de cuantificar en consultor&#237;a de cumplimiento porque los resultados var&#237;an.</label>
+          <label class="q-option"><input type="radio" name="m4q2" value="B"> B. &nbsp;Comentarles cu&#225;ntos clientes ha atendido y dejar que saquen sus propias conclusiones.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m4q2" value="C"> C. &nbsp;Cuantificar el costo del incumplimiento — tarifas de auditor&#237;a fallida, tiempo de remediaci&#243;n, contratos con compradores retrasados — y compararlo directamente con sus honorarios.</label>
+          <label class="q-option"><input type="radio" name="m4q2" value="D"> D. &nbsp;Dirigirlos a leer su caso de estudio y hacer seguimiento en una semana.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 3 de 4</div>
+        <div class="q-scenario">Tiene 10 minutos cada uno con el gerente de operaciones y el CEO de la misma empresa. &#191;Cu&#225;l es el enfoque correcto?</div>
+        <div class="q-options" id="m4q3">
+          <label class="q-option"><input type="radio" name="m4q3" value="A"> A. &nbsp;Dar la misma presentaci&#243;n a ambos — la consistencia genera credibilidad.</label>
+          <label class="q-option"><input type="radio" name="m4q3" value="B"> B. &nbsp;Enfocarse en sus credenciales con ambos — la autoridad es el factor m&#225;s persuasivo.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m4q3" value="C"> C. &nbsp;Adaptar cada conversaci&#243;n — mejora de procesos y reducci&#243;n de retrabajos para el gerente de operaciones; crecimiento, acceso a mercados y reducci&#243;n de riesgos para el CEO.</label>
+          <label class="q-option"><input type="radio" name="m4q3" value="D"> D. &nbsp;Dejar que comparen notas despu&#233;s de ambas reuniones — llegar&#225;n al mensaje correcto solos.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 4 de 4</div>
+        <div class="q-scenario">Un prospecto dice: "Todo suena bien, pero no estamos seguros de que la inversi&#243;n valga la pena en este momento." La respuesta m&#225;s s&#243;lida es:</div>
+        <div class="q-options" id="m4q4">
+          <label class="q-option"><input type="radio" name="m4q4" value="A"> A. &nbsp;Ofrecer un descuento del 20% para eliminar la barrera financiera.</label>
+          <label class="q-option"><input type="radio" name="m4q4" value="B"> B. &nbsp;Aceptar y proponer retomar la conversaci&#243;n en el pr&#243;ximo a&#241;o fiscal.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m4q4" value="C"> C. &nbsp;Reencuadrar: "La pregunta no es si esto cuesta dinero. La pregunta es si el costo de permanecer donde est&#225;n ahora mismo es mayor. Revisemos juntos lo que una auditor&#237;a fallida o una oportunidad de contrato perdida le cuesta a su empresa."</label>
+          <label class="q-option"><input type="radio" name="m4q4" value="D"> D. &nbsp;Enviar testimonios y casos de estudio adicionales y pedirles que reconsideren.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-4" onclick="submitModule(4)" disabled>Enviar Evaluaci&#243;n</button>
+        <button class="btn-retake" id="retake-4" onclick="retakeModule(4)" style="display:none">&#8634; Repetir</button>
+      </div>
+
+      <div class="score-reveal" id="score-4">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-4">0</div>
+            <div class="score-denom">de 4</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-4"></h4>
+            <p id="score-msg-4"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-4" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Acciones — Aplicar Esta Semana
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Reescriba la descripci&#243;n est&#225;ndar de cada l&#237;nea de servicio de RC2 usando el Marco de Lenguaje de Valor RC2. No use lenguaje de caracter&#237;sticas. Cada oraci&#243;n debe describir un resultado para el cliente.</li>
+        <li><div class="action-num">2</div>Cree un p&#225;rrafo de impacto de negocio para cada una de sus tres l&#237;neas de servicio principales — redactado espec&#237;ficamente para un tomador de decisiones financiero. Cuantifique el costo de la inacci&#243;n, no solo el beneficio de la acci&#243;n.</li>
+        <li><div class="action-num">3</div>Identifique los tres principales riesgos financieros u operativos que enfrenta su cliente ideal en cada l&#237;nea de servicio y conecte cada uno directamente con un servicio espec&#237;fico de RC2. Esto se convierte en su conjunto de herramientas de reencuadre para conversaciones de objeciones de precio.</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-4 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 5 — MÓDULO 5: SISTEMA DE DN
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-5">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      M&#243;dulo 5 de 5
+    </div>
+    <h2 class="module-title">Construir un Sistema de Desarrollo de Negocios que Funcione</h2>
+    <p class="module-desc">Las referencias son valiosas — pero son impredecibles, c&#237;clicas e imposibles de escalar. Una firma de servicios profesionales que depende completamente de referencias est&#225; a merced del tiempo y las relaciones existentes. Una firma con un enfoque sistem&#225;tico para el desarrollo de negocios controla su propia cartera.</p>
+
+    <div class="concept-block">
+      <h3>Por qu&#233; "Esperar Referencias" No es una Estrategia</h3>
+      <p>El momento m&#225;s peligroso para una consultora boutique es cuando todos los compromisos activos est&#225;n llenos. Es exactamente cuando el desarrollo de negocios se detiene — y es exactamente cuando deber&#237;a intensificarse. El negocio promedio de servicios profesionales tarda 60&#8211;120 d&#237;as desde el primer contacto hasta el acuerdo firmado. Una cartera que queda desatendida 90 d&#237;as produce una brecha de ingresos 90 d&#237;as despu&#233;s.</p>
+      <p>Un sistema repetible de DN resuelve este problema manteniendo la actividad de prospecci&#243;n constante independientemente de la carga actual de compromisos. No se trata de generar un torrente de prospectos. Se trata de mantener un flujo constante y gestionado de conversaciones en todas las etapas de la cartera en todo momento.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>Los Cinco Pilares de un Sistema Repetible de DN</h3>
+      <ul>
+        <li><span class="li-dot"></span><strong>Pilar 1 — Lista de Cuentas Objetivo &mdash;</strong> Una lista definida de 20&#8211;50 empresas que coincidan con su perfil de cliente ideal con suficiente especificidad para enfocar el alcance. No "fabricantes de prendas" — "fabricantes de prendas en el sureste de EE.UU. con 50&#8211;250 empleados que abastecen a grandes minoristas estadounidenses."</li>
+        <li><span class="li-dot"></span><strong>Pilar 2 — Cadencia de Alcance Consistente &mdash;</strong> Un conjunto programado y repetible de actividades de alcance que ocurren independientemente de cu&#225;n ocupado est&#233;. De tres a cinco contactos significativos por semana — no correos masivos, sino interacciones personales, relevantes y que aporten valor.</li>
+        <li><span class="li-dot"></span><strong>Pilar 3 — Venta Social en LinkedIn &mdash;</strong> Publicar contenido de liderazgo intelectual que demuestre su experiencia y genere conversaciones entrantes de personas que se autoidentifican como interesadas en su &#225;rea de especialidad.</li>
+        <li><span class="li-dot"></span><strong>Pilar 4 — Contenido que Genera Conversaciones Entrantes &mdash;</strong> Art&#237;culos, herramientas y gu&#237;as que responden las preguntas que hacen sus clientes ideales. Cada recurso en la p&#225;gina de Recursos de RC2 es un activo de DN que demuestra experiencia y da a los prospectos una raz&#243;n para ponerse en contacto.</li>
+        <li><span class="li-dot"></span><strong>Pilar 5 — Sistemas de Referencias y Retenci&#243;n &mdash;</strong> Un proceso deliberado para solicitar presentaciones al cierre de cada compromiso exitoso, y una cadencia de re-vinculaci&#243;n para mantener a los clientes anteriores conectados con el valor de su firma a lo largo del tiempo.</li>
+      </ul>
+    </div>
+
+    <div class="concept-block">
+      <h3>LinkedIn para Servicios Profesionales: Lo que Funciona</h3>
+      <p>LinkedIn es la plataforma de DN con mayor retorno para las firmas de servicios profesionales que atienden a tomadores de decisiones empresariales. Sus clientes ideales — ejecutivos manufactureros, due&#241;os de empresas, directores de operaciones, gerentes de cumplimiento — usan LinkedIn para estar al d&#237;a en su sector, evaluar socios potenciales y establecer conexiones.</p>
+      <p>Una presencia consistente en LinkedIn basada en tres actividades genera una cartera sostenible para una firma boutique:</p>
+      <ul>
+        <li><span class="li-dot"></span>Publicar una pieza de liderazgo intelectual original por semana — una perspectiva de un compromiso reciente, una actualizaci&#243;n regulatoria con implicaciones pr&#225;cticas, una herramienta o marco que su red pueda usar de inmediato.</li>
+        <li><span class="li-dot"></span>Interactuar significativamente con personas en sus industrias objetivo — comentarios sustantivos que a&#241;adan perspectiva, no respuestas gen&#233;ricas que solo indican que est&#225; presente.</li>
+        <li><span class="li-dot"></span>Enviar solicitudes de conexi&#243;n personalizadas a personas que interact&#250;an con su contenido — referenciando espec&#237;ficamente lo que comentaron y abriendo una conversaci&#243;n genuina.</li>
+      </ul>
+    </div>
+
+    <div class="concept-block">
+      <h3>Marketing Basado en Cuentas para Consultoras Boutique</h3>
+      <p>El Marketing Basado en Cuentas (MBA) significa dirigir su esfuerzo de ventas y marketing a una lista definida de cuentas objetivo de alto ajuste, en lugar de transmitir a una audiencia general. Para una firma consultora peque&#241;a con tiempo y presupuesto limitados, el MBA es el enfoque m&#225;s eficiente para la generaci&#243;n de cartera.</p>
+      <p>Tres principios de MBA adaptados para servicios profesionales boutique:</p>
+      <ul>
+        <li><span class="li-dot"></span><strong>Enfoque &mdash;</strong> Trabaje desde una lista de cuentas objetivo definida de 20&#8211;50 empresas. No distribuya su esfuerzo en cientos de prospectos simult&#225;neamente.</li>
+        <li><span class="li-dot"></span><strong>Personalice &mdash;</strong> Cada alcance est&#225; adaptado a la situaci&#243;n espec&#237;fica de esa empresa — su sector, sus noticias recientes, su contexto de cumplimiento u operaciones conocido. Sin plantillas.</li>
+        <li><span class="li-dot"></span><strong>Persista &mdash;</strong> Mant&#233;ngase en contacto a lo largo del tiempo con interacciones que aporten valor. Un &#250;nico alcance no es una estrategia de DN. Una cadencia de seis contactos en 90 d&#237;as — cada uno aportando algo &#250;til — construye la relaci&#243;n que convierte.</li>
+      </ul>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 en Pr&#225;ctica — El Enfoque de DN de RC2
+      </div>
+      <h4>C&#243;mo RC2 Construye su Cartera de Manera Sistem&#225;tica</h4>
+      <p>El propio sistema de desarrollo de negocios de RC2 refleja los cinco pilares. Las <strong>cuentas objetivo</strong> se identifican a trav&#233;s de la red AAPN y SPESA de Jill Coleman — organizaciones manufactureras en el sector de confecciones y productos cosidos con brechas de cumplimiento conocidas. El <strong>contenido</strong> fluye desde la p&#225;gina de Recursos de RC2 — herramientas, art&#237;culos y marcos que demuestran experiencia y generan conversaciones entrantes. <strong>LinkedIn</strong> construye visibilidad en la comunidad de manufactura y operaciones mediante liderazgo intelectual consistente. Al concluir un compromiso, las <strong>solicitudes de referencia</strong> est&#225;n integradas directamente en el proceso de cierre. El resultado es una cartera que no depende de ning&#250;n canal &#250;nico — ni de ninguna relaci&#243;n &#250;nica.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-5">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Autoevaluaci&#243;n M&#243;dulo 5</h3>
+          <p>4 preguntas basadas en escenarios &middot; Seleccione una respuesta por pregunta &middot; Env&#237;e al completar</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 1 de 4</div>
+        <div class="q-scenario">Actualmente tiene 5 compromisos de clientes activos. Su cartera solo tiene 2 prospectos en etapa inicial. &#191;Cu&#225;l es la acci&#243;n m&#225;s importante a realizar ahora?</div>
+        <div class="q-options" id="m5q1">
+          <label class="q-option"><input type="radio" name="m5q1" value="A"> A. &nbsp;Enfocar el 100% de su energ&#237;a en entregar resultados excepcionales a sus clientes actuales.</label>
+          <label class="q-option"><input type="radio" name="m5q1" value="B"> B. &nbsp;Esperar — sus clientes actuales satisfechos generar&#225;n referencias cuando concluyan los compromisos.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m5q1" value="C"> C. &nbsp;Activar de inmediato su cadencia de prospecci&#243;n — una cartera completa tarda 60&#8211;120 d&#237;as en construirse, y una pausa en la prospecci&#243;n ahora genera una brecha de ingresos m&#225;s tarde.</label>
+          <label class="q-option"><input type="radio" name="m5q1" value="D"> D. &nbsp;Contratar a una persona de desarrollo de negocios para gestionar su cartera por usted.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 2 de 4</div>
+        <div class="q-scenario">Publica un art&#237;culo en LinkedIn sobre tendencias en preparaci&#243;n para auditor&#237;a WRAP. Tres personas que no conoce interact&#250;an con &#233;l — una comenta con una pregunta espec&#237;fica sobre su instalaci&#243;n. &#191;Cu&#225;l es la mejor respuesta?</div>
+        <div class="q-options" id="m5q2">
+          <label class="q-option"><input type="radio" name="m5q2" value="A"> A. &nbsp;Nada — si est&#225;n interesados de verdad, se pondr&#225;n en contacto directamente.</label>
+          <label class="q-option"><input type="radio" name="m5q2" value="B"> B. &nbsp;Enviarles una solicitud de conexi&#243;n gen&#233;rica y agreg&#225;rles a su lista de correo.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m5q2" value="C"> C. &nbsp;Responder al comentario con una respuesta sustantiva, luego enviar una solicitud de conexi&#243;n personalizada referenciando su pregunta espec&#237;fica y abriendo una conversaci&#243;n genuina.</label>
+          <label class="q-option"><input type="radio" name="m5q2" value="D"> D. &nbsp;Enviarles su propuesta y lista de honorarios de inmediato mientras su inter&#233;s est&#225; alto.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 3 de 4</div>
+        <div class="q-scenario">Un cliente de largo plazo acaba de completar exitosamente un compromiso de seis meses. &#191;Cu&#225;l es la actividad de mayor ROI a realizar en la semana siguiente a la llamada de cierre?</div>
+        <div class="q-options" id="m5q3">
+          <label class="q-option"><input type="radio" name="m5q3" value="A"> A. &nbsp;Enviar la factura final y cerrar el expediente — el compromiso est&#225; completo.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m5q3" value="B"> B. &nbsp;Enviar un agradecimiento personal, solicitar una recomendaci&#243;n en LinkedIn y pedir una presentaci&#243;n espec&#237;fica a una organizaci&#243;n con un perfil similar.</label>
+          <label class="q-option"><input type="radio" name="m5q3" value="C"> C. &nbsp;Esperar seis meses y reconectarse cuando haya pasado suficiente tiempo para no parecer apresurado.</label>
+          <label class="q-option"><input type="radio" name="m5q3" value="D"> D. &nbsp;Ofrecer un descuento en el pr&#243;ximo compromiso para asegurar trabajo futuro de inmediato.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Escenario 4 de 4</div>
+        <div class="q-scenario">El Marketing Basado en Cuentas (MBA) para una consultora boutique se describe mejor como:</div>
+        <div class="q-options" id="m5q4">
+          <label class="q-option"><input type="radio" name="m5q4" value="A"> A. &nbsp;Marketing amplio dirigido a todas las empresas de su industria objetivo mediante anuncios pagados en redes sociales y campa&#241;as de correo electr&#243;nico.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m5q4" value="B"> B. &nbsp;Enfocar su esfuerzo de ventas y marketing en una lista definida de 20&#8211;50 empresas de alto ajuste con alcance personalizado y persistente adaptado a la situaci&#243;n espec&#237;fica de cada empresa.</label>
+          <label class="q-option"><input type="radio" name="m5q4" value="C"> C. &nbsp;Construir una lista amplia de correos electr&#243;nicos y enviar boletines mensuales para generar prospectos entrantes a escala.</label>
+          <label class="q-option"><input type="radio" name="m5q4" value="D"> D. &nbsp;Asistir a todos los eventos y conferencias del sector y distribuir tarjetas de presentaci&#243;n al mayor n&#250;mero de personas posible.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-5" onclick="submitModule(5)" disabled>Enviar Evaluaci&#243;n</button>
+        <button class="btn-retake" id="retake-5" onclick="retakeModule(5)" style="display:none">&#8634; Repetir</button>
+      </div>
+
+      <div class="score-reveal" id="score-5">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-5">0</div>
+            <div class="score-denom">de 4</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-5"></h4>
+            <p id="score-msg-5"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-5" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Acciones — Aplicar Esta Semana
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Construya su lista de cuentas objetivo: identifique 20 empresas que coincidan con su perfil de cliente ideal con suficiente especificidad para escribir un primer mensaje personalizado a cada una. Esta lista es el fundamento de su sistema de DN.</li>
+        <li><div class="action-num">2</div>Comprometa una cadencia de publicaci&#243;n en LinkedIn — una pieza de contenido original por semana durante los pr&#243;ximos 60 d&#237;as. Registre las solicitudes de conexi&#243;n y conversaciones directas generadas por cada publicaci&#243;n. Estas son sus primeras m&#233;tricas de DN.</li>
+        <li><div class="action-num">3</div>Agregue un paso de solicitud de referencia a su proceso de cierre de clientes. Redacte el lenguaje exacto que usar&#225; para pedir una presentaci&#243;n. Pract&#237;quelo hasta que suene natural — porque es un reconocimiento genuino de una asociaci&#243;n exitosa, no una transacci&#243;n.</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-5 -->
+
+  <!-- CTA -->
+  <div class="article-cta">
+    <h3>&#191;Listo para Poner estos Principios en Pr&#225;ctica?</h3>
+    <p>RC2 Consulting trabaja directamente con equipos de servicios profesionales y due&#241;os de empresas para desarrollar disciplinas de ventas, fortalecer los procesos de desarrollo de clientes y construir sistemas de desarrollo de negocios que generen una cartera consistente. Cont&#225;ctenos para hablar sobre c&#243;mo podemos apoyar su crecimiento.</p>
+    <a class="btn-cta" href="https://rc2consulting.github.io/contact-es.html">Agendar una Conversaci&#243;n con RC2 &rarr;</a>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-tagline">Claridad Operativa. Confianza en el Cumplimiento. Sistemas que Escalan.</div>
+  <div class="footer-links">
+    <a href="https://rc2consulting.github.io/index-es.html">Inicio</a>
+    <a href="https://rc2consulting.github.io/services-es.html">Servicios</a>
+    <a href="https://rc2consulting.github.io/who-we-help-es.html">A Qui&#233;n Ayudamos</a>
+    <a href="https://rc2consulting.github.io/about-es.html">Nosotros</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html">Recursos</a>
+    <a href="https://rc2consulting.github.io/insights-es.html">Art&#237;culos</a>
+    <a href="https://rc2consulting.github.io/contact-es.html">Contacto</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html">Pol&#237;tica de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html">T&#233;rminos de Servicio</a></div>
+</footer>
+
+<script>
+/* ═══ MODULE CONFIG ═══ */
+var modules = {
+  1: { maxQ: 5, correct: ['C','C','C','B','C'] },
+  2: { maxQ: 4, correct: ['B','C','B','B'] },
+  3: { maxQ: 5, correct: ['B','B','C','B','C'] },
+  4: { maxQ: 4, correct: ['B','C','C','C'] },
+  5: { maxQ: 4, correct: ['C','C','B','B'] }
+};
+
+var moduleScores = {1:null,2:null,3:null,4:null,5:null};
+
+/* ═══ TAB NAVIGATION ═══ */
+function showTab(n) {
+  var panels = document.querySelectorAll('.tab-panel');
+  var btns = document.querySelectorAll('.tab-btn');
+  panels.forEach(function(p,i){p.classList.toggle('active', i===n);});
+  btns.forEach(function(b,i){
+    b.classList.toggle('active', i===n);
+    b.setAttribute('aria-selected', i===n ? 'true' : 'false');
+  });
+  var tabNav = document.querySelector('.tab-nav');
+  if (tabNav) {
+    var offset = 64;
+    var top = tabNav.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({top: top, behavior: 'smooth'});
+  }
+}
+
+/* ═══ ENABLE SUBMIT WHEN ALL QUESTIONS ANSWERED ═══ */
+function checkAllAnswered(mNum) {
+  var cfg = modules[mNum];
+  var allAnswered = true;
+  for (var q = 1; q <= cfg.maxQ; q++) {
+    var radios = document.querySelectorAll('input[name="m' + mNum + 'q' + q + '"]');
+    var checked = false;
+    radios.forEach(function(r){ if(r.checked) checked = true; });
+    if (!checked) { allAnswered = false; break; }
+  }
+  var btn = document.getElementById('submit-' + mNum);
+  if (btn) btn.disabled = !allAnswered;
+}
+
+/* Attach change listeners */
+(function(){
+  [1,2,3,4,5].forEach(function(m){
+    var cfg = modules[m];
+    for (var q = 1; q <= cfg.maxQ; q++) {
+      var radios = document.querySelectorAll('input[name="m' + m + 'q' + q + '"]');
+      radios.forEach(function(r){
+        r.addEventListener('change', function(){ checkAllAnswered(m); });
+      });
+    }
+  });
+})();
+
+/* ═══ SUBMIT MODULE ASSESSMENT ═══ */
+function submitModule(mNum) {
+  var cfg = modules[mNum];
+  var score = 0;
+
+  for (var q = 1; q <= cfg.maxQ; q++) {
+    var correctVal = cfg.correct[q-1];
+    var radios = document.querySelectorAll('input[name="m' + mNum + 'q' + q + '"]');
+    var selectedVal = null;
+    radios.forEach(function(r){ if(r.checked) selectedVal = r.value; });
+
+    var optionLabels = document.querySelectorAll('#m' + mNum + 'q' + q + ' .q-option');
+    optionLabels.forEach(function(lbl){
+      var input = lbl.querySelector('input');
+      lbl.classList.add('disabled');
+      if (input) {
+        input.disabled = true;
+        if (input.value === correctVal) {
+          lbl.classList.add('reveal-correct');
+        } else if (input.value === selectedVal && selectedVal !== correctVal) {
+          lbl.classList.add('reveal-chosen-wrong');
+        } else {
+          lbl.classList.add('reveal-wrong');
+        }
+      }
+    });
+
+    if (selectedVal === correctVal) score++;
+  }
+
+  moduleScores[mNum] = score;
+  var pct = Math.round((score / cfg.maxQ) * 100);
+
+  var scoreEl = document.getElementById('score-' + mNum);
+  document.getElementById('score-num-' + mNum).textContent = score;
+  document.getElementById('score-bar-' + mNum).style.width = pct + '%';
+
+  var title, msg;
+  if (pct >= 80) {
+    title = 'Base S\u00f3lida';
+    msg = 'Demostr\u00f3 un dominio s\u00f3lido de los conceptos clave de este m\u00f3dulo. Revise las preguntas que erradas y aplique los elementos de acci\u00f3n para reforzar su aprendizaje.';
+  } else if (pct >= 60) {
+    title = 'En Desarrollo — Revise los Conceptos Clave';
+    msg = 'Buen progreso. Revise las secciones conceptuales del m\u00f3dulo para las preguntas que err\u00f3 — los matices importan en las conversaciones reales con clientes. Rele\u00e1 y repita cuando est\u00e9 listo.';
+  } else {
+    title = 'Construyendo la Base — Rele\u00e1 el M\u00f3dulo';
+    msg = 'T\u00f3mese el tiempo para releer el contenido del m\u00f3dulo, prestando especial atenci\u00f3n a las secciones conceptuales y al ejemplo de RC2. Estos marcos toman tiempo en internalizarse.';
+  }
+
+  document.getElementById('score-title-' + mNum).textContent = title;
+  document.getElementById('score-msg-' + mNum).textContent = msg;
+  scoreEl.classList.add('visible');
+
+  document.getElementById('submit-' + mNum).style.display = 'none';
+  document.getElementById('retake-' + mNum).style.display = 'inline-flex';
+
+  updateProgress();
+}
+
+/* ═══ RETAKE MODULE ═══ */
+function retakeModule(mNum) {
+  var cfg = modules[mNum];
+  moduleScores[mNum] = null;
+
+  for (var q = 1; q <= cfg.maxQ; q++) {
+    var optionLabels = document.querySelectorAll('#m' + mNum + 'q' + q + ' .q-option');
+    optionLabels.forEach(function(lbl){
+      var input = lbl.querySelector('input');
+      lbl.classList.remove('disabled','reveal-correct','reveal-wrong','reveal-chosen-wrong');
+      if (input) {
+        input.disabled = false;
+        input.checked = false;
+      }
+    });
+  }
+
+  document.getElementById('score-' + mNum).classList.remove('visible');
+  var submitBtn = document.getElementById('submit-' + mNum);
+  submitBtn.style.display = 'inline-flex';
+  submitBtn.disabled = true;
+  document.getElementById('retake-' + mNum).style.display = 'none';
+
+  updateProgress();
+}
+
+/* ═══ UPDATE PROGRESS DASHBOARD ═══ */
+function updateProgress() {
+  var totalScore = 0;
+  var completed = 0;
+  var completedMax = 0;
+
+  [1,2,3,4,5].forEach(function(m){
+    var dot = document.getElementById('pd-' + m);
+    var s = moduleScores[m];
+    var maxQ = modules[m].maxQ;
+    if (s !== null) {
+      completed++;
+      totalScore += s;
+      completedMax += maxQ;
+      var pct = (s / maxQ) * 100;
+      dot.classList.remove('partial');
+      dot.classList.add(pct >= 80 ? 'done' : 'partial');
+    } else {
+      dot.classList.remove('done','partial');
+    }
+  });
+
+  var totalMax = 22;
+  document.getElementById('d-score').textContent = totalScore + '/' + totalMax;
+  var actualPct = completedMax > 0 ? Math.round((totalScore / completedMax) * 100) : 0;
+  document.getElementById('d-pct').textContent = actualPct ? actualPct + '%' : '0%';
+
+  var badge = document.getElementById('d-badge');
+  if (completed === 0) {
+    badge.textContent = 'Iniciar Capacitaci\u00f3n';
+    badge.className = 'prog-badge badge-navy';
+  } else if (completed < 5) {
+    badge.textContent = completed + ' de 5 Completados';
+    badge.className = 'prog-badge badge-blue';
+  } else {
+    badge.className = 'prog-badge badge-gold';
+    if (actualPct >= 80) badge.textContent = 'Capacitaci\u00f3n Completa — Excelente';
+    else if (actualPct >= 60) badge.textContent = 'Completa — Revise las Brechas';
+    else badge.textContent = 'Completa — Rele\u00e1 los M\u00f3dulos';
+  }
+}
+
+/* ═══ HAMBURGER ═══ */
+/* ═══ BADGE CLICK — IR AL PRIMER MÓDULO INCOMPLETO ═══ */
+function badgeClick() {
+  for (var m = 1; m <= 5; m++) {
+    if (moduleScores[m] === null) { showTab(m); return; }
+  }
+  showTab(0); // todos completos — volver a Introducción
+}
+
+(function(){
+  var btn = document.getElementById('hamburger');
+  var nav = document.querySelector('.nav-links');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

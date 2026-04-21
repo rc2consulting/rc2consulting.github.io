@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<!--
+════════════════════════════════════════════════════════════════════════
+  RC2 EXECUTIVE SALES TRAINING TOOL (EN)
+  File: RC2_SalesTraining_Tool.html
+  Built: 2026-04-20
+  Format reference: RC2_KPI_Tool.html (Gold Standard match)
+  5 Modules · Scenario Assessments · SVG Icons · EN/ES Toggle
+  © RC2 Consulting, LLC — Original content. Does not reproduce or
+  reference proprietary materials from any commercial training org.
+════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PC5L4ZH7KY');
+</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Executive Sales Training Tool | RC2 Consulting</title>
+<meta property="og:title" content="Executive Sales Training Tool | RC2 Consulting">
+<meta property="og:description" content="A 5-module interactive sales training tool built on 60+ years of executive experience in operations, compliance, and global supply chain. Free from RC2 Consulting.">
+<meta property="og:url" content="https://rc2consulting.github.io/RC2_SalesTraining_Tool.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Executive Sales Training Tool | RC2 Consulting">
+<meta name="twitter:description" content="5-module interactive sales training covering pipeline, discovery, stakeholder navigation, value communication, and BD systems. Free from RC2 Consulting.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta name="description" content="Free interactive 5-module sales training tool from RC2 Consulting — pipeline management, discovery mastery, stakeholder navigation, value communication, and building a repeatable BD system."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B2545;--blue:#1A4A8A;--light-blue:#2563EB;
+  --accent:#C8922A;--accent-light:#F0B429;
+  --light-bg:#F4F6FA;--white:#FFFFFF;
+  --text:#1C2B3A;--text-muted:#4A5568;--border:#D1D9E6;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light-bg);color:var(--text);margin:0;line-height:1.6}
+
+/* ═══ NAV ═══ */
+.topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+.nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.lang-toggle{display:flex;gap:4px;align-items:center}
+.lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px;border-radius:4px}
+.lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+.lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+.lang-btn.active{background:#C8922A;color:#0B2545}
+
+/* ═══ HERO ═══ */
+.hero{background:linear-gradient(to bottom,rgba(11,37,69,.87) 0%,rgba(11,37,69,.73) 100%),url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80') center/cover no-repeat;padding:56px 40px 48px}
+.hero-inner{max-width:960px;margin:0 auto}
+.article-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:10px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-sub{font-size:.92rem;color:rgba(255,255,255,.75);margin-bottom:16px;max-width:640px;line-height:1.6}
+.hero-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-meta span{font-size:.82rem;color:rgba(255,255,255,.6)}
+.hero-meta .divider{color:rgba(255,255,255,.3)}
+
+/* ═══ PROGRESS DASHBOARD ═══ */
+.prog-dash{background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:18px 40px}
+.prog-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:24px;align-items:center}
+.prog-stat{text-align:center}
+.prog-val{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:#fff;line-height:1}
+.prog-lbl{font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px}
+.prog-dots-wrap{display:flex;flex-direction:column;gap:6px}
+.prog-dots-label{font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.prog-dots{display:flex;gap:6px}
+.prog-dot{flex:1;height:6px;border-radius:10px;background:rgba(255,255,255,.14);transition:background .4s}
+.prog-dot.done{background:var(--accent)}
+.prog-dot.partial{background:rgba(200,146,42,.4)}
+.prog-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:700;font-size:.8rem;border:2px solid transparent;transition:all .4s;white-space:nowrap}
+.badge-navy{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.15)}
+.badge-gold{background:rgba(200,146,42,.15);color:var(--accent-light);border-color:rgba(200,146,42,.35)}
+.badge-blue{background:rgba(37,99,235,.15);color:#93C5FD;border-color:rgba(37,99,235,.3)}
+
+/* ═══ PAGE LAYOUT ═══ */
+.page-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--light-blue);text-decoration:none;font-size:.84rem;font-weight:600;margin:24px 0 0}
+.btn-back:hover{color:var(--navy)}
+
+/* ═══ ABSTRACT BOX ═══ */
+.abstract-box{background:var(--white);border-left:4px solid var(--light-blue);border-radius:0 8px 8px 0;padding:22px 26px;margin:36px 0 28px;box-shadow:0 2px 8px rgba(11,37,69,.07)}
+.abstract-box h3{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light-blue);margin-bottom:8px}
+.abstract-box p{font-size:.9rem;color:var(--text-muted);line-height:1.75;font-style:italic}
+
+/* ═══ TAB NAVIGATION ═══ */
+.tab-nav{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:32px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{display:flex;align-items:center;gap:8px;padding:13px 18px;border:none;background:none;font-family:'Source Sans 3',sans-serif;font-size:.81rem;font-weight:700;color:var(--text-muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .2s;flex-shrink:0}
+.tab-btn:hover{color:var(--navy);background:rgba(11,37,69,.04)}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--accent)}
+.tab-btn svg{flex-shrink:0;color:currentColor}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ═══ MODULE HEADER ═══ */
+.module-tag{display:inline-flex;align-items:center;gap:8px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);background:rgba(200,146,42,.09);border:1px solid rgba(200,146,42,.22);padding:5px 14px;border-radius:10px;margin-bottom:12px}
+.module-title{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.25}
+.module-desc{font-size:.9rem;color:var(--text-muted);max-width:720px;line-height:1.78;margin-bottom:28px}
+
+/* ═══ CONCEPT BLOCKS ═══ */
+.concept-block{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:26px 30px;margin-bottom:18px;box-shadow:0 2px 8px rgba(11,37,69,.05)}
+.concept-block h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:12px}
+.concept-block p{font-size:.88rem;color:var(--text-muted);line-height:1.8;margin-bottom:10px}
+.concept-block p:last-child{margin-bottom:0}
+.concept-block ul{list-style:none;padding:0;margin-top:10px}
+.concept-block ul li{font-size:.87rem;color:var(--text-muted);padding:8px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.concept-block ul li:last-child{border-bottom:none}
+.li-dot{display:block;width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px}
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.c-pill{background:var(--light-bg);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.c-pill-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:5px}
+.c-pill-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.c-pill-desc{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+
+/* ═══ RC2 EXAMPLE BOX ═══ */
+.rc2-example{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:24px 28px;margin-bottom:20px}
+.rc2-example-label{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-light);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.rc2-example h4{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:10px;line-height:1.3}
+.rc2-example p{font-size:.86rem;color:rgba(255,255,255,.82);line-height:1.78}
+.rc2-example strong{color:#fff}
+
+/* ═══ ASSESSMENT BLOCK ═══ */
+.assessment-block{background:var(--white);border-radius:10px;border:2px solid var(--border);padding:28px 30px;margin-bottom:20px;box-shadow:0 2px 8px rgba(11,37,69,.05)}
+.assessment-head{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.assessment-head-text h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy)}
+.assessment-head-text p{font-size:.78rem;color:var(--text-muted);margin-top:3px}
+.q-block{margin-bottom:24px}
+.q-num{font-size:.63rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.q-scenario{font-size:.88rem;font-weight:600;color:var(--navy);line-height:1.55;margin-bottom:12px}
+.q-options{display:flex;flex-direction:column;gap:8px}
+.q-option{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border:1.5px solid var(--border);border-radius:7px;cursor:pointer;transition:all .2s;font-size:.85rem;color:var(--text);line-height:1.5}
+.q-option:hover:not(.disabled){border-color:var(--light-blue);background:#EFF6FF}
+.q-option input[type="radio"]{accent-color:var(--accent);flex-shrink:0;margin-top:3px;cursor:pointer}
+.q-option.disabled{cursor:default}
+.q-option.reveal-correct{border-color:var(--accent);background:rgba(200,146,42,.09);font-weight:600;color:var(--navy)}
+.q-option.reveal-wrong{border-color:#CBD5E1;background:#F8FAFC;color:var(--text-muted);opacity:.65}
+.q-option.reveal-chosen-wrong{border-color:var(--blue);background:rgba(26,74,138,.06);color:var(--navy)}
+.q-divider{height:1px;background:var(--border);margin:22px 0}
+.btn-submit{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-weight:700;font-size:.84rem;padding:11px 24px;border-radius:6px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;margin-top:22px}
+.btn-submit:hover:not(:disabled){background:var(--blue)}
+.btn-submit:disabled{opacity:.45;cursor:not-allowed}
+.btn-retake{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--navy);font-weight:700;font-size:.84rem;padding:11px 22px;border-radius:6px;border:1.5px solid var(--border);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;margin-top:10px;margin-left:10px}
+.btn-retake:hover{background:var(--light-bg)}
+
+/* ═══ SCORE REVEAL ═══ */
+.score-reveal{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:24px 28px;margin-top:22px;display:none}
+.score-reveal.visible{display:block}
+.score-top{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:14px}
+.score-ring{width:76px;height:76px;border-radius:50%;border:3px solid var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.score-num{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:#fff;line-height:1}
+.score-denom{font-size:.62rem;color:rgba(255,255,255,.55);font-weight:700;letter-spacing:.5px}
+.score-text h4{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:5px}
+.score-text p{font-size:.83rem;color:rgba(255,255,255,.78);line-height:1.65}
+.score-bar-wrap{background:rgba(255,255,255,.12);border-radius:20px;height:6px;overflow:hidden;margin-top:10px;max-width:300px}
+.score-bar-fill{height:100%;border-radius:20px;background:var(--accent);transition:width .7s ease}
+
+/* ═══ ACTION ITEMS ═══ */
+.action-block{background:rgba(200,146,42,.06);border:1.5px solid rgba(200,146,42,.24);border-radius:10px;padding:22px 26px;margin-top:20px}
+.action-block-head{font-size:.64rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.action-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+.action-list li{display:flex;align-items:flex-start;gap:12px;font-size:.87rem;color:var(--text);line-height:1.65}
+.action-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:.66rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* ═══ INTRO TAB ELEMENTS ═══ */
+.intro-welcome{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:28px 32px;margin-bottom:22px;box-shadow:0 2px 8px rgba(11,37,69,.05)}
+.intro-welcome p{font-size:.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:10px}
+.intro-welcome p:last-child{margin-bottom:0}
+.intro-welcome strong{color:var(--navy)}
+.authority-strip{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:24px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}
+.auth-stat{text-align:center}
+.auth-val{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--accent-light);line-height:1}
+.auth-lbl{font-size:.66rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.52);margin-top:5px;line-height:1.4}
+.module-overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.mod-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:0 1px 4px rgba(11,37,69,.05);cursor:pointer;transition:all .2s;text-align:center}
+.mod-card:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(11,37,69,.1);transform:translateY(-1px)}
+.mod-icon-wrap{width:46px;height:46px;border-radius:10px;background:rgba(11,37,69,.07);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--navy)}
+.mod-card h4{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--navy);margin-bottom:5px;line-height:1.3}
+.mod-card p{font-size:.74rem;color:var(--text-muted);line-height:1.5}
+.mod-num-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(200,146,42,.1);color:var(--accent);border:1px solid rgba(200,146,42,.2);padding:3px 8px;border-radius:6px;margin-bottom:8px}
+.how-to-block{background:var(--light-bg);border-radius:10px;border:1px solid var(--border);padding:22px 26px;margin-bottom:28px}
+.how-to-block h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin-bottom:14px}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.how-step{text-align:center;padding:14px}
+.how-step-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--light-blue);line-height:1;margin-bottom:6px}
+.how-step-title{font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.how-step-desc{font-size:.73rem;color:var(--text-muted);line-height:1.5}
+
+/* ═══ CTA BOX ═══ */
+.article-cta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:32px;text-align:center;margin-bottom:44px}
+.article-cta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:white;margin-bottom:8px}
+.article-cta p{font-size:.86rem;color:rgba(255,255,255,.78);margin-bottom:18px}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue);font-weight:700;font-size:.86rem;padding:11px 22px;border-radius:6px;text-decoration:none}
+.btn-cta:hover{background:var(--light-bg)}
+
+/* ═══ FOOTER ═══ */
+.site-footer{background:var(--navy);color:#fff;text-align:center;padding:36px 24px}
+.footer-tagline{font-size:.9rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:10px}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
+.footer-links a:hover{color:white}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.5)}
+.footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-copy a:hover{color:rgba(255,255,255,.9)}
+
+/* ═══ HAMBURGER ═══ */
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300}
+.hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,.9);border-radius:2px;transition:all .28s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:800px){
+  .hero,.page-wrap{padding-left:20px;padding-right:20px}
+  .prog-dash{padding:14px 20px}
+  .prog-inner{grid-template-columns:1fr 1fr}
+  .authority-strip{grid-template-columns:1fr 1fr}
+  .module-overview-grid{grid-template-columns:1fr 1fr}
+  .concept-grid{grid-template-columns:1fr}
+  .how-steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .topnav{padding:0 16px !important;position:relative}
+  .hamburger{display:flex !important}
+  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,.15);box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:200;gap:0 !important}
+  .nav-links.mobile-open{display:flex !important}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:.92rem !important;border-bottom:1px solid rgba(255,255,255,.07);border-radius:0 !important;height:auto !important}
+  .lang-toggle{padding:10px 20px 4px}
+  .hero h1{font-size:1.75rem}
+  .hero{padding:40px 20px 36px}
+  .tab-btn{padding:10px 13px;font-size:.75rem}
+  .module-overview-grid{grid-template-columns:1fr}
+  .authority-strip{grid-template-columns:1fr}
+  .prog-inner{grid-template-columns:1fr 1fr}
+  .how-steps{grid-template-columns:1fr 1fr}
+  .concept-grid{grid-template-columns:1fr}
+}
+@media print{.topnav,.site-footer,.btn-back,.article-cta,.tab-nav,.btn-submit,.btn-retake,.prog-dash{display:none}.hero{padding:20px}.page-wrap{padding:20px}}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="topnav">
+  <a href="https://rc2consulting.github.io/" class="nav-brand">
+    <div class="nav-logo-mark">RC<sup>2</sup></div>
+    <span class="nav-brand-name">Consulting</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://rc2consulting.github.io/">Home</a></li>
+    <li><a href="https://rc2consulting.github.io/services.html">Services</a></li>
+    <li><a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a></li>
+    <li><a href="https://rc2consulting.github.io/about.html">About</a></li>
+    <li><a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="active">Resources</a></li>
+    <li><a href="https://rc2consulting.github.io/insights.html">Insights</a></li>
+    <li><a href="https://rc2consulting.github.io/contact.html">Contact</a></li>
+    <li>
+      <div class="lang-toggle">
+        <a href="https://rc2consulting.github.io/RC2_SalesTraining_Tool.html" class="lang-btn active">EN</a>
+        <a href="https://rc2consulting.github.io/RC2_SalesTraining_Tool-es.html" class="lang-btn inactive">ES</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="article-tag">Sales Training Tool</span>
+    <h1>RC2 Executive Sales Training Tool</h1>
+    <p class="hero-sub">Five modules covering the complete consultative sales process — from pipeline fundamentals to building a business development system that generates consistent pipeline. Built on 60+ years of executive experience in operations, compliance, and global supply chain.</p>
+    <div class="hero-meta">
+      <span>RC2 Consulting</span>
+      <span class="divider">|</span>
+      <span>5 Modules &middot; Scenario Assessments</span>
+      <span class="divider">|</span>
+      <span>Original RC2 Content</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROGRESS DASHBOARD ═══ -->
+<div class="prog-dash">
+  <div class="prog-inner">
+    <div class="prog-stat">
+      <div class="prog-val" id="d-score">0</div>
+      <div class="prog-lbl">Total Score</div>
+    </div>
+    <div class="prog-stat">
+      <div class="prog-val" id="d-pct">0%</div>
+      <div class="prog-lbl">Overall</div>
+    </div>
+    <div class="prog-dots-wrap">
+      <div class="prog-dots-label">Module Progress</div>
+      <div class="prog-dots">
+        <div class="prog-dot" id="pd-1" title="Module 1"></div>
+        <div class="prog-dot" id="pd-2" title="Module 2"></div>
+        <div class="prog-dot" id="pd-3" title="Module 3"></div>
+        <div class="prog-dot" id="pd-4" title="Module 4"></div>
+        <div class="prog-dot" id="pd-5" title="Module 5"></div>
+      </div>
+    </div>
+    <div>
+      <div class="prog-badge badge-navy" id="d-badge" style="cursor:pointer" onclick="badgeClick()">Begin Training</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PAGE CONTENT ═══ -->
+<div class="page-wrap">
+
+  <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" class="btn-back">&#8592; Back to Resources</a>
+
+  <!-- Abstract -->
+  <div class="abstract-box">
+    <h3>About This Tool</h3>
+    <p>The RC2 Executive Sales Training Tool is a 5-module interactive training resource built entirely from original RC2 content, informed by publicly available industry research. It covers pipeline fundamentals, discovery technique, stakeholder navigation, value communication, and business development systems — with scenario-based self-assessments and immediate action items for each module. Jill F. Coleman and Eddie Castleton, co-founders of RC2 Consulting with a combined 60+ years of executive experience, serve as the authority behind all content.</p>
+  </div>
+
+  <!-- ═══ TAB NAVIGATION ═══ -->
+  <div class="tab-nav" role="tablist" aria-label="Training Modules">
+    <button class="tab-btn active" onclick="showTab(0)" role="tab" aria-selected="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      Introduction
+    </button>
+    <button class="tab-btn" onclick="showTab(1)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2V12.46z"/></svg>
+      Module 1: Pipeline
+    </button>
+    <button class="tab-btn" onclick="showTab(2)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Module 2: Discovery
+    </button>
+    <button class="tab-btn" onclick="showTab(3)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Module 3: Stakeholders
+    </button>
+    <button class="tab-btn" onclick="showTab(4)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      Module 4: Value
+    </button>
+    <button class="tab-btn" onclick="showTab(5)" role="tab" aria-selected="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      Module 5: BD System
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       TAB 0 — INTRODUCTION
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-0">
+
+    <div class="intro-welcome">
+      <p><strong>This tool was built for anyone who sells professional services</strong> — whether you are new to business development or a seasoned practitioner looking to sharpen a specific discipline. The five modules cover the full arc of consultative selling, from the first prospecting conversation to building a pipeline system that sustains itself over time.</p>
+      <p>All content is grounded in real-world experience. Jill F. Coleman brings 35+ years of executive leadership in global supply chain, manufacturing, and compliance consulting. Eddie Castleton brings 30+ years in operations, compliance, fraud investigation, training, and project management. Together, RC2's co-founders have guided companies across apparel manufacturing, government contracting, and mid-market operations through complex, high-stakes engagements.</p>
+      <p>Work through the modules in order, or navigate directly to the area where you want to sharpen your skills. Each module ends with a scenario-based self-assessment and three specific action items you can apply immediately.</p>
+    </div>
+
+    <div class="authority-strip">
+      <div class="auth-stat">
+        <div class="auth-val">60+</div>
+        <div class="auth-lbl">Years Combined Executive Experience</div>
+      </div>
+      <div class="auth-stat">
+        <div class="auth-val">3</div>
+        <div class="auth-lbl">Service Lines: WRAP &middot; Gov&rsquo;t Contracting &middot; Operations</div>
+      </div>
+      <div class="auth-stat">
+        <div class="auth-val">5</div>
+        <div class="auth-lbl">Modules &middot; 22 Scenarios &middot; 15 Action Items</div>
+      </div>
+    </div>
+
+    <div class="module-overview-grid">
+      <div class="mod-card" onclick="showTab(1)">
+        <div class="mod-num-badge">Module 1</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2V12.46z"/></svg></div>
+        <h4>Pipeline, Prospecting &amp; Qualification</h4>
+        <p>The five stages of a consultative sales process, qualification criteria, and transactional vs. consultative selling.</p>
+      </div>
+      <div class="mod-card" onclick="showTab(2)">
+        <div class="mod-num-badge">Module 2</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h4>Discovery Mastery</h4>
+        <p>The RC2 discovery sequence, problem-to-outcome distance, and the listening ratio that separates great diagnosticians from average salespeople.</p>
+      </div>
+      <div class="mod-card" onclick="showTab(3)">
+        <div class="mod-num-badge">Module 3</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Stakeholder Navigation</h4>
+        <p>Why deals stall, the four decision roles in every buying committee, and multi-stakeholder strategy for professional services.</p>
+      </div>
+      <div class="mod-card" onclick="showTab(4)">
+        <div class="mod-num-badge">Module 4</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h4>Value Communication</h4>
+        <p>Features vs. outcomes, the RC2 value language framework, and how to reframe price objections into a business case conversation.</p>
+      </div>
+      <div class="mod-card" onclick="showTab(5)">
+        <div class="mod-num-badge">Module 5</div>
+        <div class="mod-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <h4>Building a BD System</h4>
+        <p>The five pillars of a repeatable business development system, LinkedIn for professional services, and account-based marketing for small consultancies.</p>
+      </div>
+    </div>
+
+    <div class="how-to-block">
+      <h3>How to Use This Tool</h3>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div class="how-step-title">Select a Module</div>
+          <div class="how-step-desc">Click any module tab above. Work in order or jump to the area you want to strengthen.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div class="how-step-title">Read the Content</div>
+          <div class="how-step-desc">Each module covers 3&ndash;4 core concepts with RC2-specific examples from real service line scenarios.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div class="how-step-title">Take the Assessment</div>
+          <div class="how-step-desc">Answer 4&ndash;5 scenario-based questions. Submit to see your score and which answers were correct.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">4</div>
+          <div class="how-step-title">Apply the Actions</div>
+          <div class="how-step-desc">Three specific action items close each module. Apply at least one this week.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tab-0 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 1 — MODULE 1: PIPELINE
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-1">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2V12.46z"/></svg>
+      Module 1 of 5
+    </div>
+    <h2 class="module-title">Sales Fundamentals: Pipeline, Prospecting &amp; Qualification</h2>
+    <p class="module-desc">The foundation of any effective sales operation is a managed, measurable pipeline. This module covers how a consultative sales process works, why qualification is non-negotiable, and what separates transactional selling from the consultative approach that professional services firms require.</p>
+
+    <div class="concept-block">
+      <h3>What Is a Sales Pipeline — and Why Does It Matter?</h3>
+      <p>A sales pipeline is a visual framework that shows where each prospective client sits in your sales process — from the first conversation to a signed engagement agreement. Without a pipeline, business development is reactive. With one, it becomes a managed, measurable system you can diagnose, improve, and scale.</p>
+      <p>The most important benefit of a structured pipeline is predictability. You can see how many prospects are at each stage, estimate how many will convert based on historical patterns, and identify exactly where the process breaks down. For a boutique consulting firm, that visibility is the difference between sustainable growth and feast-or-famine revenue cycles.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>The Five Stages of a Consultative Sales Process</h3>
+      <p>Most professional services engagements move through five consistent stages. Understanding where each prospect sits — and what needs to happen to move them forward — is the core skill of pipeline management.</p>
+      <div class="concept-grid">
+        <div class="c-pill"><div class="c-pill-num">01</div><div class="c-pill-title">Prospecting</div><div class="c-pill-desc">Identifying companies that match your ideal client profile and making initial contact.</div></div>
+        <div class="c-pill"><div class="c-pill-num">02</div><div class="c-pill-title">Qualification</div><div class="c-pill-desc">Confirming the prospect has genuine need, budget, decision authority, and a realistic timeline.</div></div>
+        <div class="c-pill"><div class="c-pill-num">03</div><div class="c-pill-title">Discovery</div><div class="c-pill-desc">Understanding the depth of the problem, the cost of inaction, and how decisions get made.</div></div>
+        <div class="c-pill"><div class="c-pill-num">04</div><div class="c-pill-title">Proposal</div><div class="c-pill-desc">Presenting a tailored solution tied directly to the client's stated problems and desired outcomes.</div></div>
+        <div class="c-pill"><div class="c-pill-num">05</div><div class="c-pill-title">Agreement &amp; Onboarding</div><div class="c-pill-desc">Confirming scope, signing the engagement letter, and transitioning to delivery.</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>Transactional vs. Consultative Selling</h3>
+      <p>Transactional selling focuses on the exchange: price, speed, and product specification. The buyer already knows what they want. The seller's job is to close quickly. This model works for commodities — not for complex professional services engagements.</p>
+      <p>Consultative selling begins with a thorough understanding of the client's situation before any solution is offered. The consultant diagnoses first, prescribes second. For RC2 — where every WRAP audit engagement, government contracting readiness project, and operations assessment is custom-built to the client's specific gap — consultative selling is the only appropriate model. Clients are not buying a product. They are buying the judgment, process, and expertise of the people they hire.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>The Four Qualification Criteria</h3>
+      <p>Before investing significant time in any opportunity, confirm four things. A prospect missing any one of these is not ready to move forward — and pursuing them prematurely wastes time that should be spent on qualified opportunities.</p>
+      <ul>
+        <li><span class="li-dot"></span><strong>Need &mdash;</strong> Does the client have a genuine, recognized problem that your service directly addresses? Have they articulated it themselves, or are you inferring it?</li>
+        <li><span class="li-dot"></span><strong>Budget &mdash;</strong> Has funding been allocated, or can it be approved within a timeframe that aligns with your capacity? Absence of a committed budget is not a disqualifier — but it requires a clear path to approval.</li>
+        <li><span class="li-dot"></span><strong>Authority &mdash;</strong> Is the person you are speaking with able to make or meaningfully influence the purchase decision? If not, who is — and how do you reach them?</li>
+        <li><span class="li-dot"></span><strong>Timeline &mdash;</strong> Is there a realistic and specific timeframe for engagement that aligns with their urgency and your capacity? Indefinite timelines are a signal to nurture, not to propose.</li>
+      </ul>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 in Practice — WRAP Audit Qualification
+      </div>
+      <h4>How RC2 Qualifies a WRAP Audit Inquiry</h4>
+      <p>When a garment manufacturer contacts RC2 about WRAP audit preparation, the first conversation is not a sales pitch — it is a qualification conversation. RC2 asks: <strong>Has an audit been formally scheduled?</strong> What is the current state of their compliance documentation? Who has approved consulting engagement spend at this facility? And what is the timeline to their first inspection? Those four answers map directly to our four qualification criteria — and determine whether this is an immediate opportunity, a nurture prospect, or a poor fit entirely. No proposal goes out without this clarity.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-1">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Module 1 Self-Assessment</h3>
+          <p>5 scenario-based questions &middot; Select one answer per question &middot; Submit when complete</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 1 of 5</div>
+        <div class="q-scenario">A manufacturing company calls your firm. They say: "We need a compliance audit." You have 10 minutes before another meeting. What is your best first move?</div>
+        <div class="q-options" id="m1q1">
+          <label class="q-option"><input type="radio" name="m1q1" value="A"> A. &nbsp;Book a full discovery call for next week without asking any questions now.</label>
+          <label class="q-option"><input type="radio" name="m1q1" value="B"> B. &nbsp;Send them your proposal and pricing sheet immediately.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m1q1" value="C"> C. &nbsp;Ask 3–4 qualifying questions to assess need, timeline, and authority before committing time.</label>
+          <label class="q-option"><input type="radio" name="m1q1" value="D"> D. &nbsp;Tell them your hourly rate and let them decide if they want to proceed.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 2 of 5</div>
+        <div class="q-scenario">A prospect tells you they want to start an engagement in 6 months. They have not yet allocated budget. Where should this opportunity sit in your pipeline?</div>
+        <div class="q-options" id="m1q2">
+          <label class="q-option"><input type="radio" name="m1q2" value="A"> A. &nbsp;Active client stage — begin scheduling immediately.</label>
+          <label class="q-option"><input type="radio" name="m1q2" value="B"> B. &nbsp;Proposal stage — send the statement of work this week.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m1q2" value="C"> C. &nbsp;Early-stage prospect — assign a nurture cadence and revisit in 60–90 days.</label>
+          <label class="q-option"><input type="radio" name="m1q2" value="D"> D. &nbsp;Not qualified — remove from your pipeline entirely.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 3 of 5</div>
+        <div class="q-scenario">You have 20 prospects across your pipeline. Which single metric tells you the most about your pipeline's health?</div>
+        <div class="q-options" id="m1q3">
+          <label class="q-option"><input type="radio" name="m1q3" value="A"> A. &nbsp;Total estimated dollar value of all opportunities.</label>
+          <label class="q-option"><input type="radio" name="m1q3" value="B"> B. &nbsp;Number of proposals sent this month.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m1q3" value="C"> C. &nbsp;Distribution of prospects across all five stages with realistic conversion estimates for each.</label>
+          <label class="q-option"><input type="radio" name="m1q3" value="D"> D. &nbsp;How many prospects have reached out to you this week.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 4 of 5</div>
+        <div class="q-scenario">What is the core distinction between consultative and transactional selling for a professional services firm?</div>
+        <div class="q-options" id="m1q4">
+          <label class="q-option"><input type="radio" name="m1q4" value="A"> A. &nbsp;Consultative selling is about building longer relationships; transactional is about faster closes.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m1q4" value="B"> B. &nbsp;Consultative selling diagnoses the client's specific problem before proposing any solution.</label>
+          <label class="q-option"><input type="radio" name="m1q4" value="C"> C. &nbsp;Transactional selling is more effective for complex service engagements.</label>
+          <label class="q-option"><input type="radio" name="m1q4" value="D"> D. &nbsp;Consultative selling only works when you have a large team behind you.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 5 of 5</div>
+        <div class="q-scenario">A prospect clearly has budget and a genuine need — but the person you have been speaking with for three weeks cannot approve the contract. What is the right next step?</div>
+        <div class="q-options" id="m1q5">
+          <label class="q-option"><input type="radio" name="m1q5" value="A"> A. &nbsp;Send the proposal to this person anyway and hope they can escalate it.</label>
+          <label class="q-option"><input type="radio" name="m1q5" value="B"> B. &nbsp;Drop the opportunity — if they cannot approve, it is not worth your time.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m1q5" value="C"> C. &nbsp;Ask your contact to introduce you to the decision-maker and continue the process with both people involved.</label>
+          <label class="q-option"><input type="radio" name="m1q5" value="D"> D. &nbsp;Offer a significant discount to give your contact an easier path to approval.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-1" onclick="submitModule(1)" disabled>Submit Assessment</button>
+        <button class="btn-retake" id="retake-1" onclick="retakeModule(1)" style="display:none">&#8634; Retake</button>
+      </div>
+
+      <div class="score-reveal" id="score-1">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-1">0</div>
+            <div class="score-denom">out of 5</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-1"></h4>
+            <p id="score-msg-1"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-1" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Action Items — Apply This Week
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Map your current pipeline and assign each active prospect to one of the five stages. Identify any stages that are empty — those gaps predict where your revenue will stall in 60–90 days.</li>
+        <li><div class="action-num">2</div>Write out your five standard qualification questions — the ones you will ask on every first call regardless of how promising the inbound inquiry sounds. Practice them until they feel natural.</li>
+        <li><div class="action-num">3</div>Review your last three proposals. At which stage did each close or stall? Was there a qualification gap that should have been caught earlier in the process?</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-1 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 2 — MODULE 2: DISCOVERY
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-2">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Module 2 of 5
+    </div>
+    <h2 class="module-title">Discovery Mastery: Asking the Questions That Matter</h2>
+    <p class="module-desc">Discovery is the most consequential phase of any professional services engagement. Done well, it positions you as the expert diagnostician — the person who understands the client's problem better than anyone else in the room. Done poorly, it produces a generic proposal that could have been written by any competitor.</p>
+
+    <div class="concept-block">
+      <h3>Why Discovery Is the Most Important Phase</h3>
+      <p>Many professional services consultants spend the majority of their sales conversations talking about their own credentials, services, and processes. This is a mistake — and clients feel it. The most powerful position you can occupy in any sales conversation is that of the expert who listens before they prescribe.</p>
+      <p>Discovery is a structured conversation designed to reveal one thing: the gap between where the client is today and where they need to be — and what it costs them to leave that gap open. Every subsequent proposal, scoping decision, and pricing conversation flows from the quality of this conversation.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>The RC2 Discovery Sequence</h3>
+      <p>RC2 uses a four-stage conversation framework that moves from understanding the client's current environment to establishing a clear commitment to change. Each stage builds on the last.</p>
+      <div class="concept-grid">
+        <div class="c-pill"><div class="c-pill-num">C</div><div class="c-pill-title">Context</div><div class="c-pill-desc">Understand the client's current situation — processes, systems, certifications, team structure, and history with the problem area.</div></div>
+        <div class="c-pill"><div class="c-pill-num">C</div><div class="c-pill-title">Challenge</div><div class="c-pill-desc">Identify the specific problem or gap. Where is the friction? What is failing, what is missing, what is at risk right now?</div></div>
+        <div class="c-pill"><div class="c-pill-num">C</div><div class="c-pill-title">Consequence</div><div class="c-pill-desc">Explore what happens if the problem is not solved. This is the most important stage — it establishes the business case for your engagement.</div></div>
+        <div class="c-pill"><div class="c-pill-num">C</div><div class="c-pill-title">Commitment</div><div class="c-pill-desc">Define what success looks like. What specific outcome would make this engagement worth every dollar? What does "fixed" look like to them?</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>Problem-to-Outcome Distance</h3>
+      <p>Every consulting engagement exists to close a gap. The distance between the client's current state — the problem — and their desired state — the outcome — defines the value of your service. The wider that gap, and the more costly it is to leave open, the stronger the business case for engagement.</p>
+      <p>Strong discovery professionals spend the majority of the conversation mapping that distance before they ever describe a solution. Clients who can clearly articulate their own pain are far more likely to commit to an engagement than clients who are still unsure what the problem is. Your job is to help them see the gap clearly and feel the cost of it concretely.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>The Listening Ratio</h3>
+      <p>In a well-run discovery call, the consultant should speak approximately 30% of the time and listen the other 70%. This is not a passive activity — active listening requires processing what you hear, asking follow-up questions that deepen your understanding, and resisting the urge to jump to solutions prematurely.</p>
+      <p>A practical test: after every discovery call, review your notes. If your notes contain mostly information about what you told them — your services, your process, your credentials — the call was not a discovery call. It was a sales pitch. Notes from a genuine discovery call should be filled almost exclusively with information about the client: their processes, their gaps, their goals, their constraints, and their language.</p>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 in Practice — Government Contracting Discovery
+      </div>
+      <h4>What RC2 Asks Before Proposing a Government Contracting Engagement</h4>
+      <p>Before recommending a scope of work for a government contracting readiness engagement, RC2 conducts a structured intake covering: the company's current registration status on SAM.gov, which NAICS codes they believe apply to their work, whether they have an existing capability statement, any prior bid history or proposal experience, and the specific contract opportunities they want to pursue. <strong>By the end of that conversation, RC2 has a precise picture of the client's gap</strong> — and the client has a clear understanding of exactly what it will take to close it. That clarity is what makes the subsequent proposal credible and compelling.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-2">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Module 2 Self-Assessment</h3>
+          <p>4 scenario-based questions &middot; Select one answer per question &middot; Submit when complete</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 1 of 4</div>
+        <div class="q-scenario">You are on a discovery call with an apparel factory owner. They have already told you they need WRAP audit preparation. What is your best next move?</div>
+        <div class="q-options" id="m2q1">
+          <label class="q-option"><input type="radio" name="m2q1" value="A"> A. &nbsp;Launch immediately into your service overview and process methodology.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m2q1" value="B"> B. &nbsp;Ask about their current compliance documentation and the specific areas where they know they have gaps.</label>
+          <label class="q-option"><input type="radio" name="m2q1" value="C"> C. &nbsp;Send them the proposal before the call ends — they already know what they want.</label>
+          <label class="q-option"><input type="radio" name="m2q1" value="D"> D. &nbsp;Ask for a referral to their other supplier relationships immediately.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 2 of 4</div>
+        <div class="q-scenario">A prospect says: "We are not sure we are ready to engage." This statement is best understood as:</div>
+        <div class="q-options" id="m2q2">
+          <label class="q-option"><input type="radio" name="m2q2" value="A"> A. &nbsp;A clear rejection — move on and spend your time on more promising opportunities.</label>
+          <label class="q-option"><input type="radio" name="m2q2" value="B"> B. &nbsp;A signal to lower your price until they feel comfortable committing.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m2q2" value="C"> C. &nbsp;An invitation to explore what "ready" means to them and what is holding them back from taking action.</label>
+          <label class="q-option"><input type="radio" name="m2q2" value="D"> D. &nbsp;Agreement to start a discussion in Q4 — schedule a follow-up and wait.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 3 of 4</div>
+        <div class="q-scenario">Which of the following question sequences best reflects the RC2 Discovery Sequence (Context → Challenge → Consequence → Commitment)?</div>
+        <div class="q-options" id="m2q3">
+          <label class="q-option"><input type="radio" name="m2q3" value="A"> A. &nbsp;"What is your budget?" → "What are your goals?" → "When can you start?"</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m2q3" value="B"> B. &nbsp;"Tell me about your current compliance process" → "Where are the gaps?" → "What happens if this is not addressed before your next audit?" → "What would a clean audit result mean for your business?"</label>
+          <label class="q-option"><input type="radio" name="m2q3" value="C"> C. &nbsp;"Have you heard about our services?" → "Can I send you a proposal today?"</label>
+          <label class="q-option"><input type="radio" name="m2q3" value="D"> D. &nbsp;"Who is your current vendor?" → "Can we offer a better price?" → "What are your contract renewal dates?"</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 4 of 4</div>
+        <div class="q-scenario">After a 45-minute discovery call, you review your notes. They contain mostly details about your own service process and your firm's credentials. What does this tell you?</div>
+        <div class="q-options" id="m2q4">
+          <label class="q-option"><input type="radio" name="m2q4" value="A"> A. &nbsp;Excellent call — you educated the prospect thoroughly about your capabilities.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m2q4" value="B"> B. &nbsp;The call was not a true discovery — you talked too much and did not generate enough information about the client's situation.</label>
+          <label class="q-option"><input type="radio" name="m2q4" value="C"> C. &nbsp;The prospect was not ready — discovery works better when the client is further along in their process.</label>
+          <label class="q-option"><input type="radio" name="m2q4" value="D"> D. &nbsp;You need to schedule a longer follow-up call to extract more client information.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-2" onclick="submitModule(2)" disabled>Submit Assessment</button>
+        <button class="btn-retake" id="retake-2" onclick="retakeModule(2)" style="display:none">&#8634; Retake</button>
+      </div>
+
+      <div class="score-reveal" id="score-2">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-2">0</div>
+            <div class="score-denom">out of 4</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-2"></h4>
+            <p id="score-msg-2"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-2" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Action Items — Apply This Week
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Build a standard 10-question discovery script for your most common service line, organized by the four RC2 stages: Context, Challenge, Consequence, and Commitment. Write out the actual questions — not categories, but the words you would say.</li>
+        <li><div class="action-num">2</div>On your next discovery call, set an internal goal of a 70/30 listening-to-talking ratio. Take notes in real time. After the call, review them — how much of what you wrote is about the client vs. about yourself?</li>
+        <li><div class="action-num">3</div>After every discovery call going forward, document three things: What is the client's specific gap? What is the cost of inaction? What does success look like to them? If you cannot answer all three, the discovery was incomplete.</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-2 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 3 — MODULE 3: STAKEHOLDERS
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-3">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Module 3 of 5
+    </div>
+    <h2 class="module-title">Stakeholder Navigation: Mapping the Buying Committee</h2>
+    <p class="module-desc">The most common reason a well-qualified deal stalls is not price, timing, or competition — it is the wrong person in the room. Mapping the decision-making structure of your target organization and building relationships across it is a core competency for any professional services firm.</p>
+
+    <div class="concept-block">
+      <h3>Why Deals Stall</h3>
+      <p>You can have the best solution in the market, a strong relationship with your primary contact, a competitive fee, and a clear proposal — and still lose the deal because the person you have been speaking to cannot approve the purchase. This is the single most common reason well-developed opportunities fail to close.</p>
+      <p>The earlier you identify who controls the final decision — and the earlier you build a relationship with them — the more predictable your close rate becomes. This does not mean going around your primary contact. It means understanding the full organizational picture and finding appropriate ways to engage with every stakeholder who will influence the outcome.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>The Four Decision Roles</h3>
+      <p>In most organizational buying situations, four distinct roles shape the outcome. The same person can sometimes occupy more than one role, but in mid-size and larger organizations, these are typically separate individuals.</p>
+      <div class="concept-grid">
+        <div class="c-pill"><div class="c-pill-num">01</div><div class="c-pill-title">Budget Controller</div><div class="c-pill-desc">Controls financial approval. Without their sign-off, no contract moves. They may never appear in early conversations — finding them is critical.</div></div>
+        <div class="c-pill"><div class="c-pill-num">02</div><div class="c-pill-title">End User</div><div class="c-pill-desc">Works with you day-to-day. Has the clearest view of the problem and is often your most motivated ally — but rarely holds final financial authority.</div></div>
+        <div class="c-pill"><div class="c-pill-num">03</div><div class="c-pill-title">Technical Evaluator</div><div class="c-pill-desc">Assesses whether your approach is sound, your credentials are adequate, and your methodology fits their requirements. Often the COO or quality director.</div></div>
+        <div class="c-pill"><div class="c-pill-num">04</div><div class="c-pill-title">Internal Champion</div><div class="c-pill-desc">Believes in your solution and advocates for it internally when you are not in the room. Identifying and equipping your champion is one of the highest-leverage activities in professional services sales.</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>Organizational Buy States</h3>
+      <p>Every organization you approach is in one of three states at any given moment — and your strategy should adapt to the state you find them in.</p>
+      <ul>
+        <li><span class="li-dot"></span><strong>Proactive &mdash;</strong> The organization recognizes a gap and is actively seeking improvement. They are receptive to new solutions and move at a measured pace. This is the ideal state for a consultative engagement — the client is ready to invest in prevention rather than reaction.</li>
+        <li><span class="li-dot"></span><strong>Reactive &mdash;</strong> The organization is responding to a crisis — a failed audit, a lost contract, a regulatory citation. They need help immediately. Urgency works in your favor, but so does your ability to bring calm, structured guidance to a stressful situation.</li>
+        <li><span class="li-dot"></span><strong>Neutral &mdash;</strong> The organization sees no pressing need. They are satisfied or unaware of the risk they carry. Selling into a neutral state requires either helping them see a risk they have not yet recognized, or building a long-term relationship for when conditions change.</li>
+      </ul>
+    </div>
+
+    <div class="concept-block">
+      <h3>Multi-Stakeholder Strategy</h3>
+      <p>When multiple decision-makers are involved, your strategy should include four disciplines that separate effective professional services sellers from those who depend entirely on their primary contact to carry the deal.</p>
+      <ul>
+        <li><span class="li-dot"></span>Identify all four roles before reaching the proposal stage — ask your primary contact directly who else will be involved in the decision.</li>
+        <li><span class="li-dot"></span>Build a relationship with at least two stakeholders before presenting a proposal — do not let the entire deal rest on a single point of contact.</li>
+        <li><span class="li-dot"></span>Equip your internal champion with the right language, data, and talking points to advocate effectively when you are not present.</li>
+        <li><span class="li-dot"></span>Address the specific concerns of the budget controller and technical evaluator directly — do not assume your champion will translate your message accurately.</li>
+      </ul>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 in Practice — Government Contracting Stakeholder Strategy
+      </div>
+      <h4>Navigating Three Decision-Makers in One Small Business</h4>
+      <p>In a typical government contracting readiness engagement, the business owner holds the vision — they want to access federal contract revenue. The bookkeeper or CFO controls budget approval — they want a clear ROI and a defined fee. The operations manager is the day-to-day champion — they want practical documentation support and a clear process. <strong>RC2 prepares distinct talking points for each person:</strong> strategic revenue diversification for the owner, a concrete cost-versus-benefit comparison for the CFO, and a practical workflow overview for the operations team. One solution, three conversations — each tailored to the concerns that matter most to that individual.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-3">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Module 3 Self-Assessment</h3>
+          <p>5 scenario-based questions &middot; Select one answer per question &middot; Submit when complete</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 1 of 5</div>
+        <div class="q-scenario">You have been speaking with an operations manager at a garment factory for six weeks. They love your proposal. But the deal keeps stalling. What is most likely happening?</div>
+        <div class="q-options" id="m3q1">
+          <label class="q-option"><input type="radio" name="m3q1" value="A"> A. &nbsp;Your price is too high — offer a discount to move the deal forward.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m3q1" value="B"> B. &nbsp;The operations manager does not have budget authority — someone else needs to approve the contract.</label>
+          <label class="q-option"><input type="radio" name="m3q1" value="C"> C. &nbsp;Your proposal is not detailed enough — add more specification.</label>
+          <label class="q-option"><input type="radio" name="m3q1" value="D"> D. &nbsp;The company is not ready — remove them from your active pipeline.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 2 of 5</div>
+        <div class="q-scenario">Your internal champion sends you a message: "I showed it to my boss and they said they'll think about it." What is the most productive next response?</div>
+        <div class="q-options" id="m3q2">
+          <label class="q-option"><input type="radio" name="m3q2" value="A"> A. &nbsp;Wait patiently — the boss will come back when they are ready.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m3q2" value="B"> B. &nbsp;Ask your champion what specific questions or concerns their boss raised and offer to present directly to address those concerns.</label>
+          <label class="q-option"><input type="radio" name="m3q2" value="C"> C. &nbsp;Drop your fee immediately to remove any financial hesitation.</label>
+          <label class="q-option"><input type="radio" name="m3q2" value="D"> D. &nbsp;Follow up in 30 days with the same proposal unchanged.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 3 of 5</div>
+        <div class="q-scenario">A garment manufacturer just received a failing WRAP audit result. They are in a crisis mode and reaching out for help urgently. Which organizational buy state are they in?</div>
+        <div class="q-options" id="m3q3">
+          <label class="q-option"><input type="radio" name="m3q3" value="A"> A. &nbsp;Proactive — they want to proactively improve their compliance posture.</label>
+          <label class="q-option"><input type="radio" name="m3q3" value="B"> B. &nbsp;Neutral — they have no particular urgency to move quickly.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m3q3" value="C"> C. &nbsp;Reactive — they are responding to an immediate crisis and need structured guidance under time pressure.</label>
+          <label class="q-option"><input type="radio" name="m3q3" value="D"> D. &nbsp;Even-keel — they are satisfied with their current vendor relationship.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 4 of 5</div>
+        <div class="q-scenario">Which stakeholder situation presents the highest risk to a professional services deal closing successfully?</div>
+        <div class="q-options" id="m3q4">
+          <label class="q-option"><input type="radio" name="m3q4" value="A"> A. &nbsp;One decision-maker who has reviewed your proposal and is enthusiastic about it.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m3q4" value="B"> B. &nbsp;Multiple stakeholders involved in the decision, but you have only met the end user — not the budget controller or technical evaluator.</label>
+          <label class="q-option"><input type="radio" name="m3q4" value="C"> C. &nbsp;An internal champion who advocates for your proposal but does not control the budget.</label>
+          <label class="q-option"><input type="radio" name="m3q4" value="D"> D. &nbsp;A CFO who has formally approved the budget for the engagement.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 5 of 5</div>
+        <div class="q-scenario">During a proposal presentation, the CEO asks: "Why should we select you over a larger, more established consulting firm?" The best response is:</div>
+        <div class="q-options" id="m3q5">
+          <label class="q-option"><input type="radio" name="m3q5" value="A"> A. &nbsp;Explain that larger firms are overpriced and less responsive than boutique firms.</label>
+          <label class="q-option"><input type="radio" name="m3q5" value="B"> B. &nbsp;Reference your competitors specifically and explain why each is a weaker option.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m3q5" value="C"> C. &nbsp;Connect RC2's specific experience — 60+ years combined, direct WRAP and government contracting expertise — directly to the client's stated problem and desired outcome.</label>
+          <label class="q-option"><input type="radio" name="m3q5" value="D"> D. &nbsp;Ask for more time to prepare a more detailed competitive comparison.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-3" onclick="submitModule(3)" disabled>Submit Assessment</button>
+        <button class="btn-retake" id="retake-3" onclick="retakeModule(3)" style="display:none">&#8634; Retake</button>
+      </div>
+
+      <div class="score-reveal" id="score-3">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-3">0</div>
+            <div class="score-denom">out of 5</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-3"></h4>
+            <p id="score-msg-3"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-3" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Action Items — Apply This Week
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>For each of your current active opportunities, draw a simple stakeholder map: who is the budget controller, who is the end user, who is your champion, and who is the technical evaluator? If you do not know who fills one of these roles, that is your next conversation.</li>
+        <li><div class="action-num">2</div>Think of one deal you lost in the past 12 months that you expected to win. Was the right person in the room? If the answer is no, identify the specific point in the process where you should have engaged the actual decision-maker.</li>
+        <li><div class="action-num">3</div>Draft two talking points specifically for a CFO or budget controller in your most common service line — one focused on risk reduction, one on ROI. These are not your standard pitch — they are specific to financial decision-makers.</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-3 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 4 — MODULE 4: VALUE COMMUNICATION
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-4">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      Module 4 of 5
+    </div>
+    <h2 class="module-title">Value Communication: Selling Outcomes, Not Services</h2>
+    <p class="module-desc">Most professional services firms describe what they do. The most effective firms describe what the client gains. These are two entirely different conversations — and the one you choose determines whether clients see you as a vendor or as a strategic partner.</p>
+
+    <div class="concept-block">
+      <h3>Features vs. Outcomes</h3>
+      <p>A feature describes an input — something you do as part of your service. An outcome describes what changes for the client as a result. The distinction matters because clients do not buy services. They buy the future state your service creates for them.</p>
+      <p><strong>Feature language:</strong> "We review your documentation across 12 compliance areas." "We complete your SAM.gov registration." "We conduct a process audit using a structured observation methodology."</p>
+      <p><strong>Outcome language:</strong> "Your facility enters its audit with complete, auditor-ready documentation across all 12 WRAP principles." "You become eligible to compete for federal contracts in your target NAICS categories." "Your core processes run with less rework, less firefighting, and a documented baseline your team can maintain without us."</p>
+      <p>The shift is subtle but the effect is significant. Feature language asks the client to connect the dots between what you do and what they gain. Outcome language removes that cognitive step entirely — and makes the value of your engagement immediate and personal.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>The RC2 Value Language Framework</h3>
+      <p>RC2 uses a structured statement to frame its value in every conversation, proposal, and client-facing communication. This statement forces outcome-oriented thinking and prevents the instinct to default to feature descriptions.</p>
+      <p style="background:rgba(11,37,69,.05);padding:14px 18px;border-radius:8px;border-left:3px solid var(--accent);font-style:italic;font-weight:600;color:var(--navy)">"We help [type of client] who [are experiencing this challenge] achieve [specific outcome] by [what we do]."</p>
+      <p><strong>WRAP audit application:</strong> "We help apparel manufacturers who are preparing for WRAP certification achieve a documented, audit-ready compliance posture in 60–90 days by guiding them through all 12 WRAP principles, building their evidence file, and preparing their team for the auditor interview process."</p>
+      <p><strong>Government contracting application:</strong> "We help small and mid-size businesses that want to compete for federal contracts become registration-ready and proposal-capable by completing all SAM.gov requirements, developing a strong capability statement, and identifying their best-fit NAICS codes and contract vehicles."</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>Tailoring Value Language by Stakeholder</h3>
+      <p>The same outcome means different things to different people in the same organization. Strong value communicators adapt their framing to the concerns and motivations of the specific person they are speaking with — without changing the substance of what they deliver.</p>
+      <ul>
+        <li><span class="li-dot"></span><strong>Owner / CEO &mdash;</strong> Competitive positioning, new market access, operational risk reduction, strategic growth.</li>
+        <li><span class="li-dot"></span><strong>CFO / Budget Controller &mdash;</strong> Cost of non-compliance vs. cost of engagement, ROI in quantifiable terms, risk of inaction expressed in dollars.</li>
+        <li><span class="li-dot"></span><strong>Operations Manager &mdash;</strong> Less rework, clearer procedures, reduced audit stress, documented processes the team can own.</li>
+        <li><span class="li-dot"></span><strong>Compliance or Quality Leader &mdash;</strong> Confidence in the audit process, documented evidence trail, team preparation, regulatory credibility.</li>
+      </ul>
+    </div>
+
+    <div class="concept-block">
+      <h3>Reframing Price Objections</h3>
+      <p>When a client says "it is too expensive" or "we are not sure it is worth the investment," that is almost never a statement about your price. It is a signal that the value has not been communicated effectively enough to justify the cost in the client's mind. The correct response is not to lower your price — it is to reframe the conversation around the cost of inaction.</p>
+      <p>The reframe: <em>"I understand. Let's look at what staying in your current position costs. A failed WRAP audit delays buyer contract renewals, triggers re-inspection fees, and requires your team to manage remediation on top of their regular work. What is the realistic cost of that outcome over the next six months? That is what we are actually comparing against our engagement fee."</em></p>
+      <p>This reframe does not argue about price. It changes the comparison — from your fee versus zero, to your fee versus the quantified cost of the problem.</p>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 in Practice — Reframing a Price Objection
+      </div>
+      <h4>When a Factory Owner Said: "Your Fee Seems High"</h4>
+      <p>During a WRAP audit proposal presentation, the factory owner said: <em>"Your fee seems high for a small operation like ours."</em> The RC2 response: <strong>"Let me show you what a failed inspection typically costs a facility of your size — the re-audit fee, the lost buyer lead time during remediation, the staff hours managing corrective action documentation on top of their regular production schedule. That total is usually three to five times our engagement fee. What we are doing is helping you avoid that outcome and enter your audit with the evidence already built, organized, and ready."</strong> The conversation shifted from price comparison to risk management — and the engagement moved forward.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-4">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Module 4 Self-Assessment</h3>
+          <p>4 scenario-based questions &middot; Select one answer per question &middot; Submit when complete</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 1 of 4</div>
+        <div class="q-scenario">You are explaining your WRAP audit preparation service to a factory owner. Which statement communicates value more effectively?</div>
+        <div class="q-options" id="m4q1">
+          <label class="q-option"><input type="radio" name="m4q1" value="A"> A. &nbsp;"We review your documentation and conduct worker interviews across 12 compliance areas."</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m4q1" value="B"> B. &nbsp;"We get your facility audit-ready in 60–90 days — with complete documentation across all 12 WRAP principles and a team that is confident walking into the auditor interview."</label>
+          <label class="q-option"><input type="radio" name="m4q1" value="C"> C. &nbsp;"We are compliance specialists with 35 years of experience in manufacturing."</label>
+          <label class="q-option"><input type="radio" name="m4q1" value="D"> D. &nbsp;"We follow the WRAP Facility Handbook process and complete all required forms."</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 2 of 4</div>
+        <div class="q-scenario">A CFO asks: "What is the return on investment of hiring your firm?" The strongest response is:</div>
+        <div class="q-options" id="m4q2">
+          <label class="q-option"><input type="radio" name="m4q2" value="A"> A. &nbsp;Explain that ROI is difficult to quantify in compliance consulting because outcomes vary.</label>
+          <label class="q-option"><input type="radio" name="m4q2" value="B"> B. &nbsp;Tell them how many clients you have worked with and let them draw their own conclusions.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m4q2" value="C"> C. &nbsp;Quantify the cost of non-compliance — failed audit fees, remediation time, delayed buyer contracts — and compare that directly to your engagement fee.</label>
+          <label class="q-option"><input type="radio" name="m4q2" value="D"> D. &nbsp;Direct them to read your case study and follow up in a week.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 3 of 4</div>
+        <div class="q-scenario">You have 10 minutes each with an operations manager and a CEO at the same company. What is the right approach?</div>
+        <div class="q-options" id="m4q3">
+          <label class="q-option"><input type="radio" name="m4q3" value="A"> A. &nbsp;Give both the same presentation — consistency builds credibility.</label>
+          <label class="q-option"><input type="radio" name="m4q3" value="B"> B. &nbsp;Focus entirely on your credentials with both — authority is the most persuasive factor.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m4q3" value="C"> C. &nbsp;Tailor each conversation — process improvement and reduced rework for the operations manager; growth, market access, and risk reduction for the CEO.</label>
+          <label class="q-option"><input type="radio" name="m4q3" value="D"> D. &nbsp;Let them compare notes after both meetings — they will align on the right message together.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 4 of 4</div>
+        <div class="q-scenario">A prospect says: "That all sounds good, but we are not sure the investment is worth it right now." The strongest response is:</div>
+        <div class="q-options" id="m4q4">
+          <label class="q-option"><input type="radio" name="m4q4" value="A"> A. &nbsp;Offer a 20% discount to remove the financial barrier.</label>
+          <label class="q-option"><input type="radio" name="m4q4" value="B"> B. &nbsp;Agree and suggest reconnecting in the next fiscal year.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m4q4" value="C"> C. &nbsp;Reframe: "The question is not whether this costs money. The question is whether the cost of staying where you are right now is higher. Let us look at what a failed audit or a missed contracting opportunity costs your business."</label>
+          <label class="q-option"><input type="radio" name="m4q4" value="D"> D. &nbsp;Send additional testimonials and case studies and ask them to reconsider.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-4" onclick="submitModule(4)" disabled>Submit Assessment</button>
+        <button class="btn-retake" id="retake-4" onclick="retakeModule(4)" style="display:none">&#8634; Retake</button>
+      </div>
+
+      <div class="score-reveal" id="score-4">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-4">0</div>
+            <div class="score-denom">out of 4</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-4"></h4>
+            <p id="score-msg-4"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-4" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Action Items — Apply This Week
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Rewrite your standard service description for each RC2 service line using the RC2 Value Language Framework: "We help [client type] who [face this challenge] achieve [specific outcome] by [what we do]." Do not use feature language. Every sentence should describe a client outcome.</li>
+        <li><div class="action-num">2</div>Create a one-paragraph business impact statement for each of your three primary service lines — written specifically for a financial decision-maker. Quantify the cost of inaction, not just the benefit of action.</li>
+        <li><div class="action-num">3</div>Identify the top three financial or operational risks your ideal client faces in each service line and connect each directly to a specific RC2 service. This becomes your value reframe toolkit for price objection conversations.</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-4 -->
+
+  <!-- ══════════════════════════════════════════════
+       TAB 5 — MODULE 5: BD SYSTEM
+  ══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-5">
+
+    <div class="module-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      Module 5 of 5
+    </div>
+    <h2 class="module-title">Building a Business Development System That Runs</h2>
+    <p class="module-desc">Referrals are valuable — but they are unpredictable, cyclical, and impossible to scale. A professional services firm that depends entirely on referrals is at the mercy of timing. A firm with a systematic approach to business development controls its own pipeline regardless of how busy it is with current engagements.</p>
+
+    <div class="concept-block">
+      <h3>Why "Waiting for Referrals" Is Not a Strategy</h3>
+      <p>The most dangerous moment for a boutique consulting firm is when all engagement capacity is full. That is exactly when business development stops — and it is exactly when it should intensify. The average professional services deal takes 60–120 days from first contact to signed agreement. A pipeline that goes untended for 90 days produces a revenue gap 90 days later.</p>
+      <p>A repeatable BD system solves this problem by keeping prospecting activity consistent regardless of current engagement load. It is not about generating a flood of leads. It is about maintaining a steady, managed flow of conversations at every stage of the pipeline at all times.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>The Five Pillars of a Repeatable BD System</h3>
+      <ul>
+        <li><span class="li-dot"></span><strong>Pillar 1 — Target Account List &mdash;</strong> A defined list of 20–50 companies that match your ideal client profile with enough specificity to focus outreach. Not "apparel manufacturers" — "apparel manufacturers in the Southeast with 50–250 employees who supply to major US retail brands."</li>
+        <li><span class="li-dot"></span><strong>Pillar 2 — Consistent Outreach Cadence &mdash;</strong> A scheduled, repeatable set of outreach activities that happens regardless of how busy you are. Three to five meaningful contacts per week — not mass emails, but personal, relevant, value-adding interactions.</li>
+        <li><span class="li-dot"></span><strong>Pillar 3 — LinkedIn Social Selling &mdash;</strong> Publishing thought leadership content that demonstrates your expertise and creates inbound conversations from people who self-identify as interested in your subject matter.</li>
+        <li><span class="li-dot"></span><strong>Pillar 4 — Content That Creates Inbound Conversations &mdash;</strong> Articles, tools, and guides that answer the questions your ideal clients are asking. Every resource on the RC2 Resources page is a BD asset — it demonstrates expertise and gives prospects a reason to reach out.</li>
+        <li><span class="li-dot"></span><strong>Pillar 5 — Referral and Retention Systems &mdash;</strong> A deliberate process for requesting introductions at the conclusion of every successful engagement, and a re-engagement cadence to keep former clients connected to your firm's value over time.</li>
+      </ul>
+    </div>
+
+    <div class="concept-block">
+      <h3>LinkedIn for Professional Services: What Works</h3>
+      <p>LinkedIn is the single highest-return BD platform for professional services firms that serve business decision-makers. Your ideal clients — manufacturing executives, business owners, operations directors, compliance managers — use LinkedIn to stay current in their industry, evaluate potential partners, and make connections.</p>
+      <p>A consistent LinkedIn presence built on three activities generates sustainable pipeline for a boutique firm:</p>
+      <ul>
+        <li><span class="li-dot"></span>Publish one piece of original thought leadership per week — an insight from a recent engagement, a regulatory update with practical implications, a tool or framework your network can use immediately.</li>
+        <li><span class="li-dot"></span>Engage meaningfully with people in your target industries — substantive comments that add perspective, not generic responses that signal you are only there to be seen.</li>
+        <li><span class="li-dot"></span>Send personalized connection requests to people who engage with your content — referencing specifically what they commented on and opening a genuine conversation.</li>
+      </ul>
+    </div>
+
+    <div class="concept-block">
+      <h3>Account-Based Marketing for Boutique Consultancies</h3>
+      <p>Account-Based Marketing means directing your sales and marketing effort at a defined list of high-fit target companies rather than broadcasting to a general audience. For a small consulting firm with limited time and budget, ABM is the most efficient approach to pipeline generation.</p>
+      <p>Three ABM principles adapted for boutique professional services:</p>
+      <ul>
+        <li><span class="li-dot"></span><strong>Focus &mdash;</strong> Work from a defined target account list of 20–50 companies. Do not spread your effort across hundreds of prospects simultaneously.</li>
+        <li><span class="li-dot"></span><strong>Personalize &mdash;</strong> Every outreach is tailored to that specific company's situation — their industry, their recent news, their known compliance or operational context. No templates.</li>
+        <li><span class="li-dot"></span><strong>Persist &mdash;</strong> Stay in contact over time with value-adding touches. A single outreach is not a BD strategy. A six-touch cadence over 90 days — each one adding something useful — builds the relationship that converts.</li>
+      </ul>
+    </div>
+
+    <div class="rc2-example">
+      <div class="rc2-example-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        RC2 in Practice — The RC2 BD Approach
+      </div>
+      <h4>How RC2 Builds Pipeline Systematically</h4>
+      <p>RC2's own business development system reflects all five pillars. <strong>Target accounts</strong> are identified through Jill Coleman's AAPN and SPESA network — manufacturing organizations in the apparel and sewn-goods sector with known compliance gaps. <strong>Content</strong> flows from the RC2 Resources page — tools, articles, and frameworks that demonstrate expertise and generate inbound conversations. <strong>LinkedIn</strong> builds visibility in the manufacturing and operations community through consistent thought leadership. When an engagement concludes, <strong>referral requests</strong> are built directly into the offboarding process. The result is a pipeline that does not depend on any single channel — or any single relationship.</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="assessment-block" id="assess-5">
+      <div class="assessment-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="assessment-head-text">
+          <h3>Module 5 Self-Assessment</h3>
+          <p>4 scenario-based questions &middot; Select one answer per question &middot; Submit when complete</p>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 1 of 4</div>
+        <div class="q-scenario">You currently have 5 active client engagements. Your pipeline has only 2 early-stage prospects. What is the most important action to take right now?</div>
+        <div class="q-options" id="m5q1">
+          <label class="q-option"><input type="radio" name="m5q1" value="A"> A. &nbsp;Focus 100% of your energy on delivering outstanding results to your current clients.</label>
+          <label class="q-option"><input type="radio" name="m5q1" value="B"> B. &nbsp;Wait — your satisfied current clients will generate referrals when engagements conclude.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m5q1" value="C"> C. &nbsp;Immediately activate your prospecting cadence — a full pipeline takes 60–120 days to build, and a gap in prospecting now creates a revenue gap later.</label>
+          <label class="q-option"><input type="radio" name="m5q1" value="D"> D. &nbsp;Hire a business development person to manage your pipeline for you.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 2 of 4</div>
+        <div class="q-scenario">You publish a LinkedIn article about WRAP audit preparation trends. Three people you do not know engage with it — one comments with a specific question about their facility. What is the best response?</div>
+        <div class="q-options" id="m5q2">
+          <label class="q-option"><input type="radio" name="m5q2" value="A"> A. &nbsp;Nothing — if they are serious, they will reach out directly.</label>
+          <label class="q-option"><input type="radio" name="m5q2" value="B"> B. &nbsp;Send a generic connection request and add them to your newsletter list.</label>
+          <label class="q-option" data-correct="C"><input type="radio" name="m5q2" value="C"> C. &nbsp;Respond to their comment with a substantive answer, then send a personalized connection request referencing their specific question and opening a genuine conversation.</label>
+          <label class="q-option"><input type="radio" name="m5q2" value="D"> D. &nbsp;Send them your proposal and pricing sheet immediately while their interest is high.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 3 of 4</div>
+        <div class="q-scenario">A long-term client just completed a successful six-month engagement. What is the single highest-ROI activity to do in the week following the offboarding call?</div>
+        <div class="q-options" id="m5q3">
+          <label class="q-option"><input type="radio" name="m5q3" value="A"> A. &nbsp;Send the final invoice and close the file — the engagement is complete.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m5q3" value="B"> B. &nbsp;Send a personal thank-you, request a LinkedIn recommendation, and ask for one specific referral introduction to an organization with a similar profile.</label>
+          <label class="q-option"><input type="radio" name="m5q3" value="C"> C. &nbsp;Wait six months and reconnect when enough time has passed to seem non-pushy.</label>
+          <label class="q-option"><input type="radio" name="m5q3" value="D"> D. &nbsp;Offer a discount on the next engagement to lock in future work immediately.</label>
+        </div>
+      </div>
+      <div class="q-divider"></div>
+
+      <div class="q-block">
+        <div class="q-num">Scenario 4 of 4</div>
+        <div class="q-scenario">Account-Based Marketing (ABM) for a boutique consulting firm is best described as:</div>
+        <div class="q-options" id="m5q4">
+          <label class="q-option"><input type="radio" name="m5q4" value="A"> A. &nbsp;Broad marketing to every company in your target industry using paid social ads and email campaigns.</label>
+          <label class="q-option" data-correct="B"><input type="radio" name="m5q4" value="B"> B. &nbsp;Focusing your sales and marketing effort on a defined list of 20–50 high-fit target companies with personalized, persistent outreach tailored to each company's specific situation.</label>
+          <label class="q-option"><input type="radio" name="m5q4" value="C"> C. &nbsp;Building a large email list and sending monthly newsletters to generate inbound leads at scale.</label>
+          <label class="q-option"><input type="radio" name="m5q4" value="D"> D. &nbsp;Attending every industry event and conference and distributing business cards to as many people as possible.</label>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-submit" id="submit-5" onclick="submitModule(5)" disabled>Submit Assessment</button>
+        <button class="btn-retake" id="retake-5" onclick="retakeModule(5)" style="display:none">&#8634; Retake</button>
+      </div>
+
+      <div class="score-reveal" id="score-5">
+        <div class="score-top">
+          <div class="score-ring">
+            <div class="score-num" id="score-num-5">0</div>
+            <div class="score-denom">out of 4</div>
+          </div>
+          <div class="score-text">
+            <h4 id="score-title-5"></h4>
+            <p id="score-msg-5"></p>
+            <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar-5" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-block">
+      <div class="action-block-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Action Items — Apply This Week
+      </div>
+      <ul class="action-list">
+        <li><div class="action-num">1</div>Build your target account list: identify 20 companies that match your ideal client profile with enough specificity to write a personalized first message to each. This list is the foundation of your BD system.</li>
+        <li><div class="action-num">2</div>Commit to a LinkedIn publishing cadence — one piece of original content per week for the next 60 days. Track connection requests and direct conversations generated from each post. These are your early BD metrics.</li>
+        <li><div class="action-num">3</div>Add a referral request step to your client offboarding process. Write the exact language you will use to ask for an introduction. Practice it so it feels natural, not transactional — because it is a genuine acknowledgment of a successful partnership.</li>
+      </ul>
+    </div>
+
+  </div><!-- end tab-5 -->
+
+  <!-- CTA -->
+  <div class="article-cta">
+    <h3>Ready to Put These Principles Into Practice?</h3>
+    <p>RC2 Consulting works directly with professional services teams and business owners to build sales disciplines, strengthen client development processes, and create business development systems that generate consistent pipeline. Contact us to discuss how we can support your growth.</p>
+    <a class="btn-cta" href="https://rc2consulting.github.io/contact.html">Schedule a Conversation with RC2 &rarr;</a>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-tagline">Operational Clarity. Compliance Confidence. Systems That Scale.</div>
+  <div class="footer-links">
+    <a href="https://rc2consulting.github.io/">Home</a>
+    <a href="https://rc2consulting.github.io/services.html">Services</a>
+    <a href="https://rc2consulting.github.io/who-we-help.html">Who We Help</a>
+    <a href="https://rc2consulting.github.io/about.html">About</a>
+    <a href="https://rc2consulting.github.io/RC2_Resources_Page.html">Resources</a>
+    <a href="https://rc2consulting.github.io/insights.html">Insights</a>
+    <a href="https://rc2consulting.github.io/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms.html">Terms of Service</a></div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════
+   MODULE CONFIG
+   maxQ: number of questions
+   correct: array of correct answer values
+═══════════════════════════════════════════ */
+var modules = {
+  1: { maxQ: 5, correct: ['C','C','C','B','C'] },
+  2: { maxQ: 4, correct: ['B','C','B','B'] },
+  3: { maxQ: 5, correct: ['B','B','C','B','C'] },
+  4: { maxQ: 4, correct: ['B','C','C','C'] },
+  5: { maxQ: 4, correct: ['C','C','B','B'] }
+};
+
+var moduleScores = {1:null,2:null,3:null,4:null,5:null};
+
+/* ═══ TAB NAVIGATION ═══ */
+function showTab(n) {
+  var panels = document.querySelectorAll('.tab-panel');
+  var btns = document.querySelectorAll('.tab-btn');
+  panels.forEach(function(p,i){p.classList.toggle('active', i===n);});
+  btns.forEach(function(b,i){
+    b.classList.toggle('active', i===n);
+    b.setAttribute('aria-selected', i===n ? 'true' : 'false');
+  });
+  var tabNav = document.querySelector('.tab-nav');
+  if (tabNav) {
+    var offset = 64;
+    var top = tabNav.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({top: top, behavior: 'smooth'});
+  }
+}
+
+/* ═══ ENABLE SUBMIT WHEN ALL QUESTIONS ANSWERED ═══ */
+function checkAllAnswered(mNum) {
+  var cfg = modules[mNum];
+  var allAnswered = true;
+  for (var q = 1; q <= cfg.maxQ; q++) {
+    var radios = document.querySelectorAll('input[name="m' + mNum + 'q' + q + '"]');
+    var checked = false;
+    radios.forEach(function(r){ if(r.checked) checked = true; });
+    if (!checked) { allAnswered = false; break; }
+  }
+  var btn = document.getElementById('submit-' + mNum);
+  if (btn) btn.disabled = !allAnswered;
+}
+
+/* Attach change listeners */
+(function(){
+  [1,2,3,4,5].forEach(function(m){
+    var cfg = modules[m];
+    for (var q = 1; q <= cfg.maxQ; q++) {
+      var radios = document.querySelectorAll('input[name="m' + m + 'q' + q + '"]');
+      radios.forEach(function(r){
+        r.addEventListener('change', function(){ checkAllAnswered(m); });
+      });
+    }
+  });
+})();
+
+/* ═══ SUBMIT MODULE ASSESSMENT ═══ */
+function submitModule(mNum) {
+  var cfg = modules[mNum];
+  var score = 0;
+
+  for (var q = 1; q <= cfg.maxQ; q++) {
+    var correctVal = cfg.correct[q-1];
+    var radios = document.querySelectorAll('input[name="m' + mNum + 'q' + q + '"]');
+    var selectedVal = null;
+    radios.forEach(function(r){ if(r.checked) selectedVal = r.value; });
+
+    var optionLabels = document.querySelectorAll('#m' + mNum + 'q' + q + ' .q-option');
+    optionLabels.forEach(function(lbl){
+      var input = lbl.querySelector('input');
+      lbl.classList.add('disabled');
+      if (input) {
+        input.disabled = true;
+        if (input.value === correctVal) {
+          lbl.classList.add('reveal-correct');
+        } else if (input.value === selectedVal && selectedVal !== correctVal) {
+          lbl.classList.add('reveal-chosen-wrong');
+        } else {
+          lbl.classList.add('reveal-wrong');
+        }
+      }
+    });
+
+    if (selectedVal === correctVal) score++;
+  }
+
+  moduleScores[mNum] = score;
+  var pct = Math.round((score / cfg.maxQ) * 100);
+
+  /* Score display */
+  var scoreEl = document.getElementById('score-' + mNum);
+  document.getElementById('score-num-' + mNum).textContent = score;
+  document.getElementById('score-bar-' + mNum).style.width = pct + '%';
+
+  var title, msg;
+  if (pct >= 80) {
+    title = 'Strong Foundation';
+    msg = 'You demonstrated solid command of this module\'s core concepts. Review any questions you missed and apply the action items to reinforce your learning.';
+  } else if (pct >= 60) {
+    title = 'Developing — Review Key Concepts';
+    msg = 'Good progress. Review the concept sections above for the questions you missed — the nuances matter in real client conversations. Reread and retake when ready.';
+  } else {
+    title = 'Foundation Building — Re-Read the Module';
+    msg = 'Take time to re-read the module content above, paying particular attention to the concept sections and the RC2 example. These frameworks take time to internalize.';
+  }
+
+  document.getElementById('score-title-' + mNum).textContent = title;
+  document.getElementById('score-msg-' + mNum).textContent = msg;
+  scoreEl.classList.add('visible');
+
+  /* Button state */
+  document.getElementById('submit-' + mNum).style.display = 'none';
+  document.getElementById('retake-' + mNum).style.display = 'inline-flex';
+
+  updateProgress();
+}
+
+/* ═══ RETAKE MODULE ═══ */
+function retakeModule(mNum) {
+  var cfg = modules[mNum];
+  moduleScores[mNum] = null;
+
+  for (var q = 1; q <= cfg.maxQ; q++) {
+    var optionLabels = document.querySelectorAll('#m' + mNum + 'q' + q + ' .q-option');
+    optionLabels.forEach(function(lbl){
+      var input = lbl.querySelector('input');
+      lbl.classList.remove('disabled','reveal-correct','reveal-wrong','reveal-chosen-wrong');
+      if (input) {
+        input.disabled = false;
+        input.checked = false;
+      }
+    });
+  }
+
+  document.getElementById('score-' + mNum).classList.remove('visible');
+  var submitBtn = document.getElementById('submit-' + mNum);
+  submitBtn.style.display = 'inline-flex';
+  submitBtn.disabled = true;
+  document.getElementById('retake-' + mNum).style.display = 'none';
+
+  updateProgress();
+}
+
+/* ═══ UPDATE PROGRESS DASHBOARD ═══ */
+function updateProgress() {
+  var totalScore = 0;
+  var totalMax = 0;
+  var completed = 0;
+
+  [1,2,3,4,5].forEach(function(m){
+    var dot = document.getElementById('pd-' + m);
+    var s = moduleScores[m];
+    var maxQ = modules[m].maxQ;
+    totalMax += maxQ;
+    if (s !== null) {
+      completed++;
+      totalScore += s;
+      var pct = (s / maxQ) * 100;
+      dot.classList.remove('partial');
+      dot.classList.add(pct >= 80 ? 'done' : 'partial');
+    } else {
+      dot.classList.remove('done','partial');
+    }
+  });
+
+  document.getElementById('d-score').textContent = totalScore + '/' + totalMax;
+  var overallPct = totalMax > 0 && completed > 0 ? Math.round((totalScore / (completed * (totalMax / 5))) * 100) : 0;
+
+  /* Simple overall pct based on completed modules */
+  var completedMax = 0;
+  [1,2,3,4,5].forEach(function(m){ if(moduleScores[m]!==null) completedMax += modules[m].maxQ; });
+  var actualPct = completedMax > 0 ? Math.round((totalScore / completedMax) * 100) : 0;
+
+  document.getElementById('d-pct').textContent = actualPct ? actualPct + '%' : '0%';
+
+  var badge = document.getElementById('d-badge');
+  if (completed === 0) {
+    badge.textContent = 'Begin Training';
+    badge.className = 'prog-badge badge-navy';
+  } else if (completed < 5) {
+    badge.textContent = completed + ' of 5 Complete';
+    badge.className = 'prog-badge badge-blue';
+  } else {
+    badge.className = 'prog-badge badge-gold';
+    if (actualPct >= 80) badge.textContent = 'Training Complete — Strong';
+    else if (actualPct >= 60) badge.textContent = 'Training Complete — Review Gaps';
+    else badge.textContent = 'Training Complete — Re-Read Modules';
+  }
+}
+
+/* ═══ HAMBURGER ═══ */
+/* ═══ BADGE CLICK — GO TO FIRST INCOMPLETE MODULE ═══ */
+function badgeClick() {
+  for (var m = 1; m <= 5; m++) {
+    if (moduleScores[m] === null) { showTab(m); return; }
+  }
+  showTab(0); // all complete — return to Introduction
+}
+
+(function(){
+  var btn = document.getElementById('hamburger');
+  var nav = document.querySelector('.nav-links');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
