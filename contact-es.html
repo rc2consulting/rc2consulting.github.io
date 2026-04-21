@@ -1,151 +1,135 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC5L4ZH7KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-PC5L4ZH7KY');
-</script>
-    <link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
-  <link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PC5L4ZH7KY');</script>
+<link rel="icon" type="image/png" href="https://rc2consulting.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://rc2consulting.github.io/apple-touch-icon.png">
 <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Agendar una Consulta | RC2 Consulting</title>
-  <meta property="og:title" content="Agendar una Consulta | RC2 Consulting">
-  <meta property="og:description" content="Agende una consulta con RC2 Consulting. Preparación para auditorías WRAP, preparación para contratación gubernamental y consultoría de operaciones. Servicio bilingüe EN/ES.">
-  <meta property="og:url" content="https://rc2consulting.github.io/contact-es.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta property="og:site_name" content="RC2 Consulting">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Agendar una Consulta | RC2 Consulting">
-  <meta name="twitter:description" content="Agende una consulta con RC2 Consulting. Preparación para auditorías WRAP, preparación para contratación gubernamental y consultoría de operaciones. Servicio bilingüe EN/ES.">
-  <meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
-  <meta name="description" content="Schedule a free discovery call with RC2 Consulting — operations, compliance, WRAP audits, government contracting, and supply chain advisory."/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;
-      --gold:#C8922A;--gold-lt:#F0B429;
-      --bg:#F4F6FA;--w:#FFFFFF;
-      --txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;
-      --sg:#1A7A4E;--sbg:#EBF7F2;
-      --dg:#9B1C1C;--dbg:#FEF2F2;
-    }
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
-    .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
-    .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
-    .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s;white-space:nowrap}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-    .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
-    .hero{background:linear-gradient(160deg, rgba(11,37,69,0.82) 0%, rgba(11,37,69,0.68) 100%),url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;padding:60px 40px 40px;position:relative;overflow:hidden;}
-    .hero-inner{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:36px;position:relative;z-index:1}
-    .hero-left{padding-bottom:52px}
-    .atag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px}
-    .atag span{width:6px;height:6px;background:#4ADE80;border-radius:50%;animation:pulse 2s ease-in-out infinite}
-    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
-    .hero h1{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.25;margin-bottom:14px}
-    .hero-sub{font-size:.95rem;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:28px;max-width:480px}
-    .trust-row{display:flex;gap:20px;flex-wrap:wrap}
-    .trust-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:rgba(255,255,255,.6)}
-    .trust-item::before{content:'✓';color:#4ADE80;font-weight:700;font-size:.9rem}
-    .path-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px 14px 0 0;overflow:hidden}
-    .path-tab{padding:20px 18px;cursor:pointer;transition:all .25s;border-bottom:3px solid transparent;text-align:center}
-    .path-tab:first-child{border-right:1px solid rgba(255,255,255,.1)}
-    .path-tab.active{background:rgba(255,255,255,.1);border-bottom-color:var(--gold-lt)}
-    .path-tab:hover:not(.active){background:rgba(255,255,255,.05)}
-    .tab-icon{font-size:1.5rem;margin-bottom:6px;display:block}
-    .tab-title{font-size:.84rem;font-weight:700;color:#fff;margin-bottom:2px}
-    .tab-sub{font-size:.7rem;color:rgba(255,255,255,.55);line-height:1.4}
-    .main{max-width:1080px;margin:0 auto;padding:0 40px 60px}
-    .panel-wrap{background:var(--w);border-radius:0 0 14px 14px;border:1px solid var(--bdr);border-top:none;box-shadow:0 8px 32px rgba(11,37,69,.10);margin-bottom:40px;overflow:hidden}
-    .panel{display:none;padding:0}
-    .panel.active{display:block}
-    .cal-panel{padding:0}
-    .cal-intro{padding:28px 32px 20px;border-bottom:1px solid var(--bdr);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px}
-    .cal-intro-left h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy);margin-bottom:6px}
-    .cal-intro-left p{font-size:.86rem;color:var(--mu);line-height:1.65;max-width:560px}
-    .cal-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .badge{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:10px}
-    .badge-green{background:var(--sbg);color:var(--sg);border:1px solid #BBF7D0}
-    .badge-blue{background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE}
-    .badge-gold{background:#FFFBEB;color:#92400E;border:1px solid #FDE68A}
-    .cal-embed-area{padding:24px 32px 32px}
-    .cal-embed-container{border-radius:12px;overflow:hidden;border:1px solid var(--bdr);background:var(--bg);min-height:600px;position:relative;}
-    .cal-embed-container iframe{width:100%;min-height:600px;border:none;display:block;}
-    .book-direct-btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-weight:700;font-size:.92rem;padding:14px 28px;border-radius:8px;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
-    .book-direct-btn:hover{background:var(--navy);transform:translateY(-2px);box-shadow:0 6px 20px rgba(11,37,69,.25)}
-    .form-panel{padding:28px 32px 36px}
-    .form-panel h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy);margin-bottom:6px}
-    .form-panel .form-sub{font-size:.86rem;color:var(--mu);margin-bottom:24px;line-height:1.65}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-    .form-group{display:flex;flex-direction:column;gap:5px}
-    .form-group.full{grid-column:1/-1}
-    .form-label{font-size:.72rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
-    .form-label .req{color:var(--lb)}
-    .form-input,.form-select,.form-textarea{border:1.5px solid var(--bdr);border-radius:7px;padding:10px 13px;font-size:.9rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s,box-shadow .2s;width:100%;}
-    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--lb);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.1);}
-    .form-textarea{resize:vertical;min-height:110px;line-height:1.6}
-    .form-select{cursor:pointer}
-    .urgency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
-    .urg-btn{padding:8px 10px;border-radius:7px;border:1.5px solid var(--bdr);background:var(--bg);font-size:.76rem;font-weight:700;color:var(--mu);cursor:pointer;text-align:center;transition:all .2s;font-family:'Source Sans 3',sans-serif}
-    .urg-btn:hover{border-color:var(--lb);color:var(--lb);background:#EFF6FF}
-    .urg-btn.selected{background:var(--navy);border-color:var(--navy);color:#fff}
-    .char-note{font-size:.7rem;color:var(--mu);text-align:right;margin-top:2px}
-    .form-submit-row{display:flex;align-items:center;gap:16px;margin-top:8px;flex-wrap:wrap}
-    .form-submit-btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-weight:700;font-size:.9rem;padding:13px 28px;border-radius:7px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;}
-    .form-submit-btn:hover{background:var(--navy);transform:translateY(-2px);box-shadow:0 6px 20px rgba(11,37,69,.2)}
-    .form-privacy{font-size:.74rem;color:var(--mu);line-height:1.55}
-    .form-success{display:none;text-align:center;padding:40px 32px;background:var(--sbg);border-radius:10px;border:1px solid #BBF7D0}
-    .form-success.visible{display:block}
-    .form-success h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--sg);margin-bottom:10px}
-    .form-success p{font-size:.88rem;color:var(--mu);line-height:1.7}
-    .next-section{background:var(--w);border-radius:12px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);padding:28px 32px;margin-bottom:28px}
-    .next-section h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:18px}
-    .next-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .next-step{display:flex;flex-direction:column;gap:8px}
-    .step-circle{width:40px;height:40px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;flex-shrink:0}
-    .step-title{font-size:.88rem;font-weight:700;color:var(--navy)}
-    .step-desc{font-size:.78rem;color:var(--mu);line-height:1.55}
-    .info-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
-    .info-chip{background:var(--w);border-radius:10px;border:1px solid var(--bdr);padding:18px 20px;display:flex;align-items:flex-start;gap:14px;box-shadow:0 1px 4px rgba(11,37,69,.05)}
-    .info-chip-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
-    .info-chip-title{font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px}
-    .info-chip-val{font-size:.86rem;font-weight:600;color:var(--navy)}
-    .info-chip-sub{font-size:.74rem;color:var(--mu);margin-top:2px;line-height:1.4}
-    .site-footer{background:var(--navy);color:#fff;text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.1)}
-    .footer-tagline{font-size:.92rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:12px}
-    .footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
-    .footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
-    .footer-copy{font-size:.78rem;color:rgba(255,255,255,.55)}
-    .footer-copy a, .footer-copy a:visited { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
-    .footer-copy a:hover { color:rgba(255,255,255,0.9); }
-    @media(max-width:760px){.hero-inner{grid-template-columns:1fr}.path-tabs{border-radius:12px 12px 0 0}.hero-left{padding-bottom:0}.form-grid{grid-template-columns:1fr}.next-steps{grid-template-columns:1fr}.info-strip{grid-template-columns:1fr}.urgency-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}.hero{padding:40px 20px 0}.main{padding:0 20px 40px}.cal-intro,.cal-embed-area,.form-panel{padding:20px}}
-    @media print{.topnav,.site-footer{display:none}}
-    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
-    .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
-    .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
-    .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
-    .lang-btn.active{background:#C8922A;color:#0B2545}
-    html, body { overflow-x: hidden; max-width: 100%; }
-    *, *::before, *::after { box-sizing: border-box; }
-    .hamburger {display: none;background: none; border: none; cursor: pointer;flex-direction: column; gap: 5px; padding: 6px;margin-left: auto; z-index: 300;}
-    .hamburger span {display: block; width: 24px; height: 2px;background: rgba(255,255,255,0.9); border-radius: 2px;transition: all .28s ease;}
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    @media (max-width: 900px) {section, .hero, .services-strip, .cta-strip, .clients-gain,.page-hero, .article-section, .section-pad,.resources-section, .rc-section, .wrap {padding-left: 24px !important;padding-right: 24px !important;}}
-    @media (max-width: 640px) {.topnav { padding: 0 16px !important; position: relative; }.hamburger { display: flex !important; } .nav-links { display: none !important; }.nav-links {display: none;position: absolute;top: 52px; left: 0; right: 0;background: #0B2545;flex-direction: column !important;padding: 8px 0 16px;border-top: 1px solid rgba(255,255,255,0.15);box-shadow: 0 8px 24px rgba(0,0,0,0.35);z-index: 200;gap: 0 !important;}.nav-links.mobile-open { display: flex !important; }.nav-links li { width: 100%; }.nav-links a {display: block; width: 100%;padding: 12px 20px !important;font-size: 0.92rem !important;border-bottom: 1px solid rgba(255,255,255,0.07);border-radius: 0 !important;height: auto !important;}.nav-links a:last-child { border-bottom: none; }.lang-toggle { padding: 10px 20px 4px; }.hero-inner {grid-template-columns: 1fr !important;gap: 24px !important;}.hero-card { display: none !important; }.hero-left p { font-size: 0.93rem !important; }h1, .hero-left h1, .page-hero h1 {font-size: clamp(1.5rem, 6vw, 2rem) !important;line-height: 1.25 !important;}h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }h3 { font-size: clamp(0.95rem, 4vw, 1.1rem) !important; }}
-    @media (max-width: 380px) {.topnav { padding: 0 12px !important; }h1, .hero-left h1 { font-size: 1.45rem !important; }.nav-logo-mark { font-size: 1rem !important; }.nav-brand-name { font-size: 0.68rem !important; }}
-  </style>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Agendar una Consulta | RC2 Consulting</title>
+<meta property="og:title" content="Agendar una Consulta | RC2 Consulting">
+<meta property="og:description" content="Agende una consulta con RC2 Consulting. Preparación para auditorías WRAP, preparación para contratación gubernamental y consultoría de operaciones. Servicio bilingüe EN/ES.">
+<meta property="og:url" content="https://rc2consulting.github.io/contact-es.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta property="og:site_name" content="RC2 Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agendar una Consulta | RC2 Consulting">
+<meta name="twitter:description" content="Agende una consulta con RC2 Consulting. Preparación para auditorías WRAP, preparación para contratación gubernamental y consultoría de operaciones. Servicio bilingüe EN/ES.">
+<meta name="twitter:image" content="https://rc2consulting.github.io/og-image.jpg">
+<meta name="description" content="Schedule a free discovery call with RC2 Consulting — operations, compliance, WRAP audits, government contracting, and supply chain advisory."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--navy:#0B2545;--blue:#1A4A8A;--lb:#2563EB;--gold:#C8922A;--gold-lt:#F0B429;--bg:#F4F6FA;--w:#FFFFFF;--txt:#1C2B3A;--mu:#4A5568;--bdr:#E2E8F0;--sg:#1A7A4E;--sbg:#EBF7F2;--dg:#9B1C1C;--dbg:#FEF2F2;}
+  body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}
+  .topnav{background:var(--navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+  .nav-logo-mark{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+  .nav-logo-mark sup{font-size:.5rem;vertical-align:super}
+  .nav-brand-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+  .nav-links{display:flex;gap:4px;list-style:none}
+  .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;font-weight:600;padding:6px 12px;border-radius:4px;transition:all .2s;white-space:nowrap}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+  .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+  .hero{background:linear-gradient(160deg,rgba(11,37,69,0.82) 0%,rgba(11,37,69,0.68) 100%),url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=80') center/cover no-repeat;padding:60px 40px 40px;position:relative;overflow:hidden;}
+  .hero-inner{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:36px;position:relative;z-index:1}
+  .hero-left{padding-bottom:52px}
+  .atag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px}
+  .atag span{width:6px;height:6px;background:#4ADE80;border-radius:50%;animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.25;margin-bottom:14px}
+  .hero-sub{font-size:.95rem;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:28px;max-width:480px}
+  .trust-row{display:flex;gap:20px;flex-wrap:wrap}
+  .trust-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:rgba(255,255,255,.6)}
+  .trust-item::before{content:'✓';color:#4ADE80;font-weight:700;font-size:.9rem}
+  .path-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px 14px 0 0;overflow:hidden}
+  .path-tab{padding:20px 18px;cursor:pointer;transition:all .25s;border-bottom:3px solid transparent;text-align:center}
+  .path-tab:first-child{border-right:1px solid rgba(255,255,255,.1)}
+  .path-tab.active{background:rgba(255,255,255,.1);border-bottom-color:var(--gold-lt)}
+  .path-tab:hover:not(.active){background:rgba(255,255,255,.05)}
+  .tab-icon{font-size:1.5rem;margin-bottom:6px;display:block}
+  .tab-title{font-size:.84rem;font-weight:700;color:#fff;margin-bottom:2px}
+  .tab-sub{font-size:.7rem;color:rgba(255,255,255,.55);line-height:1.4}
+  .main{max-width:1080px;margin:0 auto;padding:0 40px 60px}
+  .panel-wrap{background:var(--w);border-radius:0 0 14px 14px;border:1px solid var(--bdr);border-top:none;box-shadow:0 8px 32px rgba(11,37,69,.10);margin-bottom:40px;overflow:hidden}
+  .panel{display:none;padding:0}
+  .panel.active{display:block}
+  .cal-panel{padding:0}
+  .cal-intro{padding:28px 32px 20px;border-bottom:1px solid var(--bdr);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .cal-intro-left h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy);margin-bottom:6px}
+  .cal-intro-left p{font-size:.86rem;color:var(--mu);line-height:1.65;max-width:560px}
+  .cal-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:10px}
+  .badge-green{background:var(--sbg);color:var(--sg);border:1px solid #BBF7D0}
+  .badge-blue{background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE}
+  .badge-gold{background:#FFFBEB;color:#92400E;border:1px solid #FDE68A}
+  .cal-embed-area{padding:24px 32px 32px}
+  .cal-embed-container{border-radius:12px;overflow:hidden;border:1px solid var(--bdr);background:var(--bg);min-height:600px;position:relative;}
+  .cal-embed-container iframe{width:100%;min-height:600px;border:none;display:block;}
+  .form-panel{padding:28px 32px 36px}
+  .form-panel h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy);margin-bottom:6px}
+  .form-panel .form-sub{font-size:.86rem;color:var(--mu);margin-bottom:24px;line-height:1.65}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-group{display:flex;flex-direction:column;gap:5px}
+  .form-group.full{grid-column:1/-1}
+  .form-label{font-size:.72rem;font-weight:700;color:var(--mu);letter-spacing:.6px;text-transform:uppercase}
+  .form-label .req{color:var(--lb)}
+  .form-input,.form-select,.form-textarea{border:1.5px solid var(--bdr);border-radius:7px;padding:10px 13px;font-size:.9rem;color:var(--navy);font-family:'Source Sans 3',sans-serif;outline:none;background:var(--bg);transition:border-color .2s,box-shadow .2s;width:100%;}
+  .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--lb);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.1);}
+  .form-textarea{resize:vertical;min-height:110px;line-height:1.6}
+  .form-select{cursor:pointer}
+  .urgency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
+  .urg-btn{padding:8px 10px;border-radius:7px;border:1.5px solid var(--bdr);background:var(--bg);font-size:.76rem;font-weight:700;color:var(--mu);cursor:pointer;text-align:center;transition:all .2s;font-family:'Source Sans 3',sans-serif}
+  .urg-btn:hover{border-color:var(--lb);color:var(--lb);background:#EFF6FF}
+  .urg-btn.selected{background:var(--navy);border-color:var(--navy);color:#fff}
+  .char-note{font-size:.7rem;color:var(--mu);text-align:right;margin-top:2px}
+  .form-submit-row{display:flex;align-items:center;gap:16px;margin-top:8px;flex-wrap:wrap}
+  .form-submit-btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-weight:700;font-size:.9rem;padding:13px 28px;border-radius:7px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s;}
+  .form-submit-btn:hover{background:var(--navy);transform:translateY(-2px);box-shadow:0 6px 20px rgba(11,37,69,.2)}
+  .form-privacy{font-size:.74rem;color:var(--mu);line-height:1.55}
+  .form-success{display:none;text-align:center;padding:40px 32px;background:var(--sbg);border-radius:10px;border:1px solid #BBF7D0}
+  .form-success.visible{display:block}
+  .form-success h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--sg);margin-bottom:10px}
+  .form-success p{font-size:.88rem;color:var(--mu);line-height:1.7}
+  .next-section{background:var(--w);border-radius:12px;border:1px solid var(--bdr);box-shadow:0 2px 8px rgba(11,37,69,.06);padding:28px 32px;margin-bottom:28px}
+  .next-section h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:18px}
+  .next-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .next-step{display:flex;flex-direction:column;gap:8px}
+  .step-circle{width:40px;height:40px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;flex-shrink:0}
+  .step-title{font-size:.88rem;font-weight:700;color:var(--navy)}
+  .step-desc{font-size:.78rem;color:var(--mu);line-height:1.55}
+  .info-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+  .info-chip{background:var(--w);border-radius:10px;border:1px solid var(--bdr);padding:18px 20px;display:flex;align-items:flex-start;gap:14px;box-shadow:0 1px 4px rgba(11,37,69,.05)}
+  .info-chip-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+  .info-chip-title{font-size:.72rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px}
+  .info-chip-val{font-size:.86rem;font-weight:600;color:var(--navy)}
+  .info-chip-sub{font-size:.74rem;color:var(--mu);margin-top:2px;line-height:1.4}
+  .site-footer{background:var(--navy);color:#fff;text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.1)}
+  .footer-tagline{font-size:.92rem;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.5px;margin-bottom:12px}
+  .footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+  .footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem}
+  .footer-copy{font-size:.78rem;color:rgba(255,255,255,.55)}
+  .footer-copy a,.footer-copy a:visited{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;}
+  .footer-copy a:hover{color:rgba(255,255,255,0.9);}
+  @media(max-width:760px){.hero-inner{grid-template-columns:1fr}.path-tabs{border-radius:12px 12px 0 0}.hero-left{padding-bottom:0}.form-grid{grid-template-columns:1fr}.next-steps{grid-template-columns:1fr}.info-strip{grid-template-columns:1fr}.urgency-grid{grid-template-columns:1fr}.topnav{padding:0 14px}.nav-links a{padding:5px 7px;font-size:.76rem}.hero{padding:40px 20px 0}.main{padding:0 20px 40px}.cal-intro,.cal-embed-area,.form-panel{padding:20px}}
+  @media print{.topnav,.site-footer{display:none}}
+  .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden;margin-left:8px}
+  .lang-btn{font-size:.72rem;font-weight:700;padding:5px 10px;text-decoration:none;transition:all .2s;letter-spacing:.5px}
+  .lang-btn.inactive{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
+  .lang-btn.inactive:hover{background:rgba(255,255,255,.15);color:#fff}
+  .lang-btn.active{background:#C8922A;color:#0B2545}
+  html,body{overflow-x:hidden;max-width:100%;}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;margin-left:auto;z-index:300;}
+  .hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.9);border-radius:2px;transition:all .28s ease;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  @media(max-width:900px){section,.hero,.services-strip,.cta-strip,.clients-gain,.page-hero,.article-section,.section-pad,.resources-section,.rc-section,.wrap{padding-left:24px !important;padding-right:24px !important;}}
+  @media(max-width:640px){.topnav{padding:0 16px !important;position:relative;}.hamburger{display:flex !important;}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#0B2545;flex-direction:column !important;padding:8px 0 16px;border-top:1px solid rgba(255,255,255,0.15);box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:200;gap:0 !important;}.nav-links.mobile-open{display:flex !important;}.nav-links li{width:100%;}.nav-links a{display:block;width:100%;padding:12px 20px !important;font-size:0.92rem !important;border-bottom:1px solid rgba(255,255,255,0.07);border-radius:0 !important;height:auto !important;}.nav-links a:last-child{border-bottom:none;}.lang-toggle{padding:10px 20px 4px;}.hero-inner{grid-template-columns:1fr !important;gap:24px !important;}.hero-card{display:none !important;}.hero-left p{font-size:0.93rem !important;}h1,.hero-left h1,.page-hero h1{font-size:clamp(1.5rem,6vw,2rem) !important;line-height:1.25 !important;}h2{font-size:clamp(1.2rem,5vw,1.5rem) !important;}h3{font-size:clamp(0.95rem,4vw,1.1rem) !important;}}
+  @media(max-width:380px){.topnav{padding:0 12px !important;}h1,.hero-left h1{font-size:1.45rem !important;}.nav-logo-mark{font-size:1rem !important;}.nav-brand-name{font-size:0.68rem !important;}}
+</style>
 </head>
 <body>
 
@@ -179,7 +163,8 @@
     <div class="hero-left">
       <div class="atag"><span></span>Aceptando Nuevos Clientes</div>
       <h1>Construyamos Algo que Perdure</h1>
-      <p class="hero-sub">Ya sea que se esté preparando para una auditoría WRAP, ingresando al mercado federal o reestructurando su cadena de suministro — la primera conversación no tiene costo. Elija un horario o envíe un mensaje.</p>
+      <!-- UPDATED CAP-71: nueva frase hero-sub -->
+      <p class="hero-sub">Ya sea que esté creciendo hacia nuevos mercados, construyendo una estrategia de ventas e ingresos, o preparando su organización para una revisión de cumplimiento — la primera conversación no tiene costo. Elija un horario o envíe un mensaje.</p>
       <div class="trust-row">
         <div class="trust-item">Llamada de 30 min, sin compromiso</div>
         <div class="trust-item">Respuesta en un día hábil</div>
@@ -207,11 +192,6 @@
 </section>
 
 <div class="main">
-
-  <!-- ══════════════════════════════════════════════════════════
-       RC2 CLIENT INTAKE FORM BANNER — REMOVED 2026-03-28
-       Replaced with third tab card "Iniciar Consulta"
-  ══════════════════════════════════════════════════════════ -->
 
   <div class="panel-wrap">
 
@@ -308,7 +288,7 @@
   </div>
 
   <div class="info-strip">
-    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Correo Electrónico</div><div class="info-chip-val"><a href="/cdn-cgi/l/email-protection#a3c6c7c7cac6e3d1c091d0c2cfc6d0c0cccdd0d6cfd7cacdc48dc0ccce" style="color:var(--lb);text-decoration:none"><span class="__cf_email__" data-cfemail="026766666b674270613071636e6771616d6c71776e766b6c652c616d6f">[email&#160;protected]</span></a></div><div class="info-chip-sub">Monitoreado diariamente — respuesta en 24 horas</div></div></div>
+    <div class="info-chip"><div class="info-chip-icon">📧</div><div><div class="info-chip-title">Correo Electrónico</div><div class="info-chip-val"><a href="mailto:eddie@rc2consulting.com" style="color:var(--lb);text-decoration:none">eddie@rc2consulting.com</a></div><div class="info-chip-sub">Monitoreado diariamente — respuesta en 24 horas</div></div></div>
     <div class="info-chip"><div class="info-chip-icon">📅</div><div><div class="info-chip-title">Llamadas de Descubrimiento</div><div class="info-chip-val"><a href="#book" onclick="switchPanel('book'); return false;" style="color:var(--lb);text-decoration:none;font-weight:600">Agendar Ahora →</a></div><div class="info-chip-sub">Lun – Vie · Google Meet · Confirmación instantánea</div></div></div>
     <div class="info-chip"><div class="info-chip-icon">🔧</div><div><div class="info-chip-title">Recursos Gratuitos</div><div class="info-chip-val"><a href="https://rc2consulting.github.io/RC2_Resources_Page-es.html" style="color:var(--lb);text-decoration:none">Ver Herramientas y Artículos →</a></div><div class="info-chip-sub">Herramientas WRAP, SBA, Cadena de Suministro, FAR/DCAA — todas gratuitas</div></div></div>
   </div>
@@ -329,83 +309,13 @@
   <div class="footer-copy">&copy; 2026 RC2 Consulting &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/privacy-es.html">Política de Privacidad</a> &nbsp;|&nbsp; <a href="https://rc2consulting.github.io/terms-es.html">Términos de Servicio</a></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function switchPanel(which) {
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.path-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('panel-' + which).classList.add('active');
-    document.getElementById('tab-' + which).classList.add('active');
-    var tabs = document.getElementById('path-tabs');
-    if (tabs) tabs.scrollIntoView({behavior:'smooth', block:'start'});
-  }
-  function selectUrgency(btn, val) {
-    document.querySelectorAll('.urg-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    document.getElementById('urgency-val').value = val;
-  }
-  function updateChar() {
-    const len = document.getElementById('message-field').value.length;
-    document.getElementById('char-count').textContent = len;
-  }
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const form = document.getElementById('contact-form');
-    const btn = form.querySelector('.form-submit-btn');
-    const success = document.getElementById('form-success');
-    const error = document.getElementById('form-error');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    if (error) error.style.display = 'none';
-    try {
-      const data = new FormData(form);
-      const res = await fetch(form.action, {method:'POST',body:data,headers:{'Accept':'application/json'}});
-      if (res.ok) {
-        form.style.display = 'none';
-        success.classList.add('visible');
-        const notice = document.getElementById('formspree-setup-notice');
-        if (notice) notice.style.display = 'none';
-      } else {
-        const json = await res.json();
-        throw new Error(json.errors ? json.errors.map(x => x.message).join(', ') : 'Submission failed');
-      }
-    } catch (err) {
-      btn.textContent = 'Send Message →';
-      btn.disabled = false;
-      if (error) {
-        error.textContent = '⚠️ ' + (err.message.includes('mnjgodaj') ? 'Form not yet configured. Please complete the Formspree setup above.' : 'Could not send — please email us directly at info@rc2salesconsulting.com');
-        error.style.display = 'block';
-      }
-    }
-  }
-  (function () {
-    const hash = window.location.hash.replace('#', '');
-    if (hash === 'message' || hash === 'book') switchPanel(hash);
-  })();
-  (function () {
-    const btn = document.getElementById('hamburger');
-    const nav = document.querySelector('.nav-links');
-    if (!btn || !nav) return;
-    btn.addEventListener('click', function () {
-      const isOpen = nav.classList.toggle('mobile-open');
-      btn.classList.toggle('open', isOpen);
-      btn.setAttribute('aria-expanded', String(isOpen));
-    });
-    nav.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        nav.classList.remove('mobile-open');
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-        document.addEventListener('click', function(e) {
-      if (!btn.contains(e.target) && !nav.contains(e.target)) {
-        nav.classList.remove('mobile-open');
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', false);
-      }
-    });
-  })();
+<script>
+  function switchPanel(which){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.path-tab').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+which).classList.add('active');document.getElementById('tab-'+which).classList.add('active');var tabs=document.getElementById('path-tabs');if(tabs)tabs.scrollIntoView({behavior:'smooth',block:'start'});}
+  function selectUrgency(btn,val){document.querySelectorAll('.urg-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');document.getElementById('urgency-val').value=val;}
+  function updateChar(){const len=document.getElementById('message-field').value.length;document.getElementById('char-count').textContent=len;}
+  async function handleSubmit(e){e.preventDefault();const form=document.getElementById('contact-form');const btn=form.querySelector('.form-submit-btn');const success=document.getElementById('form-success');const error=document.getElementById('form-error');btn.textContent='Enviando…';btn.disabled=true;if(error)error.style.display='none';try{const data=new FormData(form);const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});if(res.ok){form.style.display='none';success.classList.add('visible');}else{const json=await res.json();throw new Error(json.errors?json.errors.map(x=>x.message).join(', '):'Submission failed');}}catch(err){btn.textContent='Enviar Mensaje →';btn.disabled=false;if(error){error.textContent='⚠️ No se pudo enviar — por favor escríbanos a eddie@rc2consulting.com';error.style.display='block';}}}
+  (function(){const hash=window.location.hash.replace('#','');if(hash==='message'||hash==='book')switchPanel(hash);})();
+  (function(){var btn=document.getElementById('hamburger');var nav=document.querySelector('.nav-links');if(!btn||!nav)return;btn.addEventListener('click',function(){var isOpen=nav.classList.toggle('mobile-open');btn.classList.toggle('open',isOpen);btn.setAttribute('aria-expanded',String(isOpen));});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});})();
 </script>
-
 </body>
 </html>
