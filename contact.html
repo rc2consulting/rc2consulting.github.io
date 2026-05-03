@@ -274,9 +274,69 @@
 
     <div class="panel form-panel" id="panel-inquiry">
       <h2>RC2 Client Intake Form</h2>
-      <p class="form-sub">Complete our 3-minute intake and we'll review your situation before your discovery call — so every minute counts.</p>
-      <div style="margin-top:24px">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScGU0J0pI0kPd555H4YAN_rNnVHMsmUbyny4VmeG27dzrKXcQ/viewform?embedded=true" width="100%" height="1600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <p class="form-sub">Complete our intake and we'll review your situation before your discovery call — so every minute counts. All information is confidential.</p>
+      <form id="inquiry-form" action="https://formspree.io/f/mpqbqvpb" method="POST" onsubmit="handleInquirySubmit(event); return false;">
+        <input type="hidden" name="_next" value="https://rc2consultingwork.com/contact.html?inquiry_success=true"/>
+        <input type="hidden" name="_subject" value="New RC2 Client Intake Form Submission"/>
+        <input type="hidden" name="form_source" value="Start Your Inquiry - EN"/>
+        <div class="form-grid">
+          <div class="form-group"><label class="form-label">First Name <span class="req">*</span></label><input class="form-input" type="text" name="first_name" required placeholder="Edward"/></div>
+          <div class="form-group"><label class="form-label">Last Name <span class="req">*</span></label><input class="form-input" type="text" name="last_name" required placeholder="Smith"/></div>
+          <div class="form-group"><label class="form-label">Email Address <span class="req">*</span></label><input class="form-input" type="email" name="email" required placeholder="you@company.com"/></div>
+          <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" name="phone" placeholder="(555) 000-0000"/></div>
+          <div class="form-group"><label class="form-label">Company / Organization <span class="req">*</span></label><input class="form-input" type="text" name="company" required placeholder="Your company name"/></div>
+          <div class="form-group"><label class="form-label">Job Title</label><input class="form-input" type="text" name="job_title" placeholder="e.g. Operations Director"/></div>
+          <div class="form-group"><label class="form-label">Industry</label>
+            <select class="form-select" name="industry">
+              <option value="">— Select one —</option>
+              <option>Apparel &amp; Textiles</option>
+              <option>Manufacturing &amp; Production</option>
+              <option>Supply Chain &amp; Logistics</option>
+              <option>Government Contracting</option>
+              <option>Retail &amp; Consumer Goods</option>
+              <option>Industrial / Heavy Manufacturing</option>
+              <option>Food &amp; Beverage</option>
+              <option>Other / Multiple</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-label">Primary Service Interest <span class="req">*</span></label>
+            <select class="form-select" name="service" required>
+              <option value="">— Select one —</option>
+              <option>WRAP Compliance &amp; Audit Preparation</option>
+              <option>Government Contracting / SBA Certification</option>
+              <option>Supply Chain &amp; Nearshoring Strategy</option>
+              <option>Operations SOPs &amp; Process Development</option>
+              <option>Scaling &amp; Growth Infrastructure</option>
+              <option>Tariffs, Duties &amp; Trade Compliance</option>
+              <option>Internal Audit &amp; Documentation</option>
+              <option>Training Program Development</option>
+              <option>Other / Not Sure Yet</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Project Urgency <span class="req">*</span></label>
+            <div class="urgency-grid">
+              <button type="button" class="urg-btn" onclick="selectInquiryUrgency(this,'Exploratory — No immediate deadline')">🔵 Exploratory</button>
+              <button type="button" class="urg-btn" onclick="selectInquiryUrgency(this,'Moderate — Within 1–3 months')">🟡 Moderate (1–3 months)</button>
+              <button type="button" class="urg-btn" onclick="selectInquiryUrgency(this,'Urgent — Immediate or audit pending')">🔴 Urgent / Audit Pending</button>
+            </div>
+            <input type="hidden" name="urgency" id="inquiry-urgency-val" required/>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Tell Us About Your Situation <span class="req">*</span></label>
+            <textarea class="form-textarea" name="situation" id="inquiry-message-field" maxlength="2000" required oninput="updateInquiryChar()" placeholder="Brief description: current challenge, what you need help with, timeline, audit type or contracting environment, any relevant context"></textarea>
+            <div class="char-note"><span id="inquiry-char-count">0</span> / 2,000 characters</div>
+          </div>
+        </div>
+        <div class="form-submit-row">
+          <button type="submit" class="form-submit-btn">Submit Inquiry →</button>
+          <div class="form-privacy">🔒 Your information is confidential and never shared with third parties.</div>
+        </div>
+        <div id="inquiry-form-error" style="display:none;background:#FEE2E2;border:1px solid #FCA5A5;border-radius:6px;padding:12px 16px;margin-top:12px;font-size:0.83rem;color:#991B1B;font-weight:600;"></div>
+      </form>
+      <div class="form-success" id="inquiry-form-success">
+        <h3>✅ Inquiry Received — Thank You</h3>
+        <p>We received your information and will review your situation before reaching out within one business day to schedule your discovery call.<br>In the meantime, <a href="https://rc2consulting.github.io/RC2_Resources_Page.html" style="color:var(--lb);font-weight:600">explore our free compliance tools and resources →</a></p>
       </div>
     </div>
 
@@ -318,7 +378,10 @@
   function selectUrgency(btn,val){document.querySelectorAll('.urg-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');document.getElementById('urgency-val').value=val;}
   function updateChar(){const len=document.getElementById('message-field').value.length;document.getElementById('char-count').textContent=len;}
   async function handleSubmit(e){e.preventDefault();const form=document.getElementById('contact-form');const btn=form.querySelector('.form-submit-btn');const success=document.getElementById('form-success');const error=document.getElementById('form-error');btn.textContent='Sending…';btn.disabled=true;if(error)error.style.display='none';const controller=new AbortController();const timeoutId=setTimeout(()=>controller.abort(),10000);try{const data=new FormData(form);const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'},signal:controller.signal});clearTimeout(timeoutId);if(res.ok){form.style.display='none';success.classList.add('visible');success.style.display='block';}else{const json=await res.json().catch(()=>({}));throw new Error(json.errors?json.errors.map(x=>x.message).join(', '):'Submission failed');}}catch(err){clearTimeout(timeoutId);btn.textContent='Send Message →';btn.disabled=false;if(error){const msg=err.name==='AbortError'?'⚠️ Request timed out — please email us directly at eddie@rc2consultingwork.com':'⚠️ Could not send — please email us directly at eddie@rc2consultingwork.com';error.textContent=msg;error.style.display='block';}}}
-  (function(){const params=new URLSearchParams(window.location.search);if(params.get('success')==='true'){const form=document.getElementById('contact-form');const success=document.getElementById('form-success');if(form&&success){form.style.display='none';success.classList.add('visible');success.style.display='block';switchPanel('message');}}})();
+  function selectInquiryUrgency(btn,val){const wrap=btn.closest('.urgency-grid');wrap.querySelectorAll('.urg-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');document.getElementById('inquiry-urgency-val').value=val;}
+  function updateInquiryChar(){const len=document.getElementById('inquiry-message-field').value.length;document.getElementById('inquiry-char-count').textContent=len;}
+  async function handleInquirySubmit(e){e.preventDefault();const form=document.getElementById('inquiry-form');const btn=form.querySelector('.form-submit-btn');const success=document.getElementById('inquiry-form-success');const error=document.getElementById('inquiry-form-error');const urgency=document.getElementById('inquiry-urgency-val').value;if(!urgency){if(error){error.textContent='⚠️ Please select a project urgency level above.';error.style.display='block';}return;}btn.textContent='Submitting…';btn.disabled=true;if(error)error.style.display='none';const controller=new AbortController();const timeoutId=setTimeout(()=>controller.abort(),10000);try{const data=new FormData(form);const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'},signal:controller.signal});clearTimeout(timeoutId);if(res.ok){form.style.display='none';success.classList.add('visible');success.style.display='block';}else{const json=await res.json().catch(()=>({}));throw new Error(json.errors?json.errors.map(x=>x.message).join(', '):'Submission failed');}}catch(err){clearTimeout(timeoutId);btn.textContent='Submit Inquiry →';btn.disabled=false;if(error){const msg=err.name==='AbortError'?'⚠️ Request timed out — please email us directly at eddie@rc2consultingwork.com':'⚠️ Could not submit — please email us directly at eddie@rc2consultingwork.com';error.textContent=msg;error.style.display='block';}}}
+  (function(){const params=new URLSearchParams(window.location.search);if(params.get('success')==='true'){const form=document.getElementById('contact-form');const success=document.getElementById('form-success');if(form&&success){form.style.display='none';success.classList.add('visible');success.style.display='block';switchPanel('message');}}if(params.get('inquiry_success')==='true'){const iform=document.getElementById('inquiry-form');const isuccess=document.getElementById('inquiry-form-success');if(iform&&isuccess){iform.style.display='none';isuccess.classList.add('visible');isuccess.style.display='block';switchPanel('inquiry');}}})();
   (function(){const hash=window.location.hash.replace('#','');if(hash==='message'||hash==='book'||hash==='inquiry')switchPanel(hash);})();
   (function(){var btn=document.getElementById('hamburger');var nav=document.querySelector('.nav-links');if(!btn||!nav)return;btn.addEventListener('click',function(){var isOpen=nav.classList.toggle('mobile-open');btn.classList.toggle('open',isOpen);btn.setAttribute('aria-expanded',String(isOpen));});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!nav.contains(e.target)){nav.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});})();
 </script>
